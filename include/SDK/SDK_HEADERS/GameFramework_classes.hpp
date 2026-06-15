@@ -1,7 +1,7 @@
 /*
 #############################################################################################
 # Alice2 (ASDK) SDK 1.0.0.0
-# Generated with the CodeRedGenerator v1.1.6
+# Generated with the CodeRedGenerator v1.2.0
 # ========================================================================================= #
 # File: GameFramework_classes.hpp
 # ========================================================================================= #
@@ -14,14 +14,6 @@
 #ifdef _MSC_VER
 #pragma pack(push, 0x4)
 #endif
-
-// Forward Declarations
-class UClass;
-class UFunction;
-class UProperty;
-class UStructProperty;
-class UStruct;
-
 
 /*
 # ========================================================================================= #
@@ -132,6 +124,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	class FString eventGetActionString();
 	bool eventGeneratePathToLocation(const struct FVector& Goal, float optionalWithinDistance, bool optionalBAllowPartialPath);
 	bool eventGeneratePathToActor(class AActor* Goal, float optionalWithinDistance, bool optionalBAllowPartialPath);
@@ -148,7 +141,6 @@ public:
 	void PopCommand(class UGameAICommand* ToBePoppedCommand);
 	void PushCommand(class UGameAICommand* NewCommand);
 };
-
 // Class GameFramework.GameAICommand
 // 0x001C (0x003C - 0x0058)
 class UGameAICommand : public UObject
@@ -177,6 +169,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void GetDebugOverheadText(class APlayerController* PC, class TArray<class FString>& outOutText);
 	void eventDrawDebug(class AHUD* H, const class FName& Category);
 	class FString eventGetDumpString();
@@ -199,7 +192,6 @@ public:
 	static bool InitCommand(class AGameAIController* AI);
 	static bool InitCommandUserActor(class AGameAIController* AI, class AActor* UserActor);
 };
-
 // Class GameFramework.GameCameraBlockingVolume
 // 0x0000 (0x0268 - 0x0268)
 class AGameCameraBlockingVolume : public ABlockingVolume
@@ -220,7 +212,6 @@ public:
 	};
 
 };
-
 // Class GameFramework.GameCrowdAgent
 // 0x01D8 (0x022C - 0x0404)
 class AGameCrowdAgent : public ACrowdAgentBase
@@ -258,6 +249,7 @@ public:
 	uint32_t                                           bHasNotifiedSpawner : 1;                       // 0x0288 (0x0004) [0x0000000000000000] [0x00004000] 
 	uint32_t                                           bIsInSpawnPool : 1;                            // 0x0288 (0x0004) [0x0000000000000000] [0x00008000] 
 	EConformType                                       ConformType;                                   // 0x028C (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x028D (0x0003) MISSED OFFSET
 	float                                              ConformTraceDist;                              // 0x0290 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	int32_t                                            ConformTraceInterval;                          // 0x0294 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	int32_t                                            CurrentConformTraceInterval;                   // 0x0298 (0x0004) [0x0000000000000000]               
@@ -334,6 +326,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	class FString GetBehaviorString();
 	class FString GetDestString();
 	void eventPostRenderFor(class APlayerController* PC, class UCanvas* Canvas, const struct FVector& CameraPosition, const struct FVector& CameraDir);
@@ -374,7 +367,6 @@ public:
 	bool IsPanicked();
 	void eventFellOutOfWorld(class UClass* dmgType);
 };
-
 // Class GameFramework.GameCrowdAgentSkeletal
 // 0x0080 (0x0404 - 0x0484)
 class AGameCrowdAgentSkeletal : public AGameCrowdAgent
@@ -418,6 +410,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void CreateAttachments();
 	void eventOnAnimEnd(class UAnimNodeSequence* SeqNode, float PlayedTime, float ExcessTime);
 	void eventStopIdleAnimation();
@@ -429,7 +422,6 @@ public:
 	void SetLighting(bool bEnableLightEnvironment, const struct FLightingChannelContainer& AgentLightingChannel, bool bCastShadows);
 	void PostBeginPlay();
 };
-
 // Class GameFramework.GameCrowdAgentBehavior
 // 0x0010 (0x003C - 0x004C)
 class UGameCrowdAgentBehavior : public UObject
@@ -456,6 +448,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool AllowBehaviorAt(class AGameCrowdDestination* Destination);
 	bool AllowThisDestination(class AGameCrowdDestination* Destination);
 	void eventPropagateViralBehaviorTo(class AGameCrowdAgent* OtherAgent);
@@ -472,7 +465,6 @@ public:
 	void Tick(float DeltaTime);
 	bool ShouldEndIdle();
 };
-
 // Class GameFramework.GameCrowdBehavior_PlayAnimation
 // 0x002C (0x004C - 0x0078)
 class UGameCrowdBehavior_PlayAnimation : public UGameCrowdAgentBehavior
@@ -504,6 +496,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	class FString GetBehaviorString();
 	void StopBehavior();
 	void PlayAgentAnimationNow();
@@ -512,7 +505,6 @@ public:
 	void eventFinishedTargetRotation();
 	void InitBehavior(class AGameCrowdAgent* Agent);
 };
-
 // Class GameFramework.GameCrowdBehavior_RunFromPanic
 // 0x0004 (0x004C - 0x0050)
 class UGameCrowdBehavior_RunFromPanic : public UGameCrowdAgentBehavior
@@ -533,6 +525,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	class FString GetBehaviorString();
 	bool AllowBehaviorAt(class AGameCrowdDestination* Destination);
 	bool AllowThisDestination(class AGameCrowdDestination* Destination);
@@ -541,7 +534,6 @@ public:
 	void InitBehavior(class AGameCrowdAgent* Agent);
 	void ActivatedBy(class AActor* NewActionTarget);
 };
-
 // Class GameFramework.GameCrowdBehavior_WaitForGroup
 // 0x0000 (0x004C - 0x004C)
 class UGameCrowdBehavior_WaitForGroup : public UGameCrowdAgentBehavior
@@ -561,12 +553,12 @@ public:
 		return uClassPointer;
 	};
 
+
 	void StopBehavior();
 	bool ShouldEndIdle();
 	class FString GetBehaviorString();
 	void InitBehavior(class AGameCrowdAgent* Agent);
 };
-
 // Class GameFramework.GameCrowdBehavior_WaitInQueue
 // 0x0008 (0x004C - 0x0054)
 class UGameCrowdBehavior_WaitInQueue : public UGameCrowdAgentBehavior
@@ -588,6 +580,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void StopBehavior();
 	bool ShouldEndIdle();
 	class FString GetBehaviorString();
@@ -595,7 +588,6 @@ public:
 	void ChangingDestination(class AGameCrowdDestination* NewDest);
 	bool HandleMovement();
 };
-
 // Class GameFramework.GameCrowdGroup
 // 0x000C (0x003C - 0x0048)
 class UGameCrowdGroup : public UObject
@@ -616,11 +608,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	void UpdateDestinations(class AGameCrowdDestination* NewDestination);
 	void RemoveMember(class AGameCrowdAgent* Agent);
 	void AddMember(class AGameCrowdAgent* Agent);
 };
-
 // Class GameFramework.GameCrowdInteractionPoint
 // 0x0008 (0x0228 - 0x0230)
 class AGameCrowdInteractionPoint : public AActor
@@ -642,9 +634,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void OnToggle(class USeqAct_Toggle* Action);
 };
-
 // Class GameFramework.GameCrowdDestination
 // 0x0084 (0x0230 - 0x02B4)
 class AGameCrowdDestination : public AGameCrowdInteractionPoint
@@ -701,6 +693,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void GetSpawnPosition(class USeqAct_GameCrowdSpawner* Spawner, struct FVector& outSpawnPos, struct FRotator& outSpawnRot);
 	bool eventAllowableDestinationFor(class AGameCrowdAgent* Agent);
 	bool AtCapacity();
@@ -712,7 +705,6 @@ public:
 	void PostBeginPlay();
 	bool ReachedByAgent(class AGameCrowdAgent* Agent, const struct FVector& TestPosition, bool bTestExactly);
 };
-
 // Class GameFramework.GameCrowdDestinationQueuePoint
 // 0x001C (0x0230 - 0x024C)
 class AGameCrowdDestinationQueuePoint : public AGameCrowdInteractionPoint
@@ -740,6 +732,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool HasCustomer();
 	void ClearQueue(class AGameCrowdAgent* OldCustomer);
 	void AddCustomer(class AGameCrowdAgent* NewCustomer, class AGameCrowdInteractionPoint* PreviousPosition);
@@ -749,7 +742,6 @@ public:
 	bool HasSpace();
 	bool QueueReachedBy(class AGameCrowdAgent* Agent, const struct FVector& TestPosition);
 };
-
 // Class GameFramework.GameCrowdForcePoint
 // 0x0000 (0x0230 - 0x0230)
 class AGameCrowdForcePoint : public AGameCrowdInteractionPoint
@@ -769,11 +761,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	struct FVector eventAppliedForce(class AGameCrowdAgent* Agent);
 	void eventUnTouch(class AActor* Other);
 	void eventTouch(class AActor* Other, class UPrimitiveComponent* OtherComp, const struct FVector& HitLocation, const struct FVector& HitNormal);
 };
-
 // Class GameFramework.GameCrowdAttractor
 // 0x0008 (0x0230 - 0x0238)
 class AGameCrowdAttractor : public AGameCrowdForcePoint
@@ -795,9 +787,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	struct FVector eventAppliedForce(class AGameCrowdAgent* Agent);
 };
-
 // Class GameFramework.GameCrowdRepulsor
 // 0x0008 (0x0230 - 0x0238)
 class AGameCrowdRepulsor : public AGameCrowdForcePoint
@@ -819,9 +811,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	struct FVector eventAppliedForce(class AGameCrowdAgent* Agent);
 };
-
 // Class GameFramework.GameCrowdPopulationManager
 // 0x0098 (0x0228 - 0x02C0)
 class AGameCrowdPopulationManager : public ACrowdPopulationManagerBase
@@ -877,6 +869,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	class AGameCrowdAgent* CreateNewAgent(class AGameCrowdDestination* SpawnLoc, class AGameCrowdAgent* AgentTemplate, class UGameCrowdGroup* NewGroup);
 	class AGameCrowdAgent* eventSpawnAgent(class AGameCrowdDestination* SpawnLoc);
 	bool ValidateSpawnAt(class AGameCrowdDestination* Candidate);
@@ -895,7 +888,6 @@ public:
 	void eventNotifyPathChanged();
 	void PostBeginPlay();
 };
-
 // Class GameFramework.GameCrowdReplicationActor
 // 0x000C (0x0228 - 0x0234)
 class AGameCrowdReplicationActor : public AActor
@@ -918,9 +910,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventReplicatedEvent(const class FName& VarName);
 };
-
 // Class GameFramework.GameDamageType
 // 0x003C (0x006C - 0x00A8)
 class UGameDamageType : public UDamageType
@@ -953,6 +945,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	static void HandleDamageFX(class AGamePawn* DamagedPawn, struct FTakeHitInfo& outHitInfo);
 	static bool ShouldHeadShotGib(class APawn* TestPawn, class APawn* Instigator);
 	static void PlayExtraDamageSound(class APawn* VictimPawn);
@@ -964,7 +957,6 @@ public:
 	static void ModifyDamage(class APawn* Victim, class AController* InstigatedBy, const struct FVector& HitLocation, const struct FTraceHitInfo& HitInfo, int32_t& outOut_Damage, struct FVector& outOut_Momentum);
 	static bool ShouldGib(class APawn* TestPawn, class APawn* Instigator);
 };
-
 // Class GameFramework.GameDestinationConnRenderingComponent
 // 0x0000 (0x01D4 - 0x01D4)
 class UGameDestinationConnRenderingComponent : public UPrimitiveComponent
@@ -985,7 +977,6 @@ public:
 	};
 
 };
-
 // Class GameFramework.GameExplosion
 // 0x00B0 (0x003C - 0x00EC)
 class UGameExplosion : public UObject
@@ -1055,7 +1046,6 @@ public:
 	};
 
 };
-
 // Class GameFramework.GameExplosionActor
 // 0x0050 (0x0228 - 0x0278)
 class AGameExplosionActor : public AActor
@@ -1093,6 +1083,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	class UCameraShake* ChooseCameraShake(const struct FVector& Epicenter, class APlayerController* PC);
 	void SpawnCameraLensEffects();
 	void DoExplosionCameraEffects();
@@ -1115,7 +1106,6 @@ public:
 	class UPhysicalMaterial* GetPhysicalMaterial();
 	void eventPreBeginPlay();
 };
-
 // Class GameFramework.GameHUD
 // 0x0000 (0x04B4 - 0x04B4)
 class AGameHUD : public AHUD
@@ -1136,7 +1126,6 @@ public:
 	};
 
 };
-
 // Class GameFramework.MobileHUD
 // 0x003C (0x04B4 - 0x04F0)
 class AMobileHUD : public AGameHUD
@@ -1170,13 +1159,13 @@ public:
 		return uClassPointer;
 	};
 
+
 	void ResetMobileInputConfig();
 	void NextMobileInputConfig();
 	void DrawInputOverlays();
 	void PostRender();
 	void PostBeginPlay();
 };
-
 // Class GameFramework.GamePawn
 // 0x0004 (0x05D8 - 0x05DC)
 class AGamePawn : public APawn
@@ -1198,6 +1187,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventSphinxNotifyDestory();
 	void eventPlayCustomParticleOnSocket(class UParticleSystem* PS, const class FName& Socket);
 	void ReattachMeshWithoutBeingSeen();
@@ -1208,7 +1198,6 @@ public:
 	void GetTargetFrictionCylinder(float& outCylinderRadius, float& outCylinderHeight);
 	void StopAllConfigAnim(float BlendOutTime, bool optionalBForceStop, bool optionalBForceAnimNotify, bool optionalBForceAnimEnd);
 };
-
 // Class GameFramework.GamePlayerController
 // 0x0010 (0x0604 - 0x0614)
 class AGamePlayerController : public APlayerController
@@ -1233,6 +1222,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void ClientColorFade(const struct FColor& FadeColor, uint8_t FromAlpha, uint8_t ToAlpha, float FadeTime);
 	void eventWarmupPause(bool bDesiredPauseState);
 	bool CanUnpauseWarmup();
@@ -1251,7 +1241,6 @@ public:
 	void CrowdFocus();
 	int32_t GetUIPlayerIndex();
 };
-
 // Class GameFramework.GamePlayerInput
 // 0x0000 (0x0184 - 0x0184)
 class UGamePlayerInput : public UPlayerInput
@@ -1272,7 +1261,6 @@ public:
 	};
 
 };
-
 // Class GameFramework.GameProjectile
 // 0x0000 (0x0268 - 0x0268)
 class AGameProjectile : public AProjectile
@@ -1293,7 +1281,6 @@ public:
 	};
 
 };
-
 // Class GameFramework.GameTypes
 // 0x0000 (0x003C - 0x003C)
 class UGameTypes : public UObject
@@ -1314,7 +1301,6 @@ public:
 	};
 
 };
-
 // Class GameFramework.GameVehicle
 // 0x0000 (0x0768 - 0x0768)
 class AGameVehicle : public ASVehicle
@@ -1335,7 +1321,6 @@ public:
 	};
 
 };
-
 // Class GameFramework.GameWeapon
 // 0x0000 (0x0324 - 0x0324)
 class AGameWeapon : public AWeapon
@@ -1356,7 +1341,6 @@ public:
 	};
 
 };
-
 // Class GameFramework.NavMeshGoal_OutOfViewFrom
 // 0x0014 (0x0050 - 0x0064)
 class UNavMeshGoal_OutOfViewFrom : public UNavMeshPathGoalEvaluator
@@ -1379,11 +1363,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	void Recycle();
 	static bool MustBeHiddenFromThisPoint(class UNavigationHandle* NavHandle, const struct FVector& InOutOfViewLocation);
 	void RecycleNative();
 };
-
 // Class GameFramework.NavMeshPath_BiasAgainstPolysWithinDistanceOfLocations
 // 0x0028 (0x0050 - 0x0078)
 class UNavMeshPath_BiasAgainstPolysWithinDistanceOfLocations : public UNavMeshPathConstraint
@@ -1407,10 +1391,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void Recycle();
 	static bool BiasAgainstPolysWithinDistanceOfLocations(class UNavigationHandle* NavHandle, const struct FVector& InLocation, const struct FRotator& InRotation, float InDistanceToCheck, const class TArray<struct FVector>& InLocationsToCheck);
 };
-
 // Class GameFramework.SeqAct_ControlGameMovie
 // 0x0014 (0x00F8 - 0x010C)
 class USeqAct_ControlGameMovie : public USeqAct_Latent
@@ -1434,7 +1418,6 @@ public:
 	};
 
 };
-
 // Class GameFramework.SeqAct_GameCrowdPopulationManagerToggle
 // 0x0018 (0x00E8 - 0x0100)
 class USeqAct_GameCrowdPopulationManagerToggle : public USequenceAction
@@ -1463,10 +1446,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	static int32_t eventGetObjClassVersion();
 	void eventFindPopMgrTarget();
 };
-
 // Class GameFramework.SeqAct_GameCrowdSpawner
 // 0x0058 (0x00F8 - 0x0150)
 class USeqAct_GameCrowdSpawner : public USeqAct_Latent
@@ -1511,6 +1494,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	static int32_t eventGetObjClassVersion();
 	class AGameCrowdAgent* CreateNewAgent(class AActor* SpawnLoc, class AGameCrowdAgent* AgentTemplate, class UGameCrowdGroup* NewGroup);
 	class AGameCrowdAgent* eventSpawnAgent(class AActor* SpawnLoc);
@@ -1519,7 +1503,6 @@ public:
 	void CacheSpawnerVars();
 	void SpawnedAgent(class AGameCrowdAgent* NewAgent);
 };
-
 // Class GameFramework.SeqAct_ModifyProperty
 // 0x000C (0x00E8 - 0x00F4)
 class USeqAct_ModifyProperty : public USequenceAction
@@ -1541,7 +1524,6 @@ public:
 	};
 
 };
-
 // Class GameFramework.SeqAct_PlayAgentAnimation
 // 0x0024 (0x00F8 - 0x011C)
 class USeqAct_PlayAgentAnimation : public USeqAct_Latent
@@ -1571,10 +1553,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SetCurrentAnimationActionFor(class AGameCrowdAgentSkeletal* Agent);
 	static int32_t eventGetObjClassVersion();
 };
-
 // Class GameFramework.SeqEvent_CrowdAgentReachedDestination
 // 0x0000 (0x0100 - 0x0100)
 class USeqEvent_CrowdAgentReachedDestination : public USequenceEvent
@@ -1595,7 +1577,6 @@ public:
 	};
 
 };
-
 // Class GameFramework.GameSkelCtrl_Recoil
 // 0x007C (0x00C4 - 0x0140)
 class UGameSkelCtrl_Recoil : public USkelControlBase
@@ -1622,7 +1603,6 @@ public:
 	};
 
 };
-
 // Class GameFramework.GameCameraBase
 // 0x0008 (0x003C - 0x0044)
 class UGameCameraBase : public UObject
@@ -1644,6 +1624,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventModifyPostProcessSettings(struct FPostProcessSettings& outPP);
 	void Init();
 	void ProcessViewRotation(float DeltaTime, class AActor* ViewTarget, struct FRotator& outOut_ViewRotation, struct FRotator& outOut_DeltaRot);
@@ -1652,7 +1633,6 @@ public:
 	void OnBecomeInActive(class UGameCameraBase* NewCamera);
 	void OnBecomeActive(class UGameCameraBase* OldCamera);
 };
-
 // Class GameFramework.GameThirdPersonCamera
 // 0x0134 (0x0044 - 0x0178)
 class UGameThirdPersonCamera : public UGameCameraBase
@@ -1721,6 +1701,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void ResetInterpolation();
 	void eventModifyPostProcessSettings(struct FPostProcessSettings& outPP);
 	void OnBecomeActive(class UGameCameraBase* OldCamera);
@@ -1744,7 +1725,6 @@ public:
 	void Reset();
 	class UGameThirdPersonCameraMode* CreateCameraMode(class UClass* ModeClass);
 };
-
 // Class GameFramework.GamePlayerCamera
 // 0x0070 (0x04B0 - 0x0520)
 class AGamePlayerCamera : public ACamera
@@ -1779,6 +1759,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	float AdjustFOVForViewport(float inHorizFOV, class APawn* CameraTargetPawn);
 	bool GetActualLookatLocation(class AActor* FocusActor, struct FVector& outFocusLoc);
 	void ClearFocusActor();
@@ -1796,7 +1777,6 @@ public:
 	void CacheLastTargetBaseInfo(class AActor* TargetBase);
 	class UGameCameraBase* CreateCamera(class UClass* CameraClass);
 };
-
 // Class GameFramework.GameThirdPersonCameraMode
 // 0x01FC (0x003C - 0x0238)
 class UGameThirdPersonCameraMode : public UObject
@@ -1873,6 +1853,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SetViewOffset(struct FViewOffsetData& outNewViewOffset);
 	void ModifyPostProcessSettings(struct FPostProcessSettings& outPP);
 	void UpdatePostProcess(float DeltaTime, struct FTViewTarget& outVT);
@@ -1887,7 +1868,6 @@ public:
 	void OnBecomeActive(class APawn* TargetPawn, class UGameThirdPersonCameraMode* PrevMode);
 	void Init();
 };
-
 // Class GameFramework.GameThirdPersonCameraMode_Default
 // 0x000C (0x0238 - 0x0244)
 class UGameThirdPersonCameraMode_Default : public UGameThirdPersonCameraMode
@@ -1911,7 +1891,6 @@ public:
 	};
 
 };
-
 // Class GameFramework.GameDecal
 // 0x0008 (0x0300 - 0x0308)
 class UGameDecal : public UDecalComponent
@@ -1934,7 +1913,6 @@ public:
 	};
 
 };
-
 // Class GameFramework.GameDecalManager
 // 0x0004 (0x0258 - 0x025C)
 class AGameDecalManager : public ADecalManager
@@ -1955,10 +1933,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	class UGameDecal* SpawnDecalMinimal(float InDecalLifeSpan, float InCanSpawnDistance, struct FVector& outDecalLocation);
 	bool IsTooCloseToActiveDecal(float InCanSpawnDistance, struct FVector& outDecalLocation);
 };
-
 // Class GameFramework.GameParticleEventManager
 // 0x0000 (0x0228 - 0x0228)
 class AGameParticleEventManager : public AParticleEventManager
@@ -1978,9 +1956,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventHandleParticleModuleEventSendToGame(class UParticleModuleEventSendToGame* InEvent, struct FVector& outInCollideDirection, struct FVector& outInHitLocation, struct FVector& outInHitNormal, class FName& outInBoneName);
 };
-
 // Class GameFramework.GameSpecialMove
 // 0x0040 (0x003C - 0x007C)
 class UGameSpecialMove : public UObject
@@ -2014,6 +1992,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	struct FVector RelativeToWorldOffset(const struct FRotator& InRotation, const struct FVector& RelativeSpaceOffset);
 	struct FVector WorldToRelativeOffset(const struct FRotator& InRotation, const struct FVector& WorldSpaceOffset);
 	void ForcePawnRotation(class APawn* P, const struct FRotator& NewRotation);
@@ -2036,7 +2015,6 @@ public:
 	void InitSpecialMoveFlags(int32_t& outOut_Flags);
 	void InitSpecialMove(class AGamePawn* inPawn, const class FName& InHandle);
 };
-
 // Class GameFramework.GameCrowdSpawnerInterface
 // 0x0000 (0x003C - 0x003C)
 class UGameCrowdSpawnerInterface : public UInterface
@@ -2056,11 +2034,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	float GetMaxSpawnDist();
 	bool AddToAgentPool(class AGameCrowdAgent* Agent);
 	void AgentDestroyed(class AGameCrowdAgent* Agent);
 };
-
 // Class GameFramework.GameCrowdSpawnInterface
 // 0x0000 (0x003C - 0x003C)
 class UGameCrowdSpawnInterface : public UInterface
@@ -2080,9 +2058,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void GetSpawnPosition(class USeqAct_GameCrowdSpawner* Spawner, struct FVector& outSpawnPos, struct FRotator& outSpawnRot);
 };
-
 // Class GameFramework.DynamicGameCrowdDestination
 // 0x0000 (0x02B4 - 0x02B4)
 class ADynamicGameCrowdDestination : public AGameCrowdDestination
@@ -2103,7 +2081,6 @@ public:
 	};
 
 };
-
 // Class GameFramework.GameCrowd_ListOfAgents
 // 0x000C (0x003C - 0x0048)
 class UGameCrowd_ListOfAgents : public UObject
@@ -2125,7 +2102,6 @@ public:
 	};
 
 };
-
 // Class GameFramework.GameCrowdInteractionDestination
 // 0x0000 (0x02B4 - 0x02B4)
 class AGameCrowdInteractionDestination : public AGameCrowdDestination
@@ -2146,7 +2122,6 @@ public:
 	};
 
 };
-
 // Class GameFramework.GameExplosionContent
 // 0x0048 (0x003C - 0x0084)
 class UGameExplosionContent : public UObject
@@ -2186,7 +2161,6 @@ public:
 	};
 
 };
-
 // Class GameFramework.GameFixedCamera
 // 0x0004 (0x0044 - 0x0048)
 class UGameFixedCamera : public UGameCameraBase
@@ -2207,10 +2181,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void OnBecomeActive(class UGameCameraBase* OldCamera);
 	void UpdateCamera(class APawn* P, class AGamePlayerCamera* CameraActor, float DeltaTime, struct FTViewTarget& outOutVT);
 };
-
 // Class GameFramework.GameFreeCamera
 // 0x0070 (0x0044 - 0x00B4)
 class UGameFreeCamera : public UGameCameraBase
@@ -2249,6 +2223,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	struct FRotator LimitViewRotation(const struct FRotator& ViewRotation, float ViewPitchMin, float ViewPitchMax);
 	void ClearMoveFlags();
 	void ProcessInputInfo(float DeltaTime, struct FTViewTarget& outOutVT);
@@ -2260,7 +2235,6 @@ public:
 	void OnBecomeActive(class UGameCameraBase* OldCamera);
 	void UpdateCamera(class APawn* P, class AGamePlayerCamera* CameraActor, float DeltaTime, struct FTViewTarget& outOutVT);
 };
-
 // Class GameFramework.GameKActorSpawnableEffect
 // 0x0000 (0x0318 - 0x0318)
 class AGameKActorSpawnableEffect : public AKActor
@@ -2280,11 +2254,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventTick(float DeltaTime);
 	void eventFellOutOfWorld(class UClass* dmgType);
 	void eventPostBeginPlay();
 };
-
 // Class GameFramework.GameWaveForms
 // 0x0010 (0x003C - 0x004C)
 class UGameWaveForms : public UObject
@@ -2309,7 +2283,6 @@ public:
 	};
 
 };
-
 // Class GameFramework.PMESTG_LeaveADecalBase
 // 0x0004 (0x003C - 0x0040)
 class UPMESTG_LeaveADecalBase : public UParticleModuleEventSendToGame
@@ -2331,7 +2304,6 @@ public:
 	};
 
 };
-
 /*
 # ========================================================================================= #
 #

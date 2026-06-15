@@ -1,7 +1,7 @@
 /*
 #############################################################################################
 # Alice2 (ASDK) SDK 1.0.0.0
-# Generated with the CodeRedGenerator v1.1.6
+# Generated with the CodeRedGenerator v1.2.0
 # ========================================================================================= #
 # File: AliceGame_classes.hpp
 # ========================================================================================= #
@@ -14,14 +14,6 @@
 #ifdef _MSC_VER
 #pragma pack(push, 0x4)
 #endif
-
-// Forward Declarations
-class UClass;
-class UFunction;
-class UProperty;
-class UStructProperty;
-class UStruct;
-
 
 /*
 # ========================================================================================= #
@@ -434,10 +426,10 @@ enum class ELedgeJumpDir : uint8_t
 // Enum AliceGame.AliceGamePawn.ERotateState
 enum class ERotateState : uint8_t
 {
-	ERotateState_Left                                  = 0,
-	ERotateState_Left01                                = 1,
-	ERotateState_Right                                 = 2,
-	ERotateState_Right01                               = 3,
+	ERotateState_Left_90                               = 0,
+	ERotateState_Left_180                              = 1,
+	ERotateState_Right_180                             = 2,
+	ERotateState_Right_90                              = 3,
 	ERotateState_None                                  = 4,
 	ERotateState_END                                   = 5
 };
@@ -926,9 +918,9 @@ enum class ESequenceRandomType : uint8_t
 {
 	ESeqRand_NoRand                                    = 0,
 	ESeqRand_SelfRand                                  = 1,
-	ESeqRand_PawnSyncRandSlot                          = 2,
-	ESeqRand_PawnSyncRandSlot01                        = 3,
-	ESeqRand_PawnSyncRandSlot02                        = 4,
+	ESeqRand_PawnSyncRandSlot_0                        = 2,
+	ESeqRand_PawnSyncRandSlot_1                        = 3,
+	ESeqRand_PawnSyncRandSlot_2                        = 4,
 	ESeqRand_END                                       = 5
 };
 
@@ -1017,9 +1009,10 @@ enum class EMeleeComboSM_State : uint8_t
 	eMCSS_END                                          = 4
 };
 
-#undef MF_END
-
 // Enum AliceGame.MemoryFragmentNormal.EMemoryFragmentType
+#ifdef MF_END
+#undef MF_END // Collides with a Windows API macro of the same name.
+#endif
 enum class EMemoryFragmentType : uint8_t
 {
 	MF_Bumby                                           = 0,
@@ -1189,7 +1182,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.ActorFactoryAlicePointOfInterest
 // 0x0000 (0x005C - 0x005C)
 class UActorFactoryAlicePointOfInterest : public UActorFactory
@@ -1210,7 +1202,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.ActorFactoryCameraActor
 // 0x0000 (0x005C - 0x005C)
 class UActorFactoryCameraActor : public UActorFactory
@@ -1231,7 +1222,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.ActorFactoryCameraMagnet
 // 0x0000 (0x005C - 0x005C)
 class UActorFactoryCameraMagnet : public UActorFactory
@@ -1252,7 +1242,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.ActorFactoryCheshireCatSpawnPoint
 // 0x0000 (0x005C - 0x005C)
 class UActorFactoryCheshireCatSpawnPoint : public UActorFactory
@@ -1273,7 +1262,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.ActorFactoryDirectionalLight
 // 0x0000 (0x005C - 0x005C)
 class UActorFactoryDirectionalLight : public UActorFactory
@@ -1294,7 +1282,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.ActorFactoryHealthPickup
 // 0x0000 (0x005C - 0x005C)
 class UActorFactoryHealthPickup : public UActorFactory
@@ -1315,7 +1302,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.ActorFactoryMemoryFragment_Bumby
 // 0x0000 (0x005C - 0x005C)
 class UActorFactoryMemoryFragment_Bumby : public UActorFactory
@@ -1336,7 +1322,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.ActorFactoryMemoryFragment_DR
 // 0x0000 (0x005C - 0x005C)
 class UActorFactoryMemoryFragment_DR : public UActorFactory
@@ -1357,7 +1342,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.ActorFactoryMemoryFragment_Family
 // 0x0000 (0x005C - 0x005C)
 class UActorFactoryMemoryFragment_Family : public UActorFactory
@@ -1378,7 +1362,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.ActorFactoryMemoryFragment_Lawyer
 // 0x0000 (0x005C - 0x005C)
 class UActorFactoryMemoryFragment_Lawyer : public UActorFactory
@@ -1399,7 +1382,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.ActorFactoryMemoryFragment_Nanny
 // 0x0000 (0x005C - 0x005C)
 class UActorFactoryMemoryFragment_Nanny : public UActorFactory
@@ -1420,7 +1402,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.ActorFactoryMemoryFragment_Pris
 // 0x0000 (0x005C - 0x005C)
 class UActorFactoryMemoryFragment_Pris : public UActorFactory
@@ -1441,7 +1422,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.ActorFactoryMemoryFragment_Queen
 // 0x0000 (0x005C - 0x005C)
 class UActorFactoryMemoryFragment_Queen : public UActorFactory
@@ -1462,7 +1442,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.ActorFactorySkyLight
 // 0x0000 (0x005C - 0x005C)
 class UActorFactorySkyLight : public UActorFactory
@@ -1483,7 +1462,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AimSwitchActorBase
 // 0x00D4 (0x0314 - 0x03E8)
 class AAimSwitchActorBase : public ASkeletalMeshActor
@@ -1491,6 +1469,7 @@ class AAimSwitchActorBase : public ASkeletalMeshActor
 public:
 	EAimSwitchActorState                               AimSwitchActorState;                           // 0x0314 (0x0001) [0x0000000000000000]               
 	EAimSwitchActorAnimMode                            DamageAnimMode;                                // 0x0315 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x2];                              // 0x0316 (0x0002) MISSED OFFSET
 	class FString                                      initMostOutName;                               // 0x0318 (0x000C) [0x0000000000402000] (CPF_Transient | CPF_NeedCtorLink)
 	class FString                                      initActorFName;                                // 0x0324 (0x000C) [0x0000000000402000] (CPF_Transient | CPF_NeedCtorLink)
 	class USoundCue*                                   IdleSound;                                     // 0x0330 (0x0004) [0x0000000000000001] (CPF_Edit)    
@@ -1538,6 +1517,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventDamageByProjectile(class AProjectile* Proj);
 	void eventTriggerDamage();
 	void OnToggle(class USeqAct_Toggle* Action);
@@ -1553,7 +1533,6 @@ public:
 	void ApplyCheckpointRecord(struct AAimSwitchActorBase_FCheckpointRecord& outRecord);
 	void CreateCheckpointRecord(struct AAimSwitchActorBase_FCheckpointRecord& outRecord);
 };
-
 // Class AliceGame.AliceActorFactoryArchetypeAI
 // 0x0014 (0x005C - 0x0070)
 class UAliceActorFactoryArchetypeAI : public UActorFactory
@@ -1577,7 +1556,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceActorFactoryPickup
 // 0x0004 (0x005C - 0x0060)
 class UAliceActorFactoryPickup : public UActorFactory
@@ -1599,7 +1577,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceCameraMagnet
 // 0x0060 (0x0228 - 0x0288)
 class AAliceCameraMagnet : public AActor
@@ -1641,7 +1618,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceCheckpoint
 // 0x0098 (0x003C - 0x00D4)
 class UAliceCheckpoint : public UObject
@@ -1651,6 +1627,7 @@ public:
 	class FString                                      BaseLevelName;                                 // 0x0040 (0x000C) [0x0000000000400000] (CPF_NeedCtorLink)
 	EChapterNameList                                   Chapter;                                       // 0x004C (0x0001) [0x0000000000000000]               
 	EDifficultyLevel                                   Difficulty;                                    // 0x004D (0x0001) [0x0000000000000000]               
+	uint8_t                                            UnknownData00[0x2];                              // 0x004E (0x0002) MISSED OFFSET
 	struct FCheckpointTime                             SaveTime;                                      // 0x0050 (0x0010) [0x0000000000000000]               
 	struct FVector                                     CheckpointLocation;                            // 0x0060 (0x000C) [0x0000000000000000]               
 	struct FPointer                                    CheckpointWriterArchive;                       // 0x006C (0x0004) [0x0000000000001000] (CPF_Native)  
@@ -1677,6 +1654,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventPostSaveCheckpoint();
 	void eventPreSaveCheckpoint();
 	void eventPostLoadCheckpoint();
@@ -1686,7 +1664,6 @@ public:
 	static bool CheckpointTimeIsNewer(struct FCheckpointTime& outGameCheckpointTime, struct FCheckpointTime& outOtherCheckpointTime);
 	bool eventCheckpointIsEmpty();
 };
-
 // Class AliceGame.AliceCheckPointManager
 // 0x0010 (0x09F0 - 0x0A00)
 class AAliceCheckPointManager : public ACheckPointManager
@@ -1710,6 +1687,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void UpdateRegisterWhenChangeCallFromBase(class AActor* RegisterActor, const class FString& OutName, const class FString& ActorFName);
 	void UnRegisterWhenApplyRecordCallFromBase(class AActor* RegisterActor, const class FString& OutName, const class FString& ActorFName);
 	void RegisterWhenApplyRecordCallFromBase(class AActor* RegisterActor, const class FString& OutName, const class FString& ActorFName);
@@ -1719,7 +1697,6 @@ public:
 	void RegisterWhenApplyRecord(class AActor* RegisterActor, const class FString& OutName, const class FString& ActorFName);
 	void RegisterWhenPostBeginPlay(class AActor* RegisterActor);
 };
-
 // Class AliceGame.AliceChessPiece
 // 0x0001 (0x0314 - 0x0315)
 class AAliceChessPiece : public ASkeletalMeshActor
@@ -1740,10 +1717,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventCancelDizzy();
 	void eventOnAnimEnd(class UAnimNodeSequence* SeqNode, float PlayedTime, float ExcessTime);
 };
-
 // Class AliceGame.AliceChessTrap
 // 0x0038 (0x0314 - 0x034C)
 class AAliceChessTrap : public ASkeletalMeshActor
@@ -1758,6 +1735,7 @@ public:
 	uint32_t                                           bForward : 1;                                  // 0x0334 (0x0004) [0x0000000000000000] [0x00000001] 
 	uint32_t                                           bLastTickIsMoving : 1;                         // 0x0334 (0x0004) [0x0000000000000000] [0x00000002] 
 	EChessTrapAction                                   TrapAction;                                    // 0x0338 (0x0001) [0x0000000000000000]               
+	uint8_t                                            UnknownData00[0x3];                              // 0x0339 (0x0003) MISSED OFFSET
 	class AAliceChessBoard*                            ChessBoard;                                    // 0x033C (0x0004) [0x0000000000000000]               
 	struct FVector                                     vCurWorldLoc;                                  // 0x0340 (0x000C) [0x0000000000000000]               
 
@@ -1773,6 +1751,7 @@ public:
 
 		return uClassPointer;
 	};
+
 
 	void eventChessTrapAttackHit();
 	void eventOnAnimEnd(class UAnimNodeSequence* SeqNode, float PlayedTime, float ExcessTime);
@@ -1791,7 +1770,6 @@ public:
 	int32_t GetCurPathID();
 	void Init(class AAliceChessBoard* board);
 };
-
 // Class AliceGame.AliceDodgeParticleTrace
 // 0x0018 (0x0228 - 0x0240)
 class AAliceDodgeParticleTrace : public AActor
@@ -1817,11 +1795,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventFinishFlightEffects();
 	void eventSpawnFlightEffects();
 	void PostBeginPlay();
 };
-
 // Class AliceGame.AliceDroppedPickup
 // 0x0018 (0x0238 - 0x0250)
 class AAliceDroppedPickup : public ADroppedPickup
@@ -1848,13 +1826,13 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventLanded(const struct FVector& HitNormal, class AActor* FloorActor);
 	void GiveTo(class APawn* P);
 	void eventSetPickupParticles(class UParticleSystemComponent* NewPickupParticles);
 	void eventSetPickupMesh(class UPrimitiveComponent* NewPickupMesh);
 	void eventPreBeginPlay();
 };
-
 // Class AliceGame.AliceEmitterPool
 // 0x000C (0x0280 - 0x028C)
 class AAliceEmitterPool : public AEmitterPool
@@ -1875,11 +1853,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	class UAliceExplosionLight* SpawnExplosionLight(class UClass* LightClass, const struct FVector& SpawnLocation, class AActor* optionalAttachToActor);
 	void OnExplosionLightFinished(class UAliceExplosionLight* Light);
 	class UParticleSystemComponent* SpawnEmitter(class UParticleSystem* EmitterTemplate, const struct FVector& SpawnLocation, const struct FRotator& optionalSpawnRotation, class AActor* optionalAttachToActor, bool optionalBInheritScaleFromBase);
 };
-
 // Class AliceGame.AliceExplosionLight
 // 0x0028 (0x0204 - 0x022C)
 class UAliceExplosionLight : public UPointLightComponent
@@ -1906,11 +1884,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SetTemplate(struct FAliceExplosionLightTemplate& outTemplate);
 	void OnLightFinished(class UAliceExplosionLight* Light);
 	void ResetLight();
 };
-
 // Class AliceGame.AliceGameCrowdAgent
 // 0x0034 (0x0484 - 0x04B8)
 class AAliceGameCrowdAgent : public AGameCrowdAgentSkeletal
@@ -1942,6 +1920,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventTick(float DeltaTime);
 	void TakeDamage(int32_t DamageAmount, class AController* EventInstigator, const struct FVector& HitLocation, const struct FVector& Momentum, class UClass* DamageType, const struct FTraceHitInfo& optionalHitInfo, class AActor* optionalDamageCauser);
 	bool PickBehaviorFrom(const class TArray<struct FBehaviorEntry>& BehaviorList, const struct FVector& optionalBestCameraLoc);
@@ -1951,7 +1930,6 @@ public:
 	void InitializeAgent(class AActor* SpawnLoc, class AGameCrowdAgent* AgentTemplate, class UGameCrowdGroup* NewGroup, float AgentWarmupTime, bool bWarmupPosition, bool bCheckWarmupVisibility);
 	void PostBeginPlay();
 };
-
 // Class AliceGame.AliceGameDropActor
 // 0x0008 (0x0228 - 0x0230)
 class AAliceGameDropActor : public AActor
@@ -1973,9 +1951,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventOnAnimEnd(class UAnimNodeSequence* SeqNode, float PlayedTime, float ExcessTime);
 };
-
 // Class AliceGame.AliceGameEmitterPool
 // 0x0024 (0x0280 - 0x02A4)
 class AAliceGameEmitterPool : public AEmitterPool
@@ -1998,11 +1976,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	class UAliceExplosionLight* SpawnTemplateExplosionLight(const struct FAliceExplosionLightTemplate& Template, const struct FVector& SpawnLocation, class AActor* optionalAttachToActor);
 	class UAliceExplosionLight* SpawnExplosionLight(class UClass* LightClass, const struct FVector& SpawnLocation, class AActor* optionalAttachToActor);
 	void OnExplosionLightFinished(class UAliceExplosionLight* Light);
 };
-
 // Class AliceGame.AliceGameEngine
 // 0x0A1C (0x06DC - 0x10F8)
 class UAliceGameEngine : public UGameEngine
@@ -2011,6 +1989,7 @@ public:
 	struct FVector                                     PendingCheckpointLocation;                     // 0x06DC (0x000C) [0x0000000000000000]               
 	ECheckpointAction                                  PendingCheckpointAction;                       // 0x06E8 (0x0001) [0x0000000000000000]               
 	ECheckpointActionFlag                              PendingCheckpointActionFlag;                   // 0x06E9 (0x0001) [0x0000000000000000]               
+	uint8_t                                            UnknownData00[0x2];                              // 0x06EA (0x0002) MISSED OFFSET
 	class UAliceCheckpoint*                            CurrentCheckpoint;                             // 0x06EC (0x0004) [0x0000000000000000]               
 	int32_t                                            CurrentUserID;                                 // 0x06F0 (0x0004) [0x0000000000000000]               
 	int32_t                                            CurrentDeviceID;                               // 0x06F4 (0x0004) [0x0000000000000000]               
@@ -2074,6 +2053,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void setFinishGameOnHard(bool bFinish);
 	bool isFinishGameOnHard();
 	void LaunchAlice1();
@@ -2121,7 +2101,7 @@ public:
 	void donotShowStartScreen();
 	bool eventAreStorageWritesAllowed(bool optionalBIgnoreDeviceStatus, int32_t optionalRequiredSize);
 	bool eventIsCurrentDeviceValid(int32_t optionalSizeNeeded);
-	bool DeleteCheckpoints(int32_t& outResultCode);
+	bool DeleteCheckpoints(int32_t& optionalOutResultCode);
 	void LoadCheckpoint();
 	void SaveCheckpoint(const struct FVector& CheckpointLocation);
 	bool FindCheckpointData(int32_t SlotIndex);
@@ -2129,7 +2109,6 @@ public:
 	int32_t GetCurrentDeviceID();
 	void SetCurrentDeviceID(int32_t NewDeviceID, bool optionalBProfileSignedOut);
 };
-
 // Class AliceGame.AliceGameInfo
 // 0x01C0 (0x03CC - 0x058C)
 class AAliceGameInfo : public AGameInfo
@@ -2193,6 +2172,7 @@ public:
 	int32_t                                            DressAbilityActive_Caterpillar;                // 0x0558 (0x0004) [0x0000000000000000]               
 	float                                              totalVentDuration;                             // 0x055C (0x0004) [0x0000000000000000]               
 	EAliceArcheType                                    AliceArcheTypeID;                              // 0x0560 (0x0001) [0x0000000000000000]               
+	uint8_t                                            UnknownData00[0x3];                              // 0x0561 (0x0003) MISSED OFFSET
 	int32_t                                            Achievement29;                                 // 0x0564 (0x0004) [0x0000000000000000]               
 	int32_t                                            Achievement41;                                 // 0x0568 (0x0004) [0x0000000000000000]               
 	int32_t                                            CurrentGameDifficulty;                         // 0x056C (0x0004) [0x0000000000000000]               
@@ -2214,6 +2194,7 @@ public:
 
 		return uClassPointer;
 	};
+
 
 	void eventNotifyDialogueStart(class AActor* Speaker, class AActor* Addressee, class USoundCue* Audio, ESpeechPriority PRI);
 	void eventNotifyDialogueFinish(class AActor* Speaker, class USoundCue* Sound);
@@ -2317,7 +2298,6 @@ public:
 	void InitLoadPersistentSaveData();
 	float GetAppSeconds();
 };
-
 // Class AliceGame.AliceGameKynapseAIController
 // 0x0004 (0x044C - 0x0450)
 class AAliceGameKynapseAIController : public AKynapseAIController
@@ -2337,6 +2317,7 @@ public:
 
 		return uClassPointer;
 	};
+
 
 	void DisplayDebug(class AHUD* HUD, float& outOut_YL, float& outOut_YPos);
 	void Draw3Dtext(class UCanvas* in_canvas, const struct FVector& TextLocation, const class FString& Text, const struct FColor& TextColor);
@@ -2366,7 +2347,6 @@ public:
 	void eventBreakByAI(EInterruptByAIType Type);
 	void eventActiveAIEventTrigger(EInterruptByAIType Type, int32_t optionalInfo1, int32_t optionalInfo2);
 };
-
 // Class AliceGame.AliceGameProjectile
 // 0x0134 (0x0268 - 0x039C)
 class AAliceGameProjectile : public AProjectile
@@ -2416,6 +2396,7 @@ public:
 	EImpactTypeExplosion                               ImpactTypeExplosionID;                         // 0x02D4 (0x0001) [0x0000000000000000]               
 	EProjManualCurveType                               ManuallyCurveType;                             // 0x02D5 (0x0001) [0x0000000000002000] (CPF_Transient)
 	EDamageStrengthType                                DamageStrength;                                // 0x02D6 (0x0001) [0x0000000000004000] (CPF_Config)  
+	uint8_t                                            UnknownData00[0x1];                              // 0x02D7 (0x0001) MISSED OFFSET
 	float                                              MinShotDist;                                   // 0x02D8 (0x0004) [0x0000000000004000] (CPF_Config)  
 	float                                              MaxShotDist;                                   // 0x02DC (0x0004) [0x0000000000004000] (CPF_Config)  
 	float                                              RefVel;                                        // 0x02E0 (0x0004) [0x0000000000004000] (CPF_Config)  
@@ -2464,6 +2445,7 @@ public:
 
 		return uClassPointer;
 	};
+
 
 	static float GetRange();
 	float GetTimeToLocation(const struct FVector& TargetLoc);
@@ -2519,7 +2501,6 @@ public:
 	void RadiusAttackPawnCollisionCheck();
 	float GetTerminalVelocity();
 };
-
 // Class AliceGame.AliceProjectile
 // 0x0008 (0x039C - 0x03A4)
 class AAliceProjectile : public AAliceGameProjectile
@@ -2541,6 +2522,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void PlayLineCheckShieldExplosionEffect(const struct FVector& HitLocation, const struct FVector& HitNormal, const struct FShieldTestResult& ShieldResult, class AActor* optionalTargetActor, class UPhysicalMaterial*& outInPM);
 	void PlayShieldExplosionEffect(const struct FVector& HitLocation, const struct FVector& HitNormal, const struct FShieldTestResult& ShieldResult, const struct FShapeCollisionResult& CollisionResult, class AActor* optionalTargetActor);
 	void eventPlayRangeAttackEffectOnAttachedActor(class AAliceGameNPCAttachedActor* TargetAttachedActor, const struct FShapeCollisionResult& TestResult, const struct FVector& HurtOrigin, const struct FVector& HitNormal);
@@ -2549,7 +2531,6 @@ public:
 	void GetRadiusShieldDamageEffect(class APawn* TargetPawn, bool bExplosionDamage, struct FShieldTestResult& outShieldTestResult, struct FShapeCollisionResult& outColisionTestResult);
 	bool CanShieldBlockRadiusDamage(class AActor* TargetPawn, bool bExplosionDamage, struct FShieldTestResult& outShieldTestResult);
 };
-
 // Class AliceGame.TeapotCannonProjectile
 // 0x0044 (0x03A4 - 0x03E8)
 class ATeapotCannonProjectile : public AAliceProjectile
@@ -2561,6 +2542,7 @@ public:
 	float                                              DamageSplashRadius;                            // 0x03B0 (0x0004) [0x0000000000000000]               
 	EDamageStrengthType                                DamageCoreStrength;                            // 0x03B4 (0x0001) [0x0000000000000000]               
 	EDamageStrengthType                                DamageSplashStrength;                          // 0x03B5 (0x0001) [0x0000000000000000]               
+	uint8_t                                            UnknownData00[0x2];                              // 0x03B6 (0x0002) MISSED OFFSET
 	struct FAliceExplosionLightTemplate                RadiusAttackLightTemplate;                     // 0x03B8 (0x0014) [0x0000000000480008] (CPF_ExportObject | CPF_Component | CPF_NeedCtorLink)
 	class UParticleSystem*                             ChargedImpactParticle;                         // 0x03CC (0x0004) [0x0000000000000000]               
 	class UCameraAnim*                                 NormalProjImpactCameraAnim;                    // 0x03D0 (0x0004) [0x0000000000000001] (CPF_Edit)    
@@ -2583,6 +2565,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	class UPhysicalMaterial* GetExplodePhysMaterial();
 	class UParticleSystem* AltinatePSFromProjectile();
 	void eventTriggerRadiusDamageCameraShake();
@@ -2590,7 +2573,6 @@ public:
 	void InitConfigData(float BlastDelay, float DmgValueCore, float DmgValueSplash, EDamageStrengthType StrengthCore, EDamageStrengthType StrengthSplash, float CoreRadius, float SplashRadius);
 	int32_t GetDLCWeaponFlag();
 };
-
 // Class AliceGame.NpcProjectile
 // 0x0008 (0x039C - 0x03A4)
 class ANpcProjectile : public AAliceGameProjectile
@@ -2612,13 +2594,13 @@ public:
 		return uClassPointer;
 	};
 
+
 	void PlayShieldExplosionEffect(const struct FVector& HitLocation, const struct FVector& HitNormal, const struct FShieldTestResult& ShieldResult, const struct FShapeCollisionResult& CollisionResult, class AActor* optionalTargetActor);
 	bool IsReflectByAliceWeapon();
 	void InitFromWeaponLevelData(class AWeapon* InWeapon);
 	void GetRadiusShieldDamageEffect(class APawn* TargetPawn, bool bExplosionDamage, struct FShieldTestResult& outShieldTestResult, struct FShapeCollisionResult& outColisionTestResult);
 	bool CanShieldBlockRadiusDamage(class AActor* TargetPawn, bool bExplosionDamage, struct FShieldTestResult& outShieldTestResult);
 };
-
 // Class AliceGame.LostSoulProjectile
 // 0x0000 (0x03A4 - 0x03A4)
 class ALostSoulProjectile : public ANpcProjectile
@@ -2639,13 +2621,13 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameProjectileTrace
 // 0x0028 (0x003C - 0x0064)
 class UAliceGameProjectileTrace : public UObject
 {
 public:
 	EProjectileInitType                                ProjInitType;                                  // 0x003C (0x0001) [0x0000000000000000]               
+	uint8_t                                            UnknownData00[0x3];                              // 0x003D (0x0003) MISSED OFFSET
 	uint32_t                                           bNeedUpdateAccelarationWhenInit : 1;           // 0x0040 (0x0004) [0x0000000000000000] [0x00000001] 
 	uint32_t                                           bAlwaysMaxShotDistance : 1;                    // 0x0040 (0x0004) [0x0000000000000000] [0x00000002] 
 	uint32_t                                           bNoXYAcceleration : 1;                         // 0x0040 (0x0004) [0x0000000000000000] [0x00000004] 
@@ -2671,7 +2653,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameProjectileTrace_AlignSocketInfinity
 // 0x0000 (0x0064 - 0x0064)
 class UAliceGameProjectileTrace_AlignSocketInfinity : public UAliceGameProjectileTrace
@@ -2692,7 +2673,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameProjectileTrace_CurveToDest
 // 0x0000 (0x0064 - 0x0064)
 class UAliceGameProjectileTrace_CurveToDest : public UAliceGameProjectileTrace
@@ -2713,7 +2693,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameProjectileTrace_CurveToDestNoXY
 // 0x0000 (0x0064 - 0x0064)
 class UAliceGameProjectileTrace_CurveToDestNoXY : public UAliceGameProjectileTrace_CurveToDest
@@ -2734,7 +2713,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameProjectileTrace_TeapotCannon
 // 0x000C (0x0064 - 0x0070)
 class UAliceGameProjectileTrace_TeapotCannon : public UAliceGameProjectileTrace_CurveToDestNoXY
@@ -2758,7 +2736,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameProjectileTrace_Track
 // 0x0000 (0x0064 - 0x0064)
 class UAliceGameProjectileTrace_Track : public UAliceGameProjectileTrace_CurveToDest
@@ -2779,7 +2756,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameProjectileTrace_DirectLine
 // 0x0000 (0x0064 - 0x0064)
 class UAliceGameProjectileTrace_DirectLine : public UAliceGameProjectileTrace
@@ -2800,7 +2776,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameProjectileTrace_EyeStaffCharged
 // 0x0008 (0x0064 - 0x006C)
 class UAliceGameProjectileTrace_EyeStaffCharged : public UAliceGameProjectileTrace_DirectLine
@@ -2822,7 +2797,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameProjectileTrace_MagicRandomCurve
 // 0x00E4 (0x0064 - 0x0148)
 class UAliceGameProjectileTrace_MagicRandomCurve : public UAliceGameProjectileTrace_DirectLine
@@ -2876,7 +2850,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.PepperGrinderAlternateProjectileTrace
 // 0x0008 (0x0064 - 0x006C)
 class UPepperGrinderAlternateProjectileTrace : public UAliceGameProjectileTrace_DirectLine
@@ -2898,7 +2871,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.PepperGrinderPrimaryProjectileTrace
 // 0x0008 (0x0064 - 0x006C)
 class UPepperGrinderPrimaryProjectileTrace : public UAliceGameProjectileTrace_DirectLine
@@ -2920,7 +2892,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameProjectileTrace_DirectLineInfinity
 // 0x0000 (0x0064 - 0x0064)
 class UAliceGameProjectileTrace_DirectLineInfinity : public UAliceGameProjectileTrace
@@ -2941,7 +2912,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameProjectileTrace_HHGhost
 // 0x0000 (0x0064 - 0x0064)
 class UAliceGameProjectileTrace_HHGhost : public UAliceGameProjectileTrace
@@ -2962,7 +2932,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameProjectileTrace_VBGhost
 // 0x002C (0x0064 - 0x0090)
 class UAliceGameProjectileTrace_VBGhost : public UAliceGameProjectileTrace
@@ -2990,7 +2959,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameSkeletalMeshActorBase
 // 0x0000 (0x0314 - 0x0314)
 class AAliceGameSkeletalMeshActorBase : public ASkeletalMeshActor
@@ -3011,13 +2979,13 @@ public:
 	};
 
 };
-
 // Class AliceGame.KrakenEye
 // 0x0040 (0x0314 - 0x0354)
 class AKrakenEye : public AAliceGameSkeletalMeshActorBase
 {
 public:
 	EKrakenEyeState                                    EyeState;                                      // 0x0314 (0x0001) [0x0000000000000000]               
+	uint8_t                                            UnknownData00[0x3];                              // 0x0315 (0x0003) MISSED OFFSET
 	float                                              HitRangeDistance;                              // 0x0318 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	class UAudioComponent*                             AudioClose;                                    // 0x031C (0x0004) [0x0000000004080009] (CPF_Edit | CPF_ExportObject | CPF_Component | CPF_EditInline)
 	class UAudioComponent*                             AudioIdle;                                     // 0x0320 (0x0004) [0x0000000004080009] (CPF_Edit | CPF_ExportObject | CPF_Component | CPF_EditInline)
@@ -3047,10 +3015,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventHitByRangeWeapon(class AActor* Bullet);
 	void SwitchAnimation(EKrakenEyeState Anim);
 };
-
 // Class AliceGame.NoseActorBase
 // 0x0068 (0x0314 - 0x037C)
 class ANoseActorBase : public AAliceGameSkeletalMeshActorBase
@@ -3062,6 +3030,7 @@ public:
 	uint32_t                                           bEnable : 1;                                   // 0x032C (0x0004) [0x0000000000000000] [0x00000002] 
 	uint32_t                                           bInitHidden : 1;                               // 0x032C (0x0004) [0x0000000000000001] [0x00000004] (CPF_Edit)
 	ENoseState                                         NoseState;                                     // 0x0330 (0x0001) [0x0000000000000000]               
+	uint8_t                                            UnknownData00[0x3];                              // 0x0331 (0x0003) MISSED OFFSET
 	float                                              HitRangeDistance;                              // 0x0334 (0x0004) [0x0000000000000000]               
 	class UAudioComponent*                             AudioActive;                                   // 0x0338 (0x0004) [0x0000000004080009] (CPF_Edit | CPF_ExportObject | CPF_Component | CPF_EditInline)
 	class UAudioComponent*                             AudioIdle;                                     // 0x033C (0x0004) [0x0000000004080009] (CPF_Edit | CPF_ExportObject | CPF_Component | CPF_EditInline)
@@ -3093,6 +3062,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool ShouldSaveForCheckpoint();
 	void OnToggle(class USeqAct_Toggle* Action);
 	void saveToPersistentData();
@@ -3109,7 +3079,6 @@ public:
 	void CreateCheckpointRecord(struct ANoseActorBase_FCheckpointRecord& outRecord);
 	void eventPostBeginPlay();
 };
-
 // Class AliceGame.SpikeFish
 // 0x0058 (0x0314 - 0x036C)
 class ASpikeFish : public AAliceGameSkeletalMeshActorBase
@@ -3117,6 +3086,7 @@ class ASpikeFish : public AAliceGameSkeletalMeshActorBase
 public:
 	ESpikeFishState                                    SpikeFishAnimState;                            // 0x0314 (0x0001) [0x0000000000000000]               
 	EDamageStrengthType                                KnockBackType;                                 // 0x0315 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x2];                              // 0x0316 (0x0002) MISSED OFFSET
 	struct FKnockBackParameters                        KnockBackParameter;                            // 0x0318 (0x0014) [0x0000000000000001] (CPF_Edit)    
 	class UParticleSystem*                             ExplodeFX;                                     // 0x032C (0x0004) [0x0000000000000001] (CPF_Edit)    
 	class UParticleSystem*                             CycleFxFat;                                    // 0x0330 (0x0004) [0x0000000000000001] (CPF_Edit)    
@@ -3148,10 +3118,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void PlayParticle(const struct FVector& Loc, const struct FRotator& Rot, class UParticleSystem* NewTemplate, bool bDestroyOnFinish, class AActor* optionalMyBase);
 	void OnToggle(class USeqAct_Toggle* Action);
 };
-
 // Class AliceGame.AliceGameSkeletalMeshActorMAT
 // 0x000C (0x0324 - 0x0330)
 class AAliceGameSkeletalMeshActorMAT : public ASkeletalMeshActorMAT
@@ -3172,6 +3142,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void PlaySpeechGesture(const class FName& GestureAnim);
 	class UAudioComponent* eventGetFaceFXAudioComponent();
 	bool IsActorPlayingFaceFXAnim();
@@ -3185,7 +3156,6 @@ public:
 	void MAT_SetAnimWeights(const class TArray<struct FAnimSlotInfo>& SlotInfos);
 	void MAT_SetAnimPosition(const class FName& SlotName, int32_t ChannelIndex, const class FName& InAnimSeqName, float InPosition, bool bFireNotifies, bool bLooping, int32_t RootMotionLevel);
 };
-
 // Class AliceGame.AliceGameWeaponBase
 // 0x00AC (0x0324 - 0x03D0)
 class AAliceGameWeaponBase : public AWeapon
@@ -3210,6 +3180,7 @@ public:
 	EWeaponAttackCollisionMode                         SelfCollisionMode;                             // 0x0336 (0x0001) [0x0000000000000001] (CPF_Edit)    
 	EWeaponAttackCollisionMode                         AttackCollisionMode;                           // 0x0337 (0x0001) [0x0000000000000001] (CPF_Edit)    
 	EDamageStrengthType                                InstantHitDamageStrength;                      // 0x0338 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0339 (0x0003) MISSED OFFSET
 	int32_t                                            CurrentKnockBackParamID;                       // 0x033C (0x0004) [0x0000000000000002] (CPF_Const)   
 	int32_t                                            CurrentCollisionPhysicsAssetID;                // 0x0340 (0x0004) [0x0000000000000002] (CPF_Const)   
 	float                                              MeleeAttackRetriggerTime;                      // 0x0344 (0x0004) [0x0000000000002000] (CPF_Transient)
@@ -3252,6 +3223,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventTriggerRadiusDamageLight();
 	void ProcessInstantHit(uint8_t FiringMode, const struct FImpactInfo& Impact, int32_t optionalNumHits);
 	void ShowWeaponHitInfo(const struct FVector& HitLocation, const struct FVector& HitNormal);
@@ -3282,7 +3254,6 @@ public:
 	void ScriptPreAttackHit(class APawn* HitPawn, int32_t optionalHitCount, bool optionalBInShield, int32_t optionalShieldIndex);
 	void AttachWeaponToInstigatorMeshSocket(const class FName& optionalSocketName);
 };
-
 // Class AliceGame.AliceGameWeapon
 // 0x0108 (0x03D0 - 0x04D8)
 class AAliceGameWeapon : public AAliceGameWeaponBase
@@ -3296,6 +3267,7 @@ public:
 	class TArray<class FName>                          EffectSockets;                                 // 0x03F8 (0x000C) [0x0000000000400000] (CPF_NeedCtorLink)
 	uint8_t                                            InventoryGroup;                                // 0x0404 (0x0001) [0x0000000000000000]               
 	EProjManualCurveType                               ManuallyCurveType;                             // 0x0405 (0x0001) [0x0000000000000000]               
+	uint8_t                                            UnknownData00[0x2];                              // 0x0406 (0x0002) MISSED OFFSET
 	float                                              GroupWeight;                                   // 0x0408 (0x0004) [0x0000000000000000]               
 	float                                              InventoryWeight;                               // 0x040C (0x0004) [0x0000000000000000]               
 	class TArray<class FName>                          WeaponFireAnim;                                // 0x0410 (0x000C) [0x0000000000400001] (CPF_Edit | CPF_NeedCtorLink)
@@ -3345,6 +3317,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventNotifyMeleeAttackTraceParticleChange(bool bActive);
 	void AttachOwnerData();
 	EWeaponHand GetHand();
@@ -3379,7 +3352,6 @@ public:
 	void eventPreResetProjectileInitPara(class AAliceGameProjectile* Projectile);
 	void ResetProjectileInitPara(class AAliceGameProjectile* Projectile);
 };
-
 // Class AliceGame.Umbrella
 // 0x0000 (0x04D8 - 0x04D8)
 class AUmbrella : public AAliceGameWeapon
@@ -3400,7 +3372,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.WeaponForAlice
 // 0x01C4 (0x04D8 - 0x069C)
 class AWeaponForAlice : public AAliceGameWeapon
@@ -3432,6 +3403,7 @@ public:
 	class FName                                        RushBeforeSwitchComboAnimationName;            // 0x0518 (0x0008) [0x0000000000000000]               
 	class FName                                        SwitchWeaponAnimationName;                     // 0x0520 (0x0008) [0x0000000000000000]               
 	EAliceWeaponType                                   WeaponTypeEnum;                                // 0x0528 (0x0001) [0x0000000000000000]               
+	uint8_t                                            UnknownData00[0x3];                              // 0x0529 (0x0003) MISSED OFFSET
 	class TArray<struct FWeaponLevelDataPackage>       WeaponLevelData;                               // 0x052C (0x000C) [0x0000000000480001] (CPF_Edit | CPF_Component | CPF_NeedCtorLink)
 	class UParticleSystemComponent*                    FlushParticleComponent;                        // 0x0538 (0x0004) [0x0000000004080008] (CPF_ExportObject | CPF_Component | CPF_EditInline)
 	class UParticleSystemComponent*                    ChargeParticleComponent;                       // 0x053C (0x0004) [0x0000000004080008] (CPF_ExportObject | CPF_Component | CPF_EditInline)
@@ -3466,6 +3438,7 @@ public:
 
 		return uClassPointer;
 	};
+
 
 	void ClearPressFireButtonTimer();
 	void FadeOutWeapon();
@@ -3511,7 +3484,6 @@ public:
 	void PostBeginPlay();
 	bool CanPerformNextAction();
 };
-
 // Class AliceGame.AliceClonePawnDummyWeapon
 // 0x000C (0x069C - 0x06A8)
 class AAliceClonePawnDummyWeapon : public AWeaponForAlice
@@ -3534,11 +3506,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	void TriggerRadiusDamage();
 	bool eventIsClockStyle();
 	void eventPostBeginPlay();
 };
-
 // Class AliceGame.AliceVopalBladeGhostDummyWeapon
 // 0x0000 (0x069C - 0x069C)
 class AAliceVopalBladeGhostDummyWeapon : public AWeaponForAlice
@@ -3559,7 +3531,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.WeaponForAliceMelee
 // 0x007C (0x069C - 0x0718)
 class AWeaponForAliceMelee : public AWeaponForAlice
@@ -3568,6 +3539,7 @@ public:
 	EWeaponComboAttackState                            CurrentComboState;                             // 0x069C (0x0001) [0x0000000000000000]               
 	ESpecialMove                                       MeleeAttackCommonSpecialMove;                  // 0x069D (0x0001) [0x0000000000000002] (CPF_Const)   
 	ESpecialMove                                       WeaponMeleeAnimation_NoLock;                   // 0x069E (0x0001) [0x0000000000000002] (CPF_Const)   
+	uint8_t                                            UnknownData00[0x1];                              // 0x069F (0x0001) MISSED OFFSET
 	uint32_t                                           bCanAcceptNextComboState : 1;                  // 0x06A0 (0x0004) [0x0000000000000000] [0x00000001] 
 	uint32_t                                           FlagAllowCancleTransient : 1;                  // 0x06A0 (0x0004) [0x0000000000000000] [0x00000002] 
 	uint32_t                                           EnableSlideBackOnMelee : 1;                    // 0x06A0 (0x0004) [0x0000000000000001] [0x00000004] (CPF_Edit)
@@ -3594,6 +3566,7 @@ public:
 
 		return uClassPointer;
 	};
+
 
 	bool IsMeleeWeaponInComboProcess(int32_t Index);
 	void ReSetAllFlag();
@@ -3622,7 +3595,6 @@ public:
 	void StartFire(uint8_t FireModeNum);
 	void UpdateAchievement29();
 };
-
 // Class AliceGame.AliceDummyWeapon
 // 0x0000 (0x0718 - 0x0718)
 class AAliceDummyWeapon : public AWeaponForAliceMelee
@@ -3643,7 +3615,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.GiantAliceWeapon
 // 0x000C (0x0718 - 0x0724)
 class AGiantAliceWeapon : public AWeaponForAliceMelee
@@ -3664,11 +3635,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	void FadeOutWeapon();
 	void SetSpecialMoveParam(class AAlicePawn* aPawn, EWeaponComboAttackState TheCurrentState);
 	void PostBeginPlay();
 };
-
 // Class AliceGame.HobbyHorse
 // 0x0068 (0x0718 - 0x0780)
 class AHobbyHorse : public AWeaponForAliceMelee
@@ -3683,6 +3654,7 @@ public:
 	int32_t                                            GhostCheckRadius;                              // 0x0744 (0x0004) [0x0000000000000000]               
 	int32_t                                            DamageValue;                                   // 0x0748 (0x0004) [0x0000000000000000]               
 	EDamageStrengthType                                GhostDmgStrength;                              // 0x074C (0x0001) [0x0000000000000000]               
+	uint8_t                                            UnknownData00[0x3];                              // 0x074D (0x0003) MISSED OFFSET
 	float                                              GhostSpeed;                                    // 0x0750 (0x0004) [0x0000000000000000]               
 	class UParticleSystem*                             GhostTemplate;                                 // 0x0754 (0x0004) [0x0000000000002000] (CPF_Transient)
 	float                                              HeightGap;                                     // 0x0758 (0x0004) [0x0000000000002000] (CPF_Transient)
@@ -3705,6 +3677,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void UpdateAchievement29();
 	void eventTriggerRadiusDamageLight();
 	class USkeletalMeshComponent* GetMuzzleSocketMesh();
@@ -3716,13 +3689,13 @@ public:
 	void PostBeginPlay();
 	void RegistGhostDestroy();
 };
-
 // Class AliceGame.VorpalBlade
 // 0x0008 (0x0718 - 0x0720)
 class AVorpalBlade : public AWeaponForAliceMelee
 {
 public:
 	ESpecialMove                                       WeaponMeleeAnimation_Dash;                     // 0x0718 (0x0001) [0x0000000000000002] (CPF_Const)   
+	uint8_t                                            UnknownData00[0x3];                              // 0x0719 (0x0003) MISSED OFFSET
 	float                                              MODDLCAliceDefenceAdd_Percent;                 // 0x071C (0x0004) [0x0000000000000001] (CPF_Edit)    
 
 public:
@@ -3738,6 +3711,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void UpdateAchievement29();
 	class USkeletalMeshComponent* GetMuzzleSocketMesh();
 	void AttachOwnerData();
@@ -3745,7 +3719,6 @@ public:
 	int32_t GetDLCWeaponFlag();
 	void PostBeginPlay();
 };
-
 // Class AliceGame.WeaponForAliceRange
 // 0x0038 (0x069C - 0x06D4)
 class AWeaponForAliceRange : public AWeaponForAlice
@@ -3781,6 +3754,7 @@ public:
 
 		return uClassPointer;
 	};
+
 
 	void ClearOverHeatTimeOver();
 	void ResetAliceWeapon();
@@ -3825,7 +3799,6 @@ public:
 	bool CanPerformNextAction();
 	void PostBeginPlay();
 };
-
 // Class AliceGame.EyeStaff
 // 0x0094 (0x06D4 - 0x0768)
 class AEyeStaff : public AWeaponForAliceRange
@@ -3833,6 +3806,7 @@ class AEyeStaff : public AWeaponForAliceRange
 public:
 	uint8_t                                            NORMAL_FIRE;                                   // 0x06D4 (0x0001) [0x0000000000000002] (CPF_Const)   
 	uint8_t                                            CHARGED_FIRE;                                  // 0x06D5 (0x0001) [0x0000000000000002] (CPF_Const)   
+	uint8_t                                            UnknownData00[0x2];                              // 0x06D6 (0x0002) MISSED OFFSET
 	class FName                                        MuzzleLightSocket;                             // 0x06D8 (0x0008) [0x0000000000000001] (CPF_Edit)    
 	struct FAliceExplosionLightTemplate                MuzzleLightTemplate;                           // 0x06E0 (0x0014) [0x0000000000480008] (CPF_ExportObject | CPF_Component | CPF_NeedCtorLink)
 	class AEmitter*                                    MuzzleParticleActor;                           // 0x06F4 (0x0004) [0x0000000000000001] (CPF_Edit)    
@@ -3870,6 +3844,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void ResetWeaponAfterChangeLevel();
 	struct FRotator GetAdjustedAim(const struct FVector& StartFireLoc);
 	void PlayGrindSound(bool bPlay);
@@ -3899,7 +3874,6 @@ public:
 	void PostBeginPlay();
 	void ResetProjectileInitPara(class AAliceGameProjectile* Projectile);
 };
-
 // Class AliceGame.WeaponForNPC
 // 0x003C (0x04D8 - 0x0514)
 class AWeaponForNPC : public AAliceGameWeapon
@@ -3925,13 +3899,13 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventPlayShieldPhysicsMaterialEffect(class APawn* TargetPawn, const struct FShieldTestResult& ShieldResult, const struct FShapeCollisionResult& CollisionResult);
 	void NofityNPCRangeFireLauch();
 	struct FVector eventGetMuzzleLoc();
 	class AProjectile* ProjectileFire();
 	void eventDestroyed();
 };
-
 // Class AliceGame.AliceHobbyHorseGhost
 // 0x0044 (0x0228 - 0x026C)
 class AAliceHobbyHorseGhost : public AActor
@@ -3945,6 +3919,7 @@ public:
 	float                                              MaxAttackLength;                               // 0x024C (0x0004) [0x0000000000002000] (CPF_Transient)
 	class UAliceGameProjectileTrace_HHGhost*           GhostTrace;                                    // 0x0250 (0x0004) [0x0000000004400008] (CPF_ExportObject | CPF_NeedCtorLink | CPF_EditInline)
 	EDamageStrengthType                                GhostDmgStrength;                              // 0x0254 (0x0001) [0x0000000000002000] (CPF_Transient)
+	uint8_t                                            UnknownData00[0x3];                              // 0x0255 (0x0003) MISSED OFFSET
 	class UClass*                                      GhostDmgType;                                  // 0x0258 (0x0004) [0x0000000000000000]               
 	class UClass*                                      DummyWeaponClass;                              // 0x025C (0x0004) [0x0000000000000000]               
 	float                                              DamageValue;                                   // 0x0260 (0x0004) [0x0000000000000000]               
@@ -3964,6 +3939,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	int32_t GetWeaponLevel();
 	void eventPlayShieldPhysicsMaterialEffect(class APawn* TargetPawn, const struct FShieldTestResult& ShieldResult, const struct FShapeCollisionResult& CollisionResult);
 	void eventPlayPhysicalMaterialEffect(class APawn* TargetPawn, const struct FShapeCollisionResult& CollisionResult, bool bRadiusAttack);
@@ -3976,7 +3952,6 @@ public:
 	void PostBeginPlay();
 	void FlightParaInit();
 };
-
 // Class AliceGame.AliceInventory
 // 0x0004 (0x0274 - 0x0278)
 class AAliceInventory : public AInventory
@@ -3997,11 +3972,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	void DropFrom(const struct FVector& StartLocation, const struct FVector& StartVelocity);
 	void eventDestroyed();
 	void ClientLostItem();
 };
-
 // Class AliceGame.AliceLocalizedStaticMeshActor
 // 0x000C (0x0230 - 0x023C)
 class AAliceLocalizedStaticMeshActor : public AStaticMeshActor
@@ -4023,7 +3998,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceParticleSystemComponent
 // 0x0014 (0x02C8 - 0x02DC)
 class UAliceParticleSystemComponent : public UParticleSystemComponent
@@ -4046,9 +4020,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SetFOV(float NewFOV);
 };
-
 // Class AliceGame.AlicePhysicalMaterialProperty
 // 0x0170 (0x003C - 0x01AC)
 class UAlicePhysicalMaterialProperty : public UPhysicalMaterialPropertyBase
@@ -4082,6 +4056,7 @@ public:
 
 		return uClassPointer;
 	};
+
 
 	static class USoundCue* DetermineLandedSound(class UPhysicalMaterial* PhysMaterial, int32_t FootStepInfoID);
 	static class UParticleSystem* DetermineLandedParticle(class UPhysicalMaterial* PhysMaterial, int32_t FootStepInfoID);
@@ -4127,7 +4102,6 @@ public:
 	static struct FDecalData GetProjectileDecalData(int32_t DLCMatFlag, class UPhysicalMaterial* PM, int32_t FXIndex, int32_t DecalDataIndex, int32_t& outBProjectOnSurface, float& outProjectionDistance);
 	static struct FDecalData GetCookedDecalData(const struct FDecalData& RawDecalData);
 };
-
 // Class AliceGame.AlicePickupFactory
 // 0x00DC (0x031C - 0x03F8)
 class AAlicePickupFactory : public APickupFactory
@@ -4185,6 +4159,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void PickedUpBy(class APawn* P);
 	void eventSetInitialState();
 	void SetPickupHidden();
@@ -4201,7 +4176,6 @@ public:
 	void SetResOut();
 	void PostBeginPlay();
 };
-
 // Class AliceGame.AliceItemPickupFactory
 // 0x003C (0x03F8 - 0x0434)
 class AAliceItemPickupFactory : public AAlicePickupFactory
@@ -4234,17 +4208,17 @@ public:
 		return uClassPointer;
 	};
 
+
 	void LineTrail(float DeltaTime);
 	float BotDesireability(class APawn* P, class AController* C);
 	float GetRespawnTime();
 	void SetRespawn();
 	void eventLanded(const struct FVector& HitNormal, class AActor* FloorActor);
 	void SpawnCopyFor(class APawn* Recipient);
-	static class FString GetLocalString(int32_t optionalSwitch, class APlayerReplicationInfo* optionalRelatedPRI, class APlayerReplicationInfo* optionalRelatedPRI01);
+	static class FString GetLocalString(int32_t optionalSwitch, class APlayerReplicationInfo* optionalRelatedPRI_1, class APlayerReplicationInfo* optionalRelatedPRI_2);
 	void DelayTimeOver();
 	void InitializePickup();
 };
-
 // Class AliceGame.AliceXPPickupFactory
 // 0x0064 (0x0434 - 0x0498)
 class AAliceXPPickupFactory : public AAliceItemPickupFactory
@@ -4278,6 +4252,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void PickedUpBy(class APawn* P);
 	bool IsValidPick();
 	void eventTick(float DeltaTime);
@@ -4292,7 +4267,6 @@ public:
 	void ApplyCheckpointRecord(struct AAliceXPPickupFactory_FCheckpointRecord& outRecord);
 	void CreateCheckpointRecord(struct AAliceXPPickupFactory_FCheckpointRecord& outRecord);
 };
-
 // Class AliceGame.HealthUpgradePickup
 // 0x002C (0x0434 - 0x0460)
 class AHealthUpgradePickup : public AAliceItemPickupFactory
@@ -4319,6 +4293,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventUpdateAfterAcceptPersistentDate();
 	void ApplyCheckpointRecord(struct AHealthUpgradePickup_FCheckpointRecord& outRecord);
 	void CreateCheckpointRecord(struct AHealthUpgradePickup_FCheckpointRecord& outRecord);
@@ -4328,7 +4303,6 @@ public:
 	void eventLanded(const struct FVector& HitNormal, class AActor* FloorActor);
 	void eventPostBeginPlay();
 };
-
 // Class AliceGame.MemoryFragmentNormal
 // 0x0050 (0x0434 - 0x0484)
 class AMemoryFragmentNormal : public AAliceItemPickupFactory
@@ -4349,6 +4323,7 @@ public:
 	uint32_t                                           bInRadius : 1;                                 // 0x0464 (0x0004) [0x0000000000000000] [0x00000010] 
 	class FString                                      BinkName;                                      // 0x0468 (0x000C) [0x0000000000400001] (CPF_Edit | CPF_NeedCtorLink)
 	EMemoryFragmentType                                MemoryFragmentType;                            // 0x0474 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0475 (0x0003) MISSED OFFSET
 	class FString                                      MemoryName;                                    // 0x0478 (0x000C) [0x0000000000400001] (CPF_Edit | CPF_NeedCtorLink)
 
 public:
@@ -4363,6 +4338,7 @@ public:
 
 		return uClassPointer;
 	};
+
 
 	void eventUpdateAfterAcceptPersistentDate();
 	void OnToggleHidden(class USeqAct_ToggleHidden* Action);
@@ -4383,7 +4359,6 @@ public:
 	void eventPostBeginPlay();
 	void HackHiddenMesh();
 };
-
 // Class AliceGame.BigSecretPickup
 // 0x000C (0x0484 - 0x0490)
 class ABigSecretPickup : public AMemoryFragmentNormal
@@ -4404,10 +4379,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void saveToPersistentData(class APawn* P);
 	void eventShowPressButtonUI(bool bShow);
 };
-
 // Class AliceGame.MemoryFragment_Bumby
 // 0x0000 (0x0484 - 0x0484)
 class AMemoryFragment_Bumby : public AMemoryFragmentNormal
@@ -4428,7 +4403,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.MemoryFragment_DR
 // 0x0000 (0x0484 - 0x0484)
 class AMemoryFragment_DR : public AMemoryFragmentNormal
@@ -4449,7 +4423,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.MemoryFragment_Family
 // 0x0000 (0x0484 - 0x0484)
 class AMemoryFragment_Family : public AMemoryFragmentNormal
@@ -4470,7 +4443,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.MemoryFragment_Lawyer
 // 0x0000 (0x0484 - 0x0484)
 class AMemoryFragment_Lawyer : public AMemoryFragmentNormal
@@ -4491,7 +4463,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.MemoryFragment_Nanny
 // 0x0000 (0x0484 - 0x0484)
 class AMemoryFragment_Nanny : public AMemoryFragmentNormal
@@ -4512,7 +4483,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.MemoryFragment_Pris
 // 0x0000 (0x0484 - 0x0484)
 class AMemoryFragment_Pris : public AMemoryFragmentNormal
@@ -4533,7 +4503,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.MemoryFragment_Queen
 // 0x0000 (0x0484 - 0x0484)
 class AMemoryFragment_Queen : public AMemoryFragmentNormal
@@ -4554,7 +4523,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SecretPickup
 // 0x000C (0x0484 - 0x0490)
 class ASecretPickup : public AMemoryFragmentNormal
@@ -4575,10 +4543,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void saveToPersistentData(class APawn* P);
 	void eventShowPressButtonUI(bool bShow);
 };
-
 // Class AliceGame.AlicePointOfInterest
 // 0x0060 (0x022C - 0x028C)
 class AAlicePointOfInterest : public AKeypoint
@@ -4602,6 +4570,7 @@ public:
 	uint32_t                                           bOverrideCamera : 1;                           // 0x0254 (0x0004) [0x0000000000000001] [0x00000080] (CPF_Edit)
 	float                                              IconDuration;                                  // 0x0258 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	EPOIForceLookType                                  ForceLookType;                                 // 0x025C (0x0001) [0x0000000000000000]               
+	uint8_t                                            UnknownData00[0x3];                              // 0x025D (0x0003) MISSED OFFSET
 	float                                              ForceLookDuration;                             // 0x0260 (0x0004) [0x0000000000000000]               
 	int32_t                                            LookAtPriority;                                // 0x0264 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	float                                              DesiredFOV;                                    // 0x0268 (0x0004) [0x0000000000000001] (CPF_Edit)    
@@ -4625,6 +4594,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void ServerFirePOIActionOutputLink(int32_t POIOutputType);
 	struct FVector GetActualLookatLocation();
 	float GetDesiredFOV(const struct FVector& cameraLoc);
@@ -4641,7 +4611,6 @@ public:
 	void eventSetEnabled(bool bOn);
 	void eventReplicatedEvent(const class FName& VarName);
 };
-
 // Class AliceGame.AliceSkeletalMeshComponent
 // 0x000C (0x0624 - 0x0630)
 class UAliceSkeletalMeshComponent : public USkeletalMeshComponent
@@ -4664,10 +4633,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SetFOV(float NewFOV);
 	void eventPreloadTextures(bool bForcePreload, float ClearTime);
 };
-
 // Class AliceGame.AliceTypes
 // 0x0000 (0x003C - 0x003C)
 class UAliceTypes : public UObject
@@ -4688,7 +4657,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceVentActor
 // 0x00B8 (0x0228 - 0x02E0)
 class AAliceVentActor : public AActor
@@ -4750,6 +4718,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void Update(float DeltaTime, class AAlicePlayerController* aliceController);
 	void onAliceJump();
 	void tickParticles(float DeltaTime);
@@ -4784,7 +4753,6 @@ public:
 	void ApplyCheckpointRecord(struct AAliceVentActor_FCheckpointRecord& outRecord);
 	void CreateCheckpointRecord(struct AAliceVentActor_FCheckpointRecord& outRecord);
 };
-
 // Class AliceGame.AliceVopalBladeGhost
 // 0x003C (0x0228 - 0x0264)
 class AAliceVopalBladeGhost : public AActor
@@ -4798,6 +4766,7 @@ public:
 	float                                              MaxAttackLength;                               // 0x024C (0x0004) [0x0000000000002000] (CPF_Transient)
 	class UAliceGameProjectileTrace_VBGhost*           GhostTrace;                                    // 0x0250 (0x0004) [0x0000000004400008] (CPF_ExportObject | CPF_NeedCtorLink | CPF_EditInline)
 	EDamageStrengthType                                GhostDmgStrength;                              // 0x0254 (0x0001) [0x0000000000002000] (CPF_Transient)
+	uint8_t                                            UnknownData00[0x3];                              // 0x0255 (0x0003) MISSED OFFSET
 	class UClass*                                      GhostDmgType;                                  // 0x0258 (0x0004) [0x0000000000000000]               
 	class UClass*                                      DummyWeaponClass;                              // 0x025C (0x0004) [0x0000000000000000]               
 	float                                              DamageValue;                                   // 0x0260 (0x0004) [0x0000000000000000]               
@@ -4815,6 +4784,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	int32_t GetWeaponLevel();
 	void eventPlayShieldPhysicsMaterialEffect(class APawn* TargetPawn, const struct FShieldTestResult& ShieldResult, const struct FShapeCollisionResult& CollisionResult);
 	void eventPlayPhysicalMaterialEffect(class APawn* TargetPawn, const struct FShapeCollisionResult& CollisionResult, bool bRadiusAttack);
@@ -4828,7 +4798,6 @@ public:
 	void GhostDamage(class AActor* Target);
 	void FlightParaInit();
 };
-
 // Class AliceGame.AttackActorInfo
 // 0x0018 (0x003C - 0x0054)
 class UAttackActorInfo : public UObject
@@ -4850,12 +4819,12 @@ public:
 		return uClassPointer;
 	};
 
+
 	void Reset();
 	void RegistActorAttack(class AActor* DesiredActor, bool bShieldDamage, int32_t optionalMaxTriggerCount, float optionalRetriggerTime);
 	bool CanActorAttackBeRegistToOther(class AActor* DesiredActor);
 	bool CanActorAttackBeRegistIn(class AActor* DesiredActor);
 };
-
 // Class AliceGame.DoomBarrierActor
 // 0x007C (0x0314 - 0x0390)
 class ADoomBarrierActor : public ASkeletalMeshActor
@@ -4893,13 +4862,13 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventPostBeginPlay();
 	bool IsAliveAndWell();
 	void OnToggle(class USeqAct_Toggle* Action);
 	void eventTakeDamage(int32_t DamageAmount, class AController* EventInstigator, const struct FVector& HitLocation, const struct FVector& Momentum, class UClass* DamageType, const struct FTraceHitInfo& optionalHitInfo, class AActor* optionalDamageCauser);
 	void SetAnimation(EDoomBarrierState Anim);
 };
-
 // Class AliceGame.GameBreakableActor
 // 0x00C4 (0x0318 - 0x03DC)
 class AGameBreakableActor : public AKActor
@@ -4935,6 +4904,7 @@ public:
 	int32_t                                            ManualXPAmountVeryHard;                        // 0x0354 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	EBreakableXPType                                   FixedXPEnum;                                   // 0x0358 (0x0001) [0x0000000000000001] (CPF_Edit)    
 	EPhysics                                           InitialPhysics;                                // 0x0359 (0x0001) [0x0000000000002000] (CPF_Transient)
+	uint8_t                                            UnknownData00[0x2];                              // 0x035A (0x0002) MISSED OFFSET
 	class ADropItemsFactory*                           DropFactory;                                   // 0x035C (0x0004) [0x0000000000000000]               
 	class TArray<class UClass*>                        DamageTypes;                                   // 0x0360 (0x000C) [0x0000000000400001] (CPF_Edit | CPF_NeedCtorLink)
 	class AAlicePlayerController*                      APC;                                           // 0x036C (0x0004) [0x0000000000000000]               
@@ -4971,6 +4941,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool ShouldHideLockOnUI();
 	float GetAutoTargetPriority(class APawn* AimingPawn, class AWeapon* W, class AWeapon* AltW);
 	struct FRotator GetTargetRotation(class AActor* optionalRequestedBy, bool optionalBRequestAlternateLoc);
@@ -5006,7 +4977,6 @@ public:
 	void SetParticlesLighting(class AEmitter* Emit);
 	struct FVector GetOffsetToWorld(const struct FVector& Offset);
 };
-
 // Class AliceGame.DoomGameBreakableActor
 // 0x001C (0x03DC - 0x03F8)
 class ADoomGameBreakableActor : public AGameBreakableActor
@@ -5034,6 +5004,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void TakeRadiusDamage(class AController* InstigatedBy, float BaseDamage, float DamageRadius, class UClass* DamageType, float Momentum, const struct FVector& HurtOrigin, bool bFullDamage, class AActor* DamageCauser, float optionalDamageFalloffExponent);
 	void eventTakeDamage(int32_t Damage, class AController* EventInstigator, const struct FVector& HitLocation, const struct FVector& Momentum, class UClass* DamageType, const struct FTraceHitInfo& optionalHitInfo, class AActor* optionalDamageCauser);
 	void eventTick(float DeltaTime);
@@ -5046,7 +5017,6 @@ public:
 	void ApplyCheckpointRecord(struct AGameBreakableActor_FCheckpointRecord& outRecord);
 	bool GetIsBreakAble();
 };
-
 // Class AliceGame.GameCrowdBehavior_Surrounder
 // 0x0020 (0x004C - 0x006C)
 class UGameCrowdBehavior_Surrounder : public UGameCrowdAgentBehavior
@@ -5073,6 +5043,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventBehaviorUpdate(const struct FVector& TargetLoc);
 	void StopBehavior();
 	void InitBehavior(class AGameCrowdAgent* Agent);
@@ -5080,7 +5051,6 @@ public:
 	bool ShouldEndIdle();
 	bool HandleMovement();
 };
-
 // Class AliceGame.GameCrowdBehavior_Wander
 // 0x0000 (0x004C - 0x004C)
 class UGameCrowdBehavior_Wander : public UGameCrowdAgentBehavior
@@ -5101,7 +5071,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.JumpPadNPC
 // 0x0008 (0x036C - 0x0374)
 class AJumpPadNPC : public AJumpPad
@@ -5123,6 +5092,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void OnLaunchAnimOverTimer();
 	void OrientToucherToTarget();
 	void Launch();
@@ -5135,7 +5105,6 @@ public:
 	void eventPostBeginPlay();
 	void CalculateJumpVelocity();
 };
-
 // Class AliceGame.MorphSkeletalMeshActor
 // 0x0020 (0x0314 - 0x0334)
 class AMorphSkeletalMeshActor : public ASkeletalMeshActor
@@ -5165,12 +5134,12 @@ public:
 		return uClassPointer;
 	};
 
+
 	void InitAPC();
 	void InitDuplicatedMaterial();
 	void DoMorph(bool TurnOn);
 	void Tick(float DeltaTime);
 };
-
 // Class AliceGame.PinballCannon
 // 0x0070 (0x0314 - 0x0384)
 class APinballCannon : public ASkeletalMeshActor
@@ -5214,6 +5183,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void ChangeRotation(float DeltaTime, class UAlicePlayerInput* PlayerInput);
 	void BeginAttractAgain();
 	void ShootOut();
@@ -5223,7 +5193,6 @@ public:
 	void setChargeMat(float Alpha);
 	void eventPostBeginPlay();
 };
-
 // Class AliceGame.PressurePad
 // 0x0044 (0x0290 - 0x02D4)
 class APressurePad : public AInterpActor
@@ -5260,6 +5229,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventTick(float DeltaTime);
 	void eventTouch(class AActor* Other, class UPrimitiveComponent* OtherComp, const struct FVector& HitLocation, const struct FVector& HitNormal);
 	void CheckActors();
@@ -5268,7 +5238,6 @@ public:
 	void eventPostBeginPlay();
 	bool ShouldSaveForCheckpoint();
 };
-
 // Class AliceGame.ProjectileRigidBallBase
 // 0x0034 (0x031C - 0x0350)
 class AProjectileRigidBallBase : public AKActorSpawnable
@@ -5300,6 +5269,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void OnParticleSystemFinished(class UParticleSystemComponent* FinishedComponent);
 	void eventRigidBodyCollision(class UPrimitiveComponent* HitComponent, class UPrimitiveComponent* OtherComponent, int32_t ContactIndex, struct FCollisionImpactData& outRigidCollisionData);
 	void DestroyBall();
@@ -5315,7 +5285,6 @@ public:
 	void InitParam(class AAliceGameProjectile* Proj);
 	bool ShouldTriggerCollisionEvent(class AActor* CollisionCauser);
 };
-
 // Class AliceGame.RailRideActor
 // 0x004C (0x0290 - 0x02DC)
 class ARailRideActor : public AInterpActor
@@ -5354,12 +5323,12 @@ public:
 		return uClassPointer;
 	};
 
+
 	void StopBounce();
 	void BounceOff(const struct FVector& HitNormal);
 	void eventTick(float DeltaTime);
 	void eventBump(class AActor* Other, class UPrimitiveComponent* OtherComp, const struct FVector& HitNormal);
 };
-
 // Class AliceGame.SeqAct_Checkpoint
 // 0x0010 (0x00F8 - 0x0108)
 class USeqAct_Checkpoint : public USeqAct_Latent
@@ -5367,6 +5336,7 @@ class USeqAct_Checkpoint : public USeqAct_Latent
 public:
 	uint32_t                                           bUnlockChapter : 1;                            // 0x00F8 (0x0004) [0x0000000000000001] [0x00000001] (CPF_Edit)
 	EChapterNameList                                   UnlockedChapter;                               // 0x00FC (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x00FD (0x0003) MISSED OFFSET
 	class AActor*                                      TeleportTargetPlayer;                          // 0x0100 (0x0004) [0x0000000000000000]               
 	float                                              ActivationTime;                                // 0x0104 (0x0004) [0x0000000000002000] (CPF_Transient)
 
@@ -5383,6 +5353,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool eventUpdate(float DeltaTime);
 	bool ShouldTeleport(class APawn* TestPawn, const struct FVector& TeleportLocation);
 	static int32_t eventGetObjClassVersion();
@@ -5391,7 +5362,6 @@ public:
 	void SaveCheckpoint();
 	void eventActivated();
 };
-
 // Class AliceGame.SeqAct_ManagePOI
 // 0x003C (0x00E8 - 0x0124)
 class USeqAct_ManagePOI : public USequenceAction
@@ -5407,6 +5377,7 @@ public:
 	uint32_t                                           bIsDone : 1;                                   // 0x00F4 (0x0004) [0x0000000000000000] [0x00000040] 
 	float                                              POI_IconDuration;                              // 0x00F8 (0x0004) [0x0000000000004001] (CPF_Edit | CPF_Config)
 	EPOIForceLookType                                  POI_ForceLookType;                             // 0x00FC (0x0001) [0x0000000000004001] (CPF_Edit | CPF_Config)
+	uint8_t                                            UnknownData00[0x3];                              // 0x00FD (0x0003) MISSED OFFSET
 	float                                              POI_ForceLookDuration;                         // 0x0100 (0x0004) [0x0000000000004001] (CPF_Edit | CPF_Config)
 	int32_t                                            POI_LookAtPriority;                            // 0x0104 (0x0004) [0x0000000000004001] (CPF_Edit | CPF_Config)
 	float                                              POI_DesiredFOV;                                // 0x0108 (0x0004) [0x0000000000004001] (CPF_Edit | CPF_Config)
@@ -5429,7 +5400,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.ShrinkFlowerInteractive
 // 0x00B4 (0x0314 - 0x03C8)
 class AShrinkFlowerInteractive : public ASkeletalMeshActor
@@ -5485,6 +5455,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	int32_t GetManualXPAmount();
 	int32_t GetManualHPAmount();
 	void DropPickup(class UClass* ClassType);
@@ -5495,7 +5466,6 @@ public:
 	void ApplyCheckpointRecord(struct AShrinkFlowerInteractive_FCheckpointRecord& outRecord);
 	void CreateCheckpointRecord(struct AShrinkFlowerInteractive_FCheckpointRecord& outRecord);
 };
-
 // Class AliceGame.SkeletalMeshActorMAT_DollMakerBoss
 // 0x0018 (0x0324 - 0x033C)
 class ASkeletalMeshActorMAT_DollMakerBoss : public ASkeletalMeshActorMAT
@@ -5517,9 +5487,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventPreBeginPlay();
 };
-
 // Class AliceGame.SkeletalMeshActorMAT_DollMakerHandBoy
 // 0x000C (0x0324 - 0x0330)
 class ASkeletalMeshActorMAT_DollMakerHandBoy : public ASkeletalMeshActorMAT
@@ -5541,9 +5511,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventPreBeginPlay();
 };
-
 // Class AliceGame.SkeletalMeshActorMAT_DollMakerHandGirl
 // 0x000C (0x0324 - 0x0330)
 class ASkeletalMeshActorMAT_DollMakerHandGirl : public ASkeletalMeshActorMAT
@@ -5565,9 +5535,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventPreBeginPlay();
 };
-
 // Class AliceGame.SkeletalMeshActorMAT_HeadBody
 // 0x0008 (0x0324 - 0x032C)
 class ASkeletalMeshActorMAT_HeadBody : public ASkeletalMeshActorMAT
@@ -5589,10 +5559,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventPostBeginPlay();
 	class USkeletalMeshComponent* GetFaceFXSkelMeshComp();
 };
-
 // Class AliceGame.SphinxAgentAutomaton
 // 0x0000 (0x006C - 0x006C)
 class USphinxAgentAutomaton : public UKynapseAgent
@@ -5613,7 +5583,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SphinxAgentBitchBaby
 // 0x0000 (0x006C - 0x006C)
 class USphinxAgentBitchBaby : public UKynapseAgent
@@ -5634,7 +5603,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SphinxAgentBolterfly
 // 0x0000 (0x006C - 0x006C)
 class USphinxAgentBolterfly : public UKynapseAgent
@@ -5655,7 +5623,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SphinxAgentCannonCrab
 // 0x0000 (0x006C - 0x006C)
 class USphinxAgentCannonCrab : public UKynapseAgent
@@ -5676,7 +5643,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SphinxAgentCardGuard
 // 0x0000 (0x006C - 0x006C)
 class USphinxAgentCardGuard : public UKynapseAgent
@@ -5697,7 +5663,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SphinxAgentCommonNPC
 // 0x0000 (0x006C - 0x006C)
 class USphinxAgentCommonNPC : public UKynapseAgent
@@ -5718,7 +5683,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SphinxAgentDeepSeaSnark
 // 0x0000 (0x006C - 0x006C)
 class USphinxAgentDeepSeaSnark : public UKynapseAgent
@@ -5739,7 +5703,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SphinxAgentDollBoy
 // 0x0000 (0x006C - 0x006C)
 class USphinxAgentDollBoy : public UKynapseAgent
@@ -5760,7 +5723,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SphinxAgentDollGirl
 // 0x0000 (0x006C - 0x006C)
 class USphinxAgentDollGirl : public UKynapseAgent
@@ -5781,7 +5743,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SphinxAgentDollMakerBoss
 // 0x0000 (0x006C - 0x006C)
 class USphinxAgentDollMakerBoss : public UKynapseAgent
@@ -5802,7 +5763,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SphinxAgentDollMakerHandBoy
 // 0x0000 (0x006C - 0x006C)
 class USphinxAgentDollMakerHandBoy : public UKynapseAgent
@@ -5823,7 +5783,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SphinxAgentDollMakerHandGirl
 // 0x0000 (0x006C - 0x006C)
 class USphinxAgentDollMakerHandGirl : public UKynapseAgent
@@ -5844,7 +5803,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SphinxAgentDoomAgile
 // 0x0000 (0x006C - 0x006C)
 class USphinxAgentDoomAgile : public UKynapseAgent
@@ -5865,7 +5823,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SphinxAgentDoomGeneral
 // 0x0000 (0x006C - 0x006C)
 class USphinxAgentDoomGeneral : public UKynapseAgent
@@ -5886,7 +5843,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SphinxAgentDoomGrub
 // 0x0000 (0x006C - 0x006C)
 class USphinxAgentDoomGrub : public UKynapseAgent
@@ -5907,7 +5863,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SphinxAgentDoomSwarm
 // 0x0000 (0x006C - 0x006C)
 class USphinxAgentDoomSwarm : public UKynapseAgent
@@ -5928,7 +5883,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SphinxAgentDoomTank
 // 0x0000 (0x006C - 0x006C)
 class USphinxAgentDoomTank : public UKynapseAgent
@@ -5949,7 +5903,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SphinxAgentEmpressWaspFlyingBoss
 // 0x0000 (0x006C - 0x006C)
 class USphinxAgentEmpressWaspFlyingBoss : public UKynapseAgent
@@ -5970,7 +5923,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SphinxAgentEmpressWaspWalkingBoss
 // 0x0000 (0x006C - 0x006C)
 class USphinxAgentEmpressWaspWalkingBoss : public UKynapseAgent
@@ -5991,7 +5943,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SphinxAgentExecutioner
 // 0x0000 (0x006C - 0x006C)
 class USphinxAgentExecutioner : public UKynapseAgent
@@ -6012,7 +5963,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SphinxAgentEyePot
 // 0x0000 (0x006C - 0x006C)
 class USphinxAgentEyePot : public UKynapseAgent
@@ -6033,7 +5983,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SphinxAgentHareMouseBoss
 // 0x0000 (0x006C - 0x006C)
 class USphinxAgentHareMouseBoss : public UKynapseAgent
@@ -6054,7 +6003,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SphinxAgentIceSnark
 // 0x0000 (0x006C - 0x006C)
 class USphinxAgentIceSnark : public UKynapseAgent
@@ -6075,7 +6023,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SphinxAgentInkWasp
 // 0x0000 (0x006C - 0x006C)
 class USphinxAgentInkWasp : public UKynapseAgent
@@ -6096,7 +6043,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SphinxAgentLionChop
 // 0x0000 (0x006C - 0x006C)
 class USphinxAgentLionChop : public UKynapseAgent
@@ -6117,7 +6063,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SphinxAgentLondonCop
 // 0x0000 (0x006C - 0x006C)
 class USphinxAgentLondonCop : public UKynapseAgent
@@ -6138,7 +6083,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SphinxAgentLostSoul
 // 0x0000 (0x006C - 0x006C)
 class USphinxAgentLostSoul : public UKynapseAgent
@@ -6159,7 +6103,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SphinxAgentMadcap
 // 0x0000 (0x006C - 0x006C)
 class USphinxAgentMadcap : public UKynapseAgent
@@ -6180,7 +6123,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SphinxAgentQCannon
 // 0x0000 (0x006C - 0x006C)
 class USphinxAgentQCannon : public UKynapseAgent
@@ -6201,7 +6143,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SphinxAgentSamuraiWasp
 // 0x0000 (0x006C - 0x006C)
 class USphinxAgentSamuraiWasp : public UKynapseAgent
@@ -6222,7 +6163,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.Turret2DManager
 // 0x0038 (0x0228 - 0x0260)
 class ATurret2DManager : public AActor
@@ -6234,6 +6174,7 @@ public:
 	int32_t                                            MaxProjOnScreen;                               // 0x0234 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	class TArray<class AAlice2DTurret*>                Turret2D_Array;                                // 0x0238 (0x000C) [0x0000000000400001] (CPF_Edit | CPF_NeedCtorLink)
 	ECycleMode                                         CycleMode;                                     // 0x0244 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0245 (0x0003) MISSED OFFSET
 	class AAlicePlayerController*                      MyPC;                                          // 0x0248 (0x0004) [0x0000000000000000]               
 	class AAlicePawn*                                  MyTrigger;                                     // 0x024C (0x0004) [0x0000000000000000]               
 	uint32_t                                           bActive : 1;                                   // 0x0250 (0x0004) [0x0000000000000000] [0x00000001] 
@@ -6257,6 +6198,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventTick(float DeltaTime);
 	bool CheckActorType(class AActor* Obj);
 	void OnLoadReady();
@@ -6264,7 +6206,6 @@ public:
 	void OnToggle(class USeqAct_Toggle* Action);
 	void SetActive(bool _bActive);
 };
-
 // Class AliceGame.AliceAnimNode_AimOffset
 // 0x0014 (0x0148 - 0x015C)
 class UAliceAnimNode_AimOffset : public UAnimNodeAimOffset
@@ -6288,7 +6229,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceAnimNodeRandom
 // 0x0000 (0x0128 - 0x0128)
 class UAliceAnimNodeRandom : public UAnimNodeRandom
@@ -6309,7 +6249,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceAnimNotify_AddNonSkipTime
 // 0x0000 (0x0040 - 0x0040)
 class UAliceAnimNotify_AddNonSkipTime : public UAnimNotify
@@ -6330,7 +6269,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceAnimNotify_AliceClone
 // 0x000C (0x0040 - 0x004C)
 class UAliceAnimNotify_AliceClone : public UAnimNotify
@@ -6353,7 +6291,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceAnimNotify_AllowFacingTarget
 // 0x0004 (0x0040 - 0x0044)
 class UAliceAnimNotify_AllowFacingTarget : public UAnimNotify
@@ -6375,7 +6312,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceAnimNotify_CameraTrack
 // 0x0014 (0x0040 - 0x0054)
 class UAliceAnimNotify_CameraTrack : public UAnimNotify
@@ -6399,7 +6335,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceAnimNotify_ChangeInventorySocket
 // 0x000C (0x0040 - 0x004C)
 class UAliceAnimNotify_ChangeInventorySocket : public UAnimNotify
@@ -6422,7 +6357,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceAnimNotify_ChangeMaterial
 // 0x0014 (0x0040 - 0x0054)
 class UAliceAnimNotify_ChangeMaterial : public UAnimNotify
@@ -6446,7 +6380,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceAnimNotify_ChessTrapAttackHit
 // 0x0000 (0x0040 - 0x0040)
 class UAliceAnimNotify_ChessTrapAttackHit : public UAnimNotify
@@ -6467,7 +6400,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceAnimNotify_ComboBlendingStart
 // 0x0004 (0x0040 - 0x0044)
 class UAliceAnimNotify_ComboBlendingStart : public UAnimNotify
@@ -6489,7 +6421,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceAnimNotify_ComboInputAcceptFinish
 // 0x0004 (0x0040 - 0x0044)
 class UAliceAnimNotify_ComboInputAcceptFinish : public UAnimNotify
@@ -6511,7 +6442,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceAnimNotify_ComboInputAcceptStart
 // 0x0004 (0x0040 - 0x0044)
 class UAliceAnimNotify_ComboInputAcceptStart : public UAnimNotify
@@ -6533,7 +6463,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceAnimNotify_DestroyNPCComponent
 // 0x0004 (0x0040 - 0x0044)
 class UAliceAnimNotify_DestroyNPCComponent : public UAnimNotify
@@ -6555,7 +6484,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceAnimNotify_EnableDodgeWhileBeingGrabbed
 // 0x0004 (0x0040 - 0x0044)
 class UAliceAnimNotify_EnableDodgeWhileBeingGrabbed : public UAnimNotify
@@ -6577,7 +6505,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceAnimNotify_FadeOutUmbrella
 // 0x0000 (0x0040 - 0x0040)
 class UAliceAnimNotify_FadeOutUmbrella : public UAnimNotify
@@ -6598,7 +6525,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceAnimNotify_GiantStomp
 // 0x0008 (0x0040 - 0x0048)
 class UAliceAnimNotify_GiantStomp : public UAnimNotify
@@ -6621,7 +6547,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceAnimNotify_HidePawn
 // 0x0004 (0x0040 - 0x0044)
 class UAliceAnimNotify_HidePawn : public UAnimNotify
@@ -6643,7 +6568,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceAnimNotify_LockTargets
 // 0x0008 (0x0040 - 0x0048)
 class UAliceAnimNotify_LockTargets : public UAnimNotify
@@ -6666,7 +6590,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceAnimNotify_NpcDamageAnimAcceptEnd
 // 0x0000 (0x0040 - 0x0040)
 class UAliceAnimNotify_NpcDamageAnimAcceptEnd : public UAnimNotify
@@ -6687,7 +6610,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceAnimNotify_NpcDamageAnimAcceptStart
 // 0x0000 (0x0040 - 0x0040)
 class UAliceAnimNotify_NpcDamageAnimAcceptStart : public UAnimNotify
@@ -6708,7 +6630,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceAnimNotify_NPCRangeFireLauch
 // 0x0014 (0x0040 - 0x0054)
 class UAliceAnimNotify_NPCRangeFireLauch : public UAnimNotify
@@ -6734,7 +6655,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceAnimNotify_PlayMorph
 // 0x0014 (0x0040 - 0x0054)
 class UAliceAnimNotify_PlayMorph : public UAnimNotify
@@ -6759,7 +6679,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceAnimNotify_PlayParticleEffect_AliceWeapon
 // 0x0008 (0x0060 - 0x0068)
 class UAliceAnimNotify_PlayParticleEffect_AliceWeapon : public UAnimNotify_PlayParticleEffect
@@ -6782,7 +6701,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceAnimNotify_PlayWeaponSlotAnim
 // 0x0018 (0x0040 - 0x0058)
 class UAliceAnimNotify_PlayWeaponSlotAnim : public UAnimNotify
@@ -6808,7 +6726,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceAnimNotify_Ragdoll
 // 0x0000 (0x0040 - 0x0040)
 class UAliceAnimNotify_Ragdoll : public UAnimNotify
@@ -6829,7 +6746,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceAnimNotify_Rumble
 // 0x0004 (0x0050 - 0x0054)
 class UAliceAnimNotify_Rumble : public UAnimNotify_Rumble
@@ -6851,7 +6767,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceAnimNotify_SetCanBeDamaged
 // 0x0004 (0x0040 - 0x0044)
 class UAliceAnimNotify_SetCanBeDamaged : public UAnimNotify
@@ -6873,7 +6788,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceAnimNotify_SetHideNPCAttachActor
 // 0x0008 (0x0040 - 0x0048)
 class UAliceAnimNotify_SetHideNPCAttachActor : public UAnimNotify
@@ -6896,7 +6810,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceAnimNotify_SetHideNPCComponent
 // 0x0008 (0x0040 - 0x0048)
 class UAliceAnimNotify_SetHideNPCComponent : public UAnimNotify
@@ -6919,7 +6832,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceAnimNotify_SetMatParam
 // 0x000C (0x0040 - 0x004C)
 class UAliceAnimNotify_SetMatParam : public UAnimNotify
@@ -6941,7 +6853,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceAnimNotify_SetPhysics
 // 0x0001 (0x0040 - 0x0041)
 class UAliceAnimNotify_SetPhysics : public UAnimNotify
@@ -6963,7 +6874,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceAnimNotify_SetRootMotionMode
 // 0x0001 (0x0040 - 0x0041)
 class UAliceAnimNotify_SetRootMotionMode : public UAnimNotify
@@ -6985,7 +6895,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceAnimNotify_SnapToAlignPoint
 // 0x0008 (0x0040 - 0x0048)
 class UAliceAnimNotify_SnapToAlignPoint : public UAnimNotify
@@ -7008,7 +6917,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceAnimNotify_StartGrabbed
 // 0x0008 (0x0040 - 0x0048)
 class UAliceAnimNotify_StartGrabbed : public UAnimNotify
@@ -7030,7 +6938,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceAnimNotify_TakeDamage
 // 0x000C (0x0040 - 0x004C)
 class UAliceAnimNotify_TakeDamage : public UAnimNotify
@@ -7038,6 +6945,7 @@ class UAliceAnimNotify_TakeDamage : public UAnimNotify
 public:
 	float                                              DmgAmount;                                     // 0x0040 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	EDamageStrengthType                                DmgStrength;                                   // 0x0044 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0045 (0x0003) MISSED OFFSET
 	class UClass*                                      dmgType;                                       // 0x0048 (0x0004) [0x0000000000000001] (CPF_Edit)    
 
 public:
@@ -7054,7 +6962,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceAnimNotify_ToggleAttackTrace
 // 0x0004 (0x0040 - 0x0044)
 class UAliceAnimNotify_ToggleAttackTrace : public UAnimNotify
@@ -7076,7 +6983,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceAnimNotify_ToggleCriticalUI
 // 0x0008 (0x0040 - 0x0048)
 class UAliceAnimNotify_ToggleCriticalUI : public UAnimNotify
@@ -7099,7 +7005,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceAnimNotify_ToggleHurtAnim
 // 0x0004 (0x0040 - 0x0044)
 class UAliceAnimNotify_ToggleHurtAnim : public UAnimNotify
@@ -7121,7 +7026,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceAnimNotify_ToggleMeleeAttackCollision
 // 0x0028 (0x0040 - 0x0068)
 class UAliceAnimNotify_ToggleMeleeAttackCollision : public UAnimNotify
@@ -7135,6 +7039,7 @@ public:
 	EAnimWeaponAttackCollisionMode                     WeaponAttackCollisionMode;                     // 0x004C (0x0001) [0x0000000000000001] (CPF_Edit)    
 	EAnimWeaponAttackCollisionMode                     PawnAttackCollisionMode;                       // 0x004D (0x0001) [0x0000000000000001] (CPF_Edit)    
 	EDamageStrengthType                                DmgStrength;                                   // 0x004E (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x1];                              // 0x004F (0x0001) MISSED OFFSET
 	int32_t                                            AttackPhysicsAssetConfigID;                    // 0x0050 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	int32_t                                            KnockBackParamConfigID;                        // 0x0054 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	float                                              RetriggerTime;                                 // 0x0058 (0x0004) [0x0000000000000001] (CPF_Edit)    
@@ -7156,7 +7061,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceAnimNotify_ToggleNPCAttachActor
 // 0x000C (0x0040 - 0x004C)
 class UAliceAnimNotify_ToggleNPCAttachActor : public UAnimNotify
@@ -7180,7 +7084,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceAnimNotify_ToggleShield
 // 0x0008 (0x0040 - 0x0048)
 class UAliceAnimNotify_ToggleShield : public UAnimNotify
@@ -7203,7 +7106,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceAnimNotify_TriggerAliceDodgeParticle
 // 0x0008 (0x0040 - 0x0048)
 class UAliceAnimNotify_TriggerAliceDodgeParticle : public UAnimNotify
@@ -7226,7 +7128,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceAnimNotify_TriggerAliceGhost
 // 0x002C (0x0040 - 0x006C)
 class UAliceAnimNotify_TriggerAliceGhost : public UAnimNotify
@@ -7240,6 +7141,7 @@ public:
 	float                                              StandTime2;                                    // 0x005C (0x0004) [0x0000000000000001] (CPF_Edit)    
 	float                                              MaxFlightLength;                               // 0x0060 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	EDamageStrengthType                                DmgStrength;                                   // 0x0064 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0065 (0x0003) MISSED OFFSET
 	float                                              DamageValue;                                   // 0x0068 (0x0004) [0x0000000000000001] (CPF_Edit)    
 
 public:
@@ -7256,7 +7158,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceAnimNotify_TriggerHobbyHorseGhost
 // 0x0020 (0x0040 - 0x0060)
 class UAliceAnimNotify_TriggerHobbyHorseGhost : public UAnimNotify
@@ -7267,6 +7168,7 @@ public:
 	int32_t                                            CheckRadius;                                   // 0x0048 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	int32_t                                            DamageValue;                                   // 0x004C (0x0004) [0x0000000000000001] (CPF_Edit)    
 	EDamageStrengthType                                GhostDmgStrength;                              // 0x0050 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0051 (0x0003) MISSED OFFSET
 	float                                              GhostSpeed;                                    // 0x0054 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	float                                              HeightGap;                                     // 0x0058 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	float                                              HalfAngleGap;                                  // 0x005C (0x0004) [0x0000000000000001] (CPF_Edit)    
@@ -7285,7 +7187,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceAnimNotify_TriggerMeleeAttackPrePawnAreaCollision
 // 0x0028 (0x0040 - 0x0068)
 class UAliceAnimNotify_TriggerMeleeAttackPrePawnAreaCollision : public UAnimNotify
@@ -7297,6 +7198,7 @@ public:
 	float                                              AttackDamage;                                  // 0x0054 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	int32_t                                            KnockBackParamConfigID;                        // 0x0058 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	EDamageStrengthType                                DmgStrength;                                   // 0x005C (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x005D (0x0003) MISSED OFFSET
 	class UForceFeedbackWaveform*                      FFWaveform;                                    // 0x0060 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	uint32_t                                           ActivateOnWeaponHit : 1;                       // 0x0064 (0x0004) [0x0000000000000001] [0x00000001] (CPF_Edit)
 
@@ -7314,7 +7216,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceAnimNotify_TriggerMeleeAttackPrePawnDeathCheck
 // 0x0028 (0x0040 - 0x0068)
 class UAliceAnimNotify_TriggerMeleeAttackPrePawnDeathCheck : public UAnimNotify
@@ -7326,6 +7227,7 @@ public:
 	float                                              AttackDamage;                                  // 0x0054 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	int32_t                                            KnockBackParamConfigID;                        // 0x0058 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	EDamageStrengthType                                DmgStrength;                                   // 0x005C (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x005D (0x0003) MISSED OFFSET
 	class UForceFeedbackWaveform*                      FFWaveform;                                    // 0x0060 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	uint32_t                                           ActivateOnWeaponHit : 1;                       // 0x0064 (0x0004) [0x0000000000000001] [0x00000001] (CPF_Edit)
 
@@ -7343,7 +7245,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceAnimNotify_TriggerMeleeAttackSlomo
 // 0x001C (0x0040 - 0x005C)
 class UAliceAnimNotify_TriggerMeleeAttackSlomo : public UAnimNotify
@@ -7352,6 +7253,7 @@ public:
 	class UClass*                                      WeaponClass;                                   // 0x0040 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	ESlomoCondition                                    SlomoTriggerCondition;                         // 0x0044 (0x0001) [0x0000000000000001] (CPF_Edit)    
 	EGameEffectSpeedControlPriority                    Priority;                                      // 0x0045 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x2];                              // 0x0046 (0x0002) MISSED OFFSET
 	float                                              MinScale;                                      // 0x0048 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	float                                              DecTime;                                       // 0x004C (0x0004) [0x0000000000000001] (CPF_Edit)    
 	float                                              FrzTime;                                       // 0x0050 (0x0004) [0x0000000000000001] (CPF_Edit)    
@@ -7371,10 +7273,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventSetSlomoSoundMode();
 	class AAlicePlayerController* getAPC();
 };
-
 // Class AliceGame.AliceAnimNotify_TriggerRadiusDamage
 // 0x003C (0x0040 - 0x007C)
 class UAliceAnimNotify_TriggerRadiusDamage : public UAnimNotify
@@ -7387,6 +7289,7 @@ public:
 	float                                              RadiusDamageValue;                             // 0x0054 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	int32_t                                            KnockBackParamConfigID;                        // 0x0058 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	EDamageStrengthType                                DmgStrength;                                   // 0x005C (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x005D (0x0003) MISSED OFFSET
 	class UForceFeedbackWaveform*                      FFWaveform;                                    // 0x0060 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	uint32_t                                           ActivateOnWeaponHit : 1;                       // 0x0064 (0x0004) [0x0000000000000001] [0x00000001] (CPF_Edit)
 	uint32_t                                           bNPCWeaponCanAttackOtherNPC : 1;               // 0x0064 (0x0004) [0x0000000000000001] [0x00000002] (CPF_Edit)
@@ -7413,7 +7316,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceAnimNotify_UnattachNPCComponent
 // 0x0004 (0x0040 - 0x0044)
 class UAliceAnimNotify_UnattachNPCComponent : public UAnimNotify
@@ -7435,7 +7337,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameAnimNode_BlendAnimsByDir
 // 0x0024 (0x0140 - 0x0164)
 class UAliceGameAnimNode_BlendAnimsByDir : public UAnimNodeSequenceBlendBase
@@ -7463,7 +7364,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameAnimNode_BlendAnimsByIsInLondon
 // 0x0008 (0x0140 - 0x0148)
 class UAliceGameAnimNode_BlendAnimsByIsInLondon : public UAnimNodeSequenceBlendBase
@@ -7486,7 +7386,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameAnimNode_BlendBase
 // 0x0007 (0x00F1 - 0x00F8)
 class UAliceGameAnimNode_BlendBase : public UAnimNodeBlendBase
@@ -7510,9 +7409,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	class UAnimNodeSequence* GetCustomAnimNodeSequence();
 };
-
 // Class AliceGame.AliceGameAnimNode_BlendList
 // 0x001C (0x00F8 - 0x0114)
 class UAliceGameAnimNode_BlendList : public UAliceGameAnimNode_BlendBase
@@ -7540,9 +7439,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SetActiveChild(int32_t ChildIndex, float BlendTime);
 };
-
 // Class AliceGame.AliceGameAnimNode_BlendByAccelVariation
 // 0x0058 (0x0114 - 0x016C)
 class UAliceGameAnimNode_BlendByAccelVariation : public UAliceGameAnimNode_BlendList
@@ -7578,7 +7477,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameAnimNode_BlendByAimSwitch
 // 0x002C (0x0114 - 0x0140)
 class UAliceGameAnimNode_BlendByAimSwitch : public UAliceGameAnimNode_BlendList
@@ -7603,7 +7501,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameAnimNode_BlendByAIState
 // 0x000C (0x0114 - 0x0120)
 class UAliceGameAnimNode_BlendByAIState : public UAliceGameAnimNode_BlendList
@@ -7625,7 +7522,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameAnimNode_BlendByAliceWeaponType
 // 0x0014 (0x0114 - 0x0128)
 class UAliceGameAnimNode_BlendByAliceWeaponType : public UAliceGameAnimNode_BlendList
@@ -7647,7 +7543,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameAnimNode_BlendByAngleBetweenInputAndPlayer
 // 0x0040 (0x0114 - 0x0154)
 class UAliceGameAnimNode_BlendByAngleBetweenInputAndPlayer : public UAliceGameAnimNode_BlendList
@@ -7678,7 +7573,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameAnimNode_BlendByBlendingBranch
 // 0x0004 (0x0114 - 0x0118)
 class UAliceGameAnimNode_BlendByBlendingBranch : public UAliceGameAnimNode_BlendList
@@ -7700,7 +7594,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameAnimNode_BlendByChessAction
 // 0x0000 (0x0114 - 0x0114)
 class UAliceGameAnimNode_BlendByChessAction : public UAliceGameAnimNode_BlendList
@@ -7721,7 +7614,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameAnimNode_BlendByCloneState
 // 0x0010 (0x0114 - 0x0124)
 class UAliceGameAnimNode_BlendByCloneState : public UAliceGameAnimNode_BlendList
@@ -7743,13 +7635,13 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameAnimNode_BlendByFall
 // 0x0010 (0x0114 - 0x0124)
 class UAliceGameAnimNode_BlendByFall : public UAliceGameAnimNode_BlendList
 {
 public:
 	EBlendJumpSteps                                    JumpStep;                                      // 0x0114 (0x0001) [0x0000000000000002] (CPF_Const)   
+	uint8_t                                            UnknownData00[0x3];                              // 0x0115 (0x0003) MISSED OFFSET
 	int32_t                                            LastJumpStep;                                  // 0x0118 (0x0004) [0x0000000000000000]               
 	int32_t                                            PendingJumpStep;                               // 0x011C (0x0004) [0x0000000000000000]               
 	float                                              PendingTimeToGo;                               // 0x0120 (0x0004) [0x0000000000000000]               
@@ -7767,9 +7659,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	float GetAnimDuration(int32_t ChildIndex);
 };
-
 // Class AliceGame.AliceGameAnimNode_BlendByFloat
 // 0x001C (0x0114 - 0x0130)
 class UAliceGameAnimNode_BlendByFloat : public UAliceGameAnimNode_BlendList
@@ -7793,7 +7685,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameAnimNode_BlendByHealthState
 // 0x0020 (0x0114 - 0x0134)
 class UAliceGameAnimNode_BlendByHealthState : public UAliceGameAnimNode_BlendList
@@ -7815,7 +7706,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameAnimNode_BlendByLedgeType
 // 0x0004 (0x0114 - 0x0118)
 class UAliceGameAnimNode_BlendByLedgeType : public UAliceGameAnimNode_BlendList
@@ -7837,7 +7727,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameAnimNode_BlendByLegState
 // 0x000A (0x0114 - 0x011E)
 class UAliceGameAnimNode_BlendByLegState : public UAliceGameAnimNode_BlendList
@@ -7862,7 +7751,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameAnimNode_BlendByMovement
 // 0x0010 (0x0114 - 0x0124)
 class UAliceGameAnimNode_BlendByMovement : public UAliceGameAnimNode_BlendList
@@ -7884,7 +7772,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameAnimNode_BlendByNoseSwitch
 // 0x0024 (0x0114 - 0x0138)
 class UAliceGameAnimNode_BlendByNoseSwitch : public UAliceGameAnimNode_BlendList
@@ -7907,7 +7794,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameAnimNode_BlendByNPCAttachActorState
 // 0x000C (0x0114 - 0x0120)
 class UAliceGameAnimNode_BlendByNPCAttachActorState : public UAliceGameAnimNode_BlendList
@@ -7930,7 +7816,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameAnimNode_BlendByPhysics
 // 0x003C (0x0114 - 0x0150)
 class UAliceGameAnimNode_BlendByPhysics : public UAliceGameAnimNode_BlendList
@@ -7955,7 +7840,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameAnimNode_BlendByPhysState
 // 0x000C (0x0114 - 0x0120)
 class UAliceGameAnimNode_BlendByPhysState : public UAliceGameAnimNode_BlendList
@@ -7979,7 +7863,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameAnimNode_BlendByPushPull
 // 0x0018 (0x0114 - 0x012C)
 class UAliceGameAnimNode_BlendByPushPull : public UAliceGameAnimNode_BlendList
@@ -8002,7 +7885,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameAnimNode_BlendByRadialPushPull
 // 0x0010 (0x0114 - 0x0124)
 class UAliceGameAnimNode_BlendByRadialPushPull : public UAliceGameAnimNode_BlendList
@@ -8025,7 +7907,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameAnimNode_BlendByRotate
 // 0x000C (0x0114 - 0x0120)
 class UAliceGameAnimNode_BlendByRotate : public UAliceGameAnimNode_BlendList
@@ -8049,7 +7930,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameAnimNode_BlendBySlide
 // 0x0018 (0x0114 - 0x012C)
 class UAliceGameAnimNode_BlendBySlide : public UAliceGameAnimNode_BlendList
@@ -8072,7 +7952,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameAnimNode_BlendBySlot
 // 0x0018 (0x0114 - 0x012C)
 class UAliceGameAnimNode_BlendBySlot : public UAliceGameAnimNode_BlendList
@@ -8080,6 +7959,7 @@ class UAliceGameAnimNode_BlendBySlot : public UAliceGameAnimNode_BlendList
 public:
 	int32_t                                            CurrentDynamicAnimIndex;                       // 0x0114 (0x0004) [0x0000000000000000]               
 	EConfigAnimPlayType                                CurrentDynamicAnimPlayType;                    // 0x0118 (0x0001) [0x0000000000000000]               
+	uint8_t                                            UnknownData00[0x3];                              // 0x0119 (0x0003) MISSED OFFSET
 	int32_t                                            DynamicStartIndex;                             // 0x011C (0x0004) [0x0000000000000003] (CPF_Edit | CPF_Const)
 	int32_t                                            DynamicEndIndex;                               // 0x0120 (0x0004) [0x0000000000000003] (CPF_Edit | CPF_Const)
 	float                                              CurrentPendingBlendOutTime;                    // 0x0124 (0x0004) [0x0000000000000003] (CPF_Edit | CPF_Const)
@@ -8100,7 +7980,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameAnimNode_BlendBySlot_Pawn
 // 0x0000 (0x012C - 0x012C)
 class UAliceGameAnimNode_BlendBySlot_Pawn : public UAliceGameAnimNode_BlendBySlot
@@ -8121,7 +8000,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameAnimNode_BlendBySlot_Alice
 // 0x0000 (0x012C - 0x012C)
 class UAliceGameAnimNode_BlendBySlot_Alice : public UAliceGameAnimNode_BlendBySlot_Pawn
@@ -8142,7 +8020,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameAnimNode_BlendBySlot_NPC
 // 0x0000 (0x012C - 0x012C)
 class UAliceGameAnimNode_BlendBySlot_NPC : public UAliceGameAnimNode_BlendBySlot_Pawn
@@ -8163,7 +8040,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameAnimNode_BlendBySlot_Weapon
 // 0x0000 (0x012C - 0x012C)
 class UAliceGameAnimNode_BlendBySlot_Weapon : public UAliceGameAnimNode_BlendBySlot
@@ -8184,7 +8060,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameAnimNode_BlendBySlot_AliceWeapon
 // 0x0000 (0x012C - 0x012C)
 class UAliceGameAnimNode_BlendBySlot_AliceWeapon : public UAliceGameAnimNode_BlendBySlot_Weapon
@@ -8205,7 +8080,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameAnimNode_BlendBySlot_NPCWeapon
 // 0x0000 (0x012C - 0x012C)
 class UAliceGameAnimNode_BlendBySlot_NPCWeapon : public UAliceGameAnimNode_BlendBySlot_Weapon
@@ -8226,7 +8100,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameAnimNode_BlendBySpeed
 // 0x0024 (0x0114 - 0x0138)
 class UAliceGameAnimNode_BlendBySpeed : public UAliceGameAnimNode_BlendList
@@ -8255,7 +8128,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameAnimNode_BlendBySpikeFish
 // 0x0010 (0x0114 - 0x0124)
 class UAliceGameAnimNode_BlendBySpikeFish : public UAliceGameAnimNode_BlendList
@@ -8278,7 +8150,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameAnimNode_BlendByStance
 // 0x002C (0x0114 - 0x0140)
 class UAliceGameAnimNode_BlendByStance : public UAliceGameAnimNode_BlendList
@@ -8300,7 +8171,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameAnimNode_BlendBySwimming
 // 0x0040 (0x0114 - 0x0154)
 class UAliceGameAnimNode_BlendBySwimming : public UAliceGameAnimNode_BlendList
@@ -8323,7 +8193,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameAnimNode_BlendByTrapAction
 // 0x0000 (0x0114 - 0x0114)
 class UAliceGameAnimNode_BlendByTrapAction : public UAliceGameAnimNode_BlendList
@@ -8344,7 +8213,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameAnimNode_BlendRotate
 // 0x0004 (0x0114 - 0x0118)
 class UAliceGameAnimNode_BlendRotate : public UAliceGameAnimNode_BlendList
@@ -8366,7 +8234,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameAnimNode_ChangeDirectionOnLedge
 // 0x0000 (0x0114 - 0x0114)
 class UAliceGameAnimNode_ChangeDirectionOnLedge : public UAliceGameAnimNode_BlendList
@@ -8387,7 +8254,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameAnimNode_IsClockBombCountingDown
 // 0x0000 (0x0114 - 0x0114)
 class UAliceGameAnimNode_IsClockBombCountingDown : public UAliceGameAnimNode_BlendList
@@ -8408,7 +8274,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameAnimNode_IsExceedingLedge
 // 0x0000 (0x0114 - 0x0114)
 class UAliceGameAnimNode_IsExceedingLedge : public UAliceGameAnimNode_BlendList
@@ -8429,7 +8294,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameAnimNode_IsInLondon
 // 0x0000 (0x0114 - 0x0114)
 class UAliceGameAnimNode_IsInLondon : public UAliceGameAnimNode_BlendList
@@ -8450,7 +8314,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameAnimNode_IsInPushOrPull
 // 0x0000 (0x0114 - 0x0114)
 class UAliceGameAnimNode_IsInPushOrPull : public UAliceGameAnimNode_BlendList
@@ -8471,7 +8334,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameAnimNode_IsInWaterWalk
 // 0x0000 (0x0114 - 0x0114)
 class UAliceGameAnimNode_IsInWaterWalk : public UAliceGameAnimNode_BlendList
@@ -8492,7 +8354,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameAnimNode_IsJumpToLedgeOrLand
 // 0x0004 (0x0114 - 0x0118)
 class UAliceGameAnimNode_IsJumpToLedgeOrLand : public UAliceGameAnimNode_BlendList
@@ -8514,7 +8375,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameAnimNode_IsOnBalanceBeam
 // 0x0004 (0x0114 - 0x0118)
 class UAliceGameAnimNode_IsOnBalanceBeam : public UAliceGameAnimNode_BlendList
@@ -8536,7 +8396,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameAnimNode_IsShieldBlocking
 // 0x0000 (0x0114 - 0x0114)
 class UAliceGameAnimNode_IsShieldBlocking : public UAliceGameAnimNode_BlendList
@@ -8557,7 +8416,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameAnimNode_IsShrunk
 // 0x0000 (0x0114 - 0x0114)
 class UAliceGameAnimNode_IsShrunk : public UAliceGameAnimNode_BlendList
@@ -8578,7 +8436,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameAnimNode_IsStandIdleJump
 // 0x0000 (0x0114 - 0x0114)
 class UAliceGameAnimNode_IsStandIdleJump : public UAliceGameAnimNode_BlendList
@@ -8599,7 +8456,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameAnimNode_IsSwitchingDirOnLedge
 // 0x0000 (0x0114 - 0x0114)
 class UAliceGameAnimNode_IsSwitchingDirOnLedge : public UAliceGameAnimNode_BlendList
@@ -8620,7 +8476,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameAnimNode_IsSwitchingLedge
 // 0x0004 (0x0114 - 0x0118)
 class UAliceGameAnimNode_IsSwitchingLedge : public UAliceGameAnimNode_BlendList
@@ -8642,7 +8497,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameAnimNode_IsTeapotCharging
 // 0x0000 (0x0114 - 0x0114)
 class UAliceGameAnimNode_IsTeapotCharging : public UAliceGameAnimNode_BlendList
@@ -8663,7 +8517,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameAnimNode_LedgeMoveDirection
 // 0x0008 (0x0114 - 0x011C)
 class UAliceGameAnimNode_LedgeMoveDirection : public UAliceGameAnimNode_BlendList
@@ -8687,7 +8540,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameAnimNode_LedgeSwitchingDir
 // 0x0000 (0x0114 - 0x0114)
 class UAliceGameAnimNode_LedgeSwitchingDir : public UAliceGameAnimNode_BlendList
@@ -8708,7 +8560,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameAnimNode_NPCRotate
 // 0x0008 (0x0114 - 0x011C)
 class UAliceGameAnimNode_NPCRotate : public UAliceGameAnimNode_BlendList
@@ -8731,7 +8582,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameAnimNode_PhysTransition
 // 0x000C (0x0114 - 0x0120)
 class UAliceGameAnimNode_PhysTransition : public UAliceGameAnimNode_BlendList
@@ -8755,7 +8605,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameAnimNode_BlendTwo
 // 0x0010 (0x00F8 - 0x0108)
 class UAliceGameAnimNode_BlendTwo : public UAliceGameAnimNode_BlendBase
@@ -8779,9 +8628,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SetBlendTarget(float BlendTarget, float BlendTime);
 };
-
 // Class AliceGame.AliceGameAnimNode_BlendPerBone
 // 0x0028 (0x0108 - 0x0130)
 class UAliceGameAnimNode_BlendPerBone : public UAliceGameAnimNode_BlendTwo
@@ -8806,7 +8655,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameAnimNode_JumpPad
 // 0x0014 (0x0114 - 0x0128)
 class UAliceGameAnimNode_JumpPad : public UAnimNodeBlendList
@@ -8829,7 +8677,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameAnimNode_ScaleRateBySpeed
 // 0x0004 (0x00FC - 0x0100)
 class UAliceGameAnimNode_ScaleRateBySpeed : public UAnimNodeScaleRateBySpeed
@@ -8851,7 +8698,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameAnimNode_Sequence
 // 0x0017 (0x0132 - 0x0149)
 class UAliceGameAnimNode_Sequence : public UAnimNodeSequence
@@ -8877,7 +8723,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameAnimNode_Sequence_Slot
 // 0x0007 (0x0149 - 0x0150)
 class UAliceGameAnimNode_Sequence_Slot : public UAliceGameAnimNode_Sequence
@@ -8899,7 +8744,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameAnimNode_Sequence_Slot_Pawn
 // 0x0000 (0x0150 - 0x0150)
 class UAliceGameAnimNode_Sequence_Slot_Pawn : public UAliceGameAnimNode_Sequence_Slot
@@ -8920,7 +8764,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameAnimNode_Sequence_Slot_Alice
 // 0x0000 (0x0150 - 0x0150)
 class UAliceGameAnimNode_Sequence_Slot_Alice : public UAliceGameAnimNode_Sequence_Slot_Pawn
@@ -8941,7 +8784,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameAnimNode_Sequence_Slot_NPC
 // 0x0000 (0x0150 - 0x0150)
 class UAliceGameAnimNode_Sequence_Slot_NPC : public UAliceGameAnimNode_Sequence_Slot_Pawn
@@ -8962,7 +8804,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameAnimNode_Sequence_Slot_Weapon
 // 0x0000 (0x0150 - 0x0150)
 class UAliceGameAnimNode_Sequence_Slot_Weapon : public UAliceGameAnimNode_Sequence_Slot
@@ -8983,7 +8824,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameAnimNode_Sequence_Slot_AliceWeapon
 // 0x0000 (0x0150 - 0x0150)
 class UAliceGameAnimNode_Sequence_Slot_AliceWeapon : public UAliceGameAnimNode_Sequence_Slot_Weapon
@@ -9004,7 +8844,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameAnimNode_Sequence_Slot_NPCWeapon
 // 0x0000 (0x0150 - 0x0150)
 class UAliceGameAnimNode_Sequence_Slot_NPCWeapon : public UAliceGameAnimNode_Sequence_Slot_Weapon
@@ -9025,7 +8864,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameAnimNode_Sequence_StopMotion
 // 0x0012 (0x0132 - 0x0144)
 class UAliceGameAnimNode_Sequence_StopMotion : public UAnimNodeSequence
@@ -9050,7 +8888,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameSkelControl_Cloth
 // 0x0098 (0x00C4 - 0x015C)
 class UAliceGameSkelControl_Cloth : public USkelControlBase
@@ -9098,7 +8935,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameSkelControl_ShrinkWeapon
 // 0x0004 (0x00C4 - 0x00C8)
 class UAliceGameSkelControl_ShrinkWeapon : public USkelControlBase
@@ -9120,7 +8956,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SkelControlShake
 // 0x003C (0x00C4 - 0x0100)
 class USkelControlShake : public USkelControlBase
@@ -9136,6 +8971,7 @@ public:
 	struct FVector                                     BoneTranslation;                               // 0x00D0 (0x000C) [0x0000000000000000]               
 	EBoneControlSpace                                  BoneTranslationSpace;                          // 0x00DC (0x0001) [0x0000000000000000]               
 	EBoneControlSpace                                  BoneRotationSpace;                             // 0x00DD (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x2];                              // 0x00DE (0x0002) MISSED OFFSET
 	class FName                                        TranslationSpaceBoneName;                      // 0x00E0 (0x0008) [0x0000000000000000]               
 	struct FRotator                                    BoneRotation;                                  // 0x00E8 (0x000C) [0x0000000000000001] (CPF_Edit)    
 	class FName                                        RotationSpaceBoneName;                         // 0x00F4 (0x0008) [0x0000000000000001] (CPF_Edit)    
@@ -9155,7 +8991,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SkelCtrl_AliceHand_Placement
 // 0x0018 (0x0104 - 0x011C)
 class USkelCtrl_AliceHand_Placement : public USkelControlLimb
@@ -9180,7 +9015,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameNPCAttachedActor
 // 0x0060 (0x0314 - 0x0374)
 class AAliceGameNPCAttachedActor : public ASkeletalMeshActor
@@ -9188,6 +9022,7 @@ class AAliceGameNPCAttachedActor : public ASkeletalMeshActor
 public:
 	ENPCAttachedActorState                             ActorState;                                    // 0x0314 (0x0001) [0x0000000000000000]               
 	EDamageStrengthType                                CurrentDmgStrength;                            // 0x0315 (0x0001) [0x0000000000002000] (CPF_Transient)
+	uint8_t                                            UnknownData00[0x2];                              // 0x0316 (0x0002) MISSED OFFSET
 	float                                              HitRangeDistance;                              // 0x0318 (0x0004) [0x0000000000000000]               
 	int32_t                                            HP;                                            // 0x031C (0x0004) [0x0000000000002000] (CPF_Transient)
 	int32_t                                            FullHP;                                        // 0x0320 (0x0004) [0x0000000000002000] (CPF_Transient)
@@ -9219,6 +9054,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventTakeDamage(int32_t DamageValue, class AController* EventInstigator, const struct FVector& HitLocation, const struct FVector& Momentum, class UClass* DamageType, const struct FTraceHitInfo& optionalHitInfo, class AActor* optionalDamageCauser);
 	void CacheAnimNodes();
 	void eventOnAnimEnd(class UAnimNodeSequence* SeqNode, float PlayedTime, float ExcessTime);
@@ -9228,7 +9064,6 @@ public:
 	bool IsAlive();
 	void PlayConfigAnim(int32_t optionalConfigtype, struct FAnimationParaConfig& outAnimConfig);
 };
-
 // Class AliceGame.AliceGamePawn
 // 0x03AC (0x05DC - 0x0988)
 class AAliceGamePawn : public AGamePawn
@@ -9254,6 +9089,7 @@ public:
 	ESpeechPriority                                    CurrentSpeechPriority;                         // 0x05FB (0x0001) [0x0000000000002000] (CPF_Transient)
 	EPawnDamageCollisionMode                           PawnDamageCollisionModeFilter;                 // 0x05FC (0x0001) [0x0000000000000001] (CPF_Edit)    
 	EDamageStrengthType                                CurrentDmgStrength;                            // 0x05FD (0x0001) [0x0000000000002000] (CPF_Transient)
+	uint8_t                                            UnknownData00[0x2];                              // 0x05FE (0x0002) MISSED OFFSET
 	class TArray<class UAliceGameAnimNode_BlendBase*>  AnimBlendNodes;                                // 0x0600 (0x000C) [0x0000000000400000] (CPF_NeedCtorLink)
 	int32_t                                            AnimBlendNodeNum;                              // 0x060C (0x0004) [0x0000000000000001] (CPF_Edit)    
 	struct FAnimationParaConfig                        KismetAnimConfig;                              // 0x0610 (0x0038) [0x0000000000400000] (CPF_NeedCtorLink)
@@ -9291,6 +9127,7 @@ public:
 	uint32_t                                           SecondSnappingToLedge : 1;                     // 0x0658 (0x0004) [0x0000000000000000] [0x20000000] 
 	uint32_t                                           bReadyToAutoClimb : 1;                         // 0x0658 (0x0004) [0x0000000000000000] [0x40000000] 
 	uint32_t                                           bIsPreparingClimbingLedge : 1;                 // 0x0658 (0x0004) [0x0000000000000000] [0x80000000] 
+	uint32_t : 0;                                  // 0x065C CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bPlayingTransitionAnim : 1;                    // 0x065C (0x0004) [0x0000000000000000] [0x00000001] 
 	uint32_t                                           DoPendingPhysics : 1;                          // 0x065C (0x0004) [0x0000000000000000] [0x00000002] 
 	uint32_t                                           bSlideJump : 1;                                // 0x065C (0x0004) [0x0000000000000000] [0x00000004] 
@@ -9448,6 +9285,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool IsRunning();
 	void DoSTTMiddleDuration();
 	void OnInInvincibleTime();
@@ -9580,7 +9418,6 @@ public:
 	void EnableCollision(bool bEnable);
 	void ApplyPendingPhysics();
 };
-
 // Class AliceGame.AliceClonePawn
 // 0x00F4 (0x0988 - 0x0A7C)
 class AAliceClonePawn : public AAliceGamePawn
@@ -9596,6 +9433,7 @@ public:
 	float                                              CriticalTime;                                  // 0x09A4 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	EClonnPawnState                                    CloneState;                                    // 0x09A8 (0x0001) [0x0000000000000000]               
 	EClockBombType                                     BombType;                                      // 0x09A9 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x2];                              // 0x09AA (0x0002) MISSED OFFSET
 	float                                              ExplosionDamage;                               // 0x09AC (0x0004) [0x0000000000000001] (CPF_Edit)    
 	float                                              ExplosionRadiusDamage;                         // 0x09B0 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	int32_t                                            ExplosionKnockBackID;                          // 0x09B4 (0x0004) [0x0000000000000001] (CPF_Edit)    
@@ -9631,6 +9469,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void Detonate();
 	void eventDestroyed();
 	void AnnounceDie();
@@ -9642,7 +9481,6 @@ public:
 	void NotifyGFxHUDBombCountingDown();
 	void eventPostBeginPlay();
 };
-
 // Class AliceGame.AliceGameKynapsePawn
 // 0x0208 (0x0988 - 0x0B90)
 class AAliceGameKynapsePawn : public AAliceGamePawn
@@ -9659,6 +9497,7 @@ public:
 	EDT_WeaponIndentify                                DiedByWeaponIndectify;                         // 0x09A7 (0x0001) [0x0000000000000000]               
 	EXPType                                            FixedXPEnum;                                   // 0x09A8 (0x0001) [0x0000000000000001] (CPF_Edit)    
 	EPhysics                                           OldPhysicsBeforeAttach;                        // 0x09A9 (0x0001) [0x0000000000002000] (CPF_Transient)
+	uint8_t                                            UnknownData00[0x2];                              // 0x09AA (0x0002) MISSED OFFSET
 	class AWeaponForNPC*                               MyWeapon;                                      // 0x09AC (0x0004) [0x0000000000000000]               
 	class TArray<struct FAnimationParaConfig>          NPCAnimationParaConfigs;                       // 0x09B0 (0x000C) [0x0000000000400001] (CPF_Edit | CPF_NeedCtorLink)
 	class UDynamicLightEnvironmentComponent*           LightEnvironment;                              // 0x09BC (0x0004) [0x00000000040A000B] (CPF_Edit | CPF_Const | CPF_ExportObject | CPF_EditConst | CPF_Component | CPF_EditInline)
@@ -9697,6 +9536,7 @@ public:
 	uint32_t                                           bForceUseManualXP : 1;                         // 0x09CC (0x0004) [0x0000000000000000] [0x20000000] 
 	uint32_t                                           bIPAlertIsOn : 1;                              // 0x09CC (0x0004) [0x0000000000000001] [0x40000000] (CPF_Edit)
 	uint32_t                                           bAlwaysLookatAlice : 1;                        // 0x09CC (0x0004) [0x0000000000000001] [0x80000000] (CPF_Edit)
+	uint32_t : 0;                                  // 0x09D0 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bLookatActive : 1;                             // 0x09D0 (0x0004) [0x0000000000000001] [0x00000001] (CPF_Edit)
 	uint32_t                                           bInterpolatingAttchedPosition : 1;             // 0x09D0 (0x0004) [0x0000000000002000] [0x00000002] (CPF_Transient)
 	uint32_t                                           bBeingAttachedToAlice : 1;                     // 0x09D0 (0x0004) [0x0000000000002000] [0x00000004] (CPF_Transient)
@@ -9797,6 +9637,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventPostSetSonarActive();
 	class UFaceFXAsset* eventGetActorFaceFXAsset();
 	void OnPlayFaceFXAnim(class USeqAct_PlayFaceFXAnim* inAction);
@@ -9882,7 +9723,6 @@ public:
 	void CustomNPC();
 	void SphinxAnimEnd(class UAnimNodeSequence* SeqNode, float PlayedTime, float ExcessTime);
 };
-
 // Class AliceGame.AliceGameSpeakPawn
 // 0x0000 (0x0988 - 0x0988)
 class AAliceGameSpeakPawn : public AAliceGamePawn
@@ -9902,10 +9742,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventPostBeginPlay();
 	void CacheAnimNodes();
 };
-
 // Class AliceGame.AlicePawn
 // 0x1C54 (0x0988 - 0x25DC)
 class AAlicePawn : public AAliceGamePawn
@@ -9944,6 +9784,7 @@ public:
 	uint32_t                                           bCanFloat : 1;                                 // 0x0994 (0x0004) [0x0000000000000001] [0x20000000] (CPF_Edit)
 	uint32_t                                           bCanSprint : 1;                                // 0x0994 (0x0004) [0x0000000000000001] [0x40000000] (CPF_Edit)
 	uint32_t                                           bCanCombat : 1;                                // 0x0994 (0x0004) [0x0000000000000001] [0x80000000] (CPF_Edit)
+	uint32_t : 0;                                  // 0x0998 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bCanShrink : 1;                                // 0x0998 (0x0004) [0x0000000000000001] [0x00000001] (CPF_Edit)
 	uint32_t                                           bCanLockon : 1;                                // 0x0998 (0x0004) [0x0000000000000001] [0x00000002] (CPF_Edit)
 	uint32_t                                           bCanAiming : 1;                                // 0x0998 (0x0004) [0x0000000000000001] [0x00000004] (CPF_Edit)
@@ -9976,6 +9817,7 @@ public:
 	uint32_t                                           bEnableNoNPCInCamLocking : 1;                  // 0x0998 (0x0004) [0x0000000000000001] [0x20000000] (CPF_Edit)
 	uint32_t                                           bAllowFacingTargetInSpeicalMove : 1;           // 0x0998 (0x0004) [0x0000000000002000] [0x40000000] (CPF_Transient)
 	uint32_t                                           bDrawTargetCone : 1;                           // 0x0998 (0x0004) [0x0000000000002000] [0x80000000] (CPF_Transient)
+	uint32_t : 0;                                  // 0x099C CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           NoCamOffsetYWhenNoTarget : 1;                  // 0x099C (0x0004) [0x0000000000000001] [0x00000001] (CPF_Edit)
 	uint32_t                                           DynamicCamOffsetY : 1;                         // 0x099C (0x0004) [0x0000000000000001] [0x00000002] (CPF_Edit)
 	uint32_t                                           bInLockOnMode : 1;                             // 0x099C (0x0004) [0x0000000000000000] [0x00000004] 
@@ -10008,6 +9850,7 @@ public:
 	uint32_t                                           bSprintRTHold : 1;                             // 0x099C (0x0004) [0x0000000000000000] [0x20000000] 
 	uint32_t                                           bStopUpdating : 1;                             // 0x099C (0x0004) [0x0000000000000000] [0x40000000] 
 	uint32_t                                           bHasHealth : 1;                                // 0x099C (0x0004) [0x0000000000000001] [0x80000000] (CPF_Edit)
+	uint32_t : 0;                                  // 0x09A0 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bClockBombCountingDown : 1;                    // 0x09A0 (0x0004) [0x0000000000002000] [0x00000001] (CPF_Transient)
 	uint32_t                                           bHoldingWatch : 1;                             // 0x09A0 (0x0004) [0x0000000000002000] [0x00000002] (CPF_Transient)
 	uint32_t                                           bClockBombIsRecharging : 1;                    // 0x09A0 (0x0004) [0x0000000000002000] [0x00000004] (CPF_Transient)
@@ -10040,6 +9883,7 @@ public:
 	uint32_t                                           bRepulsor : 1;                                 // 0x09A0 (0x0004) [0x0000000000000000] [0x20000000] 
 	uint32_t                                           bOldShowBlobShadow : 1;                        // 0x09A0 (0x0004) [0x0000000000000000] [0x40000000] 
 	uint32_t                                           bJustLeaveEdge : 1;                            // 0x09A0 (0x0004) [0x0000000000000000] [0x80000000] 
+	uint32_t : 0;                                  // 0x09A4 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bInHysteriaMode : 1;                           // 0x09A4 (0x0004) [0x0000000000000000] [0x00000001] 
 	uint32_t                                           bHysteriaPlaying : 1;                          // 0x09A4 (0x0004) [0x0000000000000000] [0x00000002] 
 	uint32_t                                           bHysteriaTriggered : 1;                        // 0x09A4 (0x0004) [0x0000000000000000] [0x00000004] 
@@ -10072,6 +9916,7 @@ public:
 	uint32_t                                           bActivateHysterialAnytime : 1;                 // 0x09A4 (0x0004) [0x0000000000000000] [0x20000000] 
 	uint32_t                                           bDisableHPDrops : 1;                           // 0x09A4 (0x0004) [0x0000000000002000] [0x40000000] (CPF_Transient)
 	uint32_t                                           bSonarAlwaysVisible : 1;                       // 0x09A4 (0x0004) [0x0000000000002000] [0x80000000] (CPF_Transient)
+	uint32_t : 0;                                  // 0x09A8 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           MODDLC_Flesh_DLCVB_HysterialAnytime : 1;       // 0x09A8 (0x0004) [0x0000000000000001] [0x00000001] (CPF_Edit)
 	uint32_t                                           MODDLC_Cheshire_DLCHH_DisableHPDrops : 1;      // 0x09A8 (0x0004) [0x0000000000000001] [0x00000002] (CPF_Edit)
 	uint32_t                                           MODDLC_Caterpillar_DLCVB_SonarAlwaysVisible : 1;// 0x09A8 (0x0004) [0x0000000000000001] [0x00000004] (CPF_Edit)
@@ -10119,6 +9964,7 @@ public:
 	EAliceWonderlandDresses                            CurWonderlandDress;                            // 0x0A67 (0x0001) [0x0000000000000000]               
 	EAliceWonderlandDresses                            PendingWonderlandDress;                        // 0x0A68 (0x0001) [0x0000000000000000]               
 	EAliceDressLoadStep                                AliceDressLoadStep;                            // 0x0A69 (0x0001) [0x0000000000000000]               
+	uint8_t                                            UnknownData00[0x2];                              // 0x0A6A (0x0002) MISSED OFFSET
 	struct FRotator                                    CamInitRevolutionSpeed;                        // 0x0A6C (0x000C) [0x0000000000000000]               
 	struct FVector                                     POICameraOffset;                               // 0x0A78 (0x000C) [0x0000000000000000]               
 	float                                              CamDistScale;                                  // 0x0A84 (0x0004) [0x0000000000000000]               
@@ -10643,6 +10489,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventPostSetPhysFalling();
 	float eventGetUnshrinkBaseOffsetZ();
 	void eventTriggerPushDown();
@@ -10668,8 +10515,8 @@ public:
 	bool eventIsCycleExpiredEX();
 	bool eventIsCycleExpired();
 	void GetContextEvents(class UClass* DesiredClass, class TArray<class USequenceObject*>& outOutContextEvents);
-	bool ActivateContextEventClass(EContextItem InContextItem, bool optionalBTest, class TArray<class USequenceEvent*>& outEventList, class TArray<int32_t>& outActivateIndices, class TArray<class USequenceEvent*>& outActivatedEvents);
-	bool TriggerContextEventClass(EContextItem ContextItem, int32_t optionalActivateIndex, bool optionalBTest, class TArray<class USequenceEvent*>& outActivatedEvents);
+	bool ActivateContextEventClass(EContextItem InContextItem, bool optionalBTest, class TArray<class USequenceEvent*>& outEventList, class TArray<int32_t>& optionalOutActivateIndices, class TArray<class USequenceEvent*>& optionalOutActivatedEvents);
+	bool TriggerContextEventClass(EContextItem ContextItem, int32_t optionalActivateIndex, bool optionalBTest, class TArray<class USequenceEvent*>& optionalOutActivatedEvents);
 	bool CanDoContextAction(bool bClockBomb);
 	void EndGrabbed();
 	void PlayFrozenBreakParticle();
@@ -10890,8 +10737,8 @@ public:
 	void DisactiveCurCameraPreset();
 	bool GetActiveCameraPreset(int32_t I, struct FAliceCameraProperties& outACP);
 	int32_t GetActiveCameraPresetNum();
-	void DisableCameraPreset(int32_t nCameraPreset, struct FViewTargetTransitionParams& outBlendParams, struct FAliceCameraProperties& outUserPreset);
-	void EnableCameraPreset(int32_t nCameraPreset, struct FViewTargetTransitionParams& outBlendParams, struct FAliceCameraProperties& outUserPreset);
+	void DisableCameraPreset(int32_t nCameraPreset, struct FViewTargetTransitionParams& outBlendParams, struct FAliceCameraProperties& optionalOutUserPreset);
+	void EnableCameraPreset(int32_t nCameraPreset, struct FViewTargetTransitionParams& outBlendParams, struct FAliceCameraProperties& optionalOutUserPreset);
 	void ToggleCloseFollowCamera(bool bEnable);
 	bool IsAliceCameraRotatorDirty(const struct FRotator& in_Rotator);
 	void SetAliceCameraRotator(const struct FRotator& in_FlagRotator, const struct FRotator& in_Rotator, struct FRotator& outOut_Rotator);
@@ -10937,8 +10784,8 @@ public:
 	void ActivateDamage(EDamageStrengthType DamageStrength);
 	void DeactivateHealthLevel(int32_t Index);
 	void ActivateHealthLevel(int32_t Index);
-	void StopHealthDamageEffect(bool bHealth, class USoundCue* Sound, class UCameraAnim* CameraAnimation, class UForceFeedbackWaveform* optionalFFWaveform, const class TArray<class FName>& optionalPPEffectName, class TArray<class UPostProcessEffect*>& outPPEffects);
-	void PlayHealthDamageEffect(bool bHealth, class USoundCue* Sound, class UCameraAnim* CameraAnimation, bool optionalBLoopCameraAnim, class UForceFeedbackWaveform* optionalFFWaveform, const class TArray<class FName>& optionalPPEffectName, class TArray<class UPostProcessEffect*>& outPPEffects);
+	void StopHealthDamageEffect(bool bHealth, class USoundCue* Sound, class UCameraAnim* CameraAnimation, class UForceFeedbackWaveform* optionalFFWaveform, const class TArray<class FName>& optionalPPEffectName, class TArray<class UPostProcessEffect*>& optionalOutPPEffects);
+	void PlayHealthDamageEffect(bool bHealth, class USoundCue* Sound, class UCameraAnim* CameraAnimation, bool optionalBLoopCameraAnim, class UForceFeedbackWaveform* optionalFFWaveform, const class TArray<class FName>& optionalPPEffectName, class TArray<class UPostProcessEffect*>& optionalOutPPEffects);
 	void EnablePPEffect(const class TArray<class FName>& PPEffectName, bool bEnable, class TArray<class UPostProcessEffect*>& outPPEffects);
 	void Draw3Dtext(class UCanvas* in_canvas, const struct FVector& TextLocation, const class FString& Text, const struct FColor& TextColor);
 	void eventAliceUpdateCameraAnim();
@@ -10987,7 +10834,6 @@ public:
 	void PrepareEndingOfJumpToAnotherLedge();
 	void PrepareStartingOfJumpToAnotherLedge(ELedgeJumpDir jumpDir);
 };
-
 // Class AliceGame.AlicePlayer_MovementStateBase
 // 0x00F8 (0x003C - 0x0134)
 class UAlicePlayer_MovementStateBase : public UObject
@@ -11038,12 +10884,12 @@ public:
 		return uClassPointer;
 	};
 
+
 	void CalculateMovementParameters(float DeltaTime);
 	void eventRevertToIdle(float DeltaTime);
 	void eventUpdate(float DeltaTime);
 	void SetPlayerBasicMovementState(EMovementState inState);
 };
-
 // Class AliceGame.AliceCamMod_BackOfPlayer
 // 0x0054 (0x0058 - 0x00AC)
 class UAliceCamMod_BackOfPlayer : public UCameraModifier
@@ -11078,6 +10924,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void ImplementAliceSoftResetCamera(class AAlicePawn* MyAlicePawn, float DeltaTime, float TargetSpeed, bool bRotated, struct FRotator& outOut_ViewRotation, struct FRotator& outOut_DeltaRot);
 	void ImplementAliceForceResetCamera(class AAlicePlayerController* APC, class AAlicePawn* MyAlicePawn, float DeltaTime, struct FRotator& outOut_ViewRotation, struct FRotator& outOut_DeltaRot);
 	void ImplementCameraMagnet(class AAlicePawn* MyAlicePawn, float DeltaTime, float TargetSpeed, struct FRotator& outOut_ViewRotation, struct FRotator& outOut_DeltaRot);
@@ -11110,7 +10957,6 @@ public:
 	void UpdateGoBackOfPlayer(float DeltaTime, struct FTPOV& outOutPOV);
 	bool ModifyCamera(class ACamera* Camera, float DeltaTime, struct FTPOV& outOutPOV);
 };
-
 // Class AliceGame.AlicePlayerCamera
 // 0x012C (0x0520 - 0x064C)
 class AAlicePlayerCamera : public AGamePlayerCamera
@@ -11148,6 +10994,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool CanSeeEx(const struct FVector& vLocation, float optionalScale, bool optionalBNeedOcclusionTesting);
 	bool InSight(const struct FVector& vLocation, float optionalScale);
 	bool InSightEx(const struct FVector& vLocation, float optionalScale, int32_t& outFlagX, int32_t& outFlagY, int32_t& outFlagZ);
@@ -11164,7 +11011,7 @@ public:
 	struct FPlane ProjectWithMatrix(const struct FVector& vLocation, struct FMatrix& outProjMatrix);
 	struct FMatrix GetPerspectiveMatrix();
 	struct FMatrix CalcViewMatrix(const struct FRotator& ViewRotation, const struct FVector& ViewLocation);
-	class AActor* CameraPenetrationCheck(const struct FVector& cameraLoc, const struct FVector& TargetLoc, bool bIsCollideActors, const struct FVector& Extent, int32_t ExtraTraceFlags, float optionalForceAlpha, float optionalForceAlphaFadeOutTime, float optionalForceAlphaFadeInTime, struct FVector& outHitLocation, struct FVector& outHitNormal, struct FTraceHitInfo& outHitInfo);
+	class AActor* CameraPenetrationCheck(const struct FVector& cameraLoc, const struct FVector& TargetLoc, bool bIsCollideActors, const struct FVector& Extent, int32_t ExtraTraceFlags, float optionalForceAlpha, float optionalForceAlphaFadeOutTime, float optionalForceAlphaFadeInTime, struct FVector& outHitLocation, struct FVector& outHitNormal, struct FTraceHitInfo& optionalOutHitInfo);
 	float ApplyCamDistInertia(float CamDistance, const struct FVector& out_CamLoc, float InertiaRate, float fDeltaTime);
 	void ApplyCameraInertia(const struct FTPOV& OldPOV, float TransInertiaRate, float RotInertiaRate, float FOVInertiaRate, float DeltaTime, struct FVector& outOutCamLoc, struct FRotator& outOutCamRot, float& outOutFOV);
 	float CameraFloatInertiaFunction(float OldVector, float TargetVector, float InertiaRate, float DeltaTime);
@@ -11184,13 +11031,13 @@ public:
 	float GetCameraTrackElapsedTime(float fDeltaTime);
 	struct FPlane Project(const struct FVector& Position);
 };
-
 // Class AliceGame.LedgeVolume
 // 0x0084 (0x02C8 - 0x034C)
 class ALedgeVolume : public AClimbableVolume
 {
 public:
 	ELedgeVolumeType                                   VolumeType;                                    // 0x02C8 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x02C9 (0x0003) MISSED OFFSET
 	class ALedgeVolume*                                NextLedge;                                     // 0x02CC (0x0004) [0x0000000000000001] (CPF_Edit)    
 	class ALedgeVolume*                                PrevLedge;                                     // 0x02D0 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	class ALedgeVolume*                                LeftLedgeToJump;                               // 0x02D4 (0x0004) [0x0000000000000001] (CPF_Edit)    
@@ -11222,12 +11069,12 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventPawnLeavingVolume(class APawn* P);
 	void eventPawnEnteredVolume(class APawn* P);
 	void eventPostBeginPlay();
 	void GetClosestEnd(const struct FVector& Position, float Radius, struct FVector& outEndPos, struct FRotator& outEndRot);
 };
-
 // Class AliceGame.NPCfallingVolume
 // 0x0000 (0x0264 - 0x0264)
 class ANPCfallingVolume : public AVolume
@@ -11247,10 +11094,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool StopsProjectile(class AProjectile* P);
 	void eventPostBeginPlay();
 };
-
 // Class AliceGame.PressureTriggerVolume
 // 0x0000 (0x0264 - 0x0264)
 class APressureTriggerVolume : public AVolume
@@ -11270,10 +11117,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool StopsProjectile(class AProjectile* P);
 	void eventPostBeginPlay();
 };
-
 // Class AliceGame.ShrinkReverbVolume
 // 0x0000 (0x02A0 - 0x02A0)
 class AShrinkReverbVolume : public AReverbVolume
@@ -11294,7 +11141,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceCombatInputManager
 // 0x000C (0x003C - 0x0048)
 class UAliceCombatInputManager : public UObject
@@ -11317,9 +11163,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void Update();
 };
-
 // Class AliceGame.AlicePlayerController
 // 0x0670 (0x0614 - 0x0C84)
 class AAlicePlayerController : public AGamePlayerController
@@ -11359,6 +11205,7 @@ public:
 	uint32_t                                           bFastSwimTurning : 1;                          // 0x061C (0x0004) [0x0000000000000000] [0x20000000] 
 	uint32_t                                           bKeepAliceInFocus : 1;                         // 0x061C (0x0004) [0x0000000000000000] [0x40000000] 
 	uint32_t                                           bCameraRightStickFree : 1;                     // 0x061C (0x0004) [0x0000000000000000] [0x80000000] 
+	uint32_t : 0;                                  // 0x0620 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bSpecialCameraEnabled : 1;                     // 0x0620 (0x0004) [0x0000000000000000] [0x00000001] 
 	uint32_t                                           bSpecialTargetCamera : 1;                      // 0x0620 (0x0004) [0x0000000000000000] [0x00000002] 
 	uint32_t                                           bCameraInterpEnabled : 1;                      // 0x0620 (0x0004) [0x0000000000000000] [0x00000004] 
@@ -11391,6 +11238,7 @@ public:
 	uint32_t                                           bBoostRoll : 1;                                // 0x0620 (0x0004) [0x0000000000002000] [0x20000000] (CPF_Transient)
 	uint32_t                                           bBoostVolumeActive : 1;                        // 0x0620 (0x0004) [0x0000000000002000] [0x40000000] (CPF_Transient)
 	uint32_t                                           bBoostVolumeFalloff : 1;                       // 0x0620 (0x0004) [0x0000000000002000] [0x80000000] (CPF_Transient)
+	uint32_t : 0;                                  // 0x0624 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bMaintainMovement : 1;                         // 0x0624 (0x0004) [0x0000000000002000] [0x00000001] (CPF_Transient)
 	uint32_t                                           bJumpFromJumpPad : 1;                          // 0x0624 (0x0004) [0x0000000000000000] [0x00000002] 
 	uint32_t                                           bLockOnStateFirstFrame : 1;                    // 0x0624 (0x0004) [0x0000000000000000] [0x00000004] 
@@ -11442,6 +11290,7 @@ public:
 	ESpecialMove                                       curSteamAnim;                                  // 0x06DC (0x0001) [0x0000000000000000]               
 	uint8_t                                            UI_CurActiveKeyType;                           // 0x06DD (0x0001) [0x0000000000000000]               
 	uint8_t                                            UI_CurActiveKeyGroup;                          // 0x06DE (0x0001) [0x0000000000000000]               
+	uint8_t                                            UnknownData00[0x1];                              // 0x06DF (0x0001) MISSED OFFSET
 	float                                              PlayedSecond;                                  // 0x06E0 (0x0004) [0x0000000000000000]               
 	int32_t                                            DestroyedDoomBarriers;                         // 0x06E4 (0x0004) [0x0000000000000000]               
 	int32_t                                            FrozenTotalCountEnemy;                         // 0x06E8 (0x0004) [0x0000000000000000]               
@@ -11602,6 +11451,7 @@ public:
 
 		return uClassPointer;
 	};
+
 
 	void RemoveSonarDetectedActor(class AActor* DesiredActor);
 	void AddSonarDetectedActor(class AActor* DesiredActor);
@@ -12136,7 +11986,6 @@ public:
 	void DoCrossHairLineCheck(const struct FVector& vStart, const struct FVector& vEnd);
 	void LoadCheckpoint();
 };
-
 // Class AliceGame.AliceObjectiveManager
 // 0x0024 (0x003C - 0x0060)
 class UAliceObjectiveManager : public UObject
@@ -12161,6 +12010,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void DrawObjectives(const class FString& ObjectiveDesc);
 	void FailObjective(const class FName& ObjName, bool bNotifyPlayer);
 	void CompleteObjective(const class FName& ObjName, bool bNotifyPlayer);
@@ -12170,7 +12020,6 @@ public:
 	void OnManageObjectives(class USeqAct_ManageObjectives* Action);
 	class FString RetrieveObjectiveString(const class FString& TagName);
 };
-
 // Class AliceGame.JumpPadPhysics
 // 0x0058 (0x036C - 0x03C4)
 class AJumpPadPhysics : public AJumpPad
@@ -12202,6 +12051,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventDestroyed();
 	void OnPlayIdleAnimation();
 	void OnLaunchAnimOverTimer();
@@ -12216,7 +12066,6 @@ public:
 	void CreateAndSetSonarMat();
 	void eventPostBeginPlay();
 };
-
 // Class AliceGame.JumpPadGrowing
 // 0x005C (0x03C4 - 0x0420)
 class AJumpPadGrowing : public AJumpPadPhysics
@@ -12249,6 +12098,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventTick(float DeltaTime);
 	void ActiveRadiusCheck();
 	bool IsAliceAboveMushroom();
@@ -12270,7 +12120,6 @@ public:
 	void CreateCheckpointRecord(struct AJumpPadGrowing_FCheckpointRecord& outRecord);
 	bool ShouldSaveForCheckpoint();
 };
-
 // Class AliceGame.AliceRemoteSpeaker
 // 0x0040 (0x0228 - 0x0268)
 class AAliceRemoteSpeaker : public AReplicationInfo
@@ -12298,6 +12147,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void OnToggle(class USeqAct_Toggle* Action);
 	bool eventIsSameTeam(class APawn* P);
 	void eventRemoteSpeakLineFinished();
@@ -12306,7 +12156,6 @@ public:
 	void eventReplicatedEvent(const class FName& VarName);
 	bool eventRemoteSpeakLine(class AActor* Addressee, class USoundCue* Audio, const class FString& DebugText, float optionalDelaySec, bool optionalBSuppressSubtitle, ESpeakLineBroadcastFilter optionalMPBroadcastFilter, ESpeechPriority optionalPriority);
 };
-
 // Class AliceGame.RemoteSpeaker_Generic
 // 0x0000 (0x0268 - 0x0268)
 class ARemoteSpeaker_Generic : public AAliceRemoteSpeaker
@@ -12327,7 +12176,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceSpeechManager
 // 0x0018 (0x0228 - 0x0240)
 class AAliceSpeechManager : public AActor
@@ -12351,19 +12199,20 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool IsSpeechActive(ESpeechPriority PriFilter);
 	void NotifyDialogueFinish(class AActor* Speaker, class USoundCue* Audio);
 	void eventNotifyDialogueStart(class AActor* Speaker, class AActor* Addressee, class USoundCue* Audio, ESpeechPriority PRI);
 	void EndDialogueTracking();
 	void BeginDialogueTracking();
 };
-
 // Class AliceGame.SeqAct_AliceAbilityControl
 // 0x000C (0x00E8 - 0x00F4)
 class USeqAct_AliceAbilityControl : public USequenceAction
 {
 public:
 	EAliceAbilityControl                               AbilityToControl;                              // 0x00E8 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x00E9 (0x0003) MISSED OFFSET
 	class AAlicePlayerController*                      APC;                                           // 0x00EC (0x0004) [0x0000000000002000] (CPF_Transient)
 	class AAlicePawn*                                  Alice;                                         // 0x00F0 (0x0004) [0x0000000000002000] (CPF_Transient)
 
@@ -12380,6 +12229,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventRemoveTeapotCannon();
 	void eventRemovePiperGrinder();
 	void eventRemoveHobbyHorse();
@@ -12389,7 +12239,6 @@ public:
 	void eventAddHobbyHorse();
 	void eventAddVorpalBlade();
 };
-
 // Class AliceGame.SeqAct_AliceTransition
 // 0x001C (0x00F8 - 0x0114)
 class USeqAct_AliceTransition : public USeqAct_Latent
@@ -12415,7 +12264,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SeqAct_CameraInertia
 // 0x0004 (0x00E8 - 0x00EC)
 class USeqAct_CameraInertia : public USequenceAction
@@ -12437,7 +12285,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SeqAct_CauseAliceDamage
 // 0x0028 (0x00E8 - 0x0110)
 class USeqAct_CauseAliceDamage : public USequenceAction
@@ -12450,6 +12297,7 @@ public:
 	float                                              DamagePerSec;                                  // 0x00EC (0x0004) [0x0000000000000001] (CPF_Edit)    
 	float                                              PainInterval;                                  // 0x00F0 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	EDamageStrengthType                                KnockBackType;                                 // 0x00F4 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x00F5 (0x0003) MISSED OFFSET
 	struct FKnockBackParameters                        KnockBackParameter;                            // 0x00F8 (0x0014) [0x0000000000000001] (CPF_Edit)    
 	class AActor*                                      DirectionActor;                                // 0x010C (0x0004) [0x0000000000000001] (CPF_Edit)    
 
@@ -12467,7 +12315,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SeqAct_Fire2DTurret
 // 0x0004 (0x00E8 - 0x00EC)
 class USeqAct_Fire2DTurret : public USequenceAction
@@ -12489,7 +12336,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SeqAct_GetInputVector
 // 0x0000 (0x0100 - 0x0100)
 class USeqAct_GetInputVector : public USeqAct_GetVectorComponents
@@ -12510,7 +12356,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SeqAct_GiveXP
 // 0x0004 (0x00E8 - 0x00EC)
 class USeqAct_GiveXP : public USequenceAction
@@ -12532,7 +12377,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SeqAct_ManageObjectives
 // 0x0018 (0x00E8 - 0x0100)
 class USeqAct_ManageObjectives : public USequenceAction
@@ -12556,7 +12400,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SeqAct_PlayAnimation
 // 0x001C (0x00F8 - 0x0114)
 class USeqAct_PlayAnimation : public USeqAct_Latent
@@ -12587,7 +12430,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SeqAct_ResetClothHair
 // 0x0004 (0x00E8 - 0x00EC)
 class USeqAct_ResetClothHair : public USequenceAction
@@ -12610,7 +12452,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SeqAct_SetDeath
 // 0x018C (0x00E8 - 0x0274)
 class USeqAct_SetDeath : public USequenceAction
@@ -12618,6 +12459,7 @@ class USeqAct_SetDeath : public USequenceAction
 public:
 	struct FDeathTypeFXInfo                            DeathTypeFxInfos[17];                          // 0x00E8 (0x0154) [0x0000000000000000]               
 	EDeathType                                         DeathType;                                     // 0x023C (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x023D (0x0003) MISSED OFFSET
 	float                                              FadeDuration;                                  // 0x0240 (0x0004) [0x0000000000000000]               
 	struct FColor                                      FadeColor;                                     // 0x0244 (0x0004) [0x0000000000000000]               
 	class UCameraAnim*                                 CameraAnim;                                    // 0x0248 (0x0004) [0x0000000000000000]               
@@ -12643,11 +12485,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventResetAmmoOfAlice(class AAlicePlayerController* PC);
 	void OnAliceDeathParticleFinished(class UParticleSystemComponent* PSC);
 	void eventPlayerAliceDeathParticle(class AAlicePlayerController* PC);
 };
-
 // Class AliceGame.SeqAct_Respawn
 // 0x000C (0x0274 - 0x0280)
 class USeqAct_Respawn : public USeqAct_SetDeath
@@ -12671,7 +12513,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SeqAct_SetNpcDeath
 // 0x0004 (0x00E8 - 0x00EC)
 class USeqAct_SetNpcDeath : public USequenceAction
@@ -12693,7 +12534,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SeqAct_Speak
 // 0x002C (0x0118 - 0x0144)
 class USeqAct_Speak : public USeqAct_PlaySound
@@ -12707,6 +12547,7 @@ public:
 	float                                              ExtraHeadTurnTowardTime;                       // 0x011C (0x0004) [0x0000000000000003] (CPF_Edit | CPF_Const)
 	class FName                                        GestureAnimName;                               // 0x0120 (0x0008) [0x0000000000000003] (CPF_Edit | CPF_Const)
 	ETTSSpeaker                                        TTSSpeaker;                                    // 0x0128 (0x0001) [0x0000000000000003] (CPF_Edit | CPF_Const)
+	uint8_t                                            UnknownData00[0x3];                              // 0x0129 (0x0003) MISSED OFFSET
 	class FString                                      TTSSpokenText;                                 // 0x012C (0x000C) [0x0000000000408003] (CPF_Edit | CPF_Const | CPF_Localized | CPF_NeedCtorLink)
 	class USoundCue*                                   TTSSoundCue;                                   // 0x0138 (0x0004) [0x0000000000002000] (CPF_Transient)
 	class UAudioComponent*                             SpokenLineAC;                                  // 0x013C (0x0004) [0x0000000004082008] (CPF_ExportObject | CPF_Transient | CPF_Component | CPF_EditInline)
@@ -12725,9 +12566,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	static int32_t eventGetObjClassVersion();
 };
-
 // Class AliceGame.SeqAct_SpecialCameraBehavior
 // 0x0014 (0x00FC - 0x0110)
 class USeqAct_SpecialCameraBehavior : public USeqAct_LatentWithInterpData
@@ -12753,9 +12594,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	static int32_t eventGetObjClassVersion();
 };
-
 // Class AliceGame.SeqAct_SwitchLand
 // 0x0004 (0x00E8 - 0x00EC)
 class USeqAct_SwitchLand : public USequenceAction
@@ -12785,7 +12626,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SeqAct_ToggleCameraMagnetActor
 // 0x0000 (0x00E8 - 0x00E8)
 class USeqAct_ToggleCameraMagnetActor : public USequenceAction
@@ -12806,7 +12646,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SeqAct_ToggleColdBreath
 // 0x0000 (0x00E8 - 0x00E8)
 class USeqAct_ToggleColdBreath : public USequenceAction
@@ -12827,7 +12666,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SeqAct_ToggleContextActor
 // 0x0000 (0x00E8 - 0x00E8)
 class USeqAct_ToggleContextActor : public USequenceAction
@@ -12848,7 +12686,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SeqAct_ToggleDamage
 // 0x0000 (0x00E8 - 0x00E8)
 class USeqAct_ToggleDamage : public USequenceAction
@@ -12869,7 +12706,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SeqAct_ToggleDeathSlomo
 // 0x0000 (0x00E8 - 0x00E8)
 class USeqAct_ToggleDeathSlomo : public USequenceAction
@@ -12890,7 +12726,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SeqAct_ToggleHysteriaMode
 // 0x0000 (0x00E8 - 0x00E8)
 class USeqAct_ToggleHysteriaMode : public USequenceAction
@@ -12911,7 +12746,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SeqAct_ToggleInterestPoint
 // 0x0000 (0x00E8 - 0x00E8)
 class USeqAct_ToggleInterestPoint : public USequenceAction
@@ -12932,7 +12766,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SeqAct_ToggleRailRide
 // 0x0000 (0x00E8 - 0x00E8)
 class USeqAct_ToggleRailRide : public USequenceAction
@@ -12953,7 +12786,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SeqAct_ToggleShrink
 // 0x0004 (0x00E8 - 0x00EC)
 class USeqAct_ToggleShrink : public USequenceAction
@@ -12974,9 +12806,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventToggleShrinkMode(class AAlicePlayerController* PC);
 };
-
 // Class AliceGame.SeqAct_ToggleShrinkMode
 // 0x0000 (0x00E8 - 0x00E8)
 class USeqAct_ToggleShrinkMode : public USequenceAction
@@ -12996,9 +12828,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventAutoUnShrink(class AAlicePlayerController* PC);
 };
-
 // Class AliceGame.SeqAct_ToggleUI
 // 0x001C (0x00F8 - 0x0114)
 class USeqAct_ToggleUI : public USeqAct_Latent
@@ -13007,6 +12839,7 @@ public:
 	class FString                                      UIText;                                        // 0x00F8 (0x000C) [0x0000000000400003] (CPF_Edit | CPF_Const | CPF_NeedCtorLink)
 	float                                              Duration;                                      // 0x0104 (0x0004) [0x0000000000000003] (CPF_Edit | CPF_Const)
 	EKismetToggleUIType                                UIType;                                        // 0x0108 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0109 (0x0003) MISSED OFFSET
 	uint32_t                                           bPlaying : 1;                                  // 0x010C (0x0004) [0x0000000000002000] [0x00000001] (CPF_Transient)
 	float                                              PlayedTime;                                    // 0x0110 (0x0004) [0x0000000000002000] (CPF_Transient)
 
@@ -13024,7 +12857,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SeqAct_Transition
 // 0x0014 (0x00F8 - 0x010C)
 class USeqAct_Transition : public USeqAct_Latent
@@ -13049,7 +12881,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SeqAct_TrophyCounter
 // 0x0004 (0x00E8 - 0x00EC)
 class USeqAct_TrophyCounter : public USequenceAction
@@ -13079,7 +12910,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SeqAct_UnlockEnemy
 // 0x0001 (0x00E8 - 0x00E9)
 class USeqAct_UnlockEnemy : public USequenceAction
@@ -13101,7 +12931,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SeqAct_UseCommLink
 // 0x0020 (0x00F8 - 0x0118)
 class USeqAct_UseCommLink : public USeqAct_Latent
@@ -13133,9 +12962,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	static int32_t eventGetObjClassVersion();
 };
-
 // Class AliceGame.SeqCond_ComparePhysics
 // 0x0001 (0x00D0 - 0x00D1)
 class USeqCond_ComparePhysics : public USequenceCondition
@@ -13157,7 +12986,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SeqCond_IsDemo
 // 0x0000 (0x00D0 - 0x00D0)
 class USeqCond_IsDemo : public USequenceCondition
@@ -13178,7 +13006,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SeqCond_IsPlayTest
 // 0x0000 (0x00D0 - 0x00D0)
 class USeqCond_IsPlayTest : public USequenceCondition
@@ -13199,7 +13026,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SeqCond_IsPushing
 // 0x0000 (0x00D0 - 0x00D0)
 class USeqCond_IsPushing : public USequenceCondition
@@ -13220,7 +13046,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SeqEvent_ArrivedAtActor
 // 0x0004 (0x0100 - 0x0104)
 class USeqEvent_ArrivedAtActor : public USequenceEvent
@@ -13242,7 +13067,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SeqVar_GenericRemoteSpeaker
 // 0x0000 (0x00B0 - 0x00B0)
 class USeqVar_GenericRemoteSpeaker : public USeqVar_Object
@@ -13263,7 +13087,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SeqVar_LeftStickInput
 // 0x0000 (0x00A0 - 0x00A0)
 class USeqVar_LeftStickInput : public USeqVar_Vector
@@ -13284,7 +13107,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameMenu
 // 0x0008 (0x0228 - 0x0230)
 class AAliceGameMenu : public AActor
@@ -13308,9 +13130,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void OpenGameMenu();
 };
-
 // Class AliceGame.AliceGFxFSCmdHandler
 // 0x0000 (0x003C - 0x003C)
 class UAliceGFxFSCmdHandler : public UGFxFSCmdHandler
@@ -13330,9 +13152,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool eventFSCommand(class UGFxMovie* Movie, const class FString& Cmd, const class FString& Arg);
 };
-
 // Class AliceGame.AliceGFxMovieGameMenu
 // 0x0010 (0x0120 - 0x0130)
 class UAliceGFxMovieGameMenu : public UGFxMovie
@@ -13356,7 +13178,8 @@ public:
 		return uClassPointer;
 	};
 
-	void PlaySoundW(int32_t Index);
+
+	void PlaySoundWin(int32_t Index);
 	void PlayMenuSound(class USoundCue* sound_cue);
 	void setres(const class FString& Mode);
 	void QuitGame();
@@ -13366,7 +13189,6 @@ public:
 	void eventOnClose();
 	bool Start(bool optionalStartPaused);
 };
-
 // Class AliceGame.AliceSpecialMove
 // 0x0038 (0x003C - 0x0074)
 class UAliceSpecialMove : public UObject
@@ -13406,6 +13228,7 @@ public:
 	float                                              OldAirControl;                                 // 0x0068 (0x0004) [0x0000000000000000]               
 	ERootMotionMode                                    RMMInAction;                                   // 0x006C (0x0001) [0x0000000000000000]               
 	ERootMotionRotationMode                            RRMInAction;                                   // 0x006D (0x0001) [0x0000000000000000]               
+	uint8_t                                            UnknownData00[0x2];                              // 0x006E (0x0002) MISSED OFFSET
 	float                                              BlendOutTime;                                  // 0x0070 (0x0004) [0x0000000000000000]               
 
 public:
@@ -13420,6 +13243,7 @@ public:
 
 		return uClassPointer;
 	};
+
 
 	void PostSpecialMove();
 	void PreSpecialMove();
@@ -13440,7 +13264,6 @@ public:
 	bool CanOverrideMoveWith(ESpecialMove NewMove);
 	bool CanChainMove(ESpecialMove NextMove);
 };
-
 // Class AliceGame.ASM_Brake
 // 0x003E (0x0074 - 0x00B2)
 class UASM_Brake : public UAliceSpecialMove
@@ -13464,12 +13287,12 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SpecialMoveEnded(ESpecialMove PrevMove, ESpecialMove NextMove);
 	void SpecialMoveStarted(bool bForced, ESpecialMove PrevMove);
 	void GetBrakeAnimation();
 	void CalculateStateOfLegs();
 };
-
 // Class AliceGame.ASM_DeflectSpin
 // 0x0038 (0x0074 - 0x00AC)
 class UASM_DeflectSpin : public UAliceSpecialMove
@@ -13490,11 +13313,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventEndSpinning();
 	void SpecialMoveEnded(ESpecialMove PrevMove, ESpecialMove NextMove);
 	void SpecialMoveStarted(bool bForced, ESpecialMove PrevMove);
 };
-
 // Class AliceGame.ASM_GetHurtWhenJump
 // 0x00AC (0x0074 - 0x0120)
 class UASM_GetHurtWhenJump : public UAliceSpecialMove
@@ -13518,6 +13341,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void AnimCfg_AnimEndNotify(class UAnimNodeSequence* SeqNode, float PlayedTime, float ExcessTime);
 	void eventLanded();
 	void StopLand();
@@ -13531,7 +13355,6 @@ public:
 	void SpecialMoveStarted(bool bForced, ESpecialMove PrevMove);
 	void GetAnimations();
 };
-
 // Class AliceGame.ASM_GrabLedge_DropToLedge
 // 0x0038 (0x0074 - 0x00AC)
 class UASM_GrabLedge_DropToLedge : public UAliceSpecialMove
@@ -13552,12 +13375,12 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SetCurrentLedgeVolume();
 	void SpecialMoveEnded(ESpecialMove PrevMove, ESpecialMove NextMove);
 	void SpecialMoveStarted(bool bForced, ESpecialMove PrevMove);
 	void GetAnimationForLedge();
 };
-
 // Class AliceGame.ASM_GrabLedge_SwitchToAnotherLedge
 // 0x005C (0x0074 - 0x00D0)
 class UASM_GrabLedge_SwitchToAnotherLedge : public UAliceSpecialMove
@@ -13583,13 +13406,13 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SetCurrentLedgeVolume();
 	void GetAnimationForLedge();
 	void SpecialMoveEnded(ESpecialMove PrevMove, ESpecialMove NextMove);
 	void SpecialMoveStarted(bool bForced, ESpecialMove PrevMove);
 	void GetRotParameters();
 };
-
 // Class AliceGame.ASM_HoverJump
 // 0x00B0 (0x0074 - 0x0124)
 class UASM_HoverJump : public UAliceSpecialMove
@@ -13614,6 +13437,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void PlayLand();
 	void eventLanded();
 	void AnimCfg_AnimEndNotify(class UAnimNodeSequence* SeqNode, float PlayedTime, float ExcessTime);
@@ -13622,7 +13446,6 @@ public:
 	void SpecialMoveEnded(ESpecialMove PrevMove, ESpecialMove NextMove);
 	void SpecialMoveStarted(bool bForced, ESpecialMove PrevMove);
 };
-
 // Class AliceGame.ASM_JumpPad
 // 0x00E8 (0x0074 - 0x015C)
 class UASM_JumpPad : public UAliceSpecialMove
@@ -13648,6 +13471,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void AnimCfg_AnimEndNotify(class UAnimNodeSequence* SeqNode, float PlayedTime, float ExcessTime);
 	void eventLanded();
 	void StopLand();
@@ -13663,7 +13487,6 @@ public:
 	void SpecialMoveStarted(bool bForced, ESpecialMove PrevMove);
 	void GetAnimations();
 };
-
 // Class AliceGame.ASM_JumpPadPhysics
 // 0x00E8 (0x0074 - 0x015C)
 class UASM_JumpPadPhysics : public UAliceSpecialMove
@@ -13689,6 +13512,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void AnimCfg_AnimEndNotify(class UAnimNodeSequence* SeqNode, float PlayedTime, float ExcessTime);
 	void eventLanded();
 	void StopLand();
@@ -13704,7 +13528,6 @@ public:
 	void SpecialMoveStarted(bool bForced, ESpecialMove PrevMove);
 	void GetAnimations();
 };
-
 // Class AliceGame.ASM_JumpStart
 // 0x00F0 (0x0074 - 0x0164)
 class UASM_JumpStart : public UAliceSpecialMove
@@ -13732,6 +13555,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void BlendOutForNextAnim();
 	void AnimCfg_AnimEndNotify(class UAnimNodeSequence* SeqNode, float PlayedTime, float ExcessTime);
 	void eventLanded();
@@ -13749,7 +13573,6 @@ public:
 	void GetAnimations();
 	void GetLandAnimationInAir();
 };
-
 // Class AliceGame.ASM_GrabLedge_JumpToAnotherLedge
 // 0x0004 (0x0164 - 0x0168)
 class UASM_GrabLedge_JumpToAnotherLedge : public UASM_JumpStart
@@ -13770,13 +13593,13 @@ public:
 		return uClassPointer;
 	};
 
+
 	void GetAnimations();
 	void AnimCfg_AnimEndNotify(class UAnimNodeSequence* SeqNode, float PlayedTime, float ExcessTime);
 	void PlayFall();
 	void PlayJump();
 	void SpecialMoveStarted(bool bForced, ESpecialMove PrevMove);
 };
-
 // Class AliceGame.ASM_Rotate
 // 0x0038 (0x0074 - 0x00AC)
 class UASM_Rotate : public UAliceSpecialMove
@@ -13797,11 +13620,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SpecialMoveEnded(ESpecialMove PrevMove, ESpecialMove NextMove);
 	void SpecialMoveStarted(bool bForced, ESpecialMove PrevMove);
 	void GetAnimation();
 };
-
 // Class AliceGame.ASM_ShieldBreakingDash
 // 0x0038 (0x0074 - 0x00AC)
 class UASM_ShieldBreakingDash : public UAliceSpecialMove
@@ -13822,11 +13645,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool CanChainMove(ESpecialMove NextMove);
 	void SpecialMoveEnded(ESpecialMove PrevMove, ESpecialMove NextMove);
 	void SpecialMoveStarted(bool bForced, ESpecialMove PrevMove);
 };
-
 // Class AliceGame.ASM_SlideBackwardTarget
 // 0x0044 (0x0074 - 0x00B8)
 class UASM_SlideBackwardTarget : public UAliceSpecialMove
@@ -13848,6 +13671,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void GetRandomStartAnim();
 	void AnimCfg_AnimEndNotify(class UAnimNodeSequence* SeqNode, float PlayedTime, float ExcessTime);
 	void StopStart();
@@ -13855,7 +13679,6 @@ public:
 	void SpecialMoveEnded(ESpecialMove PrevMove, ESpecialMove NextMove);
 	void SpecialMoveStarted(bool bForced, ESpecialMove PrevMove);
 };
-
 // Class AliceGame.ASM_SlideToTarget
 // 0x0118 (0x0074 - 0x018C)
 class UASM_SlideToTarget : public UAliceSpecialMove
@@ -13880,12 +13703,12 @@ public:
 		return uClassPointer;
 	};
 
+
 	void GetAnimByWeapon();
 	void AnimCfg_AnimEndNotify(class UAnimNodeSequence* SeqNode, float PlayedTime, float ExcessTime);
 	void SpecialMoveEnded(ESpecialMove PrevMove, ESpecialMove NextMove);
 	void SpecialMoveStarted(bool bForced, ESpecialMove PrevMove);
 };
-
 // Class AliceGame.ASM_ToggleShrink
 // 0x0054 (0x0074 - 0x00C8)
 class UASM_ToggleShrink : public UAliceSpecialMove
@@ -13914,12 +13737,12 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool CanChainMove(ESpecialMove NextMove);
 	void SpecialMoveEnded(ESpecialMove PrevMove, ESpecialMove NextMove);
 	void SpecialMoveStarted(bool bForced, ESpecialMove PrevMove);
 	void GetToggleShrinkAnimation();
 };
-
 // Class AliceGame.ASM_WeaponCMABase
 // 0x0018 (0x0074 - 0x008C)
 class UASM_WeaponCMABase : public UAliceSpecialMove
@@ -13927,6 +13750,7 @@ class UASM_WeaponCMABase : public UAliceSpecialMove
 public:
 	struct FVector                                     InputVector;                                   // 0x0074 (0x000C) [0x0000000000000000]               
 	EASM_WeaponCMA_STATE                               CMA_state;                                     // 0x0080 (0x0001) [0x0000000000000000]               
+	uint8_t                                            UnknownData00[0x3];                              // 0x0081 (0x0003) MISSED OFFSET
 	float                                              RotatorBlendingTimer;                          // 0x0084 (0x0004) [0x0000000000000000]               
 	float                                              RotatorTimerOut;                               // 0x0088 (0x0004) [0x0000000000000000]               
 
@@ -13943,6 +13767,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void PostSpecialMove();
 	void PreSpecialMove();
 	bool CanOverrideMoveWith(ESpecialMove NewMove);
@@ -13953,7 +13778,6 @@ public:
 	void Inner_StartPlayComboAnimation();
 	void SpecialMoveStarted(bool bForced, ESpecialMove PrevMove);
 };
-
 // Class AliceGame.ContextActor
 // 0x00C0 (0x0250 - 0x0310)
 class AContextActor : public ATrigger
@@ -14020,6 +13844,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventAdditionalPositionBlending(float DeltaTime);
 	void eventSetAnimPosition(const class FName& SlotName, int32_t ChannelIndex, const class FName& InAnimSeqName, float InPosition, bool bFireNotifies, bool bLooping, int32_t RootMotionLevel);
 	void OnToggle(class USeqAct_Toggle* Action);
@@ -14058,7 +13883,6 @@ public:
 	void PlayInactiveEffects();
 	bool ShouldSaveForCheckpoint();
 };
-
 // Class AliceGame.BuoyantActor
 // 0x0008 (0x0318 - 0x0320)
 class ABuoyantActor : public AKActor
@@ -14081,7 +13905,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.BuoyantVolume
 // 0x000C (0x0264 - 0x0270)
 class ABuoyantVolume : public AVolume
@@ -14104,10 +13927,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventUnTouch(class AActor* Other);
 	void eventTouch(class AActor* Other, class UPrimitiveComponent* OtherComp, const struct FVector& HitLocation, const struct FVector& HitNormal);
 };
-
 // Class AliceGame.ShowPathSplineActor
 // 0x0000 (0x0278 - 0x0278)
 class AShowPathSplineActor : public ASplineActor
@@ -14128,7 +13951,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceChessBoard
 // 0x00C8 (0x0290 - 0x0358)
 class AAliceChessBoard : public AInterpActor
@@ -14137,6 +13959,7 @@ public:
 	EBoardType                                         BoardType;                                     // 0x0290 (0x0001) [0x0000000000000001] (CPF_Edit)    
 	EChessMoveAction                                   WhiteAction;                                   // 0x0291 (0x0001) [0x0000000000000000]               
 	EChessMoveAction                                   BlackAction;                                   // 0x0292 (0x0001) [0x0000000000000000]               
+	uint8_t                                            UnknownData00[0x1];                              // 0x0293 (0x0001) MISSED OFFSET
 	struct AAliceBlockPuzzleBoard_FPieceLoc            WhitePiece;                                    // 0x0294 (0x0008) [0x0000000000000000]               
 	struct AAliceBlockPuzzleBoard_FPieceLoc            BlackPiece;                                    // 0x029C (0x0008) [0x0000000000000000]               
 	struct AAliceBlockPuzzleBoard_FPieceLoc            WhiteGoal;                                     // 0x02A4 (0x0008) [0x0000000000000000]               
@@ -14181,6 +14004,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void UpdateDizzyState();
 	void DoDizzy();
 	void EndGame();
@@ -14200,14 +14024,14 @@ public:
 	void MovePiece(const struct AAliceBlockPuzzleBoard_FPieceLoc& StartLoc, const struct AAliceBlockPuzzleBoard_FPieceLoc& EndLoc, float DeltaTime);
 	bool IsMirrorMoving();
 	bool IsMoving();
-	bool IsBlockEachOther(EChessMoveAction& outOutAction1, EChessMoveAction& outOutAction2);
-	bool IsBlocked(const struct AAliceBlockPuzzleBoard_FPieceLoc& Loc, EChessMoveAction& outOutAction);
-	void DetermineBlockAction(EChessMoveAction& outOutAction);
-	void DetermineEdgeAction(EChessMoveAction& outOutAction);
+	bool IsBlockEachOther(EChessMoveAction& optionalOutOutAction1, EChessMoveAction& optionalOutOutAction2);
+	bool IsBlocked(const struct AAliceBlockPuzzleBoard_FPieceLoc& Loc, EChessMoveAction& optionalOutOutAction);
+	void DetermineBlockAction(EChessMoveAction& optionalOutOutAction);
+	void DetermineEdgeAction(EChessMoveAction& optionalOutOutAction);
 	bool canShowResetMenu();
 	void HandleCommand(EChessMoveCommand Command, float DeltaTime);
 	bool IsAnyTrapMoving();
-	struct FVector GetCornerRawLoc(ECorner corner);
+	struct FVector GetCornerRawLoc(ECorner_0 corner);
 	void RotateYaw(float fYaw, const struct FVector& vCenter, struct FVector& outVResult);
 	struct FVector GetGridLoc(int32_t I, int32_t J);
 	struct FVector GetCenterLoc();
@@ -14222,7 +14046,6 @@ public:
 	void Tick(float DeltaTime);
 	void Init();
 };
-
 // Class AliceGame.CheshireCatSpawnPoint
 // 0x008C (0x022C - 0x02B8)
 class ACheshireCatSpawnPoint : public AKeypoint
@@ -14275,6 +14098,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool IsInNoHintZone();
 	class ACheshireCatVolume* GetCheshireCatVolume();
 	void Initialize();
@@ -14296,7 +14120,6 @@ public:
 	void OnPressHintButton();
 	void eventPostBeginPlay();
 };
-
 // Class AliceGame.AliceHealthPickupFactory
 // 0x004C (0x0434 - 0x0480)
 class AAliceHealthPickupFactory : public AAliceItemPickupFactory
@@ -14327,6 +14150,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void PickedUpBy(class APawn* P);
 	bool IsValidPick();
 	void eventTick(float DeltaTime);
@@ -14337,7 +14161,6 @@ public:
 	void SpawnCopyFor(class APawn* Recipient);
 	void eventPostBeginPlay();
 };
-
 // Class AliceGame.HealthPickup
 // 0x0008 (0x0480 - 0x0488)
 class AHealthPickup : public AAliceHealthPickupFactory
@@ -14359,10 +14182,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventTick(float DeltaTime);
 	void eventPostBeginPlay();
 };
-
 // Class AliceGame.AimSwitchActor_Hatter
 // 0x0000 (0x03E8 - 0x03E8)
 class AAimSwitchActor_Hatter : public AAimSwitchActorBase
@@ -14383,7 +14206,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AimSwitchActor_Water
 // 0x0000 (0x03E8 - 0x03E8)
 class AAimSwitchActor_Water : public AAimSwitchActorBase
@@ -14404,7 +14226,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.Alice2DTurret
 // 0x0018 (0x0290 - 0x02A8)
 class AAlice2DTurret : public AInterpActor
@@ -14431,12 +14252,12 @@ public:
 		return uClassPointer;
 	};
 
+
 	void PlayFireEffect();
 	void OnToggle(class USeqAct_Toggle* Action);
 	void eventTick(float DeltaTime);
 	void Fire(class ATurret2DManager* Turret2DMan);
 };
-
 // Class AliceGame.TurretBomb
 // 0x0018 (0x0264 - 0x027C)
 class ATurretBomb : public ADynamicSMActor
@@ -14462,6 +14283,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventTouch(class AActor* Other, class UPrimitiveComponent* OtherComp, const struct FVector& HitLocation, const struct FVector& HitNormal);
 	void eventDestroyed();
 	void PlayTrailParticle();
@@ -14469,7 +14291,6 @@ public:
 	void Init(const struct FVector& Dir, float Speed);
 	void SetMyOwner(class ATurret2DManager* Man, class AAlice2DTurret* turret);
 };
-
 // Class AliceGame.Alice2DTurretMine
 // 0x0018 (0x02A8 - 0x02C0)
 class AAlice2DTurretMine : public AAlice2DTurret
@@ -14495,10 +14316,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void PlayMineExplodeEffect(class AActor* Other, const struct FVector& Loc, const struct FRotator& Rot);
 	void Fire(class ATurret2DManager* Turret2DMan);
 };
-
 // Class AliceGame.TurretMine
 // 0x0008 (0x027C - 0x0284)
 class ATurretMine : public ATurretBomb
@@ -14520,10 +14341,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventDestroyed();
 	void eventTouch(class AActor* Other, class UPrimitiveComponent* OtherComp, const struct FVector& HitLocation, const struct FVector& HitNormal);
 };
-
 // Class AliceGame.AliceTurretMineExplode
 // 0x0018 (0x0228 - 0x0240)
 class AAliceTurretMineExplode : public AActor
@@ -14547,9 +14368,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventTick(float DeltaTime);
 };
-
 // Class AliceGame.AliceBlockPiece
 // 0x003C (0x0230 - 0x026C)
 class AAliceBlockPiece : public AStaticMeshActor
@@ -14587,6 +14408,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void OnTrailFinish();
 	void StopMovingEffect();
 	void TriggerMovingEffect();
@@ -14603,7 +14425,6 @@ public:
 	void ApplyCheckpointRecord(struct AAliceBlockPiece_FCheckpointRecord& outRecord);
 	void CreateCheckpointRecord(struct AAliceBlockPiece_FCheckpointRecord& outRecord);
 };
-
 // Class AliceGame.AliceBlockPuzzleBoard
 // 0x0100 (0x0290 - 0x0390)
 class AAliceBlockPuzzleBoard : public AInterpActor
@@ -14662,6 +14483,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	class UMaterialInstanceConstant* getPieceLocMat();
 	void setBaseLocMat();
 	void MakeBlockThin();
@@ -14699,7 +14521,6 @@ public:
 	bool IsReadyToPlay();
 	void eventPostBeginPlay();
 };
-
 // Class AliceGame.SeqEvent_BlockFound
 // 0x0000 (0x0100 - 0x0100)
 class USeqEvent_BlockFound : public USequenceEvent
@@ -14720,7 +14541,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SeqEvent_AllBlockFound
 // 0x0000 (0x0100 - 0x0100)
 class USeqEvent_AllBlockFound : public USequenceEvent
@@ -14741,7 +14561,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SeqEvent_BlockPuzzleComplete
 // 0x0000 (0x0100 - 0x0100)
 class USeqEvent_BlockPuzzleComplete : public USequenceEvent
@@ -14762,7 +14581,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SeqEvent_BlockPuzzleFail
 // 0x0000 (0x0100 - 0x0100)
 class USeqEvent_BlockPuzzleFail : public USequenceEvent
@@ -14783,7 +14601,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceBlockPuzzleTrigger
 // 0x0000 (0x0250 - 0x0250)
 class AAliceBlockPuzzleTrigger : public ATrigger
@@ -14804,7 +14621,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceBoomshotExplosionLight
 // 0x0000 (0x022C - 0x022C)
 class UAliceBoomshotExplosionLight : public UAliceExplosionLight
@@ -14825,7 +14641,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceBoomshotLight
 // 0x0000 (0x022C - 0x022C)
 class UAliceBoomshotLight : public UAliceExplosionLight
@@ -14846,7 +14661,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceBoostVolume
 // 0x001C (0x0264 - 0x0280)
 class AAliceBoostVolume : public AVolume
@@ -14871,10 +14685,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventUnTouch(class AActor* Other);
 	void eventTouch(class AActor* Other, class UPrimitiveComponent* OtherComp, const struct FVector& HitLocation, const struct FVector& HitNormal);
 };
-
 // Class AliceGame.AlicePlayerInput
 // 0x004C (0x0184 - 0x01D0)
 class UAlicePlayerInput : public UPlayerInput
@@ -14909,6 +14723,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void BindCommand(const class FName& BindName, const class FName& OldFireButton, const class FString& Command);
 	void SetKeyBind(const class FName& BindName, const class FString& Command);
 	void setControlLayout(int32_t Index);
@@ -14923,7 +14738,6 @@ public:
 	bool IsInputFree();
 	void eventPlayerInput(float DeltaTime);
 };
-
 // Class AliceGame.AliceCamMod_Targeting
 // 0x000C (0x0058 - 0x0064)
 class UAliceCamMod_Targeting : public UCameraModifier
@@ -14946,6 +14760,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	float GetAliceViewDeltaRoll(class AAlicePawn* MyAlicePawn, const struct FRotator& ViewRotation);
 	float GetAliceViewDeltaPitch(class AAlicePawn* MyAlicePawn, const struct FRotator& ViewRotation);
 	void BlendCameraRotation(int32_t DeltaAngle, float ElapsedTime, float BlendTime, int32_t& outOut_DeltaRot);
@@ -14958,7 +14773,6 @@ public:
 	void DEBUG_ShowLockOnTarget(class AAlicePlayerController* APC);
 	void DEBUG_ShowDirections(class AActor* ViewTarget, const struct FRotator& ViewRotation);
 };
-
 // Class AliceGame.AliceCheatManager
 // 0x00D4 (0x005C - 0x0130)
 class UAliceCheatManager : public UCheatManager
@@ -15024,6 +14838,7 @@ public:
 
 		return uClassPointer;
 	};
+
 
 	void setUnshrinkBaseOffsetZ(float I);
 	void showKeyBinds();
@@ -15117,13 +14932,13 @@ public:
 	void ShowPFInfos(class UCanvas* Canvas);
 	void AddPFInfo(const struct FVector& _OldCoorLoc, const struct FVector& _NewCoorLoc, float _PFValue, const class FString& _ActorName);
 };
-
 // Class AliceGame.JumpPadMushroom
 // 0x0064 (0x036C - 0x03D0)
 class AJumpPadMushroom : public AJumpPad
 {
 public:
 	EJumpState                                         JumpState;                                     // 0x036C (0x0001) [0x0000000000000000]               
+	uint8_t                                            UnknownData00[0x3];                              // 0x036D (0x0003) MISSED OFFSET
 	class AAliceGamePawn*                              P;                                             // 0x0370 (0x0004) [0x0000000000000000]               
 	class ULightEnvironmentComponent*                  LightEnvironmentJumpPad;                       // 0x0374 (0x0004) [0x00000000040A000B] (CPF_Edit | CPF_Const | CPF_ExportObject | CPF_EditConst | CPF_Component | CPF_EditInline)
 	class USkeletalMeshComponent*                      SkelMeshComp;                                  // 0x0378 (0x0004) [0x0000000004080009] (CPF_Edit | CPF_ExportObject | CPF_Component | CPF_EditInline)
@@ -15153,6 +14968,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void ShowRadius();
 	void Launch();
 	void OnPlayIdleAnimation();
@@ -15170,7 +14986,6 @@ public:
 	void eventTick(float DeltaTime);
 	void eventPostBeginPlay();
 };
-
 // Class AliceGame.AliceCycleFloatManager
 // 0x0050 (0x003C - 0x008C)
 class UAliceCycleFloatManager : public UObject
@@ -15213,6 +15028,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	float getDoubleJumpTime();
 	void setDoubleJumpTime();
 	void hackCurCycle();
@@ -15244,7 +15060,6 @@ public:
 	void PostBeginPlay();
 	void SetActive(bool _bActive);
 };
-
 // Class AliceGame.TeapotCannon
 // 0x0090 (0x06D4 - 0x0764)
 class ATeapotCannon : public AWeaponForAliceRange
@@ -15297,6 +15112,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void ResetWeaponAfterChangeLevel();
 	void PlayChangeWeaponSound();
 	void ScriptSetProjectileInitPara(class AAliceGameProjectile* Proj);
@@ -15326,7 +15142,6 @@ public:
 	void StartFire(uint8_t FireModeNum);
 	void PostBeginPlay();
 };
-
 // Class AliceGame.AliceChessBlackPiece
 // 0x0013 (0x0315 - 0x0328)
 class AAliceChessBlackPiece : public AAliceChessPiece
@@ -15350,11 +15165,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	void playBreakPS();
 	void eventCancelDizzy();
 	void eventOnAnimEnd(class UAnimNodeSequence* SeqNode, float PlayedTime, float ExcessTime);
 };
-
 // Class AliceGame.AliceChessBlock
 // 0x0008 (0x0290 - 0x0298)
 class AAliceChessBlock : public AInterpActor
@@ -15377,7 +15192,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceChessGoal
 // 0x0008 (0x0290 - 0x0298)
 class AAliceChessGoal : public AInterpActor
@@ -15400,7 +15214,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceChessWhitePiece
 // 0x0013 (0x0315 - 0x0328)
 class AAliceChessWhitePiece : public AAliceChessPiece
@@ -15424,11 +15237,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	void playBreakPS();
 	void eventCancelDizzy();
 	void eventOnAnimEnd(class UAnimNodeSequence* SeqNode, float PlayedTime, float ExcessTime);
 };
-
 // Class AliceGame.SeqEvent_ChessPuzzleComplete
 // 0x0000 (0x0100 - 0x0100)
 class USeqEvent_ChessPuzzleComplete : public USequenceEvent
@@ -15449,7 +15262,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SeqEvent_ChessPuzzleFail
 // 0x0000 (0x0100 - 0x0100)
 class USeqEvent_ChessPuzzleFail : public USequenceEvent
@@ -15470,7 +15282,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceChessTrigger
 // 0x0000 (0x0250 - 0x0250)
 class AAliceChessTrigger : public ATrigger
@@ -15491,7 +15302,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.ASM_BeGrabbed
 // 0x0038 (0x0074 - 0x00AC)
 class UASM_BeGrabbed : public UAliceSpecialMove
@@ -15512,13 +15322,13 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool CanChainMove(ESpecialMove NextMove);
 	void EndGrabbed();
 	void SpecialMoveEnded(ESpecialMove PrevMove, ESpecialMove NextMove);
 	void SpecialMoveStarted(bool bForced, ESpecialMove PrevMove);
 	void GetDefaultAnimation();
 };
-
 // Class AliceGame.SeqAct_HeadLookAt
 // 0x0018 (0x00E8 - 0x0100)
 class USeqAct_HeadLookAt : public USequenceAction
@@ -15542,7 +15352,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameCloneAliceAIController
 // 0x0000 (0x03DC - 0x03DC)
 class AAliceGameCloneAliceAIController : public AAIController
@@ -15562,9 +15371,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void PawnDied(class APawn* inPawn);
 };
-
 // Class AliceGame.AliceGFXMovie
 // 0x0024 (0x0120 - 0x0144)
 class UAliceGFXMovie : public UGFxMovie
@@ -15593,9 +15402,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool IsFrechKeyboard();
 	void Restart();
-	void PlaySoundW(const class FString& Index);
+	void PlaySoundWin(const class FString& Index);
 	void SetSelfGFXMovie();
 	void StartNewGame();
 	void closeRedeemPurchasePop();
@@ -15758,12 +15568,11 @@ public:
 	bool shouldUnlockAllSnout();
 	bool shouldUnlockAllMemory();
 	void PlayWeaponPickupSound();
-	void PlaySoundWhenPauseW(class USoundCue* Sound);
+	void PlaySoundWhenPauseWin(class USoundCue* Sound);
 	bool shouldUnlockAllBink();
 	void openExtra();
 	void backMainMenu();
 };
-
 // Class AliceGame.AliceConfigDataManager
 // 0x0000 (0x003C - 0x003C)
 class UAliceConfigDataManager : public UObject
@@ -15782,6 +15591,7 @@ public:
 
 		return uClassPointer;
 	};
+
 
 	void setAllConfigDefault();
 	void setCameraDefault();
@@ -15849,7 +15659,6 @@ public:
 	void setDifficulty(int32_t iDifficulty);
 	int32_t getDifficulty();
 };
-
 // Class AliceGame.AliceGFxMovie_HUD
 // 0x0008 (0x0144 - 0x014C)
 class UAliceGFxMovie_HUD : public UAliceGFXMovie
@@ -15871,8 +15680,9 @@ public:
 		return uClassPointer;
 	};
 
-	void PlaySoundW(const class FString& Index);
-	void PlaySoundWhenPauseW(class USoundCue* Sound);
+
+	void PlaySoundWin(const class FString& Index);
+	void PlaySoundWhenPauseWin(class USoundCue* Sound);
 	void ShowLockOnUI();
 	void SetCinematicMode(bool bCinamatic);
 	void notifyUIUpgradeHealth(float healthCur, float HealthMax);
@@ -15943,7 +15753,6 @@ public:
 	void HysteriaReady();
 	void eventOnClose();
 };
-
 // Class AliceGame.AliceGfxMovie_inGameMenu
 // 0x0080 (0x0144 - 0x01C4)
 class UAliceGfxMovie_inGameMenu : public UAliceGFXMovie
@@ -15980,7 +15789,8 @@ public:
 		return uClassPointer;
 	};
 
-	void PlaySoundW(const class FString& Index);
+
+	void PlaySoundWin(const class FString& Index);
 	void leaveControl();
 	void SetGFXMovie();
 	int32_t getControlLayout();
@@ -16001,12 +15811,11 @@ public:
 	void gotoPage(int32_t pageNum);
 	void OpenMenu();
 	void LoadCheckpoint(int32_t cid);
-	void PlaySoundWhenPauseW(class USoundCue* Sound);
+	void PlaySoundWhenPauseWin(class USoundCue* Sound);
 	void ChangeAimIcon(int32_t Id);
 	void ChangeResolution(const class FString& Mode);
 	void eventOnClose();
 };
-
 // Class AliceGame.AlicePickupInventory
 // 0x0000 (0x0278 - 0x0278)
 class AAlicePickupInventory : public AAliceInventory
@@ -16026,9 +15835,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	static float BotDesireability(class AActor* PickupHolder, class APawn* P, class AController* C);
 };
-
 // Class AliceGame.XPPickup
 // 0x0008 (0x0498 - 0x04A0)
 class AXPPickup : public AAliceXPPickupFactory
@@ -16050,10 +15859,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventTick(float DeltaTime);
 	void eventPostBeginPlay();
 };
-
 // Class AliceGame.PepperGrinderAlternateProjectile
 // 0x0028 (0x03A4 - 0x03CC)
 class APepperGrinderAlternateProjectile : public AAliceProjectile
@@ -16083,6 +15892,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	struct FDecalData GetDecalData();
 	void SpawnDecalOnGround(const struct FVector& HitLoc);
 	void SpawnCauseDamageActor(const struct FVector& Loc, const struct FRotator& Rot);
@@ -16091,7 +15901,6 @@ public:
 	void InitConfigData(float DmgRadius, float interval, float dmg, float Time, class UParticleSystem* PoisonParticle);
 	int32_t GetDLCWeaponFlag();
 };
-
 // Class AliceGame.SeqAct_ToggleSpawnXPAndHP
 // 0x0004 (0x00E8 - 0x00EC)
 class USeqAct_ToggleSpawnXPAndHP : public USequenceAction
@@ -16116,7 +15925,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.DropItemsFactory
 // 0x002C (0x0228 - 0x0254)
 class ADropItemsFactory : public AActor
@@ -16145,6 +15953,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void DropPickupsForGBA(bool bCanSpawnHealth, bool bCanSpawnXP, bool UseSmartHealthSpawn, int32_t nManualHPAmount, int32_t nManualXPAmount, EBreakableXPType FixedXPEnum, int32_t optionalLayoutRadius);
 	void DropPickupsForNPC(bool bCanSpawnHealth, bool bCanSpawnXP, bool UseSmartHealthSpawn, int32_t nManualHPAmount, int32_t nManualXPAmount, EXPType FixedXPEnum, int32_t optionalLayoutRadius, bool optionalBForceUseManualHP, bool optionalBForceUseManualXP);
 	void SpawnPickups(int32_t nLargeHP, int32_t nSmallHP, int32_t nLargeXP, int32_t nSmallXP, bool optionalBNoCollisionFail);
@@ -16157,7 +15966,6 @@ public:
 	void SetHealthArchetype(class AHealthPickup* LargeHPArchetype, class AHealthPickup* SmallHPArchetype);
 	void eventPostBeginPlay();
 };
-
 // Class AliceGame.AliceGameInventoryManager
 // 0x0000 (0x0244 - 0x0244)
 class AAliceGameInventoryManager : public AInventoryManager
@@ -16178,7 +15986,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.NPCInventoryManager
 // 0x0000 (0x0244 - 0x0244)
 class ANPCInventoryManager : public AAliceGameInventoryManager
@@ -16199,7 +16006,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SeqEvent_LockedOn
 // 0x0000 (0x0100 - 0x0100)
 class USeqEvent_LockedOn : public USequenceEvent
@@ -16220,7 +16026,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceSoundModeManager
 // 0x0050 (0x003C - 0x008C)
 class UAliceSoundModeManager : public UObject
@@ -16250,6 +16055,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	class FString showDebugInfo();
 	int32_t getPriority(const class FName& Mode);
 	void NotifyMemoryModeEndTime(float MemorySoundDuration);
@@ -16265,7 +16071,6 @@ public:
 	void removeDuplicateModes(const class FName& Mode);
 	int32_t comparePriority(const class FName& n1, const class FName& n2);
 };
-
 // Class AliceGame.AliceStuckManager
 // 0x0018 (0x003C - 0x0054)
 class UAliceStuckManager : public UObject
@@ -16292,6 +16097,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void doStuckJump();
 	void nonStuckNotify();
 	void stuckNotify();
@@ -16305,7 +16111,6 @@ public:
 	void onBaseChange(bool bChanged);
 	void onJumpOffPawn();
 };
-
 // Class AliceGame.AlicePersistentDataManager
 // 0x0000 (0x003C - 0x003C)
 class UAlicePersistentDataManager : public UObject
@@ -16324,6 +16129,7 @@ public:
 
 		return uClassPointer;
 	};
+
 
 	void LogOutAllPickup();
 	bool isSmallSecret(const class FString& sTag);
@@ -16352,7 +16158,6 @@ public:
 	void PostApplyPersistentData();
 	void PreSavePersistentData();
 };
-
 // Class AliceGame.SeqEvent_AliceCamera
 // 0x0000 (0x0100 - 0x0100)
 class USeqEvent_AliceCamera : public USequenceEvent
@@ -16373,7 +16178,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SeqEvent_AliceSwimMode
 // 0x0000 (0x0100 - 0x0100)
 class USeqEvent_AliceSwimMode : public USequenceEvent
@@ -16394,7 +16198,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.DmgType_IceSnark
 // 0x0000 (0x006C - 0x006C)
 class UDmgType_IceSnark : public UDamageType
@@ -16415,7 +16218,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceInventoryManager
 // 0x001C (0x0244 - 0x0260)
 class AAliceInventoryManager : public AAliceGameInventoryManager
@@ -16438,6 +16240,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void PassingComboInfomation(class AWeapon* PreviousWeapon, class AWeapon* NewWeapon);
 	class AWeapon* GetBestWeapon(bool optionalBForceADifferentWeapon);
 	void GetWeaponList(bool optionalBFilter, int32_t optionalGroupFilter, bool optionalBNoEmpty, class TArray<class AAliceGameWeapon*>& outWeaponList);
@@ -16449,7 +16252,6 @@ public:
 	void AddMemoryFragment(class AMemoryFragmentNormal* MF);
 	bool AddInventory(class AInventory* NewItem, bool optionalBDoNotActivate);
 };
-
 // Class AliceGame.CheshireCatSkeletalMeshActor
 // 0x001C (0x0314 - 0x0330)
 class ACheshireCatSkeletalMeshActor : public ASkeletalMeshActor
@@ -16475,6 +16277,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void MorphOut();
 	void MorphIn();
 	void DisableAllSkelControl();
@@ -16486,7 +16289,6 @@ public:
 	float PlayCustomAnim(const class FName& AnimName, float Rate, float optionalBlendInTime, float optionalBlendOutTime, bool optionalBLooping, bool optionalBOverride);
 	void eventPostBeginPlay();
 };
-
 // Class AliceGame.AliceHoverVolume
 // 0x0058 (0x02A8 - 0x0300)
 class AAliceHoverVolume : public ADynamicPhysicsVolume
@@ -16524,6 +16326,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void ApplyWind(class AActor* Actor);
 	void Update(float DeltaTime, class AAlicePlayerController* APC);
 	float GetHoverZSpeed(class AAlicePawn* Pawn, float DeltaTime);
@@ -16534,7 +16337,6 @@ public:
 	bool IsEnterFromBottom(class AAlicePlayerController* APC);
 	void eventPawnEnteredVolume(class APawn* P);
 };
-
 // Class AliceGame.SeqEvent_AliceContext
 // 0x0001 (0x0100 - 0x0101)
 class USeqEvent_AliceContext : public USequenceEvent
@@ -16556,7 +16358,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.HeadSwitchActor
 // 0x005C (0x0230 - 0x028C)
 class AHeadSwitchActor : public AStaticMeshActor
@@ -16594,13 +16395,13 @@ public:
 		return uClassPointer;
 	};
 
+
 	void HeadSwitchEjected();
 	void HeadSwitchActivated();
 	void eventOnToggleHeadSwitchActivation(class USeqAct_ToggleHeadSwitchActivation* inAction);
 	void eventUnTouch(class AActor* Other);
 	void eventTouch(class AActor* Other, class UPrimitiveComponent* OtherComp, const struct FVector& HitLocation, const struct FVector& HitNormal);
 };
-
 // Class AliceGame.ASM_DoubleJump
 // 0x000C (0x0164 - 0x0170)
 class UASM_DoubleJump : public UASM_JumpStart
@@ -16623,12 +16424,12 @@ public:
 		return uClassPointer;
 	};
 
+
 	void PlayParticle();
 	void GetAnimations();
 	void SpecialMoveStarted(bool bForced, ESpecialMove PrevMove);
 	void PlayRise();
 };
-
 // Class AliceGame.ASM_GrabLedgeWhenJump
 // 0x0038 (0x0074 - 0x00AC)
 class UASM_GrabLedgeWhenJump : public UAliceSpecialMove
@@ -16649,11 +16450,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	void GetAnimationForLedge();
 	void SpecialMoveEnded(ESpecialMove PrevMove, ESpecialMove NextMove);
 	void SpecialMoveStarted(bool bForced, ESpecialMove PrevMove);
 };
-
 // Class AliceGame.ASM_GrabLedge_DropFromLedge
 // 0x0000 (0x0168 - 0x0168)
 class UASM_GrabLedge_DropFromLedge : public UASM_GrabLedge_JumpToAnotherLedge
@@ -16673,12 +16474,12 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventLanded();
 	void GetAnimationsForLanding();
 	void GetAnimationForLedge();
 	void SpecialMoveEnded(ESpecialMove PrevMove, ESpecialMove NextMove);
 };
-
 // Class AliceGame.ASM_GrabLedge_ClimbOverLedge
 // 0x0038 (0x0074 - 0x00AC)
 class UASM_GrabLedge_ClimbOverLedge : public UAliceSpecialMove
@@ -16699,12 +16500,12 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SpecialMoveEnded(ESpecialMove PrevMove, ESpecialMove NextMove);
 	void ResetPawnOwnerLedgeClimbing();
 	void SpecialMoveStarted(bool bForced, ESpecialMove PrevMove);
 	void GetAnimation();
 };
-
 // Class AliceGame.ASM_ChangeDirOnLedge
 // 0x0038 (0x0074 - 0x00AC)
 class UASM_ChangeDirOnLedge : public UAliceSpecialMove
@@ -16725,12 +16526,12 @@ public:
 		return uClassPointer;
 	};
 
+
 	void GetAnimationForLedge();
 	void EndOfChange();
 	void SpecialMoveEnded(ESpecialMove PrevMove, ESpecialMove NextMove);
 	void SpecialMoveStarted(bool bForced, ESpecialMove PrevMove);
 };
-
 // Class AliceGame.ASM_MeleeComboCommon
 // 0x006C (0x008C - 0x00F8)
 class UASM_MeleeComboCommon : public UASM_WeaponCMABase
@@ -16747,6 +16548,7 @@ public:
 	class FName                                        RushBeforeSwitchAnimationName;                 // 0x00E0 (0x0008) [0x0000000000000000]               
 	class FName                                        WeaponAnimationName;                           // 0x00E8 (0x0008) [0x0000000000000000]               
 	EMeleeComboSM_State                                ComboState;                                    // 0x00F0 (0x0001) [0x0000000000000000]               
+	uint8_t                                            UnknownData00[0x3];                              // 0x00F1 (0x0003) MISSED OFFSET
 	float                                              PresetBlendOutTime;                            // 0x00F4 (0x0004) [0x0000000000000000]               
 
 public:
@@ -16762,6 +16564,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void ResetDefaultSpeicalMoveParam();
 	void ResetWeaponState();
 	void AnimCfg_AnimEndNotify(class UAnimNodeSequence* SeqNode, float PlayedTime, float ExcessTime);
@@ -16771,7 +16574,6 @@ public:
 	void SpecialMoveEnded(ESpecialMove PrevMove, ESpecialMove NextMove);
 	void SpecialMoveStarted(bool bForced, ESpecialMove PrevMove);
 };
-
 // Class AliceGame.ASM_GiantAliceCMA_One
 // 0x0038 (0x008C - 0x00C4)
 class UASM_GiantAliceCMA_One : public UASM_WeaponCMABase
@@ -16792,11 +16594,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	void Inner_StartPlayComboAnimation();
 	void SpecialMoveEnded(ESpecialMove PrevMove, ESpecialMove NextMove);
 	void SpecialMoveStarted(bool bForced, ESpecialMove PrevMove);
 };
-
 // Class AliceGame.ASM_GiantAliceCMA_Two
 // 0x0038 (0x008C - 0x00C4)
 class UASM_GiantAliceCMA_Two : public UASM_WeaponCMABase
@@ -16817,11 +16619,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	void Inner_StartPlayComboAnimation();
 	void SpecialMoveEnded(ESpecialMove PrevMove, ESpecialMove NextMove);
 	void SpecialMoveStarted(bool bForced, ESpecialMove PrevMove);
 };
-
 // Class AliceGame.ASM_GiantAliceCMA_Thr
 // 0x0038 (0x008C - 0x00C4)
 class UASM_GiantAliceCMA_Thr : public UASM_WeaponCMABase
@@ -16842,11 +16644,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	void Inner_StartPlayComboAnimation();
 	void SpecialMoveEnded(ESpecialMove PrevMove, ESpecialMove NextMove);
 	void SpecialMoveStarted(bool bForced, ESpecialMove PrevMove);
 };
-
 // Class AliceGame.ASM_GiantStomp
 // 0x0038 (0x0074 - 0x00AC)
 class UASM_GiantStomp : public UAliceSpecialMove
@@ -16867,10 +16669,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SpecialMoveEnded(ESpecialMove PrevMove, ESpecialMove NextMove);
 	void SpecialMoveStarted(bool bForced, ESpecialMove PrevMove);
 };
-
 // Class AliceGame.ASM_WeaponRABase
 // 0x0000 (0x0074 - 0x0074)
 class UASM_WeaponRABase : public UAliceSpecialMove
@@ -16890,11 +16692,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SpecialMoveEnded(ESpecialMove PrevMove, ESpecialMove NextMove);
 	void SpecialMoveStarted(bool bForced, ESpecialMove PrevMove);
 	bool CanChainMove(ESpecialMove NextMove);
 };
-
 // Class AliceGame.ASM_TeapotCannonRA_Fire
 // 0x0038 (0x0074 - 0x00AC)
 class UASM_TeapotCannonRA_Fire : public UASM_WeaponRABase
@@ -16915,11 +16717,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool CanChainMove(ESpecialMove NextMove);
 	void SpecialMoveEnded(ESpecialMove PrevMove, ESpecialMove NextMove);
 	void SpecialMoveStarted(bool bForced, ESpecialMove PrevMove);
 };
-
 // Class AliceGame.ASM_TeapotCannonRA_Charge
 // 0x0038 (0x0074 - 0x00AC)
 class UASM_TeapotCannonRA_Charge : public UASM_WeaponRABase
@@ -16940,11 +16742,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool CanChainMove(ESpecialMove NextMove);
 	void SpecialMoveEnded(ESpecialMove PrevMove, ESpecialMove NextMove);
 	void SpecialMoveStarted(bool bForced, ESpecialMove PrevMove);
 };
-
 // Class AliceGame.ASM_EyeStaffRA_Fire
 // 0x0070 (0x0074 - 0x00E4)
 class UASM_EyeStaffRA_Fire : public UASM_WeaponRABase
@@ -16966,11 +16768,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool CanChainMove(ESpecialMove NextMove);
 	void SpecialMoveEnded(ESpecialMove PrevMove, ESpecialMove NextMove);
 	void SpecialMoveStarted(bool bForced, ESpecialMove PrevMove);
 };
-
 // Class AliceGame.ASM_EyeStaffRA_NoAmmo
 // 0x0070 (0x0074 - 0x00E4)
 class UASM_EyeStaffRA_NoAmmo : public UASM_WeaponRABase
@@ -16992,11 +16794,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool CanChainMove(ESpecialMove NextMove);
 	void SpecialMoveEnded(ESpecialMove PrevMove, ESpecialMove NextMove);
 	void SpecialMoveStarted(bool bForced, ESpecialMove PrevMove);
 };
-
 // Class AliceGame.ASM_EyeStaffRA_DoubleFire
 // 0x0070 (0x0074 - 0x00E4)
 class UASM_EyeStaffRA_DoubleFire : public UASM_WeaponRABase
@@ -17018,11 +16820,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool CanChainMove(ESpecialMove NextMove);
 	void SpecialMoveEnded(ESpecialMove PrevMove, ESpecialMove NextMove);
 	void SpecialMoveStarted(bool bForced, ESpecialMove PrevMove);
 };
-
 // Class AliceGame.ASM_EyeStaffRA_DoubleFireReady
 // 0x0070 (0x0074 - 0x00E4)
 class UASM_EyeStaffRA_DoubleFireReady : public UASM_WeaponRABase
@@ -17044,11 +16846,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool CanChainMove(ESpecialMove NextMove);
 	void SpecialMoveEnded(ESpecialMove PrevMove, ESpecialMove NextMove);
 	void SpecialMoveStarted(bool bForced, ESpecialMove PrevMove);
 };
-
 // Class AliceGame.ASM_EyeStaffRA_StopWindUp
 // 0x0070 (0x0074 - 0x00E4)
 class UASM_EyeStaffRA_StopWindUp : public UASM_WeaponRABase
@@ -17070,11 +16872,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool CanChainMove(ESpecialMove NextMove);
 	void SpecialMoveEnded(ESpecialMove PrevMove, ESpecialMove NextMove);
 	void SpecialMoveStarted(bool bForced, ESpecialMove PrevMove);
 };
-
 // Class AliceGame.ASM_EyeStaffRA_Charge
 // 0x0038 (0x0074 - 0x00AC)
 class UASM_EyeStaffRA_Charge : public UASM_WeaponRABase
@@ -17095,11 +16897,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool CanChainMove(ESpecialMove NextMove);
 	void SpecialMoveEnded(ESpecialMove PrevMove, ESpecialMove NextMove);
 	void SpecialMoveStarted(bool bForced, ESpecialMove PrevMove);
 };
-
 // Class AliceGame.ASM_EyeStaffRA_ChargeComplete
 // 0x0038 (0x0074 - 0x00AC)
 class UASM_EyeStaffRA_ChargeComplete : public UASM_WeaponRABase
@@ -17120,11 +16922,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool CanChainMove(ESpecialMove NextMove);
 	void SpecialMoveEnded(ESpecialMove PrevMove, ESpecialMove NextMove);
 	void SpecialMoveStarted(bool bForced, ESpecialMove PrevMove);
 };
-
 // Class AliceGame.ASM_VorpalBladeCMANL
 // 0x0074 (0x008C - 0x0100)
 class UASM_VorpalBladeCMANL : public UASM_WeaponCMABase
@@ -17147,13 +16949,13 @@ public:
 		return uClassPointer;
 	};
 
+
 	void Inner_StartPlayComboAnimation();
 	void AnimCfg_AnimEndNotify(class UAnimNodeSequence* SeqNode, float PlayedTime, float ExcessTime);
 	void SpecialMoveEnded(ESpecialMove PrevMove, ESpecialMove NextMove);
 	void SpecialMoveStarted(bool bForced, ESpecialMove PrevMove);
 	bool CanOverrideMoveWith(ESpecialMove NewMove);
 };
-
 // Class AliceGame.ASM_HobbyHorseCMANL
 // 0x0038 (0x008C - 0x00C4)
 class UASM_HobbyHorseCMANL : public UASM_WeaponCMABase
@@ -17174,12 +16976,12 @@ public:
 		return uClassPointer;
 	};
 
+
 	void Inner_StartPlayComboAnimation();
 	void AnimCfg_AnimEndNotify(class UAnimNodeSequence* SeqNode, float PlayedTime, float ExcessTime);
 	void SpecialMoveEnded(ESpecialMove PrevMove, ESpecialMove NextMove);
 	void SpecialMoveStarted(bool bForced, ESpecialMove PrevMove);
 };
-
 // Class AliceGame.ASM_VorpalBladeClone
 // 0x0074 (0x0074 - 0x00E8)
 class UASM_VorpalBladeClone : public UAliceSpecialMove
@@ -17202,10 +17004,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SpecialMoveEnded(ESpecialMove PrevMove, ESpecialMove NextMove);
 	void SpecialMoveStarted(bool bForced, ESpecialMove PrevMove);
 };
-
 // Class AliceGame.ASM_Denotate
 // 0x0038 (0x0074 - 0x00AC)
 class UASM_Denotate : public UAliceSpecialMove
@@ -17226,12 +17028,12 @@ public:
 		return uClassPointer;
 	};
 
+
 	void GetAnimation();
 	bool CanChainMove(ESpecialMove NextMove);
 	void SpecialMoveEnded(ESpecialMove PrevMove, ESpecialMove NextMove);
 	void SpecialMoveStarted(bool bForced, ESpecialMove PrevMove);
 };
-
 // Class AliceGame.ASM_Disarm
 // 0x0038 (0x0074 - 0x00AC)
 class UASM_Disarm : public UAliceSpecialMove
@@ -17252,11 +17054,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SpecialMoveEnded(ESpecialMove PrevMove, ESpecialMove NextMove);
 	void SpecialMoveStarted(bool bForced, ESpecialMove PrevMove);
 	void GetAnimation();
 };
-
 // Class AliceGame.ASM_Combat_Dodge
 // 0x00A8 (0x0074 - 0x011C)
 class UASM_Combat_Dodge : public UAliceSpecialMove
@@ -17279,6 +17081,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool CanChainMove(ESpecialMove NextMove);
 	void AnimCfg_AnimEndNotify(class UAnimNodeSequence* SeqNode, float PlayedTime, float ExcessTime);
 	void StopEnd();
@@ -17293,7 +17096,6 @@ public:
 	void GetEndAnimation();
 	void GetAnimation();
 };
-
 // Class AliceGame.ASM_Combat_Jump
 // 0x0000 (0x0164 - 0x0164)
 class UASM_Combat_Jump : public UASM_JumpStart
@@ -17313,11 +17115,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SpecialMoveEnded(ESpecialMove PrevMove, ESpecialMove NextMove);
 	void SpecialMoveStarted(bool bForced, ESpecialMove PrevMove);
 	void GetAnimations();
 };
-
 // Class AliceGame.ASM_ShieldBreakingPrepare
 // 0x0038 (0x0074 - 0x00AC)
 class UASM_ShieldBreakingPrepare : public UAliceSpecialMove
@@ -17338,10 +17140,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SpecialMoveEnded(ESpecialMove PrevMove, ESpecialMove NextMove);
 	void SpecialMoveStarted(bool bForced, ESpecialMove PrevMove);
 };
-
 // Class AliceGame.ASM_GetHurt
 // 0x0038 (0x0074 - 0x00AC)
 class UASM_GetHurt : public UAliceSpecialMove
@@ -17362,12 +17164,12 @@ public:
 		return uClassPointer;
 	};
 
+
 	void GetAnimation();
 	bool CanChainMove(ESpecialMove NextMove);
 	void SpecialMoveEnded(ESpecialMove PrevMove, ESpecialMove NextMove);
 	void SpecialMoveStarted(bool bForced, ESpecialMove PrevMove);
 };
-
 // Class AliceGame.ASM_HitShieldReaction
 // 0x0038 (0x0074 - 0x00AC)
 class UASM_HitShieldReaction : public UAliceSpecialMove
@@ -17388,11 +17190,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SpecialMoveEnded(ESpecialMove PrevMove, ESpecialMove NextMove);
 	void SpecialMoveStarted(bool bForced, ESpecialMove PrevMove);
 	void GetAnimation();
 };
-
 // Class AliceGame.ASM_GetNPCAttached
 // 0x0038 (0x0074 - 0x00AC)
 class UASM_GetNPCAttached : public UAliceSpecialMove
@@ -17413,11 +17215,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool CanChainMove(ESpecialMove NextMove);
 	void SpecialMoveEnded(ESpecialMove PrevMove, ESpecialMove NextMove);
 	void SpecialMoveStarted(bool bForced, ESpecialMove PrevMove);
 };
-
 // Class AliceGame.ASM_DeflectTransition
 // 0x0040 (0x0074 - 0x00B4)
 class UASM_DeflectTransition : public UAliceSpecialMove
@@ -17440,12 +17242,12 @@ public:
 		return uClassPointer;
 	};
 
+
 	void PlayEnd();
 	void PlayStart();
 	void SpecialMoveEnded(ESpecialMove PrevMove, ESpecialMove NextMove);
 	void SpecialMoveStarted(bool bForced, ESpecialMove PrevMove);
 };
-
 // Class AliceGame.ASM_BlockReaction
 // 0x0040 (0x0074 - 0x00B4)
 class UASM_BlockReaction : public UAliceSpecialMove
@@ -17467,12 +17269,12 @@ public:
 		return uClassPointer;
 	};
 
+
 	void GetAnimation();
 	bool CanChainMove(ESpecialMove NextMove);
 	void SpecialMoveEnded(ESpecialMove PrevMove, ESpecialMove NextMove);
 	void SpecialMoveStarted(bool bForced, ESpecialMove PrevMove);
 };
-
 // Class AliceGame.ASM_GrabLedge_FallFromBalanceBeamToGrab
 // 0x0038 (0x0074 - 0x00AC)
 class UASM_GrabLedge_FallFromBalanceBeamToGrab : public UAliceSpecialMove
@@ -17493,11 +17295,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SpecialMoveEnded(ESpecialMove PrevMove, ESpecialMove NextMove);
 	void SpecialMoveStarted(bool bForced, ESpecialMove PrevMove);
 	void GetAnimation();
 };
-
 // Class AliceGame.ASM_ContextSensitive
 // 0x0038 (0x0074 - 0x00AC)
 class UASM_ContextSensitive : public UAliceSpecialMove
@@ -17518,11 +17320,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SpecialMoveEnded(ESpecialMove PrevMove, ESpecialMove NextMove);
 	void SpecialMoveStarted(bool bForced, ESpecialMove PrevMove);
 	void GetAnimation();
 };
-
 // Class AliceGame.ASM_SwimIdleToForward
 // 0x0038 (0x0074 - 0x00AC)
 class UASM_SwimIdleToForward : public UAliceSpecialMove
@@ -17543,10 +17345,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SpecialMoveEnded(ESpecialMove PrevMove, ESpecialMove NextMove);
 	void SpecialMoveStarted(bool bForced, ESpecialMove PrevMove);
 };
-
 // Class AliceGame.ASM_SteamVentUp
 // 0x0038 (0x0074 - 0x00AC)
 class UASM_SteamVentUp : public UAliceSpecialMove
@@ -17567,10 +17369,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SpecialMoveEnded(ESpecialMove PrevMove, ESpecialMove NextMove);
 	void SpecialMoveStarted(bool bForced, ESpecialMove PrevMove);
 };
-
 // Class AliceGame.ASM_SteamVentIdle
 // 0x0038 (0x0074 - 0x00AC)
 class UASM_SteamVentIdle : public UAliceSpecialMove
@@ -17591,10 +17393,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SpecialMoveEnded(ESpecialMove PrevMove, ESpecialMove NextMove);
 	void SpecialMoveStarted(bool bForced, ESpecialMove PrevMove);
 };
-
 // Class AliceGame.ASM_SteamVentBackward
 // 0x0038 (0x0074 - 0x00AC)
 class UASM_SteamVentBackward : public UAliceSpecialMove
@@ -17615,10 +17417,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SpecialMoveEnded(ESpecialMove PrevMove, ESpecialMove NextMove);
 	void SpecialMoveStarted(bool bForced, ESpecialMove PrevMove);
 };
-
 // Class AliceGame.ASM_SteamVentForward
 // 0x0038 (0x0074 - 0x00AC)
 class UASM_SteamVentForward : public UAliceSpecialMove
@@ -17639,10 +17441,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SpecialMoveEnded(ESpecialMove PrevMove, ESpecialMove NextMove);
 	void SpecialMoveStarted(bool bForced, ESpecialMove PrevMove);
 };
-
 // Class AliceGame.ASM_SteamVentLeft
 // 0x0038 (0x0074 - 0x00AC)
 class UASM_SteamVentLeft : public UAliceSpecialMove
@@ -17663,10 +17465,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SpecialMoveEnded(ESpecialMove PrevMove, ESpecialMove NextMove);
 	void SpecialMoveStarted(bool bForced, ESpecialMove PrevMove);
 };
-
 // Class AliceGame.ASM_SteamVentRight
 // 0x0038 (0x0074 - 0x00AC)
 class UASM_SteamVentRight : public UAliceSpecialMove
@@ -17687,10 +17489,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SpecialMoveEnded(ESpecialMove PrevMove, ESpecialMove NextMove);
 	void SpecialMoveStarted(bool bForced, ESpecialMove PrevMove);
 };
-
 // Class AliceGame.ASM_FloatFail
 // 0x0038 (0x0074 - 0x00AC)
 class UASM_FloatFail : public UAliceSpecialMove
@@ -17711,10 +17513,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SpecialMoveEnded(ESpecialMove PrevMove, ESpecialMove NextMove);
 	void SpecialMoveStarted(bool bForced, ESpecialMove PrevMove);
 };
-
 // Class AliceGame.ASM_HoverHit
 // 0x0038 (0x0074 - 0x00AC)
 class UASM_HoverHit : public UAliceSpecialMove
@@ -17735,10 +17537,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SpecialMoveEnded(ESpecialMove PrevMove, ESpecialMove NextMove);
 	void SpecialMoveStarted(bool bForced, ESpecialMove PrevMove);
 };
-
 // Class AliceGame.ASM_Hysteria
 // 0x003C (0x0074 - 0x00B0)
 class UASM_Hysteria : public UAliceSpecialMove
@@ -17760,10 +17562,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SpecialMoveEnded(ESpecialMove PrevMove, ESpecialMove NextMove);
 	void SpecialMoveStarted(bool bForced, ESpecialMove PrevMove);
 };
-
 // Class AliceGame.ASM_AliceDead
 // 0x0038 (0x0074 - 0x00AC)
 class UASM_AliceDead : public UAliceSpecialMove
@@ -17784,10 +17586,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SpecialMoveEnded(ESpecialMove PrevMove, ESpecialMove NextMove);
 	void SpecialMoveStarted(bool bForced, ESpecialMove PrevMove);
 };
-
 // Class AliceGame.ASM_AliceRespawn
 // 0x0038 (0x0074 - 0x00AC)
 class UASM_AliceRespawn : public UAliceSpecialMove
@@ -17808,10 +17610,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SpecialMoveEnded(ESpecialMove PrevMove, ESpecialMove NextMove);
 	void SpecialMoveStarted(bool bForced, ESpecialMove PrevMove);
 };
-
 // Class AliceGame.ASM_BrustOutFromFlower
 // 0x0038 (0x0074 - 0x00AC)
 class UASM_BrustOutFromFlower : public UAliceSpecialMove
@@ -17832,10 +17634,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SpecialMoveEnded(ESpecialMove PrevMove, ESpecialMove NextMove);
 	void SpecialMoveStarted(bool bForced, ESpecialMove PrevMove);
 };
-
 // Class AliceGame.AliceHud
 // 0x0000 (0x04B4 - 0x04B4)
 class AAliceHud : public AHUD
@@ -17855,9 +17657,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventPostRender();
 };
-
 // Class AliceGame.AliceSonarManager
 // 0x0020 (0x003C - 0x005C)
 class UAliceSonarManager : public UObject
@@ -17884,6 +17686,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void checkLeftActors();
 	void TriggerTurnOffEffect(class AActor* SMActor);
 	void TriggerTurnOnEffect(class AActor* sonarActor);
@@ -17891,12 +17694,11 @@ public:
 	void Update(float DeltaTime);
 	void TurnOffSonar();
 	void setSonarActive(class AActor* sonarActor, bool bIsActive);
-	static bool isSonarActor(class AActor* sonarActor, int32_t& outIIsActive);
+	static bool isSonarActor(class AActor* sonarActor, int32_t& optionalOutIIsActive);
 	void TurnOnSonar();
 	void SetActive(bool _bActive);
 	void Init();
 };
-
 // Class AliceGame.SeqAct_ToggleCheshireCat
 // 0x0004 (0x00E8 - 0x00EC)
 class USeqAct_ToggleCheshireCat : public USequenceAction
@@ -17918,7 +17720,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.TargetingModeBase
 // 0x0028 (0x0228 - 0x0250)
 class ATargetingModeBase : public AActor
@@ -17947,6 +17748,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void PostLockOff();
 	void PostLockOn();
 	void PostUpdate();
@@ -17964,7 +17766,6 @@ public:
 	bool IsInitialized();
 	bool IsActivated();
 };
-
 // Class AliceGame.AliceControlLayout
 // 0x001C (0x003C - 0x0058)
 class UAliceControlLayout : public UObject
@@ -17988,7 +17789,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.TargetingMode_CombatLockon
 // 0x0050 (0x0250 - 0x02A0)
 class ATargetingMode_CombatLockon : public ATargetingModeBase
@@ -18011,6 +17811,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void PostLockOff();
 	void PostLockOn();
 	void SwitchTargetingActor(bool bLeft);
@@ -18022,7 +17823,6 @@ public:
 	void EnteringMode();
 	void ForceSearchOnce();
 };
-
 // Class AliceGame.TargetingMode_PointOfInterest
 // 0x0018 (0x0250 - 0x0268)
 class ATargetingMode_PointOfInterest : public ATargetingModeBase
@@ -18044,6 +17844,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SwitchTargetingNPCs(bool bLeft);
 	void SetAPCTargetingInfo();
 	void FindAvailableTargets(const struct FVector& vCenterOfSearch, float fRadius, float fZDiff, bool bUpdateTargetingActor);
@@ -18051,7 +17852,6 @@ public:
 	void LeavingMode();
 	void EnteringMode();
 };
-
 // Class AliceGame.TargetingMode_BreakableActor
 // 0x0048 (0x0250 - 0x0298)
 class ATargetingMode_BreakableActor : public ATargetingModeBase
@@ -18074,6 +17874,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void MakeDebugColors(class TArray<struct FColor>& outColors);
 	void showDebugInfo(const class TArray<struct FBreakableActorLockOnInfo>& Infos);
 	void PostLockOff();
@@ -18088,7 +17889,6 @@ public:
 	void LeavingMode();
 	void EnteringMode();
 };
-
 // Class AliceGame.TargetingMode_SkeletalMeshActor
 // 0x0064 (0x0250 - 0x02B4)
 class ATargetingMode_SkeletalMeshActor : public ATargetingModeBase
@@ -18111,6 +17911,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SetAPCTargetingInfo();
 	void FindAvailableTargets(const struct FVector& vCenterOfSearch, float fRadius, float fZDiff, bool bUpdateTargetingActor);
 	void PostLockOff();
@@ -18119,7 +17920,6 @@ public:
 	void LeavingMode();
 	void EnteringMode();
 };
-
 // Class AliceGame.TargetingMode_MergeManager
 // 0x0004 (0x003C - 0x0040)
 class UTargetingMode_MergeManager : public UObject
@@ -18139,6 +17939,7 @@ public:
 
 		return uClassPointer;
 	};
+
 
 	void ChooseByPotentialField(class TArray<struct FTargetingNPCInfo>& outNPCs, class TArray<struct FBreakableActorLockOnInfo>& outBActors, class TArray<struct FSkeletalMeshActorLockOnInfo>& outSMALockOnInfos);
 	bool ChooseRearTarget();
@@ -18166,7 +17967,6 @@ public:
 	void MergeSwitchTarget(ESwitchCommond SCommond);
 	void Initialize(class AAlicePlayerController* inPC);
 };
-
 // Class AliceGame.PreTargetingMode_MergeManager
 // 0x0004 (0x003C - 0x0040)
 class UPreTargetingMode_MergeManager : public UObject
@@ -18187,6 +17987,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void ChooseByPotentialField(class TArray<struct FTargetingNPCInfo>& outNPCs, class TArray<struct FBreakableActorLockOnInfo>& outBActors, class TArray<struct FSkeletalMeshActorLockOnInfo>& outSMALockOnInfos);
 	bool IsValidePV(float PV);
 	void Update(float DeltaTime);
@@ -18200,7 +18001,6 @@ public:
 	void NotifyTargetWillChange(class AActor* TargetActor, int32_t optionalSocketID);
 	void Initialize(class AAlicePlayerController* inPC);
 };
-
 // Class AliceGame.AliceWaterVolume
 // 0x0004 (0x02A8 - 0x02AC)
 class AAliceWaterVolume : public ADynamicPhysicsVolume
@@ -18221,10 +18021,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventPawnLeavingVolume(class APawn* P);
 	void eventPawnEnteredVolume(class APawn* P);
 };
-
 // Class AliceGame.ClockBombContextActor
 // 0x0000 (0x0310 - 0x0310)
 class AClockBombContextActor : public AContextActor
@@ -18244,10 +18044,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void GetBlendRotationDest();
 	void eventStartPlayAnimation();
 };
-
 // Class AliceGame.PersistentType
 // 0x0000 (0x003C - 0x003C)
 class UPersistentType : public UObject
@@ -18268,7 +18068,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.WalkInWaterVolume
 // 0x0004 (0x02A4 - 0x02A8)
 class AWalkInWaterVolume : public APhysicsVolume
@@ -18289,10 +18088,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventPawnLeavingVolume(class APawn* P);
 	void eventPawnEnteredVolume(class APawn* P);
 };
-
 // Class AliceGame.DmgType_SwimBoost
 // 0x0000 (0x006C - 0x006C)
 class UDmgType_SwimBoost : public UDamageType
@@ -18313,7 +18112,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.FishNodeActor
 // 0x0038 (0x0314 - 0x034C)
 class AFishNodeActor : public AAliceGameSkeletalMeshActorBase
@@ -18344,9 +18142,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventTakeDamage(int32_t DamageAmount, class AController* EventInstigator, const struct FVector& HitLocation, const struct FVector& Momentum, class UClass* DamageType, const struct FTraceHitInfo& optionalHitInfo, class AActor* optionalDamageCauser);
 };
-
 // Class AliceGame.DmgType_Electricity
 // 0x0000 (0x006C - 0x006C)
 class UDmgType_Electricity : public UDamageType
@@ -18367,7 +18165,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.DmgType_SlideBumpDamage
 // 0x0000 (0x006C - 0x006C)
 class UDmgType_SlideBumpDamage : public UDamageType
@@ -18388,13 +18185,13 @@ public:
 	};
 
 };
-
 // Class AliceGame.SeqAct_ChangeWonderlandDress
 // 0x0008 (0x00E8 - 0x00F0)
 class USeqAct_ChangeWonderlandDress : public USequenceAction
 {
 public:
 	EAliceWonderlandDresses                            AliceDress;                                    // 0x00E8 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x00E9 (0x0003) MISSED OFFSET
 	uint32_t                                           bShouldBlock : 1;                              // 0x00EC (0x0004) [0x0000000000000001] [0x00000001] (CPF_Edit)
 
 public:
@@ -18411,7 +18208,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SeqAct_SwitchAliceTransitionHair
 // 0x0000 (0x00E8 - 0x00E8)
 class USeqAct_SwitchAliceTransitionHair : public USequenceAction
@@ -18432,7 +18228,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SeqAct_SetAbilityCamera
 // 0x00A0 (0x00E8 - 0x0188)
 class USeqAct_SetAbilityCamera : public USequenceAction
@@ -18455,15 +18250,16 @@ public:
 		return uClassPointer;
 	};
 
+
 	static int32_t eventGetObjClassVersion();
 };
-
 // Class AliceGame.SeqAct_ToggleCameraPreset
 // 0x002C (0x00E8 - 0x0114)
 class USeqAct_ToggleCameraPreset : public USequenceAction
 {
 public:
 	ECameraPresetStyle                                 CameraPreset;                                  // 0x00E8 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x00E9 (0x0003) MISSED OFFSET
 	struct FViewTargetTransitionParams                 TransitionParamsOn;                            // 0x00EC (0x0014) [0x0000000000000001] (CPF_Edit)    
 	struct FViewTargetTransitionParams                 TransitionParamsOff;                           // 0x0100 (0x0014) [0x0000000000000001] (CPF_Edit)    
 
@@ -18480,9 +18276,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	static int32_t eventGetObjClassVersion();
 };
-
 // Class AliceGame.SeqAct_ToggleCameraMagnetEffect
 // 0x0000 (0x00E8 - 0x00E8)
 class USeqAct_ToggleCameraMagnetEffect : public USequenceAction
@@ -18502,9 +18298,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	static int32_t eventGetObjClassVersion();
 };
-
 // Class AliceGame.SeqAct_ToggleGlide
 // 0x0000 (0x00E8 - 0x00E8)
 class USeqAct_ToggleGlide : public USequenceAction
@@ -18525,7 +18321,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SeqAct_EmitCameraEffect
 // 0x0004 (0x00E8 - 0x00EC)
 class USeqAct_EmitCameraEffect : public USequenceAction
@@ -18547,7 +18342,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SeqAct_ForceResetCamera
 // 0x0000 (0x00E8 - 0x00E8)
 class USeqAct_ForceResetCamera : public USequenceAction
@@ -18568,7 +18362,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SeqAct_SetSonarActor
 // 0x0000 (0x00E8 - 0x00E8)
 class USeqAct_SetSonarActor : public USequenceAction
@@ -18589,7 +18382,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SeqAct_TriggerBlockPuzzle
 // 0x0000 (0x00E8 - 0x00E8)
 class USeqAct_TriggerBlockPuzzle : public USequenceAction
@@ -18610,7 +18402,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SeqAct_UpgradeHealth
 // 0x0001 (0x00E8 - 0x00E9)
 class USeqAct_UpgradeHealth : public USequenceAction
@@ -18632,7 +18423,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SeqAct_ChapterCompleted
 // 0x0001 (0x00E8 - 0x00E9)
 class USeqAct_ChapterCompleted : public USequenceAction
@@ -18654,7 +18444,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SeqAct_BigMemoryCompleted
 // 0x0001 (0x00E8 - 0x00E9)
 class USeqAct_BigMemoryCompleted : public USequenceAction
@@ -18676,7 +18465,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SeqAct_ChallengeCaveCompleted
 // 0x0001 (0x00E8 - 0x00E9)
 class USeqAct_ChallengeCaveCompleted : public USequenceAction
@@ -18698,7 +18486,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SeqAct_TriggerChessPuzzle
 // 0x0000 (0x00E8 - 0x00E8)
 class USeqAct_TriggerChessPuzzle : public USequenceAction
@@ -18719,7 +18506,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SeqAct_TriggerChessDizzy
 // 0x0000 (0x00E8 - 0x00E8)
 class USeqAct_TriggerChessDizzy : public USequenceAction
@@ -18740,7 +18526,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SeqAct_TriggerAllGameFinish
 // 0x0000 (0x00E8 - 0x00E8)
 class USeqAct_TriggerAllGameFinish : public USequenceAction
@@ -18761,7 +18546,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.DmgType_RollBumpDamage
 // 0x0000 (0x006C - 0x006C)
 class UDmgType_RollBumpDamage : public UDamageType
@@ -18782,7 +18566,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SeqAct_SkipBlockPuzzle
 // 0x0000 (0x00E8 - 0x00E8)
 class USeqAct_SkipBlockPuzzle : public USequenceAction
@@ -18803,7 +18586,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SeqAct_AssembleBlock
 // 0x0000 (0x00E8 - 0x00E8)
 class USeqAct_AssembleBlock : public USequenceAction
@@ -18824,7 +18606,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SeqAct_MakeBlockThin
 // 0x0000 (0x00E8 - 0x00E8)
 class USeqAct_MakeBlockThin : public USequenceAction
@@ -18845,7 +18626,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SeqAct_ExitMemorySoundMode
 // 0x0000 (0x00E8 - 0x00E8)
 class USeqAct_ExitMemorySoundMode : public USequenceAction
@@ -18866,7 +18646,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SeqAct_SetVentState
 // 0x0000 (0x00E8 - 0x00E8)
 class USeqAct_SetVentState : public USequenceAction
@@ -18887,7 +18666,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SeqAct_InteractInLondon
 // 0x0018 (0x00E8 - 0x0100)
 class USeqAct_InteractInLondon : public USequenceAction
@@ -18910,7 +18688,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AssetActor
 // 0x0010 (0x0314 - 0x0324)
 class AAssetActor : public ASkeletalMeshActor
@@ -18932,9 +18709,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventTick(float DeltaTime);
 };
-
 // Class AliceGame.AliceGFXMovieInput
 // 0x000C (0x0228 - 0x0234)
 class AAliceGFXMovieInput : public AActor
@@ -18957,9 +18734,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventTick(float DeltaTime);
 };
-
 // Class AliceGame.AlicePlayer_StandMovementState
 // 0x0004 (0x0134 - 0x0138)
 class UAlicePlayer_StandMovementState : public UAlicePlayer_MovementStateBase
@@ -18982,7 +18759,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AlicePlayer_CombatMovementState
 // 0x0000 (0x0134 - 0x0134)
 class UAlicePlayer_CombatMovementState : public UAlicePlayer_MovementStateBase
@@ -19003,7 +18779,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AlicePlayer_HangMovementState
 // 0x0000 (0x0134 - 0x0134)
 class UAlicePlayer_HangMovementState : public UAlicePlayer_MovementStateBase
@@ -19024,7 +18799,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.DmgType_ClockBombWeapon
 // 0x0000 (0x006C - 0x006C)
 class UDmgType_ClockBombWeapon : public UDamageType
@@ -19045,7 +18819,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.DmgType_ClonePawnWeapon
 // 0x0000 (0x006C - 0x006C)
 class UDmgType_ClonePawnWeapon : public UDamageType
@@ -19066,7 +18839,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.CycleFloatIndicatorManager
 // 0x0028 (0x003C - 0x0064)
 class UCycleFloatIndicatorManager : public UObject
@@ -19095,11 +18867,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	void startEffect();
 	void stopEffect();
 	void Update(float DeltaTime);
 };
-
 // Class AliceGame.AliceDroppedItemPickup
 // 0x0008 (0x0250 - 0x0258)
 class AAliceDroppedItemPickup : public AAliceDroppedPickup
@@ -19121,6 +18893,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void PickedUpBy(class APawn* P);
 	void DroppedFrom(class APawn* P);
 	void eventDestroyed();
@@ -19128,7 +18901,6 @@ public:
 	void eventSetPickupMesh(class UPrimitiveComponent* NewPickupMesh);
 	float BotDesireability(class APawn* Bot, class AController* C);
 };
-
 // Class AliceGame.AliceEmit_CameraBlood_large
 // 0x0000 (0x0250 - 0x0250)
 class AAliceEmit_CameraBlood_large : public AEmitterCameraLensEffectBase
@@ -19149,7 +18921,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceEmit_CameraCannonCrab
 // 0x0000 (0x0250 - 0x0250)
 class AAliceEmit_CameraCannonCrab : public AEmitterCameraLensEffectBase
@@ -19170,7 +18941,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceEmit_CameraEyepotWaterSpray
 // 0x0000 (0x0250 - 0x0250)
 class AAliceEmit_CameraEyepotWaterSpray : public AEmitterCameraLensEffectBase
@@ -19191,7 +18961,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceEmit_CameraWater_Drop
 // 0x0000 (0x0250 - 0x0250)
 class AAliceEmit_CameraWater_Drop : public AEmitterCameraLensEffectBase
@@ -19212,7 +18981,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceEmit_CameraWater_Line
 // 0x0000 (0x0250 - 0x0250)
 class AAliceEmit_CameraWater_Line : public AEmitterCameraLensEffectBase
@@ -19233,7 +19001,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceFloatVolume
 // 0x001C (0x02A8 - 0x02C4)
 class AAliceFloatVolume : public ADynamicPhysicsVolume
@@ -19256,11 +19023,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	void ApplyWind(class AActor* Actor);
 	void eventPawnLeavingVolume(class APawn* P);
 	void eventPawnEnteredVolume(class APawn* P);
 };
-
 // Class AliceGame.AliceGameActorFactorySkeletalMeshActorMAT
 // 0x0000 (0x006C - 0x006C)
 class UAliceGameActorFactorySkeletalMeshActorMAT : public UActorFactorySkeletalMeshMAT
@@ -19281,7 +19048,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameActorFactorySkeletalMeshActorMAT_DollMakerBoss
 // 0x0000 (0x006C - 0x006C)
 class UAliceGameActorFactorySkeletalMeshActorMAT_DollMakerBoss : public UActorFactorySkeletalMeshMAT
@@ -19302,7 +19068,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameActorFactorySkeletalMeshActorMAT_DollMakerHandBoy
 // 0x0000 (0x006C - 0x006C)
 class UAliceGameActorFactorySkeletalMeshActorMAT_DollMakerHandBoy : public UActorFactorySkeletalMeshMAT
@@ -19323,7 +19088,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameActorFactorySkeletalMeshActorMAT_DollMakerHandGirl
 // 0x0000 (0x006C - 0x006C)
 class UAliceGameActorFactorySkeletalMeshActorMAT_DollMakerHandGirl : public UActorFactorySkeletalMeshMAT
@@ -19344,7 +19108,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameActorFactorySkeletalMeshActorMAT_HeadBody
 // 0x0000 (0x006C - 0x006C)
 class UAliceGameActorFactorySkeletalMeshActorMAT_HeadBody : public UActorFactorySkeletalMeshMAT
@@ -19365,7 +19128,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameKynapseWalkingPawn
 // 0x0000 (0x0B90 - 0x0B90)
 class AAliceGameKynapseWalkingPawn : public AAliceGameKynapsePawn
@@ -19386,7 +19148,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameAutomatonPawn
 // 0x0000 (0x0B90 - 0x0B90)
 class AAliceGameAutomatonPawn : public AAliceGameKynapseWalkingPawn
@@ -19407,7 +19168,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.NPCWeapon_General_Melee_Blunt1
 // 0x0000 (0x0514 - 0x0514)
 class ANPCWeapon_General_Melee_Blunt1 : public AWeaponForNPC
@@ -19428,7 +19188,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameKynapseFlyPawn
 // 0x0000 (0x0B90 - 0x0B90)
 class AAliceGameKynapseFlyPawn : public AAliceGameKynapsePawn
@@ -19448,10 +19207,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	struct FRotator GetAdjustedAimFor(class AWeapon* W, const struct FVector& StartFireLoc);
 	void PostBeginPlay();
 };
-
 // Class AliceGame.AliceGameBitchBabyPawn
 // 0x0004 (0x0B90 - 0x0B94)
 class AAliceGameBitchBabyPawn : public AAliceGameKynapseFlyPawn
@@ -19472,10 +19231,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void ModifyDiedByWeapon();
 	void HackPawnMarkDeathType(class UClass* DamageType, class AActor* Causer);
 };
-
 // Class AliceGame.AliceGameBolterflyPawn
 // 0x0000 (0x0B90 - 0x0B90)
 class AAliceGameBolterflyPawn : public AAliceGameKynapseFlyPawn
@@ -19496,7 +19255,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameCannonCrabPawn
 // 0x0004 (0x0B90 - 0x0B94)
 class AAliceGameCannonCrabPawn : public AAliceGameKynapseWalkingPawn
@@ -19518,7 +19276,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameCardGuardPawn
 // 0x0000 (0x0B90 - 0x0B90)
 class AAliceGameCardGuardPawn : public AAliceGameKynapseWalkingPawn
@@ -19539,7 +19296,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameCommonNPCPawn
 // 0x0000 (0x0B90 - 0x0B90)
 class AAliceGameCommonNPCPawn : public AAliceGameKynapseWalkingPawn
@@ -19560,7 +19316,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameDeepSeaSnarkPawn
 // 0x0004 (0x0B90 - 0x0B94)
 class AAliceGameDeepSeaSnarkPawn : public AAliceGameKynapseFlyPawn
@@ -19582,7 +19337,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameDollBoyPawn
 // 0x0004 (0x0B90 - 0x0B94)
 class AAliceGameDollBoyPawn : public AAliceGameKynapseWalkingPawn
@@ -19604,7 +19358,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameDollGirlPawn
 // 0x0004 (0x0B90 - 0x0B94)
 class AAliceGameDollGirlPawn : public AAliceGameKynapseWalkingPawn
@@ -19626,7 +19379,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameDollMakerBossPawn
 // 0x001C (0x0B90 - 0x0BAC)
 class AAliceGameDollMakerBossPawn : public AAliceGameKynapseWalkingPawn
@@ -19649,9 +19401,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventPreBeginPlay();
 };
-
 // Class AliceGame.AliceGameDollMakerHandBoy
 // 0x0010 (0x0B90 - 0x0BA0)
 class AAliceGameDollMakerHandBoy : public AAliceGameKynapseWalkingPawn
@@ -19674,9 +19426,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventPreBeginPlay();
 };
-
 // Class AliceGame.AliceGameDollMakerHandGirl
 // 0x0010 (0x0B90 - 0x0BA0)
 class AAliceGameDollMakerHandGirl : public AAliceGameKynapseWalkingPawn
@@ -19699,9 +19451,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventPreBeginPlay();
 };
-
 // Class AliceGame.AliceGameDoomAgilePawn
 // 0x0000 (0x0B90 - 0x0B90)
 class AAliceGameDoomAgilePawn : public AAliceGameKynapseFlyPawn
@@ -19722,7 +19474,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameDoomGeneralPawn
 // 0x0004 (0x0B90 - 0x0B94)
 class AAliceGameDoomGeneralPawn : public AAliceGameKynapseWalkingPawn
@@ -19744,7 +19495,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameDoomGrubPawn
 // 0x0004 (0x0B90 - 0x0B94)
 class AAliceGameDoomGrubPawn : public AAliceGameKynapseWalkingPawn
@@ -19766,7 +19516,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameDoomSwarmPawn
 // 0x0004 (0x0B90 - 0x0B94)
 class AAliceGameDoomSwarmPawn : public AAliceGameKynapseWalkingPawn
@@ -19788,7 +19537,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameDoomTankPawn
 // 0x0004 (0x0B90 - 0x0B94)
 class AAliceGameDoomTankPawn : public AAliceGameKynapseWalkingPawn
@@ -19809,9 +19557,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventPostBeginPlay();
 };
-
 // Class AliceGame.AliceGameEmpressWaspFlyingBossPawn
 // 0x0000 (0x0B90 - 0x0B90)
 class AAliceGameEmpressWaspFlyingBossPawn : public AAliceGameKynapseFlyPawn
@@ -19832,7 +19580,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameEmpressWaspWalkingBossPawn
 // 0x0004 (0x0B90 - 0x0B94)
 class AAliceGameEmpressWaspWalkingBossPawn : public AAliceGameKynapseWalkingPawn
@@ -19854,7 +19601,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameExecutionerPawn
 // 0x0004 (0x0B90 - 0x0B94)
 class AAliceGameExecutionerPawn : public AAliceGameKynapseWalkingPawn
@@ -19876,7 +19622,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameEyePotPawn
 // 0x0000 (0x0B90 - 0x0B90)
 class AAliceGameEyePotPawn : public AAliceGameKynapseWalkingPawn
@@ -19897,7 +19642,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameHareMouseBossPawn
 // 0x0004 (0x0B90 - 0x0B94)
 class AAliceGameHareMouseBossPawn : public AAliceGameKynapseWalkingPawn
@@ -19919,7 +19663,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameIceSnarkPawn
 // 0x0004 (0x0B90 - 0x0B94)
 class AAliceGameIceSnarkPawn : public AAliceGameKynapseWalkingPawn
@@ -19941,7 +19684,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameInkWaspPawn
 // 0x0000 (0x0B90 - 0x0B90)
 class AAliceGameInkWaspPawn : public AAliceGameKynapseFlyPawn
@@ -19962,7 +19704,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameLionChopPawn
 // 0x0004 (0x0B90 - 0x0B94)
 class AAliceGameLionChopPawn : public AAliceGameKynapseWalkingPawn
@@ -19984,7 +19725,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameLondonCopPawn
 // 0x0000 (0x0B90 - 0x0B90)
 class AAliceGameLondonCopPawn : public AAliceGameKynapseWalkingPawn
@@ -20005,7 +19745,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameLostSoulPawn
 // 0x0004 (0x0B90 - 0x0B94)
 class AAliceGameLostSoulPawn : public AAliceGameKynapseWalkingPawn
@@ -20027,7 +19766,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameMadcapPawn
 // 0x0004 (0x0B90 - 0x0B94)
 class AAliceGameMadcapPawn : public AAliceGameKynapseWalkingPawn
@@ -20049,7 +19787,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.PepperGrinderPrimaryProjectile
 // 0x0000 (0x03A4 - 0x03A4)
 class APepperGrinderPrimaryProjectile : public AAliceProjectile
@@ -20069,9 +19806,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	int32_t GetDLCWeaponFlag();
 };
-
 // Class AliceGame.AliceGameQCannonPawn
 // 0x0004 (0x0B90 - 0x0B94)
 class AAliceGameQCannonPawn : public AAliceGameKynapseWalkingPawn
@@ -20093,7 +19830,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGameSamuraiWaspPawn
 // 0x0004 (0x0B90 - 0x0B94)
 class AAliceGameSamuraiWaspPawn : public AAliceGameKynapseWalkingPawn
@@ -20115,7 +19851,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceGFxMovie_BlockChess
 // 0x0000 (0x0144 - 0x0144)
 class UAliceGFxMovie_BlockChess : public UAliceGFXMovie
@@ -20135,11 +19870,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	void showMaxStepChess();
 	void closeMoveCircle();
 	void showMoveCircle();
 };
-
 // Class AliceGame.AliceGFxMovie_Credits
 // 0x0004 (0x0144 - 0x0148)
 class UAliceGFxMovie_Credits : public UAliceGFXMovie
@@ -20160,9 +19895,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void PlayMusic(const class FString& Index);
 };
-
 // Class AliceGame.AliceGfxMovie_musicChallenge
 // 0x0030 (0x0144 - 0x0174)
 class UAliceGfxMovie_musicChallenge : public UAliceGFXMovie
@@ -20194,33 +19929,33 @@ public:
 		return uClassPointer;
 	};
 
-	void PlaySoundW(const class FString& Id);
-};
 
+	void PlaySoundWin(const class FString& Id);
+};
 // Class AliceGame.AliceGfxMovie_riddle
 // 0x004C (0x0144 - 0x0190)
 class UAliceGfxMovie_riddle : public UAliceGFXMovie
 {
 public:
-	class USoundCue*                                   Wrong;                                         // 0x0144 (0x0004) [0x0000000000000001] (CPF_Edit)    
-	class USoundCue*                                   Wrong01;                                       // 0x0148 (0x0004) [0x0000000000000001] (CPF_Edit)    
-	class USoundCue*                                   Wrong02;                                       // 0x014C (0x0004) [0x0000000000000001] (CPF_Edit)    
-	class USoundCue*                                   Question;                                      // 0x0150 (0x0004) [0x0000000000000001] (CPF_Edit)    
-	class USoundCue*                                   Question01;                                    // 0x0154 (0x0004) [0x0000000000000001] (CPF_Edit)    
-	class USoundCue*                                   Question02;                                    // 0x0158 (0x0004) [0x0000000000000001] (CPF_Edit)    
-	class USoundCue*                                   Question03;                                    // 0x015C (0x0004) [0x0000000000000001] (CPF_Edit)    
-	class USoundCue*                                   Question04;                                    // 0x0160 (0x0004) [0x0000000000000001] (CPF_Edit)    
-	class USoundCue*                                   Question05;                                    // 0x0164 (0x0004) [0x0000000000000001] (CPF_Edit)    
-	class USoundCue*                                   Question06;                                    // 0x0168 (0x0004) [0x0000000000000001] (CPF_Edit)    
-	class USoundCue*                                   Question07;                                    // 0x016C (0x0004) [0x0000000000000001] (CPF_Edit)    
-	class USoundCue*                                   Question08;                                    // 0x0170 (0x0004) [0x0000000000000001] (CPF_Edit)    
-	class USoundCue*                                   Question09;                                    // 0x0174 (0x0004) [0x0000000000000001] (CPF_Edit)    
-	class USoundCue*                                   Question10;                                    // 0x0178 (0x0004) [0x0000000000000001] (CPF_Edit)    
-	class USoundCue*                                   Question11;                                    // 0x017C (0x0004) [0x0000000000000001] (CPF_Edit)    
-	class USoundCue*                                   Question12;                                    // 0x0180 (0x0004) [0x0000000000000001] (CPF_Edit)    
-	class USoundCue*                                   Question13;                                    // 0x0184 (0x0004) [0x0000000000000001] (CPF_Edit)    
-	class USoundCue*                                   Question14;                                    // 0x0188 (0x0004) [0x0000000000000001] (CPF_Edit)    
-	class USoundCue*                                   Question15;                                    // 0x018C (0x0004) [0x0000000000000001] (CPF_Edit)    
+	class USoundCue*                                   Wrong_1;                                       // 0x0144 (0x0004) [0x0000000000000001] (CPF_Edit)    
+	class USoundCue*                                   Wrong_2;                                       // 0x0148 (0x0004) [0x0000000000000001] (CPF_Edit)    
+	class USoundCue*                                   Wrong_3;                                       // 0x014C (0x0004) [0x0000000000000001] (CPF_Edit)    
+	class USoundCue*                                   Question_1;                                    // 0x0150 (0x0004) [0x0000000000000001] (CPF_Edit)    
+	class USoundCue*                                   Question_2;                                    // 0x0154 (0x0004) [0x0000000000000001] (CPF_Edit)    
+	class USoundCue*                                   Question_3;                                    // 0x0158 (0x0004) [0x0000000000000001] (CPF_Edit)    
+	class USoundCue*                                   Question_4;                                    // 0x015C (0x0004) [0x0000000000000001] (CPF_Edit)    
+	class USoundCue*                                   Question_5;                                    // 0x0160 (0x0004) [0x0000000000000001] (CPF_Edit)    
+	class USoundCue*                                   Question_6;                                    // 0x0164 (0x0004) [0x0000000000000001] (CPF_Edit)    
+	class USoundCue*                                   Question_7;                                    // 0x0168 (0x0004) [0x0000000000000001] (CPF_Edit)    
+	class USoundCue*                                   Question_8;                                    // 0x016C (0x0004) [0x0000000000000001] (CPF_Edit)    
+	class USoundCue*                                   Question_9;                                    // 0x0170 (0x0004) [0x0000000000000001] (CPF_Edit)    
+	class USoundCue*                                   Question_10;                                   // 0x0174 (0x0004) [0x0000000000000001] (CPF_Edit)    
+	class USoundCue*                                   Question_11;                                   // 0x0178 (0x0004) [0x0000000000000001] (CPF_Edit)    
+	class USoundCue*                                   Question_12;                                   // 0x017C (0x0004) [0x0000000000000001] (CPF_Edit)    
+	class USoundCue*                                   Question_13;                                   // 0x0180 (0x0004) [0x0000000000000001] (CPF_Edit)    
+	class USoundCue*                                   Question_14;                                   // 0x0184 (0x0004) [0x0000000000000001] (CPF_Edit)    
+	class USoundCue*                                   Question_15;                                   // 0x0188 (0x0004) [0x0000000000000001] (CPF_Edit)    
+	class USoundCue*                                   Question_16;                                   // 0x018C (0x0004) [0x0000000000000001] (CPF_Edit)    
 
 public:
 	static UClass* StaticClass()
@@ -20235,11 +19970,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	void stopSound();
 	void PlayWrongSound(int32_t Id);
 	void PlayQuestionSound(int32_t Id);
 };
-
 // Class AliceGame.AliceGfxMovie_titlePlayerMenu
 // 0x0024 (0x0144 - 0x0168)
 class UAliceGfxMovie_titlePlayerMenu : public UAliceGFXMovie
@@ -20270,6 +20005,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void UT_UnlockTrophyDressUps();
 	void SetNotShowingAutoSaveWarning();
 	void SetShowingAutoSaveWarning();
@@ -20287,7 +20023,7 @@ public:
 	void OnLoginCancelled();
 	void ShowLoginUIWithCancelWarning();
 	bool IsControllerLoggedIn(int32_t ControllerId);
-	void PlaySoundW(const class FString& Index);
+	void PlaySoundWin(const class FString& Index);
 	void PlayMusic(const class FString& Index);
 	void getUserProfileList();
 	void backtoTitle();
@@ -20316,7 +20052,6 @@ public:
 	class FString getMenuName();
 	void ViewAsset(int32_t Index);
 };
-
 // Class AliceGame.AliceGib
 // 0x0068 (0x0228 - 0x0290)
 class AAliceGib : public AActor
@@ -20354,6 +20089,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void TurnOnCollision();
 	void LeaveADecal(const struct FVector& HitLoc, const struct FVector& HitNorm);
 	void eventRigidBodyCollision(class UPrimitiveComponent* HitComponent, class UPrimitiveComponent* OtherComponent, int32_t ContactIndex, struct FCollisionImpactData& outRigidCollisionData);
@@ -20367,7 +20103,6 @@ public:
 	void SetTexturesToBeResident(float TimeToBeResident);
 	void eventPreBeginPlay();
 };
-
 // Class AliceGame.DmgType_HobbyHorseGhost
 // 0x0000 (0x006C - 0x006C)
 class UDmgType_HobbyHorseGhost : public UDamageType
@@ -20388,7 +20123,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceProj_ExplosiveBase
 // 0x0000 (0x03A4 - 0x03A4)
 class AAliceProj_ExplosiveBase : public AAliceProjectile
@@ -20409,7 +20143,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceSlideVolume
 // 0x0004 (0x02A4 - 0x02A8)
 class AAliceSlideVolume : public APhysicsVolume
@@ -20432,10 +20165,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventPawnLeavingVolume(class APawn* P);
 	void eventPawnEnteredVolume(class APawn* P);
 };
-
 // Class AliceGame.AliceSonarActor
 // 0x0000 (0x0228 - 0x0228)
 class AAliceSonarActor : public AActor
@@ -20455,11 +20188,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	void StopSonar();
 	void UpdateSonar();
 	void BeginSonar();
 };
-
 // Class AliceGame.BounceVolume
 // 0x0000 (0x0264 - 0x0264)
 class ABounceVolume : public AVolume
@@ -20479,9 +20212,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventTouch(class AActor* Other, class UPrimitiveComponent* OtherComp, const struct FVector& HitLocation, const struct FVector& HitNormal);
 };
-
 // Class AliceGame.DmgType_VorpalBladeGhost
 // 0x0000 (0x006C - 0x006C)
 class UDmgType_VorpalBladeGhost : public UDamageType
@@ -20502,7 +20235,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.AliceWeaponPickupFactory
 // 0x0024 (0x03F8 - 0x041C)
 class AAliceWeaponPickupFactory : public AAlicePickupFactory
@@ -20530,6 +20262,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void NotifyLocalPlayerDead(class APlayerController* PC);
 	void ShowHidden();
 	void ShowActive();
@@ -20544,7 +20277,6 @@ public:
 	void InitializePickup();
 	void PostBeginPlay();
 };
-
 // Class AliceGame.BalancePlatform
 // 0x0034 (0x0290 - 0x02C4)
 class ABalancePlatform : public AInterpActor
@@ -20580,6 +20312,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool IsAliceAbovePlatform();
 	bool IsAliceBaseOnPlatform();
 	float GetBasedActorsWeight(class AActor* hasBasedActor);
@@ -20597,7 +20330,6 @@ public:
 	bool ShouldSaveForCheckpoint();
 	void eventPostBeginPlay();
 };
-
 // Class AliceGame.BalanceScales
 // 0x0028 (0x0300 - 0x0328)
 class ABalanceScales : public ANavigationPoint
@@ -20627,6 +20359,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void notifyMoveStart();
 	void notifyMoveStop();
 	bool IsShouldDelay();
@@ -20637,7 +20370,6 @@ public:
 	void ResetPlatformData();
 	void eventPostBeginPlay();
 };
-
 // Class AliceGame.BitchBabyProjectile
 // 0x0000 (0x03A4 - 0x03A4)
 class ABitchBabyProjectile : public ANpcProjectile
@@ -20658,7 +20390,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.DmgType_BitchBaby
 // 0x0000 (0x006C - 0x006C)
 class UDmgType_BitchBaby : public UDamageType
@@ -20679,7 +20410,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.CannonCrabProjectile
 // 0x0000 (0x03A4 - 0x03A4)
 class ACannonCrabProjectile : public ANpcProjectile
@@ -20700,7 +20430,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.DmgType_CannonCrab
 // 0x0000 (0x006C - 0x006C)
 class UDmgType_CannonCrab : public UDamageType
@@ -20721,7 +20450,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.CannonDecalActorMovable
 // 0x0000 (0x022C - 0x022C)
 class ACannonDecalActorMovable : public ADecalActorMovable
@@ -20742,7 +20470,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.CauseDamageActor
 // 0x0020 (0x0228 - 0x0248)
 class ACauseDamageActor : public AActor
@@ -20770,6 +20497,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void Destroyed();
 	void StopAliceDamage();
 	void CauseAliceDamage();
@@ -20777,7 +20505,6 @@ public:
 	void eventTick(float DeltaTime);
 	void eventPostBeginPlay();
 };
-
 // Class AliceGame.CauseNPCDamageActor
 // 0x0020 (0x0228 - 0x0248)
 class ACauseNPCDamageActor : public AActor
@@ -20805,12 +20532,12 @@ public:
 		return uClassPointer;
 	};
 
+
 	void Destroyed();
 	void IntervalRadiusDamage();
 	void StartCauseDamage();
 	void InitConfigData(float DmgRadius, float interval, float dmg, float Time, class UParticleSystem* PoisonParticle, int32_t iWeaponLevel);
 };
-
 // Class AliceGame.CheshireCatVolume
 // 0x0004 (0x0264 - 0x0268)
 class ACheshireCatVolume : public AVolume
@@ -20832,10 +20559,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool IsInBox(const struct FVector& In, const struct FBox& _box);
 	bool IsInside(const struct FVector& Point);
 };
-
 // Class AliceGame.SeqEvent_CheshireCatAllHintsUsed
 // 0x0000 (0x0100 - 0x0100)
 class USeqEvent_CheshireCatAllHintsUsed : public USequenceEvent
@@ -20856,7 +20583,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SeqEvent_ContextActionActivated
 // 0x0000 (0x0100 - 0x0100)
 class USeqEvent_ContextActionActivated : public USequenceEvent
@@ -20877,7 +20603,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.DamageVolume
 // 0x0024 (0x02A8 - 0x02CC)
 class ADamageVolume : public ADynamicPhysicsVolume
@@ -20887,6 +20612,7 @@ public:
 	uint32_t                                           bInvincible : 1;                               // 0x02A8 (0x0004) [0x0000000000000001] [0x00000002] (CPF_Edit)
 	uint32_t                                           bOnlyOnce : 1;                                 // 0x02A8 (0x0004) [0x0000000000000001] [0x00000004] (CPF_Edit)
 	EDamageStrengthType                                KnockBackType;                                 // 0x02AC (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x02AD (0x0003) MISSED OFFSET
 	class AActor*                                      DirectionActor;                                // 0x02B0 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	struct FKnockBackParameters                        KnockBackParameter;                            // 0x02B4 (0x0014) [0x0000000000000001] (CPF_Edit)    
 	class USoundCue*                                   DamageSound;                                   // 0x02C8 (0x0004) [0x0000000000000001] (CPF_Edit)    
@@ -20904,12 +20630,12 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SetKnockBackPara(class AActor* Other);
 	void CausePainTo(class AActor* Other);
 	void eventPostBeginPlay();
 	class USoundCue* getDamageSound();
 };
-
 // Class AliceGame.DeepSeaSnarkProjectile
 // 0x0000 (0x03A4 - 0x03A4)
 class ADeepSeaSnarkProjectile : public ANpcProjectile
@@ -20930,7 +20656,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.DmgType_DeepSeaSnark
 // 0x0000 (0x006C - 0x006C)
 class UDmgType_DeepSeaSnark : public UDamageType
@@ -20951,7 +20676,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.DmgType_Automaton_Melee
 // 0x0000 (0x006C - 0x006C)
 class UDmgType_Automaton_Melee : public UDamageType
@@ -20972,7 +20696,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.DmgType_Automaton_Range
 // 0x0000 (0x006C - 0x006C)
 class UDmgType_Automaton_Range : public UDamageType
@@ -20993,7 +20716,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.DmgType_Bolterfly_Melee
 // 0x0000 (0x006C - 0x006C)
 class UDmgType_Bolterfly_Melee : public UDamageType
@@ -21014,7 +20736,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.DmgType_DollBoyHand_Range
 // 0x0000 (0x006C - 0x006C)
 class UDmgType_DollBoyHand_Range : public UDamageType
@@ -21035,7 +20756,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.DmgType_DollGirl
 // 0x0000 (0x006C - 0x006C)
 class UDmgType_DollGirl : public UDamageType
@@ -21056,7 +20776,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.DmgType_DollMaker
 // 0x0000 (0x006C - 0x006C)
 class UDmgType_DollMaker : public UDamageType
@@ -21077,7 +20796,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.DmgType_DoomAgile
 // 0x0000 (0x006C - 0x006C)
 class UDmgType_DoomAgile : public UDamageType
@@ -21098,7 +20816,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.DmgType_DoomGeneral
 // 0x0000 (0x006C - 0x006C)
 class UDmgType_DoomGeneral : public UDamageType
@@ -21119,7 +20836,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.DmgType_DoomGrunt1
 // 0x0000 (0x006C - 0x006C)
 class UDmgType_DoomGrunt1 : public UDamageType
@@ -21140,7 +20856,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.DmgType_DoomGrunt2
 // 0x0000 (0x006C - 0x006C)
 class UDmgType_DoomGrunt2 : public UDamageType
@@ -21161,7 +20876,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.DmgType_DoomSwarm
 // 0x0000 (0x006C - 0x006C)
 class UDmgType_DoomSwarm : public UDamageType
@@ -21182,7 +20896,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.DmgType_DoomTank
 // 0x0000 (0x006C - 0x006C)
 class UDmgType_DoomTank : public UDamageType
@@ -21203,7 +20916,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.DmgType_EmpressWaspFlyingBoss
 // 0x0000 (0x006C - 0x006C)
 class UDmgType_EmpressWaspFlyingBoss : public UDamageType
@@ -21224,7 +20936,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.DmgType_Executioner_Melee
 // 0x0000 (0x006C - 0x006C)
 class UDmgType_Executioner_Melee : public UDamageType
@@ -21245,7 +20956,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.DmgType_Eyepot_Melee
 // 0x0000 (0x006C - 0x006C)
 class UDmgType_Eyepot_Melee : public UDamageType
@@ -21266,7 +20976,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.DmgType_EyeStaff_RangeProjectile
 // 0x0000 (0x006C - 0x006C)
 class UDmgType_EyeStaff_RangeProjectile : public UDamageType
@@ -21287,7 +20996,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.DmgType_General_Melee_Blunt1
 // 0x0000 (0x006C - 0x006C)
 class UDmgType_General_Melee_Blunt1 : public UDamageType
@@ -21308,7 +21016,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.DmgType_General_Melee_Blunt2
 // 0x0000 (0x006C - 0x006C)
 class UDmgType_General_Melee_Blunt2 : public UDamageType
@@ -21329,7 +21036,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.DmgType_General_Melee_Blunt3
 // 0x0000 (0x006C - 0x006C)
 class UDmgType_General_Melee_Blunt3 : public UDamageType
@@ -21350,7 +21056,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.DmgType_General_Melee_Blunt4
 // 0x0000 (0x006C - 0x006C)
 class UDmgType_General_Melee_Blunt4 : public UDamageType
@@ -21371,7 +21076,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.DmgType_General_Melee_Sharp1
 // 0x0000 (0x006C - 0x006C)
 class UDmgType_General_Melee_Sharp1 : public UDamageType
@@ -21392,7 +21096,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.DmgType_General_Melee_Sharp2
 // 0x0000 (0x006C - 0x006C)
 class UDmgType_General_Melee_Sharp2 : public UDamageType
@@ -21413,7 +21116,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.DmgType_General_Melee_Sharp3
 // 0x0000 (0x006C - 0x006C)
 class UDmgType_General_Melee_Sharp3 : public UDamageType
@@ -21434,7 +21136,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.DmgType_General_Melee_Sharp4
 // 0x0000 (0x006C - 0x006C)
 class UDmgType_General_Melee_Sharp4 : public UDamageType
@@ -21455,7 +21156,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.DmgType_GiantStompAttack
 // 0x0000 (0x006C - 0x006C)
 class UDmgType_GiantStompAttack : public UDamageType
@@ -21476,7 +21176,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.DmgType_HareMouseBoss
 // 0x0000 (0x006C - 0x006C)
 class UDmgType_HareMouseBoss : public UDamageType
@@ -21497,7 +21196,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.DmgType_HobbyHorse_Melee
 // 0x0000 (0x006C - 0x006C)
 class UDmgType_HobbyHorse_Melee : public UDamageType
@@ -21518,7 +21216,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.DmgType_LionChop
 // 0x0000 (0x006C - 0x006C)
 class UDmgType_LionChop : public UDamageType
@@ -21539,7 +21236,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.DmgType_LostSoul
 // 0x0000 (0x006C - 0x006C)
 class UDmgType_LostSoul : public UDamageType
@@ -21560,7 +21256,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.DmgType_Madcap_Melee
 // 0x0000 (0x006C - 0x006C)
 class UDmgType_Madcap_Melee : public UDamageType
@@ -21581,7 +21276,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.DmgType_QCannon
 // 0x0000 (0x006C - 0x006C)
 class UDmgType_QCannon : public UDamageType
@@ -21602,7 +21296,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.DmgType_RailRide
 // 0x0000 (0x006C - 0x006C)
 class UDmgType_RailRide : public UDamageType
@@ -21623,7 +21316,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.DmgType_SamuraiWasp
 // 0x0000 (0x006C - 0x006C)
 class UDmgType_SamuraiWasp : public UDamageType
@@ -21644,7 +21336,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.DmgType_SpikeFish
 // 0x0000 (0x006C - 0x006C)
 class UDmgType_SpikeFish : public UDamageType
@@ -21665,7 +21356,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.DmgType_SprintJump
 // 0x0000 (0x006C - 0x006C)
 class UDmgType_SprintJump : public UDamageType
@@ -21686,7 +21376,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.DmgType_Tea
 // 0x0000 (0x006C - 0x006C)
 class UDmgType_Tea : public UDamageType
@@ -21707,7 +21396,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.DmgType_TeapotCannon_Melee
 // 0x0000 (0x006C - 0x006C)
 class UDmgType_TeapotCannon_Melee : public UDamageType
@@ -21728,7 +21416,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.DmgType_TeapotCannon_RangeProjectile
 // 0x0000 (0x006C - 0x006C)
 class UDmgType_TeapotCannon_RangeProjectile : public UDamageType
@@ -21749,7 +21436,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.DmgType_TeapotCannon_RangeShotGun
 // 0x0000 (0x006C - 0x006C)
 class UDmgType_TeapotCannon_RangeShotGun : public UDamageType
@@ -21770,7 +21456,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.DmgType_VorpalBlade_Melee
 // 0x0000 (0x006C - 0x006C)
 class UDmgType_VorpalBlade_Melee : public UDamageType
@@ -21791,7 +21476,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.DmgType_VorpalBlade_Range
 // 0x0000 (0x006C - 0x006C)
 class UDmgType_VorpalBlade_Range : public UDamageType
@@ -21812,7 +21496,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.DollBoyHandProjectile
 // 0x0000 (0x03A4 - 0x03A4)
 class ADollBoyHandProjectile : public ANpcProjectile
@@ -21833,7 +21516,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.DollGirlProjectile
 // 0x0000 (0x03A4 - 0x03A4)
 class ADollGirlProjectile : public ANpcProjectile
@@ -21854,7 +21536,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.DollMakerProjectile
 // 0x0020 (0x03A4 - 0x03C4)
 class ADollMakerProjectile : public ANpcProjectile
@@ -21882,11 +21563,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SpawnCauseDamageActor(const struct FVector& Loc, const struct FRotator& Rot);
 	void Explode(const struct FVector& HitLocation, const struct FVector& HitNormal, class AActor* optionalTargetActor);
 	void eventHitWall(const struct FVector& HitNormal, class AActor* Wall, class UPrimitiveComponent* WallComp);
 };
-
 // Class AliceGame.DollMakerProjectile2
 // 0x0000 (0x03A4 - 0x03A4)
 class ADollMakerProjectile2 : public ANpcProjectile
@@ -21907,7 +21588,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.DoomAgileProjectile
 // 0x0000 (0x03A4 - 0x03A4)
 class ADoomAgileProjectile : public ANpcProjectile
@@ -21928,7 +21608,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SeqAct_ToggleDoomGameBreakable
 // 0x0000 (0x00E8 - 0x00E8)
 class USeqAct_ToggleDoomGameBreakable : public USequenceAction
@@ -21949,7 +21628,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.DoomGeneralProjectile
 // 0x0000 (0x03A4 - 0x03A4)
 class ADoomGeneralProjectile : public ANpcProjectile
@@ -21970,7 +21648,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.DoomGruntProjectile1
 // 0x0000 (0x03A4 - 0x03A4)
 class ADoomGruntProjectile1 : public ANpcProjectile
@@ -21991,7 +21668,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.DoomGruntProjectile2
 // 0x0000 (0x03A4 - 0x03A4)
 class ADoomGruntProjectile2 : public ANpcProjectile
@@ -22012,7 +21688,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.DoomSwarmProjectile
 // 0x0000 (0x03A4 - 0x03A4)
 class ADoomSwarmProjectile : public ANpcProjectile
@@ -22033,7 +21708,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.DoomTankProjectile
 // 0x0000 (0x03A4 - 0x03A4)
 class ADoomTankProjectile : public ANpcProjectile
@@ -22054,7 +21728,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.DoomTankRigidBall
 // 0x0000 (0x0350 - 0x0350)
 class ADoomTankRigidBall : public AProjectileRigidBallBase
@@ -22075,7 +21748,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.WindVolume
 // 0x001C (0x0264 - 0x0280)
 class AWindVolume : public AVolume
@@ -22098,9 +21770,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void ApplyWind(class AActor* Actor);
 };
-
 // Class AliceGame.DynamicWindVolume
 // 0x0000 (0x0280 - 0x0280)
 class ADynamicWindVolume : public AWindVolume
@@ -22121,7 +21793,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.EmpressWaspFlyingBossProjectile
 // 0x0000 (0x03A4 - 0x03A4)
 class AEmpressWaspFlyingBossProjectile : public ANpcProjectile
@@ -22142,7 +21813,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.EyepotProjectile
 // 0x0000 (0x03A4 - 0x03A4)
 class AEyepotProjectile : public ANpcProjectile
@@ -22163,7 +21833,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SeqEvent_FishNodeActivated
 // 0x0000 (0x0100 - 0x0100)
 class USeqEvent_FishNodeActivated : public USequenceEvent
@@ -22184,7 +21853,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.FloatingMine
 // 0x0028 (0x0290 - 0x02B8)
 class AFloatingMine : public AInterpActor
@@ -22212,12 +21880,12 @@ public:
 		return uClassPointer;
 	};
 
+
 	void PlayMineExplodeEffect();
 	void OnToggle(class USeqAct_Toggle* Action);
 	void Explode();
 	void eventTick(float DeltaTime);
 };
-
 // Class AliceGame.FlyNoseActor
 // 0x0000 (0x037C - 0x037C)
 class AFlyNoseActor : public ANoseActorBase
@@ -22238,7 +21906,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.GFxMovieHudMenu
 // 0x0000 (0x0120 - 0x0120)
 class UGFxMovieHudMenu : public UGFxMovie
@@ -22258,13 +21925,13 @@ public:
 		return uClassPointer;
 	};
 
+
 	void Quit();
 	void MenuClose();
 	void MenuOpen();
 	void SetupResolution(int32_t X, int32_t Y);
 	bool Start(bool optionalStartPaused);
 };
-
 // Class AliceGame.HareMouseBossProjectile
 // 0x0000 (0x03A4 - 0x03A4)
 class AHareMouseBossProjectile : public ANpcProjectile
@@ -22285,7 +21952,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SeqAct_ToggleHeadSwitchActivation
 // 0x0004 (0x00E8 - 0x00EC)
 class USeqAct_ToggleHeadSwitchActivation : public USequenceAction
@@ -22307,7 +21973,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SeqEvent_HeadSwitchActivated
 // 0x0000 (0x0100 - 0x0100)
 class USeqEvent_HeadSwitchActivated : public USequenceEvent
@@ -22328,7 +21993,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SeqEvent_HeadSwitchEjected
 // 0x0000 (0x0100 - 0x0100)
 class USeqEvent_HeadSwitchEjected : public USequenceEvent
@@ -22349,7 +22013,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.JournalBook
 // 0x0000 (0x0314 - 0x0314)
 class AJournalBook : public ASkeletalMeshActorSpawnable
@@ -22370,7 +22033,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.JumpPadSkeletalMeshActor
 // 0x000C (0x0314 - 0x0320)
 class AJumpPadSkeletalMeshActor : public ASkeletalMeshActor
@@ -22393,6 +22055,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventOnAnimEnd(class UAnimNodeSequence* SeqNode, float PlayedTime, float ExcessTime);
 	void PlayAnim(const class FName& AnimName, float optionalRate, bool optionalBLoop, int32_t optionalNActiveNumber, bool optionalBRestartIfAlreadyPlaying);
 	bool IsPlayingAnimation();
@@ -22400,7 +22063,6 @@ public:
 	float PlayCustomAnim(const class FName& AnimName, float Rate, float optionalBlendInTime, float optionalBlendOutTime, bool optionalBLooping, bool optionalBOverride);
 	void eventPostBeginPlay();
 };
-
 // Class AliceGame.SeqAct_ToggleJumpPadPhysics
 // 0x0004 (0x00E8 - 0x00EC)
 class USeqAct_ToggleJumpPadPhysics : public USequenceAction
@@ -22422,7 +22084,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SeqAct_JumpPadGrowing
 // 0x0000 (0x00E8 - 0x00E8)
 class USeqAct_JumpPadGrowing : public USequenceAction
@@ -22443,7 +22104,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SeqAct_ToggleJumpPadRadiusCheck
 // 0x0000 (0x00E8 - 0x00E8)
 class USeqAct_ToggleJumpPadRadiusCheck : public USequenceAction
@@ -22464,7 +22124,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SeqEvent_KrakenEyeClosed
 // 0x0000 (0x0100 - 0x0100)
 class USeqEvent_KrakenEyeClosed : public USequenceEvent
@@ -22485,7 +22144,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.LionChopProjectile
 // 0x0000 (0x03A4 - 0x03A4)
 class ALionChopProjectile : public ANpcProjectile
@@ -22506,7 +22164,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.LostSoulRigidBall
 // 0x0000 (0x0350 - 0x0350)
 class ALostSoulRigidBall : public AProjectileRigidBallBase
@@ -22526,9 +22183,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool ShouldTriggerCollisionEvent(class AActor* CollisionCauser);
 };
-
 // Class AliceGame.MorphSkeletalMeshActorShrink
 // 0x0004 (0x0334 - 0x0338)
 class AMorphSkeletalMeshActorShrink : public AMorphSkeletalMeshActor
@@ -22549,9 +22206,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void Tick(float DeltaTime);
 };
-
 // Class AliceGame.SeqEvent_ShrinkMorphActived
 // 0x0000 (0x0100 - 0x0100)
 class USeqEvent_ShrinkMorphActived : public USequenceEvent
@@ -22572,7 +22229,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SeqEvent_ShrinkMorphDeactived
 // 0x0000 (0x0100 - 0x0100)
 class USeqEvent_ShrinkMorphDeactived : public USequenceEvent
@@ -22593,7 +22249,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.NoseActor
 // 0x0000 (0x037C - 0x037C)
 class ANoseActor : public ANoseActorBase
@@ -22614,7 +22269,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.NPCWeapon_BitchBaby_Range
 // 0x0000 (0x0514 - 0x0514)
 class ANPCWeapon_BitchBaby_Range : public AWeaponForNPC
@@ -22635,7 +22289,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.NPCWeapon_CannonCrab_Range
 // 0x0000 (0x0514 - 0x0514)
 class ANPCWeapon_CannonCrab_Range : public AWeaponForNPC
@@ -22656,7 +22309,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.NPCWeapon_DeepSeaSnark_Range
 // 0x0000 (0x0514 - 0x0514)
 class ANPCWeapon_DeepSeaSnark_Range : public AWeaponForNPC
@@ -22677,7 +22329,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.NPCWeapon_DollBoy_Scissor_A
 // 0x0000 (0x0514 - 0x0514)
 class ANPCWeapon_DollBoy_Scissor_A : public AWeaponForNPC
@@ -22698,7 +22349,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.NPCWeapon_DollBoy_Scissor_B
 // 0x0000 (0x0514 - 0x0514)
 class ANPCWeapon_DollBoy_Scissor_B : public AWeaponForNPC
@@ -22719,7 +22369,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.NPCWeapon_DollBoyHand_Range
 // 0x0000 (0x0514 - 0x0514)
 class ANPCWeapon_DollBoyHand_Range : public AWeaponForNPC
@@ -22740,7 +22389,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.NPCWeapon_DollGirl_Range
 // 0x0000 (0x0514 - 0x0514)
 class ANPCWeapon_DollGirl_Range : public AWeaponForNPC
@@ -22761,7 +22409,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.NPCWeapon_DollMaker_Range2
 // 0x0000 (0x0514 - 0x0514)
 class ANPCWeapon_DollMaker_Range2 : public AWeaponForNPC
@@ -22782,7 +22429,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.NPCWeapon_DoomAgile_Range
 // 0x0000 (0x0514 - 0x0514)
 class ANPCWeapon_DoomAgile_Range : public AWeaponForNPC
@@ -22803,7 +22449,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.NPCWeapon_DoomGrunt_Melee
 // 0x0000 (0x0514 - 0x0514)
 class ANPCWeapon_DoomGrunt_Melee : public AWeaponForNPC
@@ -22824,10 +22469,9 @@ public:
 	};
 
 };
-
-// Class AliceGame.NPCWeapon_DoomGrunt_Range
+// Class AliceGame.NPCWeapon_DoomGrunt_Range_1
 // 0x0000 (0x0514 - 0x0514)
-class ANPCWeapon_DoomGrunt_Range : public AWeaponForNPC
+class ANPCWeapon_DoomGrunt_Range_1 : public AWeaponForNPC
 {
 public:
 
@@ -22838,14 +22482,33 @@ public:
 
 		if (!uClassPointer)
 		{
-			uClassPointer = UObject::FindClass("Class AliceGame.NPCWeapon_DoomGrunt_Range");
+			uClassPointer = UObject::FindClass("Class AliceGame.NPCWeapon_DoomGrunt_Range_1");
 		}
 
 		return uClassPointer;
 	};
 
 };
+// Class AliceGame.NPCWeapon_DoomGrunt_Range_2
+// 0x0000 (0x0514 - 0x0514)
+class ANPCWeapon_DoomGrunt_Range_2 : public AWeaponForNPC
+{
+public:
 
+public:
+	static UClass* StaticClass()
+	{
+		static UClass* uClassPointer = nullptr;
+
+		if (!uClassPointer)
+		{
+			uClassPointer = UObject::FindClass("Class AliceGame.NPCWeapon_DoomGrunt_Range_2");
+		}
+
+		return uClassPointer;
+	};
+
+};
 // Class AliceGame.NPCWeapon_DoomTank_Melee
 // 0x0000 (0x0514 - 0x0514)
 class ANPCWeapon_DoomTank_Melee : public AWeaponForNPC
@@ -22866,7 +22529,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.NPCWeapon_DoomTank_Range
 // 0x0000 (0x0514 - 0x0514)
 class ANPCWeapon_DoomTank_Range : public AWeaponForNPC
@@ -22887,7 +22549,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.NPCWeapon_EmpressWaspFlyingBoss_Range
 // 0x0000 (0x0514 - 0x0514)
 class ANPCWeapon_EmpressWaspFlyingBoss_Range : public AWeaponForNPC
@@ -22908,7 +22569,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.NPCWeapon_Executioner_Melee
 // 0x0000 (0x0514 - 0x0514)
 class ANPCWeapon_Executioner_Melee : public AWeaponForNPC
@@ -22929,7 +22589,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.NPCWeapon_EyePot_Range
 // 0x0000 (0x0514 - 0x0514)
 class ANPCWeapon_EyePot_Range : public AWeaponForNPC
@@ -22950,7 +22609,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.NPCWeapon_General_Melee_Blunt2
 // 0x0000 (0x0514 - 0x0514)
 class ANPCWeapon_General_Melee_Blunt2 : public AWeaponForNPC
@@ -22971,7 +22629,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.NPCWeapon_General_Melee_Blunt3
 // 0x0000 (0x0514 - 0x0514)
 class ANPCWeapon_General_Melee_Blunt3 : public AWeaponForNPC
@@ -22992,7 +22649,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.NPCWeapon_General_Melee_Blunt4
 // 0x0000 (0x0514 - 0x0514)
 class ANPCWeapon_General_Melee_Blunt4 : public AWeaponForNPC
@@ -23013,7 +22669,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.NPCWeapon_General_Melee_Sharp1
 // 0x0000 (0x0514 - 0x0514)
 class ANPCWeapon_General_Melee_Sharp1 : public AWeaponForNPC
@@ -23034,7 +22689,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.NPCWeapon_General_Melee_Sharp2
 // 0x0000 (0x0514 - 0x0514)
 class ANPCWeapon_General_Melee_Sharp2 : public AWeaponForNPC
@@ -23055,7 +22709,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.NPCWeapon_General_Melee_Sharp3
 // 0x0000 (0x0514 - 0x0514)
 class ANPCWeapon_General_Melee_Sharp3 : public AWeaponForNPC
@@ -23076,7 +22729,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.NPCWeapon_General_Melee_Sharp4
 // 0x0000 (0x0514 - 0x0514)
 class ANPCWeapon_General_Melee_Sharp4 : public AWeaponForNPC
@@ -23097,7 +22749,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.NPCWeapon_HareMouseBoss_Range
 // 0x0000 (0x0514 - 0x0514)
 class ANPCWeapon_HareMouseBoss_Range : public AWeaponForNPC
@@ -23118,7 +22769,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.NPCWeapon_IceSnark_Melee
 // 0x0000 (0x0514 - 0x0514)
 class ANPCWeapon_IceSnark_Melee : public AWeaponForNPC
@@ -23139,7 +22789,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.NPCWeapon_LionChop_Range
 // 0x0000 (0x0514 - 0x0514)
 class ANPCWeapon_LionChop_Range : public AWeaponForNPC
@@ -23160,7 +22809,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.NPCWeapon_LostSoul_Range
 // 0x0000 (0x0514 - 0x0514)
 class ANPCWeapon_LostSoul_Range : public AWeaponForNPC
@@ -23181,7 +22829,26 @@ public:
 	};
 
 };
+// Class AliceGame.NPCWeapon_LostSoul_Range_2
+// 0x0000 (0x0514 - 0x0514)
+class ANPCWeapon_LostSoul_Range_2 : public AWeaponForNPC
+{
+public:
 
+public:
+	static UClass* StaticClass()
+	{
+		static UClass* uClassPointer = nullptr;
+
+		if (!uClassPointer)
+		{
+			uClassPointer = UObject::FindClass("Class AliceGame.NPCWeapon_LostSoul_Range_2");
+		}
+
+		return uClassPointer;
+	};
+
+};
 // Class AliceGame.NPCWeapon_QCannon_Range
 // 0x0000 (0x0514 - 0x0514)
 class ANPCWeapon_QCannon_Range : public AWeaponForNPC
@@ -23202,7 +22869,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.QCannonProjectile
 // 0x0000 (0x03A4 - 0x03A4)
 class AQCannonProjectile : public ANpcProjectile
@@ -23223,7 +22889,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.NPCWeapon_SamuraiWasp_Range
 // 0x0000 (0x0514 - 0x0514)
 class ANPCWeapon_SamuraiWasp_Range : public AWeaponForNPC
@@ -23244,7 +22909,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SamuraiWaspProjectile
 // 0x0000 (0x03A4 - 0x03A4)
 class ASamuraiWaspProjectile : public ANpcProjectile
@@ -23265,7 +22929,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SeqEvent_PadActivated
 // 0x0000 (0x0100 - 0x0100)
 class USeqEvent_PadActivated : public USequenceEvent
@@ -23286,7 +22949,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SeqEvent_PadDeactivated
 // 0x0000 (0x0100 - 0x0100)
 class USeqEvent_PadDeactivated : public USequenceEvent
@@ -23307,7 +22969,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SeqAct_AliceCrowdSpawner
 // 0x0000 (0x0150 - 0x0150)
 class USeqAct_AliceCrowdSpawner : public USeqAct_GameCrowdSpawner
@@ -23328,7 +22989,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SeqAct_Chapterpoint
 // 0x0001 (0x00F8 - 0x00F9)
 class USeqAct_Chapterpoint : public USeqAct_Latent
@@ -23349,10 +23009,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void LoadChapterPoint();
 	void eventActivated();
 };
-
 // Class AliceGame.SeqAct_TriggerRiddle
 // 0x0004 (0x00E8 - 0x00EC)
 class USeqAct_TriggerRiddle : public USequenceAction
@@ -23374,7 +23034,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SeqEvent_CheshireCatUltimateHintUsed
 // 0x0000 (0x0100 - 0x0100)
 class USeqEvent_CheshireCatUltimateHintUsed : public USequenceEvent
@@ -23395,7 +23054,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SeqEvent_NoseDead
 // 0x0000 (0x0100 - 0x0100)
 class USeqEvent_NoseDead : public USequenceEvent
@@ -23416,7 +23074,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SkeletalMeshHairActor
 // 0x0010 (0x0314 - 0x0324)
 class ASkeletalMeshHairActor : public ASkeletalMeshActor
@@ -23439,9 +23096,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventPreBeginPlay();
 };
-
 // Class AliceGame.SmoothGroundActor
 // 0x0004 (0x0228 - 0x022C)
 class ASmoothGroundActor : public AActor
@@ -23463,7 +23120,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.SonarActor_Decal
 // 0x0014 (0x0228 - 0x023C)
 class ASonarActor_Decal : public AAliceSonarActor
@@ -23486,11 +23142,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	void StopSonar();
 	void UpdateSonar();
 	void BeginSonar();
 };
-
 // Class AliceGame.SphinxInteractIP
 // 0x0000 (0x0338 - 0x0338)
 class ASphinxInteractIP : public ASphinxInterstingPoint
@@ -23510,9 +23166,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventPostBeginPlay();
 };
-
 // Class AliceGame.SphinxLookAtIP
 // 0x0000 (0x0338 - 0x0338)
 class ASphinxLookAtIP : public ASphinxInterstingPoint
@@ -23533,7 +23189,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.TeapotCannonBall
 // 0x0008 (0x031C - 0x0324)
 class ATeapotCannonBall : public AKActorSpawnable
@@ -23555,6 +23210,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventRigidBodyCollision(class UPrimitiveComponent* HitComponent, class UPrimitiveComponent* OtherComponent, int32_t ContactIndex, struct FCollisionImpactData& outRigidCollisionData);
 	void eventBump(class AActor* Other, class UPrimitiveComponent* OtherComp, const struct FVector& HitNormal);
 	void eventDestroyed();
@@ -23564,7 +23220,6 @@ public:
 	void Init(float BlastDelay);
 	void eventPostBeginPlay();
 };
-
 // Class AliceGame.TestEnemy
 // 0x0000 (0x0B90 - 0x0B90)
 class ATestEnemy : public AAliceGameKynapseWalkingPawn
@@ -23584,10 +23239,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventTouch(class AActor* Other, class UPrimitiveComponent* OtherComp, const struct FVector& HitLocation, const struct FVector& HitNormal);
 	void eventTakeDamage(int32_t Damage, class AController* InstigatedBy, const struct FVector& HitLocation, const struct FVector& Momentum, class UClass* DamageType, const struct FTraceHitInfo& optionalHitInfo, class AActor* optionalDamageCauser);
 };
-
 // Class AliceGame.WeaponPickup_HF
 // 0x0000 (0x041C - 0x041C)
 class AWeaponPickup_HF : public AAliceWeaponPickupFactory
@@ -23608,7 +23263,6 @@ public:
 	};
 
 };
-
 // Class AliceGame.WeaponPickup_VB
 // 0x0000 (0x041C - 0x041C)
 class AWeaponPickup_VB : public AAliceWeaponPickupFactory
@@ -23629,7 +23283,6 @@ public:
 	};
 
 };
-
 /*
 # ========================================================================================= #
 #

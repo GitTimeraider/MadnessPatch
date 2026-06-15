@@ -141,6 +141,9 @@
     <ClInclude Include="..\include\CrashHandler.hpp">
       <Filter>include</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\SDK\SDK_HEADERS\SdkHelpers.hpp">
+      <Filter>SDK\SDK_HEADERS</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="MadnessPatch.ini" />

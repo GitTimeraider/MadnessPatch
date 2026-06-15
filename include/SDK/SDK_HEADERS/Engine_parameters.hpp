@@ -1,7 +1,7 @@
 /*
 #############################################################################################
 # Alice2 (ASDK) SDK 1.0.0.0
-# Generated with the CodeRedGenerator v1.1.6
+# Generated with the CodeRedGenerator v1.2.0
 # ========================================================================================= #
 # File: Engine_parameters.hpp
 # ========================================================================================= #
@@ -412,6 +412,7 @@ struct AActor_execGetAimFrictionExtent_Params
 struct AActor_execIsInPersistentLevel_Params
 {
 	uint32_t                                           bIncludeLevelStreamingPersistent : 1;             // 0x0000 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -442,6 +443,7 @@ struct AActor_eventPostInitAnimTree_Params
 struct AActor_eventRootMotionExtracted_Params
 {
 	class USkeletalMeshComponent*                      SkelComp;                                         // 0x0000 (0x0004) [0x0000000004000080] (CPF_Parm | CPF_EditInline)
+	uint8_t                                            UnknownData00[0xC];                              // 0x0004 (0x000C) MISSED OFFSET
 	struct FBoneAtom                                   ExtractedRootMotionDelta;                         // 0x0010 (0x0020) [0x0000000000000180] (CPF_Parm | CPF_OutParm)
 };
 
@@ -693,6 +695,7 @@ struct AActor_eventSetAnimPosition_Params
 	class FName                                        InAnimSeqName;                                    // 0x000C (0x0008) [0x0000000000000080] (CPF_Parm)    
 	float                                              InPosition;                                       // 0x0014 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bFireNotifies : 1;                                // 0x0018 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x001C CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bLooping : 1;                                     // 0x001C (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
 	int32_t                                            RootMotionLevel;                                  // 0x0020 (0x0004) [0x0000000000000080] (CPF_Parm)    
 };
@@ -859,6 +862,7 @@ struct AActor_execFindEventsOfClass_Params
 	class UClass*                                      EventClass;                                       // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	class TArray<class USequenceEvent*>                out_EventList;                                    // 0x0004 (0x000C) [0x0000000000400190] (CPF_OptionalParm | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink)
 	uint32_t                                           bIncludeDisabled : 1;                             // 0x0010 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0014 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0014 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 	// class USequenceEvent*                           Evt;                                              // 0x0018 (0x0004) [0x0000000000000000]               
 	// uint32_t                                        bFoundEvent : 1;                                  // 0x001C (0x0004) [0x0000000000000000] [0x00000001] 
@@ -959,6 +963,7 @@ struct AActor_execCanSplash_Params
 struct AActor_execPlayTeleportEffect_Params
 {
 	uint32_t                                           bOut : 1;                                         // 0x0000 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bSound : 1;                                       // 0x0004 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
 };
 
@@ -1038,8 +1043,8 @@ struct AActor_execMatchStarting_Params
 struct AActor_execGetLocalString_Params
 {
 	int32_t                                            Switch;                                           // 0x0000 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
-	class APlayerReplicationInfo*                      RelatedPRI;                                       // 0x0004 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
-	class APlayerReplicationInfo*                      RelatedPRI01;                                     // 0x0008 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	class APlayerReplicationInfo*                      RelatedPRI_1;                                     // 0x0004 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	class APlayerReplicationInfo*                      RelatedPRI_2;                                     // 0x0008 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	class FString                                      ReturnValue;                                      // 0x000C (0x000C) [0x0000000000400580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink)
 };
 
@@ -1218,6 +1223,7 @@ struct AActor_execHurtRadius_Params
 	class AActor*                                      IgnoredActor;                                     // 0x001C (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	class AController*                                 InstigatedByController;                           // 0x0020 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint32_t                                           bDoFullDamage : 1;                                // 0x0024 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0028 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0028 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 	// class AActor*                                   Victim;                                           // 0x002C (0x0004) [0x0000000000000000]               
 	// uint32_t                                        bCausedDamage : 1;                                // 0x0030 (0x0004) [0x0000000000000000] [0x00000001] 
@@ -1269,8 +1275,8 @@ struct AActor_eventBroadcastLocalizedTeamMessage_Params
 	int32_t                                            TeamIndex;                                        // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	class UClass*                                      InMessageClass;                                   // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	int32_t                                            Switch;                                           // 0x0008 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
-	class APlayerReplicationInfo*                      RelatedPRI;                                       // 0x000C (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
-	class APlayerReplicationInfo*                      RelatedPRI01;                                     // 0x0010 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	class APlayerReplicationInfo*                      RelatedPRI_1;                                     // 0x000C (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	class APlayerReplicationInfo*                      RelatedPRI_2;                                     // 0x0010 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	class UObject*                                     OptionalObject;                                   // 0x0014 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 };
 
@@ -1280,8 +1286,8 @@ struct AActor_eventBroadcastLocalizedMessage_Params
 {
 	class UClass*                                      InMessageClass;                                   // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	int32_t                                            Switch;                                           // 0x0004 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
-	class APlayerReplicationInfo*                      RelatedPRI;                                       // 0x0008 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
-	class APlayerReplicationInfo*                      RelatedPRI01;                                     // 0x000C (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	class APlayerReplicationInfo*                      RelatedPRI_1;                                     // 0x0008 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	class APlayerReplicationInfo*                      RelatedPRI_2;                                     // 0x000C (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	class UObject*                                     OptionalObject;                                   // 0x0010 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 };
 
@@ -1482,6 +1488,7 @@ struct AActor_execSuggestTossVelocity_Params
 	float                                              TerminalVelocity;                                 // 0x003C (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	float                                              OverrideGravityZ;                                 // 0x0040 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint32_t                                           bOnlyTraceUp : 1;                                 // 0x0044 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0048 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0048 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -1502,11 +1509,13 @@ struct AActor_execMakeNoise_Params
 
 // Function Engine.Actor.PlaySound
 // [0x00024401]  (iNative[20136])
-struct AActor_execPlaySoundW_Params
+struct AActor_execPlaySoundWin_Params
 {
 	class USoundCue*                                   InSoundCue;                                       // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bNotReplicated : 1;                               // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bNoRepToOwner : 1;                                // 0x0008 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x000C CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bStopWhenOwnerDestroyed : 1;                      // 0x000C (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 	struct FVector                                     SoundLocation;                                    // 0x0010 (0x000C) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint32_t                                           bNoRepToRelevant : 1;                             // 0x001C (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
@@ -1518,7 +1527,9 @@ struct AActor_execCreateAudioComponent_Params
 {
 	class USoundCue*                                   InSoundCue;                                       // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bPlay : 1;                                        // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bStopWhenOwnerDestroyed : 1;                      // 0x0008 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x000C CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bUseLocation : 1;                                 // 0x000C (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 	struct FVector                                     SourceLocation;                                   // 0x0010 (0x000C) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint32_t                                           bAttachToSelf : 1;                                // 0x001C (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
@@ -1701,6 +1712,7 @@ struct AActor_execFastTrace_Params
 	struct FVector                                     TraceStart;                                       // 0x000C (0x000C) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	struct FVector                                     BoxExtent;                                        // 0x0018 (0x000C) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint32_t                                           bTraceBullet : 1;                                 // 0x0024 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0028 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0028 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -1726,6 +1738,7 @@ struct AActor_execTraceComponent_Params
 	struct FVector                                     Extent;                                           // 0x0034 (0x000C) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	struct FTraceHitInfo                               HitInfo;                                          // 0x0040 (0x001C) [0x0000000000000190] (CPF_OptionalParm | CPF_Parm | CPF_OutParm)
 	uint32_t                                           bComplexCollision : 1;                            // 0x005C (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0060 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0060 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -2055,6 +2068,7 @@ struct AActor_execDrawDebugFrustrum_Params
 	uint8_t                                            R;                                                // 0x0040 (0x0001) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            G;                                                // 0x0041 (0x0001) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            B;                                                // 0x0042 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x1];                              // 0x0043 (0x0001) MISSED OFFSET
 	uint32_t                                           bPersistentLines : 1;                             // 0x0044 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 };
 
@@ -2094,6 +2108,7 @@ struct AActor_execDrawDebugCylinder_Params
 	uint8_t                                            R;                                                // 0x0020 (0x0001) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            G;                                                // 0x0021 (0x0001) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            B;                                                // 0x0022 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x1];                              // 0x0023 (0x0001) MISSED OFFSET
 	uint32_t                                           bPersistentLines : 1;                             // 0x0024 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 };
 
@@ -2107,6 +2122,7 @@ struct AActor_execDrawDebugSphere_Params
 	uint8_t                                            R;                                                // 0x0014 (0x0001) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            G;                                                // 0x0015 (0x0001) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            B;                                                // 0x0016 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x1];                              // 0x0017 (0x0001) MISSED OFFSET
 	uint32_t                                           bPersistentLines : 1;                             // 0x0018 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 };
 
@@ -2129,6 +2145,7 @@ struct AActor_execDrawDebugStar_Params
 	uint8_t                                            R;                                                // 0x0010 (0x0001) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            G;                                                // 0x0011 (0x0001) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            B;                                                // 0x0012 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x1];                              // 0x0013 (0x0001) MISSED OFFSET
 	uint32_t                                           bPersistentLines : 1;                             // 0x0014 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 };
 
@@ -2141,6 +2158,7 @@ struct AActor_execDrawDebugBox_Params
 	uint8_t                                            R;                                                // 0x0018 (0x0001) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            G;                                                // 0x0019 (0x0001) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            B;                                                // 0x001A (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x1];                              // 0x001B (0x0001) MISSED OFFSET
 	uint32_t                                           bPersistentLines : 1;                             // 0x001C (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 };
 
@@ -2163,6 +2181,7 @@ struct AActor_execDrawDebugLine_Params
 	uint8_t                                            R;                                                // 0x0018 (0x0001) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            G;                                                // 0x0019 (0x0001) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            B;                                                // 0x001A (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x1];                              // 0x001B (0x0001) MISSED OFFSET
 	uint32_t                                           bPersistentLines : 1;                             // 0x001C (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 };
 
@@ -2410,7 +2429,9 @@ struct AActor_execSetCollisionSize_Params
 struct AActor_execSetCollision_Params
 {
 	uint32_t                                           bNewColActors : 1;                                // 0x0000 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bNewBlockActors : 1;                              // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bNewIgnoreEncroachers : 1;                        // 0x0008 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 };
 
@@ -2442,6 +2463,7 @@ struct AActor_execConsoleCommand_Params
 struct AActor_execForceUpdateComponents_Params
 {
 	uint32_t                                           bCollisionUpdate : 1;                             // 0x0000 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bTransformOnly : 1;                               // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 };
 
@@ -3496,7 +3518,7 @@ struct AHUD_execGetFontSizeIndex_Params
 
 // Function Engine.HUD.DrawText
 // [0x00020002] 
-struct AHUD_execDrawTextW_Params
+struct AHUD_execDrawTextWin_Params
 {
 	class FString                                      Text;                                             // 0x0000 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 	struct FVector2D                                   Position;                                         // 0x000C (0x0008) [0x0000000000000080] (CPF_Parm)    
@@ -3583,7 +3605,7 @@ struct AHUD_execAddLocalizedMessage_Params
 struct AHUD_execLocalizedMessage_Params
 {
 	class UClass*                                      InMessageClass;                                   // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
-	class APlayerReplicationInfo*                      RelatedPRI;                                       // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
+	class APlayerReplicationInfo*                      RelatedPRI_1;                                     // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	class FString                                      CriticalString;                                   // 0x0008 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 	int32_t                                            Switch;                                           // 0x0014 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	float                                              Position;                                         // 0x0018 (0x0004) [0x0000000000000080] (CPF_Parm)    
@@ -4031,9 +4053,12 @@ struct AFileWriter_execOpenFile_Params
 {
 	class FString                                      InFilename;                                       // 0x0000 (0x000C) [0x0000000000400880] (CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink)
 	uint8_t                                            InFileType;                                       // 0x000C (0x0001) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	uint8_t                                            UnknownData00[0x3];                              // 0x000D (0x0003) MISSED OFFSET
 	class FString                                      InExtension;                                      // 0x0010 (0x000C) [0x0000000000400090] (CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink)
 	uint32_t                                           bUnique : 1;                                      // 0x001C (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0020 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bIncludeTimeStamp : 1;                            // 0x0020 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0024 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0024 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -4500,6 +4525,7 @@ struct AGameInfo_execRatePlayerStart_Params
 {
 	class APlayerStart*                                P;                                                // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            Team;                                             // 0x0004 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0005 (0x0003) MISSED OFFSET
 	class AController*                                 Player;                                           // 0x0008 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	float                                              ReturnValue;                                      // 0x000C (0x0004) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 	// float                                           Rating;                                           // 0x0010 (0x0004) [0x0000000000000000]               
@@ -4511,6 +4537,7 @@ struct AGameInfo_execChoosePlayerStart_Params
 {
 	class AController*                                 Player;                                           // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            InTeam;                                           // 0x0004 (0x0001) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	uint8_t                                            UnknownData00[0x3];                              // 0x0005 (0x0003) MISSED OFFSET
 	class APlayerStart*                                ReturnValue;                                      // 0x0008 (0x0004) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 	// class APlayerStart*                             P;                                                // 0x000C (0x0004) [0x0000000000000000]               
 	// class APlayerStart*                             BestStart;                                        // 0x0010 (0x0004) [0x0000000000000000]               
@@ -4525,6 +4552,7 @@ struct AGameInfo_execFindPlayerStart_Params
 {
 	class AController*                                 Player;                                           // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            InTeam;                                           // 0x0004 (0x0001) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	uint8_t                                            UnknownData00[0x3];                              // 0x0005 (0x0003) MISSED OFFSET
 	class FString                                      IncomingName;                                     // 0x0008 (0x000C) [0x0000000000400090] (CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink)
 	class ANavigationPoint*                            ReturnValue;                                      // 0x0014 (0x0004) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 	// class ANavigationPoint*                         N;                                                // 0x0018 (0x0004) [0x0000000000000000]               
@@ -4610,8 +4638,8 @@ struct AGameInfo_eventBroadcastLocalizedTeam_Params
 	class AActor*                                      Sender;                                           // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	class UClass*                                      Message;                                          // 0x0008 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	int32_t                                            Switch;                                           // 0x000C (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
-	class APlayerReplicationInfo*                      RelatedPRI;                                       // 0x0010 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
-	class APlayerReplicationInfo*                      RelatedPRI01;                                     // 0x0014 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	class APlayerReplicationInfo*                      RelatedPRI_1;                                     // 0x0010 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	class APlayerReplicationInfo*                      RelatedPRI_2;                                     // 0x0014 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	class UObject*                                     OptionalObject;                                   // 0x0018 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 };
 
@@ -4622,8 +4650,8 @@ struct AGameInfo_eventBroadcastLocalized_Params
 	class AActor*                                      Sender;                                           // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	class UClass*                                      Message;                                          // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	int32_t                                            Switch;                                           // 0x0008 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
-	class APlayerReplicationInfo*                      RelatedPRI;                                       // 0x000C (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
-	class APlayerReplicationInfo*                      RelatedPRI01;                                     // 0x0010 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	class APlayerReplicationInfo*                      RelatedPRI_1;                                     // 0x000C (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	class APlayerReplicationInfo*                      RelatedPRI_2;                                     // 0x0010 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	class UObject*                                     OptionalObject;                                   // 0x0014 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 };
 
@@ -4683,6 +4711,7 @@ struct AGameInfo_execSendPlayer_Params
 struct AGameInfo_execPickTeam_Params
 {
 	uint8_t                                            Current;                                          // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	class AController*                                 C;                                                // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            ReturnValue;                                      // 0x0008 (0x0001) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
@@ -4694,6 +4723,7 @@ struct AGameInfo_execChangeTeam_Params
 	class AController*                                 Other;                                            // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	int32_t                                            N;                                                // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bNewTeam : 1;                                     // 0x0008 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x000C CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x000C (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -5039,6 +5069,7 @@ struct AGameInfo_execGetNextPlayerID_Params
 struct AGameInfo_execAtCapacity_Params
 {
 	uint32_t                                           bSpectator : 1;                                   // 0x0000 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -5067,6 +5098,7 @@ struct AGameInfo_execProcessClientTravel_Params
 	class FString                                      URL;                                              // 0x0000 (0x000C) [0x0000000000400180] (CPF_Parm | CPF_OutParm | CPF_NeedCtorLink)
 	struct FGuid                                       NextMapGuid;                                      // 0x000C (0x0010) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bSeamless : 1;                                    // 0x001C (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0020 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bAbsolute : 1;                                    // 0x0020 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
 	class APlayerController*                           ReturnValue;                                      // 0x0024 (0x0004) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 	// class APlayerController*                        P;                                                // 0x0028 (0x0004) [0x0000000000000000]               
@@ -5434,6 +5466,7 @@ struct AGameInfo_execGetSupportedGameTypes_Params
 	class FString                                      InFilename;                                       // 0x0000 (0x000C) [0x0000000000400182] (CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink)
 	struct FGameTypePrefix                             OutGameType;                                      // 0x000C (0x0034) [0x0000000000400180] (CPF_Parm | CPF_OutParm | CPF_NeedCtorLink)
 	uint32_t                                           bCheckExt : 1;                                    // 0x0040 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0044 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0044 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -5486,6 +5519,7 @@ struct AMutator_execOverridePickupQuery_Params
 	class UClass*                                      ItemClass;                                        // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	class AActor*                                      Pickup;                                           // 0x0008 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            bAllowPickup;                                     // 0x000C (0x0001) [0x0000000000000180] (CPF_Parm | CPF_OutParm)
+	uint8_t                                            UnknownData00[0x3];                              // 0x000D (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0010 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -5511,6 +5545,7 @@ struct AMutator_execFindPlayerStart_Params
 {
 	class AController*                                 Player;                                           // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            InTeam;                                           // 0x0004 (0x0001) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	uint8_t                                            UnknownData00[0x3];                              // 0x0005 (0x0003) MISSED OFFSET
 	class FString                                      IncomingName;                                     // 0x0008 (0x000C) [0x0000000000400090] (CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink)
 	class ANavigationPoint*                            ReturnValue;                                      // 0x0014 (0x0004) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
@@ -5693,6 +5728,7 @@ struct ARoute_execMoveOntoRoutePath_Params
 {
 	class APawn*                                       P;                                                // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            RouteDirection;                                   // 0x0004 (0x0001) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	uint8_t                                            UnknownData00[0x3];                              // 0x0005 (0x0003) MISSED OFFSET
 	float                                              DistFudgeFactor;                                  // 0x0008 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	int32_t                                            ReturnValue;                                      // 0x000C (0x0004) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
@@ -5705,6 +5741,7 @@ struct ARoute_execResolveRouteIndex_Params
 	uint8_t                                            RouteDirection;                                   // 0x0004 (0x0001) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            out_bComplete;                                    // 0x0005 (0x0001) [0x0000000000000180] (CPF_Parm | CPF_OutParm)
 	uint8_t                                            out_bReverse;                                     // 0x0006 (0x0001) [0x0000000000000180] (CPF_Parm | CPF_OutParm)
+	uint8_t                                            UnknownData00[0x1];                              // 0x0007 (0x0001) MISSED OFFSET
 	int32_t                                            ReturnValue;                                      // 0x0008 (0x0004) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -5895,7 +5932,9 @@ struct AWorldInfo_execPrepareMapChange_Params
 struct AWorldInfo_execNotifyMatchStarted_Params
 {
 	uint32_t                                           bShouldActivateLevelStartupEvents : 1;            // 0x0000 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bShouldActivateLevelBeginningEvents : 1;          // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bShouldActivateLevelLoadedEvents : 1;             // 0x0008 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 };
 
@@ -5980,6 +6019,7 @@ struct AWorldInfo_eventServerTravel_Params
 {
 	class FString                                      URL;                                              // 0x0000 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 	uint32_t                                           bAbsolute : 1;                                    // 0x000C (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0010 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bShouldSkipGameNotify : 1;                        // 0x0010 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 };
 
@@ -6022,6 +6062,7 @@ struct AWorldInfo_execIsPlayInEditor_Params
 struct AWorldInfo_execIsConsoleBuild_Params
 {
 	uint8_t                                            ConsoleType;                                      // 0x0000 (0x0001) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -6135,8 +6176,8 @@ struct AInventory_execOwnerEvent_Params
 struct AInventory_execGetLocalString_Params
 {
 	int32_t                                            Switch;                                           // 0x0000 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
-	class APlayerReplicationInfo*                      RelatedPRI;                                       // 0x0004 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
-	class APlayerReplicationInfo*                      RelatedPRI01;                                     // 0x0008 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	class APlayerReplicationInfo*                      RelatedPRI_1;                                     // 0x0004 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	class APlayerReplicationInfo*                      RelatedPRI_2;                                     // 0x0008 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	class FString                                      ReturnValue;                                      // 0x000C (0x000C) [0x0000000000400580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink)
 };
 
@@ -6276,6 +6317,7 @@ struct AWeapon_execWeaponIsDown_Params
 struct AWeapon_execStillFiring_Params
 {
 	uint8_t                                            FireMode;                                         // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -6366,6 +6408,7 @@ struct AWeapon_execProjectileFire_Params
 struct AWeapon_execProcessInstantHit_Params
 {
 	uint8_t                                            FiringMode;                                       // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FImpactInfo                                 Impact;                                           // 0x0004 (0x0050) [0x0000000000000080] (CPF_Parm)    
 	int32_t                                            NumHits;                                          // 0x0054 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	// int32_t                                         TotalDamage;                                      // 0x0058 (0x0004) [0x0000000000000000]               
@@ -6447,6 +6490,7 @@ struct AWeapon_execFireAmmunition_Params
 struct AWeapon_execFireModeUpdated_Params
 {
 	uint8_t                                            FiringMode;                                       // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	uint32_t                                           bViaReplication : 1;                              // 0x0004 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
 };
 
@@ -6527,6 +6571,7 @@ struct AWeapon_execWeaponCalcCamera_Params
 struct AWeapon_execClientWeaponSet_Params
 {
 	uint32_t                                           bOptionalSet : 1;                                 // 0x0000 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bDoNotActivate : 1;                               // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 };
 
@@ -6652,6 +6697,7 @@ struct AWeapon_execTimeWeaponFiring_Params
 struct AWeapon_execGetFireInterval_Params
 {
 	uint8_t                                            FireModeNum;                                      // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	float                                              ReturnValue;                                      // 0x0004 (0x0004) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -6673,6 +6719,7 @@ struct AWeapon_execStopFireEffects_Params
 struct AWeapon_execPlayFireEffects_Params
 {
 	uint8_t                                            FireModeNum;                                      // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FVector                                     HitLocation;                                      // 0x0004 (0x000C) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 };
 
@@ -6697,7 +6744,7 @@ struct AWeapon_execPlayWeaponAnimation_Params
 
 // Function Engine.Weapon.WeaponPlaySound
 // [0x00024102] 
-struct AWeapon_execWeaponPlaySoundW_Params
+struct AWeapon_execWeaponPlaySound_Params
 {
 	class USoundCue*                                   Sound;                                            // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	float                                              NoiseLoudness;                                    // 0x0004 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
@@ -6761,6 +6808,7 @@ struct AWeapon_execRecommendLongRangedAttack_Params
 struct AWeapon_execFocusOnLeader_Params
 {
 	uint32_t                                           bLeaderFiring : 1;                                // 0x0000 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -6878,6 +6926,7 @@ struct AWeapon_execHasAnyAmmo_Params
 struct AWeapon_execHasAmmo_Params
 {
 	uint8_t                                            FireModeNum;                                      // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	int32_t                                            Amount;                                           // 0x0004 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	bool                                               ReturnValue : 1;                                  // 0x0008 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
@@ -7035,6 +7084,7 @@ struct AInventoryManager_execClientWeaponSet_Params
 {
 	class AWeapon*                                     NewWeapon;                                        // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bOptionalSet : 1;                                 // 0x0004 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bDoNotActivate : 1;                               // 0x0008 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 	// class AWeapon*                                  OldWeapon;                                        // 0x000C (0x0004) [0x0000000000000000]               
 };
@@ -7232,6 +7282,7 @@ struct AInventoryManager_execAddInventory_Params
 {
 	class AInventory*                                  NewItem;                                          // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bDoNotActivate : 1;                               // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0008 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 	// class AInventory*                               Item;                                             // 0x000C (0x0004) [0x0000000000000000]               
 	// class AInventory*                               LastItem;                                         // 0x0010 (0x0004) [0x0000000000000000]               
@@ -7602,6 +7653,7 @@ struct ACoverLink_execAutoAdjustSlot_Params
 {
 	int32_t                                            SlotIdx;                                          // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bOnlyCheckLeans : 1;                              // 0x0004 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0008 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -7657,6 +7709,7 @@ struct ACoverLink_execHasFireLinkTo_Params
 	int32_t                                            SlotIdx;                                          // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	struct FCoverInfo                                  ChkCover;                                         // 0x0004 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bAllowFallbackLinks : 1;                          // 0x000C (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0010 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0010 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -7668,6 +7721,7 @@ struct ACoverLink_execGetFireLinkTo_Params
 	struct FCoverInfo                                  ChkCover;                                         // 0x0004 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            ChkAction;                                        // 0x000C (0x0001) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            ChkType;                                          // 0x000D (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x2];                              // 0x000E (0x0002) MISSED OFFSET
 	int32_t                                            out_FireLinkIdx;                                  // 0x0010 (0x0004) [0x0000000000000180] (CPF_Parm | CPF_OutParm)
 	class TArray<int32_t>                              out_Items;                                        // 0x0014 (0x000C) [0x0000000000400180] (CPF_Parm | CPF_OutParm | CPF_NeedCtorLink)
 	bool                                               ReturnValue : 1;                                  // 0x0020 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
@@ -7715,6 +7769,7 @@ struct ACoverLink_execIsRightEdgeSlot_Params
 {
 	int32_t                                            SlotIdx;                                          // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bIgnoreLeans : 1;                                 // 0x0004 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0008 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -7724,6 +7779,7 @@ struct ACoverLink_execIsLeftEdgeSlot_Params
 {
 	int32_t                                            SlotIdx;                                          // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bIgnoreLeans : 1;                                 // 0x0004 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0008 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -7733,6 +7789,7 @@ struct ACoverLink_execIsEdgeSlot_Params
 {
 	int32_t                                            SlotIdx;                                          // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bIgnoreLeans : 1;                                 // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0008 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -7762,7 +7819,9 @@ struct ACoverLink_execIsValidClaim_Params
 	class APawn*                                       ChkClaim;                                         // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	int32_t                                            SlotIdx;                                          // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bSkipTeamCheck : 1;                               // 0x0008 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x000C CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bSkipOverlapCheck : 1;                            // 0x000C (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0010 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0010 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -7773,6 +7832,7 @@ struct ACoverLink_eventUnClaim_Params
 	class APawn*                                       OldClaim;                                         // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	int32_t                                            SlotIdx;                                          // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bUnclaimAll : 1;                                  // 0x0008 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x000C CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x000C (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 	// int32_t                                         Idx;                                              // 0x0010 (0x0004) [0x0000000000000000]               
 	// int32_t                                         NumReleased;                                      // 0x0014 (0x0004) [0x0000000000000000]               
@@ -7832,6 +7892,7 @@ struct ACoverLink_execGetSlotViewPoint_Params
 	int32_t                                            SlotIdx;                                          // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            Type;                                             // 0x0004 (0x0001) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint8_t                                            Action;                                           // 0x0005 (0x0001) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	uint8_t                                            UnknownData00[0x2];                              // 0x0006 (0x0002) MISSED OFFSET
 	struct FVector                                     ReturnValue;                                      // 0x0008 (0x000C) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -7873,7 +7934,9 @@ struct ACoverSlotMarker_execIsValidClaim_Params
 {
 	class APawn*                                       ChkClaim;                                         // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bSkipTeamCheck : 1;                               // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bSkipOverlapCheck : 1;                            // 0x0008 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x000C CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x000C (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -8474,6 +8537,7 @@ struct AProjectile_execHurtRadius_Params
 	class AActor*                                      IgnoredActor;                                     // 0x001C (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	class AController*                                 InstigatedByController;                           // 0x0020 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint32_t                                           bDoFullDamage : 1;                                // 0x0024 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0028 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0028 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 	// uint32_t                                        bCausedDamage : 1;                                // 0x002C (0x0004) [0x0000000000000000] [0x00000001] 
 	// uint32_t                                        bResult : 1;                                      // 0x0030 (0x0004) [0x0000000000000000] [0x00000001] 
@@ -8839,6 +8903,7 @@ struct UPrimitiveComponent_execEnableForceTranslucency_Params
 	float                                              BlendTime;                                        // 0x0008 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	int32_t                                            SortPriority;                                     // 0x000C (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint32_t                                           bCameraForceTranslucency : 1;                     // 0x0010 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0014 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0014 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -8883,7 +8948,9 @@ struct UPrimitiveComponent_execGetPosition_Params
 struct UPrimitiveComponent_execSetAbsolute_Params
 {
 	uint32_t                                           NewAbsoluteTranslation : 1;                       // 0x0000 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           NewAbsoluteRotation : 1;                          // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           NewAbsoluteScale : 1;                             // 0x0008 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 };
 
@@ -8920,7 +8987,9 @@ struct UPrimitiveComponent_execSetTranslation_Params
 struct UPrimitiveComponent_execSetActorCollision_Params
 {
 	uint32_t                                           NewCollideActors : 1;                             // 0x0000 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           NewBlockActors : 1;                               // 0x0004 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           NewAlwaysCheckCollision : 1;                      // 0x0008 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 };
 
@@ -8929,6 +8998,7 @@ struct UPrimitiveComponent_execSetActorCollision_Params
 struct UPrimitiveComponent_execSetTraceBlocking_Params
 {
 	uint32_t                                           NewBlockZeroExtent : 1;                           // 0x0000 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           NewBlockNonZeroExtent : 1;                        // 0x0004 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
 };
 
@@ -9056,6 +9126,7 @@ struct UPrimitiveComponent_execSetRBCollisionChannels_Params
 struct UPrimitiveComponent_execSetRBCollidesWithChannel_Params
 {
 	uint8_t                                            Channel;                                          // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	uint32_t                                           bNewCollides : 1;                                 // 0x0004 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
 };
 
@@ -9178,6 +9249,7 @@ struct UPrimitiveComponent_execAddRadialImpulse_Params
 	float                                              Radius;                                           // 0x000C (0x0004) [0x0000000000000080] (CPF_Parm)    
 	float                                              Strength;                                         // 0x0010 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            Falloff;                                          // 0x0014 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0015 (0x0003) MISSED OFFSET
 	uint32_t                                           bVelChange : 1;                                   // 0x0018 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 };
 
@@ -9277,6 +9349,7 @@ struct UStaticMeshComponent_execSetStaticMesh_Params
 {
 	class UStaticMesh*                                 NewMesh;                                          // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bForce : 1;                                       // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0008 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -9458,7 +9531,7 @@ struct UCanvas_execDrawDebugGraph_Params
 
 // Function Engine.Canvas.DrawTextureDoubleLine
 // [0x00020401]  (iNative[13458])
-struct UCanvas_execDrawTextureDoubleLineW_Params
+struct UCanvas_execDrawTextureDoubleLineWin_Params
 {
 	struct FVector                                     StartPoint;                                       // 0x0000 (0x000C) [0x0000000000000080] (CPF_Parm)    
 	struct FVector                                     EndPoint;                                         // 0x000C (0x000C) [0x0000000000000080] (CPF_Parm)    
@@ -9476,7 +9549,7 @@ struct UCanvas_execDrawTextureDoubleLineW_Params
 
 // Function Engine.Canvas.DrawTextureLine
 // [0x00020401]  (iNative[13459])
-struct UCanvas_execDrawTextureLineW_Params
+struct UCanvas_execDrawTextureLineWin_Params
 {
 	struct FVector                                     StartPoint;                                       // 0x0000 (0x000C) [0x0000000000000080] (CPF_Parm)    
 	struct FVector                                     EndPoint;                                         // 0x000C (0x000C) [0x0000000000000080] (CPF_Parm)    
@@ -9569,7 +9642,7 @@ struct UCanvas_execMakeIcon_Params
 
 // Function Engine.Canvas.DrawTexture
 // [0x00020003] 
-struct UCanvas_execDrawTextureW_Params
+struct UCanvas_execDrawTextureWin_Params
 {
 	class UTexture*                                    Tex;                                              // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	float                                              Scale;                                            // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
@@ -9660,7 +9733,7 @@ struct UCanvas_execProject_Params
 
 // Function Engine.Canvas.DrawTextCentered
 // [0x00024003] 
-struct UCanvas_execDrawTextCenteredW_Params
+struct UCanvas_execDrawTextCenteredWin_Params
 {
 	class FString                                      Text;                                             // 0x0000 (0x000C) [0x0000000000400880] (CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink)
 	uint32_t                                           CR : 1;                                           // 0x000C (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
@@ -9673,7 +9746,7 @@ struct UCanvas_execDrawTextCenteredW_Params
 
 // Function Engine.Canvas.DrawText
 // [0x00424401]  (iNative[13454])
-struct UCanvas_execDrawTextW_Params
+struct UCanvas_execDrawTextWin_Params
 {
 	class FString                                      Text;                                             // 0x0000 (0x000C) [0x0000000000400880] (CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink)
 	uint32_t                                           CR : 1;                                           // 0x000C (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
@@ -9705,6 +9778,7 @@ struct UCanvas_execStrLen_Params
 struct UCanvas_execCreateFontRenderInfo_Params
 {
 	uint32_t                                           bClipText : 1;                                    // 0x0000 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bEnableShadow : 1;                                // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 	struct FLinearColor                                GlowColor;                                        // 0x0008 (0x0010) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	struct FVector2D                                   GlowOuterRadius;                                  // 0x0018 (0x0008) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
@@ -9726,6 +9800,7 @@ struct UCanvas_execDrawTileStretched_Params
 	float                                              VL;                                               // 0x0018 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	struct FLinearColor                                LColor;                                           // 0x001C (0x0010) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bStretchHorizontally : 1;                         // 0x002C (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0030 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bStretchVertically : 1;                           // 0x0030 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 	float                                              ScalingFactor;                                    // 0x0034 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 };
@@ -9841,7 +9916,7 @@ struct AController_execReadyForLift_Params
 
 // Function Engine.Controller.SendMessage
 // [0x00024000] 
-struct AController_execSendMessageW_Params
+struct AController_execSendMessageWin_Params
 {
 	class APlayerReplicationInfo*                      Recipient;                                        // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	class FName                                        MessageType;                                      // 0x0004 (0x0008) [0x0000000000000080] (CPF_Parm)    
@@ -9868,6 +9943,7 @@ struct AController_execGetRouteGoalAfter_Params
 struct AController_eventIsInCombat_Params
 {
 	uint32_t                                           bForceCheck : 1;                                  // 0x0000 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -10273,6 +10349,7 @@ struct AController_execMoveToward_Params
 	class AActor*                                      ViewFocus;                                        // 0x0004 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	float                                              DestinationOffset;                                // 0x0008 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint32_t                                           bUseStrafing : 1;                                 // 0x000C (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0010 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bShouldWalk : 1;                                  // 0x0010 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 };
 
@@ -10363,6 +10440,7 @@ struct AController_execLineOfSightTo_Params
 	class AActor*                                      Other;                                            // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	struct FVector                                     chkLocation;                                      // 0x0004 (0x000C) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint32_t                                           bTryAlternateTargetLoc : 1;                       // 0x0010 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0014 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0014 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -10714,6 +10792,7 @@ struct AController_eventBreakByAI_Params
 struct AController_eventActiveAIEventTrigger_Params
 {
 	uint8_t                                            Type;                                             // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	int32_t                                            Info1;                                            // 0x0004 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	int32_t                                            Info2;                                            // 0x0008 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 };
@@ -10734,6 +10813,7 @@ struct AController_eventSetAnimPosition_Params
 	class FName                                        InAnimSeqName;                                    // 0x000C (0x0008) [0x0000000000000080] (CPF_Parm)    
 	float                                              InPosition;                                       // 0x0014 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bFireNotifies : 1;                                // 0x0018 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x001C CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bLooping : 1;                                     // 0x001C (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
 	int32_t                                            RootMotionLevel;                                  // 0x0020 (0x0004) [0x0000000000000080] (CPF_Parm)    
 };
@@ -10764,6 +10844,7 @@ struct AController_execSetAdjustLocation_Params
 {
 	struct FVector                                     NewLoc;                                           // 0x0000 (0x000C) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bAdjust : 1;                                      // 0x000C (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0010 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bOffsetFromBase : 1;                              // 0x0010 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 };
 
@@ -11002,8 +11083,10 @@ struct APlayerController_eventClientPlayCameraAnim_Params
 	float                                              BlendInTime;                                      // 0x0010 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	float                                              BlendOutTime;                                     // 0x0014 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint32_t                                           bLoop : 1;                                        // 0x0018 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x001C CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bRandomStartTime : 1;                             // 0x001C (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 	uint8_t                                            Space;                                            // 0x0020 (0x0001) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	uint8_t                                            UnknownData00[0x3];                              // 0x0021 (0x0003) MISSED OFFSET
 	struct FRotator                                    CustomPlaySpace;                                  // 0x0024 (0x000C) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	// class UCameraAnimInst*                          AnimInst;                                         // 0x0030 (0x0004) [0x0000000000000000]               
 };
@@ -11037,6 +11120,7 @@ struct APlayerController_execClientPlayCameraShake_Params
 	float                                              Scale;                                            // 0x0004 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint32_t                                           bTryForceFeedback : 1;                            // 0x0008 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 	uint8_t                                            PlaySpace;                                        // 0x000C (0x0001) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	uint8_t                                            UnknownData00[0x3];                              // 0x000D (0x0003) MISSED OFFSET
 	struct FRotator                                    UserPlaySpaceRot;                                 // 0x0010 (0x000C) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 };
 
@@ -11324,6 +11408,7 @@ struct APlayerController_eventAddDebugText_Params
 	struct FVector                                     DesiredOffset;                                    // 0x0020 (0x000C) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	struct FColor                                      TextColor;                                        // 0x002C (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint32_t                                           bSkipOverwriteCheck : 1;                          // 0x0030 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0034 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bAbsoluteLocation : 1;                            // 0x0034 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 	// int32_t                                         Idx;                                              // 0x0038 (0x0004) [0x0000000000000000]               
 };
@@ -11702,6 +11787,7 @@ struct APlayerController_eventClientPrepareMapChange_Params
 {
 	class FName                                        LevelName;                                        // 0x0000 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bFirst : 1;                                       // 0x0008 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x000C CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bLast : 1;                                        // 0x000C (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
 	// class APlayerController*                        PC;                                               // 0x0010 (0x0004) [0x0000000000000000]               
 };
@@ -11720,7 +11806,9 @@ struct APlayerController_execClientUpdateLevelStreamingStatus_Params
 {
 	class FName                                        PackageName;                                      // 0x0000 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bNewShouldBeLoaded : 1;                           // 0x0008 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x000C CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bNewShouldBeVisible : 1;                          // 0x000C (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0010 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bNewShouldBlockOnLoad : 1;                        // 0x0010 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
 };
 
@@ -11730,7 +11818,9 @@ struct APlayerController_eventLevelStreamingStatusChanged_Params
 {
 	class ULevelStreaming*                             LevelObject;                                      // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bNewShouldBeLoaded : 1;                           // 0x0004 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bNewShouldBeVisible : 1;                          // 0x0008 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x000C CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bNewShouldBlockOnLoad : 1;                        // 0x000C (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
 };
 
@@ -11793,9 +11883,13 @@ struct APlayerController_execIgnoreMoveInput_Params
 struct APlayerController_execClientSetCinematicMode_Params
 {
 	uint32_t                                           bInCinematicMode : 1;                             // 0x0000 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bAffectsMovement : 1;                             // 0x0004 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bAffectsTurning : 1;                              // 0x0008 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x000C CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bAffectsHUD : 1;                                  // 0x000C (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0010 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bHideCurrenWeapon : 1;                            // 0x0010 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
 };
 
@@ -11804,12 +11898,19 @@ struct APlayerController_execClientSetCinematicMode_Params
 struct APlayerController_execSetCinematicMode_Params
 {
 	uint32_t                                           bInCinematicMode : 1;                             // 0x0000 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bHidePlayer : 1;                                  // 0x0004 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bAffectsHUD : 1;                                  // 0x0008 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x000C CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bAffectsMovement : 1;                             // 0x000C (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0010 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bAffectsTurning : 1;                              // 0x0010 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0014 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bAffectsButtons : 1;                              // 0x0014 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0018 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bHideCurrenWeapon : 1;                            // 0x0018 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x001C CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bPauseClockBomb : 1;                              // 0x001C (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
 	// uint32_t                                        bAdjustMoveInput : 1;                             // 0x0020 (0x0004) [0x0000000000000000] [0x00000001] 
 	// uint32_t                                        bAdjustLookInput : 1;                             // 0x0024 (0x0004) [0x0000000000000000] [0x00000001] 
@@ -11991,7 +12092,7 @@ struct APlayerController_execClientDrawKismetText_Params
 
 // Function Engine.PlayerController.OnDrawText
 // [0x00020002] 
-struct APlayerController_execOnDrawTextW_Params
+struct APlayerController_execOnDrawText_Params
 {
 	class USeqAct_DrawText*                            inAction;                                         // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 };
@@ -12178,6 +12279,7 @@ struct APlayerController_execSetViewTargetWithBlend_Params
 	class AActor*                                      NewViewTarget;                                    // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	float                                              BlendTime;                                        // 0x0004 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint8_t                                            BlendFunc;                                        // 0x0008 (0x0001) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	uint8_t                                            UnknownData00[0x3];                              // 0x0009 (0x0003) MISSED OFFSET
 	float                                              BlendExp;                                         // 0x000C (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint32_t                                           bLockOutgoing : 1;                                // 0x0010 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 	// struct FViewTargetTransitionParams              TransitionParams;                                 // 0x0014 (0x0014) [0x0000000000000000]               
@@ -12271,6 +12373,7 @@ struct APlayerController_eventCameraLookAtFinished_Params
 struct APlayerController_execAimingHelp_Params
 {
 	uint32_t                                           bInstantHit : 1;                                  // 0x0000 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -12369,6 +12472,7 @@ struct APlayerController_execRestart_Params
 struct APlayerController_eventClientSetProgressMessage_Params
 {
 	uint8_t                                            MessageType;                                      // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	class FString                                      Message;                                          // 0x0004 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 	class FString                                      Title;                                            // 0x0010 (0x000C) [0x0000000000400090] (CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink)
 	uint32_t                                           bIgnoreFutureNetworkMessages : 1;                 // 0x001C (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
@@ -12679,6 +12783,7 @@ struct APlayerController_execCallServerMove_Params
 	class USavedMove*                                  NewMove;                                          // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	struct FVector                                     ClientLoc;                                        // 0x0004 (0x000C) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            ClientRoll;                                       // 0x0010 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0011 (0x0003) MISSED OFFSET
 	int32_t                                            View;                                             // 0x0014 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	class USavedMove*                                  OldMove;                                          // 0x0018 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	// struct FVector                                  BuildAccel;                                       // 0x001C (0x000C) [0x0000000000000000]               
@@ -12694,6 +12799,7 @@ struct APlayerController_execReplicateMove_Params
 	float                                              DeltaTime;                                        // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	struct FVector                                     newAccel;                                         // 0x0004 (0x000C) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            DoubleClickMove;                                  // 0x0010 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0011 (0x0003) MISSED OFFSET
 	struct FRotator                                    DeltaRot;                                         // 0x0014 (0x000C) [0x0000000000000080] (CPF_Parm)    
 	// class USavedMove*                               NewMove;                                          // 0x0020 (0x0004) [0x0000000000000000]               
 	// class USavedMove*                               OldMove;                                          // 0x0024 (0x0004) [0x0000000000000000]               
@@ -12775,6 +12881,7 @@ struct APlayerController_execLongClientAdjustPosition_Params
 	float                                              TimeStamp;                                        // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	class FName                                        NewState;                                         // 0x0004 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            newPhysics;                                       // 0x000C (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x000D (0x0003) MISSED OFFSET
 	float                                              NewLocX;                                          // 0x0010 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	float                                              NewLocY;                                          // 0x0014 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	float                                              NewLocZ;                                          // 0x0018 (0x0004) [0x0000000000000080] (CPF_Parm)    
@@ -12815,6 +12922,7 @@ struct APlayerController_execClientAdjustPosition_Params
 	float                                              TimeStamp;                                        // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	class FName                                        NewState;                                         // 0x0004 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            newPhysics;                                       // 0x000C (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x000D (0x0003) MISSED OFFSET
 	float                                              NewLocX;                                          // 0x0010 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	float                                              NewLocY;                                          // 0x0014 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	float                                              NewLocZ;                                          // 0x0018 (0x0004) [0x0000000000000080] (CPF_Parm)    
@@ -12846,6 +12954,7 @@ struct APlayerController_execShortClientAdjustPosition_Params
 	float                                              TimeStamp;                                        // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	class FName                                        NewState;                                         // 0x0004 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            newPhysics;                                       // 0x000C (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x000D (0x0003) MISSED OFFSET
 	float                                              NewLocX;                                          // 0x0010 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	float                                              NewLocY;                                          // 0x0014 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	float                                              NewLocZ;                                          // 0x0018 (0x0004) [0x0000000000000080] (CPF_Parm)    
@@ -12871,6 +12980,7 @@ struct APlayerController_execMoveAutonomous_Params
 {
 	float                                              DeltaTime;                                        // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            CompressedFlags;                                  // 0x0004 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0005 (0x0003) MISSED OFFSET
 	struct FVector                                     newAccel;                                         // 0x0008 (0x000C) [0x0000000000000080] (CPF_Parm)    
 	struct FRotator                                    DeltaRot;                                         // 0x0014 (0x000C) [0x0000000000000080] (CPF_Parm)    
 	// uint8_t                                         DoubleClickMove;                                  // 0x0020 (0x0001) [0x0000000000000000]               
@@ -12883,6 +12993,7 @@ struct APlayerController_execProcessMove_Params
 	float                                              DeltaTime;                                        // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	struct FVector                                     newAccel;                                         // 0x0004 (0x000C) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            DoubleClickMove;                                  // 0x0010 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0011 (0x0003) MISSED OFFSET
 	struct FRotator                                    DeltaRot;                                         // 0x0014 (0x000C) [0x0000000000000080] (CPF_Parm)    
 };
 
@@ -12923,6 +13034,7 @@ struct APlayerController_execServerMove_Params
 	struct FVector                                     ClientLoc;                                        // 0x0010 (0x000C) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            MoveFlags;                                        // 0x001C (0x0001) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            ClientRoll;                                       // 0x001D (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x2];                              // 0x001E (0x0002) MISSED OFFSET
 	int32_t                                            View;                                             // 0x0020 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	// float                                           DeltaTime;                                        // 0x0024 (0x0004) [0x0000000000000000]               
 	// struct FRotator                                 DeltaRot;                                         // 0x0028 (0x000C) [0x0000000000000000]               
@@ -12973,12 +13085,14 @@ struct APlayerController_execDualServerMove_Params
 	float                                              TimeStamp0;                                       // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	struct FVector                                     InAccel0;                                         // 0x0004 (0x000C) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            PendingFlags;                                     // 0x0010 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0011 (0x0003) MISSED OFFSET
 	int32_t                                            View0;                                            // 0x0014 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	float                                              TimeStamp;                                        // 0x0018 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	struct FVector                                     InAccel;                                          // 0x001C (0x000C) [0x0000000000000080] (CPF_Parm)    
 	struct FVector                                     ClientLoc;                                        // 0x0028 (0x000C) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            NewFlags;                                         // 0x0034 (0x0001) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            ClientRoll;                                       // 0x0035 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData01[0x2];                              // 0x0036 (0x0002) MISSED OFFSET
 	int32_t                                            View;                                             // 0x0038 (0x0004) [0x0000000000000080] (CPF_Parm)    
 };
 
@@ -13055,6 +13169,7 @@ struct APlayerController_eventPreClientTravel_Params
 {
 	class FString                                      PendingURL;                                       // 0x0000 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 	uint8_t                                            TravelType;                                       // 0x000C (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x000D (0x0003) MISSED OFFSET
 	uint32_t                                           bIsSeamlessTravel : 1;                            // 0x0010 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
 	// class UUIInteraction*                           UIController;                                     // 0x0014 (0x0004) [0x0000000000000000]               
 	// class UGameUISceneClient*                       GameSceneClient;                                  // 0x0018 (0x0004) [0x0000000000000000]               
@@ -13295,7 +13410,7 @@ struct APlayerController_eventKismet_ClientStopSound_Params
 
 // Function Engine.PlayerController.Kismet_ClientPlaySound
 // [0x010209C2] 
-struct APlayerController_eventKismet_ClientPlaySoundW_Params
+struct APlayerController_eventKismet_ClientPlaySound_Params
 {
 	class USoundCue*                                   ASound;                                           // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	class AActor*                                      SourceActor;                                      // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
@@ -13303,6 +13418,7 @@ struct APlayerController_eventKismet_ClientPlaySoundW_Params
 	float                                              PitchMultiplier;                                  // 0x000C (0x0004) [0x0000000000000080] (CPF_Parm)    
 	float                                              FadeInTime;                                       // 0x0010 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bSuppressSubtitles : 1;                           // 0x0014 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0018 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bSuppressSpatialization : 1;                      // 0x0018 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
 	// class UAudioComponent*                          AC;                                               // 0x001C (0x0004) [0x0000000004000000] (CPF_EditInline)
 };
@@ -13325,6 +13441,7 @@ struct APlayerController_eventClientHearSound_Params
 	class AActor*                                      SourceActor;                                      // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	struct FVector                                     SourceLocation;                                   // 0x0008 (0x000C) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bStopWhenOwnerDestroyed : 1;                      // 0x0014 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0018 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bIsOccluded : 1;                                  // 0x0018 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 	// class UAudioComponent*                          AC;                                               // 0x001C (0x0004) [0x0000000004000000] (CPF_EditInline)
 };
@@ -13336,6 +13453,7 @@ struct APlayerController_execGetPooledAudioComponent_Params
 	class USoundCue*                                   ASound;                                           // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	class AActor*                                      SourceActor;                                      // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bStopWhenOwnerDestroyed : 1;                      // 0x0008 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x000C CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bUseLocation : 1;                                 // 0x000C (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 	struct FVector                                     SourceLocation;                                   // 0x0010 (0x000C) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	class UAudioComponent*                             ReturnValue;                                      // 0x001C (0x0004) [0x0000000004000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_EditInline)
@@ -13350,7 +13468,7 @@ struct APlayerController_execHearSoundFinished_Params
 
 // Function Engine.PlayerController.ClientPlaySound
 // [0x01020942] 
-struct APlayerController_eventClientPlaySoundW_Params
+struct APlayerController_eventClientPlaySound_Params
 {
 	class USoundCue*                                   ASound;                                           // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 };
@@ -13361,8 +13479,8 @@ struct APlayerController_eventReceiveLocalizedMessage_Params
 {
 	class UClass*                                      Message;                                          // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	int32_t                                            Switch;                                           // 0x0004 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
-	class APlayerReplicationInfo*                      RelatedPRI;                                       // 0x0008 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
-	class APlayerReplicationInfo*                      RelatedPRI01;                                     // 0x000C (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	class APlayerReplicationInfo*                      RelatedPRI_1;                                     // 0x0008 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	class APlayerReplicationInfo*                      RelatedPRI_2;                                     // 0x000C (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	class UObject*                                     OptionalObject;                                   // 0x0010 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 };
 
@@ -13845,6 +13963,7 @@ struct APlayerController_eventClientTravel_Params
 {
 	class FString                                      URL;                                              // 0x0000 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 	uint8_t                                            TravelType;                                       // 0x000C (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x000D (0x0003) MISSED OFFSET
 	uint32_t                                           bSeamless : 1;                                    // 0x0010 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 	struct FGuid                                       MapPackageGuid;                                   // 0x0014 (0x0010) [0x0000000000100090] (CPF_OptionalParm | CPF_Parm)
 };
@@ -13954,7 +14073,7 @@ struct UCheatManager_execLogParticleActivateSystemCalls_Params
 
 // Function Engine.CheatManager.LogPlaySoundCalls
 // [0x00020600]  (iNative[17422])
-struct UCheatManager_execLogPlaySoundCallsW_Params
+struct UCheatManager_execLogPlaySoundCalls_Params
 {
 	uint32_t                                           bShouldLog : 1;                                   // 0x0000 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
 };
@@ -14066,6 +14185,7 @@ struct UCheatManager_execSetLevelStreamingStatus_Params
 {
 	class FName                                        PackageName;                                      // 0x0000 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bShouldBeLoaded : 1;                              // 0x0008 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x000C CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bShouldBeVisible : 1;                             // 0x000C (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
 	// class APlayerController*                        PC;                                               // 0x0010 (0x0004) [0x0000000000000000]               
 	// int32_t                                         I;                                                // 0x0014 (0x0004) [0x0000000000000000]               
@@ -14508,6 +14628,7 @@ struct UGameEffectSpeedController_execInQueueSpeedControlPara_Params
 	float                                              FrzTime;                                          // 0x0008 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	float                                              IncTime;                                          // 0x000C (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            Priority;                                         // 0x0010 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0011 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0014 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -14874,6 +14995,7 @@ struct UGameViewportClient_execNotifyConnectionError_Params
 struct UGameViewportClient_eventSetProgressMessage_Params
 {
 	uint8_t                                            MessageType;                                      // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	class FString                                      Message;                                          // 0x0004 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 	class FString                                      Title;                                            // 0x0010 (0x000C) [0x0000000000400090] (CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink)
 	uint32_t                                           bIgnoreFutureNetworkMessages : 1;                 // 0x001C (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
@@ -14993,6 +15115,7 @@ struct UGameViewportClient_execCalculateDeadZoneForAllSides_Params
 	float                                              fLeftSafeZone;                                    // 0x0010 (0x0004) [0x0000000000000180] (CPF_Parm | CPF_OutParm)
 	float                                              fRightSafeZone;                                   // 0x0014 (0x0004) [0x0000000000000180] (CPF_Parm | CPF_OutParm)
 	uint32_t                                           bUseMaxPercent : 1;                               // 0x0018 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x001C CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x001C (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 	// uint32_t                                        bHasTopSafeZone : 1;                              // 0x0020 (0x0004) [0x0000000000000000] [0x00000001] 
 	// uint32_t                                        bHasBottomSafeZone : 1;                           // 0x0024 (0x0004) [0x0000000000000000] [0x00000001] 
@@ -15009,6 +15132,7 @@ struct UGameViewportClient_execCalculateDeadZone_Params
 {
 	class ULocalPlayer*                                LPlayer;                                          // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            SZType;                                           // 0x0004 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0005 (0x0003) MISSED OFFSET
 	class UCanvas*                                     Canvas;                                           // 0x0008 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bUseMaxPercent : 1;                               // 0x000C (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 	float                                              ReturnValue;                                      // 0x0010 (0x0004) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
@@ -15278,6 +15402,7 @@ struct UGameViewportClient_execHandleInputAxis_Params
 	float                                              Delta;                                            // 0x000C (0x0004) [0x0000000000000080] (CPF_Parm)    
 	float                                              DeltaTime;                                        // 0x0010 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bGamepad : 1;                                     // 0x0014 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0018 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0018 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -15288,8 +15413,10 @@ struct UGameViewportClient_execHandleInputKey_Params
 	int32_t                                            ControllerId;                                     // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	class FName                                        Key;                                              // 0x0004 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            EventType;                                        // 0x000C (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x000D (0x0003) MISSED OFFSET
 	float                                              AmountDepressed;                                  // 0x0010 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bGamepad : 1;                                     // 0x0014 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0018 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0018 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -15462,6 +15589,7 @@ struct USurface_execGetSurfaceWidth_Params
 struct UMaterialInterface_execSetForceMipLevelsToBeResident_Params
 {
 	uint32_t                                           OverrideForceMiplevelsToBeResident : 1;           // 0x0000 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bForceMiplevelsToBeResidentValue : 1;             // 0x0004 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
 	float                                              ForceDuration;                                    // 0x0008 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	int32_t                                            CinematicTextureGroups;                           // 0x000C (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
@@ -15583,6 +15711,7 @@ struct UOnlinePlayerStorage_execGetProfileSettingRange_Params
 	float                                              OutMaxValue;                                      // 0x0008 (0x0004) [0x0000000000000180] (CPF_Parm | CPF_OutParm)
 	float                                              RangeIncrement;                                   // 0x000C (0x0004) [0x0000000000000180] (CPF_Parm | CPF_OutParm)
 	uint8_t                                            bFormatAsInt;                                     // 0x0010 (0x0001) [0x0000000000000180] (CPF_Parm | CPF_OutParm)
+	uint8_t                                            UnknownData00[0x3];                              // 0x0011 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0014 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -15601,6 +15730,7 @@ struct UOnlinePlayerStorage_execGetProfileSettingMappingType_Params
 {
 	int32_t                                            ProfileId;                                        // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            OutType;                                          // 0x0004 (0x0001) [0x0000000000000180] (CPF_Parm | CPF_OutParm)
+	uint8_t                                            UnknownData00[0x3];                              // 0x0005 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0008 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -16361,6 +16491,7 @@ struct ULocalPlayer_execInsertPostProcessingChain_Params
 	class UPostProcessChain*                           InChain;                                          // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	int32_t                                            InIndex;                                          // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bInClone : 1;                                     // 0x0008 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x000C CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x000C (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -16476,6 +16607,7 @@ struct USavedMove_execGetDebugString_Params
 struct USavedMove_execSetFlags_Params
 {
 	uint8_t                                            Flags;                                            // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	class APlayerController*                           PC;                                               // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            ReturnValue;                                      // 0x0008 (0x0001) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
@@ -16635,6 +16767,7 @@ struct USettings_execGetPropertyRange_Params
 	float                                              OutMaxValue;                                      // 0x0008 (0x0004) [0x0000000000000180] (CPF_Parm | CPF_OutParm)
 	float                                              RangeIncrement;                                   // 0x000C (0x0004) [0x0000000000000180] (CPF_Parm | CPF_OutParm)
 	uint8_t                                            bFormatAsInt;                                     // 0x0010 (0x0001) [0x0000000000000180] (CPF_Parm | CPF_OutParm)
+	uint8_t                                            UnknownData00[0x3];                              // 0x0011 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0014 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -16644,6 +16777,7 @@ struct USettings_execGetPropertyMappingType_Params
 {
 	int32_t                                            PropertyId;                                       // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            OutType;                                          // 0x0004 (0x0001) [0x0000000000000180] (CPF_Parm | CPF_OutParm)
+	uint8_t                                            UnknownData00[0x3];                              // 0x0005 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0008 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -16899,6 +17033,7 @@ struct USettings_execIncrementStringSettingValue_Params
 	int32_t                                            StringSettingId;                                  // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	int32_t                                            Direction;                                        // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bShouldWrap : 1;                                  // 0x0008 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x000C CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x000C (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -17097,6 +17232,7 @@ struct UTexture2D_execCreate_Params
 	int32_t                                            InSizeX;                                          // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	int32_t                                            InSizeY;                                          // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            InFormat;                                         // 0x0008 (0x0001) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	uint8_t                                            UnknownData00[0x3];                              // 0x0009 (0x0003) MISSED OFFSET
 	class UTexture2D*                                  ReturnValue;                                      // 0x000C (0x0004) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -17121,6 +17257,7 @@ struct AAIController_execCanFireWeapon_Params
 {
 	class AWeapon*                                     Wpn;                                              // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            FireModeNum;                                      // 0x0004 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0005 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0008 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -17550,6 +17687,7 @@ struct UNavMeshPath_MinDistBetweenSpecsOfType_execEnforceMinDist_Params
 	class UNavigationHandle*                           NavHandle;                                        // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	float                                              InMinDist;                                        // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            InEdgeType;                                       // 0x0008 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0009 (0x0003) MISSED OFFSET
 	struct FVector                                     LastLocation;                                     // 0x000C (0x000C) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	bool                                               ReturnValue : 1;                                  // 0x0018 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 	// class UNavMeshPath_MinDistBetweenSpecsOfType*   Con;                                              // 0x001C (0x0004) [0x0000000000000000]               
@@ -17598,6 +17736,7 @@ struct UNavMeshPath_WithinDistanceEnvelope_execStayWithinEnvelopeToLoc_Params
 	uint32_t                                           bInSoft : 1;                                      // 0x0018 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 	float                                              InSoftStartPenalty;                               // 0x001C (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint32_t                                           bOnlyTossOutSpecsThatLeave : 1;                   // 0x0020 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0024 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0024 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 	// class UNavMeshPath_WithinDistanceEnvelope*      Con;                                              // 0x0028 (0x0004) [0x0000000000000000]               
 };
@@ -17615,6 +17754,7 @@ struct UNavMeshPath_WithinTraversalDist_execDontExceedMaxDist_Params
 	class UNavigationHandle*                           NavHandle;                                        // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	float                                              InMaxTraversalDist;                               // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bInSoft : 1;                                      // 0x0008 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x000C CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x000C (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 	// class UNavMeshPath_WithinTraversalDist*         Con;                                              // 0x0010 (0x0004) [0x0000000000000000]               
 };
@@ -17646,6 +17786,7 @@ struct UNavMeshGoal_At_execAtLocation_Params
 	struct FVector                                     GoalLocation;                                     // 0x0004 (0x000C) [0x0000000000000080] (CPF_Parm)    
 	float                                              Dist;                                             // 0x0010 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint32_t                                           bReturnPartial : 1;                               // 0x0014 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0018 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0018 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 	// class UNavMeshGoal_At*                          Eval;                                             // 0x001C (0x0004) [0x0000000000000000]               
 };
@@ -17658,6 +17799,7 @@ struct UNavMeshGoal_At_execAtActor_Params
 	class AActor*                                      GoalActor;                                        // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	float                                              Dist;                                             // 0x0008 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint32_t                                           bReturnPartial : 1;                               // 0x000C (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0010 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0010 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 	// class AController*                              GoalController;                                   // 0x0014 (0x0004) [0x0000000000000000]               
 	// class AController*                              MyController;                                     // 0x0018 (0x0004) [0x0000000000000000]               
@@ -17846,6 +17988,7 @@ struct UPath_WithinDistanceEnvelope_execStayWithinEnvelopeToLoc_Params
 	uint32_t                                           bInSoft : 1;                                      // 0x0018 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 	float                                              InSoftStartPenalty;                               // 0x001C (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint32_t                                           bOnlyTossOutSpecsThatLeave : 1;                   // 0x0020 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0024 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0024 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 	// class UPath_WithinDistanceEnvelope*             Con;                                              // 0x0028 (0x0004) [0x0000000000000000]               
 };
@@ -17863,6 +18006,7 @@ struct UPath_WithinTraversalDist_execDontExceedMaxDist_Params
 	class APawn*                                       P;                                                // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	float                                              InMaxTraversalDist;                               // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bInSoft : 1;                                      // 0x0008 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x000C CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x000C (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 	// class UPath_WithinTraversalDist*                Con;                                              // 0x0010 (0x0004) [0x0000000000000000]               
 };
@@ -17894,6 +18038,7 @@ struct UGoal_AtActor_execAtActor_Params
 	class AActor*                                      Goal;                                             // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	float                                              Dist;                                             // 0x0008 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint32_t                                           bReturnPartial : 1;                               // 0x000C (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0010 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0010 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 	// class UGoal_AtActor*                            Eval;                                             // 0x0014 (0x0004) [0x0000000000000000]               
 	// class APawn*                                    GoalPawn;                                         // 0x0018 (0x0004) [0x0000000000000000]               
@@ -17996,6 +18141,7 @@ struct ASkeletalMeshActor_execOnInterruptSpeech_Params
 struct ASkeletalMeshActor_execShouldFilterOutSpeech_Params
 {
 	uint8_t                                            Filter;                                           // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	class AActor*                                      Addressee;                                        // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	bool                                               ReturnValue : 1;                                  // 0x0008 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
@@ -18005,6 +18151,7 @@ struct ASkeletalMeshActor_execShouldFilterOutSpeech_Params
 struct ASkeletalMeshActor_execShouldSuppressSubtitlesForQueuedSpeakLine_Params
 {
 	uint32_t                                           bVersusMulti : 1;                                 // 0x0000 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -18018,11 +18165,13 @@ struct ASkeletalMeshActor_execSpeakLine_Params
 	float                                              DelaySec;                                         // 0x0014 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            Priority;                                         // 0x0018 (0x0001) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint8_t                                            IntCondition;                                     // 0x0019 (0x0001) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	uint8_t                                            UnknownData00[0x2];                              // 0x001A (0x0002) MISSED OFFSET
 	uint32_t                                           bNoHeadTrack : 1;                                 // 0x001C (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 	int32_t                                            BroadcastFilter;                                  // 0x0020 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint32_t                                           bSuppressSubtitle : 1;                            // 0x0024 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 	float                                              InExtraHeadTrackTime;                             // 0x0028 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint32_t                                           bClientSide : 1;                                  // 0x002C (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0030 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0030 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -18170,6 +18319,7 @@ struct ASkeletalMeshActor_eventSetAnimPosition_Params
 	class FName                                        InAnimSeqName;                                    // 0x000C (0x0008) [0x0000000000000080] (CPF_Parm)    
 	float                                              InPosition;                                       // 0x0014 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bFireNotifies : 1;                                // 0x0018 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x001C CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bLooping : 1;                                     // 0x001C (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
 	int32_t                                            RootMotionLevel;                                  // 0x0020 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	// class UAnimNodeSequence*                        SeqNode;                                          // 0x0024 (0x0004) [0x0000000000000000]               
@@ -18316,6 +18466,7 @@ struct ASkeletalMeshActorMAT_execMAT_SetAnimPosition_Params
 	class FName                                        InAnimSeqName;                                    // 0x000C (0x0008) [0x0000000000000080] (CPF_Parm)    
 	float                                              InPosition;                                       // 0x0014 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bFireNotifies : 1;                                // 0x0018 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x001C CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bLooping : 1;                                     // 0x001C (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
 	int32_t                                            RootMotionLevel;                                  // 0x0020 (0x0004) [0x0000000000000080] (CPF_Parm)    
 };
@@ -18329,6 +18480,7 @@ struct ASkeletalMeshActorMAT_eventSetAnimPosition_Params
 	class FName                                        InAnimSeqName;                                    // 0x000C (0x0008) [0x0000000000000080] (CPF_Parm)    
 	float                                              InPosition;                                       // 0x0014 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bFireNotifies : 1;                                // 0x0018 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x001C CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bLooping : 1;                                     // 0x001C (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
 	int32_t                                            RootMotionLevel;                                  // 0x0020 (0x0004) [0x0000000000000080] (CPF_Parm)    
 };
@@ -18643,6 +18795,7 @@ struct UAnimNodePlayCustomAnim_execPlayCustomAnimByDuration_Params
 	float                                              BlendInTime;                                      // 0x000C (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	float                                              BlendOutTime;                                     // 0x0010 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint32_t                                           bLooping : 1;                                     // 0x0014 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0018 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bOverride : 1;                                    // 0x0018 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 };
 
@@ -18655,6 +18808,7 @@ struct UAnimNodePlayCustomAnim_execPlayCustomAnim_Params
 	float                                              BlendInTime;                                      // 0x000C (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	float                                              BlendOutTime;                                     // 0x0010 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint32_t                                           bLooping : 1;                                     // 0x0014 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0018 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bOverride : 1;                                    // 0x0018 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 	float                                              ReturnValue;                                      // 0x001C (0x0004) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
@@ -18745,7 +18899,9 @@ struct UAnimNodeSlot_execPlayCustomAnimByDuration_Params
 	float                                              BlendInTime;                                      // 0x000C (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	float                                              BlendOutTime;                                     // 0x0010 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint32_t                                           bLooping : 1;                                     // 0x0014 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0018 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bOverride : 1;                                    // 0x0018 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x001C CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x001C (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -18758,6 +18914,7 @@ struct UAnimNodeSlot_execPlayCustomAnim_Params
 	float                                              BlendInTime;                                      // 0x000C (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	float                                              BlendOutTime;                                     // 0x0010 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint32_t                                           bLooping : 1;                                     // 0x0014 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0018 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bOverride : 1;                                    // 0x0018 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 	float                                              StartTime;                                        // 0x001C (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	float                                              ReturnValue;                                      // 0x0020 (0x0004) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
@@ -18874,6 +19031,7 @@ struct UAnimTree_execSetAnimGroupForNode_Params
 	class UAnimNodeSequence*                           SeqNode;                                          // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	class FName                                        GroupName;                                        // 0x0004 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bCreateIfNotFound : 1;                            // 0x000C (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0010 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0010 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -19086,8 +19244,11 @@ struct USkelControlLookAt_execCanLookAtPoint_Params
 {
 	struct FVector                                     PointLoc;                                         // 0x0000 (0x000C) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bDrawDebugInfo : 1;                               // 0x000C (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0010 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bDebugUsePersistentLines : 1;                     // 0x0010 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0014 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bDebugFlushLinesFirst : 1;                        // 0x0014 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0018 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0018 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -19194,6 +19355,7 @@ struct ADecalManager_execSpawnDecal_Params
 	float                                              DecalRotation;                                    // 0x002C (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	class UPrimitiveComponent*                         HitComponent;                                     // 0x0030 (0x0004) [0x0000000004000090] (CPF_OptionalParm | CPF_Parm | CPF_EditInline)
 	uint32_t                                           bProjectOnTerrain : 1;                            // 0x0034 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0038 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bProjectOnSkeletalMeshes : 1;                     // 0x0038 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 	class FName                                        HitBone;                                          // 0x003C (0x0008) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	int32_t                                            HitNodeIndex;                                     // 0x0044 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
@@ -19231,6 +19393,7 @@ struct ADecalManager_execSetDecalParameters_Params
 	float                                              DecalRotation;                                    // 0x0030 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	class UPrimitiveComponent*                         HitComponent;                                     // 0x0034 (0x0004) [0x0000000004000080] (CPF_Parm | CPF_EditInline)
 	uint32_t                                           bProjectOnTerrain : 1;                            // 0x0038 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x003C CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bProjectOnSkeletalMeshes : 1;                     // 0x003C (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
 	class FName                                        HitBone;                                          // 0x0040 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	int32_t                                            HitNodeIndex;                                     // 0x0048 (0x0004) [0x0000000000000080] (CPF_Parm)    
@@ -19510,6 +19673,7 @@ struct AFracturedStaticMeshActor_execFractureEffectIsRelevant_Params
 	uint32_t                                           bForceDedicated : 1;                              // 0x0000 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
 	class APawn*                                       EffectInstigator;                                 // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            bWantPhysChunksAndParticles;                      // 0x0008 (0x0001) [0x0000000000000180] (CPF_Parm | CPF_OutParm)
+	uint8_t                                            UnknownData00[0x3];                              // 0x0009 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x000C (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 	// uint32_t                                        bResult : 1;                                      // 0x0010 (0x0004) [0x0000000000000000] [0x00000001] 
 	// class APlayerController*                        P;                                                // 0x0014 (0x0004) [0x0000000000000000]               
@@ -19900,6 +20064,7 @@ struct UFracturedBaseComponent_execSetStaticMesh_Params
 {
 	class UStaticMesh*                                 NewMesh;                                          // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bForce : 1;                                       // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0008 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -20000,6 +20165,7 @@ struct UPhysXDestructibleStructure_execGetChunkCentroid_Params
 struct UPhysXDestructibleStructure_execGetChunkMatrix_Params
 {
 	int32_t                                            ChunkIndex;                                       // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0xC];                              // 0x0004 (0x000C) MISSED OFFSET
 	struct FMatrix                                     ReturnValue;                                      // 0x0010 (0x0040) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -21448,6 +21614,7 @@ struct APawn_execDoFall_Params
 struct APawn_execDoJump_Params
 {
 	uint32_t                                           bUpdating : 1;                                    // 0x0000 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -21958,8 +22125,8 @@ struct APawn_execReceiveLocalizedMessage_Params
 {
 	class UClass*                                      Message;                                          // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	int32_t                                            Switch;                                           // 0x0004 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
-	class APlayerReplicationInfo*                      RelatedPRI;                                       // 0x0008 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
-	class APlayerReplicationInfo*                      RelatedPRI01;                                     // 0x000C (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	class APlayerReplicationInfo*                      RelatedPRI_1;                                     // 0x0008 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	class APlayerReplicationInfo*                      RelatedPRI_2;                                     // 0x000C (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	class UObject*                                     OptionalObject;                                   // 0x0010 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 };
 
@@ -22251,6 +22418,7 @@ struct APawn_execNotifyTeamChanged_Params
 struct APawn_execPlayTeleportEffect_Params
 {
 	uint32_t                                           bOut : 1;                                         // 0x0000 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bSound : 1;                                       // 0x0004 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
 };
 
@@ -22320,6 +22488,7 @@ struct APawn_execChooseFireMode_Params
 struct APawn_execBotFire_Params
 {
 	uint32_t                                           bFinished : 1;                                    // 0x0000 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -22371,6 +22540,7 @@ struct APawn_execInternal_SetFlashLocation_Params
 	class AWeapon*                                     InWeapon;                                         // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	struct FVector                                     out_FlashLocation;                                // 0x0004 (0x000C) [0x0000000000000180] (CPF_Parm | CPF_OutParm)
 	uint8_t                                            InFiringMode;                                     // 0x0010 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0011 (0x0003) MISSED OFFSET
 	struct FVector                                     NewLoc;                                           // 0x0014 (0x000C) [0x0000000000000080] (CPF_Parm)    
 };
 
@@ -22380,6 +22550,7 @@ struct APawn_execSetFlashLocation_Params
 {
 	class AWeapon*                                     InWeapon;                                         // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            InFiringMode;                                     // 0x0004 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0005 (0x0003) MISSED OFFSET
 	struct FVector                                     NewLoc;                                           // 0x0008 (0x000C) [0x0000000000000080] (CPF_Parm)    
 };
 
@@ -22404,6 +22575,7 @@ struct APawn_execFlashCountUpdated_Params
 {
 	class AWeapon*                                     InWeapon;                                         // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            InFlashCount;                                     // 0x0004 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0005 (0x0003) MISSED OFFSET
 	uint32_t                                           bViaReplication : 1;                              // 0x0008 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
 };
 
@@ -22430,6 +22602,7 @@ struct APawn_execFiringModeUpdated_Params
 {
 	class AWeapon*                                     InWeapon;                                         // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            InFiringMode;                                     // 0x0004 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0005 (0x0003) MISSED OFFSET
 	uint32_t                                           bViaReplication : 1;                              // 0x0008 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
 };
 
@@ -22502,6 +22675,7 @@ struct APawn_execSetBaseEyeheight_Params
 struct APawn_eventSpecialMoveThruEdge_Params
 {
 	uint8_t                                            Type;                                             // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	int32_t                                            Dir;                                              // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	struct FVector                                     MoveStart;                                        // 0x0008 (0x000C) [0x0000000000000080] (CPF_Parm)    
 	struct FVector                                     MoveDest;                                         // 0x0014 (0x000C) [0x0000000000000080] (CPF_Parm)    
@@ -22607,6 +22781,7 @@ struct APawn_execGetBestAnchor_Params
 	class AActor*                                      TestActor;                                        // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	struct FVector                                     TestLocation;                                     // 0x0004 (0x000C) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bStartPoint : 1;                                  // 0x0010 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0014 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bOnlyCheckVisible : 1;                            // 0x0014 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
 	float                                              out_Dist;                                         // 0x0018 (0x0004) [0x0000000000000180] (CPF_Parm | CPF_OutParm)
 	class ANavigationPoint*                            ReturnValue;                                      // 0x001C (0x0004) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
@@ -22639,6 +22814,7 @@ struct APawn_execIsValidEnemyTargetFor_Params
 {
 	class APlayerReplicationInfo*                      PRI;                                              // 0x0000 (0x0004) [0x0000000000000082] (CPF_Const | CPF_Parm)
 	uint32_t                                           bNoPRIisEnemy : 1;                                // 0x0004 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0008 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -22865,6 +23041,7 @@ struct APawn_execMAT_SetAnimPosition_Params
 	class FName                                        InAnimSeqName;                                    // 0x000C (0x0008) [0x0000000000000080] (CPF_Parm)    
 	float                                              InPosition;                                       // 0x0014 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bFireNotifies : 1;                                // 0x0018 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x001C CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bLooping : 1;                                     // 0x001C (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
 	int32_t                                            RootMotionLevel;                                  // 0x0020 (0x0004) [0x0000000000000080] (CPF_Parm)    
 };
@@ -22878,6 +23055,7 @@ struct APawn_eventSetAnimPosition_Params
 	class FName                                        InAnimSeqName;                                    // 0x000C (0x0008) [0x0000000000000080] (CPF_Parm)    
 	float                                              InPosition;                                       // 0x0014 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bFireNotifies : 1;                                // 0x0018 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x001C CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bLooping : 1;                                     // 0x001C (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
 	int32_t                                            RootMotionLevel;                                  // 0x0020 (0x0004) [0x0000000000000080] (CPF_Parm)    
 };
@@ -23035,6 +23213,7 @@ struct APawn_execResetDesiredRotation_Params
 struct APawn_execLockDesiredRotation_Params
 {
 	uint32_t                                           Lock : 1;                                         // 0x0000 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           InUnlockWhenReached : 1;                          // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 };
 
@@ -23044,6 +23223,7 @@ struct APawn_execSetDesiredRotation_Params
 {
 	struct FRotator                                    TargetDesiredRotation;                            // 0x0000 (0x000C) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           InLockDesiredRotation : 1;                        // 0x000C (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0010 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           InUnlockWhenReached : 1;                          // 0x0010 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 	float                                              InterpolationTime;                                // 0x0014 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	bool                                               ReturnValue : 1;                                  // 0x0018 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
@@ -23244,6 +23424,7 @@ struct AVehicle_execTryExitPos_Params
 	class APawn*                                       ExitingDriver;                                    // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	struct FVector                                     ExitPos;                                          // 0x0004 (0x000C) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bMustFindGround : 1;                              // 0x0010 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0014 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0014 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 	// struct FVector                                  Slice;                                            // 0x0018 (0x000C) [0x0000000000000000]               
 	// struct FVector                                  HitLocation;                                      // 0x0024 (0x000C) [0x0000000000000000]               
@@ -23298,6 +23479,7 @@ struct AVehicle_execSetInputs_Params
 struct AVehicle_eventDriverLeave_Params
 {
 	uint32_t                                           bForceLeave : 1;                                  // 0x0000 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 	// class AController*                              C;                                                // 0x0008 (0x0004) [0x0000000000000000]               
 	// class APlayerController*                        PC;                                               // 0x000C (0x0004) [0x0000000000000000]               
@@ -23971,6 +24153,7 @@ struct UPhysicalMaterial_execFindFractureSounds_Params
 struct UPhysicalMaterial_execFindPhysEffectInfo_Params
 {
 	uint8_t                                            Type;                                             // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FPhysEffectInfo                             ReturnValue;                                      // 0x0004 (0x0010) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -23984,6 +24167,7 @@ struct UPhysicsAsset_execDetectAABBHitGround_Params
 	struct FVector                                     GroundLoc;                                        // 0x0014 (0x000C) [0x0000000000000080] (CPF_Parm)    
 	struct FVector                                     vExtent;                                          // 0x0020 (0x000C) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bDebugInfo : 1;                                   // 0x002C (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0030 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0030 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -24065,6 +24249,7 @@ struct UPhysicsAssetInstance_execSetNamedRBBoneSprings_Params
 struct UPhysicsAssetInstance_execSetNamedMotorsAngularVelocityDrive_Params
 {
 	uint32_t                                           bEnableSwingDrive : 1;                            // 0x0000 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bEnableTwistDrive : 1;                            // 0x0004 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
 	class TArray<class FName>                          BoneNames;                                        // 0x0008 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 	class USkeletalMeshComponent*                      SkelMeshComp;                                     // 0x0014 (0x0004) [0x0000000004000080] (CPF_Parm | CPF_EditInline)
@@ -24076,6 +24261,7 @@ struct UPhysicsAssetInstance_execSetNamedMotorsAngularVelocityDrive_Params
 struct UPhysicsAssetInstance_execSetNamedMotorsAngularPositionDrive_Params
 {
 	uint32_t                                           bEnableSwingDrive : 1;                            // 0x0000 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bEnableTwistDrive : 1;                            // 0x0004 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
 	class TArray<class FName>                          BoneNames;                                        // 0x0008 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 	class USkeletalMeshComponent*                      SkelMeshComp;                                     // 0x0014 (0x0004) [0x0000000004000080] (CPF_Parm | CPF_EditInline)
@@ -24098,6 +24284,7 @@ struct UPhysicsAssetInstance_execSetAllMotorsAngularDriveParams_Params
 struct UPhysicsAssetInstance_execSetAllMotorsAngularVelocityDrive_Params
 {
 	uint32_t                                           bEnableSwingDrive : 1;                            // 0x0000 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bEnableTwistDrive : 1;                            // 0x0004 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
 	class USkeletalMeshComponent*                      SkelMeshComp;                                     // 0x0008 (0x0004) [0x0000000004000080] (CPF_Parm | CPF_EditInline)
 	uint32_t                                           bSkipFullAnimWeightBodies : 1;                    // 0x000C (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
@@ -24108,6 +24295,7 @@ struct UPhysicsAssetInstance_execSetAllMotorsAngularVelocityDrive_Params
 struct UPhysicsAssetInstance_execSetAllMotorsAngularPositionDrive_Params
 {
 	uint32_t                                           bEnableSwingDrive : 1;                            // 0x0000 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bEnableTwistDrive : 1;                            // 0x0004 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
 	class USkeletalMeshComponent*                      SkelMesh;                                         // 0x0008 (0x0004) [0x0000000004000090] (CPF_OptionalParm | CPF_Parm | CPF_EditInline)
 	uint32_t                                           bSkipFullAnimWeightBodies : 1;                    // 0x000C (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
@@ -24131,6 +24319,7 @@ struct UPhysicsAssetInstance_execSetNamedBodiesFixed_Params
 	class TArray<class FName>                          BoneNames;                                        // 0x0004 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 	class USkeletalMeshComponent*                      SkelMesh;                                         // 0x0010 (0x0004) [0x0000000004000080] (CPF_Parm | CPF_EditInline)
 	uint32_t                                           bSetOtherBodiesToComplement : 1;                  // 0x0014 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0018 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bSkipFullAnimWeightBodies : 1;                    // 0x0018 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 };
 
@@ -24233,7 +24422,9 @@ struct URB_BodyInstance_execSetBoneSpringParams_Params
 struct URB_BodyInstance_execEnableBoneSpring_Params
 {
 	uint32_t                                           bInEnableLinear : 1;                              // 0x0000 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bInEnableAngular : 1;                             // 0x0004 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint8_t                                            UnknownData00[0x8];                              // 0x0008 (0x0008) MISSED OFFSET
 	struct FMatrix                                     InBoneTarget;                                     // 0x0010 (0x0040) [0x0000000000000182] (CPF_Const | CPF_Parm | CPF_OutParm)
 };
 
@@ -24376,6 +24567,7 @@ struct URB_ConstraintInstance_execSetLinearPositionTarget_Params
 struct URB_ConstraintInstance_execSetAngularVelocityDrive_Params
 {
 	uint32_t                                           bEnableSwingDrive : 1;                            // 0x0000 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bEnableTwistDrive : 1;                            // 0x0004 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
 };
 
@@ -24384,6 +24576,7 @@ struct URB_ConstraintInstance_execSetAngularVelocityDrive_Params
 struct URB_ConstraintInstance_execSetAngularPositionDrive_Params
 {
 	uint32_t                                           bEnableSwingDrive : 1;                            // 0x0000 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bEnableTwistDrive : 1;                            // 0x0004 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
 };
 
@@ -24392,7 +24585,9 @@ struct URB_ConstraintInstance_execSetAngularPositionDrive_Params
 struct URB_ConstraintInstance_execSetLinearVelocityDrive_Params
 {
 	uint32_t                                           bEnableXDrive : 1;                                // 0x0000 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bEnableYDrive : 1;                                // 0x0004 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bEnableZDrive : 1;                                // 0x0008 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
 };
 
@@ -24401,7 +24596,9 @@ struct URB_ConstraintInstance_execSetLinearVelocityDrive_Params
 struct URB_ConstraintInstance_execSetLinearPositionDrive_Params
 {
 	uint32_t                                           bEnableXDrive : 1;                                // 0x0000 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bEnableYDrive : 1;                                // 0x0004 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bEnableZDrive : 1;                                // 0x0008 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
 };
 
@@ -24877,7 +25074,7 @@ struct USequenceOp_execGetInterpDataVars_Params
 
 // Function Engine.SequenceOp.GetObjectVars
 // [0x00424401]  (iNative[15536])
-struct USequenceOp_execGetObjectVarsW_Params
+struct USequenceOp_execGetObjectVarsWin_Params
 {
 	class TArray<class UObject*>                       objVars;                                          // 0x0000 (0x000C) [0x0000000000400180] (CPF_Parm | CPF_OutParm | CPF_NeedCtorLink)
 	class FString                                      inDesc;                                           // 0x000C (0x000C) [0x0000000000400090] (CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink)
@@ -24897,6 +25094,7 @@ struct USequenceOp_execGetLinkedObjects_Params
 struct USequenceOp_execHasLinkedOps_Params
 {
 	uint32_t                                           bConsiderInputLinks : 1;                          // 0x0000 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -25466,6 +25664,7 @@ struct USequenceEvent_execCheckActivate_Params
 	uint32_t                                           bTest : 1;                                        // 0x0008 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 	class TArray<int32_t>                              ActivateIndices;                                  // 0x000C (0x000C) [0x0000000000400192] (CPF_Const | CPF_OptionalParm | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink)
 	uint32_t                                           bPushTop : 1;                                     // 0x0018 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x001C CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x001C (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -25605,6 +25804,7 @@ struct USeqEvent_Touch_execCheckUnTouchActivate_Params
 	class AActor*                                      InOriginator;                                     // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	class AActor*                                      InInstigator;                                     // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bTest : 1;                                        // 0x0008 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x000C CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x000C (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -25615,6 +25815,7 @@ struct USeqEvent_Touch_execCheckTouchActivate_Params
 	class AActor*                                      InOriginator;                                     // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	class AActor*                                      InInstigator;                                     // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bTest : 1;                                        // 0x0008 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x000C CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x000C (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -25635,7 +25836,7 @@ struct USeqVar_Object_execSetObjectValue_Params
 
 // Function Engine.SeqVar_Object.GetObjectValue
 // [0x00020002] 
-struct USeqVar_Object_execGetObjectValueW_Params
+struct USeqVar_Object_execGetObjectValueWin_Params
 {
 	class UObject*                                     ReturnValue;                                      // 0x0000 (0x0004) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
@@ -25649,14 +25850,14 @@ struct USeqVar_ObjectList_execSetObjectValue_Params
 
 // Function Engine.SeqVar_ObjectList.GetObjectValue
 // [0x00020002] 
-struct USeqVar_ObjectList_execGetObjectValueW_Params
+struct USeqVar_ObjectList_execGetObjectValueWin_Params
 {
 	class UObject*                                     ReturnValue;                                      // 0x0000 (0x0004) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
 // Function Engine.SeqVar_Player.GetObjectValue
 // [0x00020002] 
-struct USeqVar_Player_execGetObjectValueW_Params
+struct USeqVar_Player_execGetObjectValueWin_Params
 {
 	class UObject*                                     ReturnValue;                                      // 0x0000 (0x0004) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 	// class AController*                              C;                                                // 0x0004 (0x0004) [0x0000000000000000]               
@@ -25670,7 +25871,7 @@ struct USeqVar_Player_execUpdatePlayersList_Params
 
 // Function Engine.SeqVar_PlayerPawn.GetObjectValue
 // [0x00020002] 
-struct USeqVar_PlayerPawn_execGetObjectValueW_Params
+struct USeqVar_PlayerPawn_execGetObjectValueWin_Params
 {
 	class UObject*                                     ReturnValue;                                      // 0x0000 (0x0004) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 	// class AController*                              C;                                                // 0x0004 (0x0004) [0x0000000000000000]               
@@ -25803,6 +26004,7 @@ struct UTerrainLayerSetup_execSetMaterials_Params
 struct UUIRoot_execGetOnlinePlayerInterfaceEx_Params
 {
 	class UOnlinePlayerInterfaceEx*                    ReturnValue;                                      // 0x0000 (0x0008) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
+	uint8_t                                            UnknownData00[0x4];                              // 0x0004 (0x0004) FIX WRONG SIZE OF PREVIOUS PROPERTY
 	// class UOnlineSubsystem*                         OnlineSub;                                        // 0x0008 (0x0004) [0x0000000000000000]               
 	// class UOnlinePlayerInterfaceEx*                 PlayerIntEx;                                      // 0x000C (0x0008) [0x0000000000000000]               
 };
@@ -25812,6 +26014,7 @@ struct UUIRoot_execGetOnlinePlayerInterfaceEx_Params
 struct UUIRoot_execGetOnlinePlayerInterface_Params
 {
 	class UOnlinePlayerInterface*                      ReturnValue;                                      // 0x0000 (0x0008) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
+	uint8_t                                            UnknownData00[0x4];                              // 0x0004 (0x0004) FIX WRONG SIZE OF PREVIOUS PROPERTY
 	// class UOnlineSubsystem*                         OnlineSub;                                        // 0x0008 (0x0004) [0x0000000000000000]               
 	// class UOnlinePlayerInterface*                   Result;                                           // 0x000C (0x0008) [0x0000000000000000]               
 };
@@ -25821,6 +26024,7 @@ struct UUIRoot_execGetOnlinePlayerInterface_Params
 struct UUIRoot_execGetOnlineGameInterface_Params
 {
 	class UOnlineGameInterface*                        ReturnValue;                                      // 0x0000 (0x0008) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
+	uint8_t                                            UnknownData00[0x4];                              // 0x0004 (0x0004) FIX WRONG SIZE OF PREVIOUS PROPERTY
 	// class UOnlineSubsystem*                         OnlineSub;                                        // 0x0008 (0x0004) [0x0000000000000000]               
 	// class UOnlineGameInterface*                     Result;                                           // 0x000C (0x0008) [0x0000000000000000]               
 };
@@ -25899,7 +26103,9 @@ struct UUIRoot_execGetPrimitiveTransform_Params
 {
 	class UUIObject*                                   Widget;                                           // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bIncludeAnchorPosition : 1;                       // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bIncudeRotation : 1;                              // 0x0008 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x000C CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bIncludeScale : 1;                                // 0x000C (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 	struct FMatrix                                     ReturnValue;                                      // 0x0010 (0x0040) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
@@ -25964,6 +26170,7 @@ struct UUIRoot_execIsEditor_Params
 struct UUIRoot_execIsConsole_Params
 {
 	uint8_t                                            ConsoleType;                                      // 0x0000 (0x0001) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -26123,6 +26330,7 @@ struct UUIScreenObject_eventPlayUIAnimation_Params
 	class FName                                        AnimName;                                         // 0x0000 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	class UUIAnimationSeq*                             AnimSeqTemplate;                                  // 0x0008 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint8_t                                            OverrideLoopMode;                                 // 0x000C (0x0001) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	uint8_t                                            UnknownData00[0x3];                              // 0x000D (0x0003) MISSED OFFSET
 	float                                              PlaybackRate;                                     // 0x0010 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	float                                              InitialPosition;                                  // 0x0014 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint32_t                                           bSetAnimatingFlag : 1;                            // 0x0018 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
@@ -26156,6 +26364,7 @@ struct UUIScreenObject_execAnimGetCurrentPPSettings_Params
 struct UUIScreenObject_execAnim_SetValue_Params
 {
 	uint8_t                                            AnimationType;                                    // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FUIAnimationRawData                         NewValue;                                         // 0x0004 (0x0038) [0x0000000000000182] (CPF_Const | CPF_Parm | CPF_OutParm)
 	bool                                               ReturnValue : 1;                                  // 0x003C (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
@@ -26165,6 +26374,7 @@ struct UUIScreenObject_execAnim_SetValue_Params
 struct UUIScreenObject_execAnim_GetValue_Params
 {
 	uint8_t                                            AnimationType;                                    // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FUIAnimationRawData                         out_CurrentValue;                                 // 0x0004 (0x0038) [0x0000000000000180] (CPF_Parm | CPF_OutParm)
 	bool                                               ReturnValue : 1;                                  // 0x003C (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
@@ -26302,6 +26512,7 @@ struct UUIScreenObject_eventGetSupportedUIActionKeyNames_Params
 struct UUIScreenObject_eventDisablePlayerInput_Params
 {
 	uint8_t                                            PlayerIndex;                                      // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	uint32_t                                           bRecurse : 1;                                     // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 	// uint8_t                                         NewPlayerInputMask;                               // 0x0008 (0x0001) [0x0000000000000000]               
 };
@@ -26311,6 +26522,7 @@ struct UUIScreenObject_eventDisablePlayerInput_Params
 struct UUIScreenObject_eventEnablePlayerInput_Params
 {
 	uint8_t                                            PlayerIndex;                                      // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	uint32_t                                           bRecurse : 1;                                     // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 	// uint8_t                                         CurrentPlayerInputMask;                           // 0x0008 (0x0001) [0x0000000000000000]               
 	// uint8_t                                         NewPlayerInputMask;                               // 0x0009 (0x0001) [0x0000000000000000]               
@@ -26345,6 +26557,7 @@ struct UUIScreenObject_eventIsLoggedIn_Params
 {
 	int32_t                                            ControllerId;                                     // 0x0000 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint32_t                                           bRequireOnlineLogin : 1;                          // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0008 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -26435,6 +26648,7 @@ struct UUIScreenObject_execScreenToCanvas_Params
 struct UUIScreenObject_execPixelToScreen_Params
 {
 	struct FVector2D                                   PixelPosition;                                    // 0x0000 (0x0008) [0x0000000000000182] (CPF_Const | CPF_Parm | CPF_OutParm)
+	uint8_t                                            UnknownData00[0x8];                              // 0x0008 (0x0008) MISSED OFFSET
 	struct FVector4                                    ReturnValue;                                      // 0x0010 (0x0010) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -26451,6 +26665,7 @@ struct UUIScreenObject_execScreenToPixel_Params
 struct UUIScreenObject_execCanvasToScreen_Params
 {
 	struct FVector                                     CanvasPosition;                                   // 0x0000 (0x000C) [0x0000000000000182] (CPF_Const | CPF_Parm | CPF_OutParm)
+	uint8_t                                            UnknownData00[0x4];                              // 0x000C (0x0004) MISSED OFFSET
 	struct FVector4                                    ReturnValue;                                      // 0x0010 (0x0010) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -26486,6 +26701,7 @@ struct UUIScreenObject_execResolveUIExtent_Params
 	struct FUIScreenValue_Extent                       ExtentToResolve;                                  // 0x0000 (0x0008) [0x0000000000000182] (CPF_Const | CPF_Parm | CPF_OutParm)
 	class UUIScreenObject*                             OwnerWidget;                                      // 0x0008 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            OutputType;                                       // 0x000C (0x0001) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	uint8_t                                            UnknownData00[0x3];                              // 0x000D (0x0003) MISSED OFFSET
 	float                                              ReturnValue;                                      // 0x0010 (0x0004) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -26503,6 +26719,7 @@ struct UUIScreenObject_execGetBounds_Params
 {
 	uint8_t                                            Dimension;                                        // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            OutputType;                                       // 0x0001 (0x0001) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	uint8_t                                            UnknownData00[0x2];                              // 0x0002 (0x0002) MISSED OFFSET
 	uint32_t                                           bIgnoreDockPadding : 1;                           // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 	float                                              ReturnValue;                                      // 0x0008 (0x0004) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
@@ -26513,7 +26730,9 @@ struct UUIScreenObject_execGetPosition_Params
 {
 	uint8_t                                            Face;                                             // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            OutputType;                                       // 0x0001 (0x0001) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	uint8_t                                            UnknownData00[0x2];                              // 0x0002 (0x0002) MISSED OFFSET
 	uint32_t                                           bIncludeOrigin : 1;                               // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bIgnoreDockPadding : 1;                           // 0x0008 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 	float                                              ReturnValue;                                      // 0x000C (0x0004) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
@@ -26525,7 +26744,9 @@ struct UUIScreenObject_execSetPosition_Params
 	float                                              NewValue;                                         // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            Face;                                             // 0x0004 (0x0001) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            InputType;                                        // 0x0005 (0x0001) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	uint8_t                                            UnknownData00[0x2];                              // 0x0006 (0x0002) MISSED OFFSET
 	uint32_t                                           bIncludesViewportOrigin : 1;                      // 0x0008 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x000C CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bResolveChange : 1;                               // 0x000C (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 };
 
@@ -26584,7 +26805,9 @@ struct UUIScreenObject_execGetActivePlayerCount_Params
 struct UUIScreenObject_execSetInputMask_Params
 {
 	uint8_t                                            NewInputMask;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	uint32_t                                           bRecurse : 1;                                     // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bForcedOverride : 1;                              // 0x0008 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 };
 
@@ -26593,6 +26816,7 @@ struct UUIScreenObject_execSetInputMask_Params
 struct UUIScreenObject_execGetInputMask_Params
 {
 	uint32_t                                           bInheritedMaskOnly : 1;                           // 0x0000 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bOverrideMaskOnly : 1;                            // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 	uint8_t                                            ReturnValue;                                      // 0x0008 (0x0001) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
@@ -26642,6 +26866,7 @@ struct UUIScreenObject_execIsDisabled_Params
 {
 	int32_t                                            PlayerIndex;                                      // 0x0000 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint32_t                                           bCheckOwnerChain : 1;                             // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0008 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -26651,6 +26876,7 @@ struct UUIScreenObject_execIsEnabled_Params
 {
 	int32_t                                            PlayerIndex;                                      // 0x0000 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint32_t                                           bCheckOwnerChain : 1;                             // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0008 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -26721,6 +26947,7 @@ struct UUIScreenObject_execCanAcceptFocus_Params
 {
 	int32_t                                            PlayerIndex;                                      // 0x0000 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint32_t                                           bIncludeParentVisibility : 1;                     // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0008 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -26737,8 +26964,10 @@ struct UUIScreenObject_execNavigateFocus_Params
 {
 	class UUIScreenObject*                             Sender;                                           // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            Direction;                                        // 0x0004 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0005 (0x0003) MISSED OFFSET
 	int32_t                                            PlayerIndex;                                      // 0x0008 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint8_t                                            bFocusChanged;                                    // 0x000C (0x0001) [0x0000000000000190] (CPF_OptionalParm | CPF_Parm | CPF_OutParm)
+	uint8_t                                            UnknownData01[0x3];                              // 0x000D (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0010 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -26808,6 +27037,7 @@ struct UUIScreenObject_execConditionalPropagateEnabledState_Params
 {
 	int32_t                                            PlayerIndex;                                      // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bForce : 1;                                       // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0008 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -26962,6 +27192,7 @@ struct UUIScreenObject_execRebuildNavigationLinks_Params
 struct UUIScreenObject_execRequestPrimitiveReview_Params
 {
 	uint32_t                                           bReinitializePrimitives : 1;                      // 0x0000 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bReviewPrimitiveUsage : 1;                        // 0x0004 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
 };
 
@@ -26982,8 +27213,11 @@ struct UUIScreenObject_execRequestFormattingUpdate_Params
 struct UUIScreenObject_execRequestSceneUpdate_Params
 {
 	uint32_t                                           bDockingStackChanged : 1;                         // 0x0000 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bPositionsChanged : 1;                            // 0x0004 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bNavLinksOutdated : 1;                            // 0x0008 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x000C CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bWidgetStylesChanged : 1;                         // 0x000C (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 };
 
@@ -26995,12 +27229,13 @@ struct UUIScreenObject_execGetDockClients_Params
 	uint32_t                                           bDirectDockClientsOnly : 1;                       // 0x000C (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 	uint8_t                                            TargetFace;                                       // 0x0010 (0x0001) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint8_t                                            SourceFace;                                       // 0x0011 (0x0001) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	uint8_t                                            UnknownData00[0x2];                              // 0x0012 (0x0002) MISSED OFFSET
 	int32_t                                            ReturnValue;                                      // 0x0014 (0x0004) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
 // Function Engine.UIScreenObject.GetObjectCount
 // [0x00020401]  (iNative[15534])
-struct UUIScreenObject_execGetObjectCountW_Params
+struct UUIScreenObject_execGetObjectCountWin_Params
 {
 	int32_t                                            ReturnValue;                                      // 0x0000 (0x0004) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
@@ -27020,6 +27255,7 @@ struct UUIScreenObject_execContainsChildOfClass_Params
 {
 	class UClass*                                      SearchClass;                                      // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bRecurse : 1;                                     // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0008 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -27029,6 +27265,7 @@ struct UUIScreenObject_execContainsChild_Params
 {
 	class UUIObject*                                   Child;                                            // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bRecurse : 1;                                     // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0008 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -27204,6 +27441,7 @@ struct UUIScreenObject_execGetZDepth_Params
 struct UUIScreenObject_execIsHidden_Params
 {
 	uint32_t                                           bIncludeParents : 1;                              // 0x0000 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -27212,6 +27450,7 @@ struct UUIScreenObject_execIsHidden_Params
 struct UUIScreenObject_execIsVisible_Params
 {
 	uint32_t                                           bIncludeParents : 1;                              // 0x0000 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -27335,6 +27574,7 @@ struct UUIEventContainer_execAddSequenceObject_Params
 {
 	class USequenceObject*                             NewObj;                                           // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bRecurse : 1;                                     // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0008 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -27506,6 +27746,7 @@ struct UInteraction_execOnReceivedNativeInputAxis_Params
 	float                                              Delta;                                            // 0x000C (0x0004) [0x0000000000000080] (CPF_Parm)    
 	float                                              DeltaTime;                                        // 0x0010 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bGamepad : 1;                                     // 0x0014 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0018 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0018 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -27516,8 +27757,10 @@ struct UInteraction_execOnReceivedNativeInputKey_Params
 	int32_t                                            ControllerId;                                     // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	class FName                                        Key;                                              // 0x0004 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            EventType;                                        // 0x000C (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x000D (0x0003) MISSED OFFSET
 	float                                              AmountDepressed;                                  // 0x0010 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint32_t                                           bGamepad : 1;                                     // 0x0014 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0018 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0018 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -27548,6 +27791,7 @@ struct UConsole_execProcessControlKey_Params
 {
 	class FName                                        Key;                                              // 0x0000 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            Event;                                            // 0x0008 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0009 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x000C (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -27588,8 +27832,10 @@ struct UConsole_execInputKey_Params
 	int32_t                                            ControllerId;                                     // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	class FName                                        Key;                                              // 0x0004 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            Event;                                            // 0x000C (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x000D (0x0003) MISSED OFFSET
 	float                                              AmountDepressed;                                  // 0x0010 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint32_t                                           bGamepad : 1;                                     // 0x0014 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0018 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0018 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -27741,6 +27987,7 @@ struct UPlayerInput_execSmoothMouse_Params
 	float                                              aMouse;                                           // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	float                                              DeltaTime;                                        // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            SampleCount;                                      // 0x0008 (0x0001) [0x0000000000000180] (CPF_Parm | CPF_OutParm)
+	uint8_t                                            UnknownData00[0x3];                              // 0x0009 (0x0003) MISSED OFFSET
 	int32_t                                            Index;                                            // 0x000C (0x0004) [0x0000000000000080] (CPF_Parm)    
 	float                                              ReturnValue;                                      // 0x0010 (0x0004) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 	// float                                           MouseSamplingTime;                                // 0x0014 (0x0004) [0x0000000000000000]               
@@ -27819,6 +28066,7 @@ struct UPlayerInput_eventExecInputKey_Params
 	int32_t                                            ControllerId;                                     // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	class FName                                        Key;                                              // 0x0004 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            Event;                                            // 0x000C (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x000D (0x0003) MISSED OFFSET
 	float                                              AmountDepressed;                                  // 0x0010 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bGamepad : 1;                                     // 0x0014 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
 };
@@ -27962,6 +28210,7 @@ struct UUIInteraction_eventIsLoggedIn_Params
 {
 	int32_t                                            ControllerId;                                     // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bRequireOnlineLogin : 1;                          // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0008 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 	// uint32_t                                        bResult : 1;                                      // 0x000C (0x0004) [0x0000000000000000] [0x00000001] 
 	// uint8_t                                         LoginStatus;                                      // 0x0010 (0x0001) [0x0000000000000000]               
@@ -28119,6 +28368,7 @@ struct UUISceneClient_eventInitializeSceneClient_Params
 struct UUISceneClient_execGetInverseCanvasToScreen_Params
 {
 	class UUIObject*                                   Widget;                                           // 0x0000 (0x0004) [0x0000000000000092] (CPF_Const | CPF_OptionalParm | CPF_Parm)
+	uint8_t                                            UnknownData00[0xC];                              // 0x0004 (0x000C) MISSED OFFSET
 	struct FMatrix                                     ReturnValue;                                      // 0x0010 (0x0040) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -28127,6 +28377,7 @@ struct UUISceneClient_execGetInverseCanvasToScreen_Params
 struct UUISceneClient_execGetCanvasToScreen_Params
 {
 	class UUIObject*                                   Widget;                                           // 0x0000 (0x0004) [0x0000000000000092] (CPF_Const | CPF_OptionalParm | CPF_Parm)
+	uint8_t                                            UnknownData00[0xC];                              // 0x0004 (0x000C) MISSED OFFSET
 	struct FMatrix                                     ReturnValue;                                      // 0x0010 (0x0040) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -28158,7 +28409,9 @@ struct UUISceneClient_execCloseSceneAtIndex_Params
 {
 	int32_t                                            SceneStackIndex;                                  // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bCloseChildScenes : 1;                            // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bForceCloseImmediately : 1;                       // 0x0008 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x000C CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x000C (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -28168,7 +28421,9 @@ struct UUISceneClient_execCloseScene_Params
 {
 	class UUIScene*                                    Scene;                                            // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bCloseChildScenes : 1;                            // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bForceCloseImmediately : 1;                       // 0x0008 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x000C CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x000C (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -28181,6 +28436,7 @@ struct UUISceneClient_execReplaceSceneAtIndex_Params
 	class ULocalPlayer*                                SceneOwner;                                       // 0x0008 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	class UUIScene*                                    OpenedScene;                                      // 0x000C (0x0004) [0x0000000000000190] (CPF_OptionalParm | CPF_Parm | CPF_OutParm)
 	uint8_t                                            ForcedPriority;                                   // 0x0010 (0x0001) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	uint8_t                                            UnknownData00[0x3];                              // 0x0011 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0014 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -28193,6 +28449,7 @@ struct UUISceneClient_execReplaceScene_Params
 	class ULocalPlayer*                                SceneOwner;                                       // 0x0008 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	class UUIScene*                                    OpenedScene;                                      // 0x000C (0x0004) [0x0000000000000190] (CPF_OptionalParm | CPF_Parm | CPF_OutParm)
 	uint8_t                                            ForcedPriority;                                   // 0x0010 (0x0001) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	uint8_t                                            UnknownData00[0x3];                              // 0x0011 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0014 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -28206,6 +28463,7 @@ struct UUISceneClient_execInsertScene_Params
 	class UUIScene*                                    OpenedScene;                                      // 0x000C (0x0004) [0x0000000000000190] (CPF_OptionalParm | CPF_Parm | CPF_OutParm)
 	int32_t                                            ActualInsertIndex;                                // 0x0010 (0x0004) [0x0000000000000190] (CPF_OptionalParm | CPF_Parm | CPF_OutParm)
 	uint8_t                                            ForcedPriority;                                   // 0x0014 (0x0001) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	uint8_t                                            UnknownData00[0x3];                              // 0x0015 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0018 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -28217,6 +28475,7 @@ struct UUISceneClient_execOpenScene_Params
 	class ULocalPlayer*                                SceneOwner;                                       // 0x0004 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	class UUIScene*                                    OpenedScene;                                      // 0x0008 (0x0004) [0x0000000000000190] (CPF_OptionalParm | CPF_Parm | CPF_OutParm)
 	uint8_t                                            ForcedPriority;                                   // 0x000C (0x0001) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	uint8_t                                            UnknownData00[0x3];                              // 0x000D (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0010 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -28274,6 +28533,7 @@ struct UUIState_execAddSequenceObject_Params
 {
 	class USequenceObject*                             NewObj;                                           // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bRecurse : 1;                                     // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0008 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -28399,6 +28659,7 @@ struct UUIString_execSetValue_Params
 {
 	class FString                                      InputString;                                      // 0x0000 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 	uint32_t                                           bIgnoreMarkup : 1;                                // 0x000C (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0010 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0010 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -28428,6 +28689,7 @@ struct UUIDataProvider_execAddPropertyNotificationChangeRequest_Params
 {
 	struct FScriptDelegate                             InDelegate;                                       // 0x0000 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 	uint32_t                                           bAllowDuplicates : 1;                             // 0x000C (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0010 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0010 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 	// int32_t                                         NewIndex;                                         // 0x0014 (0x0004) [0x0000000000000000]               
 	// uint32_t                                        bResult : 1;                                      // 0x0018 (0x0004) [0x0000000000000000] [0x00000001] 
@@ -28448,6 +28710,7 @@ struct UUIDataProvider_eventNotifyPropertyChanged_Params
 struct UUIDataProvider_eventIsCollectionDataType_Params
 {
 	uint8_t                                            FieldType;                                        // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -28524,6 +28787,7 @@ struct UUIDataProvider_execGetProviderFieldType_Params
 {
 	class FString                                      DataTag;                                          // 0x0000 (0x000C) [0x0000000000400880] (CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink)
 	uint8_t                                            out_ProviderFieldType;                            // 0x000C (0x0001) [0x0000000000000180] (CPF_Parm | CPF_OutParm)
+	uint8_t                                            UnknownData00[0x3];                              // 0x000D (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0010 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -28573,6 +28837,7 @@ struct UUIDataStore_execNotifyGameSessionEnded_Params
 struct UUIDataStore_eventSubscriberDetached_Params
 {
 	class UUIDataStoreSubscriber*                      Subscriber;                                       // 0x0000 (0x0008) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x4];                              // 0x0004 (0x0004) FIX WRONG SIZE OF PREVIOUS PROPERTY
 	// int32_t                                         SubscriberNotifyIndex;                            // 0x0008 (0x0004) [0x0000000000000000]               
 };
 
@@ -28581,6 +28846,7 @@ struct UUIDataStore_eventSubscriberDetached_Params
 struct UUIDataStore_eventSubscriberAttached_Params
 {
 	class UUIDataStoreSubscriber*                      Subscriber;                                       // 0x0000 (0x0008) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x4];                              // 0x0004 (0x0004) FIX WRONG SIZE OF PREVIOUS PROPERTY
 	// int32_t                                         SubscriberNotifyIndex;                            // 0x0008 (0x0004) [0x0000000000000000]               
 };
 
@@ -28614,6 +28880,7 @@ struct UUIDataStore_execOnDataStoreValueUpdated_Params
 struct UUISkin_eventSubscriberDetached_Params
 {
 	class UUIDataStoreSubscriber*                      Subscriber;                                       // 0x0000 (0x0008) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x4];                              // 0x0004 (0x0004) FIX WRONG SIZE OF PREVIOUS PROPERTY
 };
 
 // Function Engine.UISkin.SubscriberAttached
@@ -28621,6 +28888,7 @@ struct UUISkin_eventSubscriberDetached_Params
 struct UUISkin_eventSubscriberAttached_Params
 {
 	class UUIDataStoreSubscriber*                      Subscriber;                                       // 0x0000 (0x0008) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x4];                              // 0x0004 (0x0004) FIX WRONG SIZE OF PREVIOUS PROPERTY
 };
 
 // Function Engine.UISkin.GetStyleGroups
@@ -28804,6 +29072,7 @@ struct UUIObject_execFindStyleSubscriberIndexById_Params
 struct UUIObject_execFindStyleSubscriberIndex_Params
 {
 	class UUIStyleResolver*                            Subscriber;                                       // 0x0000 (0x0008) [0x0000000000000182] (CPF_Const | CPF_Parm | CPF_OutParm)
+	uint8_t                                            UnknownData00[0x4];                              // 0x0004 (0x0004) FIX WRONG SIZE OF PREVIOUS PROPERTY
 	int32_t                                            ReturnValue;                                      // 0x0008 (0x0004) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -28812,6 +29081,7 @@ struct UUIObject_execFindStyleSubscriberIndex_Params
 struct UUIObject_execRemoveStyleSubscriber_Params
 {
 	class UUIStyleResolver*                            Subscriber;                                       // 0x0000 (0x0008) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x4];                              // 0x0004 (0x0004) FIX WRONG SIZE OF PREVIOUS PROPERTY
 };
 
 // Function Engine.UIObject.AddStyleSubscriber
@@ -28819,6 +29089,7 @@ struct UUIObject_execRemoveStyleSubscriber_Params
 struct UUIObject_execAddStyleSubscriber_Params
 {
 	class UUIStyleResolver*                            Subscriber;                                       // 0x0000 (0x0008) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x4];                              // 0x0004 (0x0004) FIX WRONG SIZE OF PREVIOUS PROPERTY
 };
 
 // Function Engine.UIObject.GetPositionExtent
@@ -28826,7 +29097,9 @@ struct UUIObject_execAddStyleSubscriber_Params
 struct UUIObject_execGetPositionExtent_Params
 {
 	uint8_t                                            Face;                                             // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	uint32_t                                           bIncludeRotation : 1;                             // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bIncludeOrigin : 1;                               // 0x0008 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 	float                                              ReturnValue;                                      // 0x000C (0x0004) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
@@ -28840,6 +29113,7 @@ struct UUIObject_execGetPositionExtents_Params
 	float                                              MinY;                                             // 0x0008 (0x0004) [0x0000000000000180] (CPF_Parm | CPF_OutParm)
 	float                                              MaxY;                                             // 0x000C (0x0004) [0x0000000000000180] (CPF_Parm | CPF_OutParm)
 	uint32_t                                           bIncludeRotation : 1;                             // 0x0010 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0014 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bIncludeOrigin : 1;                               // 0x0014 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 };
 
@@ -28863,6 +29137,7 @@ struct UUIObject_execSetPrivateBehavior_Params
 {
 	int32_t                                            Behavior;                                         // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           Value : 1;                                        // 0x0004 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bRecurse : 1;                                     // 0x0008 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 };
 
@@ -28880,6 +29155,7 @@ struct UUIObject_execCanAcceptFocus_Params
 {
 	int32_t                                            PlayerIndex;                                      // 0x0000 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint32_t                                           bIncludeParentVisibility : 1;                     // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0008 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -28888,8 +29164,10 @@ struct UUIObject_execCanAcceptFocus_Params
 struct UUIObject_execSetForcedNavigationTarget_Params
 {
 	uint8_t                                            Face;                                             // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	class UUIObject*                                   NavTarget;                                        // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bIsNullOverride : 1;                              // 0x0008 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x000C CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x000C (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -28898,6 +29176,7 @@ struct UUIObject_execSetForcedNavigationTarget_Params
 struct UUIObject_execSetNavigationTarget_Params
 {
 	uint8_t                                            Face;                                             // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	class UUIObject*                                   NewNavTarget;                                     // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	bool                                               ReturnValue : 1;                                  // 0x0008 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
@@ -28909,6 +29188,7 @@ struct UUIObject_execIsDockedTo_Params
 	class UUIScreenObject*                             TargetWidget;                                     // 0x0000 (0x0004) [0x0000000000000082] (CPF_Const | CPF_Parm)
 	uint8_t                                            SourceFace;                                       // 0x0004 (0x0001) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint8_t                                            TargetFace;                                       // 0x0005 (0x0001) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	uint8_t                                            UnknownData00[0x2];                              // 0x0006 (0x0002) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0008 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -28917,8 +29197,10 @@ struct UUIObject_execIsDockedTo_Params
 struct UUIObject_execGetDockParameters_Params
 {
 	uint8_t                                            SourceFace;                                       // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	class UUIScreenObject*                             TargetWidget;                                     // 0x0004 (0x0004) [0x0000000000000180] (CPF_Parm | CPF_OutParm)
 	uint8_t                                            TargetFace;                                       // 0x0008 (0x0001) [0x0000000000000180] (CPF_Parm | CPF_OutParm)
+	uint8_t                                            UnknownData01[0x3];                              // 0x0009 (0x0003) MISSED OFFSET
 	float                                              TargetPadding;                                    // 0x000C (0x0004) [0x0000000000000180] (CPF_Parm | CPF_OutParm)
 	bool                                               ReturnValue : 1;                                  // 0x0010 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
@@ -28928,11 +29210,15 @@ struct UUIObject_execGetDockParameters_Params
 struct UUIObject_execSetDockParameters_Params
 {
 	uint8_t                                            SourceFace;                                       // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	class UUIScreenObject*                             Target;                                           // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            TargetFace;                                       // 0x0008 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData01[0x3];                              // 0x0009 (0x0003) MISSED OFFSET
 	float                                              PaddingValue;                                     // 0x000C (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            PaddingInputType;                                 // 0x0010 (0x0001) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	uint8_t                                            UnknownData02[0x3];                              // 0x0011 (0x0003) MISSED OFFSET
 	uint32_t                                           bModifyPaddingScaleType : 1;                      // 0x0014 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0018 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0018 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -28941,9 +29227,12 @@ struct UUIObject_execSetDockParameters_Params
 struct UUIObject_execSetDockPadding_Params
 {
 	uint8_t                                            SourceFace;                                       // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	float                                              PaddingValue;                                     // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            PaddingInputType;                                 // 0x0008 (0x0001) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	uint8_t                                            UnknownData01[0x3];                              // 0x0009 (0x0003) MISSED OFFSET
 	uint32_t                                           bModifyPaddingScaleType : 1;                      // 0x000C (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0010 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0010 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -28952,8 +29241,10 @@ struct UUIObject_execSetDockPadding_Params
 struct UUIObject_execSetDockTarget_Params
 {
 	uint8_t                                            SourceFace;                                       // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	class UUIScreenObject*                             Target;                                           // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            TargetFace;                                       // 0x0008 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData01[0x3];                              // 0x0009 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x000C (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -28978,6 +29269,7 @@ struct UUIObject_execNotifyValueChanged_Params
 struct UUIObject_execGetRotationMatrix_Params
 {
 	uint32_t                                           bIncludeParentRotations : 1;                      // 0x0000 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint8_t                                            UnknownData00[0xC];                              // 0x0004 (0x000C) MISSED OFFSET
 	struct FMatrix                                     ReturnValue;                                      // 0x0010 (0x0040) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -28986,6 +29278,7 @@ struct UUIObject_execGetRotationMatrix_Params
 struct UUIObject_execGenerateTransformMatrix_Params
 {
 	uint32_t                                           bIncludeParentTransforms : 1;                     // 0x0000 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint8_t                                            UnknownData00[0xC];                              // 0x0004 (0x000C) MISSED OFFSET
 	struct FMatrix                                     ReturnValue;                                      // 0x0010 (0x0040) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -28994,6 +29287,7 @@ struct UUIObject_execGenerateTransformMatrix_Params
 struct UUIObject_execGetAnchorPosition_Params
 {
 	uint32_t                                           bRelativeToWidget : 1;                            // 0x0000 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bPixelSpace : 1;                                  // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 	struct FVector                                     ReturnValue;                                      // 0x0008 (0x000C) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
@@ -29025,6 +29319,7 @@ struct UUIObject_execSetAnchorPosition_Params
 struct UUIObject_execHasTransform_Params
 {
 	uint32_t                                           bIncludeParentTransforms : 1;                     // 0x0000 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -29288,6 +29583,7 @@ struct UUIComp_DrawImage_execDisableCustomCoordinates_Params
 struct UUIComp_DrawImage_execSetFormatting_Params
 {
 	uint8_t                                            Orientation;                                      // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FUIImageAdjustmentData                      NewFormattingData;                                // 0x0004 (0x0014) [0x0000000000000080] (CPF_Parm)    
 };
 
@@ -29340,6 +29636,7 @@ struct UUIComp_DrawImage_execGetAppliedImageStyle_Params
 struct UUIComp_DrawString_eventSetAutoSizePadding_Params
 {
 	uint8_t                                            Orientation;                                      // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	float                                              NearValue;                                        // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	float                                              FarValue;                                         // 0x0008 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            NearScaleType;                                    // 0x000C (0x0001) [0x0000000000000080] (CPF_Parm)    
@@ -29352,6 +29649,7 @@ struct UUIComp_DrawString_eventSetAutoSizePadding_Params
 struct UUIComp_DrawString_eventEnableAutoSizing_Params
 {
 	uint8_t                                            Orientation;                                      // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	uint32_t                                           bShouldEnable : 1;                                // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 	// uint32_t                                        bNeedsReformatting : 1;                           // 0x0008 (0x0004) [0x0000000000000000] [0x00000001] 
 };
@@ -29361,6 +29659,7 @@ struct UUIComp_DrawString_eventEnableAutoSizing_Params
 struct UUIComp_DrawString_execIsAutoSizeEnabled_Params
 {
 	uint8_t                                            Orientation;                                      // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -29369,6 +29668,7 @@ struct UUIComp_DrawString_execIsAutoSizeEnabled_Params
 struct UUIComp_DrawString_execSetAutoSizeExtent_Params
 {
 	uint8_t                                            Orientation;                                      // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	float                                              MinValue;                                         // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	float                                              MaxValue;                                         // 0x0008 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            MinScaleType;                                     // 0x000C (0x0001) [0x0000000000000080] (CPF_Parm)    
@@ -29495,6 +29795,7 @@ struct UUIComp_DrawString_execDisableCustomColor_Params
 struct UUIComp_DrawString_execSetSpacingAdjust_Params
 {
 	uint8_t                                            Orientation;                                      // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	float                                              NewSpacingAdjust;                                 // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 };
 
@@ -29503,6 +29804,7 @@ struct UUIComp_DrawString_execSetSpacingAdjust_Params
 struct UUIComp_DrawString_execSetScale_Params
 {
 	uint8_t                                            Orientation;                                      // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	float                                              NewScale;                                         // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 };
 
@@ -29511,6 +29813,7 @@ struct UUIComp_DrawString_execSetScale_Params
 struct UUIComp_DrawString_execSetAutoScaling_Params
 {
 	uint8_t                                            NewAutoScaleMode;                                 // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	float                                              NewMinScaleValue;                                 // 0x0004 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 };
 
@@ -29585,6 +29888,7 @@ struct UUIComp_DrawString_execSetSubregionAlignment_Params
 struct UUIComp_DrawString_execSetSubregionOffset_Params
 {
 	uint8_t                                            Orientation;                                      // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	float                                              NewValue;                                         // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            EvalType;                                         // 0x0008 (0x0001) [0x0000000000000080] (CPF_Parm)    
 };
@@ -29594,6 +29898,7 @@ struct UUIComp_DrawString_execSetSubregionOffset_Params
 struct UUIComp_DrawString_execSetSubregionSize_Params
 {
 	uint8_t                                            Orientation;                                      // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	float                                              NewValue;                                         // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            EvalType;                                         // 0x0008 (0x0001) [0x0000000000000080] (CPF_Parm)    
 };
@@ -29603,6 +29908,7 @@ struct UUIComp_DrawString_execSetSubregionSize_Params
 struct UUIComp_DrawString_execEnableSubregion_Params
 {
 	uint8_t                                            Orientation;                                      // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	uint32_t                                           bShouldEnable : 1;                                // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 };
 
@@ -29620,6 +29926,7 @@ struct UUIComp_DrawString_execGetSubregionOffset_Params
 {
 	uint8_t                                            Orientation;                                      // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            OutputType;                                       // 0x0001 (0x0001) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	uint8_t                                            UnknownData00[0x2];                              // 0x0002 (0x0002) MISSED OFFSET
 	float                                              ReturnValue;                                      // 0x0004 (0x0004) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -29629,6 +29936,7 @@ struct UUIComp_DrawString_execGetSubregionSize_Params
 {
 	uint8_t                                            Orientation;                                      // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            OutputType;                                       // 0x0001 (0x0001) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	uint8_t                                            UnknownData00[0x2];                              // 0x0002 (0x0002) MISSED OFFSET
 	float                                              ReturnValue;                                      // 0x0004 (0x0004) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -29637,6 +29945,7 @@ struct UUIComp_DrawString_execGetSubregionSize_Params
 struct UUIComp_DrawString_execIsSubregionEnabled_Params
 {
 	uint8_t                                            Orientation;                                      // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -30065,6 +30374,7 @@ struct UUIList_execSetTopIndex_Params
 {
 	int32_t                                            NewTopIndex;                                      // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bClampValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0008 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -30073,8 +30383,11 @@ struct UUIList_execSetTopIndex_Params
 struct UUIList_execNavigateIndex_Params
 {
 	uint32_t                                           bIncrementIndex : 1;                              // 0x0000 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bFullPage : 1;                                    // 0x0004 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bHorizontalNavigation : 1;                        // 0x0008 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x000C CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x000C (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -30084,7 +30397,9 @@ struct UUIList_execSetIndex_Params
 {
 	int32_t                                            NewIndex;                                         // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bClampValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bSkipNotification : 1;                            // 0x0008 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x000C CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x000C (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -30111,6 +30426,7 @@ struct UUIList_execSetElementCellState_Params
 {
 	int32_t                                            ElementIndex;                                     // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            NewElementState;                                  // 0x0004 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0005 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0008 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -30166,6 +30482,7 @@ struct UUIList_execGetRowHeight_Params
 {
 	int32_t                                            RowIndex;                                         // 0x0000 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint32_t                                           bColHeader : 1;                                   // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bReturnUnformattedValue : 1;                      // 0x0008 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 	float                                              ReturnValue;                                      // 0x000C (0x0004) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
@@ -30176,6 +30493,7 @@ struct UUIList_execGetColumnWidth_Params
 {
 	int32_t                                            ColumnIndex;                                      // 0x0000 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint32_t                                           bColHeader : 1;                                   // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bReturnUnformattedValue : 1;                      // 0x0008 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 	float                                              ReturnValue;                                      // 0x000C (0x0004) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
@@ -30251,6 +30569,7 @@ struct UUIList_execScrollVertical_Params
 	class UUIScrollbar*                                Sender;                                           // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	float                                              PositionChange;                                   // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bPositionMaxed : 1;                               // 0x0008 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x000C CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x000C (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -30294,6 +30613,7 @@ struct UUIList_execOnSubmitSelection_Params
 struct UUIComp_ListElementSorter_execResortItems_Params
 {
 	uint32_t                                           bCaseSensitive : 1;                               // 0x0000 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -30303,7 +30623,9 @@ struct UUIComp_ListElementSorter_execSortItems_Params
 {
 	int32_t                                            ColumnIndex;                                      // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bSecondarySort : 1;                               // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bCaseSensitive : 1;                               // 0x0008 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x000C CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x000C (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -30367,6 +30689,7 @@ struct UUIComp_ListPresenterBase_execShouldRenderColumnHeaders_Params
 struct UUIComp_ListPresenterBase_execShouldAdjustListBounds_Params
 {
 	uint8_t                                            Orientation;                                      // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -30405,6 +30728,7 @@ struct UUIComp_ListPresenterBase_execSetSchemaCellSize_Params
 	int32_t                                            SchemaCellIndex;                                  // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	float                                              NewCellSize;                                      // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            EvalType;                                         // 0x0008 (0x0001) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	uint8_t                                            UnknownData00[0x3];                              // 0x0009 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x000C (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -30414,6 +30738,7 @@ struct UUIComp_ListPresenterBase_execGetSchemaCellSize_Params
 {
 	int32_t                                            SchemaCellIndex;                                  // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            EvalType;                                         // 0x0004 (0x0001) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	uint8_t                                            UnknownData00[0x3];                              // 0x0005 (0x0003) MISSED OFFSET
 	float                                              ReturnValue;                                      // 0x0008 (0x0004) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -30429,6 +30754,7 @@ struct UUIComp_ListPresenterBase_execGetSchemaCellCount_Params
 struct UUIComp_ListPresenterBase_execGetCellSchemaProvider_Params
 {
 	class UUIListElementCellProvider*                  ReturnValue;                                      // 0x0000 (0x0008) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
+	uint8_t                                            UnknownData00[0x4];                              // 0x0004 (0x0004) FIX WRONG SIZE OF PREVIOUS PROPERTY
 };
 
 // Function Engine.UIComp_ListPresenter.FindElementIndex
@@ -30525,6 +30851,7 @@ struct UUIContextMenu_eventInsertMenuItem_Params
 	class FString                                      Item;                                             // 0x0004 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 	int32_t                                            InsertIndex;                                      // 0x0010 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint32_t                                           bAllowDuplicates : 1;                             // 0x0014 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0018 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0018 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 	// uint32_t                                        bResult : 1;                                      // 0x001C (0x0004) [0x0000000000000000] [0x00000001] 
 	// class UUIScene*                                 SceneOwner;                                       // 0x0020 (0x0004) [0x0000000000000000]               
@@ -30706,6 +31033,7 @@ struct UUIDataProvider_OnlineClanMates_eventOnRegister_Params
 struct UUIDataProvider_OnlineFriendMessages_execOnGameInviteReceived_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	class FString                                      InviterName;                                      // 0x0004 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 };
 
@@ -30721,6 +31049,7 @@ struct UUIDataProvider_OnlineFriendMessages_execOnLoginChange_Params
 struct UUIDataProvider_OnlineFriendMessages_execOnFriendMessageReceived_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FUniqueNetId                                SendingPlayer;                                    // 0x0004 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	class FString                                      SendingNick;                                      // 0x000C (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 	class FString                                      Message;                                          // 0x0018 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
@@ -30731,6 +31060,7 @@ struct UUIDataProvider_OnlineFriendMessages_execOnFriendMessageReceived_Params
 struct UUIDataProvider_OnlineFriendMessages_execOnFriendInviteReceived_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FUniqueNetId                                RequestingPlayer;                                 // 0x0004 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	class FString                                      RequestingNick;                                   // 0x000C (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 	class FString                                      Message;                                          // 0x0018 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
@@ -30908,6 +31238,7 @@ struct UUIDataProvider_OnlinePlayerStorage_execOnLoginChange_Params
 struct UUIDataProvider_OnlinePlayerStorage_execOnReadStorageComplete_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	uint32_t                                           bWasSuccessful : 1;                               // 0x0004 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
 	// class UOnlineSubsystem*                         OnlineSub;                                        // 0x0008 (0x0004) [0x0000000000000000]               
 	// class UOnlinePlayerInterface*                   PlayerInterface;                                  // 0x000C (0x0008) [0x0000000000000000]               
@@ -30936,6 +31267,7 @@ struct UUIDataProvider_OnlinePlayerStorage_eventOnRegister_Params
 struct UUIDataProvider_OnlinePlayerStorage_execClearReadCompleteDelegate_Params
 {
 	class UOnlinePlayerInterface*                      PlayerInterface;                                  // 0x0000 (0x0008) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x4];                              // 0x0004 (0x0004) FIX WRONG SIZE OF PREVIOUS PROPERTY
 	uint8_t                                            LocalUserNum;                                     // 0x0008 (0x0001) [0x0000000000000080] (CPF_Parm)    
 };
 
@@ -30944,6 +31276,7 @@ struct UUIDataProvider_OnlinePlayerStorage_execClearReadCompleteDelegate_Params
 struct UUIDataProvider_OnlinePlayerStorage_execAddReadCompleteDelegate_Params
 {
 	class UOnlinePlayerInterface*                      PlayerInterface;                                  // 0x0000 (0x0008) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x4];                              // 0x0004 (0x0004) FIX WRONG SIZE OF PREVIOUS PROPERTY
 	uint8_t                                            LocalUserNum;                                     // 0x0008 (0x0001) [0x0000000000000080] (CPF_Parm)    
 };
 
@@ -30952,7 +31285,9 @@ struct UUIDataProvider_OnlinePlayerStorage_execAddReadCompleteDelegate_Params
 struct UUIDataProvider_OnlinePlayerStorage_execWriteData_Params
 {
 	class UOnlinePlayerInterface*                      PlayerInterface;                                  // 0x0000 (0x0008) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x4];                              // 0x0004 (0x0004) FIX WRONG SIZE OF PREVIOUS PROPERTY
 	uint8_t                                            LocalUserNum;                                     // 0x0008 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData01[0x3];                              // 0x0009 (0x0003) MISSED OFFSET
 	class UOnlinePlayerStorage*                        PlayerStorage;                                    // 0x000C (0x0004) [0x0000000000000080] (CPF_Parm)    
 	bool                                               ReturnValue : 1;                                  // 0x0010 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
@@ -30962,7 +31297,9 @@ struct UUIDataProvider_OnlinePlayerStorage_execWriteData_Params
 struct UUIDataProvider_OnlinePlayerStorage_execReadData_Params
 {
 	class UOnlinePlayerInterface*                      PlayerInterface;                                  // 0x0000 (0x0008) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x4];                              // 0x0004 (0x0004) FIX WRONG SIZE OF PREVIOUS PROPERTY
 	uint8_t                                            LocalUserNum;                                     // 0x0008 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData01[0x3];                              // 0x0009 (0x0003) MISSED OFFSET
 	class UOnlinePlayerStorage*                        PlayerStorage;                                    // 0x000C (0x0004) [0x0000000000000080] (CPF_Parm)    
 	bool                                               ReturnValue : 1;                                  // 0x0010 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
@@ -30972,6 +31309,7 @@ struct UUIDataProvider_OnlinePlayerStorage_execReadData_Params
 struct UUIDataProvider_OnlineProfileSettings_execClearReadCompleteDelegate_Params
 {
 	class UOnlinePlayerInterface*                      PlayerInterface;                                  // 0x0000 (0x0008) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x4];                              // 0x0004 (0x0004) FIX WRONG SIZE OF PREVIOUS PROPERTY
 	uint8_t                                            LocalUserNum;                                     // 0x0008 (0x0001) [0x0000000000000080] (CPF_Parm)    
 };
 
@@ -30980,6 +31318,7 @@ struct UUIDataProvider_OnlineProfileSettings_execClearReadCompleteDelegate_Param
 struct UUIDataProvider_OnlineProfileSettings_execAddReadCompleteDelegate_Params
 {
 	class UOnlinePlayerInterface*                      PlayerInterface;                                  // 0x0000 (0x0008) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x4];                              // 0x0004 (0x0004) FIX WRONG SIZE OF PREVIOUS PROPERTY
 	uint8_t                                            LocalUserNum;                                     // 0x0008 (0x0001) [0x0000000000000080] (CPF_Parm)    
 };
 
@@ -30988,7 +31327,9 @@ struct UUIDataProvider_OnlineProfileSettings_execAddReadCompleteDelegate_Params
 struct UUIDataProvider_OnlineProfileSettings_execWriteData_Params
 {
 	class UOnlinePlayerInterface*                      PlayerInterface;                                  // 0x0000 (0x0008) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x4];                              // 0x0004 (0x0004) FIX WRONG SIZE OF PREVIOUS PROPERTY
 	uint8_t                                            LocalUserNum;                                     // 0x0008 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData01[0x3];                              // 0x0009 (0x0003) MISSED OFFSET
 	class UOnlinePlayerStorage*                        PlayerStorage;                                    // 0x000C (0x0004) [0x0000000000000080] (CPF_Parm)    
 	bool                                               ReturnValue : 1;                                  // 0x0010 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
@@ -30998,7 +31339,9 @@ struct UUIDataProvider_OnlineProfileSettings_execWriteData_Params
 struct UUIDataProvider_OnlineProfileSettings_execReadData_Params
 {
 	class UOnlinePlayerInterface*                      PlayerInterface;                                  // 0x0000 (0x0008) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x4];                              // 0x0004 (0x0004) FIX WRONG SIZE OF PREVIOUS PROPERTY
 	uint8_t                                            LocalUserNum;                                     // 0x0008 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData01[0x3];                              // 0x0009 (0x0003) MISSED OFFSET
 	class UOnlinePlayerStorage*                        PlayerStorage;                                    // 0x000C (0x0004) [0x0000000000000080] (CPF_Parm)    
 	bool                                               ReturnValue : 1;                                  // 0x0010 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
@@ -31188,6 +31531,7 @@ struct USceneDataStore_execInsertCollectionValue_Params
 	class FString                                      NewValue;                                         // 0x0008 (0x000C) [0x0000000000400182] (CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink)
 	int32_t                                            InsertIndex;                                      // 0x0014 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint32_t                                           bPersistent : 1;                                  // 0x0018 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x001C CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bAllowDuplicateValues : 1;                        // 0x001C (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 	class FName                                        CellTag;                                          // 0x0020 (0x0008) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	bool                                               ReturnValue : 1;                                  // 0x0028 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
@@ -31222,6 +31566,7 @@ struct USceneDataStore_execGetCollectionValueArray_Params
 struct USceneDataStore_execClearFields_Params
 {
 	uint32_t                                           bReinitializeRuntimeFields : 1;                   // 0x0000 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -31248,6 +31593,7 @@ struct USceneDataStore_execAddField_Params
 {
 	class FName                                        FieldName;                                        // 0x0000 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            FieldType;                                        // 0x0008 (0x0001) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	uint8_t                                            UnknownData00[0x3];                              // 0x0009 (0x0003) MISSED OFFSET
 	uint32_t                                           bPersistent : 1;                                  // 0x000C (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 	int32_t                                            out_InsertPosition;                               // 0x0010 (0x0004) [0x0000000000000190] (CPF_OptionalParm | CPF_Parm | CPF_OutParm)
 	bool                                               ReturnValue : 1;                                  // 0x0014 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
@@ -31801,6 +32147,7 @@ struct UUIDataStore_OnlineGameSearch_execBuildSearchResults_Params
 struct UUIDataStore_OnlineGameSearch_eventShowHostGamercard_Params
 {
 	uint8_t                                            ControllerIndex;                                  // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	int32_t                                            ListIndex;                                        // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	bool                                               ReturnValue : 1;                                  // 0x0008 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 	// class UOnlinePlayerInterfaceEx*                 PlayerExt;                                        // 0x000C (0x0008) [0x0000000000000000]               
@@ -31828,6 +32175,7 @@ struct UUIDataStore_OnlineGameSearch_execOnSearchComplete_Params
 struct UUIDataStore_OnlineGameSearch_execOverrideQuerySubmission_Params
 {
 	uint8_t                                            ControllerId;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	class UOnlineGameSearch*                           Search;                                           // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	bool                                               ReturnValue : 1;                                  // 0x0008 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
@@ -31837,7 +32185,9 @@ struct UUIDataStore_OnlineGameSearch_execOverrideQuerySubmission_Params
 struct UUIDataStore_OnlineGameSearch_eventSubmitGameSearch_Params
 {
 	uint8_t                                            ControllerIndex;                                  // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	uint32_t                                           bInvalidateExistingSearchResults : 1;             // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0008 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -31964,6 +32314,7 @@ struct UUIDataStore_OnlineStats_execOnReadComplete_Params
 struct UUIDataStore_OnlineStats_eventShowGamercard_Params
 {
 	uint8_t                                            ConrollerIndex;                                   // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	int32_t                                            ListIndex;                                        // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	bool                                               ReturnValue : 1;                                  // 0x0008 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 	// class UOnlineSubsystem*                         OnlineSub;                                        // 0x000C (0x0004) [0x0000000000000000]               
@@ -31976,6 +32327,7 @@ struct UUIDataStore_OnlineStats_eventShowGamercard_Params
 struct UUIDataStore_OnlineStats_eventRefreshStats_Params
 {
 	uint8_t                                            ControllerIndex;                                  // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 	// class TArray<struct FUniqueNetId>               Players;                                          // 0x0008 (0x000C) [0x0000000000400000] (CPF_NeedCtorLink)
 	// struct FUniqueNetId                             PlayerID;                                         // 0x0014 (0x0008) [0x0000000000000000]               
@@ -32060,6 +32412,7 @@ struct UUIDataStore_OnlineGameSettings_eventGetCurrentGameSettings_Params
 struct UUIDataStore_OnlineGameSettings_eventCreateGame_Params
 {
 	uint8_t                                            ControllerIndex;                                  // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 	// class UOnlineSubsystem*                         OnlineSub;                                        // 0x0008 (0x0004) [0x0000000000000000]               
 	// class UOnlineGameInterface*                     GameInterface;                                    // 0x000C (0x0008) [0x0000000000000000]               
@@ -32093,6 +32446,7 @@ struct UUIDataStore_InputAlias_execHasAliasMappingForPlatform_Params
 {
 	class FName                                        DesiredAlias;                                     // 0x0000 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            DesiredPlatform;                                  // 0x0008 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0009 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x000C (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -32111,6 +32465,7 @@ struct UUIDataStore_InputAlias_execGetAliasInputKeyDataByIndex_Params
 	struct FRawInputKeyEventData                       out_InputKeyData;                                 // 0x0000 (0x000C) [0x0000000000000180] (CPF_Parm | CPF_OutParm)
 	int32_t                                            AliasIndex;                                       // 0x000C (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            OverridePlatform;                                 // 0x0010 (0x0001) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	uint8_t                                            UnknownData00[0x3];                              // 0x0011 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0014 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -32121,6 +32476,7 @@ struct UUIDataStore_InputAlias_execGetAliasInputKeyData_Params
 	struct FRawInputKeyEventData                       out_InputKeyData;                                 // 0x0000 (0x000C) [0x0000000000000180] (CPF_Parm | CPF_OutParm)
 	class FName                                        DesiredAlias;                                     // 0x000C (0x0008) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            OverridePlatform;                                 // 0x0014 (0x0001) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	uint8_t                                            UnknownData00[0x3];                              // 0x0015 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0018 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -32130,6 +32486,7 @@ struct UUIDataStore_InputAlias_execGetAliasInputKeyNameByIndex_Params
 {
 	int32_t                                            AliasIndex;                                       // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            OverridePlatform;                                 // 0x0004 (0x0001) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	uint8_t                                            UnknownData00[0x3];                              // 0x0005 (0x0003) MISSED OFFSET
 	class FName                                        ReturnValue;                                      // 0x0008 (0x0008) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -32139,6 +32496,7 @@ struct UUIDataStore_InputAlias_execGetAliasInputKeyName_Params
 {
 	class FName                                        DesiredAlias;                                     // 0x0000 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            OverridePlatform;                                 // 0x0008 (0x0001) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	uint8_t                                            UnknownData00[0x3];                              // 0x0009 (0x0003) MISSED OFFSET
 	class FName                                        ReturnValue;                                      // 0x000C (0x0008) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -32148,6 +32506,7 @@ struct UUIDataStore_InputAlias_execGetAliasFontMarkupByIndex_Params
 {
 	int32_t                                            AliasIndex;                                       // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            OverridePlatform;                                 // 0x0004 (0x0001) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	uint8_t                                            UnknownData00[0x3];                              // 0x0005 (0x0003) MISSED OFFSET
 	class FString                                      ReturnValue;                                      // 0x0008 (0x000C) [0x0000000000400580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink)
 };
 
@@ -32157,6 +32516,7 @@ struct UUIDataStore_InputAlias_execGetAliasFontMarkup_Params
 {
 	class FName                                        DesiredAlias;                                     // 0x0000 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            OverridePlatform;                                 // 0x0008 (0x0001) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	uint8_t                                            UnknownData00[0x3];                              // 0x0009 (0x0003) MISSED OFFSET
 	class FString                                      ReturnValue;                                      // 0x000C (0x000C) [0x0000000000400580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink)
 };
 
@@ -32272,6 +32632,7 @@ struct UUIDynamicFieldProvider_execInsertCollectionValue_Params
 	class FString                                      NewValue;                                         // 0x0008 (0x000C) [0x0000000000400182] (CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink)
 	int32_t                                            InsertIndex;                                      // 0x0014 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint32_t                                           bPersistent : 1;                                  // 0x0018 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x001C CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bAllowDuplicateValues : 1;                        // 0x001C (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 	class FName                                        CellTag;                                          // 0x0020 (0x0008) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	bool                                               ReturnValue : 1;                                  // 0x0028 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
@@ -32308,6 +32669,7 @@ struct UUIDynamicFieldProvider_execGetCollectionValueSchema_Params
 	class FName                                        FieldName;                                        // 0x0000 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	class TArray<class FName>                          out_CellTagArray;                                 // 0x0008 (0x000C) [0x0000000000400180] (CPF_Parm | CPF_OutParm | CPF_NeedCtorLink)
 	uint32_t                                           bPersistent : 1;                                  // 0x0014 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0018 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0018 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -32324,6 +32686,7 @@ struct UUIDynamicFieldProvider_execSetField_Params
 	class FName                                        FieldName;                                        // 0x0000 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	struct FUIProviderScriptFieldValue                 FieldValue;                                       // 0x0008 (0x0054) [0x0000000000400182] (CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink)
 	uint32_t                                           bChangeExistingOnly : 1;                          // 0x005C (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0060 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0060 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -32341,6 +32704,7 @@ struct UUIDynamicFieldProvider_execGetField_Params
 struct UUIDynamicFieldProvider_execClearFields_Params
 {
 	uint32_t                                           bReinitializeRuntimeFields : 1;                   // 0x0000 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -32367,6 +32731,7 @@ struct UUIDynamicFieldProvider_execAddField_Params
 {
 	class FName                                        FieldName;                                        // 0x0000 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            FieldType;                                        // 0x0008 (0x0001) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	uint8_t                                            UnknownData00[0x3];                              // 0x0009 (0x0003) MISSED OFFSET
 	uint32_t                                           bPersistent : 1;                                  // 0x000C (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 	int32_t                                            out_InsertPosition;                               // 0x0010 (0x0004) [0x0000000000000190] (CPF_OptionalParm | CPF_Parm | CPF_OutParm)
 	bool                                               ReturnValue : 1;                                  // 0x0014 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
@@ -32662,6 +33027,7 @@ struct UUIResourceCombinationProvider_eventGetCellFieldType_Params
 	class FName                                        FieldName;                                        // 0x0000 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	class FName                                        CellTag;                                          // 0x0008 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            FieldType;                                        // 0x0010 (0x0001) [0x0000000000000180] (CPF_Parm | CPF_OutParm)
+	uint8_t                                            UnknownData00[0x3];                              // 0x0011 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0014 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 	// uint32_t                                        bResult : 1;                                      // 0x0018 (0x0004) [0x0000000000000000] [0x00000001] 
 };
@@ -32682,6 +33048,7 @@ struct UUIResourceCombinationProvider_eventGetElementCellValueProvider_Params
 	class FName                                        FieldName;                                        // 0x0000 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	int32_t                                            ListIndex;                                        // 0x0008 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	class UUIListElementCellProvider*                  out_ValueProvider;                                // 0x000C (0x0008) [0x0000000000000180] (CPF_Parm | CPF_OutParm)
+	uint8_t                                            UnknownData00[0x4];                              // 0x0010 (0x0004) FIX WRONG SIZE OF PREVIOUS PROPERTY
 	bool                                               ReturnValue : 1;                                  // 0x0014 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 	// uint32_t                                        bResult : 1;                                      // 0x0018 (0x0004) [0x0000000000000000] [0x00000001] 
 };
@@ -32692,6 +33059,7 @@ struct UUIResourceCombinationProvider_eventGetElementCellSchemaProvider_Params
 {
 	class FName                                        FieldName;                                        // 0x0000 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	class UUIListElementCellProvider*                  out_SchemaProvider;                               // 0x0008 (0x0008) [0x0000000000000180] (CPF_Parm | CPF_OutParm)
+	uint8_t                                            UnknownData00[0x4];                              // 0x000C (0x0004) FIX WRONG SIZE OF PREVIOUS PROPERTY
 	bool                                               ReturnValue : 1;                                  // 0x0010 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 	// uint32_t                                        bResult : 1;                                      // 0x0014 (0x0004) [0x0000000000000000] [0x00000001] 
 };
@@ -32872,6 +33240,7 @@ struct UGameUISceneClient_execClearUIMessageScene_Params
 	class FName                                        SceneTag;                                         // 0x0000 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	class ULocalPlayer*                                ScenePlayerOwner;                                 // 0x0008 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint32_t                                           bCloseChildScenes : 1;                            // 0x000C (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0010 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0010 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 	// class UGameUISceneClient*                       GameSceneClient;                                  // 0x0014 (0x0004) [0x0000000000000000]               
 	// class UUIScene*                                 ExistingScene;                                    // 0x0018 (0x0004) [0x0000000000000000]               
@@ -32891,6 +33260,7 @@ struct UGameUISceneClient_execShowUIMessage_Params
 	class ULocalPlayer*                                ScenePlayerOwner;                                 // 0x0044 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	class UUIMessageBoxBase*                           out_CreatedScene;                                 // 0x0048 (0x0004) [0x0000000000000190] (CPF_OptionalParm | CPF_Parm | CPF_OutParm)
 	uint8_t                                            ForcedPriority;                                   // 0x004C (0x0001) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	uint8_t                                            UnknownData00[0x3];                              // 0x004D (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0050 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 	// class UUIScene*                                 ExistingScene;                                    // 0x0054 (0x0004) [0x0000000000000000]               
 	// class UUIMessageBoxBase*                        MessageBox;                                       // 0x0058 (0x0004) [0x0000000000000000]               
@@ -33025,6 +33395,7 @@ struct UGameUISceneClient_execNotifyClientTravel_Params
 	class APlayerController*                           TravellingPlayer;                                 // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	class FString                                      TravelURL;                                        // 0x0004 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 	uint8_t                                            TravelType;                                       // 0x0010 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0011 (0x0003) MISSED OFFSET
 	uint32_t                                           bIsSeamlessTravel : 1;                            // 0x0014 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
 	// int32_t                                         SceneIndex;                                       // 0x0018 (0x0004) [0x0000000000000000]               
 	// class TArray<class UUIScene*>                   CurrentlyActiveScenes;                            // 0x001C (0x000C) [0x0000000000400000] (CPF_NeedCtorLink)
@@ -33045,6 +33416,7 @@ struct UGameUISceneClient_eventSynchronizePlayers_Params
 {
 	int32_t                                            MaxPlayersAllowed;                                // 0x0000 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint32_t                                           bAllowJoins : 1;                                  // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bAllowRemoval : 1;                                // 0x0008 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 	// int32_t                                         PlayerIndex;                                      // 0x000C (0x0004) [0x0000000000000000]               
 	// int32_t                                         ControllerId;                                     // 0x0010 (0x0004) [0x0000000000000000]               
@@ -33129,6 +33501,7 @@ struct UGameUISceneClient_execGetNextScene_Params
 {
 	class UUIScene*                                    SourceScene;                                      // 0x0000 (0x0004) [0x0000000000000082] (CPF_Const | CPF_Parm)
 	uint32_t                                           bRequireMatchingPlayerOwner : 1;                  // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bIgnoreUnfocusedScenes : 1;                       // 0x0008 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 	class UUIScene*                                    ReturnValue;                                      // 0x000C (0x0004) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
@@ -33158,6 +33531,7 @@ struct UGameUISceneClient_execGetPreviousScene_Params
 {
 	class UUIScene*                                    SourceScene;                                      // 0x0000 (0x0004) [0x0000000000000082] (CPF_Const | CPF_Parm)
 	uint32_t                                           bRequireMatchingPlayerOwner : 1;                  // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bIgnoreUnfocusedScenes : 1;                       // 0x0008 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 	class UUIScene*                                    ReturnValue;                                      // 0x000C (0x0004) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
@@ -33972,6 +34346,7 @@ struct UUIScrollbar_execOnScrollActivity_Params
 	class UUIScrollbar*                                Sender;                                           // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	float                                              PositionChange;                                   // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bPositionMaxed : 1;                               // 0x0008 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x000C CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x000C (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -34055,6 +34430,7 @@ struct UUIComboBox_execSetEditboxText_Params
 	class FString                                      NewText;                                          // 0x0000 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 	int32_t                                            PlayerIndex;                                      // 0x000C (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bListItemsOnly : 1;                               // 0x0010 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0014 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bSkipNotification : 1;                            // 0x0014 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 };
 
@@ -34259,7 +34635,9 @@ struct UUICalloutButtonPanel_eventEnableButton_Params
 	class FName                                        ButtonInputAlias;                                 // 0x0000 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	int32_t                                            PlayerIndex;                                      // 0x0008 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint32_t                                           bEnableButton : 1;                                // 0x000C (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0010 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bUpdateButtonVisibility : 1;                      // 0x0010 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0014 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0014 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 	// class UUICalloutButton*                         TargetButton;                                     // 0x0018 (0x0004) [0x0000000000000000]               
 	// uint32_t                                        bResult : 1;                                      // 0x001C (0x0004) [0x0000000000000000] [0x00000001] 
@@ -34271,6 +34649,7 @@ struct UUICalloutButtonPanel_eventShowButton_Params
 {
 	class FName                                        ButtonInputAlias;                                 // 0x0000 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bShowButton : 1;                                  // 0x0008 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x000C CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x000C (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 	// class UUICalloutButton*                         TargetButton;                                     // 0x0010 (0x0004) [0x0000000000000000]               
 	// uint32_t                                        bResult : 1;                                      // 0x0014 (0x0004) [0x0000000000000000] [0x00000001] 
@@ -34431,6 +34810,7 @@ struct UUICalloutButtonPanel_execPopulateCalloutButtonArray_Params
 struct UUIFrameBox_execSetBackgroundImage_Params
 {
 	uint8_t                                            ImageToSet;                                       // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	class USurface*                                    NewImage;                                         // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 };
 
@@ -34483,6 +34863,7 @@ struct UUIScrollFrame_eventAddedChild_Params
 struct UUIScrollFrame_execGetVisibleRegionPercentage_Params
 {
 	uint8_t                                            Orientation;                                      // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	float                                              ReturnValue;                                      // 0x0004 (0x0004) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -34515,6 +34896,7 @@ struct UUIScrollFrame_execGetClientRegionPositionVector_Params
 struct UUIScrollFrame_execGetClientRegionSize_Params
 {
 	uint8_t                                            Orientation;                                      // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	float                                              ReturnValue;                                      // 0x0004 (0x0004) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -34523,6 +34905,7 @@ struct UUIScrollFrame_execGetClientRegionSize_Params
 struct UUIScrollFrame_execGetClientRegionPosition_Params
 {
 	uint8_t                                            Orientation;                                      // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	float                                              ReturnValue;                                      // 0x0004 (0x0004) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -34539,6 +34922,7 @@ struct UUIScrollFrame_execSetClientRegionPositionVector_Params
 struct UUIScrollFrame_execSetClientRegionPosition_Params
 {
 	uint8_t                                            Orientation;                                      // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	float                                              NewPosition;                                      // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	bool                                               ReturnValue : 1;                                  // 0x0008 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
@@ -34550,6 +34934,7 @@ struct UUIScrollFrame_execScrollRegion_Params
 	class UUIScrollbar*                                Sender;                                           // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	float                                              PositionChange;                                   // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bPositionMaxed : 1;                               // 0x0008 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x000C CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x000C (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -34705,7 +35090,9 @@ struct UUITabPage_eventActivatePage_Params
 {
 	int32_t                                            PlayerIndex;                                      // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bActivate : 1;                                    // 0x0004 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bTakeFocus : 1;                                   // 0x0008 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x000C CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x000C (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 	// uint32_t                                        bResult : 1;                                      // 0x0010 (0x0004) [0x0000000000000000] [0x00000001] 
 };
@@ -34723,6 +35110,7 @@ struct UUINumericEditBox_execSetNumericValue_Params
 {
 	float                                              NewValue;                                         // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bForceRefreshString : 1;                          // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0008 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -34969,6 +35357,7 @@ struct UUINumericOptionList_execSetValue_Params
 {
 	float                                              NewValue;                                         // 0x0000 (0x0004) [0x0000000000000880] (CPF_Parm | CPF_CoerceParm)
 	uint32_t                                           bPercentageValue : 1;                             // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0008 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -35062,6 +35451,7 @@ struct UUIProgressBar_execSetValue_Params
 {
 	float                                              NewValue;                                         // 0x0000 (0x0004) [0x0000000000000880] (CPF_Parm | CPF_CoerceParm)
 	uint32_t                                           bPercentageValue : 1;                             // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0008 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -35167,6 +35557,7 @@ struct UUISlider_execSetValue_Params
 {
 	float                                              NewValue;                                         // 0x0000 (0x0004) [0x0000000000000880] (CPF_Parm | CPF_CoerceParm)
 	uint32_t                                           bPercentageValue : 1;                             // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0008 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -35298,6 +35689,7 @@ struct UUITabControl_execActivatePageByCaption_Params
 	class FString                                      PageCaption;                                      // 0x0000 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 	int32_t                                            PlayerIndex;                                      // 0x000C (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bFocusPage : 1;                                   // 0x0010 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0014 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0014 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 	// int32_t                                         PageIndex;                                        // 0x0018 (0x0004) [0x0000000000000000]               
 	// uint32_t                                        bResult : 1;                                      // 0x001C (0x0004) [0x0000000000000000] [0x00000001] 
@@ -35325,8 +35717,11 @@ struct UUITabControl_eventEnableTabPage_Params
 	class UUITabPage*                                  PageToEnable;                                     // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	int32_t                                            PlayerIndex;                                      // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bEnablePage : 1;                                  // 0x0008 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x000C CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bActivatePage : 1;                                // 0x000C (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0010 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bFocusPage : 1;                                   // 0x0010 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0014 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0014 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 	// uint32_t                                        bResult : 1;                                      // 0x0018 (0x0004) [0x0000000000000000] [0x00000001] 
 	// int32_t                                         PageIndex;                                        // 0x001C (0x0004) [0x0000000000000000]               
@@ -35338,7 +35733,9 @@ struct UUITabControl_eventActivatePreviousPage_Params
 {
 	int32_t                                            PlayerIndex;                                      // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bFocusPage : 1;                                   // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bAllowWrapping : 1;                               // 0x0008 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x000C CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x000C (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 	// uint32_t                                        bResult : 1;                                      // 0x0010 (0x0004) [0x0000000000000000] [0x00000001] 
 	// int32_t                                         PageIndex;                                        // 0x0014 (0x0004) [0x0000000000000000]               
@@ -35352,7 +35749,9 @@ struct UUITabControl_eventActivateNextPage_Params
 {
 	int32_t                                            PlayerIndex;                                      // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bFocusPage : 1;                                   // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bAllowWrapping : 1;                               // 0x0008 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x000C CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x000C (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 	// uint32_t                                        bResult : 1;                                      // 0x0010 (0x0004) [0x0000000000000000] [0x00000001] 
 	// int32_t                                         PageIndex;                                        // 0x0014 (0x0004) [0x0000000000000000]               
@@ -35367,6 +35766,7 @@ struct UUITabControl_eventActivatePage_Params
 	class UUITabPage*                                  PageToActivate;                                   // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	int32_t                                            PlayerIndex;                                      // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bFocusPage : 1;                                   // 0x0008 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x000C CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x000C (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 	// uint32_t                                        bResult : 1;                                      // 0x0010 (0x0004) [0x0000000000000000] [0x00000001] 
 };
@@ -35379,6 +35779,7 @@ struct UUITabControl_eventReplacePage_Params
 	class UUITabPage*                                  NewPage;                                          // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	int32_t                                            PlayerIndex;                                      // 0x0008 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bFocusPage : 1;                                   // 0x000C (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0010 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0010 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 	// uint32_t                                        bResult : 1;                                      // 0x0014 (0x0004) [0x0000000000000000] [0x00000001] 
 	// int32_t                                         PageIndex;                                        // 0x0018 (0x0004) [0x0000000000000000]               
@@ -35403,6 +35804,7 @@ struct UUITabControl_eventInsertPage_Params
 	int32_t                                            PlayerIndex;                                      // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	int32_t                                            InsertIndex;                                      // 0x0008 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint32_t                                           bActivateImmediately : 1;                         // 0x000C (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0010 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0010 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 	// uint32_t                                        bResult : 1;                                      // 0x0014 (0x0004) [0x0000000000000000] [0x00000001] 
 	// class UUITabButton*                             NewTab;                                           // 0x0018 (0x0004) [0x0000000000000000]               
@@ -35588,6 +35990,7 @@ struct UUIScene_execBeginSceneLostFocusAnimation_Params
 struct UUIScene_execBeginSceneCloseAnimation_Params
 {
 	uint32_t                                           bCloseChildScenes : 1;                            // 0x0000 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 	// class UUIScene*                                 ParentScene;                                      // 0x0008 (0x0004) [0x0000000000000000]               
 	// uint32_t                                        bResult : 1;                                      // 0x000C (0x0004) [0x0000000000000000] [0x00000001] 
@@ -35607,6 +36010,7 @@ struct UUIScene_execStopSceneAnimation_Params
 {
 	class FName                                        AnimationSequenceName;                            // 0x0000 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bFinalize : 1;                                    // 0x0008 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x000C CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x000C (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 	// uint32_t                                        bResult : 1;                                      // 0x0010 (0x0004) [0x0000000000000000] [0x00000001] 
 };
@@ -35637,7 +36041,9 @@ struct UUIScene_eventCloseScene_Params
 {
 	class UUIScene*                                    SceneToClose;                                     // 0x0000 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint32_t                                           bCloseChildScenes : 1;                            // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bForceCloseImmediately : 1;                       // 0x0008 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x000C CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x000C (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 	// class UGameUISceneClient*                       GameSceneClient;                                  // 0x0010 (0x0004) [0x0000000000000000]               
 	// int32_t                                         SceneIndex;                                       // 0x0014 (0x0004) [0x0000000000000000]               
@@ -35652,6 +36058,7 @@ struct UUIScene_eventOpenScene_Params
 	class UUIScene*                                    SceneToOpen;                                      // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	class ULocalPlayer*                                ScenePlayerOwner;                                 // 0x0004 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint8_t                                            ForcedPriority;                                   // 0x0008 (0x0001) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	uint8_t                                            UnknownData00[0x3];                              // 0x0009 (0x0003) MISSED OFFSET
 	uint32_t                                           bSkipAnimation : 1;                               // 0x000C (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 	struct FScriptDelegate                             SceneDelegate;                                    // 0x0010 (0x000C) [0x0000000000400090] (CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink)
 	class UUIScene*                                    ReturnValue;                                      // 0x001C (0x0004) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
@@ -35715,6 +36122,7 @@ struct UUIScene_execNotifyLoginStatusChanged_Params
 {
 	int32_t                                            ControllerId;                                     // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            NewStatus;                                        // 0x0004 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0005 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0008 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 	// class UUIScene*                                 ParentScene;                                      // 0x000C (0x0004) [0x0000000000000000]               
 	// uint32_t                                        bResult : 1;                                      // 0x0010 (0x0004) [0x0000000000000000] [0x00000001] 
@@ -35732,6 +36140,7 @@ struct UUIScene_execNotifyPreClientTravel_Params
 {
 	class FString                                      TravelURL;                                        // 0x0000 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 	uint8_t                                            TravelType;                                       // 0x000C (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x000D (0x0003) MISSED OFFSET
 	uint32_t                                           bIsSeamless : 1;                                  // 0x0010 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
 };
 
@@ -35867,6 +36276,7 @@ struct UUIScene_execGetDefaultContextMenu_Params
 struct UUIScene_execIsSceneActive_Params
 {
 	uint32_t                                           bTopmostScene : 1;                                // 0x0000 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -35925,6 +36335,7 @@ struct UUIScene_execShouldRenderParentScenes_Params
 struct UUIScene_execGetPreviousScene_Params
 {
 	uint32_t                                           bRequireMatchingPlayerOwner : 1;                  // 0x0000 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bIgnoreUnfocusedScenes : 1;                       // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 	class UUIScene*                                    ReturnValue;                                      // 0x0008 (0x0004) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
@@ -35934,6 +36345,7 @@ struct UUIScene_execGetPreviousScene_Params
 struct UUIScene_execGetNextScene_Params
 {
 	uint32_t                                           bRequireMatchingPlayerOwner : 1;                  // 0x0000 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bIgnoreUnfocusedScenes : 1;                       // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 	class UUIScene*                                    ReturnValue;                                      // 0x0008 (0x0004) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
@@ -35978,6 +36390,7 @@ struct UUIScene_execGetSceneDataStore_Params
 struct UUIScene_execFindTickableObjectIndex_Params
 {
 	class UUITickableObject*                           ObjectToFind;                                     // 0x0000 (0x0008) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x4];                              // 0x0004 (0x0004) FIX WRONG SIZE OF PREVIOUS PROPERTY
 	int32_t                                            ReturnValue;                                      // 0x0008 (0x0004) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -35986,6 +36399,7 @@ struct UUIScene_execFindTickableObjectIndex_Params
 struct UUIScene_execUnregisterTickableObject_Params
 {
 	class UUITickableObject*                           ObjectToRemove;                                   // 0x0000 (0x0008) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x4];                              // 0x0004 (0x0004) FIX WRONG SIZE OF PREVIOUS PROPERTY
 	bool                                               ReturnValue : 1;                                  // 0x0008 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -35994,6 +36408,7 @@ struct UUIScene_execUnregisterTickableObject_Params
 struct UUIScene_execRegisterTickableObject_Params
 {
 	class UUITickableObject*                           ObjectToRegister;                                 // 0x0000 (0x0008) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x4];                              // 0x0004 (0x0004) FIX WRONG SIZE OF PREVIOUS PROPERTY
 	int32_t                                            InsertIndex;                                      // 0x0008 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	bool                                               ReturnValue : 1;                                  // 0x000C (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
@@ -36057,7 +36472,9 @@ struct UUIScene_execOnQueryCloseSceneAllowed_Params
 {
 	class UUIScene*                                    SceneToDeactivate;                                // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bCloseChildScenes : 1;                            // 0x0004 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bForcedClose : 1;                                 // 0x0008 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x000C CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x000C (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -36229,6 +36646,7 @@ struct UUISequence_execAddSequenceObject_Params
 {
 	class USequenceObject*                             NewObj;                                           // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bRecurse : 1;                                     // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0008 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -36576,6 +36994,7 @@ struct UFluidSurfaceComponent_execApplyForce_Params
 struct USpeedTreeComponent_execSetMaterial_Params
 {
 	uint8_t                                            MeshType;                                         // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	class UMaterialInterface*                          Material;                                         // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 };
 
@@ -36584,6 +37003,7 @@ struct USpeedTreeComponent_execSetMaterial_Params
 struct USpeedTreeComponent_execGetMaterial_Params
 {
 	uint8_t                                            MeshType;                                         // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	class UMaterialInterface*                          ReturnValue;                                      // 0x0004 (0x0004) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -36753,6 +37173,7 @@ struct USkeletalMeshComponent_execPlayAnim_Params
 	class FName                                        AnimName;                                         // 0x0000 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	float                                              Duration;                                         // 0x0008 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint32_t                                           bLoop : 1;                                        // 0x000C (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0010 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bRestartIfAlreadyPlaying : 1;                     // 0x0010 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 	float                                              StartTime;                                        // 0x0014 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint32_t                                           bPlayBackwards : 1;                               // 0x0018 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
@@ -36818,6 +37239,7 @@ struct USkeletalMeshComponent_execSetFaceFXRegisterEx_Params
 {
 	class FString                                      RegName;                                          // 0x0000 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 	uint8_t                                            RegOp;                                            // 0x000C (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x000D (0x0003) MISSED OFFSET
 	float                                              FirstValue;                                       // 0x0010 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	float                                              FirstInterpDuration;                              // 0x0014 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	float                                              NextValue;                                        // 0x0018 (0x0004) [0x0000000000000080] (CPF_Parm)    
@@ -36831,6 +37253,7 @@ struct USkeletalMeshComponent_execSetFaceFXRegister_Params
 	class FString                                      RegName;                                          // 0x0000 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 	float                                              RegVal;                                           // 0x000C (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            RegOp;                                            // 0x0010 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0011 (0x0003) MISSED OFFSET
 	float                                              InterpDuration;                                   // 0x0014 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 };
 
@@ -36938,6 +37361,7 @@ struct USkeletalMeshComponent_execForceSkelUpdate_Params
 struct USkeletalMeshComponent_execUpdateRBBonesFromSpaceBases_Params
 {
 	uint32_t                                           bMoveUnfixedBodies : 1;                           // 0x0000 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bTeleport : 1;                                    // 0x0004 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
 };
 
@@ -37010,6 +37434,7 @@ struct USkeletalMeshComponent_execGetClosestCollidingBoneLocation_Params
 {
 	struct FVector                                     TestLocation;                                     // 0x0000 (0x000C) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bCheckZeroExtent : 1;                             // 0x000C (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0010 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bCheckNonZeroExtent : 1;                          // 0x0010 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
 	struct FVector                                     ReturnValue;                                      // 0x0014 (0x000C) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
@@ -37052,6 +37477,7 @@ struct USkeletalMeshComponent_execGetBoneAxis_Params
 {
 	class FName                                        BoneName;                                         // 0x0000 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            Axis;                                             // 0x0008 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0009 (0x0003) MISSED OFFSET
 	struct FVector                                     ReturnValue;                                      // 0x000C (0x000C) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -37092,6 +37518,7 @@ struct USkeletalMeshComponent_execGetParentBone_Params
 struct USkeletalMeshComponent_execGetBoneMatrix_Params
 {
 	int32_t                                            BoneIndex;                                        // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0xC];                              // 0x0004 (0x000C) MISSED OFFSET
 	struct FMatrix                                     ReturnValue;                                      // 0x0010 (0x0040) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -37135,6 +37562,7 @@ struct USkeletalMeshComponent_execGetBoneQuaternion_Params
 {
 	class FName                                        BoneName;                                         // 0x0000 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	int32_t                                            Space;                                            // 0x0008 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	uint8_t                                            UnknownData00[0x4];                              // 0x000C (0x0004) MISSED OFFSET
 	struct FQuat                                       ReturnValue;                                      // 0x0010 (0x0010) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -37272,6 +37700,7 @@ struct USkeletalMeshComponent_execEnableClothValidBounds_Params
 struct USkeletalMeshComponent_execAttachClothToCollidingShapes_Params
 {
 	uint32_t                                           AttatchTwoWay : 1;                                // 0x0000 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           AttachTearable : 1;                               // 0x0004 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
 };
 
@@ -37554,6 +37983,7 @@ struct USkeletalMeshComponent_execSetSkeletalMesh_Params
 {
 	class USkeletalMesh*                               NewMesh;                                          // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bKeepSpaceBases : 1;                              // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           InbAlwaysUseInstanceWeights : 1;                  // 0x0008 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 };
 
@@ -37708,6 +38138,7 @@ struct UTexture2DDynamic_execCreate_Params
 	int32_t                                            InSizeX;                                          // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	int32_t                                            InSizeY;                                          // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            InFormat;                                         // 0x0008 (0x0001) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	uint8_t                                            UnknownData00[0x3];                              // 0x0009 (0x0003) MISSED OFFSET
 	uint32_t                                           InIsResolveTarget : 1;                            // 0x000C (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 	class UTexture2DDynamic*                           ReturnValue;                                      // 0x0010 (0x0004) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
@@ -37719,6 +38150,7 @@ struct UTexture2DDynamic_execInit_Params
 	int32_t                                            InSizeX;                                          // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	int32_t                                            InSizeY;                                          // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            InFormat;                                         // 0x0008 (0x0001) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	uint8_t                                            UnknownData00[0x3];                              // 0x0009 (0x0003) MISSED OFFSET
 	uint32_t                                           InIsResolveTarget : 1;                            // 0x000C (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 };
 
@@ -37747,6 +38179,7 @@ struct UTextureRenderTarget2D_execCreate_Params
 	int32_t                                            InSizeX;                                          // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	int32_t                                            InSizeY;                                          // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            InFormat;                                         // 0x0008 (0x0001) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	uint8_t                                            UnknownData00[0x3];                              // 0x0009 (0x0003) MISSED OFFSET
 	struct FLinearColor                                InClearColor;                                     // 0x000C (0x0010) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint32_t                                           bOnlyRenderOnce : 1;                              // 0x001C (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 	class UTextureRenderTarget2D*                      ReturnValue;                                      // 0x0020 (0x0004) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
@@ -37789,8 +38222,10 @@ struct ADebugCameraController_execNativeInputKey_Params
 	int32_t                                            ControllerId;                                     // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	class FName                                        Key;                                              // 0x0004 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            Event;                                            // 0x000C (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x000D (0x0003) MISSED OFFSET
 	float                                              AmountDepressed;                                  // 0x0010 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint32_t                                           bGamepad : 1;                                     // 0x0014 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0018 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0018 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 	// struct FVector                                  CamLoc;                                           // 0x001C (0x000C) [0x0000000000000000]               
 	// struct FVector                                  ZeroVec;                                          // 0x0028 (0x000C) [0x0000000000000000]               
@@ -38086,6 +38521,7 @@ struct ASplineActor_execIsConnectedTo_Params
 {
 	class ASplineActor*                                NextActor;                                        // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bCheckForDisableDestination : 1;                  // 0x0004 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0008 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -38164,6 +38600,7 @@ struct AProcBuilding_execFindEdgeForTopLevelScope_Params
 {
 	int32_t                                            TopLevelScopeIndex;                               // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            Edge;                                             // 0x0004 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0005 (0x0003) MISSED OFFSET
 	int32_t                                            ReturnValue;                                      // 0x0008 (0x0004) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -38590,6 +39027,7 @@ struct APlayerReplicationInfo_eventDestroyed_Params
 struct APlayerReplicationInfo_execShouldBroadCastWelcomeMessage_Params
 {
 	uint32_t                                           bExiting : 1;                                     // 0x0000 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -38756,6 +39194,7 @@ struct ACamera_execPlayCameraAnim_Params
 	float                                              BlendInTime;                                      // 0x0010 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	float                                              BlendOutTime;                                     // 0x0014 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint32_t                                           bLoop : 1;                                        // 0x0018 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x001C CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bRandomStartTime : 1;                             // 0x001C (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 	float                                              Duration;                                         // 0x0020 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint32_t                                           bSingleInstance : 1;                              // 0x0024 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
@@ -38786,6 +39225,7 @@ struct ACamera_execPlayWorldCameraShake_Params
 	float                                              OuterRadius;                                      // 0x0018 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	float                                              Falloff;                                          // 0x001C (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bTryForceFeedback : 1;                            // 0x0020 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0024 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bOrientShakeTowardsEpicenter : 1;                 // 0x0024 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 	// class APlayerController*                        PC;                                               // 0x0028 (0x0004) [0x0000000000000000]               
 	// float                                           ShakeScale;                                       // 0x002C (0x0004) [0x0000000000000000]               
@@ -38822,6 +39262,7 @@ struct ACamera_execPlayCameraShake_Params
 	class UCameraShake*                                Shake;                                            // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	float                                              Scale;                                            // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            PlaySpace;                                        // 0x0008 (0x0001) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	uint8_t                                            UnknownData00[0x3];                              // 0x0009 (0x0003) MISSED OFFSET
 	struct FRotator                                    UserPlaySpaceRot;                                 // 0x000C (0x000C) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 };
 
@@ -39063,6 +39504,7 @@ struct ACameraActor_execGetCameraView_Params
 struct UCameraAnimInst_execSetPlaySpace_Params
 {
 	uint8_t                                            NewSpace;                                         // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FRotator                                    UserPlaySpace;                                    // 0x0004 (0x000C) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 };
 
@@ -39110,6 +39552,7 @@ struct UCameraAnimInst_execPlay_Params
 	float                                              InBlendInTime;                                    // 0x0010 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	float                                              InBlendOutTime;                                   // 0x0014 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bInLoop : 1;                                      // 0x0018 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x001C CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bRandomStartTime : 1;                             // 0x001C (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
 	float                                              Duration;                                         // 0x0020 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 };
@@ -39210,6 +39653,7 @@ struct UCameraModifier_CameraShake_execModifyCamera_Params
 struct UCameraModifier_CameraShake_execUpdateCameraShake_Params
 {
 	float                                              DeltaTime;                                        // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0xC];                              // 0x0004 (0x000C) MISSED OFFSET
 	struct FCameraShakeInstance                        Shake;                                            // 0x0010 (0x0080) [0x0000000000000180] (CPF_Parm | CPF_OutParm)
 	struct FTPOV                                       OutPOV;                                           // 0x0090 (0x001C) [0x0000000000000180] (CPF_Parm | CPF_OutParm)
 };
@@ -39247,6 +39691,7 @@ struct UCameraModifier_CameraShake_execAddCameraShake_Params
 	class UCameraShake*                                NewShake;                                         // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	float                                              Scale;                                            // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            PlaySpace;                                        // 0x0008 (0x0001) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	uint8_t                                            UnknownData00[0x3];                              // 0x0009 (0x0003) MISSED OFFSET
 	struct FRotator                                    UserPlaySpaceRot;                                 // 0x000C (0x000C) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	// int32_t                                         ShakeIdx;                                         // 0x0018 (0x0004) [0x0000000000000000]               
 	// int32_t                                         NumShakes;                                        // 0x001C (0x0004) [0x0000000000000000]               
@@ -39259,7 +39704,9 @@ struct UCameraModifier_CameraShake_execInitializeShake_Params
 	class UCameraShake*                                NewShake;                                         // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	float                                              Scale;                                            // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            PlaySpace;                                        // 0x0008 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0009 (0x0003) MISSED OFFSET
 	struct FRotator                                    UserPlaySpaceRot;                                 // 0x000C (0x000C) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	uint8_t                                            UnknownData01[0x8];                              // 0x0018 (0x0008) MISSED OFFSET
 	struct FCameraShakeInstance                        ReturnValue;                                      // 0x0020 (0x0080) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 	// struct FCameraShakeInstance                     Inst;                                             // 0x00A0 (0x0080) [0x0000000000000000]               
 	// float                                           Duration;                                         // 0x0120 (0x0004) [0x0000000000000000]               
@@ -39363,8 +39810,8 @@ struct ULocalMessage_execGetPos_Params
 struct ULocalMessage_execGetColor_Params
 {
 	int32_t                                            Switch;                                           // 0x0000 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
-	class APlayerReplicationInfo*                      RelatedPRI;                                       // 0x0004 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
-	class APlayerReplicationInfo*                      RelatedPRI01;                                     // 0x0008 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	class APlayerReplicationInfo*                      RelatedPRI_1;                                     // 0x0004 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	class APlayerReplicationInfo*                      RelatedPRI_2;                                     // 0x0008 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	class UObject*                                     OptionalObject;                                   // 0x000C (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	struct FColor                                      ReturnValue;                                      // 0x0010 (0x0004) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
@@ -39373,7 +39820,7 @@ struct ULocalMessage_execGetColor_Params
 // [0x00022002] 
 struct ULocalMessage_execGetConsoleColor_Params
 {
-	class APlayerReplicationInfo*                      RelatedPRI;                                       // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
+	class APlayerReplicationInfo*                      RelatedPRI_1;                                     // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	struct FColor                                      ReturnValue;                                      // 0x0004 (0x0004) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -39383,8 +39830,8 @@ struct ULocalMessage_execGetString_Params
 {
 	int32_t                                            Switch;                                           // 0x0000 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint32_t                                           bPRI1HUD : 1;                                     // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
-	class APlayerReplicationInfo*                      RelatedPRI;                                       // 0x0008 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
-	class APlayerReplicationInfo*                      RelatedPRI01;                                     // 0x000C (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	class APlayerReplicationInfo*                      RelatedPRI_1;                                     // 0x0008 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	class APlayerReplicationInfo*                      RelatedPRI_2;                                     // 0x000C (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	class UObject*                                     OptionalObject;                                   // 0x0010 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	class FString                                      ReturnValue;                                      // 0x0014 (0x000C) [0x0000000000400580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink)
 };
@@ -39395,8 +39842,8 @@ struct ULocalMessage_execClientReceive_Params
 {
 	class APlayerController*                           P;                                                // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	int32_t                                            Switch;                                           // 0x0004 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
-	class APlayerReplicationInfo*                      RelatedPRI;                                       // 0x0008 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
-	class APlayerReplicationInfo*                      RelatedPRI01;                                     // 0x000C (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	class APlayerReplicationInfo*                      RelatedPRI_1;                                     // 0x0008 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	class APlayerReplicationInfo*                      RelatedPRI_2;                                     // 0x000C (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	class UObject*                                     OptionalObject;                                   // 0x0010 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	// class FString                                   MessageString;                                    // 0x0014 (0x000C) [0x0000000000400000] (CPF_NeedCtorLink)
 };
@@ -39428,6 +39875,7 @@ struct USeqAct_AttachToActor_eventGetObjClassVersion_Params
 struct UOnlinePartyChatInterface_execShowCommunitySessionsUI_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -39436,6 +39884,7 @@ struct UOnlinePartyChatInterface_execShowCommunitySessionsUI_Params
 struct UOnlinePartyChatInterface_execShowVoiceChannelUI_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -39444,6 +39893,7 @@ struct UOnlinePartyChatInterface_execShowVoiceChannelUI_Params
 struct UOnlinePartyChatInterface_execShowPartyUI_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -39459,6 +39909,7 @@ struct UOnlinePartyChatInterface_execGetPartyBandwidth_Params
 struct UOnlinePartyChatInterface_execSetPartyMemberCustomData_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	int32_t                                            Data1;                                            // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	int32_t                                            Data2;                                            // 0x0008 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	int32_t                                            Data3;                                            // 0x000C (0x0004) [0x0000000000000080] (CPF_Parm)    
@@ -39471,6 +39922,7 @@ struct UOnlinePartyChatInterface_execSetPartyMemberCustomData_Params
 struct UOnlinePartyChatInterface_execClearPartyMembersInfoChangedDelegate_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FScriptDelegate                             PartyMembersInfoChangedDelegate;                  // 0x0004 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 };
 
@@ -39479,6 +39931,7 @@ struct UOnlinePartyChatInterface_execClearPartyMembersInfoChangedDelegate_Params
 struct UOnlinePartyChatInterface_execAddPartyMembersInfoChangedDelegate_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FScriptDelegate                             PartyMembersInfoChangedDelegate;                  // 0x0004 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 };
 
@@ -39499,6 +39952,7 @@ struct UOnlinePartyChatInterface_execOnPartyMembersInfoChanged_Params
 struct UOnlinePartyChatInterface_execClearPartyMemberListChangedDelegate_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FScriptDelegate                             PartyMemberListChangedDelegate;                   // 0x0004 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 };
 
@@ -39507,6 +39961,7 @@ struct UOnlinePartyChatInterface_execClearPartyMemberListChangedDelegate_Params
 struct UOnlinePartyChatInterface_execAddPartyMemberListChangedDelegate_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FScriptDelegate                             PartyMemberListChangedDelegate;                   // 0x0004 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 };
 
@@ -39541,6 +39996,7 @@ struct UOnlinePartyChatInterface_execGetPartyMembersInformation_Params
 struct UOnlinePartyChatInterface_execClearSendPartyGameInvitesCompleteDelegate_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FScriptDelegate                             SendPartyGameInvitesCompleteDelegate;             // 0x0004 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 };
 
@@ -39549,6 +40005,7 @@ struct UOnlinePartyChatInterface_execClearSendPartyGameInvitesCompleteDelegate_P
 struct UOnlinePartyChatInterface_execAddSendPartyGameInvitesCompleteDelegate_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FScriptDelegate                             SendPartyGameInvitesCompleteDelegate;             // 0x0004 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 };
 
@@ -39564,6 +40021,7 @@ struct UOnlinePartyChatInterface_execOnSendPartyGameInvitesComplete_Params
 struct UOnlinePartyChatInterface_execSendPartyGameInvites_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -39573,6 +40031,7 @@ struct UOnlineNewsInterface_execGetNews_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            NewsType;                                         // 0x0001 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x2];                              // 0x0002 (0x0002) MISSED OFFSET
 	class FString                                      ReturnValue;                                      // 0x0004 (0x000C) [0x0000000000400580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink)
 };
 
@@ -39604,6 +40063,7 @@ struct UOnlineNewsInterface_execReadNews_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            NewsType;                                         // 0x0001 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x2];                              // 0x0002 (0x0002) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -39742,6 +40202,7 @@ struct UOnlineStatsInterface_execOnReadOnlineStatsComplete_Params
 struct UOnlineStatsInterface_execReadOnlineStatsByRankAroundPlayer_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	class UOnlineStatsRead*                            StatsRead;                                        // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	int32_t                                            NumRows;                                          // 0x0008 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	bool                                               ReturnValue : 1;                                  // 0x000C (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
@@ -39762,6 +40223,7 @@ struct UOnlineStatsInterface_execReadOnlineStatsByRank_Params
 struct UOnlineStatsInterface_execReadOnlineStatsForFriends_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	class UOnlineStatsRead*                            StatsRead;                                        // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	bool                                               ReturnValue : 1;                                  // 0x0008 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
@@ -39780,6 +40242,7 @@ struct UOnlineStatsInterface_execReadOnlineStats_Params
 struct UOnlineVoiceInterface_execUnmuteAll_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -39788,7 +40251,9 @@ struct UOnlineVoiceInterface_execUnmuteAll_Params
 struct UOnlineVoiceInterface_execMuteAll_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	uint32_t                                           bAllowFriends : 1;                                // 0x0004 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0008 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -39797,6 +40262,7 @@ struct UOnlineVoiceInterface_execMuteAll_Params
 struct UOnlineVoiceInterface_execSetSpeechRecognitionObject_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	class USpeechRecognition*                          SpeechRecogObj;                                   // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	bool                                               ReturnValue : 1;                                  // 0x0008 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
@@ -39806,6 +40272,7 @@ struct UOnlineVoiceInterface_execSetSpeechRecognitionObject_Params
 struct UOnlineVoiceInterface_execSelectVocabulary_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	int32_t                                            VocabularyId;                                     // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	bool                                               ReturnValue : 1;                                  // 0x0008 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
@@ -39815,6 +40282,7 @@ struct UOnlineVoiceInterface_execSelectVocabulary_Params
 struct UOnlineVoiceInterface_execClearRecognitionCompleteDelegate_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FScriptDelegate                             RecognitionDelegate;                              // 0x0004 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 };
 
@@ -39823,6 +40291,7 @@ struct UOnlineVoiceInterface_execClearRecognitionCompleteDelegate_Params
 struct UOnlineVoiceInterface_execAddRecognitionCompleteDelegate_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FScriptDelegate                             RecognitionDelegate;                              // 0x0004 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 };
 
@@ -39837,6 +40306,7 @@ struct UOnlineVoiceInterface_execOnRecognitionComplete_Params
 struct UOnlineVoiceInterface_execGetRecognitionResults_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	class TArray<struct FSpeechRecognizedWord>         Words;                                            // 0x0004 (0x000C) [0x0000000000400180] (CPF_Parm | CPF_OutParm | CPF_NeedCtorLink)
 	bool                                               ReturnValue : 1;                                  // 0x0010 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
@@ -39846,6 +40316,7 @@ struct UOnlineVoiceInterface_execGetRecognitionResults_Params
 struct UOnlineVoiceInterface_execStopSpeechRecognition_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -39854,6 +40325,7 @@ struct UOnlineVoiceInterface_execStopSpeechRecognition_Params
 struct UOnlineVoiceInterface_execStartSpeechRecognition_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -39898,6 +40370,7 @@ struct UOnlineVoiceInterface_execOnPlayerTalkingStateChange_Params
 struct UOnlineVoiceInterface_execUnmuteRemoteTalker_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FUniqueNetId                                PlayerID;                                         // 0x0004 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	bool                                               ReturnValue : 1;                                  // 0x000C (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
@@ -39907,6 +40380,7 @@ struct UOnlineVoiceInterface_execUnmuteRemoteTalker_Params
 struct UOnlineVoiceInterface_execMuteRemoteTalker_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FUniqueNetId                                PlayerID;                                         // 0x0004 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	bool                                               ReturnValue : 1;                                  // 0x000C (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
@@ -39916,6 +40390,7 @@ struct UOnlineVoiceInterface_execMuteRemoteTalker_Params
 struct UOnlineVoiceInterface_execSetRemoteTalkerPriority_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FUniqueNetId                                PlayerID;                                         // 0x0004 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	int32_t                                            Priority;                                         // 0x000C (0x0004) [0x0000000000000080] (CPF_Parm)    
 	bool                                               ReturnValue : 1;                                  // 0x0010 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
@@ -39926,6 +40401,7 @@ struct UOnlineVoiceInterface_execSetRemoteTalkerPriority_Params
 struct UOnlineVoiceInterface_execIsHeadsetPresent_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -39942,6 +40418,7 @@ struct UOnlineVoiceInterface_execIsRemotePlayerTalking_Params
 struct UOnlineVoiceInterface_execIsLocalPlayerTalking_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -39966,6 +40443,7 @@ struct UOnlineVoiceInterface_execRegisterRemoteTalker_Params
 struct UOnlineVoiceInterface_execUnregisterLocalTalker_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -39974,6 +40452,7 @@ struct UOnlineVoiceInterface_execUnregisterLocalTalker_Params
 struct UOnlineVoiceInterface_execRegisterLocalTalker_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -39982,6 +40461,7 @@ struct UOnlineVoiceInterface_execRegisterLocalTalker_Params
 struct UOnlineContentInterface_execGetAvailableDownloadCounts_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	int32_t                                            NewDownloads;                                     // 0x0004 (0x0004) [0x0000000000000180] (CPF_Parm | CPF_OutParm)
 	int32_t                                            TotalDownloads;                                   // 0x0008 (0x0004) [0x0000000000000180] (CPF_Parm | CPF_OutParm)
 };
@@ -39991,6 +40471,7 @@ struct UOnlineContentInterface_execGetAvailableDownloadCounts_Params
 struct UOnlineContentInterface_execClearQueryAvailableDownloadsComplete_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FScriptDelegate                             QueryDownloadsDelegate;                           // 0x0004 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 };
 
@@ -39999,6 +40480,7 @@ struct UOnlineContentInterface_execClearQueryAvailableDownloadsComplete_Params
 struct UOnlineContentInterface_execAddQueryAvailableDownloadsComplete_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FScriptDelegate                             QueryDownloadsDelegate;                           // 0x0004 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 };
 
@@ -40014,6 +40496,7 @@ struct UOnlineContentInterface_execOnQueryAvailableDownloadsComplete_Params
 struct UOnlineContentInterface_execQueryAvailableDownloads_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	int32_t                                            CategoryMask;                                     // 0x0004 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	bool                                               ReturnValue : 1;                                  // 0x0008 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
@@ -40023,6 +40506,7 @@ struct UOnlineContentInterface_execQueryAvailableDownloads_Params
 struct UOnlineContentInterface_execGetContentList_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	class TArray<struct FOnlineContent>                ContentList;                                      // 0x0004 (0x000C) [0x0000000000400180] (CPF_Parm | CPF_OutParm | CPF_NeedCtorLink)
 	uint8_t                                            ReturnValue;                                      // 0x0010 (0x0001) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
@@ -40032,6 +40516,7 @@ struct UOnlineContentInterface_execGetContentList_Params
 struct UOnlineContentInterface_execReadContentList_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -40040,6 +40525,7 @@ struct UOnlineContentInterface_execReadContentList_Params
 struct UOnlineContentInterface_execClearReadContentComplete_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FScriptDelegate                             ReadContentCompleteDelegate;                      // 0x0004 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 };
 
@@ -40048,6 +40534,7 @@ struct UOnlineContentInterface_execClearReadContentComplete_Params
 struct UOnlineContentInterface_execAddReadContentComplete_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FScriptDelegate                             ReadContentCompleteDelegate;                      // 0x0004 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 };
 
@@ -40094,6 +40581,7 @@ struct UOnlineGameInterface_execRecalculateSkillRating_Params
 struct UOnlineGameInterface_execAcceptGameInvite_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	class FName                                        SessionName;                                      // 0x0004 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	bool                                               ReturnValue : 1;                                  // 0x000C (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
@@ -40103,6 +40591,7 @@ struct UOnlineGameInterface_execAcceptGameInvite_Params
 struct UOnlineGameInterface_execClearGameInviteAcceptedDelegate_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FScriptDelegate                             GameInviteAcceptedDelegate;                       // 0x0004 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 };
 
@@ -40111,6 +40600,7 @@ struct UOnlineGameInterface_execClearGameInviteAcceptedDelegate_Params
 struct UOnlineGameInterface_execAddGameInviteAcceptedDelegate_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FScriptDelegate                             GameInviteAcceptedDelegate;                       // 0x0004 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 };
 
@@ -40281,6 +40771,7 @@ struct UOnlineGameInterface_execRegisterPlayer_Params
 	class FName                                        SessionName;                                      // 0x0000 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	struct FUniqueNetId                                PlayerID;                                         // 0x0008 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bWasInvited : 1;                                  // 0x0010 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0014 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0014 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -40320,6 +40811,7 @@ struct UOnlineGameInterface_execOnJoinOnlineGameComplete_Params
 struct UOnlineGameInterface_execJoinOnlineGame_Params
 {
 	uint8_t                                            PlayerNum;                                        // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	class FName                                        SessionName;                                      // 0x0004 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	struct FOnlineGameSearchResult                     DesiredGame;                                      // 0x000C (0x0008) [0x0000000000000182] (CPF_Const | CPF_Parm | CPF_OutParm)
 	bool                                               ReturnValue : 1;                                  // 0x0014 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
@@ -40354,6 +40846,7 @@ struct UOnlineGameInterface_execGetGameSearch_Params
 struct UOnlineGameInterface_execBindPlatformSpecificSessionToSearch_Params
 {
 	uint8_t                                            SearchingPlayerNum;                               // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	class UOnlineGameSearch*                           SearchSettings;                                   // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            PlatformSpecificInfo[80];                         // 0x0008 (0x0050) [0x0000000000000080] (CPF_Parm)    
 	bool                                               ReturnValue : 1;                                  // 0x0058 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
@@ -40431,6 +40924,7 @@ struct UOnlineGameInterface_execOnFindOnlineGamesComplete_Params
 struct UOnlineGameInterface_execFindOnlineGames_Params
 {
 	uint8_t                                            SearchingPlayerNum;                               // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	class UOnlineGameSearch*                           SearchSettings;                                   // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	bool                                               ReturnValue : 1;                                  // 0x0008 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
@@ -40502,6 +40996,7 @@ struct UOnlineGameInterface_execUpdateOnlineGame_Params
 	class FName                                        SessionName;                                      // 0x0000 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	class UOnlineGameSettings*                         UpdatedGameSettings;                              // 0x0008 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bShouldRefreshOnlineData : 1;                     // 0x000C (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0010 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0010 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -40532,6 +41027,7 @@ struct UOnlineGameInterface_execOnCreateOnlineGameComplete_Params
 struct UOnlineGameInterface_execCreateOnlineGame_Params
 {
 	uint8_t                                            HostingPlayerNum;                                 // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	class FName                                        SessionName;                                      // 0x0004 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	class UOnlineGameSettings*                         NewGameSettings;                                  // 0x000C (0x0004) [0x0000000000000080] (CPF_Parm)    
 	bool                                               ReturnValue : 1;                                  // 0x0010 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
@@ -40730,6 +41226,7 @@ struct UOnlineSystemInterface_execHasLinkConnection_Params
 struct UOnlinePlayerInterfaceEx_execShowCustomPlayersUI_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	class TArray<struct FUniqueNetId>                  Players;                                          // 0x0004 (0x000C) [0x0000000000400182] (CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink)
 	class FString                                      Title;                                            // 0x0010 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 	class FString                                      Description;                                      // 0x001C (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
@@ -40741,6 +41238,7 @@ struct UOnlinePlayerInterfaceEx_execShowCustomPlayersUI_Params
 struct UOnlinePlayerInterfaceEx_execShowPlayersUI_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -40749,6 +41247,7 @@ struct UOnlinePlayerInterfaceEx_execShowPlayersUI_Params
 struct UOnlinePlayerInterfaceEx_execShowFriendsInviteUI_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FUniqueNetId                                PlayerID;                                         // 0x0004 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	bool                                               ReturnValue : 1;                                  // 0x000C (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
@@ -40758,6 +41257,7 @@ struct UOnlinePlayerInterfaceEx_execShowFriendsInviteUI_Params
 struct UOnlinePlayerInterfaceEx_execClearProfileDataChangedDelegate_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FScriptDelegate                             ProfileDataChangedDelegate;                       // 0x0004 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 };
 
@@ -40766,6 +41266,7 @@ struct UOnlinePlayerInterfaceEx_execClearProfileDataChangedDelegate_Params
 struct UOnlinePlayerInterfaceEx_execAddProfileDataChangedDelegate_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FScriptDelegate                             ProfileDataChangedDelegate;                       // 0x0004 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 };
 
@@ -40780,6 +41281,7 @@ struct UOnlinePlayerInterfaceEx_execOnProfileDataChanged_Params
 struct UOnlinePlayerInterfaceEx_execUnlockGamerPicture_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	int32_t                                            PictureId;                                        // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	bool                                               ReturnValue : 1;                                  // 0x0008 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
@@ -40798,6 +41300,7 @@ struct UOnlinePlayerInterfaceEx_execIsDeviceValid_Params
 struct UOnlinePlayerInterfaceEx_execGetDeviceSelectionResults_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	class FString                                      DeviceName;                                       // 0x0004 (0x000C) [0x0000000000400180] (CPF_Parm | CPF_OutParm | CPF_NeedCtorLink)
 	int32_t                                            ReturnValue;                                      // 0x0010 (0x0004) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
@@ -40807,6 +41310,7 @@ struct UOnlinePlayerInterfaceEx_execGetDeviceSelectionResults_Params
 struct UOnlinePlayerInterfaceEx_execClearDeviceSelectionDoneDelegate_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FScriptDelegate                             DeviceDelegate;                                   // 0x0004 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 };
 
@@ -40815,6 +41319,7 @@ struct UOnlinePlayerInterfaceEx_execClearDeviceSelectionDoneDelegate_Params
 struct UOnlinePlayerInterfaceEx_execAddDeviceSelectionDoneDelegate_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FScriptDelegate                             DeviceDelegate;                                   // 0x0004 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 };
 
@@ -40830,9 +41335,12 @@ struct UOnlinePlayerInterfaceEx_execOnDeviceSelectionComplete_Params
 struct UOnlinePlayerInterfaceEx_execShowDeviceSelectionUI_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	int32_t                                            SizeNeeded;                                       // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bForceShowUI : 1;                                 // 0x0008 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x000C CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bManageStorage : 1;                               // 0x000C (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0010 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0010 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -40841,6 +41349,7 @@ struct UOnlinePlayerInterfaceEx_execShowDeviceSelectionUI_Params
 struct UOnlinePlayerInterfaceEx_execShowMembershipMarketplaceUI_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -40849,6 +41358,7 @@ struct UOnlinePlayerInterfaceEx_execShowMembershipMarketplaceUI_Params
 struct UOnlinePlayerInterfaceEx_execShowContentMarketplaceUI_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	int32_t                                            CategoryMask;                                     // 0x0004 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	int32_t                                            OfferId;                                          // 0x0008 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	bool                                               ReturnValue : 1;                                  // 0x000C (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
@@ -40859,6 +41369,7 @@ struct UOnlinePlayerInterfaceEx_execShowContentMarketplaceUI_Params
 struct UOnlinePlayerInterfaceEx_execShowInviteUI_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	class FString                                      InviteText;                                       // 0x0004 (0x000C) [0x0000000000400090] (CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink)
 	bool                                               ReturnValue : 1;                                  // 0x0010 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
@@ -40868,6 +41379,7 @@ struct UOnlinePlayerInterfaceEx_execShowInviteUI_Params
 struct UOnlinePlayerInterfaceEx_execShowAchievementsUI_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -40876,6 +41388,7 @@ struct UOnlinePlayerInterfaceEx_execShowAchievementsUI_Params
 struct UOnlinePlayerInterfaceEx_execShowMessagesUI_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -40884,6 +41397,7 @@ struct UOnlinePlayerInterfaceEx_execShowMessagesUI_Params
 struct UOnlinePlayerInterfaceEx_execShowGamerCardUI_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FUniqueNetId                                PlayerID;                                         // 0x0004 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	bool                                               ReturnValue : 1;                                  // 0x000C (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
@@ -40893,6 +41407,7 @@ struct UOnlinePlayerInterfaceEx_execShowGamerCardUI_Params
 struct UOnlinePlayerInterfaceEx_execShowFeedbackUI_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FUniqueNetId                                PlayerID;                                         // 0x0004 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	bool                                               ReturnValue : 1;                                  // 0x000C (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
@@ -40902,6 +41417,7 @@ struct UOnlinePlayerInterfaceEx_execShowFeedbackUI_Params
 struct UOnlinePlayerInterface_execGetAchievements_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	class TArray<struct FAchievementDetails>           Achievements;                                     // 0x0004 (0x000C) [0x0000000000400180] (CPF_Parm | CPF_OutParm | CPF_NeedCtorLink)
 	int32_t                                            TitleId;                                          // 0x0010 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint8_t                                            ReturnValue;                                      // 0x0014 (0x0001) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
@@ -40912,6 +41428,7 @@ struct UOnlinePlayerInterface_execGetAchievements_Params
 struct UOnlinePlayerInterface_execClearReadAchievementsCompleteDelegate_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FScriptDelegate                             ReadAchievementsCompleteDelegate;                 // 0x0004 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 };
 
@@ -40920,6 +41437,7 @@ struct UOnlinePlayerInterface_execClearReadAchievementsCompleteDelegate_Params
 struct UOnlinePlayerInterface_execAddReadAchievementsCompleteDelegate_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FScriptDelegate                             ReadAchievementsCompleteDelegate;                 // 0x0004 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 };
 
@@ -40935,9 +41453,12 @@ struct UOnlinePlayerInterface_execOnReadAchievementsComplete_Params
 struct UOnlinePlayerInterface_execReadAchievements_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	int32_t                                            TitleId;                                          // 0x0004 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint32_t                                           bShouldReadText : 1;                              // 0x0008 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x000C CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bShouldReadImages : 1;                            // 0x000C (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0010 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0010 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -40946,6 +41467,7 @@ struct UOnlinePlayerInterface_execReadAchievements_Params
 struct UOnlinePlayerInterface_execClearUnlockAchievementCompleteDelegate_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FScriptDelegate                             UnlockAchievementCompleteDelegate;                // 0x0004 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 };
 
@@ -40954,6 +41476,7 @@ struct UOnlinePlayerInterface_execClearUnlockAchievementCompleteDelegate_Params
 struct UOnlinePlayerInterface_execAddUnlockAchievementCompleteDelegate_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FScriptDelegate                             UnlockAchievementCompleteDelegate;                // 0x0004 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 };
 
@@ -40969,6 +41492,7 @@ struct UOnlinePlayerInterface_execOnUnlockAchievementComplete_Params
 struct UOnlinePlayerInterface_execUnlockAchievement_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	int32_t                                            AchievementId;                                    // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	bool                                               ReturnValue : 1;                                  // 0x0008 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
@@ -40978,6 +41502,7 @@ struct UOnlinePlayerInterface_execUnlockAchievement_Params
 struct UOnlinePlayerInterface_execDeleteMessage_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	int32_t                                            MessageIndex;                                     // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	bool                                               ReturnValue : 1;                                  // 0x0008 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
@@ -40987,6 +41512,7 @@ struct UOnlinePlayerInterface_execDeleteMessage_Params
 struct UOnlinePlayerInterface_execClearFriendMessageReceivedDelegate_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FScriptDelegate                             MessageDelegate;                                  // 0x0004 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 };
 
@@ -40995,6 +41521,7 @@ struct UOnlinePlayerInterface_execClearFriendMessageReceivedDelegate_Params
 struct UOnlinePlayerInterface_execAddFriendMessageReceivedDelegate_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FScriptDelegate                             MessageDelegate;                                  // 0x0004 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 };
 
@@ -41003,6 +41530,7 @@ struct UOnlinePlayerInterface_execAddFriendMessageReceivedDelegate_Params
 struct UOnlinePlayerInterface_execOnFriendMessageReceived_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FUniqueNetId                                SendingPlayer;                                    // 0x0004 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	class FString                                      SendingNick;                                      // 0x000C (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 	class FString                                      Message;                                          // 0x0018 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
@@ -41013,6 +41541,7 @@ struct UOnlinePlayerInterface_execOnFriendMessageReceived_Params
 struct UOnlinePlayerInterface_execGetFriendMessages_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	class TArray<struct FOnlineFriendMessage>          FriendMessages;                                   // 0x0004 (0x000C) [0x0000000000400180] (CPF_Parm | CPF_OutParm | CPF_NeedCtorLink)
 };
 
@@ -41042,6 +41571,7 @@ struct UOnlinePlayerInterface_execOnJoinFriendGameComplete_Params
 struct UOnlinePlayerInterface_execJoinFriendGame_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FUniqueNetId                                Friend;                                           // 0x0004 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	bool                                               ReturnValue : 1;                                  // 0x000C (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
@@ -41051,6 +41581,7 @@ struct UOnlinePlayerInterface_execJoinFriendGame_Params
 struct UOnlinePlayerInterface_execClearReceivedGameInviteDelegate_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FScriptDelegate                             ReceivedGameInviteDelegate;                       // 0x0004 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 };
 
@@ -41059,6 +41590,7 @@ struct UOnlinePlayerInterface_execClearReceivedGameInviteDelegate_Params
 struct UOnlinePlayerInterface_execAddReceivedGameInviteDelegate_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FScriptDelegate                             ReceivedGameInviteDelegate;                       // 0x0004 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 };
 
@@ -41067,6 +41599,7 @@ struct UOnlinePlayerInterface_execAddReceivedGameInviteDelegate_Params
 struct UOnlinePlayerInterface_execOnReceivedGameInvite_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	class FString                                      InviterName;                                      // 0x0004 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 };
 
@@ -41075,6 +41608,7 @@ struct UOnlinePlayerInterface_execOnReceivedGameInvite_Params
 struct UOnlinePlayerInterface_execSendGameInviteToFriends_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	class TArray<struct FUniqueNetId>                  Friends;                                          // 0x0004 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 	class FString                                      Text;                                             // 0x0010 (0x000C) [0x0000000000400090] (CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink)
 	bool                                               ReturnValue : 1;                                  // 0x001C (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
@@ -41085,6 +41619,7 @@ struct UOnlinePlayerInterface_execSendGameInviteToFriends_Params
 struct UOnlinePlayerInterface_execSendGameInviteToFriend_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FUniqueNetId                                Friend;                                           // 0x0004 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	class FString                                      Text;                                             // 0x000C (0x000C) [0x0000000000400090] (CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink)
 	bool                                               ReturnValue : 1;                                  // 0x0018 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
@@ -41092,9 +41627,10 @@ struct UOnlinePlayerInterface_execSendGameInviteToFriend_Params
 
 // Function Engine.OnlinePlayerInterface.SendMessageToFriend
 // [0x00020000] 
-struct UOnlinePlayerInterface_execSendMessageToFriendW_Params
+struct UOnlinePlayerInterface_execSendMessageToFriendWin_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FUniqueNetId                                Friend;                                           // 0x0004 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	class FString                                      Message;                                          // 0x000C (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 	bool                                               ReturnValue : 1;                                  // 0x0018 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
@@ -41105,6 +41641,7 @@ struct UOnlinePlayerInterface_execSendMessageToFriendW_Params
 struct UOnlinePlayerInterface_execClearFriendInviteReceivedDelegate_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FScriptDelegate                             InviteDelegate;                                   // 0x0004 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 };
 
@@ -41113,6 +41650,7 @@ struct UOnlinePlayerInterface_execClearFriendInviteReceivedDelegate_Params
 struct UOnlinePlayerInterface_execAddFriendInviteReceivedDelegate_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FScriptDelegate                             InviteDelegate;                                   // 0x0004 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 };
 
@@ -41121,6 +41659,7 @@ struct UOnlinePlayerInterface_execAddFriendInviteReceivedDelegate_Params
 struct UOnlinePlayerInterface_execOnFriendInviteReceived_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FUniqueNetId                                RequestingPlayer;                                 // 0x0004 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	class FString                                      RequestingNick;                                   // 0x000C (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 	class FString                                      Message;                                          // 0x0018 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
@@ -41131,6 +41670,7 @@ struct UOnlinePlayerInterface_execOnFriendInviteReceived_Params
 struct UOnlinePlayerInterface_execRemoveFriend_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FUniqueNetId                                FormerFriend;                                     // 0x0004 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	bool                                               ReturnValue : 1;                                  // 0x000C (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
@@ -41140,6 +41680,7 @@ struct UOnlinePlayerInterface_execRemoveFriend_Params
 struct UOnlinePlayerInterface_execDenyFriendInvite_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FUniqueNetId                                RequestingPlayer;                                 // 0x0004 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	bool                                               ReturnValue : 1;                                  // 0x000C (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
@@ -41149,6 +41690,7 @@ struct UOnlinePlayerInterface_execDenyFriendInvite_Params
 struct UOnlinePlayerInterface_execAcceptFriendInvite_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FUniqueNetId                                RequestingPlayer;                                 // 0x0004 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	bool                                               ReturnValue : 1;                                  // 0x000C (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
@@ -41158,6 +41700,7 @@ struct UOnlinePlayerInterface_execAcceptFriendInvite_Params
 struct UOnlinePlayerInterface_execClearAddFriendByNameCompleteDelegate_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FScriptDelegate                             FriendDelegate;                                   // 0x0004 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 };
 
@@ -41166,6 +41709,7 @@ struct UOnlinePlayerInterface_execClearAddFriendByNameCompleteDelegate_Params
 struct UOnlinePlayerInterface_execAddAddFriendByNameCompleteDelegate_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FScriptDelegate                             FriendDelegate;                                   // 0x0004 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 };
 
@@ -41181,6 +41725,7 @@ struct UOnlinePlayerInterface_execOnAddFriendByNameComplete_Params
 struct UOnlinePlayerInterface_execAddFriendByName_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	class FString                                      FriendName;                                       // 0x0004 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 	class FString                                      Message;                                          // 0x0010 (0x000C) [0x0000000000400090] (CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink)
 	bool                                               ReturnValue : 1;                                  // 0x001C (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
@@ -41191,6 +41736,7 @@ struct UOnlinePlayerInterface_execAddFriendByName_Params
 struct UOnlinePlayerInterface_execAddFriend_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FUniqueNetId                                NewFriend;                                        // 0x0004 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	class FString                                      Message;                                          // 0x000C (0x000C) [0x0000000000400090] (CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink)
 	bool                                               ReturnValue : 1;                                  // 0x0018 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
@@ -41201,6 +41747,7 @@ struct UOnlinePlayerInterface_execAddFriend_Params
 struct UOnlinePlayerInterface_execGetKeyboardInputResults_Params
 {
 	uint8_t                                            bWasCanceled;                                     // 0x0000 (0x0001) [0x0000000000000180] (CPF_Parm | CPF_OutParm)
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	class FString                                      ReturnValue;                                      // 0x0004 (0x000C) [0x0000000000400580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink)
 };
 
@@ -41230,9 +41777,11 @@ struct UOnlinePlayerInterface_execOnKeyboardInputComplete_Params
 struct UOnlinePlayerInterface_execShowKeyboardUI_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	class FString                                      TitleText;                                        // 0x0004 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 	class FString                                      DescriptionText;                                  // 0x0010 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 	uint32_t                                           bIsPassword : 1;                                  // 0x001C (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0020 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bShouldValidate : 1;                              // 0x0020 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 	class FString                                      DefaultText;                                      // 0x0024 (0x000C) [0x0000000000400090] (CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink)
 	int32_t                                            MaxResultLength;                                  // 0x0030 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
@@ -41244,6 +41793,7 @@ struct UOnlinePlayerInterface_execShowKeyboardUI_Params
 struct UOnlinePlayerInterface_execSetOnlineStatus_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	int32_t                                            StatusId;                                         // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	class TArray<struct FLocalizedStringSetting>       LocalizedStringSettings;                          // 0x0008 (0x000C) [0x0000000000400182] (CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink)
 	class TArray<struct FSettingsProperty>             Properties;                                       // 0x0014 (0x000C) [0x0000000000400182] (CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink)
@@ -41254,6 +41804,7 @@ struct UOnlinePlayerInterface_execSetOnlineStatus_Params
 struct UOnlinePlayerInterface_execGetFriendsList_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	class TArray<struct FOnlineFriend>                 Friends;                                          // 0x0004 (0x000C) [0x0000000000400180] (CPF_Parm | CPF_OutParm | CPF_NeedCtorLink)
 	int32_t                                            Count;                                            // 0x0010 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	int32_t                                            StartingAt;                                       // 0x0014 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
@@ -41265,6 +41816,7 @@ struct UOnlinePlayerInterface_execGetFriendsList_Params
 struct UOnlinePlayerInterface_execClearReadFriendsCompleteDelegate_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FScriptDelegate                             ReadFriendsCompleteDelegate;                      // 0x0004 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 };
 
@@ -41273,6 +41825,7 @@ struct UOnlinePlayerInterface_execClearReadFriendsCompleteDelegate_Params
 struct UOnlinePlayerInterface_execAddReadFriendsCompleteDelegate_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FScriptDelegate                             ReadFriendsCompleteDelegate;                      // 0x0004 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 };
 
@@ -41288,6 +41841,7 @@ struct UOnlinePlayerInterface_execOnReadFriendsComplete_Params
 struct UOnlinePlayerInterface_execReadFriendsList_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	int32_t                                            Count;                                            // 0x0004 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	int32_t                                            StartingAt;                                       // 0x0008 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	bool                                               ReturnValue : 1;                                  // 0x000C (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
@@ -41298,6 +41852,7 @@ struct UOnlinePlayerInterface_execReadFriendsList_Params
 struct UOnlinePlayerInterface_execClearWritePlayerStorageCompleteDelegate_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FScriptDelegate                             WritePlayerStorageCompleteDelegate;               // 0x0004 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 };
 
@@ -41306,6 +41861,7 @@ struct UOnlinePlayerInterface_execClearWritePlayerStorageCompleteDelegate_Params
 struct UOnlinePlayerInterface_execAddWritePlayerStorageCompleteDelegate_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FScriptDelegate                             WritePlayerStorageCompleteDelegate;               // 0x0004 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 };
 
@@ -41314,6 +41870,7 @@ struct UOnlinePlayerInterface_execAddWritePlayerStorageCompleteDelegate_Params
 struct UOnlinePlayerInterface_execOnWritePlayerStorageComplete_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	uint32_t                                           bWasSuccessful : 1;                               // 0x0004 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
 };
 
@@ -41322,6 +41879,7 @@ struct UOnlinePlayerInterface_execOnWritePlayerStorageComplete_Params
 struct UOnlinePlayerInterface_execWritePlayerStorage_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	class UOnlinePlayerStorage*                        PlayerStorage;                                    // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	bool                                               ReturnValue : 1;                                  // 0x0008 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
@@ -41331,6 +41889,7 @@ struct UOnlinePlayerInterface_execWritePlayerStorage_Params
 struct UOnlinePlayerInterface_execGetPlayerStorage_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	class UOnlinePlayerStorage*                        ReturnValue;                                      // 0x0004 (0x0004) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -41372,6 +41931,7 @@ struct UOnlinePlayerInterface_execReadPlayerStorageForNetId_Params
 struct UOnlinePlayerInterface_execClearReadPlayerStorageCompleteDelegate_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FScriptDelegate                             ReadPlayerStorageCompleteDelegate;                // 0x0004 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 };
 
@@ -41380,6 +41940,7 @@ struct UOnlinePlayerInterface_execClearReadPlayerStorageCompleteDelegate_Params
 struct UOnlinePlayerInterface_execAddReadPlayerStorageCompleteDelegate_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FScriptDelegate                             ReadPlayerStorageCompleteDelegate;                // 0x0004 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 };
 
@@ -41388,6 +41949,7 @@ struct UOnlinePlayerInterface_execAddReadPlayerStorageCompleteDelegate_Params
 struct UOnlinePlayerInterface_execOnReadPlayerStorageComplete_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	uint32_t                                           bWasSuccessful : 1;                               // 0x0004 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
 };
 
@@ -41396,6 +41958,7 @@ struct UOnlinePlayerInterface_execOnReadPlayerStorageComplete_Params
 struct UOnlinePlayerInterface_execReadPlayerStorage_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	class UOnlinePlayerStorage*                        PlayerStorage;                                    // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	bool                                               ReturnValue : 1;                                  // 0x0008 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
@@ -41405,6 +41968,7 @@ struct UOnlinePlayerInterface_execReadPlayerStorage_Params
 struct UOnlinePlayerInterface_execClearWriteProfileSettingsCompleteDelegate_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FScriptDelegate                             WriteProfileSettingsCompleteDelegate;             // 0x0004 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 };
 
@@ -41413,6 +41977,7 @@ struct UOnlinePlayerInterface_execClearWriteProfileSettingsCompleteDelegate_Para
 struct UOnlinePlayerInterface_execAddWriteProfileSettingsCompleteDelegate_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FScriptDelegate                             WriteProfileSettingsCompleteDelegate;             // 0x0004 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 };
 
@@ -41421,6 +41986,7 @@ struct UOnlinePlayerInterface_execAddWriteProfileSettingsCompleteDelegate_Params
 struct UOnlinePlayerInterface_execOnWriteProfileSettingsComplete_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	uint32_t                                           bWasSuccessful : 1;                               // 0x0004 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
 };
 
@@ -41429,6 +41995,7 @@ struct UOnlinePlayerInterface_execOnWriteProfileSettingsComplete_Params
 struct UOnlinePlayerInterface_execWriteProfileSettings_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	class UOnlineProfileSettings*                      ProfileSettings;                                  // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	bool                                               ReturnValue : 1;                                  // 0x0008 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
@@ -41438,6 +42005,7 @@ struct UOnlinePlayerInterface_execWriteProfileSettings_Params
 struct UOnlinePlayerInterface_execGetProfileSettings_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	class UOnlineProfileSettings*                      ReturnValue;                                      // 0x0004 (0x0004) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -41446,6 +42014,7 @@ struct UOnlinePlayerInterface_execGetProfileSettings_Params
 struct UOnlinePlayerInterface_execClearReadProfileSettingsCompleteDelegate_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FScriptDelegate                             ReadProfileSettingsCompleteDelegate;              // 0x0004 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 };
 
@@ -41454,6 +42023,7 @@ struct UOnlinePlayerInterface_execClearReadProfileSettingsCompleteDelegate_Param
 struct UOnlinePlayerInterface_execAddReadProfileSettingsCompleteDelegate_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FScriptDelegate                             ReadProfileSettingsCompleteDelegate;              // 0x0004 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 };
 
@@ -41462,6 +42032,7 @@ struct UOnlinePlayerInterface_execAddReadProfileSettingsCompleteDelegate_Params
 struct UOnlinePlayerInterface_execOnReadProfileSettingsComplete_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	uint32_t                                           bWasSuccessful : 1;                               // 0x0004 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
 };
 
@@ -41470,6 +42041,7 @@ struct UOnlinePlayerInterface_execOnReadProfileSettingsComplete_Params
 struct UOnlinePlayerInterface_execReadProfileSettings_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	class UOnlineProfileSettings*                      ProfileSettings;                                  // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	bool                                               ReturnValue : 1;                                  // 0x0008 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
@@ -41479,6 +42051,7 @@ struct UOnlinePlayerInterface_execReadProfileSettings_Params
 struct UOnlinePlayerInterface_execClearFriendsChangeDelegate_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FScriptDelegate                             FriendsDelegate;                                  // 0x0004 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 };
 
@@ -41487,6 +42060,7 @@ struct UOnlinePlayerInterface_execClearFriendsChangeDelegate_Params
 struct UOnlinePlayerInterface_execAddFriendsChangeDelegate_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FScriptDelegate                             FriendsDelegate;                                  // 0x0004 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 };
 
@@ -41540,6 +42114,7 @@ struct UOnlinePlayerInterface_execOnLoginStatusChange_Params
 {
 	uint8_t                                            NewStatus;                                        // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            PrevStatus;                                       // 0x0001 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x2];                              // 0x0002 (0x0002) MISSED OFFSET
 	struct FUniqueNetId                                NewId;                                            // 0x0004 (0x0008) [0x0000000000000080] (CPF_Parm)    
 };
 
@@ -41562,6 +42137,7 @@ struct UOnlinePlayerInterface_execAddLoginChangeDelegate_Params
 struct UOnlinePlayerInterface_execShowFriendsUI_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -41570,6 +42146,7 @@ struct UOnlinePlayerInterface_execShowFriendsUI_Params
 struct UOnlinePlayerInterface_execIsMuted_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FUniqueNetId                                PlayerID;                                         // 0x0004 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	bool                                               ReturnValue : 1;                                  // 0x000C (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
@@ -41579,6 +42156,7 @@ struct UOnlinePlayerInterface_execIsMuted_Params
 struct UOnlinePlayerInterface_execAreAnyFriends_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	class TArray<struct FFriendsQuery>                 Query;                                            // 0x0004 (0x000C) [0x0000000000400180] (CPF_Parm | CPF_OutParm | CPF_NeedCtorLink)
 	bool                                               ReturnValue : 1;                                  // 0x0010 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
@@ -41588,6 +42166,7 @@ struct UOnlinePlayerInterface_execAreAnyFriends_Params
 struct UOnlinePlayerInterface_execIsFriend_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FUniqueNetId                                PlayerID;                                         // 0x0004 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	bool                                               ReturnValue : 1;                                  // 0x000C (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
@@ -41645,6 +42224,7 @@ struct UOnlinePlayerInterface_execCanPlayOnline_Params
 struct UOnlinePlayerInterface_execIsLocalLogin_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -41653,6 +42233,7 @@ struct UOnlinePlayerInterface_execIsLocalLogin_Params
 struct UOnlinePlayerInterface_execIsGuestLogin_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -41661,6 +42242,7 @@ struct UOnlinePlayerInterface_execIsGuestLogin_Params
 struct UOnlinePlayerInterface_execGetPlayerNickname_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	class FString                                      ReturnValue;                                      // 0x0004 (0x000C) [0x0000000000400580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink)
 };
 
@@ -41669,6 +42251,7 @@ struct UOnlinePlayerInterface_execGetPlayerNickname_Params
 struct UOnlinePlayerInterface_execGetUniquePlayerId_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FUniqueNetId                                PlayerID;                                         // 0x0004 (0x0008) [0x0000000000000180] (CPF_Parm | CPF_OutParm)
 	bool                                               ReturnValue : 1;                                  // 0x000C (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
@@ -41686,6 +42269,7 @@ struct UOnlinePlayerInterface_execGetLoginStatus_Params
 struct UOnlinePlayerInterface_execClearLogoutCompletedDelegate_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FScriptDelegate                             LogoutDelegate;                                   // 0x0004 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 };
 
@@ -41694,6 +42278,7 @@ struct UOnlinePlayerInterface_execClearLogoutCompletedDelegate_Params
 struct UOnlinePlayerInterface_execAddLogoutCompletedDelegate_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FScriptDelegate                             LogoutDelegate;                                   // 0x0004 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 };
 
@@ -41709,6 +42294,7 @@ struct UOnlinePlayerInterface_execOnLogoutCompleted_Params
 struct UOnlinePlayerInterface_execLogout_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -41717,6 +42303,7 @@ struct UOnlinePlayerInterface_execLogout_Params
 struct UOnlinePlayerInterface_execClearLoginFailedDelegate_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FScriptDelegate                             LoginDelegate;                                    // 0x0004 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 };
 
@@ -41725,6 +42312,7 @@ struct UOnlinePlayerInterface_execClearLoginFailedDelegate_Params
 struct UOnlinePlayerInterface_execAddLoginFailedDelegate_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FScriptDelegate                             LoginDelegate;                                    // 0x0004 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 };
 
@@ -41748,9 +42336,11 @@ struct UOnlinePlayerInterface_execAutoLogin_Params
 struct UOnlinePlayerInterface_execLogin_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	class FString                                      LoginName;                                        // 0x0004 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 	class FString                                      Password;                                         // 0x0010 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 	uint32_t                                           bWantsLocalOnly : 1;                              // 0x001C (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0020 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0020 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -41759,6 +42349,7 @@ struct UOnlinePlayerInterface_execLogin_Params
 struct UOnlinePlayerInterface_execShowLoginUI_Params
 {
 	uint32_t                                           bShowOnlineOnly : 1;                              // 0x0000 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -42191,6 +42782,7 @@ struct ACoverReplicator_execClientReceiveManualCoverTypeSlots_Params
 	int32_t                                            Index;                                            // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	class ACoverLink*                                  Link;                                             // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            NumCoverTypesChanged;                             // 0x0008 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0009 (0x0003) MISSED OFFSET
 	struct FManualCoverTypeInfo                        SlotsCoverTypeChanged[8];                         // 0x000C (0x0020) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bDone : 1;                                        // 0x002C (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
 	// int32_t                                         I;                                                // 0x0030 (0x0004) [0x0000000000000000]               
@@ -42229,6 +42821,7 @@ struct ACoverReplicator_execClientReceiveAdjustedSlots_Params
 	class ACoverLink*                                  Link;                                             // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            NumSlotsAdjusted;                                 // 0x0008 (0x0001) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            SlotsAdjusted[8];                                 // 0x0009 (0x0008) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0011 (0x0003) MISSED OFFSET
 	uint32_t                                           bDone : 1;                                        // 0x0014 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
 	// int32_t                                         I;                                                // 0x0018 (0x0004) [0x0000000000000000]               
 };
@@ -42265,6 +42858,7 @@ struct ACoverReplicator_execClientReceiveDisabledSlots_Params
 	class ACoverLink*                                  Link;                                             // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            NumSlotsDisabled;                                 // 0x0008 (0x0001) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            SlotsDisabled[8];                                 // 0x0009 (0x0008) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0011 (0x0003) MISSED OFFSET
 	uint32_t                                           bDone : 1;                                        // 0x0014 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
 	// int32_t                                         I;                                                // 0x0018 (0x0004) [0x0000000000000000]               
 };
@@ -42301,6 +42895,7 @@ struct ACoverReplicator_execClientReceiveEnabledSlots_Params
 	class ACoverLink*                                  Link;                                             // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            NumSlotsEnabled;                                  // 0x0008 (0x0001) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            SlotsEnabled[8];                                  // 0x0009 (0x0008) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0011 (0x0003) MISSED OFFSET
 	uint32_t                                           bDone : 1;                                        // 0x0014 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
 	// int32_t                                         I;                                                // 0x0018 (0x0004) [0x0000000000000000]               
 };
@@ -42393,8 +42988,8 @@ struct UGameMessage_execGetString_Params
 {
 	int32_t                                            Switch;                                           // 0x0000 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint32_t                                           bPRI1HUD : 1;                                     // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
-	class APlayerReplicationInfo*                      RelatedPRI;                                       // 0x0008 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
-	class APlayerReplicationInfo*                      RelatedPRI01;                                     // 0x000C (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	class APlayerReplicationInfo*                      RelatedPRI_1;                                     // 0x0008 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	class APlayerReplicationInfo*                      RelatedPRI_2;                                     // 0x000C (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	class UObject*                                     OptionalObject;                                   // 0x0010 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	class FString                                      ReturnValue;                                      // 0x0014 (0x000C) [0x0000000000400580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink)
 };
@@ -42485,8 +43080,8 @@ struct ABroadcastHandler_eventAllowBroadcastLocalizedTeam_Params
 	class AActor*                                      Sender;                                           // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	class UClass*                                      Message;                                          // 0x0008 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	int32_t                                            Switch;                                           // 0x000C (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
-	class APlayerReplicationInfo*                      RelatedPRI;                                       // 0x0010 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
-	class APlayerReplicationInfo*                      RelatedPRI01;                                     // 0x0014 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	class APlayerReplicationInfo*                      RelatedPRI_1;                                     // 0x0010 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	class APlayerReplicationInfo*                      RelatedPRI_2;                                     // 0x0014 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	class UObject*                                     OptionalObject;                                   // 0x0018 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	// class APlayerController*                        P;                                                // 0x001C (0x0004) [0x0000000000000000]               
 };
@@ -42498,8 +43093,8 @@ struct ABroadcastHandler_eventAllowBroadcastLocalized_Params
 	class AActor*                                      Sender;                                           // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	class UClass*                                      Message;                                          // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	int32_t                                            Switch;                                           // 0x0008 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
-	class APlayerReplicationInfo*                      RelatedPRI;                                       // 0x000C (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
-	class APlayerReplicationInfo*                      RelatedPRI01;                                     // 0x0010 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	class APlayerReplicationInfo*                      RelatedPRI_1;                                     // 0x000C (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	class APlayerReplicationInfo*                      RelatedPRI_2;                                     // 0x0010 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	class UObject*                                     OptionalObject;                                   // 0x0014 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	// class APlayerController*                        P;                                                // 0x0018 (0x0004) [0x0000000000000000]               
 };
@@ -42533,8 +43128,8 @@ struct ABroadcastHandler_execBroadcastLocalized_Params
 	class APlayerController*                           Receiver;                                         // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	class UClass*                                      Message;                                          // 0x0008 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	int32_t                                            Switch;                                           // 0x000C (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
-	class APlayerReplicationInfo*                      RelatedPRI;                                       // 0x0010 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
-	class APlayerReplicationInfo*                      RelatedPRI01;                                     // 0x0014 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	class APlayerReplicationInfo*                      RelatedPRI_1;                                     // 0x0010 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	class APlayerReplicationInfo*                      RelatedPRI_2;                                     // 0x0014 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	class UObject*                                     OptionalObject;                                   // 0x0018 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 };
 
@@ -42648,8 +43243,10 @@ struct UDebugCameraInput_execInputKey_Params
 	int32_t                                            ControllerId;                                     // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	class FName                                        Key;                                              // 0x0004 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            Event;                                            // 0x000C (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x000D (0x0003) MISSED OFFSET
 	float                                              AmountDepressed;                                  // 0x0010 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint32_t                                           bGamepad : 1;                                     // 0x0014 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0018 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0018 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 	// class APlayerController*                        PC;                                               // 0x001C (0x0004) [0x0000000000000000]               
 	// class ADebugCameraController*                   DCC;                                              // 0x0020 (0x0004) [0x0000000000000000]               
@@ -42673,8 +43270,8 @@ struct UFailedConnect_execGetString_Params
 {
 	int32_t                                            Switch;                                           // 0x0000 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint32_t                                           bPRI1HUD : 1;                                     // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
-	class APlayerReplicationInfo*                      RelatedPRI;                                       // 0x0008 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
-	class APlayerReplicationInfo*                      RelatedPRI01;                                     // 0x000C (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	class APlayerReplicationInfo*                      RelatedPRI_1;                                     // 0x0008 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	class APlayerReplicationInfo*                      RelatedPRI_2;                                     // 0x000C (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	class UObject*                                     OptionalObject;                                   // 0x0010 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	class FString                                      ReturnValue;                                      // 0x0014 (0x000C) [0x0000000000400580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink)
 };
@@ -42727,7 +43324,7 @@ struct UUIMessageBoxBase_execGetButtonBar_Params
 
 // Function Engine.UIMessageBoxBase.GetMessageLabel
 // [0x00020002] 
-struct UUIMessageBoxBase_execGetMessageLabelW_Params
+struct UUIMessageBoxBase_execGetMessageLabelWin_Params
 {
 	class UUILabel*                                    ReturnValue;                                      // 0x0000 (0x0004) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
@@ -42855,6 +43452,7 @@ struct AHeightFog_eventPostBeginPlay_Params
 struct UOnlineCommunityContentInterface_execRateContent_Params
 {
 	uint8_t                                            PlayerNum;                                        // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FCommunityContentFile                       FileToRate;                                       // 0x0004 (0x0034) [0x0000000000400182] (CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink)
 	int32_t                                            NewRating;                                        // 0x0038 (0x0004) [0x0000000000000080] (CPF_Parm)    
 };
@@ -42887,6 +43485,7 @@ struct UOnlineCommunityContentInterface_execOnGetContentPayloadComplete_Params
 struct UOnlineCommunityContentInterface_execGetContentPayload_Params
 {
 	uint8_t                                            PlayerNum;                                        // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FCommunityContentFile                       FileDownloaded;                                   // 0x0004 (0x0034) [0x0000000000400182] (CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink)
 	bool                                               ReturnValue : 1;                                  // 0x0038 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
@@ -42918,6 +43517,7 @@ struct UOnlineCommunityContentInterface_execOnDownloadContentComplete_Params
 struct UOnlineCommunityContentInterface_execDownloadContent_Params
 {
 	uint8_t                                            PlayerNum;                                        // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FCommunityContentFile                       FileToDownload;                                   // 0x0004 (0x0034) [0x0000000000400182] (CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink)
 	bool                                               ReturnValue : 1;                                  // 0x0038 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
@@ -42949,6 +43549,7 @@ struct UOnlineCommunityContentInterface_execOnUploadContentComplete_Params
 struct UOnlineCommunityContentInterface_execUploadContent_Params
 {
 	uint8_t                                            PlayerNum;                                        // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	class TArray<uint8_t>                              Payload;                                          // 0x0004 (0x000C) [0x0000000000400182] (CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink)
 	struct FCommunityContentMetadata                   MetaData;                                         // 0x0010 (0x0010) [0x0000000000400182] (CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink)
 	bool                                               ReturnValue : 1;                                  // 0x0020 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
@@ -42959,6 +43560,7 @@ struct UOnlineCommunityContentInterface_execUploadContent_Params
 struct UOnlineCommunityContentInterface_execGetFriendsContentList_Params
 {
 	uint8_t                                            PlayerNum;                                        // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FOnlineFriend                               Friend;                                           // 0x0004 (0x0030) [0x0000000000400182] (CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink)
 	class TArray<struct FCommunityContentFile>         ContentFiles;                                     // 0x0034 (0x000C) [0x0000000000400180] (CPF_Parm | CPF_OutParm | CPF_NeedCtorLink)
 	bool                                               ReturnValue : 1;                                  // 0x0040 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
@@ -42990,6 +43592,7 @@ struct UOnlineCommunityContentInterface_execOnReadFriendsContentListComplete_Par
 struct UOnlineCommunityContentInterface_execReadFriendsContentList_Params
 {
 	uint8_t                                            PlayerNum;                                        // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	class TArray<struct FOnlineFriend>                 Friends;                                          // 0x0004 (0x000C) [0x0000000000400182] (CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink)
 	int32_t                                            StartAt;                                          // 0x0010 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	int32_t                                            NumToRead;                                        // 0x0014 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
@@ -43001,6 +43604,7 @@ struct UOnlineCommunityContentInterface_execReadFriendsContentList_Params
 struct UOnlineCommunityContentInterface_execGetContentList_Params
 {
 	uint8_t                                            PlayerNum;                                        // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	class TArray<struct FCommunityContentFile>         ContentFiles;                                     // 0x0004 (0x000C) [0x0000000000400180] (CPF_Parm | CPF_OutParm | CPF_NeedCtorLink)
 	bool                                               ReturnValue : 1;                                  // 0x0010 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
@@ -43031,6 +43635,7 @@ struct UOnlineCommunityContentInterface_execOnReadContentListComplete_Params
 struct UOnlineCommunityContentInterface_execReadContentList_Params
 {
 	uint8_t                                            PlayerNum;                                        // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	int32_t                                            StartAt;                                          // 0x0004 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	int32_t                                            NumToRead;                                        // 0x0008 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	bool                                               ReturnValue : 1;                                  // 0x000C (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
@@ -43105,6 +43710,7 @@ struct UOnlineRecentPlayersList_execDumpPlayersList_Params
 struct UOnlineRecentPlayersList_execShowCurrentPlayersList_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	class FString                                      Title;                                            // 0x0004 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 	class FString                                      Description;                                      // 0x0010 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 	bool                                               ReturnValue : 1;                                  // 0x001C (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
@@ -43117,6 +43723,7 @@ struct UOnlineRecentPlayersList_execShowCurrentPlayersList_Params
 struct UOnlineRecentPlayersList_execShowLastPartyPlayerList_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	class FString                                      Title;                                            // 0x0004 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 	class FString                                      Description;                                      // 0x0010 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 	bool                                               ReturnValue : 1;                                  // 0x001C (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
@@ -43128,6 +43735,7 @@ struct UOnlineRecentPlayersList_execShowLastPartyPlayerList_Params
 struct UOnlineRecentPlayersList_execShowRecentPartiesPlayerList_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	class FString                                      Title;                                            // 0x0004 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 	class FString                                      Description;                                      // 0x0010 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 	bool                                               ReturnValue : 1;                                  // 0x001C (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
@@ -43140,6 +43748,7 @@ struct UOnlineRecentPlayersList_execShowRecentPartiesPlayerList_Params
 struct UOnlineRecentPlayersList_execShowRecentPlayerList_Params
 {
 	uint8_t                                            LocalUserNum;                                     // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	class FString                                      Title;                                            // 0x0004 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 	class FString                                      Description;                                      // 0x0010 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 	bool                                               ReturnValue : 1;                                  // 0x001C (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)

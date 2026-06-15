@@ -1,7 +1,7 @@
 /*
 #############################################################################################
 # Alice2 (ASDK) SDK 1.0.0.0
-# Generated with the CodeRedGenerator v1.1.6
+# Generated with the CodeRedGenerator v1.2.0
 # ========================================================================================= #
 # File: Kynapse_classes.hpp
 # ========================================================================================= #
@@ -14,14 +14,6 @@
 #ifdef _MSC_VER
 #pragma pack(push, 0x4)
 #endif
-
-// Forward Declarations
-class UClass;
-class UFunction;
-class UProperty;
-class UStructProperty;
-class UStruct;
-
 
 /*
 # ========================================================================================= #
@@ -321,7 +313,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseActorFactoryAI
 // 0x0004 (0x0084 - 0x0088)
 class UKynapseActorFactoryAI : public UActorFactoryAI
@@ -343,7 +334,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseAdditionalData
 // 0x0018 (0x003C - 0x0054)
 class UKynapseAdditionalData : public UObject
@@ -366,7 +356,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseFpdAdditionalDataVertex
 // 0x0000 (0x0054 - 0x0054)
 class UKynapseFpdAdditionalDataVertex : public UKynapseAdditionalData
@@ -387,7 +376,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseFpdAdditionalDataVertexHidingData
 // 0x0000 (0x0054 - 0x0054)
 class UKynapseFpdAdditionalDataVertexHidingData : public UKynapseFpdAdditionalDataVertex
@@ -408,7 +396,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseAgent
 // 0x0030 (0x003C - 0x006C)
 class UKynapseAgent : public UObject
@@ -433,7 +420,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseFpdAgentFlee
 // 0x0024 (0x006C - 0x0090)
 class UKynapseFpdAgentFlee : public UKynapseAgent
@@ -461,7 +447,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseFpdAgentFollow
 // 0x001C (0x006C - 0x0088)
 class UKynapseFpdAgentFollow : public UKynapseAgent
@@ -487,7 +472,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseFpdAgentGoto
 // 0x0004 (0x006C - 0x0070)
 class UKynapseFpdAgentGoto : public UKynapseAgent
@@ -509,7 +493,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseFpdAgentHide
 // 0x0020 (0x006C - 0x008C)
 class UKynapseFpdAgentHide : public UKynapseAgent
@@ -536,7 +519,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseFpdAgentShoot
 // 0x0024 (0x006C - 0x0090)
 class UKynapseFpdAgentShoot : public UKynapseAgent
@@ -564,7 +546,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseFpdAgentWander
 // 0x0008 (0x006C - 0x0074)
 class UKynapseFpdAgentWander : public UKynapseAgent
@@ -587,7 +568,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxAgentChase
 // 0x0000 (0x006C - 0x006C)
 class USphinxAgentChase : public UKynapseAgent
@@ -608,7 +588,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxAgentCommonInfo
 // 0x0000 (0x006C - 0x006C)
 class USphinxAgentCommonInfo : public UKynapseAgent
@@ -629,7 +608,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxAgentFight
 // 0x0074 (0x006C - 0x00E0)
 class USphinxAgentFight : public UKynapseAgent
@@ -672,7 +650,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxAgentFlee
 // 0x0000 (0x006C - 0x006C)
 class USphinxAgentFlee : public UKynapseAgent
@@ -693,7 +670,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxAgentFollow
 // 0x001C (0x006C - 0x0088)
 class USphinxAgentFollow : public UKynapseAgent
@@ -719,7 +695,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxAgentGoto
 // 0x0018 (0x006C - 0x0084)
 class USphinxAgentGoto : public UKynapseAgent
@@ -744,7 +719,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxAgentHide
 // 0x0000 (0x006C - 0x006C)
 class USphinxAgentHide : public UKynapseAgent
@@ -765,7 +739,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxAgentInterestPointAlert
 // 0x0004 (0x006C - 0x0070)
 class USphinxAgentInterestPointAlert : public UKynapseAgent
@@ -787,7 +760,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxAgentShoot
 // 0x0000 (0x006C - 0x006C)
 class USphinxAgentShoot : public UKynapseAgent
@@ -808,7 +780,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxAgentWander
 // 0x0024 (0x006C - 0x0090)
 class USphinxAgentWander : public UKynapseAgent
@@ -837,7 +808,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxAgentWayPath
 // 0x0018 (0x006C - 0x0084)
 class USphinxAgentWayPath : public UKynapseAgent
@@ -864,7 +834,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseAIController
 // 0x0070 (0x03DC - 0x044C)
 class AKynapseAIController : public AAIController
@@ -903,6 +872,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void OnAIFollow(class USeqAct_AIFollow* Action);
 	void OnAIShoot(class USeqAct_AIShoot* Action);
 	void OnAIHide(class USeqAct_AIHide* Action);
@@ -921,7 +891,6 @@ public:
 	bool KynapseHasArrived(const struct FVector& Dest);
 	void eventHearNoise(float Loudness, class AActor* NoiseMaker, const class FName& optionalNoiseType);
 };
-
 // Class Kynapse.KynapseAiMeshLayerDefinition
 // 0x000C (0x003C - 0x0048)
 class UKynapseAiMeshLayerDefinition : public UObject
@@ -943,7 +912,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseObstacleLayerDefinition
 // 0x0028 (0x0048 - 0x0070)
 class UKynapseObstacleLayerDefinition : public UKynapseAiMeshLayerDefinition
@@ -970,7 +938,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseBrain
 // 0x0068 (0x003C - 0x00A4)
 class UKynapseBrain : public UObject
@@ -995,7 +962,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseBrainService
 // 0x0030 (0x003C - 0x006C)
 class UKynapseBrainService : public UObject
@@ -1020,7 +986,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseBrainServiceFpdPathfinder
 // 0x0068 (0x006C - 0x00D4)
 class UKynapseBrainServiceFpdPathfinder : public UKynapseBrainService
@@ -1048,7 +1013,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseEngineService
 // 0x0018 (0x003C - 0x0054)
 class UKynapseEngineService : public UObject
@@ -1071,7 +1035,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseEngineServiceFpdPathDataManager
 // 0x0008 (0x0054 - 0x005C)
 class UKynapseEngineServiceFpdPathDataManager : public UKynapseEngineService
@@ -1094,7 +1057,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseEntityDefinition
 // 0x0000 (0x003C - 0x003C)
 class UKynapseEntityDefinition : public UObject
@@ -1115,7 +1077,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseEntityDefinitionActive
 // 0x0028 (0x003C - 0x0064)
 class UKynapseEntityDefinitionActive : public UKynapseEntityDefinition
@@ -1142,7 +1103,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseEntityDefinitionPassive
 // 0x0010 (0x003C - 0x004C)
 class UKynapseEntityDefinitionPassive : public UKynapseEntityDefinition
@@ -1165,7 +1125,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseEntityDefinitionPathObject
 // 0x0008 (0x004C - 0x0054)
 class UKynapseEntityDefinitionPathObject : public UKynapseEntityDefinitionPassive
@@ -1188,7 +1147,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseEntityDefinitionDynamicPathObject
 // 0x0004 (0x0054 - 0x0058)
 class UKynapseEntityDefinitionDynamicPathObject : public UKynapseEntityDefinitionPathObject
@@ -1210,7 +1168,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseEntityDefinitionStaticPathObject
 // 0x0010 (0x0054 - 0x0064)
 class UKynapseEntityDefinitionStaticPathObject : public UKynapseEntityDefinitionPathObject
@@ -1233,7 +1190,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseEntityInfoDefinition
 // 0x001C (0x003C - 0x0058)
 class UKynapseEntityInfoDefinition : public UObject
@@ -1259,7 +1215,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseExclusionVolume
 // 0x0000 (0x0268 - 0x0268)
 class AKynapseExclusionVolume : public ABlockingVolume
@@ -1279,9 +1234,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool StopsProjectile(class AProjectile* P);
 };
-
 // Class Kynapse.KynapseExplorationVolume
 // 0x0000 (0x0264 - 0x0264)
 class AKynapseExplorationVolume : public ATriggerVolume
@@ -1302,7 +1257,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseFilter
 // 0x000C (0x003C - 0x0048)
 class UKynapseFilter : public UObject
@@ -1324,7 +1278,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseFilterDistance
 // 0x0010 (0x0048 - 0x0058)
 class UKynapseFilterDistance : public UKynapseFilter
@@ -1347,7 +1300,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseFilterFrustum
 // 0x0024 (0x0048 - 0x006C)
 class UKynapseFilterFrustum : public UKynapseFilter
@@ -1373,7 +1325,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseFilterUnconditional
 // 0x0000 (0x0048 - 0x0048)
 class UKynapseFilterUnconditional : public UKynapseFilter
@@ -1394,7 +1345,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseFpdDatabase
 // 0x000C (0x003C - 0x0048)
 class UKynapseFpdDatabase : public UObject
@@ -1416,7 +1366,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseFpdTraversalDefinition
 // 0x0028 (0x003C - 0x0064)
 class UKynapseFpdTraversalDefinition : public UObject
@@ -1440,7 +1389,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseFpdTraversalDefinitionFlee
 // 0x0008 (0x0064 - 0x006C)
 class UKynapseFpdTraversalDefinitionFlee : public UKynapseFpdTraversalDefinition
@@ -1463,7 +1411,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseFpdTraversalDefinitionHide
 // 0x0008 (0x0064 - 0x006C)
 class UKynapseFpdTraversalDefinitionHide : public UKynapseFpdTraversalDefinition
@@ -1486,7 +1433,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseFpdTraversalDefinitionWander
 // 0x0010 (0x0064 - 0x0074)
 class UKynapseFpdTraversalDefinitionWander : public UKynapseFpdTraversalDefinition
@@ -1511,7 +1457,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxTraversalDefinitionWander
 // 0x0018 (0x0064 - 0x007C)
 class USphinxTraversalDefinitionWander : public UKynapseFpdTraversalDefinition
@@ -1538,7 +1483,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseFracturedComponent
 // 0x0007 (0x0055 - 0x005C)
 class UKynapseFracturedComponent : public UActorComponent
@@ -1560,7 +1504,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseFracturedStaticMeshActor
 // 0x0000 (0x0290 - 0x0290)
 class AKynapseFracturedStaticMeshActor : public AFracturedStaticMeshActor
@@ -1581,7 +1524,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseGraph
 // 0x0040 (0x003C - 0x007C)
 class UKynapseGraph : public UObject
@@ -1608,7 +1550,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseHandle
 // 0x0023 (0x0055 - 0x0078)
 class UKynapseHandle : public UActorComponent
@@ -1633,11 +1574,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	void RegisterToProfile(const class FString& ProfileName);
 	void AddKynapseEntity();
 	void InitKynapseEntity();
 };
-
 // Class Kynapse.KynapseLadderVolume
 // 0x000C (0x02D8 - 0x02E4)
 class AKynapseLadderVolume : public ALadderVolume
@@ -1658,9 +1599,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventPostBeginPlay();
 };
-
 // Class Kynapse.KynapseLocalRecomputationVolume
 // 0x0004 (0x0264 - 0x0268)
 class AKynapseLocalRecomputationVolume : public AVolume
@@ -1682,7 +1623,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseLpfPreMerger
 // 0x000C (0x003C - 0x0048)
 class UKynapseLpfPreMerger : public UObject
@@ -1704,7 +1644,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseLpfPreMerger_Grid
 // 0x0010 (0x0048 - 0x0058)
 class UKynapseLpfPreMerger_Grid : public UKynapseLpfPreMerger
@@ -1729,7 +1668,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseLpfPreMerger_Polygon
 // 0x0000 (0x0048 - 0x0048)
 class UKynapseLpfPreMerger_Polygon : public UKynapseLpfPreMerger
@@ -1750,7 +1688,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseMesh
 // 0x0010 (0x003C - 0x004C)
 class UKynapseMesh : public UObject
@@ -1773,7 +1710,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseObstacleFractured
 // 0x0000 (0x0290 - 0x0290)
 class AKynapseObstacleFractured : public AFracturedStaticMeshActor
@@ -1793,10 +1729,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventExplode();
 	void eventTakeDamage(int32_t Damage, class AController* EventInstigator, const struct FVector& HitLocation, const struct FVector& Momentum, class UClass* DamageType, const struct FTraceHitInfo& optionalHitInfo, class AActor* optionalDamageCauser);
 };
-
 // Class Kynapse.KynapsePawn
 // 0x0008 (0x05DC - 0x05E4)
 class AKynapsePawn : public AGamePawn
@@ -1818,11 +1754,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventOnAnimEnd(class UAnimNodeSequence* SeqNode, float PlayedTime, float ExcessTime);
 	void eventBump(class AActor* Other, class UPrimitiveComponent* OtherComp, const struct FVector& HitNormal);
 	void SphinxAnimEnd(class UAnimNodeSequence* SeqNode, float PlayedTime, float ExcessTime);
 };
-
 // Class Kynapse.KynapseProfileDefinition
 // 0x0010 (0x003C - 0x004C)
 class UKynapseProfileDefinition : public UObject
@@ -1845,7 +1781,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseSeedGraphPoint
 // 0x0004 (0x0228 - 0x022C)
 class AKynapseSeedGraphPoint : public AActor
@@ -1867,7 +1802,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseJumpSeedGraphPoint
 // 0x0000 (0x022C - 0x022C)
 class AKynapseJumpSeedGraphPoint : public AKynapseSeedGraphPoint
@@ -1888,7 +1822,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseStandardPathdataGenerationService
 // 0x007C (0x0228 - 0x02A4)
 class AKynapseStandardPathdataGenerationService : public AActor
@@ -1930,7 +1863,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseWorldServiceFlyBuilder
 // 0x0028 (0x02A4 - 0x02CC)
 class AKynapseWorldServiceFlyBuilder : public AKynapseStandardPathdataGenerationService
@@ -1955,7 +1887,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseWorldServiceMapBuilder
 // 0x0098 (0x02A4 - 0x033C)
 class AKynapseWorldServiceMapBuilder : public AKynapseStandardPathdataGenerationService
@@ -1990,7 +1921,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseTag
 // 0x0000 (0x003C - 0x003C)
 class UKynapseTag : public UObject
@@ -2011,7 +1941,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseTeamCreationData
 // 0x001C (0x003C - 0x0058)
 class UKynapseTeamCreationData : public UObject
@@ -2019,6 +1948,7 @@ class UKynapseTeamCreationData : public UObject
 public:
 	class FString                                      TeamName;                                      // 0x003C (0x000C) [0x0000000000400003] (CPF_Edit | CPF_Const | CPF_NeedCtorLink)
 	ESphinxTeamContainerType                           TeamType;                                      // 0x0048 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0049 (0x0003) MISSED OFFSET
 	int32_t                                            TeamSize;                                      // 0x004C (0x0004) [0x0000000000000003] (CPF_Edit | CPF_Const)
 	class UKynapseTeamDefinition*                      TeamDefinition;                                // 0x0050 (0x0004) [0x0000000000000003] (CPF_Edit | CPF_Const)
 	struct FPointer                                    KynapseTeam;                                   // 0x0054 (0x0004) [0x0000000000000002] (CPF_Const)   
@@ -2036,10 +1966,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void PostInitializeTeam();
 	void CreateKynapseTeam();
 };
-
 // Class Kynapse.SphinxTeamCreationDataFight
 // 0x0000 (0x0058 - 0x0058)
 class USphinxTeamCreationDataFight : public UKynapseTeamCreationData
@@ -2060,7 +1990,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseTeamDefinition
 // 0x000C (0x003C - 0x0048)
 class UKynapseTeamDefinition : public UObject
@@ -2082,7 +2011,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxTeamDefinitionFight
 // 0x0000 (0x0048 - 0x0048)
 class USphinxTeamDefinitionFight : public UKynapseTeamDefinition
@@ -2103,7 +2031,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseTraversalDefinition
 // 0x0030 (0x003C - 0x006C)
 class UKynapseTraversalDefinition : public UObject
@@ -2129,7 +2056,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseUDG
 // 0x0010 (0x003C - 0x004C)
 class UKynapseUDG : public UObject
@@ -2152,7 +2078,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseWorld
 // 0x00A8 (0x0228 - 0x02D0)
 class AKynapseWorld : public AActor
@@ -2185,7 +2110,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseWorldService
 // 0x0030 (0x003C - 0x006C)
 class UKynapseWorldService : public UObject
@@ -2210,7 +2134,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseWorldServiceAiMeshLayerManager
 // 0x000C (0x006C - 0x0078)
 class UKynapseWorldServiceAiMeshLayerManager : public UKynapseWorldService
@@ -2232,7 +2155,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseWorldServiceAIMeshManager
 // 0x0000 (0x006C - 0x006C)
 class UKynapseWorldServiceAIMeshManager : public UKynapseWorldService
@@ -2253,7 +2175,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseWorldServiceEntityManager
 // 0x0018 (0x006C - 0x0084)
 class UKynapseWorldServiceEntityManager : public UKynapseWorldService
@@ -2276,7 +2197,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseWorldServiceFpdGraphToolBoxManager
 // 0x0000 (0x006C - 0x006C)
 class UKynapseWorldServiceFpdGraphToolBoxManager : public UKynapseWorldService
@@ -2297,7 +2217,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseWorldServiceFpdPathObjectManager
 // 0x000C (0x006C - 0x0078)
 class UKynapseWorldServiceFpdPathObjectManager : public UKynapseWorldService
@@ -2319,7 +2238,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseWorldServiceGapManager
 // 0x0004 (0x006C - 0x0070)
 class UKynapseWorldServiceGapManager : public UKynapseWorldService
@@ -2341,7 +2259,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseWorldServiceGraphManager
 // 0x0000 (0x006C - 0x006C)
 class UKynapseWorldServiceGraphManager : public UKynapseWorldService
@@ -2362,7 +2279,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseWorldServiceLpfManager
 // 0x000C (0x006C - 0x0078)
 class UKynapseWorldServiceLpfManager : public UKynapseWorldService
@@ -2384,7 +2300,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseWorldServiceOutlineComputation
 // 0x0000 (0x006C - 0x006C)
 class UKynapseWorldServiceOutlineComputation : public UKynapseWorldService
@@ -2405,7 +2320,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseWorldServicePointLockManager
 // 0x0018 (0x006C - 0x0084)
 class UKynapseWorldServicePointLockManager : public UKynapseWorldService
@@ -2432,7 +2346,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.LinkedPathdataRenderingComponent
 // 0x0000 (0x01D4 - 0x01D4)
 class ULinkedPathdataRenderingComponent : public UPrimitiveComponent
@@ -2453,7 +2366,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.PathdataRenderingComponent
 // 0x0000 (0x01D4 - 0x01D4)
 class UPathdataRenderingComponent : public UPrimitiveComponent
@@ -2474,7 +2386,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SeqAct_AIFlee
 // 0x0008 (0x00F8 - 0x0100)
 class USeqAct_AIFlee : public USeqAct_Latent
@@ -2497,7 +2408,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SeqAct_AIFollow
 // 0x0008 (0x00F8 - 0x0100)
 class USeqAct_AIFollow : public USeqAct_Latent
@@ -2520,7 +2430,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SeqAct_AIHide
 // 0x0008 (0x00F8 - 0x0100)
 class USeqAct_AIHide : public USeqAct_Latent
@@ -2543,7 +2452,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SeqAct_AIShoot
 // 0x0008 (0x00F8 - 0x0100)
 class USeqAct_AIShoot : public USeqAct_Latent
@@ -2566,7 +2474,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SeqAct_AIWander
 // 0x0008 (0x00F8 - 0x0100)
 class USeqAct_AIWander : public USeqAct_Latent
@@ -2589,7 +2496,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SeqAct_ConfigSphinxAgent
 // 0x0018 (0x00E8 - 0x0100)
 class USeqAct_ConfigSphinxAgent : public USequenceAction
@@ -2620,7 +2526,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SeqAct_SphinxAIFollow
 // 0x0008 (0x00F8 - 0x0100)
 class USeqAct_SphinxAIFollow : public USeqAct_Latent
@@ -2643,7 +2548,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SeqAct_SphinxNotifyKismetControl
 // 0x0004 (0x00E8 - 0x00EC)
 class USeqAct_SphinxNotifyKismetControl : public USequenceAction
@@ -2665,7 +2569,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SeqAct_SphinxNotifyTeammateFight
 // 0x0004 (0x00E8 - 0x00EC)
 class USeqAct_SphinxNotifyTeammateFight : public USequenceAction
@@ -2687,7 +2590,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SeqAct_SphinxSubConditionNotify
 // 0x0008 (0x00E8 - 0x00F0)
 class USeqAct_SphinxSubConditionNotify : public USequenceAction
@@ -2709,7 +2611,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SeqEvent_SphinxSequenceActivated
 // 0x0008 (0x010C - 0x0114)
 class USeqEvent_SphinxSequenceActivated : public USeqEvent_SequenceActivated
@@ -2731,13 +2632,13 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxInterstingPoint
 // 0x0038 (0x0300 - 0x0338)
 class ASphinxInterstingPoint : public ANavigationPoint
 {
 public:
 	ESphinxIP                                          Type;                                          // 0x0300 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0301 (0x0003) MISSED OFFSET
 	float                                              ToSeekerDistanceSQ;                            // 0x0304 (0x0004) [0x0000000000002000] (CPF_Transient)
 	class APawn*                                       m_Pawn_MovingToHere;                           // 0x0308 (0x0004) [0x0000000000000000]               
 	uint32_t                                           bEnabled : 1;                                  // 0x030C (0x0004) [0x0000000000000001] [0x00000001] (CPF_Edit)
@@ -2761,10 +2662,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void ShowRadius();
 	void eventPostBeginPlay();
 };
-
 // Class Kynapse.SphinxScriptSequenceEventPackage
 // 0x0028 (0x003C - 0x0064)
 class USphinxScriptSequenceEventPackage : public UObject
@@ -2789,7 +2690,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxScriptSequenceHealthEventPackage
 // 0x000C (0x0064 - 0x0070)
 class USphinxScriptSequenceHealthEventPackage : public USphinxScriptSequenceEventPackage
@@ -2814,7 +2714,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxSequenceEventBase
 // 0x0001 (0x003C - 0x003D)
 class USphinxSequenceEventBase : public UObject
@@ -2836,7 +2735,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxSequenceActionConditionJump
 // 0x0013 (0x003D - 0x0050)
 class USphinxSequenceActionConditionJump : public USphinxSequenceEventBase
@@ -2859,7 +2757,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxSequenceActionExit
 // 0x0000 (0x003D - 0x003D)
 class USphinxSequenceActionExit : public USphinxSequenceEventBase
@@ -2880,7 +2777,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxSequenceEventActiveShield
 // 0x000B (0x003D - 0x0048)
 class USphinxSequenceEventActiveShield : public USphinxSequenceEventBase
@@ -2903,7 +2799,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxSequenceEventActiveUIPrompt
 // 0x0007 (0x003D - 0x0044)
 class USphinxSequenceEventActiveUIPrompt : public USphinxSequenceEventBase
@@ -2925,7 +2820,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxSequenceEventAnnounceInFightProcess
 // 0x0007 (0x003D - 0x0044)
 class USphinxSequenceEventAnnounceInFightProcess : public USphinxSequenceEventBase
@@ -2947,7 +2841,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxSequenceEventAttachAlice
 // 0x002B (0x003D - 0x0068)
 class USphinxSequenceEventAttachAlice : public USphinxSequenceEventBase
@@ -2974,7 +2867,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxSequenceEventBlendToLocation
 // 0x001B (0x003D - 0x0058)
 class USphinxSequenceEventBlendToLocation : public USphinxSequenceEventBase
@@ -2999,7 +2891,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxSequenceEventChangeAnimTreeBlendingBranch
 // 0x0007 (0x003D - 0x0044)
 class USphinxSequenceEventChangeAnimTreeBlendingBranch : public USphinxSequenceEventBase
@@ -3021,7 +2912,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxSequenceEventChangeAttachedActorDamageAnim
 // 0x000F (0x003D - 0x004C)
 class USphinxSequenceEventChangeAttachedActorDamageAnim : public USphinxSequenceEventBase
@@ -3029,6 +2919,7 @@ class USphinxSequenceEventChangeAttachedActorDamageAnim : public USphinxSequence
 public:
 	int32_t                                            ActorID;                                       // 0x0040 (0x0004) [0x0000000000000003] (CPF_Edit | CPF_Const)
 	EDamageStrengthTypeSphinx                          DamageStrength;                                // 0x0044 (0x0001) [0x0000000000000003] (CPF_Edit | CPF_Const)
+	uint8_t                                            UnknownData00[0x3];                              // 0x0045 (0x0003) MISSED OFFSET
 	int32_t                                            AnimIndex;                                     // 0x0048 (0x0004) [0x0000000000000003] (CPF_Edit | CPF_Const)
 
 public:
@@ -3045,7 +2936,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxSequenceEventChangeCollisionPhAT
 // 0x0007 (0x003D - 0x0044)
 class USphinxSequenceEventChangeCollisionPhAT : public USphinxSequenceEventBase
@@ -3067,7 +2957,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxSequenceEventChangeCollisionType
 // 0x000C (0x003D - 0x0049)
 class USphinxSequenceEventChangeCollisionType : public USphinxSequenceEventBase
@@ -3094,7 +2983,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxSequenceEventChangeDamageAnim
 // 0x001B (0x003D - 0x0058)
 class USphinxSequenceEventChangeDamageAnim : public USphinxSequenceEventBase
@@ -3102,6 +2990,7 @@ class USphinxSequenceEventChangeDamageAnim : public USphinxSequenceEventBase
 public:
 	int32_t                                            AnimIndex;                                     // 0x0040 (0x0004) [0x0000000000000003] (CPF_Edit | CPF_Const)
 	EDamageStrengthTypeSphinx                          DamageStrength;                                // 0x0044 (0x0001) [0x0000000000000003] (CPF_Edit | CPF_Const)
+	uint8_t                                            UnknownData00[0x3];                              // 0x0045 (0x0003) MISSED OFFSET
 	struct FRotator                                    DamageRotationRate;                            // 0x0048 (0x000C) [0x0000000000000001] (CPF_Edit)    
 	uint32_t                                           bKnockBack : 1;                                // 0x0054 (0x0004) [0x0000000000000001] [0x00000001] (CPF_Edit)
 	uint32_t                                           bPhysicalAnim : 1;                             // 0x0054 (0x0004) [0x0000000000000001] [0x00000002] (CPF_Edit)
@@ -3120,7 +3009,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxSequenceEventChangeFightConditionIndex
 // 0x000B (0x003D - 0x0048)
 class USphinxSequenceEventChangeFightConditionIndex : public USphinxSequenceEventBase
@@ -3145,7 +3033,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxSequenceEventChangeMaterial
 // 0x0047 (0x003D - 0x0084)
 class USphinxSequenceEventChangeMaterial : public USphinxSequenceEventBase
@@ -3173,7 +3060,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxSequenceEventChangeMovingPhAT
 // 0x0007 (0x003D - 0x0044)
 class USphinxSequenceEventChangeMovingPhAT : public USphinxSequenceEventBase
@@ -3195,7 +3081,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxSequenceEventChangePhysic
 // 0x0008 (0x003D - 0x0045)
 class USphinxSequenceEventChangePhysic : public USphinxSequenceEventBase
@@ -3218,7 +3103,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxSequenceEventDestroyComponent
 // 0x0007 (0x003D - 0x0044)
 class USphinxSequenceEventDestroyComponent : public USphinxSequenceEventBase
@@ -3240,7 +3124,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxSequenceEventFadeComponent
 // 0x0013 (0x003D - 0x0050)
 class USphinxSequenceEventFadeComponent : public USphinxSequenceEventBase
@@ -3264,7 +3147,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxSequenceEventKillAttachedActor
 // 0x0007 (0x003D - 0x0044)
 class USphinxSequenceEventKillAttachedActor : public USphinxSequenceEventBase
@@ -3286,7 +3168,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxSequenceEventLockTargets
 // 0x000B (0x003D - 0x0048)
 class USphinxSequenceEventLockTargets : public USphinxSequenceEventBase
@@ -3309,7 +3190,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxSequenceEventModifyPawnHealth
 // 0x000F (0x003D - 0x004C)
 class USphinxSequenceEventModifyPawnHealth : public USphinxSequenceEventBase
@@ -3333,7 +3213,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxSequenceEventModifyPawnMaxHealth
 // 0x0007 (0x003D - 0x0044)
 class USphinxSequenceEventModifyPawnMaxHealth : public USphinxSequenceEventBase
@@ -3355,7 +3234,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxSequenceEventModifyRotateAndSpeed
 // 0x0013 (0x003D - 0x0050)
 class USphinxSequenceEventModifyRotateAndSpeed : public USphinxSequenceEventBase
@@ -3378,7 +3256,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxSequenceEventMoveToGotoLocation
 // 0x0007 (0x003D - 0x0044)
 class USphinxSequenceEventMoveToGotoLocation : public USphinxSequenceEventBase
@@ -3400,7 +3277,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxSequenceEventMoveToOriginalSpawnLocation
 // 0x0000 (0x003D - 0x003D)
 class USphinxSequenceEventMoveToOriginalSpawnLocation : public USphinxSequenceEventBase
@@ -3421,7 +3297,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxSequenceEventPlayAnim
 // 0x0023 (0x003D - 0x0060)
 class USphinxSequenceEventPlayAnim : public USphinxSequenceEventBase
@@ -3449,7 +3324,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxSequenceEventPlayAnimOnAttachedActor
 // 0x000B (0x003D - 0x0048)
 class USphinxSequenceEventPlayAnimOnAttachedActor : public USphinxSequenceEventBase
@@ -3472,7 +3346,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxSequenceEventPlayMorphTarget
 // 0x0017 (0x003D - 0x0054)
 class USphinxSequenceEventPlayMorphTarget : public USphinxSequenceEventBase
@@ -3497,7 +3370,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxSequenceEventPlayParticle
 // 0x0023 (0x003D - 0x0060)
 class USphinxSequenceEventPlayParticle : public USphinxSequenceEventBase
@@ -3528,7 +3400,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxSequenceEventPlaySound
 // 0x0007 (0x003D - 0x0044)
 class USphinxSequenceEventPlaySound : public USphinxSequenceEventBase
@@ -3550,7 +3421,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxSequenceEventPreAttackDist
 // 0x0017 (0x003D - 0x0054)
 class USphinxSequenceEventPreAttackDist : public USphinxSequenceEventBase
@@ -3578,7 +3448,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxSequenceEventRagdoll
 // 0x0007 (0x003D - 0x0044)
 class USphinxSequenceEventRagdoll : public USphinxSequenceEventBase
@@ -3600,7 +3469,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxSequenceEventRandomJump
 // 0x000F (0x003D - 0x004C)
 class USphinxSequenceEventRandomJump : public USphinxSequenceEventBase
@@ -3622,7 +3490,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxSequenceEventRemoteEvent
 // 0x000B (0x003D - 0x0048)
 class USphinxSequenceEventRemoteEvent : public USphinxSequenceEventBase
@@ -3644,7 +3511,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxSequenceEventRunAnotherPackage
 // 0x0013 (0x003D - 0x0050)
 class USphinxSequenceEventRunAnotherPackage : public USphinxSequenceEventBase
@@ -3669,7 +3535,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxSequenceEventSetAccelerate
 // 0x0007 (0x003D - 0x0044)
 class USphinxSequenceEventSetAccelerate : public USphinxSequenceEventBase
@@ -3691,7 +3556,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxSequenceEventSetGDGlobeValue
 // 0x0013 (0x003D - 0x0050)
 class USphinxSequenceEventSetGDGlobeValue : public USphinxSequenceEventBase
@@ -3715,7 +3579,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxSequenceEventSetGotoLocation
 // 0x000F (0x003D - 0x004C)
 class USphinxSequenceEventSetGotoLocation : public USphinxSequenceEventBase
@@ -3737,7 +3600,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxSequenceEventSetHideComponent
 // 0x000B (0x003D - 0x0048)
 class USphinxSequenceEventSetHideComponent : public USphinxSequenceEventBase
@@ -3760,7 +3622,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxSequenceEventSetHideSelf
 // 0x0007 (0x003D - 0x0044)
 class USphinxSequenceEventSetHideSelf : public USphinxSequenceEventBase
@@ -3782,7 +3643,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxSequenceEventSetKnockBackPara
 // 0x000B (0x003D - 0x0048)
 class USphinxSequenceEventSetKnockBackPara : public USphinxSequenceEventBase
@@ -3805,7 +3665,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxSequenceEventSetNoDamageEffect
 // 0x0007 (0x003D - 0x0044)
 class USphinxSequenceEventSetNoDamageEffect : public USphinxSequenceEventBase
@@ -3832,7 +3691,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxSequenceEventSetNPCDeath
 // 0x000B (0x003D - 0x0048)
 class USphinxSequenceEventSetNPCDeath : public USphinxSequenceEventBase
@@ -3855,7 +3713,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxSequenceEventSetNPCFightAgentParam
 // 0x0017 (0x003D - 0x0054)
 class USphinxSequenceEventSetNPCFightAgentParam : public USphinxSequenceEventBase
@@ -3881,7 +3738,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxSequenceEventSetNPCScale
 // 0x0007 (0x003D - 0x0044)
 class USphinxSequenceEventSetNPCScale : public USphinxSequenceEventBase
@@ -3903,7 +3759,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxSequenceEventSetSonarActive
 // 0x0007 (0x003D - 0x0044)
 class USphinxSequenceEventSetSonarActive : public USphinxSequenceEventBase
@@ -3925,7 +3780,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxSequenceEventSetSonarInfo
 // 0x000F (0x003D - 0x004C)
 class USphinxSequenceEventSetSonarInfo : public USphinxSequenceEventBase
@@ -3949,7 +3803,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxSequenceEventSpawnPickup
 // 0x0000 (0x003D - 0x003D)
 class USphinxSequenceEventSpawnPickup : public USphinxSequenceEventBase
@@ -3970,7 +3823,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxSequenceEventSwitchCollisionBetweenPhATAndCylider
 // 0x000B (0x003D - 0x0048)
 class USphinxSequenceEventSwitchCollisionBetweenPhATAndCylider : public USphinxSequenceEventBase
@@ -3994,7 +3846,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxSequenceEventTeleport
 // 0x001B (0x003D - 0x0058)
 class USphinxSequenceEventTeleport : public USphinxSequenceEventBase
@@ -4019,7 +3870,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxSequenceEventToggleAttachedActor
 // 0x000F (0x003D - 0x004C)
 class USphinxSequenceEventToggleAttachedActor : public USphinxSequenceEventBase
@@ -4043,7 +3893,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxSequenceEventToggleAttachedActorHidden
 // 0x000B (0x003D - 0x0048)
 class USphinxSequenceEventToggleAttachedActorHidden : public USphinxSequenceEventBase
@@ -4066,7 +3915,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxSequenceEventToggleBlockingCheckWithAlice
 // 0x0007 (0x003D - 0x0044)
 class USphinxSequenceEventToggleBlockingCheckWithAlice : public USphinxSequenceEventBase
@@ -4089,7 +3937,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxSequenceEventToggleBlockingCheckWithDesiredBlockingVolumn
 // 0x0007 (0x003D - 0x0044)
 class USphinxSequenceEventToggleBlockingCheckWithDesiredBlockingVolumn : public USphinxSequenceEventBase
@@ -4111,7 +3958,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxSequenceEventToggleCriticalUI
 // 0x000B (0x003D - 0x0048)
 class USphinxSequenceEventToggleCriticalUI : public USphinxSequenceEventBase
@@ -4134,7 +3980,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxSequenceEventToggleLoopParticle
 // 0x000B (0x003D - 0x0048)
 class USphinxSequenceEventToggleLoopParticle : public USphinxSequenceEventBase
@@ -4157,7 +4002,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxSequenceEventToggleLoopSound
 // 0x000F (0x003D - 0x004C)
 class USphinxSequenceEventToggleLoopSound : public USphinxSequenceEventBase
@@ -4181,7 +4025,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxSequenceEventToggleMessageEvent
 // 0x0007 (0x003D - 0x0044)
 class USphinxSequenceEventToggleMessageEvent : public USphinxSequenceEventBase
@@ -4204,7 +4047,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxSequenceEventToggleNPCGodMode
 // 0x0007 (0x003D - 0x0044)
 class USphinxSequenceEventToggleNPCGodMode : public USphinxSequenceEventBase
@@ -4226,7 +4068,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxSequenceEventToggleSkeletalControl
 // 0x000F (0x003D - 0x004C)
 class USphinxSequenceEventToggleSkeletalControl : public USphinxSequenceEventBase
@@ -4249,7 +4090,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxSequenceEventToggleSubConditionActive
 // 0x0017 (0x003D - 0x0054)
 class USphinxSequenceEventToggleSubConditionActive : public USphinxSequenceEventBase
@@ -4274,7 +4114,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxSequenceEventUnattachComponent
 // 0x000F (0x003D - 0x004C)
 class USphinxSequenceEventUnattachComponent : public USphinxSequenceEventBase
@@ -4296,7 +4135,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxSequenceEventWaitTime
 // 0x0007 (0x003D - 0x0044)
 class USphinxSequenceEventWaitTime : public USphinxSequenceEventBase
@@ -4318,7 +4156,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxTeamContainer
 // 0x0009 (0x0228 - 0x0231)
 class ASphinxTeamContainer : public AActor
@@ -4341,7 +4178,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxWanderVolume
 // 0x0000 (0x0264 - 0x0264)
 class ASphinxWanderVolume : public AVolume
@@ -4362,7 +4198,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseFpdModifierCanGo
 // 0x000C (0x003C - 0x0048)
 class UKynapseFpdModifierCanGo : public UObject
@@ -4384,7 +4219,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseFpdModifierCanGo_AiMesh
 // 0x0018 (0x0048 - 0x0060)
 class UKynapseFpdModifierCanGo_AiMesh : public UKynapseFpdModifierCanGo
@@ -4407,7 +4241,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseFpdModifierCanGo_RayCast
 // 0x0000 (0x0048 - 0x0048)
 class UKynapseFpdModifierCanGo_RayCast : public UKynapseFpdModifierCanGo
@@ -4428,7 +4261,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseFpdModifierComputeTargetPoint
 // 0x000C (0x003C - 0x0048)
 class UKynapseFpdModifierComputeTargetPoint : public UObject
@@ -4450,7 +4282,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseFpdModifierComputeTargetPoint_Queue
 // 0x0004 (0x0048 - 0x004C)
 class UKynapseFpdModifierComputeTargetPoint_Queue : public UKynapseFpdModifierComputeTargetPoint
@@ -4472,7 +4303,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseFpdModifierComputeTargetPoint_ShortCut
 // 0x0008 (0x0048 - 0x0050)
 class UKynapseFpdModifierComputeTargetPoint_ShortCut : public UKynapseFpdModifierComputeTargetPoint
@@ -4495,7 +4325,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseFpdModifierComputeTargetPoint_Trivial
 // 0x0000 (0x0048 - 0x0048)
 class UKynapseFpdModifierComputeTargetPoint_Trivial : public UKynapseFpdModifierComputeTargetPoint
@@ -4516,7 +4345,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseFpdModifierDetectAccident
 // 0x000C (0x003C - 0x0048)
 class UKynapseFpdModifierDetectAccident : public UObject
@@ -4538,7 +4366,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseFpdModifierDetectAccident_PredictMove
 // 0x0004 (0x0048 - 0x004C)
 class UKynapseFpdModifierDetectAccident_PredictMove : public UKynapseFpdModifierDetectAccident
@@ -4560,7 +4387,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseFpdModifierDetectGoalChanged
 // 0x000C (0x003C - 0x0048)
 class UKynapseFpdModifierDetectGoalChanged : public UObject
@@ -4582,7 +4408,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseFpdModifierDetectGoalChanged_Distance3D
 // 0x0004 (0x0048 - 0x004C)
 class UKynapseFpdModifierDetectGoalChanged_Distance3D : public UKynapseFpdModifierDetectGoalChanged
@@ -4604,7 +4429,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseFpdModifierDetectGoalReached
 // 0x000C (0x003C - 0x0048)
 class UKynapseFpdModifierDetectGoalReached : public UObject
@@ -4626,7 +4450,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseFpdModifierDetectGoalReached_Distance2D5
 // 0x0008 (0x0048 - 0x0050)
 class UKynapseFpdModifierDetectGoalReached_Distance2D5 : public UKynapseFpdModifierDetectGoalReached
@@ -4649,7 +4472,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseFpdModifierDetectGoalReached_Distance3D
 // 0x0004 (0x0048 - 0x004C)
 class UKynapseFpdModifierDetectGoalReached_Distance3D : public UKynapseFpdModifierDetectGoalReached
@@ -4671,7 +4493,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseFpdModifierDetectPathNodeReached
 // 0x000C (0x003C - 0x0048)
 class UKynapseFpdModifierDetectPathNodeReached : public UObject
@@ -4693,7 +4514,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseFpdModifierDetectPathNodeReached_Distance2D5
 // 0x0008 (0x0048 - 0x0050)
 class UKynapseFpdModifierDetectPathNodeReached_Distance2D5 : public UKynapseFpdModifierDetectPathNodeReached
@@ -4716,7 +4536,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseFpdModifierDetectPathNodeReached_Distance3D
 // 0x0004 (0x0048 - 0x004C)
 class UKynapseFpdModifierDetectPathNodeReached_Distance3D : public UKynapseFpdModifierDetectPathNodeReached
@@ -4738,7 +4557,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseFpdModifierFindNodesFromPositions
 // 0x000C (0x003C - 0x0048)
 class UKynapseFpdModifierFindNodesFromPositions : public UObject
@@ -4760,7 +4578,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseFpdModifierFindNodesFromPositions_NearestReachable
 // 0x0000 (0x0048 - 0x0048)
 class UKynapseFpdModifierFindNodesFromPositions_NearestReachable : public UKynapseFpdModifierFindNodesFromPositions
@@ -4781,7 +4598,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseFpdModifierFindNodesFromPositions_AsyncNearestReachable
 // 0x0000 (0x0048 - 0x0048)
 class UKynapseFpdModifierFindNodesFromPositions_AsyncNearestReachable : public UKynapseFpdModifierFindNodesFromPositions_NearestReachable
@@ -4802,7 +4618,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseFpdModifierGoto
 // 0x000C (0x003C - 0x0048)
 class UKynapseFpdModifierGoto : public UObject
@@ -4824,7 +4639,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseFpdModifierGoto_GapDynamicAvoidance
 // 0x0038 (0x0048 - 0x0080)
 class UKynapseFpdModifierGoto_GapDynamicAvoidance : public UKynapseFpdModifierGoto
@@ -4846,7 +4660,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseFpdModifierGoto_AsyncGapDynamicAvoidance
 // 0x0000 (0x0080 - 0x0080)
 class UKynapseFpdModifierGoto_AsyncGapDynamicAvoidance : public UKynapseFpdModifierGoto_GapDynamicAvoidance
@@ -4867,7 +4680,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseFpdModifierGoto_Repulsor
 // 0x0018 (0x0048 - 0x0060)
 class UKynapseFpdModifierGoto_Repulsor : public UKynapseFpdModifierGoto
@@ -4889,7 +4701,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseFpdModifierGoto_Trivial
 // 0x0000 (0x0048 - 0x0048)
 class UKynapseFpdModifierGoto_Trivial : public UKynapseFpdModifierGoto
@@ -4910,7 +4721,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseFpdModifierLpfShortcut
 // 0x000C (0x003C - 0x0048)
 class UKynapseFpdModifierLpfShortcut : public UObject
@@ -4932,7 +4742,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseFpdModifierLpfShortcut_SimpleJump
 // 0x0004 (0x0048 - 0x004C)
 class UKynapseFpdModifierLpfShortcut_SimpleJump : public UKynapseFpdModifierLpfShortcut
@@ -4954,7 +4763,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseFpdModifierRefineGoal
 // 0x000C (0x003C - 0x0048)
 class UKynapseFpdModifierRefineGoal : public UObject
@@ -4976,7 +4784,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseFpdModifierRefineGoal_NearestInsideAiMesh
 // 0x0000 (0x0048 - 0x0048)
 class UKynapseFpdModifierRefineGoal_NearestInsideAiMesh : public UKynapseFpdModifierRefineGoal
@@ -4997,7 +4804,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseFpdModifierRefineGoal_Trivial
 // 0x0000 (0x0048 - 0x0048)
 class UKynapseFpdModifierRefineGoal_Trivial : public UKynapseFpdModifierRefineGoal
@@ -5018,7 +4824,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxModifierRefineGoal_NearestInsideAiMesh_Fly
 // 0x0000 (0x0048 - 0x0048)
 class USphinxModifierRefineGoal_NearestInsideAiMesh_Fly : public UKynapseFpdModifierRefineGoal
@@ -5039,7 +4844,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.SphinxModifierRefineGoal_NearestInsideAiMesh_Walk
 // 0x0000 (0x0048 - 0x0048)
 class USphinxModifierRefineGoal_NearestInsideAiMesh_Walk : public UKynapseFpdModifierRefineGoal
@@ -5060,7 +4864,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseFpdModifierSelectPathNodeCandidate
 // 0x000C (0x003C - 0x0048)
 class UKynapseFpdModifierSelectPathNodeCandidate : public UObject
@@ -5082,7 +4885,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseFpdModifierSelectPathNodeCandidate_NextPathNode
 // 0x0008 (0x0048 - 0x0050)
 class UKynapseFpdModifierSelectPathNodeCandidate_NextPathNode : public UKynapseFpdModifierSelectPathNodeCandidate
@@ -5105,7 +4907,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseFpdModifierSelectPathNodeCandidate_AsyncNextPathNode
 // 0x0000 (0x0050 - 0x0050)
 class UKynapseFpdModifierSelectPathNodeCandidate_AsyncNextPathNode : public UKynapseFpdModifierSelectPathNodeCandidate_NextPathNode
@@ -5126,7 +4927,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseFpdModifierSteering
 // 0x000C (0x003C - 0x0048)
 class UKynapseFpdModifierSteering : public UObject
@@ -5148,7 +4948,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseFpdModifierSteering_Fly
 // 0x0000 (0x0048 - 0x0048)
 class UKynapseFpdModifierSteering_Fly : public UKynapseFpdModifierSteering
@@ -5169,7 +4968,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseFpdModifierSteering_SimpleBiped
 // 0x0000 (0x0048 - 0x0048)
 class UKynapseFpdModifierSteering_SimpleBiped : public UKynapseFpdModifierSteering
@@ -5190,7 +4988,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapsePathdataGenerationModifier
 // 0x0000 (0x003C - 0x003C)
 class UKynapsePathdataGenerationModifier : public UObject
@@ -5211,7 +5008,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapsePathdataGenerationModifier_Doors
 // 0x0004 (0x003C - 0x0040)
 class UKynapsePathdataGenerationModifier_Doors : public UKynapsePathdataGenerationModifier
@@ -5233,7 +5029,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapsePathdataGenerationModifier_Jumps
 // 0x0004 (0x003C - 0x0040)
 class UKynapsePathdataGenerationModifier_Jumps : public UKynapsePathdataGenerationModifier
@@ -5255,7 +5050,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapsePathdataGenerationModifier_Ladders
 // 0x0004 (0x003C - 0x0040)
 class UKynapsePathdataGenerationModifier_Ladders : public UKynapsePathdataGenerationModifier
@@ -5277,7 +5071,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapsePathdataGenerationModifier_Lifts
 // 0x0004 (0x003C - 0x0040)
 class UKynapsePathdataGenerationModifier_Lifts : public UKynapsePathdataGenerationModifier
@@ -5299,7 +5092,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapsePathdataGenerationModifier_SeedPoint
 // 0x0000 (0x003C - 0x003C)
 class UKynapsePathdataGenerationModifier_SeedPoint : public UKynapsePathdataGenerationModifier
@@ -5320,7 +5112,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapsePathdataGenerationModifier_Teleport
 // 0x0004 (0x003C - 0x0040)
 class UKynapsePathdataGenerationModifier_Teleport : public UKynapsePathdataGenerationModifier
@@ -5342,7 +5133,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseAsyncModule
 // 0x0018 (0x003C - 0x0054)
 class UKynapseAsyncModule : public UObject
@@ -5365,7 +5155,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseAsyncModuleCanGo_PS3
 // 0x0004 (0x0054 - 0x0058)
 class UKynapseAsyncModuleCanGo_PS3 : public UKynapseAsyncModule
@@ -5387,7 +5176,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseAsyncModuleFindNodes
 // 0x0000 (0x0054 - 0x0054)
 class UKynapseAsyncModuleFindNodes : public UKynapseAsyncModule
@@ -5408,7 +5196,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseAsyncModuleFindNodes_PS3
 // 0x0008 (0x0054 - 0x005C)
 class UKynapseAsyncModuleFindNodes_PS3 : public UKynapseAsyncModuleFindNodes
@@ -5431,7 +5218,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseAsyncModuleFindNodes_ST
 // 0x0004 (0x0054 - 0x0058)
 class UKynapseAsyncModuleFindNodes_ST : public UKynapseAsyncModuleFindNodes
@@ -5453,7 +5239,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseAsyncModuleGapDA
 // 0x0000 (0x0054 - 0x0054)
 class UKynapseAsyncModuleGapDA : public UKynapseAsyncModule
@@ -5474,7 +5259,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseAsyncModuleGapDA_PS3
 // 0x000C (0x0054 - 0x0060)
 class UKynapseAsyncModuleGapDA_PS3 : public UKynapseAsyncModuleGapDA
@@ -5498,7 +5282,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseAsyncModuleGapDA_ST
 // 0x0004 (0x0054 - 0x0058)
 class UKynapseAsyncModuleGapDA_ST : public UKynapseAsyncModuleGapDA
@@ -5520,7 +5303,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseAsyncModuleLpfManager
 // 0x0000 (0x0054 - 0x0054)
 class UKynapseAsyncModuleLpfManager : public UKynapseAsyncModule
@@ -5541,7 +5323,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseAsyncModuleSelectPathNode
 // 0x0004 (0x0054 - 0x0058)
 class UKynapseAsyncModuleSelectPathNode : public UKynapseAsyncModule
@@ -5563,7 +5344,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseAsyncModuleSelectPathNode_PS3
 // 0x0004 (0x0058 - 0x005C)
 class UKynapseAsyncModuleSelectPathNode_PS3 : public UKynapseAsyncModuleSelectPathNode
@@ -5585,7 +5365,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseAsyncModuleSelectPathNode_ST
 // 0x0000 (0x0058 - 0x0058)
 class UKynapseAsyncModuleSelectPathNode_ST : public UKynapseAsyncModuleSelectPathNode
@@ -5606,7 +5385,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseWorldServiceAsyncManager
 // 0x000C (0x006C - 0x0078)
 class UKynapseWorldServiceAsyncManager : public UKynapseWorldService
@@ -5628,7 +5406,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseWorldServiceAsyncManager_PS3
 // 0x0024 (0x0078 - 0x009C)
 class UKynapseWorldServiceAsyncManager_PS3 : public UKynapseWorldServiceAsyncManager
@@ -5651,7 +5428,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseWorldServiceAsyncManager_Win32
 // 0x0000 (0x0078 - 0x0078)
 class UKynapseWorldServiceAsyncManager_Win32 : public UKynapseWorldServiceAsyncManager
@@ -5672,7 +5448,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseWorldServiceAsyncManager_XBox360
 // 0x0000 (0x0078 - 0x0078)
 class UKynapseWorldServiceAsyncManager_XBox360 : public UKynapseWorldServiceAsyncManager
@@ -5693,7 +5468,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.ActorFactoryKynapseFracturedStaticMesh
 // 0x0000 (0x006C - 0x006C)
 class UActorFactoryKynapseFracturedStaticMesh : public UActorFactoryFracturedStaticMesh
@@ -5714,7 +5488,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.ActorFactoryKynapseKAsset
 // 0x0000 (0x0080 - 0x0080)
 class UActorFactoryKynapseKAsset : public UActorFactoryPhysicsAsset
@@ -5735,7 +5508,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseKAsset
 // 0x0004 (0x0238 - 0x023C)
 class AKynapseKAsset : public AKAsset
@@ -5757,7 +5529,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.ActorFactoryKynapseObstacleBig
 // 0x0000 (0x0098 - 0x0098)
 class UActorFactoryKynapseObstacleBig : public UActorFactoryRigidBody
@@ -5778,7 +5549,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseObstacleBig
 // 0x0004 (0x031C - 0x0320)
 class AKynapseObstacleBig : public AKActorSpawnable
@@ -5800,7 +5570,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.ActorFactoryKynapseObstacleFractured
 // 0x0000 (0x006C - 0x006C)
 class UActorFactoryKynapseObstacleFractured : public UActorFactoryFracturedStaticMesh
@@ -5821,7 +5590,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.ActorFactoryKynapseObstacleLpf
 // 0x0000 (0x0098 - 0x0098)
 class UActorFactoryKynapseObstacleLpf : public UActorFactoryRigidBody
@@ -5842,7 +5610,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseObstacleLpf
 // 0x0004 (0x031C - 0x0320)
 class AKynapseObstacleLpf : public AKActorSpawnable
@@ -5864,7 +5631,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.ActorFactoryKynapseObstacleSmall
 // 0x0000 (0x0098 - 0x0098)
 class UActorFactoryKynapseObstacleSmall : public UActorFactoryRigidBody
@@ -5885,7 +5651,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseObstacleSmall
 // 0x0004 (0x031C - 0x0320)
 class AKynapseObstacleSmall : public AKActorSpawnable
@@ -5907,7 +5672,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseFpdBrainUnreal
 // 0x0000 (0x00A4 - 0x00A4)
 class UKynapseFpdBrainUnreal : public UKynapseBrain
@@ -5928,7 +5692,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseFlyPawn
 // 0x0000 (0x05E4 - 0x05E4)
 class AKynapseFlyPawn : public AKynapsePawn
@@ -5949,7 +5712,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseFracturedLayerDefinition
 // 0x0000 (0x0070 - 0x0070)
 class UKynapseFracturedLayerDefinition : public UKynapseObstacleLayerDefinition
@@ -5970,7 +5732,6 @@ public:
 	};
 
 };
-
 // Class Kynapse.KynapseSeedPoint
 // 0x0000 (0x0228 - 0x0228)
 class AKynapseSeedPoint : public AActor
@@ -5991,7 +5752,6 @@ public:
 	};
 
 };
-
 /*
 # ========================================================================================= #
 #

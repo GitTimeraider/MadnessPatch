@@ -1,7 +1,7 @@
 /*
 #############################################################################################
 # Alice2 (ASDK) SDK 1.0.0.0
-# Generated with the CodeRedGenerator v1.1.6
+# Generated with the CodeRedGenerator v1.2.0
 # ========================================================================================= #
 # File: GameFramework_structs.hpp
 # ========================================================================================= #
@@ -94,6 +94,7 @@ struct FTakeHitInfo
 	class UClass*                                      DamageType;                                    // 0x0018 (0x0004) [0x0000000000000000]               
 	class APawn*                                       InstigatedBy;                                  // 0x001C (0x0004) [0x0000000000000000]               
 	uint8_t                                            HitBoneIndex;                                  // 0x0020 (0x0001) [0x0000000000000000]               
+	uint8_t                                            UnknownData00[0x3];                              // 0x0021 (0x0003) MISSED OFFSET
 	class UPhysicalMaterial*                           PhysicalMaterial;                              // 0x0024 (0x0004) [0x0000000000000000]               
 	float                                              Damage;                                        // 0x0028 (0x0004) [0x0000000000000000]               
 	struct FVector                                     RadialDamageOrigin;                            // 0x002C (0x000C) [0x0000000000000000]               
@@ -127,6 +128,7 @@ struct FScreenShakeStruct
 	float                                              FOVFrequency;                                  // 0x005C (0x0004) [0x0000000000000000]               
 	float                                              FOVSinOffset;                                  // 0x0060 (0x0004) [0x0000000000000000]               
 	uint8_t                                            FOVParam;                                      // 0x0064 (0x0001) [0x0000000000000000]               
+	uint8_t                                            UnknownData00[0x3];                              // 0x0065 (0x0003) MISSED OFFSET
 	class FName                                        ShakeName;                                     // 0x0068 (0x0008) [0x0000000000000000]               
 	uint32_t                                           bOverrideTargetingDampening : 1;               // 0x0070 (0x0004) [0x0000000000000000] [0x00000001] 
 	float                                              TargetingDampening;                            // 0x0074 (0x0004) [0x0000000000000000]               
@@ -230,6 +232,7 @@ struct FMobileInputZone
 	uint32_t                                           bIsInvisible : 1;                              // 0x003C (0x0004) [0x0000000000000000] [0x00000001] 
 	uint8_t                                            Type;                                          // 0x0040 (0x0001) [0x0000000000000000]               
 	uint8_t                                            State;                                         // 0x0041 (0x0001) [0x0000000000000000]               
+	uint8_t                                            UnknownData00[0x2];                              // 0x0042 (0x0002) MISSED OFFSET
 	float                                              VertMultiplier;                                // 0x0044 (0x0004) [0x0000000000000000]               
 	float                                              HorizMultiplier;                               // 0x0048 (0x0004) [0x0000000000000000]               
 	int32_t                                            CurX;                                          // 0x004C (0x0004) [0x0000000000000000]               

@@ -1,7 +1,7 @@
 /*
 #############################################################################################
 # Alice2 (ASDK) SDK 1.0.0.0
-# Generated with the CodeRedGenerator v1.1.6
+# Generated with the CodeRedGenerator v1.2.0
 # ========================================================================================= #
 # File: AliceGame_structs.hpp
 # ========================================================================================= #
@@ -52,6 +52,7 @@ struct FMaterialInfo
 struct FMatParamInfo
 {
 	uint8_t                                            ParamType;                                     // 0x0000 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	int32_t                                            MatID;                                         // 0x0004 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	class FName                                        ParamName;                                     // 0x0008 (0x0008) [0x0000000000000001] (CPF_Edit)    
 	float                                              ScalarValue;                                   // 0x0010 (0x0004) [0x0000000000000001] (CPF_Edit)    
@@ -183,6 +184,7 @@ struct FAliceCameraProperties
 	struct FVector                                     Offset;                                        // 0x0034 (0x000C) [0x0000000000000001] (CPF_Edit)    
 	class UCameraAnim*                                 Animation;                                     // 0x0040 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	uint8_t                                            BehaviorStyle;                                 // 0x0044 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0045 (0x0003) MISSED OFFSET
 	float                                              DistScaleWhenFacingCam;                        // 0x0048 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	float                                              BlendTime;                                     // 0x004C (0x0004) [0x0000000000000001] (CPF_Edit)    
 	float                                              RevolutionAccelTime;                           // 0x0050 (0x0004) [0x0000000000000001] (CPF_Edit)    
@@ -243,6 +245,7 @@ struct FAnimationParaConfig
 {
 	class TArray<class FName>                          AnimationNames;                                // 0x0000 (0x000C) [0x0000000000400001] (CPF_Edit | CPF_NeedCtorLink)
 	uint8_t                                            BlendNodeIndex;                                // 0x000C (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x000D (0x0003) MISSED OFFSET
 	int32_t                                            AnimType;                                      // 0x0010 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	float                                              BlendInTime;                                   // 0x0014 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	float                                              BlendOutTime;                                  // 0x0018 (0x0004) [0x0000000000000001] (CPF_Edit)    
@@ -311,6 +314,7 @@ struct FFootStepDatum
 struct FSMStruct
 {
 	uint8_t                                            SpecialMove;                                   // 0x0000 (0x0001) [0x0000000000000000]               
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	class AAliceGamePawn*                              InteractionPawn;                               // 0x0004 (0x0004) [0x0000000000000000]               
 	int32_t                                            Flags;                                         // 0x0008 (0x0004) [0x0000000000000000]               
 };
@@ -338,15 +342,18 @@ struct FAttackActorItem
 struct FMeleeAttackMessage
 {
 	uint8_t                                            MeleeAttackMsg;                                // 0x0000 (0x0001) [0x0000000000000000]               
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	float                                              MsgTime;                                       // 0x0004 (0x0004) [0x0000000000000000]               
 	float                                              AttackDamage;                                  // 0x0008 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	uint8_t                                            WeaponAttackCollisionMode;                     // 0x000C (0x0001) [0x0000000000000001] (CPF_Edit)    
 	uint8_t                                            PawnAttackCollisionMode;                       // 0x000D (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData01[0x2];                              // 0x000E (0x0002) MISSED OFFSET
 	int32_t                                            AttackPhysicsAssetConfigID;                    // 0x0010 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	int32_t                                            KnockBackParamConfigID;                        // 0x0014 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	float                                              RetriggerTime;                                 // 0x0018 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	int32_t                                            MaxTriggerCount;                               // 0x001C (0x0004) [0x0000000000000001] (CPF_Edit)    
 	uint8_t                                            DmgStrength;                                   // 0x0020 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData02[0x3];                              // 0x0021 (0x0003) MISSED OFFSET
 	class UForceFeedbackWaveform*                      FFWaveform;                                    // 0x0024 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	uint32_t                                           bNPCWeaponCanAttackOtherNPC : 1;               // 0x0028 (0x0004) [0x0000000000000001] [0x00000001] (CPF_Edit)
 	int32_t                                            DamageForNPCs;                                 // 0x002C (0x0004) [0x0000000000000001] (CPF_Edit)    
@@ -367,6 +374,7 @@ struct FShapeCollisionResult
 struct FRespawnInfo
 {
 	uint8_t                                            Level;                                         // 0x0000 (0x0001) [0x0000000000000000]               
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	class UParticleSystem*                             ParticleRespawn;                               // 0x0004 (0x0004) [0x0000000000000000]               
 	class USoundCue*                                   ParticleRespawnSound;                          // 0x0008 (0x0004) [0x0000000000000000]               
 };
@@ -449,6 +457,7 @@ struct FNPCAttachmentComponent
 {
 	uint8_t                                            NPCAttachmentComponentType;                    // 0x0000 (0x0001) [0x0000000000000001] (CPF_Edit)    
 	uint8_t                                            NPCAttachmentComponentAttachType;              // 0x0001 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x2];                              // 0x0002 (0x0002) MISSED OFFSET
 	class FName                                        AttachSocketName;                              // 0x0004 (0x0008) [0x0000000000000001] (CPF_Edit)    
 	int32_t                                            AttachSocketComponentIndex;                    // 0x000C (0x0004) [0x0000000000000001] (CPF_Edit)    
 	int32_t                                            ExclusiveArrayIndex;                           // 0x0010 (0x0004) [0x0000000000000001] (CPF_Edit)    
@@ -524,6 +533,7 @@ struct FLoopParticleInfo
 struct FNPCTakeDamageAnimInfo
 {
 	uint8_t                                            DmgStrength;                                   // 0x0000 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	int32_t                                            AnimIndex;                                     // 0x0004 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	struct FRotator                                    DamageRotationRate;                            // 0x0008 (0x000C) [0x0000000000000001] (CPF_Edit)    
 	uint32_t                                           bKnockBack : 1;                                // 0x0014 (0x0004) [0x0000000000000001] [0x00000001] (CPF_Edit)
@@ -555,6 +565,7 @@ struct FShieldComponentInfo
 	class UPhysicsAsset*                               ShieldPhysicsAsset;                            // 0x0000 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	uint8_t                                            CollisionMode;                                 // 0x0004 (0x0001) [0x0000000000000001] (CPF_Edit)    
 	uint8_t                                            ShieldOrient;                                  // 0x0005 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x2];                              // 0x0006 (0x0002) MISSED OFFSET
 	class FName                                        ShieldOrientSocket;                            // 0x0008 (0x0008) [0x0000000000000001] (CPF_Edit)    
 	struct FRotator                                    ShieldOrientRefAngle;                          // 0x0010 (0x000C) [0x0000000000000001] (CPF_Edit)    
 	float                                              ShieldAreaAngle0;                              // 0x001C (0x0004) [0x0000000000000001] (CPF_Edit)    
@@ -625,6 +636,7 @@ struct FWonderlandDress
 struct FDelayedChangeDressData
 {
 	uint8_t                                            NewDress;                                      // 0x0000 (0x0001) [0x0000000000000000]               
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	uint32_t                                           bShouldBlock : 1;                              // 0x0004 (0x0004) [0x0000000000000000] [0x00000001] 
 	class UGFxMovie*                                   pGFXMovie;                                     // 0x0008 (0x0004) [0x0000000000000000]               
 };
@@ -682,6 +694,7 @@ struct FWeaponFadeParEffect
 struct FDamageElement
 {
 	uint8_t                                            DmgStrength;                                   // 0x0000 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	uint32_t                                           bKnockBack : 1;                                // 0x0004 (0x0004) [0x0000000000000001] [0x00000001] (CPF_Edit)
 	uint32_t                                           bPhysicalAnim : 1;                             // 0x0004 (0x0004) [0x0000000000000001] [0x00000002] (CPF_Edit)
 	class USoundCue*                                   DamageSound;                                   // 0x0008 (0x0004) [0x0000000000000001] (CPF_Edit)    
@@ -785,6 +798,7 @@ struct FSlideParam
 struct FButtonInputStatus
 {
 	uint8_t                                            BtnType;                                       // 0x0000 (0x0001) [0x0000000000000000]               
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	uint32_t                                           Button_In_Pressed : 1;                         // 0x0004 (0x0004) [0x0000000000000000] [0x00000001] 
 	uint32_t                                           HoldFinshedEventDone : 1;                      // 0x0004 (0x0004) [0x0000000000000000] [0x00000002] 
 	uint32_t                                           bInDoingHoldFinishEvent : 1;                   // 0x0004 (0x0004) [0x0000000000000000] [0x00000004] 
@@ -817,6 +831,7 @@ struct AAlicePlayerController_FCheckpointRecord
 	class TArray<struct FObjectiveInfo>                Objectives;                                    // 0x001C (0x000C) [0x0000000000400000] (CPF_NeedCtorLink)
 	uint8_t                                            AliceArcheTypeID;                              // 0x0028 (0x0001) [0x0000000000000000]               
 	uint8_t                                            StoryModeSaveDressID;                          // 0x0029 (0x0001) [0x0000000000000000]               
+	uint8_t                                            MinStructAlignment[0x2];                         // 0x002A (0x0002) ADDED PADDING
 };
 
 // ScriptStruct AliceGame.AliceGameWeapon.ProjectileLevelDataPackage
@@ -923,6 +938,7 @@ struct FClothBoneStrip
 	struct FQuat                                       LastClothFixedBoneRot;                         // 0x0040 (0x0010) [0x0000000000000000]               
 	class TArray<struct FVector>                       LastClothBonesPos;                             // 0x0050 (0x000C) [0x0000000000400000] (CPF_NeedCtorLink)
 	class TArray<struct FVector>                       LastClothBonesVel;                             // 0x005C (0x000C) [0x0000000000400000] (CPF_NeedCtorLink)
+	uint8_t                                            MinStructAlignment[0x8];                         // 0x0068 (0x0008) ADDED PADDING
 };
 
 // ScriptStruct AliceGame.AliceGameSkelControl_Cloth.BonePoint
@@ -1068,8 +1084,10 @@ struct FRemoteSpeakerDelayedLine
 	uint32_t                                           bSuppressSubtitle : 1;                         // 0x0008 (0x0004) [0x0000000000000000] [0x00000001] 
 	float                                              DelayTime;                                     // 0x000C (0x0004) [0x0000000000000000]               
 	uint8_t                                            MPBroadcastFilter;                             // 0x0010 (0x0001) [0x0000000000000000]               
+	uint8_t                                            UnknownData00[0x3];                              // 0x0011 (0x0003) MISSED OFFSET
 	class FString                                      DebugText;                                     // 0x0014 (0x000C) [0x0000000000400000] (CPF_NeedCtorLink)
 	uint8_t                                            Priority;                                      // 0x0020 (0x0001) [0x0000000000000000]               
+	uint8_t                                            MinStructAlignment[0x3];                         // 0x0021 (0x0003) ADDED PADDING
 };
 
 // ScriptStruct AliceGame.AliceSpeechManager.ActiveDialogueLine
@@ -1080,6 +1098,7 @@ struct FActiveDialogueLine
 	class AActor*                                      Addressee;                                     // 0x0004 (0x0004) [0x0000000000000000]               
 	class USoundCue*                                   Audio;                                         // 0x0008 (0x0004) [0x0000000000000000]               
 	uint8_t                                            Priority;                                      // 0x000C (0x0001) [0x0000000000000000]               
+	uint8_t                                            MinStructAlignment[0x3];                         // 0x000D (0x0003) ADDED PADDING
 };
 
 // ScriptStruct AliceGame.AliceVentActor.CheckpointRecord
@@ -1139,6 +1158,7 @@ struct FBreakableStep
 	class TArray<struct FBreakableStep_FBreakableParticleSystem> ParticleEmitters;                              // 0x0004 (0x000C) [0x0000000000400001] (CPF_Edit | CPF_NeedCtorLink)
 	class UStaticMesh*                                 BreakMesh;                                     // 0x0010 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	uint8_t                                            Physics;                                       // 0x0014 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0015 (0x0003) MISSED OFFSET
 	class USoundCue*                                   BreakSound;                                    // 0x0018 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	uint32_t                                           bIsLockable : 1;                               // 0x001C (0x0004) [0x0000000000000001] [0x00000001] (CPF_Edit)
 	struct FVector                                     LockOffsetCamera;                              // 0x0020 (0x000C) [0x0000000000000001] (CPF_Edit)    
@@ -1163,6 +1183,7 @@ struct FBreakablePiece
 	struct FBreakablePiece_FBreakableParticleSystem    ParticleEmitter;                               // 0x0000 (0x0010) [0x0000000000000001] (CPF_Edit)    
 	class UStaticMesh*                                 BreakMesh;                                     // 0x0010 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	uint8_t                                            Physics;                                       // 0x0014 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0015 (0x0003) MISSED OFFSET
 	class USoundCue*                                   BreakSound;                                    // 0x0018 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	float                                              Lifetime;                                      // 0x001C (0x0004) [0x0000000000000001] (CPF_Edit)    
 	class AKActorSpawnable*                            subKActor;                                     // 0x0020 (0x0004) [0x0000000000000000]               
@@ -1181,6 +1202,7 @@ struct AGameBreakableActor_FCheckpointRecord
 	struct FVector                                     Location;                                      // 0x001C (0x000C) [0x0000000000000000]               
 	struct FRotator                                    Rotation;                                      // 0x0028 (0x000C) [0x0000000000000000]               
 	uint8_t                                            InitialPhysics;                                // 0x0034 (0x0001) [0x0000000000000000]               
+	uint8_t                                            UnknownData00[0x3];                              // 0x0035 (0x0003) MISSED OFFSET
 	uint32_t                                           CanSpawnHealth : 1;                            // 0x0038 (0x0004) [0x0000000000000000] [0x00000001] 
 	uint32_t                                           CanSpawnXP : 1;                                // 0x0038 (0x0004) [0x0000000000000000] [0x00000002] 
 	uint32_t                                           Breakable : 1;                                 // 0x0038 (0x0004) [0x0000000000000000] [0x00000004] 
@@ -1262,6 +1284,7 @@ struct AJumpPadMushroom_FJumpPadAnimation
 struct FDeathTypeFXInfo
 {
 	uint8_t                                            Type;                                          // 0x0000 (0x0001) [0x0000000000000000]               
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	class UParticleSystem*                             ParticleDeath;                                 // 0x0004 (0x0004) [0x0000000000000000]               
 	class UParticleSystem*                             ParticleRespawn;                               // 0x0008 (0x0004) [0x0000000000000000]               
 	class USoundCue*                                   ParticleDeathSound;                            // 0x000C (0x0004) [0x0000000000000000]               

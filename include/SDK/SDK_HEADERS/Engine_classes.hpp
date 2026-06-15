@@ -1,7 +1,7 @@
 /*
 #############################################################################################
 # Alice2 (ASDK) SDK 1.0.0.0
-# Generated with the CodeRedGenerator v1.1.6
+# Generated with the CodeRedGenerator v1.2.0
 # ========================================================================================= #
 # File: Engine_classes.hpp
 # ========================================================================================= #
@@ -14,14 +14,6 @@
 #ifdef _MSC_VER
 #pragma pack(push, 0x4)
 #endif
-
-// Forward Declarations
-class UClass;
-class UFunction;
-class UProperty;
-class UStructProperty;
-class UStruct;
-
 
 /*
 # ========================================================================================= #
@@ -1116,76 +1108,76 @@ enum class EFontImportCharacterSet : uint8_t
 // Enum Engine.CheckPointManager.ChapterNameList
 enum class EChapterNameList : uint8_t
 {
-	Chapter                                            = 0,
-	Chapter01                                          = 1,
-	Chapter02                                          = 2,
-	Chapter03                                          = 3,
-	Chapter04                                          = 4,
-	Chapter05                                          = 5,
-	Chapter06                                          = 6,
-	Chapter07                                          = 7,
-	Chapter08                                          = 8,
-	Chapter09                                          = 9,
-	Chapter10                                          = 10,
-	Chapter11                                          = 11,
-	Chapter12                                          = 12,
-	Chapter13                                          = 13,
-	Chapter14                                          = 14,
-	Chapter15                                          = 15,
-	Chapter16                                          = 16,
-	Chapter17                                          = 17,
-	Chapter18                                          = 18,
-	Chapter19                                          = 19,
-	Chapter20                                          = 20,
-	Chapter21                                          = 21,
-	Chapter22                                          = 22,
-	Chapter23                                          = 23,
-	Chapter24                                          = 24,
-	Chapter25                                          = 25,
-	Chapter26                                          = 26,
-	Chapter27                                          = 27,
-	Chapter28                                          = 28,
-	Chapter29                                          = 29,
-	Chapter30                                          = 30,
-	Chapter31                                          = 31,
-	Chapter32                                          = 32,
-	Chapter33                                          = 33,
-	Chapter34                                          = 34,
-	Chapter35                                          = 35,
-	Chapter36                                          = 36,
-	Chapter37                                          = 37,
-	Chapter38                                          = 38,
-	Chapter39                                          = 39,
-	Chapter40                                          = 40,
-	Chapter41                                          = 41,
-	Chapter42                                          = 42,
-	Chapter43                                          = 43,
-	Chapter44                                          = 44,
-	Chapter45                                          = 45,
-	Chapter46                                          = 46,
-	Chapter47                                          = 47,
-	Chapter48                                          = 48,
-	Chapter49                                          = 49,
-	Chapter50                                          = 50,
-	Chapter51                                          = 51,
-	Chapter52                                          = 52,
-	Chapter53                                          = 53,
-	Chapter54                                          = 54,
-	Chapter55                                          = 55,
-	Chapter56                                          = 56,
-	Chapter57                                          = 57,
-	Chapter58                                          = 58,
-	Chapter59                                          = 59,
-	Chapter60                                          = 60,
-	Chapter61                                          = 61,
-	Chapter62                                          = 62,
-	Chapter63                                          = 63,
-	Chapter64                                          = 64,
-	Chapter65                                          = 65,
-	Chapter66                                          = 66,
-	Chapter67                                          = 67,
-	Chapter68                                          = 68,
-	Chapter69                                          = 69,
+	Chapter_0                                          = 0,
+	Chapter_1                                          = 1,
+	Chapter_2                                          = 2,
+	Chapter_3                                          = 3,
+	Chapter_4                                          = 4,
+	Chapter_5                                          = 5,
+	Chapter_6                                          = 6,
+	Chapter_7                                          = 7,
+	Chapter_8                                          = 8,
+	Chapter_9                                          = 9,
+	Chapter_10                                         = 10,
+	Chapter_11                                         = 11,
+	Chapter_12                                         = 12,
+	Chapter_13                                         = 13,
+	Chapter_14                                         = 14,
+	Chapter_15                                         = 15,
+	Chapter_16                                         = 16,
+	Chapter_17                                         = 17,
+	Chapter_18                                         = 18,
+	Chapter_19                                         = 19,
+	Chapter_20                                         = 20,
+	Chapter_21                                         = 21,
+	Chapter_22                                         = 22,
+	Chapter_23                                         = 23,
+	Chapter_24                                         = 24,
+	Chapter_25                                         = 25,
+	Chapter_26                                         = 26,
+	Chapter_27                                         = 27,
+	Chapter_28                                         = 28,
+	Chapter_29                                         = 29,
+	Chapter_30                                         = 30,
+	Chapter_31                                         = 31,
+	Chapter_32                                         = 32,
+	Chapter_33                                         = 33,
+	Chapter_34                                         = 34,
+	Chapter_35                                         = 35,
+	Chapter_36                                         = 36,
+	Chapter_37                                         = 37,
+	Chapter_38                                         = 38,
+	Chapter_39                                         = 39,
+	Chapter_40                                         = 40,
+	Chapter_41                                         = 41,
+	Chapter_42                                         = 42,
+	Chapter_43                                         = 43,
+	Chapter_44                                         = 44,
+	Chapter_45                                         = 45,
+	Chapter_46                                         = 46,
+	Chapter_47                                         = 47,
+	Chapter_48                                         = 48,
+	Chapter_49                                         = 49,
+	Chapter_50                                         = 50,
+	Chapter_51                                         = 51,
+	Chapter_52                                         = 52,
+	Chapter_53                                         = 53,
+	Chapter_54                                         = 54,
+	Chapter_55                                         = 55,
+	Chapter_56                                         = 56,
+	Chapter_57                                         = 57,
+	Chapter_58                                         = 58,
+	Chapter_59                                         = 59,
+	Chapter_60                                         = 60,
+	Chapter_61                                         = 61,
+	Chapter_62                                         = 62,
+	Chapter_63                                         = 63,
+	Chapter_64                                         = 64,
+	Chapter_65                                         = 65,
+	Chapter_66                                         = 66,
+	Chapter_67                                         = 67,
+	Chapter_68                                         = 68,
+	Chapter_69                                         = 69,
 	Chapter_END                                        = 70
 };
 
@@ -1219,10 +1211,10 @@ enum class EColumnHeaderState : uint8_t
 // Enum Engine.GameEffectSpeedController.EGameEffectSpeedControlPriority
 enum class EGameEffectSpeedControlPriority : uint8_t
 {
-	EGameEffectSpeedControlPriority                    = 0,
-	EGameEffectSpeedControlPriority01                  = 1,
-	EGameEffectSpeedControlPriority02                  = 2,
-	EGameEffectSpeedControlPriority03                  = 3,
+	EGameEffectSpeedControlPriority_0                  = 0,
+	EGameEffectSpeedControlPriority_1                  = 1,
+	EGameEffectSpeedControlPriority_2                  = 2,
+	EGameEffectSpeedControlPriority_3                  = 3,
 	EGameEffectSpeedControlPriority_END                = 4
 };
 
@@ -1252,7 +1244,7 @@ enum class ENetMode : uint8_t
 enum class EInputPlatformType : uint8_t
 {
 	IPT_PC                                             = 0,
-	IPT                                                = 1,
+	IPT_360                                            = 1,
 	IPT_PS3                                            = 2,
 	IPT_END                                            = 3
 };
@@ -2595,12 +2587,12 @@ enum class ESimulationMethod : uint8_t
 // Enum Engine.PhysXParticleSystem.EPacketSizeMultiplier
 enum class EPacketSizeMultiplier : uint8_t
 {
-	EPSM                                               = 0,
-	EPSM01                                             = 1,
-	EPSM02                                             = 2,
-	EPSM03                                             = 3,
-	EPSM04                                             = 4,
-	EPSM05                                             = 5,
+	EPSM_4                                             = 0,
+	EPSM_8                                             = 1,
+	EPSM_16                                            = 2,
+	EPSM_32                                            = 3,
+	EPSM_64                                            = 4,
+	EPSM_128                                           = 5,
 	EPSM_END                                           = 6
 };
 
@@ -3166,6 +3158,7 @@ public:
 	float                                              StreamingDistanceFactor;                       // 0x04F0 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	class FString                                      ScoutClassName;                                // 0x04F4 (0x000C) [0x0000000000404002] (CPF_Const | CPF_Config | CPF_NeedCtorLink)
 	ETransitionType                                    TransitionType;                                // 0x0500 (0x0001) [0x0000000000000000]               
+	uint8_t                                            UnknownData00[0x3];                              // 0x0501 (0x0003) MISSED OFFSET
 	class FString                                      TransitionDescription;                         // 0x0504 (0x000C) [0x0000000000400000] (CPF_NeedCtorLink)
 	class FString                                      TransitionGameType;                            // 0x0510 (0x000C) [0x0000000000400000] (CPF_NeedCtorLink)
 	float                                              MeshLODRange;                                  // 0x051C (0x0004) [0x0000000000004000] (CPF_Config)  
@@ -3208,6 +3201,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	static int32_t GetPhysXLevel();
 	static void AddOverlayWrapped(class UFont* Font, const class FString& Text, float X, float Y, float ScaleX, float ScaleY, float WrapWidth);
 	static void AddOverlay(class UFont* Font, const class FString& Text, float X, float Y, float ScaleX, float ScaleY, bool bIsCentered);
@@ -3237,7 +3231,6 @@ public:
 	void SavePlayerList();
 	void LoadPlayerList();
 };
-
 // Class Engine.GameEngine
 // 0x0114 (0x05C8 - 0x06DC)
 class UGameEngine : public UEngine
@@ -3251,6 +3244,7 @@ public:
 	class FString                                      TravelURL;                                     // 0x066C (0x000C) [0x0000000000400000] (CPF_NeedCtorLink)
 	uint8_t                                            TravelType;                                    // 0x0678 (0x0001) [0x0000000000000000]               
 	EChapterNameList                                   LoadingChapterName;                            // 0x0679 (0x0001) [0x0000000000000000]               
+	uint8_t                                            UnknownData00[0x2];                              // 0x067A (0x0002) MISSED OFFSET
 	uint32_t                                           bWorldWasLoadedThisTick : 1;                   // 0x067C (0x0004) [0x0000000000002002] [0x00000001] (CPF_Const | CPF_Transient)
 	uint32_t                                           bShouldCommitPendingMapChange : 1;             // 0x067C (0x0004) [0x0000000000000002] [0x00000002] (CPF_Const)
 	uint32_t                                           bClearAnimSetLinkupCachesOnLoadMap : 1;        // 0x067C (0x0004) [0x0000000000004000] [0x00000004] (CPF_Config)
@@ -3278,11 +3272,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	static class UOnlineSubsystem* GetOnlineSubsystem();
 	void DestroyNamedNetDriver(const class FName& NetDriverName);
 	bool CreateNamedNetDriver(const class FName& NetDriverName);
 };
-
 // Class Engine.Actor
 // 0x01EC (0x003C - 0x0228)
 class AActor : public UObject
@@ -3320,6 +3314,7 @@ public:
 	uint32_t                                           bUpdateSimulatedPosition : 1;                  // 0x003C (0x0004) [0x0000000000000000] [0x20000000] 
 	uint32_t                                           bTearOff : 1;                                  // 0x003C (0x0004) [0x0000000000000020] [0x40000000] (CPF_Net)
 	uint32_t                                           bOnlyDirtyReplication : 1;                     // 0x003C (0x0004) [0x0000000000000000] [0x80000000] 
+	uint32_t : 0;                                  // 0x0040 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bAllowFluidSurfaceInteraction : 1;             // 0x0040 (0x0004) [0x0000000000000001] [0x00000001] (CPF_Edit)
 	uint32_t                                           bDemoRecording : 1;                            // 0x0040 (0x0004) [0x0000000000002000] [0x00000002] (CPF_Transient)
 	uint32_t                                           bDemoOwner : 1;                                // 0x0040 (0x0004) [0x0000000000000000] [0x00000004] 
@@ -3352,6 +3347,7 @@ public:
 	uint32_t                                           bShouldBaseAtStartup : 1;                      // 0x0040 (0x0004) [0x0000000000000000] [0x20000000] 
 	uint32_t                                           bPendingDelete : 1;                            // 0x0040 (0x0004) [0x0000000000000000] [0x40000000] 
 	uint32_t                                           bCanTeleport : 1;                              // 0x0040 (0x0004) [0x0000000000000000] [0x80000000] 
+	uint32_t : 0;                                  // 0x0044 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bAlwaysTick : 1;                               // 0x0044 (0x0004) [0x0000000000000002] [0x00000001] (CPF_Const)
 	uint32_t                                           bBlocksNavigation : 1;                         // 0x0044 (0x0004) [0x0000000000000001] [0x00000002] (CPF_Edit)
 	uint32_t                                           BlockRigidBody : 1;                            // 0x0044 (0x0004) [0x0000000000002003] [0x00000004] (CPF_Edit | CPF_Const | CPF_Transient)
@@ -3384,6 +3380,7 @@ public:
 	uint32_t                                           bTempEditor : 1;                               // 0x0044 (0x0004) [0x0000000000002002] [0x20000000] (CPF_Const | CPF_Transient)
 	uint32_t                                           bPathColliding : 1;                            // 0x0044 (0x0004) [0x0000000000000001] [0x40000000] (CPF_Edit)
 	uint32_t                                           bPathTemp : 1;                                 // 0x0044 (0x0004) [0x0000000000002000] [0x80000000] (CPF_Transient)
+	uint32_t : 0;                                  // 0x0048 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bScriptInitialized : 1;                        // 0x0048 (0x0004) [0x0000000000000000] [0x00000001] 
 	uint32_t                                           bLockLocation : 1;                             // 0x0048 (0x0004) [0x0000000000000001] [0x00000002] (CPF_Edit)
 	uint32_t                                           bForceAllowKismetModification : 1;             // 0x0048 (0x0004) [0x0000000000000002] [0x00000004] (CPF_Const)
@@ -3402,6 +3399,7 @@ public:
 	ECollisionType                                     CollisionType;                                 // 0x00A3 (0x0001) [0x0000000000002003] (CPF_Edit | CPF_Const | CPF_Transient)
 	ECollisionType                                     ReplicatedCollisionType;                       // 0x00A4 (0x0001) [0x0000000000002020] (CPF_Net | CPF_Transient)
 	ETickingGroup                                      TickGroup;                                     // 0x00A5 (0x0001) [0x0000000000000002] (CPF_Const)   
+	uint8_t                                            UnknownData00[0x2];                              // 0x00A6 (0x0002) MISSED OFFSET
 	class AActor*                                      Owner;                                         // 0x00A8 (0x0004) [0x0000000000000022] (CPF_Const | CPF_Net)
 	class AActor*                                      Base;                                          // 0x00AC (0x0004) [0x0000000000000023] (CPF_Edit | CPF_Const | CPF_Net)
 	class TArray<struct FTimerData>                    Timers;                                        // 0x00B0 (0x000C) [0x0000000000400002] (CPF_Const | CPF_NeedCtorLink)
@@ -3474,6 +3472,7 @@ public:
 
 		return uClassPointer;
 	};
+
 
 	class FString GetLanguage();
 	void StartMorphing(const class FName& NodeName, float StartWeight, float EndWeight, float MorphTime);
@@ -3549,11 +3548,11 @@ public:
 	void eventForceNetRelevant();
 	void OnDestroy(class USeqAct_Destroy* Action);
 	void ClearLatentAction(class UClass* actionClass, bool optionalBAborted, class USeqAct_Latent* optionalExceptionAction);
-	bool FindEventsOfClass(class UClass* EventClass, bool optionalBIncludeDisabled, class TArray<class USequenceEvent*>& outOut_EventList);
-	bool ActivateEventClass(class UClass* InClass, class AActor* InInstigator, bool optionalBTest, class TArray<class USequenceEvent*>& outEventList, class TArray<int32_t>& outActivateIndices, class TArray<class USequenceEvent*>& outActivatedEvents);
+	bool FindEventsOfClass(class UClass* EventClass, bool optionalBIncludeDisabled, class TArray<class USequenceEvent*>& optionalOutOut_EventList);
+	bool ActivateEventClass(class UClass* InClass, class AActor* InInstigator, bool optionalBTest, class TArray<class USequenceEvent*>& outEventList, class TArray<int32_t>& optionalOutActivateIndices, class TArray<class USequenceEvent*>& optionalOutActivatedEvents);
 	bool TriggerGlobalEventClass(class UClass* InEventClass, class AActor* InInstigator, int32_t optionalActivateIndex);
 	void eventReceivedNewEvent(class USequenceEvent* Evt);
-	bool TriggerEventClass(class UClass* InEventClass, class AActor* InInstigator, int32_t optionalActivateIndex, bool optionalBTest, class TArray<class USequenceEvent*>& outActivatedEvents);
+	bool TriggerEventClass(class UClass* InEventClass, class AActor* InInstigator, int32_t optionalActivateIndex, bool optionalBTest, class TArray<class USequenceEvent*>& optionalOutActivatedEvents);
 	bool EffectIsRelevant(const struct FVector& SpawnLocation, bool bForceDedicated, float optionalCullDistance);
 	bool CheckMaxEffectDistance(class APlayerController* P, const struct FVector& SpawnLocation, float optionalCullDistance);
 	void ApplyFluidSurfaceImpact(class AFluidSurfaceActor* Fluid, const struct FVector& HitLocation);
@@ -3568,7 +3567,7 @@ public:
 	void DisplayDebug(class AHUD* HUD, float& outOut_YL, float& outOut_YPos);
 	class FString GetDebugName();
 	void MatchStarting();
-	static class FString GetLocalString(int32_t optionalSwitch, class APlayerReplicationInfo* optionalRelatedPRI, class APlayerReplicationInfo* optionalRelatedPRI01);
+	static class FString GetLocalString(int32_t optionalSwitch, class APlayerReplicationInfo* optionalRelatedPRI_1, class APlayerReplicationInfo* optionalRelatedPRI_2);
 	static void ReplaceText(const class FString& Replace, const class FString& With, class FString& outText);
 	class FString GetHumanReadableName();
 	class FString GetItemName(const class FString& FullName);
@@ -3591,8 +3590,8 @@ public:
 	void eventConstraintBrokenNotify(class AActor* ConOwner, class URB_ConstraintSetup* ConSetup, class URB_ConstraintInstance* ConInstance);
 	void eventSetInitialState();
 	void eventPostBeginPlay();
-	void eventBroadcastLocalizedTeamMessage(int32_t TeamIndex, class UClass* InMessageClass, int32_t optionalSwitch, class APlayerReplicationInfo* optionalRelatedPRI, class APlayerReplicationInfo* optionalRelatedPRI01, class UObject* optionalOptionalObject);
-	void eventBroadcastLocalizedMessage(class UClass* InMessageClass, int32_t optionalSwitch, class APlayerReplicationInfo* optionalRelatedPRI, class APlayerReplicationInfo* optionalRelatedPRI01, class UObject* optionalOptionalObject);
+	void eventBroadcastLocalizedTeamMessage(int32_t TeamIndex, class UClass* InMessageClass, int32_t optionalSwitch, class APlayerReplicationInfo* optionalRelatedPRI_1, class APlayerReplicationInfo* optionalRelatedPRI_2, class UObject* optionalOptionalObject);
+	void eventBroadcastLocalizedMessage(class UClass* InMessageClass, int32_t optionalSwitch, class APlayerReplicationInfo* optionalRelatedPRI_1, class APlayerReplicationInfo* optionalRelatedPRI_2, class UObject* optionalOptionalObject);
 	void eventPreBeginPlay();
 	bool FindActorsOfClass(class UClass* ActorClass, class TArray<class AActor*>& outOut_Actors);
 	class APlayerController* GetALocalPlayerController();
@@ -3600,10 +3599,10 @@ public:
 	void AllOwnedComponents(class UClass* BaseClass, class UActorComponent*& outOutComponent);
 	void ComponentList(class UClass* BaseClass, class UActorComponent*& outOut_Component);
 	void OverlappingActors(class UClass* BaseClass, float Radius, const struct FVector& optionalLoc, bool optionalBIgnoreHidden, class AActor*& outOut_Actor);
-	void CollidingActors(class UClass* BaseClass, float Radius, const struct FVector& optionalLoc, bool optionalBUseOverlapCheck, class UClass* optionalInterfaceClass, class AActor*& outActor, struct FTraceHitInfo& outHitInfo);
-	void VisibleCollidingActors(class UClass* BaseClass, float Radius, const struct FVector& optionalLoc, bool optionalBIgnoreHidden, const struct FVector& optionalExtent, bool optionalBTraceActors, class UClass* optionalInterfaceClass, class AActor*& outActor, struct FTraceHitInfo& outHitInfo);
+	void CollidingActors(class UClass* BaseClass, float Radius, const struct FVector& optionalLoc, bool optionalBUseOverlapCheck, class UClass* optionalInterfaceClass, class AActor*& outActor, struct FTraceHitInfo& optionalOutHitInfo);
+	void VisibleCollidingActors(class UClass* BaseClass, float Radius, const struct FVector& optionalLoc, bool optionalBIgnoreHidden, const struct FVector& optionalExtent, bool optionalBTraceActors, class UClass* optionalInterfaceClass, class AActor*& outActor, struct FTraceHitInfo& optionalOutHitInfo);
 	void VisibleActors(class UClass* BaseClass, float optionalRadius, const struct FVector& optionalLoc, class AActor*& outActor);
-	void TraceActors(class UClass* BaseClass, const struct FVector& End, const struct FVector& optionalStart, const struct FVector& optionalExtent, int32_t optionalExtraTraceFlags, class AActor*& outActor, struct FVector& outHitLoc, struct FVector& outHitNorm, struct FTraceHitInfo& outHitInfo);
+	void TraceActors(class UClass* BaseClass, const struct FVector& End, const struct FVector& optionalStart, const struct FVector& optionalExtent, int32_t optionalExtraTraceFlags, class AActor*& outActor, struct FVector& outHitLoc, struct FVector& outHitNorm, struct FTraceHitInfo& optionalOutHitInfo);
 	void TouchingActors(class UClass* BaseClass, class AActor*& outActor);
 	void BasedActors(class UClass* BaseClass, class AActor*& outActor);
 	void ChildActors(class UClass* BaseClass, class AActor*& outActor);
@@ -3616,7 +3615,7 @@ public:
 	bool SuggestTossVelocity(const struct FVector& Destination, const struct FVector& Start, float TossSpeed, float optionalBaseTossZ, float optionalDesiredZPct, const struct FVector& optionalCollisionSize, float optionalTerminalVelocity, float optionalOverrideGravityZ, bool optionalBOnlyTraceUp, struct FVector& outTossVelocity);
 	bool PlayerCanSeeMe();
 	void MakeNoise(float Loudness, const class FName& optionalNoiseType);
-	void PlaySoundW(class USoundCue* InSoundCue, bool optionalBNotReplicated, bool optionalBNoRepToOwner, bool optionalBStopWhenOwnerDestroyed, const struct FVector& optionalSoundLocation, bool optionalBNoRepToRelevant);
+	void PlaySoundWin(class USoundCue* InSoundCue, bool optionalBNotReplicated, bool optionalBNoRepToOwner, bool optionalBStopWhenOwnerDestroyed, const struct FVector& optionalSoundLocation, bool optionalBNoRepToRelevant);
 	class UAudioComponent* CreateAudioComponent(class USoundCue* InSoundCue, bool optionalBPlay, bool optionalBStopWhenOwnerDestroyed, bool optionalBUseLocation, const struct FVector& optionalSourceLocation, bool optionalBAttachToSelf);
 	void ResetTimerTimeDilation(const class FName& TimerName, class UObject* optionalInObj);
 	void ModifyTimerTimeDilation(const class FName& TimerName, float InTimerTimeDilation, class UObject* optionalInObj);
@@ -3639,8 +3638,8 @@ public:
 	bool TraceAllPhysicsAssetInteractions(class USkeletalMeshComponent* SkelMeshComp, const struct FVector& EndTrace, const struct FVector& StartTrace, const struct FVector& optionalExtent, class TArray<struct FImpactInfo>& outOut_Hits);
 	bool FastTrace(const struct FVector& TraceEnd, const struct FVector& optionalTraceStart, const struct FVector& optionalBoxExtent, bool optionalBTraceBullet);
 	bool PointCheckComponent(class UPrimitiveComponent* InComponent, const struct FVector& PointLocation, const struct FVector& PointExtent);
-	bool TraceComponent(class UPrimitiveComponent* InComponent, const struct FVector& TraceEnd, const struct FVector& optionalTraceStart, const struct FVector& optionalExtent, bool optionalBComplexCollision, struct FVector& outHitLocation, struct FVector& outHitNormal, struct FTraceHitInfo& outHitInfo);
-	class AActor* Trace(const struct FVector& TraceEnd, const struct FVector& optionalTraceStart, bool optionalBTraceActors, const struct FVector& optionalExtent, int32_t optionalExtraTraceFlags, struct FVector& outHitLocation, struct FVector& outHitNormal, struct FTraceHitInfo& outHitInfo);
+	bool TraceComponent(class UPrimitiveComponent* InComponent, const struct FVector& TraceEnd, const struct FVector& optionalTraceStart, const struct FVector& optionalExtent, bool optionalBComplexCollision, struct FVector& outHitLocation, struct FVector& outHitNormal, struct FTraceHitInfo& optionalOutHitInfo);
+	class AActor* Trace(const struct FVector& TraceEnd, const struct FVector& optionalTraceStart, bool optionalBTraceActors, const struct FVector& optionalExtent, int32_t optionalExtraTraceFlags, struct FVector& outHitLocation, struct FVector& outHitNormal, struct FTraceHitInfo& optionalOutHitInfo);
 	void VolumeBasedDestroy(class APhysicsVolume* PV);
 	void eventOutsideWorldBounds();
 	void eventFellOutOfWorld(class UClass* dmgType);
@@ -3732,13 +3731,13 @@ public:
 	void PureVisualStopMotion();
 	void StopMotion();
 };
-
 // Class Engine.Brush
 // 0x0024 (0x0228 - 0x024C)
 class ABrush : public AActor
 {
 public:
 	ECsgOper                                           CsgOper;                                       // 0x0228 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0229 (0x0003) MISSED OFFSET
 	struct FColor                                      BrushColor;                                    // 0x022C (0x0004) [0x0000000000000001] (CPF_Edit)    
 	int32_t                                            PolyFlags;                                     // 0x0230 (0x0004) [0x0000000000000000]               
 	uint32_t                                           bColored : 1;                                  // 0x0234 (0x0004) [0x0000000000000001] [0x00000001] (CPF_Edit)
@@ -3762,7 +3761,6 @@ public:
 	};
 
 };
-
 // Class Engine.BrushShape
 // 0x0000 (0x024C - 0x024C)
 class ABrushShape : public ABrush
@@ -3783,7 +3781,6 @@ public:
 	};
 
 };
-
 // Class Engine.Volume
 // 0x0018 (0x024C - 0x0264)
 class AVolume : public ABrush
@@ -3808,6 +3805,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventProcessActorSetVolume(class AActor* Other);
 	void eventCollisionChanged();
 	void OnToggle(class USeqAct_Toggle* Action);
@@ -3818,7 +3816,6 @@ public:
 	bool EncompassesPoint(const struct FVector& Loc);
 	bool Encompasses(class AActor* Other);
 };
-
 // Class Engine.BlockingVolume
 // 0x0004 (0x0264 - 0x0268)
 class ABlockingVolume : public AVolume
@@ -3843,9 +3840,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void OnToggle(class USeqAct_Toggle* Action);
 };
-
 // Class Engine.DynamicBlockingVolume
 // 0x001C (0x0268 - 0x0284)
 class ADynamicBlockingVolume : public ABlockingVolume
@@ -3868,6 +3865,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void OnToggle(class USeqAct_Toggle* Action);
 	void OnChangeCollision(class USeqAct_ChangeCollision* Action);
 	void eventUpdateAfterAcceptPersistentDate();
@@ -3875,7 +3873,6 @@ public:
 	void CreateCheckpointRecord(struct ADynamicBlockingVolume_FCheckpointRecord& outRecord);
 	void eventPostBeginPlay();
 };
-
 // Class Engine.CullDistanceVolume
 // 0x0010 (0x0264 - 0x0274)
 class ACullDistanceVolume : public AVolume
@@ -3898,7 +3895,6 @@ public:
 	};
 
 };
-
 // Class Engine.HeightFogVolume
 // 0x0014 (0x0264 - 0x0278)
 class AHeightFogVolume : public AVolume
@@ -3923,11 +3919,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	void OnToggle(class USeqAct_Toggle* Action);
 	void eventEnableHeightFogActor(bool bSetEnabled);
 	void eventToggle(int32_t optionalFlag);
 };
-
 // Class Engine.LevelGridVolume
 // 0x0088 (0x0264 - 0x02EC)
 class ALevelGridVolume : public AVolume
@@ -3935,6 +3931,7 @@ class ALevelGridVolume : public AVolume
 public:
 	class FString                                      LevelGridVolumeName;                           // 0x0264 (0x000C) [0x0000000000400003] (CPF_Edit | CPF_Const | CPF_NeedCtorLink)
 	ELevelGridCellShape                                CellShape;                                     // 0x0270 (0x0001) [0x0000000000000003] (CPF_Edit | CPF_Const)
+	uint8_t                                            UnknownData00[0x3];                              // 0x0271 (0x0003) MISSED OFFSET
 	int32_t                                            Subdivisions[3];                               // 0x0274 (0x000C) [0x0000000000000003] (CPF_Edit | CPF_Const)
 	float                                              LoadingDistance;                               // 0x0280 (0x0004) [0x0000000000000003] (CPF_Edit | CPF_Const)
 	float                                              KeepLoadedRange;                               // 0x0284 (0x0004) [0x0000000000000003] (CPF_Edit | CPF_Const)
@@ -3954,7 +3951,6 @@ public:
 	};
 
 };
-
 // Class Engine.LevelStreamingVolume
 // 0x0018 (0x0264 - 0x027C)
 class ALevelStreamingVolume : public AVolume
@@ -3966,6 +3962,7 @@ public:
 	uint32_t                                           bTestDistanceToVolume : 1;                     // 0x0270 (0x0004) [0x0000000000000001] [0x00000004] (CPF_Edit)
 	EStreamingVolumeUsage                              StreamingUsage;                                // 0x0274 (0x0001) [0x0000000000000001] (CPF_Edit)    
 	EStreamingVolumeUsage                              Usage;                                         // 0x0275 (0x0001) [0x0000000020000000]  CPF_Deprecated)
+	uint8_t                                            UnknownData00[0x2];                              // 0x0276 (0x0002) MISSED OFFSET
 	float                                              TestVolumeDistance;                            // 0x0278 (0x0004) [0x0000000000000001] (CPF_Edit)    
 
 public:
@@ -3981,11 +3978,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	void ApplyCheckpointRecord(struct ALevelStreamingVolume_FCheckpointRecord& outRecord);
 	void CreateCheckpointRecord(struct ALevelStreamingVolume_FCheckpointRecord& outRecord);
 	void OnToggle(class USeqAct_Toggle* Action);
 };
-
 // Class Engine.LightmassImportanceVolume
 // 0x0000 (0x0264 - 0x0264)
 class ALightmassImportanceVolume : public AVolume
@@ -4006,7 +4003,6 @@ public:
 	};
 
 };
-
 // Class Engine.PathBlockingVolume
 // 0x0000 (0x0264 - 0x0264)
 class APathBlockingVolume : public AVolume
@@ -4027,7 +4023,6 @@ public:
 	};
 
 };
-
 // Class Engine.PhysicsVolume
 // 0x0040 (0x0264 - 0x02A4)
 class APhysicsVolume : public AVolume
@@ -4073,6 +4068,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void ApplyCheckpointRecord(struct APhysicsVolume_FCheckpointRecord& outRecord);
 	void CreateCheckpointRecord(struct APhysicsVolume_FCheckpointRecord& outRecord);
 	bool ShouldSaveForCheckpoint();
@@ -4094,7 +4090,6 @@ public:
 	struct FVector GetZoneVelocityForActor(class AActor* TheActor);
 	float GetGravityZ();
 };
-
 // Class Engine.ClimbableVolume
 // 0x0024 (0x02A4 - 0x02C8)
 class AClimbableVolume : public APhysicsVolume
@@ -4118,7 +4113,6 @@ public:
 	};
 
 };
-
 // Class Engine.LadderVolume
 // 0x0010 (0x02C8 - 0x02D8)
 class ALadderVolume : public AClimbableVolume
@@ -4144,13 +4138,13 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventPhysicsChangedFor(class AActor* Other);
 	void eventPawnLeavingVolume(class APawn* P);
 	void eventPawnEnteredVolume(class APawn* P);
 	bool InUse(class APawn* Ignored);
 	void eventPostBeginPlay();
 };
-
 // Class Engine.DefaultPhysicsVolume
 // 0x0000 (0x02A4 - 0x02A4)
 class ADefaultPhysicsVolume : public APhysicsVolume
@@ -4170,9 +4164,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventDestroyed();
 };
-
 // Class Engine.GravityVolume
 // 0x0004 (0x02A4 - 0x02A8)
 class AGravityVolume : public APhysicsVolume
@@ -4194,7 +4188,6 @@ public:
 	};
 
 };
-
 // Class Engine.PortalVolume
 // 0x000C (0x0264 - 0x0270)
 class APortalVolume : public AVolume
@@ -4216,7 +4209,6 @@ public:
 	};
 
 };
-
 // Class Engine.PostProcessVolume
 // 0x0100 (0x0264 - 0x0364)
 class APostProcessVolume : public AVolume
@@ -4241,9 +4233,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void OnToggle(class USeqAct_Toggle* Action);
 };
-
 // Class Engine.ReverbVolume
 // 0x003C (0x0264 - 0x02A0)
 class AReverbVolume : public AVolume
@@ -4268,7 +4260,6 @@ public:
 	};
 
 };
-
 // Class Engine.TriggerVolume
 // 0x0000 (0x0264 - 0x0264)
 class ATriggerVolume : public AVolume
@@ -4288,10 +4279,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool StopsProjectile(class AProjectile* P);
 	void eventPostBeginPlay();
 };
-
 // Class Engine.CheckPointManager
 // 0x07C8 (0x0228 - 0x09F0)
 class ACheckPointManager : public AActor
@@ -4301,6 +4292,7 @@ public:
 	class FString                                      AliceChapterName[70];                          // 0x0570 (0x0348) [0x0000000000404000] (CPF_Config | CPF_NeedCtorLink)
 	int32_t                                            AliceChapterLockState[70];                     // 0x08B8 (0x0118) [0x0000000000000000]               
 	EChapterNameList                                   LastCheckPoint;                                // 0x09D0 (0x0001) [0x0000000000000000]               
+	uint8_t                                            UnknownData00[0x3];                              // 0x09D1 (0x0003) MISSED OFFSET
 	struct FVector                                     SafeSaveLocation;                              // 0x09D4 (0x000C) [0x0000000000000000]               
 	struct FRotator                                    SafeSaveRotation;                              // 0x09E0 (0x000C) [0x0000000000000000]               
 	uint32_t                                           bHaveSafeSaveLocation : 1;                     // 0x09EC (0x0004) [0x0000000000000000] [0x00000001] 
@@ -4318,6 +4310,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	int32_t getChapterUnlocked();
 	bool IsChapterUnLocked(int32_t chapterIndex);
 	void UnLockAllChapter();
@@ -4328,7 +4321,6 @@ public:
 	void LoadChapter(EChapterNameList beLoadedCharpter);
 	EChapterNameList GetLastLoadedChapter();
 };
-
 // Class Engine.DroppedPickup
 // 0x0010 (0x0228 - 0x0238)
 class ADroppedPickup : public AActor
@@ -4352,6 +4344,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void RecheckValidTouch();
 	void PickedUpBy(class APawn* P);
 	void GiveTo(class APawn* P);
@@ -4366,7 +4359,6 @@ public:
 	void RemoveFromNavigation();
 	void AddToNavigation();
 };
-
 // Class Engine.DynamicSMActor
 // 0x003C (0x0228 - 0x0264)
 class ADynamicSMActor : public AActor
@@ -4398,6 +4390,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SetLightEnvironmentToNotBeDynamic();
 	void eventDetach(class AActor* Other);
 	void eventAttach(class AActor* Other);
@@ -4408,7 +4401,6 @@ public:
 	void eventReplicatedEvent(const class FName& VarName);
 	void eventPostBeginPlay();
 };
-
 // Class Engine.InterpActor
 // 0x002C (0x0264 - 0x0290)
 class AInterpActor : public ADynamicSMActor
@@ -4449,6 +4441,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void updateSonarMat(float DeltaTime);
 	void eventTick(float DeltaTime);
 	void setSonarActor(bool bIsSonar);
@@ -4472,7 +4465,6 @@ public:
 	void SetShadowParentOnAllAttachedComponents();
 	void eventPostBeginPlay();
 };
-
 // Class Engine.Emitter
 // 0x0010 (0x0228 - 0x0238)
 class AEmitter : public AActor
@@ -4499,6 +4491,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void HideSelf();
 	void ApplyCheckpointRecord(struct AEmitter_FCheckpointRecord& outRecord);
 	void CreateCheckpointRecord(struct AEmitter_FCheckpointRecord& outRecord);
@@ -4517,7 +4510,6 @@ public:
 	void eventPostBeginPlay();
 	void eventSetTemplate(class UParticleSystem* NewTemplate, bool optionalBDestroyOnFinish);
 };
-
 // Class Engine.EmitterPool
 // 0x0058 (0x0228 - 0x0280)
 class AEmitterPool : public AActor
@@ -4550,6 +4542,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	class UParticleSystemComponent* SpawnEmitterCustomLifetime(class UParticleSystem* EmitterTemplate);
 	class UParticleSystemComponent* SpawnEmitterMeshAttachment(class UParticleSystem* EmitterTemplate, class USkeletalMeshComponent* Mesh, const class FName& AttachPointName, bool optionalBAttachToSocket, const struct FVector& optionalRelativeLoc, const struct FRotator& optionalRelativeRot);
 	class UParticleSystemComponent* SpawnEmitter(class UParticleSystem* EmitterTemplate, const struct FVector& SpawnLocation, const struct FRotator& optionalSpawnRotation, class AActor* optionalAttachToActor, bool optionalBInheritScaleFromBase);
@@ -4562,7 +4555,6 @@ public:
 	void ClearPoolComponents();
 	void OnParticleSystemFinished(class UParticleSystemComponent* PSC);
 };
-
 // Class Engine.HUD
 // 0x028C (0x0228 - 0x04B4)
 class AHUD : public AActor
@@ -4620,18 +4612,19 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventOnLostFocusPause(bool bEnable);
 	void PlayerOwnerDied();
 	static struct FColor GetRYGColorRamp(float Pct);
 	static class UFont* GetFontSizeIndex(int32_t FontSize);
-	void DrawTextW(const class FString& Text, const struct FVector2D& Position, class UFont* TextFont, const struct FVector2D& FontScale, const struct FColor& TextColor);
+	void DrawTextWin(const class FString& Text, const struct FVector2D& Position, class UFont* TextFont, const struct FVector2D& FontScale, const struct FColor& TextColor);
 	void DisplayKismetMessages();
 	void DisplayLocalMessages();
 	void DrawMessageText(const struct FHudLocalizedMessage& LocalMessage, float ScreenX, float ScreenY);
 	void DrawMessage(int32_t I, float PosY, float& outDX, float& outDY);
 	void GetScreenCoords(float PosY, float& outScreenX, float& outScreenY, struct FHudLocalizedMessage& outInMessage);
 	void AddLocalizedMessage(int32_t Index, class UClass* InMessageClass, const class FString& CriticalString, int32_t Switch, float Position, float Lifetime, int32_t FontSize, const struct FColor& DrawColor, int32_t optionalMessageCount, class UObject* optionalOptionalObject);
-	void LocalizedMessage(class UClass* InMessageClass, class APlayerReplicationInfo* RelatedPRI, const class FString& CriticalString, int32_t Switch, float Position, float Lifetime, int32_t FontSize, const struct FColor& DrawColor, class UObject* optionalOptionalObject);
+	void LocalizedMessage(class UClass* InMessageClass, class APlayerReplicationInfo* RelatedPRI_1, const class FString& CriticalString, int32_t Switch, float Position, float Lifetime, int32_t FontSize, const struct FColor& DrawColor, class UObject* optionalOptionalObject);
 	void AddConsoleMessage(const class FString& M, class UClass* InMessageClass, class APlayerReplicationInfo* PRI, float optionalLifetime);
 	void DisplayConsoleMessages();
 	void eventFlushClientMessages();
@@ -4661,7 +4654,6 @@ public:
 	void Draw2DLine(int32_t X1, int32_t Y1, int32_t X2, int32_t Y2, const struct FColor& LineColor);
 	void Draw3DLine(const struct FVector& Start, const struct FVector& End, const struct FColor& LineColor);
 };
-
 // Class Engine.Info
 // 0x0000 (0x0228 - 0x0228)
 class AInfo : public AActor
@@ -4682,7 +4674,6 @@ public:
 	};
 
 };
-
 // Class Engine.AutoTestManager
 // 0x009C (0x0228 - 0x02C4)
 class AAutoTestManager : public AInfo
@@ -4730,6 +4721,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool CheckForSentinelRun();
 	void StartMatch();
 	class FString GetNextAutomatedTestingMap();
@@ -4753,7 +4745,6 @@ public:
 	void eventTimer();
 	void eventPostBeginPlay();
 };
-
 // Class Engine.CoverGroup
 // 0x0014 (0x0228 - 0x023C)
 class ACoverGroup : public AInfo
@@ -4776,12 +4767,12 @@ public:
 		return uClassPointer;
 	};
 
+
 	void OnToggle(class USeqAct_Toggle* Action);
 	void ToggleGroup();
 	void DisableGroup();
 	void EnableGroup();
 };
-
 // Class Engine.FileWriter
 // 0x0018 (0x0228 - 0x0240)
 class AFileWriter : public AInfo
@@ -4790,6 +4781,7 @@ public:
 	struct FPointer                                    ArchivePtr;                                    // 0x0228 (0x0004) [0x0000000000001002] (CPF_Const | CPF_Native)
 	class FString                                      Filename;                                      // 0x022C (0x000C) [0x0000000000400002] (CPF_Const | CPF_NeedCtorLink)
 	EFWFileType                                        FileType;                                      // 0x0238 (0x0001) [0x0000000000000002] (CPF_Const)   
+	uint8_t                                            UnknownData00[0x3];                              // 0x0239 (0x0003) MISSED OFFSET
 	uint32_t                                           bFlushEachWrite : 1;                           // 0x023C (0x0004) [0x0000000000000000] [0x00000001] 
 	uint32_t                                           bWantsAsyncWrites : 1;                         // 0x023C (0x0004) [0x0000000000000000] [0x00000002] 
 
@@ -4806,12 +4798,12 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventDestroyed();
 	void Logf(const class FString& logString);
 	void CloseFile();
 	bool OpenFile(const class FString& InFilename, EFWFileType optionalInFileType, const class FString& optionalInExtension, bool optionalBUnique, bool optionalBIncludeTimeStamp);
 };
-
 // Class Engine.FileLog
 // 0x0000 (0x0240 - 0x0240)
 class AFileLog : public AFileWriter
@@ -4831,10 +4823,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void CloseLog();
 	void OpenLog(const class FString& LogFilename, const class FString& optionalExtension, bool optionalBUnique);
 };
-
 // Class Engine.GameInfo
 // 0x01A4 (0x0228 - 0x03CC)
 class AGameInfo : public AInfo
@@ -4954,6 +4946,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventNotifyDialogueStart(class AActor* Speaker, class AActor* Addressee, class USoundCue* Audio, ESpeechPriority PRI);
 	void eventNotifyDialogueFinish(class AActor* Speaker, class USoundCue* Sound);
 	void eventStandbyCheatDetected(EStandbyType StandbyType);
@@ -5023,8 +5016,8 @@ public:
 	void WriteOnlineStats();
 	bool CheckEndGame(class APlayerReplicationInfo* Winner, const class FString& Reason);
 	bool CheckModifiedEndGame(class APlayerReplicationInfo* Winner, const class FString& Reason);
-	void eventBroadcastLocalizedTeam(int32_t TeamIndex, class AActor* Sender, class UClass* Message, int32_t optionalSwitch, class APlayerReplicationInfo* optionalRelatedPRI, class APlayerReplicationInfo* optionalRelatedPRI01, class UObject* optionalOptionalObject);
-	void eventBroadcastLocalized(class AActor* Sender, class UClass* Message, int32_t optionalSwitch, class APlayerReplicationInfo* optionalRelatedPRI, class APlayerReplicationInfo* optionalRelatedPRI01, class UObject* optionalOptionalObject);
+	void eventBroadcastLocalizedTeam(int32_t TeamIndex, class AActor* Sender, class UClass* Message, int32_t optionalSwitch, class APlayerReplicationInfo* optionalRelatedPRI_1, class APlayerReplicationInfo* optionalRelatedPRI_2, class UObject* optionalOptionalObject);
+	void eventBroadcastLocalized(class AActor* Sender, class UClass* Message, int32_t optionalSwitch, class APlayerReplicationInfo* optionalRelatedPRI_1, class APlayerReplicationInfo* optionalRelatedPRI_2, class UObject* optionalOptionalObject);
 	void BroadcastTeam(class AController* Sender, const class FString& msg, const class FName& optionalType);
 	void eventBroadcast(class AActor* Sender, const class FString& msg, const class FName& optionalType);
 	void RestartGame();
@@ -5119,7 +5112,6 @@ public:
 	bool GetMapCommonPackageName(class FString& outInFilename, class FString& outOutCommonPackageName);
 	bool GetSupportedGameTypes(bool optionalBCheckExt, class FString& outInFilename, struct FGameTypePrefix& outOutGameType);
 };
-
 // Class Engine.Mutator
 // 0x0014 (0x0228 - 0x023C)
 class AMutator : public AInfo
@@ -5141,6 +5133,7 @@ public:
 
 		return uClassPointer;
 	};
+
 
 	void NetDamage(int32_t OriginalDamage, class APawn* injured, class AController* InstigatedBy, const struct FVector& HitLocation, class UClass* DamageType, class AActor* DamageCauser, int32_t& outDamage, struct FVector& outMomentum);
 	void ScoreKill(class AController* Killer, class AController* Killed);
@@ -5172,7 +5165,6 @@ public:
 	bool MutatorIsAllowed();
 	void eventPreBeginPlay();
 };
-
 // Class Engine.PotentialClimbWatcher
 // 0x0000 (0x0228 - 0x0228)
 class APotentialClimbWatcher : public AInfo
@@ -5192,9 +5184,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventTick(float DeltaTime);
 };
-
 // Class Engine.Route
 // 0x0018 (0x0228 - 0x0240)
 class ARoute : public AInfo
@@ -5202,6 +5194,7 @@ class ARoute : public AInfo
 public:
 	struct FPointer                                    VfTable_IEditorLinkSelectionInterface;         // 0x0228 (0x0004) [0x0000000000801002] (CPF_Const | CPF_Native | CPF_NoExport)
 	ERouteType                                         RouteType;                                     // 0x022C (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x022D (0x0003) MISSED OFFSET
 	class TArray<struct FActorReference>               RouteList;                                     // 0x0230 (0x000C) [0x0000000000400001] (CPF_Edit | CPF_NeedCtorLink)
 	float                                              FudgeFactor;                                   // 0x023C (0x0004) [0x0000000000000001] (CPF_Edit)    
 
@@ -5218,10 +5211,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	int32_t MoveOntoRoutePath(class APawn* P, ERouteDirection optionalRouteDirection, float optionalDistFudgeFactor);
 	int32_t ResolveRouteIndex(int32_t Idx, ERouteDirection RouteDirection, uint8_t& outOut_bComplete, uint8_t& outOut_bReverse);
 };
-
 // Class Engine.WindPointSource
 // 0x0004 (0x0228 - 0x022C)
 class AWindPointSource : public AInfo
@@ -5243,7 +5236,6 @@ public:
 	};
 
 };
-
 // Class Engine.ZoneInfo
 // 0x0010 (0x0228 - 0x0238)
 class AZoneInfo : public AInfo
@@ -5268,7 +5260,6 @@ public:
 	};
 
 };
-
 // Class Engine.WorldInfo
 // 0x0524 (0x0238 - 0x075C)
 class AWorldInfo : public AZoneInfo
@@ -5307,6 +5298,7 @@ public:
 	uint32_t                                           bEnableChanceOfPhysicsChunkOverride : 1;       // 0x0320 (0x0004) [0x0000000000004001] [0x20000000] (CPF_Edit | CPF_Config)
 	uint32_t                                           bLimitExplosionChunkSize : 1;                  // 0x0320 (0x0004) [0x0000000000004001] [0x40000000] (CPF_Edit | CPF_Config)
 	uint32_t                                           bLimitDamageChunkSize : 1;                     // 0x0320 (0x0004) [0x0000000000004001] [0x80000000] (CPF_Edit | CPF_Config)
+	uint32_t : 0;                                  // 0x0324 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bAllowModulateBetterShadows : 1;               // 0x0324 (0x0004) [0x0000000000000001] [0x00000001] (CPF_Edit)
 	uint32_t                                           bAllowLightEnvSphericalHarmonicLights : 1;     // 0x0324 (0x0004) [0x0000000000000001] [0x00000002] (CPF_Edit)
 	uint32_t                                           bIncreaseFogNearPrecision : 1;                 // 0x0324 (0x0004) [0x0000000000000001] [0x00000004] (CPF_Edit)
@@ -5349,6 +5341,7 @@ public:
 	class AGameReplicationInfo*                        GRI;                                           // 0x0444 (0x0004) [0x0000000000002000] (CPF_Transient)
 	ENetMode                                           NetMode;                                       // 0x0448 (0x0001) [0x0000000000000000]               
 	ETravelType                                        NextTravelType;                                // 0x0449 (0x0001) [0x0000000000000000]               
+	uint8_t                                            UnknownData00[0x2];                              // 0x044A (0x0002) MISSED OFFSET
 	class FString                                      ComputerName;                                  // 0x044C (0x000C) [0x0000000000400000] (CPF_NeedCtorLink)
 	class FString                                      EngineVersion;                                 // 0x0458 (0x000C) [0x0000000000400000] (CPF_NeedCtorLink)
 	class FString                                      MinNetVersion;                                 // 0x0464 (0x000C) [0x0000000000400000] (CPF_NeedCtorLink)
@@ -5415,7 +5408,7 @@ public:
 	int32_t                                            MaxTrianglesPerLeaf;                           // 0x068C (0x0004) [0x0000000000000000] (CPF_EditorOnly)
 	class ULightmassLevelSettings*                     LMLevelSettings;                               // 0x0690 (0x0004) [0x0000000024400008] (CPF_ExportObject | CPF_NeedCtorLink | CPF_EditInline | CPF_Deprecated | CPF_EditorOnly)
 	struct FLightmassWorldInfoSettings                 LightmassSettings;                             // 0x0694 (0x0040) [0x0000000000000001] (CPF_Edit | CPF_EditorOnly)
-	uint8_t                                            UnknownData00[0x78];                            // 0x06D4 (0x0078) MISSED OFFSET
+	uint8_t                                            UnknownData01[0x78];                            // 0x06D4 (0x0078) MISSED OFFSET
 	class ACrowdPopulationManagerBase*                 PopulationManager;                             // 0x074C (0x0004) [0x0000000000000000]               
 	class FString                                      PhysMatLogInfo;                                // 0x0750 (0x000C) [0x0000000000400000] (CPF_NeedCtorLink)
 
@@ -5432,6 +5425,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool IsPhysXLevelToNotLoad(const class FName& LevelName);
 	bool IsPhysXLevel(const class FName& LevelName);
 	bool ToggleHideDOF();
@@ -5442,7 +5436,7 @@ public:
 	struct FWorldFractureSettings GetWorldFractureSettings();
 	void DoMemoryTracking();
 	bool GetDemoRewindPoints(class TArray<int32_t>& outOutRewindPoints);
-	void GetDemoFrameInfo(int32_t& outCurrentFrame, int32_t& outTotalFrames);
+	void GetDemoFrameInfo(int32_t& optionalOutCurrentFrame, int32_t& optionalOutTotalFrames);
 	bool IsPlayingDemo();
 	bool IsRecordingDemo();
 	EDetailMode GetDetailMode();
@@ -5460,7 +5454,7 @@ public:
 	void NotifyMatchStarted(bool optionalBShouldActivateLevelStartupEvents, bool optionalBShouldActivateLevelBeginningEvents, bool optionalBShouldActivateLevelLoadedEvents);
 	void AllPawns(class UClass* BaseClass, const struct FVector& optionalTestLocation, float optionalTestRadius, class APawn*& outP);
 	void AllControllers(class UClass* BaseClass, class AController*& outC);
-	void NavigationPointCheck(const struct FVector& Point, const struct FVector& Extent, class TArray<class ANavigationPoint*>& outNavs, class TArray<class UReachSpec*>& outSpecs);
+	void NavigationPointCheck(const struct FVector& Point, const struct FVector& Extent, class TArray<class ANavigationPoint*>& optionalOutNavs, class TArray<class UReachSpec*>& optionalOutSpecs);
 	void RadiusNavigationPoints(class UClass* BaseClass, const struct FVector& Point, float Radius, class ANavigationPoint*& outN);
 	void AllNavigationPoints(class UClass* BaseClass, class ANavigationPoint*& outN);
 	void Reset();
@@ -5488,7 +5482,6 @@ public:
 	class UNavMeshPathConstraint* GetNavMeshPathConstraintFromCache(class UClass* ConstraintClass, class UNavigationHandle* Requestor);
 	void ReleaseCachedConstraintsAndEvaluators();
 };
-
 // Class Engine.Inventory
 // 0x004C (0x0228 - 0x0274)
 class AInventory : public AActor
@@ -5525,8 +5518,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void OwnerEvent(const class FName& EventName);
-	static class FString GetLocalString(int32_t optionalSwitch, class APlayerReplicationInfo* optionalRelatedPRI, class APlayerReplicationInfo* optionalRelatedPRI01);
+	static class FString GetLocalString(int32_t optionalSwitch, class APlayerReplicationInfo* optionalRelatedPRI_1, class APlayerReplicationInfo* optionalRelatedPRI_2);
 	void DropFrom(const struct FVector& StartLocation, const struct FVector& StartVelocity);
 	bool DenyPickupQuery(class UClass* ItemClass, class AActor* Pickup);
 	void ItemRemovedFromInvManager();
@@ -5541,13 +5535,13 @@ public:
 	void ActiveRenderOverlays(class AHUD* H);
 	void RenderOverlays(class AHUD* H);
 };
-
 // Class Engine.Weapon
 // 0x00B0 (0x0274 - 0x0324)
 class AWeapon : public AInventory
 {
 public:
 	uint8_t                                            CurrentFireMode;                               // 0x0274 (0x0001) [0x0000000000000000]               
+	uint8_t                                            UnknownData00[0x3];                              // 0x0275 (0x0003) MISSED OFFSET
 	class TArray<class FName>                          FiringStatesArray;                             // 0x0278 (0x000C) [0x0000000000400000] (CPF_NeedCtorLink)
 	class TArray<EWeaponFireType>                      WeaponFireTypes;                               // 0x0284 (0x000C) [0x0000000000400000] (CPF_NeedCtorLink)
 	class TArray<class UClass*>                        WeaponProjectiles;                             // 0x0290 (0x000C) [0x0000000000400000] (CPF_NeedCtorLink)
@@ -5590,6 +5584,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	float GetTargetDistance();
 	void CacheAIController();
 	void WeaponIsDown();
@@ -5608,7 +5603,7 @@ public:
 	void ProcessInstantHit(uint8_t FiringMode, const struct FImpactInfo& Impact, int32_t optionalNumHits);
 	void InstantFire();
 	static bool PassThroughDamage(class AActor* HitActor);
-	struct FImpactInfo CalcWeaponFire(const struct FVector& StartTrace, const struct FVector& EndTrace, const struct FVector& optionalExtent, class TArray<struct FImpactInfo>& outImpactList);
+	struct FImpactInfo CalcWeaponFire(const struct FVector& StartTrace, const struct FVector& EndTrace, const struct FVector& optionalExtent, class TArray<struct FImpactInfo>& optionalOutImpactList);
 	class AActor* GetTraceOwner();
 	float eventGetTraceRange();
 	struct FRotator GetAdjustedAim(const struct FVector& StartFireLoc);
@@ -5648,7 +5643,7 @@ public:
 	void PlayFireEffects(uint8_t FireModeNum, const struct FVector& optionalHitLocation);
 	void StopWeaponAnimation();
 	void PlayWeaponAnimation(const class FName& Sequence, float fDesiredDuration, bool optionalBLoop, class USkeletalMeshComponent* optionalSkelMesh);
-	void WeaponPlaySoundW(class USoundCue* Sound, float optionalNoiseLoudness);
+	void WeaponPlaySound(class USoundCue* Sound, float optionalNoiseLoudness);
 	class UAnimNodeSequence* GetWeaponAnimNodeSeq();
 	bool FireOnRelease();
 	float SuggestDefenseStyle();
@@ -5691,7 +5686,6 @@ public:
 	class UParticleSystem* eventGetWeaponLeveDateTrails();
 	void eventDestroyed();
 };
-
 // Class Engine.InventoryManager
 // 0x001C (0x0228 - 0x0244)
 class AInventoryManager : public AActor
@@ -5715,6 +5709,7 @@ public:
 
 		return uClassPointer;
 	};
+
 
 	void UpdateController();
 	void ClientSyncWeapon(class AWeapon* NewWeapon);
@@ -5756,7 +5751,6 @@ public:
 	int32_t GetPendingFireLength(class AWeapon* InWeapon);
 	void eventPostBeginPlay();
 };
-
 // Class Engine.Keypoint
 // 0x0004 (0x0228 - 0x022C)
 class AKeypoint : public AActor
@@ -5778,7 +5772,6 @@ public:
 	};
 
 };
-
 // Class Engine.TargetPoint
 // 0x0008 (0x022C - 0x0234)
 class ATargetPoint : public AKeypoint
@@ -5801,7 +5794,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialInstanceActor
 // 0x0004 (0x0228 - 0x022C)
 class AMaterialInstanceActor : public AActor
@@ -5823,7 +5815,6 @@ public:
 	};
 
 };
-
 // Class Engine.MatineeActor
 // 0x00B4 (0x0228 - 0x02DC)
 class AMatineeActor : public AActor
@@ -5854,11 +5845,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	void CheckPriorityRefresh();
 	void eventUpdate();
 	void AddAIGroupActor(class UInterpGroupInstAI* AIGroupInst);
 };
-
 // Class Engine.NavigationPoint
 // 0x00D8 (0x0228 - 0x0300)
 class ANavigationPoint : public AActor
@@ -5936,6 +5927,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	class FString eventGetDebugAbbrev();
 	bool ShouldSaveForCheckpoint();
 	void eventShutDown();
@@ -5954,7 +5946,6 @@ public:
 	class UReachSpec* GetReachSpecTo(class ANavigationPoint* Nav, class UClass* optionalSpecClass);
 	void GetBoundingCylinder(float& outCollisionRadius, float& outCollisionHeight);
 };
-
 // Class Engine.CoverLink
 // 0x0085 (0x0300 - 0x0385)
 class ACoverLink : public ANavigationPoint
@@ -6005,6 +5996,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	class FString eventGetDebugAbbrev();
 	ECoverLocationDescription GetLocationDescription(int32_t SlotIdx);
 	class FString eventGetDebugString(int32_t SlotIdx);
@@ -6041,7 +6033,6 @@ public:
 	struct FRotator GetSlotRotation(int32_t SlotIdx, bool optionalBForceUseOffset);
 	struct FVector GetSlotLocation(int32_t SlotIdx, bool optionalBForceUseOffset);
 };
-
 // Class Engine.CoverSlotMarker
 // 0x000C (0x0300 - 0x030C)
 class ACoverSlotMarker : public ANavigationPoint
@@ -6064,6 +6055,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	class FString eventGetDebugString();
 	class FString eventGetDebugAbbrev();
 	bool IsValidClaim(class APawn* ChkClaim, bool optionalBSkipTeamCheck, bool optionalBSkipOverlapCheck);
@@ -6071,7 +6063,6 @@ public:
 	struct FRotator GetSlotRotation();
 	struct FVector GetSlotLocation();
 };
-
 // Class Engine.DynamicAnchor
 // 0x0004 (0x0300 - 0x0304)
 class ADynamicAnchor : public ANavigationPoint
@@ -6093,7 +6084,6 @@ public:
 	};
 
 };
-
 // Class Engine.Ladder
 // 0x0008 (0x0300 - 0x0308)
 class ALadder : public ANavigationPoint
@@ -6115,9 +6105,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool eventSuggestMovePreparation(class APawn* Other);
 };
-
 // Class Engine.AutoLadder
 // 0x0000 (0x0308 - 0x0308)
 class AAutoLadder : public ALadder
@@ -6138,7 +6128,6 @@ public:
 	};
 
 };
-
 // Class Engine.LiftCenter
 // 0x0020 (0x0300 - 0x0320)
 class ALiftCenter : public ANavigationPoint
@@ -6164,12 +6153,12 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool ProceedWithMove(class APawn* Other);
 	bool eventSuggestMovePreparation(class APawn* Other);
 	class AActor* eventSpecialHandling(class APawn* Other);
 	void eventPostBeginPlay();
 };
-
 // Class Engine.LiftExit
 // 0x0008 (0x0300 - 0x0308)
 class ALiftExit : public ANavigationPoint
@@ -6191,11 +6180,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool eventSuggestMovePreparation(class APawn* Other);
 	void WaitForLift(class APawn* Other);
 	bool CanBeReachedFromLiftBy(class APawn* Other);
 };
-
 // Class Engine.MantleMarker
 // 0x0008 (0x0300 - 0x0308)
 class AMantleMarker : public ANavigationPoint
@@ -6217,7 +6206,6 @@ public:
 	};
 
 };
-
 // Class Engine.Objective
 // 0x0000 (0x0300 - 0x0300)
 class AObjective : public ANavigationPoint
@@ -6238,7 +6226,6 @@ public:
 	};
 
 };
-
 // Class Engine.PathNode
 // 0x0000 (0x0300 - 0x0300)
 class APathNode : public ANavigationPoint
@@ -6258,9 +6245,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	class FString eventGetDebugAbbrev();
 };
-
 // Class Engine.VolumePathNode
 // 0x0008 (0x0300 - 0x0308)
 class AVolumePathNode : public APathNode
@@ -6283,7 +6270,6 @@ public:
 	};
 
 };
-
 // Class Engine.PickupFactory
 // 0x001C (0x0300 - 0x031C)
 class APickupFactory : public ANavigationPoint
@@ -6314,6 +6300,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool DelayRespawn();
 	void eventDestroyed();
 	void SetPickupVisible();
@@ -6338,7 +6325,6 @@ public:
 	void eventPreBeginPlay();
 	void eventReplicatedEvent(const class FName& VarName);
 };
-
 // Class Engine.PlayerStart
 // 0x0008 (0x0300 - 0x0308)
 class APlayerStart : public ANavigationPoint
@@ -6361,9 +6347,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void OnToggle(class USeqAct_Toggle* Action);
 };
-
 // Class Engine.PortalMarker
 // 0x0004 (0x0300 - 0x0304)
 class APortalMarker : public ANavigationPoint
@@ -6384,9 +6370,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool CanTeleport(class AActor* A);
 };
-
 // Class Engine.Pylon
 // 0x0068 (0x0300 - 0x0368)
 class APylon : public ANavigationPoint
@@ -6435,12 +6421,12 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool CanReachPylon(class APylon* DestPylon, class AController* C);
 	void OnToggle(class USeqAct_Toggle* Action);
 	bool eventIsEnabled();
 	void eventSetEnabled(bool bEnabled);
 };
-
 // Class Engine.AISwitchablePylon
 // 0x0004 (0x0368 - 0x036C)
 class AAISwitchablePylon : public APylon
@@ -6461,11 +6447,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool eventIsEnabled();
 	void eventSetEnabled(bool bEnabled);
 	void PostBeginPlay();
 };
-
 // Class Engine.DynamicPylon
 // 0x0004 (0x0368 - 0x036C)
 class ADynamicPylon : public APylon
@@ -6486,13 +6472,13 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventStoppedMoving();
 	void eventStartedMoving();
 	void FlushDynamicEdges();
 	void RebuildDynamicEdges();
 	void PostBeginPlay();
 };
-
 // Class Engine.SphinxPathObject
 // 0x0008 (0x0300 - 0x0308)
 class ASphinxPathObject : public ANavigationPoint
@@ -6515,7 +6501,6 @@ public:
 	};
 
 };
-
 // Class Engine.DoorMarker
 // 0x001C (0x0308 - 0x0324)
 class ADoorMarker : public ASphinxPathObject
@@ -6526,6 +6511,7 @@ public:
 	class ATrigger*                                    frontDoorTrigger;                              // 0x0310 (0x0004) [0x0000000000020003] (CPF_Edit | CPF_Const | CPF_EditConst)
 	class ATrigger*                                    backDoorTrigger;                               // 0x0314 (0x0004) [0x0000000000020003] (CPF_Edit | CPF_Const | CPF_EditConst)
 	EDoorType                                          DoorType;                                      // 0x0318 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0319 (0x0003) MISSED OFFSET
 	class AActor*                                      DoorTrigger;                                   // 0x031C (0x0004) [0x0000000000000001] (CPF_Edit)    
 	uint32_t                                           bWaitUntilCompletelyOpened : 1;                // 0x0320 (0x0004) [0x0000000000000001] [0x00000001] (CPF_Edit)
 	uint32_t                                           bInitiallyClosed : 1;                          // 0x0320 (0x0004) [0x0000000000000001] [0x00000002] (CPF_Edit)
@@ -6546,6 +6532,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool eventSuggestMovePreparation(class APawn* Other);
 	bool ProceedWithMove(class APawn* Other);
 	class AActor* eventSpecialHandling(class APawn* Other);
@@ -6553,7 +6540,6 @@ public:
 	void MoverOpened();
 	void eventPostBeginPlay();
 };
-
 // Class Engine.JumpPad
 // 0x0064 (0x0308 - 0x036C)
 class AJumpPad : public ASphinxPathObject
@@ -6591,6 +6577,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool eventIsJumpPadInUsing();
 	void eventNPCJumpPadLand(class AActor* JumpNpcPawn);
 	void eventNPCJumpPadLauch(class AActor* JumpNpcPawn);
@@ -6599,7 +6586,6 @@ public:
 	void TurnOnCollision();
 	void Launch();
 };
-
 // Class Engine.Teleporter
 // 0x0028 (0x0300 - 0x0328)
 class ATeleporter : public ANavigationPoint
@@ -6630,6 +6616,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	class AActor* eventSpecialHandling(class APawn* Other);
 	void eventPostTouch(class AActor* Other);
 	void eventTouch(class AActor* Other, class UPrimitiveComponent* OtherComp, const struct FVector& HitLocation, const struct FVector& HitNormal);
@@ -6637,7 +6624,6 @@ public:
 	void eventPostBeginPlay();
 	bool CanTeleport(class AActor* A);
 };
-
 // Class Engine.Note
 // 0x000C (0x0228 - 0x0234)
 class ANote : public AActor
@@ -6659,7 +6645,6 @@ public:
 	};
 
 };
-
 // Class Engine.Projectile
 // 0x0040 (0x0228 - 0x0268)
 class AProjectile : public AActor
@@ -6699,6 +6684,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void ApplyFluidSurfaceImpact(class AFluidSurfaceActor* Fluid, const struct FVector& HitLocation);
 	static float GetRange();
 	static float StaticGetTimeToLocation(const struct FVector& TargetLoc, const struct FVector& StartLoc, class AController* RequestedBy);
@@ -6724,7 +6710,6 @@ public:
 	bool eventEncroachingOn(class AActor* Other);
 	bool InRebound();
 };
-
 // Class Engine.RigidBodyBase
 // 0x0000 (0x0228 - 0x0228)
 class ARigidBodyBase : public AActor
@@ -6745,7 +6730,6 @@ public:
 	};
 
 };
-
 // Class Engine.SceneCaptureActor
 // 0x0004 (0x0228 - 0x022C)
 class ASceneCaptureActor : public AActor
@@ -6766,9 +6750,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void OnToggle(class USeqAct_Toggle* Action);
 };
-
 // Class Engine.SceneCapture2DActor
 // 0x0004 (0x022C - 0x0230)
 class ASceneCapture2DActor : public ASceneCaptureActor
@@ -6790,7 +6774,6 @@ public:
 	};
 
 };
-
 // Class Engine.SceneCaptureCubeMapActor
 // 0x0008 (0x022C - 0x0234)
 class ASceneCaptureCubeMapActor : public ASceneCaptureActor
@@ -6813,7 +6796,6 @@ public:
 	};
 
 };
-
 // Class Engine.SceneCaptureReflectActor
 // 0x0008 (0x022C - 0x0234)
 class ASceneCaptureReflectActor : public ASceneCaptureActor
@@ -6836,7 +6818,6 @@ public:
 	};
 
 };
-
 // Class Engine.SceneCapturePortalActor
 // 0x0000 (0x0234 - 0x0234)
 class ASceneCapturePortalActor : public ASceneCaptureReflectActor
@@ -6857,7 +6838,6 @@ public:
 	};
 
 };
-
 // Class Engine.PortalTeleporter
 // 0x0014 (0x0234 - 0x0248)
 class APortalTeleporter : public ASceneCapturePortalActor
@@ -6884,13 +6864,13 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool StopsProjectile(class AProjectile* P);
 	class UTextureRenderTarget2D* CreatePortalTexture();
 	struct FVector TransformHitLocation(const struct FVector& HitLocation);
 	struct FVector TransformVectorDir(const struct FVector& V);
 	bool TransformActor(class AActor* A);
 };
-
 // Class Engine.StaticMeshActorBase
 // 0x0000 (0x0228 - 0x0228)
 class AStaticMeshActorBase : public AActor
@@ -6911,7 +6891,6 @@ public:
 	};
 
 };
-
 // Class Engine.StaticMeshActor
 // 0x0008 (0x0228 - 0x0230)
 class AStaticMeshActor : public AStaticMeshActorBase
@@ -6933,9 +6912,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventPreBeginPlay();
 };
-
 // Class Engine.StaticMeshCollectionActor
 // 0x0010 (0x0228 - 0x0238)
 class AStaticMeshCollectionActor : public AStaticMeshActorBase
@@ -6958,7 +6937,6 @@ public:
 	};
 
 };
-
 // Class Engine.StaticMeshActorBasedOnExtremeContent
 // 0x001C (0x0228 - 0x0244)
 class AStaticMeshActorBasedOnExtremeContent : public AActor
@@ -6981,10 +6959,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SetMaterialBasedOnExtremeContent();
 	void eventPostBeginPlay();
 };
-
 // Class Engine.Trigger
 // 0x0028 (0x0228 - 0x0250)
 class ATrigger : public AActor
@@ -7011,6 +6989,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void ContextActorPostApplyCheckPoinat();
 	bool ShouldSaveForCheckpoint();
 	bool StopsProjectile(class AProjectile* P);
@@ -7022,7 +7001,6 @@ public:
 	void CreateCheckpointRecord(struct ATrigger_FCheckpointRecord& outRecord);
 	void eventPostBeginPlay();
 };
-
 // Class Engine.ActorComponent
 // 0x000D (0x0048 - 0x0055)
 class UActorComponent : public UComponent
@@ -7049,12 +7027,12 @@ public:
 		return uClassPointer;
 	};
 
+
 	void DetachFromAny();
 	void ForceUpdate(bool bTransformOnly);
 	void SetComponentRBFixed(bool bFixed);
 	void SetTickGroup(ETickingGroup NewTickGroup);
 };
-
 // Class Engine.AudioComponent
 // 0x019B (0x0055 - 0x01F0)
 class UAudioComponent : public UActorComponent
@@ -7144,6 +7122,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventOcclusionChanged(bool bNowOccluded);
 	void OnQueueSubtitles(const class TArray<struct FSubtitleCue>& Subtitles, float CueDuration);
 	void OnAudioFinished(class UAudioComponent* AC);
@@ -7157,7 +7136,6 @@ public:
 	void Stop();
 	void Play();
 };
-
 // Class Engine.HeightFogComponent
 // 0x002F (0x0055 - 0x0084)
 class UHeightFogComponent : public UActorComponent
@@ -7189,9 +7167,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SetEnabled(bool bSetEnabled);
 };
-
 // Class Engine.LightEnvironmentComponent
 // 0x0017 (0x0055 - 0x006C)
 class ULightEnvironmentComponent : public UActorComponent
@@ -7217,10 +7195,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool IsEnabled();
 	void SetEnabled(bool bNewEnabled);
 };
-
 // Class Engine.DynamicLightEnvironmentComponent
 // 0x00B4 (0x006C - 0x0120)
 class UDynamicLightEnvironmentComponent : public ULightEnvironmentComponent
@@ -7259,6 +7237,7 @@ public:
 	EShadowFilterQuality                               ShadowFilterQuality;                           // 0x00E8 (0x0001) [0x0000000000000001] (CPF_Edit)    
 	ELightShadowMode                                   LightShadowMode;                               // 0x00E9 (0x0001) [0x0000000000000001] (CPF_Edit)    
 	EDynamicLightEnvironmentBoundsMethod               BoundsMethod;                                  // 0x00EA (0x0001) [0x0000000000000000]               
+	uint8_t                                            UnknownData00[0x1];                              // 0x00EB (0x0001) MISSED OFFSET
 	float                                              BouncedLightingFactor;                         // 0x00EC (0x0004) [0x0000000000000001] (CPF_Edit)    
 	float                                              MinShadowAngle;                                // 0x00F0 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	struct FBoxSphereBounds                            OverriddenBounds;                              // 0x00F4 (0x001C) [0x0000000000000000]               
@@ -7279,7 +7258,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleLightEnvironmentComponent
 // 0x0008 (0x0120 - 0x0128)
 class UParticleLightEnvironmentComponent : public UDynamicLightEnvironmentComponent
@@ -7302,7 +7280,6 @@ public:
 	};
 
 };
-
 // Class Engine.PrimitiveComponent
 // 0x017F (0x0055 - 0x01D4)
 class UPrimitiveComponent : public UActorComponent
@@ -7338,6 +7315,7 @@ public:
 	ERBCollisionChannel                                RBChannel;                                     // 0x011F (0x0001) [0x0000000000000003] (CPF_Edit | CPF_Const)
 	uint8_t                                            RBDominanceGroup;                              // 0x0120 (0x0001) [0x0000000000000001] (CPF_Edit)    
 	EBillboardType                                     BillboardType;                                 // 0x0121 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x2];                              // 0x0122 (0x0002) MISSED OFFSET
 	float                                              MotionBlurScale;                               // 0x0124 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	uint32_t                                           bUseViewOwnerDepthPriorityGroup : 1;           // 0x0128 (0x0004) [0x0000000000000002] [0x00000001] (CPF_Const)
 	uint32_t                                           bAllowCullDistanceVolume : 1;                  // 0x0128 (0x0004) [0x0000000000000003] [0x00000002] (CPF_Edit | CPF_Const)
@@ -7371,6 +7349,7 @@ public:
 	uint32_t                                           bUsePrecomputedShadows : 1;                    // 0x0128 (0x0004) [0x0000000000000003] [0x20000000] (CPF_Edit | CPF_Const)
 	uint32_t                                           bHasExplicitShadowParent : 1;                  // 0x0128 (0x0004) [0x0000000000002002] [0x40000000] (CPF_Const | CPF_Transient)
 	uint32_t                                           bCullModulatedShadowOnBackfaces : 1;           // 0x0128 (0x0004) [0x0000000000000001] [0x80000000] (CPF_Edit)
+	uint32_t : 0;                                  // 0x012C CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bCullModulatedShadowOnEmissive : 1;            // 0x012C (0x0004) [0x0000000000000001] [0x00000001] (CPF_Edit)
 	uint32_t                                           bAllowAmbientOcclusion : 1;                    // 0x012C (0x0004) [0x0000000000000001] [0x00000002] (CPF_Edit)
 	uint32_t                                           CollideActors : 1;                             // 0x012C (0x0004) [0x0000000000000002] [0x00000004] (CPF_Const)
@@ -7403,6 +7382,7 @@ public:
 	uint32_t                                           bImportantPrimitive : 1;                       // 0x012C (0x0004) [0x0000000000000001] [0x20000000] (CPF_Edit)
 	uint32_t                                           bPrivateTranslucencyPrepass : 1;               // 0x012C (0x0004) [0x0000000000000001] [0x40000000] (CPF_Edit)
 	uint32_t                                           bPrivateTranslucencyPostpass : 1;              // 0x012C (0x0004) [0x0000000000000001] [0x80000000] (CPF_Edit)
+	uint32_t : 0;                                  // 0x0130 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bTranslucencyUpdateDepthValue : 1;             // 0x0130 (0x0004) [0x0000000000000001] [0x00000001] (CPF_Edit)
 	uint32_t                                           bForceTranslucency : 1;                        // 0x0130 (0x0004) [0x0000000000000000] [0x00000002] 
 	uint32_t                                           bBillboard : 1;                                // 0x0130 (0x0004) [0x0000000000000001] [0x00000004] (CPF_Edit)
@@ -7414,7 +7394,7 @@ public:
 	struct FRBCollisionChannelContainer                RBCollideWithChannels;                         // 0x0150 (0x0004) [0x0000000000000003] (CPF_Edit | CPF_Const)
 	class UPhysicalMaterial*                           PhysMaterialOverride;                          // 0x0154 (0x0004) [0x0000000000000003] (CPF_Edit | CPF_Const)
 	class URB_BodyInstance*                            BodyInstance;                                  // 0x0158 (0x0004) [0x0000000000201002] (CPF_Const | CPF_Native)
-	uint8_t                                            UnknownData00[0x4];                              // 0x015C (0x0004) MISSED OFFSET
+	uint8_t                                            UnknownData01[0x4];                              // 0x015C (0x0004) MISSED OFFSET
 	struct FMatrix                                     CachedParentToWorld;                           // 0x0160 (0x0040) [0x0000000000003002] (CPF_Const | CPF_Native | CPF_Transient)
 	struct FVector                                     Translation;                                   // 0x01A0 (0x000C) [0x0000000000000003] (CPF_Edit | CPF_Const)
 	struct FRotator                                    Rotation;                                      // 0x01AC (0x000C) [0x0000000000000003] (CPF_Edit | CPF_Const)
@@ -7436,6 +7416,7 @@ public:
 
 		return uClassPointer;
 	};
+
 
 	bool EnableForceTranslucency(bool bEnable, float fAlpha, float BlendTime, int32_t optionalSortPriority, bool optionalBCameraForceTranslucency);
 	EGJKResult ClosestPointOnComponentToComponent(class UPrimitiveComponent*& outOtherComponent, struct FVector& outPointOnComponentA, struct FVector& outPointOnComponentB);
@@ -7484,7 +7465,6 @@ public:
 	void AddRadialImpulse(const struct FVector& Origin, float Radius, float Strength, ERadialImpulseFalloff Falloff, bool optionalBVelChange);
 	void AddImpulse(const struct FVector& Impulse, const struct FVector& optionalPosition, const class FName& optionalBoneName, bool optionalBVelChange);
 };
-
 // Class Engine.ArrowComponent
 // 0x000C (0x01D4 - 0x01E0)
 class UArrowComponent : public UPrimitiveComponent
@@ -7508,7 +7488,6 @@ public:
 	};
 
 };
-
 // Class Engine.BrushComponent
 // 0x0054 (0x01D4 - 0x0228)
 class UBrushComponent : public UPrimitiveComponent
@@ -7535,7 +7514,6 @@ public:
 	};
 
 };
-
 // Class Engine.CameraConeComponent
 // 0x0000 (0x01D4 - 0x01D4)
 class UCameraConeComponent : public UPrimitiveComponent
@@ -7556,7 +7534,6 @@ public:
 	};
 
 };
-
 // Class Engine.CylinderComponent
 // 0x0010 (0x01D4 - 0x01E4)
 class UCylinderComponent : public UPrimitiveComponent
@@ -7582,9 +7559,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SetCylinderSize(float NewRadius, float NewHeight);
 };
-
 // Class Engine.DrawBoxComponent
 // 0x0018 (0x01D4 - 0x01EC)
 class UDrawBoxComponent : public UPrimitiveComponent
@@ -7610,7 +7587,6 @@ public:
 	};
 
 };
-
 // Class Engine.DrawCapsuleComponent
 // 0x0014 (0x01D4 - 0x01E8)
 class UDrawCapsuleComponent : public UPrimitiveComponent
@@ -7637,7 +7613,6 @@ public:
 	};
 
 };
-
 // Class Engine.DrawConeComponent
 // 0x0010 (0x01D4 - 0x01E4)
 class UDrawConeComponent : public UPrimitiveComponent
@@ -7662,7 +7637,6 @@ public:
 	};
 
 };
-
 // Class Engine.DrawCylinderComponent
 // 0x0020 (0x01D4 - 0x01F4)
 class UDrawCylinderComponent : public UPrimitiveComponent
@@ -7692,7 +7666,6 @@ public:
 	};
 
 };
-
 // Class Engine.DrawFrustumComponent
 // 0x0018 (0x01D4 - 0x01EC)
 class UDrawFrustumComponent : public UPrimitiveComponent
@@ -7719,7 +7692,6 @@ public:
 	};
 
 };
-
 // Class Engine.DrawQuadComponent
 // 0x000C (0x01D4 - 0x01E0)
 class UDrawQuadComponent : public UPrimitiveComponent
@@ -7743,7 +7715,6 @@ public:
 	};
 
 };
-
 // Class Engine.DrawSphereComponent
 // 0x0014 (0x01D4 - 0x01E8)
 class UDrawSphereComponent : public UPrimitiveComponent
@@ -7771,7 +7742,6 @@ public:
 	};
 
 };
-
 // Class Engine.DrawPylonRadiusComponent
 // 0x0000 (0x01E8 - 0x01E8)
 class UDrawPylonRadiusComponent : public UDrawSphereComponent
@@ -7792,7 +7762,6 @@ public:
 	};
 
 };
-
 // Class Engine.DrawSoundRadiusComponent
 // 0x0000 (0x01E8 - 0x01E8)
 class UDrawSoundRadiusComponent : public UDrawSphereComponent
@@ -7813,7 +7782,6 @@ public:
 	};
 
 };
-
 // Class Engine.LevelGridVolumeRenderingComponent
 // 0x0000 (0x01D4 - 0x01D4)
 class ULevelGridVolumeRenderingComponent : public UPrimitiveComponent
@@ -7834,7 +7802,6 @@ public:
 	};
 
 };
-
 // Class Engine.LineBatchComponent
 // 0x0024 (0x01D4 - 0x01F8)
 class ULineBatchComponent : public UPrimitiveComponent
@@ -7860,7 +7827,6 @@ public:
 	};
 
 };
-
 // Class Engine.MeshComponent
 // 0x000C (0x01D4 - 0x01E0)
 class UMeshComponent : public UPrimitiveComponent
@@ -7881,6 +7847,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	class UMaterialInstanceTimeVarying* CreateAndSetMaterialInstanceTimeVarying(int32_t ElementIndex);
 	class UMaterialInstanceConstant* CreateAndSetMaterialInstanceConstant(int32_t ElementIndex);
 	void PrestreamTextures(float Seconds, bool bPrioritizeCharacterTextures, int32_t optionalCinematicTextureGroups);
@@ -7888,7 +7855,6 @@ public:
 	void SetMaterial(int32_t ElementIndex, class UMaterialInterface* Material);
 	class UMaterialInterface* GetMaterial(int32_t ElementIndex);
 };
-
 // Class Engine.StaticMeshComponent
 // 0x005C (0x01E0 - 0x023C)
 class UStaticMeshComponent : public UMeshComponent
@@ -7926,12 +7892,12 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool CanBecomeDynamic();
 	void SetForceStaticDecals(bool bInForceStaticDecals);
 	void DisableRBCollisionWithSMC(class UPrimitiveComponent* OtherSMC, bool bDisabled);
 	bool SetStaticMesh(class UStaticMesh* NewMesh, bool optionalBForce);
 };
-
 // Class Engine.ModelComponent
 // 0x0024 (0x01D4 - 0x01F8)
 class UModelComponent : public UPrimitiveComponent
@@ -7957,7 +7923,6 @@ public:
 	};
 
 };
-
 // Class Engine.SphereComponent
 // 0x000C (0x01D4 - 0x01E0)
 class USphereComponent : public UPrimitiveComponent
@@ -7981,9 +7946,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SetSphereSize(float NewRadius);
 };
-
 // Class Engine.SpriteComponent
 // 0x001C (0x01D4 - 0x01F0)
 class USpriteComponent : public UPrimitiveComponent
@@ -8010,11 +7975,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SetSpriteAndUV(class UTexture2D* NewSprite, int32_t NewU, int32_t NewUL, int32_t NewV, int32_t NewVL);
 	void SetUV(int32_t NewU, int32_t NewUL, int32_t NewV, int32_t NewVL);
 	void SetSprite(class UTexture2D* NewSprite);
 };
-
 // Class Engine.RadialBlurComponent
 // 0x006B (0x0055 - 0x00C0)
 class URadialBlurComponent : public UActorComponent
@@ -8022,6 +7987,7 @@ class URadialBlurComponent : public UActorComponent
 public:
 	class UMaterialInterface*                          Material;                                      // 0x0058 (0x0004) [0x0000000000000003] (CPF_Edit | CPF_Const)
 	ESceneDepthPriorityGroup                           DepthPriorityGroup;                            // 0x005C (0x0001) [0x0000000000000003] (CPF_Edit | CPF_Const)
+	uint8_t                                            UnknownData00[0x3];                              // 0x005D (0x0003) MISSED OFFSET
 	float                                              BlurScale;                                     // 0x0060 (0x0004) [0x0000000000000003] (CPF_Edit | CPF_Const | CPF_Interp)
 	float                                              BlurFalloffExponent;                           // 0x0064 (0x0004) [0x0000000000000003] (CPF_Edit | CPF_Const | CPF_Interp)
 	float                                              BlurOpacity;                                   // 0x0068 (0x0004) [0x0000000000000003] (CPF_Edit | CPF_Const | CPF_Interp)
@@ -8029,7 +7995,7 @@ public:
 	float                                              DistanceFalloffExponent;                       // 0x0070 (0x0004) [0x0000000000000003] (CPF_Edit | CPF_Const)
 	uint32_t                                           bRenderAsVelocity : 1;                         // 0x0074 (0x0004) [0x0000000000000003] [0x00000001] (CPF_Edit | CPF_Const)
 	uint32_t                                           bEnabled : 1;                                  // 0x0074 (0x0004) [0x0000000000000003] [0x00000002] (CPF_Edit | CPF_Const)
-	uint8_t                                            UnknownData00[0x8];                              // 0x0078 (0x0008) MISSED OFFSET
+	uint8_t                                            UnknownData01[0x8];                              // 0x0078 (0x0008) MISSED OFFSET
 	struct FMatrix                                     LocalToWorld;                                  // 0x0080 (0x0040) [0x0000000000003002] (CPF_Const | CPF_Native | CPF_Transient)
 
 public:
@@ -8045,6 +8011,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void OnUpdatePropertyBlurOpacity();
 	void OnUpdatePropertyBlurFalloffExponent();
 	void OnUpdatePropertyBlurScale();
@@ -8054,7 +8021,6 @@ public:
 	void SetBlurScale(float InBlurScale);
 	void SetMaterial(class UMaterialInterface* InMaterial);
 };
-
 // Class Engine.SceneCaptureComponent
 // 0x0037 (0x0055 - 0x008C)
 class USceneCaptureComponent : public UActorComponent
@@ -8068,6 +8034,7 @@ public:
 	uint32_t                                           bNeedsSceneUpdate : 1;                         // 0x0058 (0x0004) [0x0000000000003002] [0x00000020] (CPF_Const | CPF_Native | CPF_Transient)
 	struct FColor                                      ClearColor;                                    // 0x005C (0x0004) [0x0000000000000001] (CPF_Edit)    
 	ESceneCaptureViewMode                              ViewMode;                                      // 0x0060 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0061 (0x0003) MISSED OFFSET
 	int32_t                                            SceneLOD;                                      // 0x0064 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	float                                              FrameRate;                                     // 0x0068 (0x0004) [0x0000000000000003] (CPF_Edit | CPF_Const)
 	class UPostProcessChain*                           PostProcess;                                   // 0x006C (0x0004) [0x0000000000000001] (CPF_Edit)    
@@ -8090,11 +8057,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SetEnabled(bool bEnable);
 	bool NeedsUpdate();
 	void SetFrameRate(float NewFrameRate);
 };
-
 // Class Engine.SceneCapture2DComponent
 // 0x0094 (0x008C - 0x0120)
 class USceneCapture2DComponent : public USceneCaptureComponent
@@ -8121,10 +8088,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SetView(const struct FVector& NewLocation, const struct FRotator& NewRotation);
 	void SetCaptureParameters(class UTextureRenderTarget2D* optionalNewTextureTarget, float optionalNewFOV, float optionalNewNearPlane, float optionalNewFarPlane);
 };
-
 // Class Engine.SceneCapture2DHitMaskComponent
 // 0x0020 (0x008C - 0x00AC)
 class USceneCapture2DHitMaskComponent : public USceneCaptureComponent
@@ -8152,10 +8119,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SetCaptureParameters(const struct FVector& InMaskPosition, float InMaskRadius, const struct FVector& InStartupPosition);
 	void SetCaptureTargetTexture(class UTextureRenderTarget2D* InTextureTarget);
 };
-
 // Class Engine.SceneCaptureCubeMapComponent
 // 0x0018 (0x008C - 0x00A4)
 class USceneCaptureCubeMapComponent : public USceneCaptureComponent
@@ -8180,7 +8147,6 @@ public:
 	};
 
 };
-
 // Class Engine.SceneCapturePortalComponent
 // 0x000C (0x008C - 0x0098)
 class USceneCapturePortalComponent : public USceneCaptureComponent
@@ -8203,9 +8169,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SetCaptureParameters(class UTextureRenderTarget2D* optionalNewTextureTarget, float optionalNewScaleFOV, class AActor* optionalNewViewDest);
 };
-
 // Class Engine.SceneCaptureReflectComponent
 // 0x0008 (0x008C - 0x0094)
 class USceneCaptureReflectComponent : public USceneCaptureComponent
@@ -8228,7 +8194,6 @@ public:
 	};
 
 };
-
 // Class Engine.WindDirectionalSourceComponent
 // 0x0017 (0x0055 - 0x006C)
 class UWindDirectionalSourceComponent : public UActorComponent
@@ -8254,7 +8219,6 @@ public:
 	};
 
 };
-
 // Class Engine.WindPointSourceComponent
 // 0x0008 (0x006C - 0x0074)
 class UWindPointSourceComponent : public UWindDirectionalSourceComponent
@@ -8277,7 +8241,6 @@ public:
 	};
 
 };
-
 // Class Engine.ActorFactory
 // 0x0020 (0x003C - 0x005C)
 class UActorFactory : public UObject
@@ -8303,9 +8266,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventPostCreateActor(class AActor* NewActor);
 };
-
 // Class Engine.ActorFactoryActor
 // 0x0004 (0x005C - 0x0060)
 class UActorFactoryActor : public UActorFactory
@@ -8327,7 +8290,6 @@ public:
 	};
 
 };
-
 // Class Engine.ActorFactoryAI
 // 0x0028 (0x005C - 0x0084)
 class UActorFactoryAI : public UActorFactory
@@ -8354,7 +8316,6 @@ public:
 	};
 
 };
-
 // Class Engine.ActorFactoryAmbientSound
 // 0x0004 (0x005C - 0x0060)
 class UActorFactoryAmbientSound : public UActorFactory
@@ -8376,7 +8337,6 @@ public:
 	};
 
 };
-
 // Class Engine.ActorFactoryAmbientSoundMovable
 // 0x0000 (0x0060 - 0x0060)
 class UActorFactoryAmbientSoundMovable : public UActorFactoryAmbientSound
@@ -8397,7 +8357,6 @@ public:
 	};
 
 };
-
 // Class Engine.ActorFactoryAmbientSoundSimple
 // 0x0004 (0x005C - 0x0060)
 class UActorFactoryAmbientSoundSimple : public UActorFactory
@@ -8419,7 +8378,6 @@ public:
 	};
 
 };
-
 // Class Engine.ActorFactoryAmbientSoundNonLoop
 // 0x0000 (0x0060 - 0x0060)
 class UActorFactoryAmbientSoundNonLoop : public UActorFactoryAmbientSoundSimple
@@ -8440,7 +8398,6 @@ public:
 	};
 
 };
-
 // Class Engine.ActorFactoryAmbientSoundSimpleToggleable
 // 0x0000 (0x0060 - 0x0060)
 class UActorFactoryAmbientSoundSimpleToggleable : public UActorFactoryAmbientSoundSimple
@@ -8461,7 +8418,6 @@ public:
 	};
 
 };
-
 // Class Engine.ActorFactoryApexDestructible
 // 0x0014 (0x005C - 0x0070)
 class UActorFactoryApexDestructible : public UActorFactory
@@ -8470,6 +8426,7 @@ public:
 	uint32_t                                           bStartAwake : 1;                               // 0x005C (0x0004) [0x0000000000000001] [0x00000001] (CPF_Edit)
 	ERBCollisionChannel                                RBChannel;                                     // 0x0060 (0x0001) [0x0000000000000001] (CPF_Edit)    
 	uint8_t                                            RBDominanceGroup;                              // 0x0061 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x2];                              // 0x0062 (0x0002) MISSED OFFSET
 	struct FRBCollisionChannelContainer                CollideWithChannels;                           // 0x0064 (0x0004) [0x0000000000000003] (CPF_Edit | CPF_Const)
 	class UApexDestructibleAsset*                      DestructibleAsset;                             // 0x0068 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	struct FLightingChannelContainer                   LightingChannels;                              // 0x006C (0x0004) [0x0000000000000001] (CPF_Edit)    
@@ -8488,7 +8445,6 @@ public:
 	};
 
 };
-
 // Class Engine.ActorFactoryArchetype
 // 0x0004 (0x005C - 0x0060)
 class UActorFactoryArchetype : public UActorFactory
@@ -8510,7 +8466,6 @@ public:
 	};
 
 };
-
 // Class Engine.ActorFactoryCoverLink
 // 0x0000 (0x005C - 0x005C)
 class UActorFactoryCoverLink : public UActorFactory
@@ -8531,7 +8486,6 @@ public:
 	};
 
 };
-
 // Class Engine.ActorFactoryDominantDirectionalLight
 // 0x0000 (0x005C - 0x005C)
 class UActorFactoryDominantDirectionalLight : public UActorFactory
@@ -8552,7 +8506,6 @@ public:
 	};
 
 };
-
 // Class Engine.ActorFactoryDominantDirectionalLightMovable
 // 0x0000 (0x005C - 0x005C)
 class UActorFactoryDominantDirectionalLightMovable : public UActorFactory
@@ -8573,7 +8526,6 @@ public:
 	};
 
 };
-
 // Class Engine.ActorFactoryDynamicSM
 // 0x0015 (0x005C - 0x0071)
 class UActorFactoryDynamicSM : public UActorFactory
@@ -8602,7 +8554,6 @@ public:
 	};
 
 };
-
 // Class Engine.ActorFactoryMover
 // 0x0000 (0x0071 - 0x0071)
 class UActorFactoryMover : public UActorFactoryDynamicSM
@@ -8623,7 +8574,6 @@ public:
 	};
 
 };
-
 // Class Engine.ActorFactoryRigidBody
 // 0x0027 (0x0071 - 0x0098)
 class UActorFactoryRigidBody : public UActorFactoryDynamicSM
@@ -8637,6 +8587,7 @@ public:
 	class UDistributionVector*                         AdditionalVelocity;                            // 0x0084 (0x0004) [0x0000000004080009] (CPF_Edit | CPF_ExportObject | CPF_Component | CPF_EditInline)
 	class UDistributionVector*                         InitialAngularVelocity;                        // 0x0088 (0x0004) [0x0000000004080009] (CPF_Edit | CPF_ExportObject | CPF_Component | CPF_EditInline)
 	ERBCollisionChannel                                RBChannel;                                     // 0x008C (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x008D (0x0003) MISSED OFFSET
 	float                                              StayUprightTorqueFactor;                       // 0x0090 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	float                                              StayUprightMaxTorque;                          // 0x0094 (0x0004) [0x0000000000000001] (CPF_Edit)    
 
@@ -8654,7 +8605,6 @@ public:
 	};
 
 };
-
 // Class Engine.ActorFactoryEmitter
 // 0x0004 (0x005C - 0x0060)
 class UActorFactoryEmitter : public UActorFactory
@@ -8676,7 +8626,6 @@ public:
 	};
 
 };
-
 // Class Engine.ActorFactoryFracturedStaticMesh
 // 0x0010 (0x005C - 0x006C)
 class UActorFactoryFracturedStaticMesh : public UActorFactory
@@ -8699,7 +8648,6 @@ public:
 	};
 
 };
-
 // Class Engine.ActorFactoryLensFlare
 // 0x0004 (0x005C - 0x0060)
 class UActorFactoryLensFlare : public UActorFactory
@@ -8721,7 +8669,6 @@ public:
 	};
 
 };
-
 // Class Engine.ActorFactoryLight
 // 0x0000 (0x005C - 0x005C)
 class UActorFactoryLight : public UActorFactory
@@ -8742,7 +8689,6 @@ public:
 	};
 
 };
-
 // Class Engine.ActorFactoryPathNode
 // 0x0000 (0x005C - 0x005C)
 class UActorFactoryPathNode : public UActorFactory
@@ -8763,7 +8709,6 @@ public:
 	};
 
 };
-
 // Class Engine.ActorFactoryPhysicsAsset
 // 0x0024 (0x005C - 0x0080)
 class UActorFactoryPhysicsAsset : public UActorFactory
@@ -8793,7 +8738,6 @@ public:
 	};
 
 };
-
 // Class Engine.ActorFactoryPhysXDestructible
 // 0x0010 (0x005C - 0x006C)
 class UActorFactoryPhysXDestructible : public UActorFactory
@@ -8816,7 +8760,6 @@ public:
 	};
 
 };
-
 // Class Engine.ActorFactoryPlayerStart
 // 0x0000 (0x005C - 0x005C)
 class UActorFactoryPlayerStart : public UActorFactory
@@ -8837,7 +8780,6 @@ public:
 	};
 
 };
-
 // Class Engine.ActorFactoryPylon
 // 0x0000 (0x005C - 0x005C)
 class UActorFactoryPylon : public UActorFactory
@@ -8858,7 +8800,6 @@ public:
 	};
 
 };
-
 // Class Engine.ActorFactorySkeletalMesh
 // 0x0010 (0x005C - 0x006C)
 class UActorFactorySkeletalMesh : public UActorFactory
@@ -8882,7 +8823,6 @@ public:
 	};
 
 };
-
 // Class Engine.ActorFactoryStaticMesh
 // 0x0010 (0x005C - 0x006C)
 class UActorFactoryStaticMesh : public UActorFactory
@@ -8905,7 +8845,6 @@ public:
 	};
 
 };
-
 // Class Engine.ActorFactoryTrigger
 // 0x0000 (0x005C - 0x005C)
 class UActorFactoryTrigger : public UActorFactory
@@ -8926,7 +8865,6 @@ public:
 	};
 
 };
-
 // Class Engine.ActorFactoryVehicle
 // 0x0004 (0x005C - 0x0060)
 class UActorFactoryVehicle : public UActorFactory
@@ -8948,7 +8886,6 @@ public:
 	};
 
 };
-
 // Class Engine.ApexDestructibleDamageParameters
 // 0x000C (0x003C - 0x0048)
 class UApexDestructibleDamageParameters : public UObject
@@ -8970,7 +8907,6 @@ public:
 	};
 
 };
-
 // Class Engine.BookMark
 // 0x0018 (0x003C - 0x0054)
 class UBookMark : public UObject
@@ -8993,7 +8929,6 @@ public:
 	};
 
 };
-
 // Class Engine.Canvas
 // 0x0058 (0x003C - 0x0094)
 class UCanvas : public UObject
@@ -9032,9 +8967,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void DrawDebugGraph(const class FString& Title, float ValueX, float ValueY, float UL_X, float UL_Y, float W, float H, const struct FVector2D& RangeX, const struct FVector2D& RangeY);
-	void DrawTextureDoubleLineW(const struct FVector& StartPoint, const struct FVector& EndPoint, float Perc, float Spacing, float Width, const struct FColor& LineColor, const struct FColor& AltLineColor, class UTexture* Tex, float U, float V, float UL, float VL);
-	void DrawTextureLineW(const struct FVector& StartPoint, const struct FVector& EndPoint, float Perc, float Width, const struct FColor& LineColor, class UTexture* LineTexture, float U, float V, float UL, float VL);
+	void DrawTextureDoubleLineWin(const struct FVector& StartPoint, const struct FVector& EndPoint, float Perc, float Spacing, float Width, const struct FColor& LineColor, const struct FColor& AltLineColor, class UTexture* Tex, float U, float V, float UL, float VL);
+	void DrawTextureLineWin(const struct FVector& StartPoint, const struct FVector& EndPoint, float Perc, float Width, const struct FColor& LineColor, class UTexture* LineTexture, float U, float V, float UL, float VL);
 	void Draw2DLine(float X1, float Y1, float X2, float Y2, const struct FColor& LineColor);
 	void SetDrawColor(uint8_t R, uint8_t G, uint8_t B, uint8_t optionalA);
 	void DrawBox(float Width, float Height);
@@ -9042,7 +8978,7 @@ public:
 	void DrawIconSection(const struct FCanvasIcon& Icon, float X, float Y, float UStartPct, float VStartPct, float UEndPct, float VEndPct, float optionalScale);
 	void DrawIcon(const struct FCanvasIcon& Icon, float X, float Y, float optionalScale);
 	struct FCanvasIcon MakeIcon(class UTexture* Texture, float optionalU, float optionalV, float optionalUL, float optionalVL);
-	void DrawTextureW(class UTexture* Tex, float Scale);
+	void DrawTextureWin(class UTexture* Tex, float Scale);
 	void SetClip(float X, float Y);
 	void SetOrigin(float X, float Y);
 	void SetPos(float PosX, float PosY, float optionalPosZ);
@@ -9054,8 +8990,8 @@ public:
 	struct FMatrix GetProjectionMatrix();
 	void DeProject(const struct FVector2D& ScreenPos, struct FVector& outWorldOrigin, struct FVector& outWorldDirection);
 	struct FVector Project(const struct FVector& Location);
-	void DrawTextCenteredW(const class FString& Text, bool optionalCR, float optionalXScale, float optionalYScale, const struct FFontRenderInfo& optionalRenderInfo);
-	void DrawTextW(const class FString& Text, bool optionalCR, float optionalXScale, float optionalYScale, struct FFontRenderInfo& outRenderInfo);
+	void DrawTextCenteredWin(const class FString& Text, bool optionalCR, float optionalXScale, float optionalYScale, const struct FFontRenderInfo& optionalRenderInfo);
+	void DrawTextWin(const class FString& Text, bool optionalCR, float optionalXScale, float optionalYScale, struct FFontRenderInfo& optionalOutRenderInfo);
 	void TextSize(const class FString& String, float& outXL, float& outYL);
 	void StrLen(const class FString& String, float& outXL, float& outYL);
 	static struct FFontRenderInfo CreateFontRenderInfo(bool optionalBClipText, bool optionalBEnableShadow, const struct FLinearColor& optionalGlowColor, const struct FVector2D& optionalGlowOuterRadius, const struct FVector2D& optionalGlowInnerRadius);
@@ -9065,7 +9001,6 @@ public:
 	void DrawMaterialTile(class UMaterialInterface* Mat, float XL, float YL, float optionalU, float optionalV, float optionalUL, float optionalVL, bool optionalBClipTile);
 	void DrawTile(class UTexture* Tex, float XL, float YL, float U, float V, float UL, float VL, const struct FLinearColor& optionalLColor, bool optionalClipTile);
 };
-
 // Class Engine.Channel
 // 0x002C (0x003C - 0x0068)
 class UChannel : public UObject
@@ -9087,7 +9022,6 @@ public:
 	};
 
 };
-
 // Class Engine.ActorChannel
 // 0x005C (0x0068 - 0x00C4)
 class UActorChannel : public UChannel
@@ -9109,7 +9043,6 @@ public:
 	};
 
 };
-
 // Class Engine.ControlChannel
 // 0x0010 (0x0068 - 0x0078)
 class UControlChannel : public UChannel
@@ -9131,7 +9064,6 @@ public:
 	};
 
 };
-
 // Class Engine.FileChannel
 // 0x0210 (0x0068 - 0x0278)
 class UFileChannel : public UChannel
@@ -9153,7 +9085,6 @@ public:
 	};
 
 };
-
 // Class Engine.VoiceChannel
 // 0x000C (0x0068 - 0x0074)
 class UVoiceChannel : public UChannel
@@ -9175,7 +9106,6 @@ public:
 	};
 
 };
-
 // Class Engine.Controller
 // 0x019C (0x0228 - 0x03C4)
 class AController : public AActor
@@ -9206,6 +9136,7 @@ public:
 	uint32_t                                           bUsingPathLanes : 1;                           // 0x023C (0x0004) [0x0000000000000000] [0x00020000] 
 	uint8_t                                            bFire;                                         // 0x0240 (0x0001) [0x0000000000000004] (CPF_Input)   
 	uint8_t                                            bAltFire;                                      // 0x0241 (0x0001) [0x0000000000000004] (CPF_Input)   
+	uint8_t                                            UnknownData00[0x2];                              // 0x0242 (0x0002) MISSED OFFSET
 	float                                              MinHitWall;                                    // 0x0244 (0x0004) [0x0000000000000000]               
 	class UClass*                                      NavigationHandleClass;                         // 0x0248 (0x0004) [0x0000000000000000]               
 	class UNavigationHandle*                           NavigationHandle;                              // 0x024C (0x0004) [0x0000000000000000]               
@@ -9259,6 +9190,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void RemoveSonarDetectedActor(class AActor* DesiredActor);
 	void AddSonarDetectedActor(class AActor* DesiredActor);
 	void eventInterpolationFinished(class USeqAct_Interp* InterpAction);
@@ -9266,7 +9198,7 @@ public:
 	float GetDestinationOffset();
 	void InitNavigationHandle();
 	void ReadyForLift();
-	void SendMessageW(class APlayerReplicationInfo* Recipient, const class FName& MessageType, float Wait, class UClass* optionalDamageType);
+	void SendMessageWin(class APlayerReplicationInfo* Recipient, const class FName& MessageType, float Wait, class UClass* optionalDamageType);
 	void eventCurrentLevelUnloaded();
 	class AActor* GetRouteGoalAfter(int32_t RouteIdx);
 	bool eventIsInCombat(bool optionalBForceCheck);
@@ -9396,7 +9328,6 @@ public:
 	void RouteCache_Empty();
 	bool IsLocalPlayerController();
 };
-
 // Class Engine.PlayerController
 // 0x0240 (0x03C4 - 0x0604)
 class APlayerController : public AController
@@ -9439,6 +9370,7 @@ public:
 	uint32_t                                           bCheckSoundOcclusion : 1;                      // 0x03D8 (0x0004) [0x0000000000000000] [0x20000000] 
 	uint32_t                                           bLogHearSoundOverflow : 1;                     // 0x03D8 (0x0004) [0x0000000000044000] [0x40000000] (CPF_Config | CPF_GlobalConfig)
 	uint32_t                                           bCheckRelevancyThroughPortals : 1;             // 0x03D8 (0x0004) [0x0000000000044000] [0x80000000] (CPF_Config | CPF_GlobalConfig)
+	uint32_t : 0;                                  // 0x03DC CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bDebugClientAdjustPosition : 1;                // 0x03DC (0x0004) [0x0000000000000001] [0x00000001] (CPF_Edit)
 	float                                              MaxResponseTime;                               // 0x03E0 (0x0004) [0x0000000000000000]               
 	float                                              WaitDelay;                                     // 0x03E4 (0x0004) [0x0000000000000000]               
@@ -9449,6 +9381,7 @@ public:
 	uint8_t                                            bRun;                                          // 0x03EF (0x0001) [0x0000000000000004] (CPF_Input)   
 	uint8_t                                            bDuck;                                         // 0x03F0 (0x0001) [0x0000000000000004] (CPF_Input)   
 	uint8_t                                            NetPlayerIndex;                                // 0x03F1 (0x0001) [0x0000000000200002] (CPF_Const)   
+	uint8_t                                            UnknownData00[0x2];                              // 0x03F2 (0x0002) MISSED OFFSET
 	class AActor*                                      ViewTarget;                                    // 0x03F4 (0x0004) [0x0000000000000002] (CPF_Const)   
 	class APlayerReplicationInfo*                      RealViewTarget;                                // 0x03F8 (0x0004) [0x0000000000000000]               
 	class UInterpTrackInstDirector*                    ControllingDirTrackInst;                       // 0x03FC (0x0004) [0x0000000000002000] (CPF_Transient)
@@ -9531,6 +9464,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventLoadingMapIsStart();
 	void eventLoadingBinkIsFinished();
 	void eventOnBinkPlay(const class FString& MovieName);
@@ -9570,7 +9504,7 @@ public:
 	int32_t GetSplitscreenPlayerCount();
 	class APlayerReplicationInfo* GetSplitscreenPlayerByIndex(int32_t optionalPlayerIndex);
 	bool HasSplitscreenPlayer(class APlayerReplicationInfo* PRI);
-	bool IsSplitscreenPlayer(int32_t& outOut_SplitscreenPlayerIndex);
+	bool IsSplitscreenPlayer(int32_t& optionalOutOut_SplitscreenPlayerIndex);
 	bool IsPrimaryPlayer();
 	void ClientReturnToParty(const struct FUniqueNetId& RequestingPlayerId);
 	void OnJoinTravelToSessionComplete(const class FName& SessionName, bool bWasSuccessful);
@@ -9674,7 +9608,7 @@ public:
 	void OnSetCameraTarget(class USeqAct_SetCameraTarget* inAction);
 	void ClientClearKismetText(const struct FVector2D& MessageOffset);
 	void ClientDrawKismetText(const struct FKismetDrawTextInfo& DrawTextInfo, float DisplayTime);
-	void OnDrawTextW(class USeqAct_DrawText* inAction);
+	void OnDrawText(class USeqAct_DrawText* inAction);
 	void DisplayDebug(class AHUD* HUD, float& outOut_YL, float& outOut_YPos);
 	void ClientIgnoreLookInput(bool bIgnore);
 	void ClientIgnoreMoveInput(bool bIgnore);
@@ -9828,13 +9762,13 @@ public:
 	void eventClientMessage(const class FString& S, const class FName& optionalType, float optionalMsgLifeTime);
 	void ClientPlayActorFaceFXAnim(class AActor* SourceActor, class UFaceFXAnimSet* AnimSet, const class FString& GroupName, const class FString& SeqName, class USoundCue* SoundCueToPlay);
 	void eventKismet_ClientStopSound(class USoundCue* ASound, class AActor* SourceActor, float FadeOutTime);
-	void eventKismet_ClientPlaySoundW(class USoundCue* ASound, class AActor* SourceActor, float VolumeMultiplier, float PitchMultiplier, float FadeInTime, bool bSuppressSubtitles, bool bSuppressSpatialization);
+	void eventKismet_ClientPlaySound(class USoundCue* ASound, class AActor* SourceActor, float VolumeMultiplier, float PitchMultiplier, float FadeInTime, bool bSuppressSubtitles, bool bSuppressSpatialization);
 	bool IsClosestLocalPlayerToActor(class AActor* TheActor);
 	void eventClientHearSound(class USoundCue* ASound, class AActor* SourceActor, const struct FVector& SourceLocation, bool bStopWhenOwnerDestroyed, bool optionalBIsOccluded);
 	class UAudioComponent* GetPooledAudioComponent(class USoundCue* ASound, class AActor* SourceActor, bool bStopWhenOwnerDestroyed, bool optionalBUseLocation, const struct FVector& optionalSourceLocation);
 	void HearSoundFinished(class UAudioComponent* AC);
-	void eventClientPlaySoundW(class USoundCue* ASound);
-	void eventReceiveLocalizedMessage(class UClass* Message, int32_t optionalSwitch, class APlayerReplicationInfo* optionalRelatedPRI, class APlayerReplicationInfo* optionalRelatedPRI01, class UObject* optionalOptionalObject);
+	void eventClientPlaySound(class USoundCue* ASound);
+	void eventReceiveLocalizedMessage(class UClass* Message, int32_t optionalSwitch, class APlayerReplicationInfo* optionalRelatedPRI_1, class APlayerReplicationInfo* optionalRelatedPRI_2, class UObject* optionalOptionalObject);
 	void CleanupPRI();
 	void HandlePickup(class AInventory* Inv);
 	void ClientSetHUD(class UClass* newHUDType, class UClass* newScoringType);
@@ -9911,7 +9845,6 @@ public:
 	class APawn* eventgetNPCInInputCone(const struct FVector& inputDir);
 	struct FVector eventgetInputVectorSlideToTarget();
 };
-
 // Class Engine.CheatManager
 // 0x0020 (0x003C - 0x005C)
 class UCheatManager : public UObject
@@ -9935,11 +9868,12 @@ public:
 		return uClassPointer;
 	};
 
+
 	void fullhealth();
 	void NavMeshVerification(float optionalInterval);
 	void VerifyNavMeshObjects();
 	void LogParticleActivateSystemCalls(bool bShouldLog);
-	void LogPlaySoundCallsW(bool bShouldLog);
+	void LogPlaySoundCalls(bool bShouldLog);
 	void InitCheatManager();
 	void VerbosePathDebug();
 	void TestNavMeshPath(bool optionalBDrawPath);
@@ -10000,7 +9934,6 @@ public:
 	void FXStop(class UClass* aClass);
 	void FXPlay(class UClass* aClass, const class FString& FXAnimPath);
 };
-
 // Class Engine.Client
 // 0x0014 (0x003C - 0x0050)
 class UClient : public UObject
@@ -10026,7 +9959,6 @@ public:
 	};
 
 };
-
 // Class Engine.ClipPadEntry
 // 0x0018 (0x003C - 0x0054)
 class UClipPadEntry : public UObject
@@ -10049,7 +9981,6 @@ public:
 	};
 
 };
-
 // Class Engine.CodecMovie
 // 0x0004 (0x003C - 0x0040)
 class UCodecMovie : public UObject
@@ -10071,7 +10002,6 @@ public:
 	};
 
 };
-
 // Class Engine.CodecMovieBink
 // 0x0020 (0x0040 - 0x0060)
 class UCodecMovieBink : public UCodecMovie
@@ -10093,7 +10023,6 @@ public:
 	};
 
 };
-
 // Class Engine.CodecMovieFallback
 // 0x0004 (0x0040 - 0x0044)
 class UCodecMovieFallback : public UCodecMovie
@@ -10115,7 +10044,6 @@ public:
 	};
 
 };
-
 // Class Engine.CombatGlobalConfig
 // 0x000C (0x003C - 0x0048)
 class UCombatGlobalConfig : public UObject
@@ -10137,7 +10065,6 @@ public:
 	};
 
 };
-
 // Class Engine.CurveEdPresetCurve
 // 0x0018 (0x003C - 0x0054)
 class UCurveEdPresetCurve : public UObject
@@ -10160,7 +10087,6 @@ public:
 	};
 
 };
-
 // Class Engine.CustomPropertyItemHandler
 // 0x0000 (0x003C - 0x003C)
 class UCustomPropertyItemHandler : public UInterface
@@ -10181,13 +10107,13 @@ public:
 	};
 
 };
-
 // Class Engine.DamageType
 // 0x0030 (0x003C - 0x006C)
 class UDamageType : public UObject
 {
 public:
 	EDT_WeaponIndentify                                WeaponTypeIndentify;                           // 0x003C (0x0001) [0x0000000000000000]               
+	uint8_t                                            UnknownData00[0x3];                              // 0x003D (0x0003) MISSED OFFSET
 	uint32_t                                           bMeleeDamage : 1;                              // 0x0040 (0x0004) [0x0000000000000001] [0x00000001] (CPF_Edit)
 	uint32_t                                           bArmorStops : 1;                               // 0x0040 (0x0004) [0x0000000000000001] [0x00000002] (CPF_Edit)
 	uint32_t                                           bAlwaysGibs : 1;                               // 0x0040 (0x0004) [0x0000000000000001] [0x00000004] (CPF_Edit)
@@ -10223,9 +10149,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	static float VehicleDamageScalingFor(class AVehicle* V);
 };
-
 // Class Engine.KillZDamageType
 // 0x0000 (0x006C - 0x006C)
 class UKillZDamageType : public UDamageType
@@ -10246,7 +10172,6 @@ public:
 	};
 
 };
-
 // Class Engine.DebugManager
 // 0x0004 (0x003C - 0x0040)
 class UDebugManager : public UObject
@@ -10268,7 +10193,6 @@ public:
 	};
 
 };
-
 // Class Engine.DistributionFloatConstant
 // 0x0004 (0x0050 - 0x0054)
 class UDistributionFloatConstant : public UDistributionFloat
@@ -10290,7 +10214,6 @@ public:
 	};
 
 };
-
 // Class Engine.DistributionFloatParameterBase
 // 0x0019 (0x0054 - 0x006D)
 class UDistributionFloatParameterBase : public UDistributionFloatConstant
@@ -10317,7 +10240,6 @@ public:
 	};
 
 };
-
 // Class Engine.DistributionFloatConstantCurve
 // 0x0010 (0x0050 - 0x0060)
 class UDistributionFloatConstantCurve : public UDistributionFloat
@@ -10339,7 +10261,6 @@ public:
 	};
 
 };
-
 // Class Engine.DistributionFloatUniform
 // 0x0008 (0x0050 - 0x0058)
 class UDistributionFloatUniform : public UDistributionFloat
@@ -10362,7 +10283,6 @@ public:
 	};
 
 };
-
 // Class Engine.DistributionFloatUniformCurve
 // 0x0010 (0x0050 - 0x0060)
 class UDistributionFloatUniformCurve : public UDistributionFloat
@@ -10384,7 +10304,6 @@ public:
 	};
 
 };
-
 // Class Engine.DistributionVectorConstant
 // 0x0011 (0x0050 - 0x0061)
 class UDistributionVectorConstant : public UDistributionVector
@@ -10408,7 +10327,6 @@ public:
 	};
 
 };
-
 // Class Engine.DistributionVectorParameterBase
 // 0x003E (0x0061 - 0x009F)
 class UDistributionVectorParameterBase : public UDistributionVectorConstant
@@ -10435,7 +10353,6 @@ public:
 	};
 
 };
-
 // Class Engine.DistributionVectorConstantCurve
 // 0x0015 (0x0050 - 0x0065)
 class UDistributionVectorConstantCurve : public UDistributionVector
@@ -10459,7 +10376,6 @@ public:
 	};
 
 };
-
 // Class Engine.DistributionVectorUniform
 // 0x0020 (0x0050 - 0x0070)
 class UDistributionVectorUniform : public UDistributionVector
@@ -10486,7 +10402,6 @@ public:
 	};
 
 };
-
 // Class Engine.DistributionVectorUniformCurve
 // 0x0019 (0x0050 - 0x0069)
 class UDistributionVectorUniformCurve : public UDistributionVector
@@ -10513,7 +10428,6 @@ public:
 	};
 
 };
-
 // Class Engine.Download
 // 0x0A34 (0x003C - 0x0A70)
 class UDownload : public UObject
@@ -10535,7 +10449,6 @@ public:
 	};
 
 };
-
 // Class Engine.ChannelDownload
 // 0x0004 (0x0A70 - 0x0A74)
 class UChannelDownload : public UDownload
@@ -10557,7 +10470,6 @@ public:
 	};
 
 };
-
 // Class Engine.EdCoordSystem
 // 0x0050 (0x003C - 0x008C)
 class UEdCoordSystem : public UObject
@@ -10581,7 +10493,6 @@ public:
 	};
 
 };
-
 // Class Engine.EditorLinkSelectionInterface
 // 0x0000 (0x003C - 0x003C)
 class UEditorLinkSelectionInterface : public UInterface
@@ -10602,7 +10513,6 @@ public:
 	};
 
 };
-
 // Class Engine.EngineTypes
 // 0x0000 (0x003C - 0x003C)
 class UEngineTypes : public UObject
@@ -10623,7 +10533,6 @@ public:
 	};
 
 };
-
 // Class Engine.FaceFXAnimSet
 // 0x0030 (0x003C - 0x006C)
 class UFaceFXAnimSet : public UObject
@@ -10650,7 +10559,6 @@ public:
 	};
 
 };
-
 // Class Engine.FaceFXAsset
 // 0x0048 (0x003C - 0x0084)
 class UFaceFXAsset : public UObject
@@ -10678,10 +10586,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void UnmountFaceFXAnimSet(class UFaceFXAnimSet* AnimSet);
 	void MountFaceFXAnimSet(class UFaceFXAnimSet* AnimSet);
 };
-
 // Class Engine.Font
 // 0x0100 (0x003C - 0x013C)
 class UFont : public UObject
@@ -10709,12 +10617,12 @@ public:
 		return uClassPointer;
 	};
 
+
 	float GetMaxCharHeight();
 	float GetAuthoredViewportHeight(float ViewportHeight);
 	float GetScalingFactor(float HeightTest);
 	int32_t GetResolutionPageIndex(float HeightTest);
 };
-
 // Class Engine.MultiFont
 // 0x000C (0x013C - 0x0148)
 class UMultiFont : public UFont
@@ -10735,9 +10643,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	int32_t GetResolutionTestTableIndex(float HeightTest);
 };
-
 // Class Engine.FontImportOptions
 // 0x0094 (0x003C - 0x00D0)
 class UFontImportOptions : public UObject
@@ -10759,7 +10667,6 @@ public:
 	};
 
 };
-
 // Class Engine.ForceFeedbackManager
 // 0x0014 (0x003C - 0x0050)
 class UForceFeedbackManager : public UObject
@@ -10785,11 +10692,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	void PauseWaveform(bool optionalBPause);
 	void StopForceFeedbackWaveform(class UForceFeedbackWaveform* optionalWaveForm);
 	void PlayForceFeedbackWaveform(class UForceFeedbackWaveform* WaveForm);
 };
-
 // Class Engine.ForceFeedbackWaveform
 // 0x0010 (0x003C - 0x004C)
 class UForceFeedbackWaveform : public UObject
@@ -10812,7 +10719,6 @@ public:
 	};
 
 };
-
 // Class Engine.GameEffectSpeedController
 // 0x0014 (0x003C - 0x0050)
 class UGameEffectSpeedController : public UObject
@@ -10835,10 +10741,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void QueueReset();
 	bool InQueueSpeedControlPara(float MinScale, float DecTime, float FrzTime, float IncTime, EGameEffectSpeedControlPriority Priority);
 };
-
 // Class Engine.GameplayEvents
 // 0x00F0 (0x003C - 0x012C)
 class UGameplayEvents : public UObject
@@ -10871,11 +10777,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	class FString GetFilename();
 	void CloseStatsFile();
 	bool OpenStatsFile(const class FString& Filename);
 };
-
 // Class Engine.GameplayEventsReader
 // 0x000C (0x012C - 0x0138)
 class UGameplayEventsReader : public UGameplayEvents
@@ -10896,6 +10802,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	float GetSessionDuration();
 	float GetSessionEnd();
 	float GetSessionStart();
@@ -10911,7 +10818,6 @@ public:
 	void CloseStatsFile();
 	bool OpenStatsFile(const class FString& Filename);
 };
-
 // Class Engine.GameplayEventsWriter
 // 0x0004 (0x012C - 0x0130)
 class UGameplayEventsWriter : public UGameplayEvents
@@ -10931,6 +10837,7 @@ public:
 
 		return uClassPointer;
 	};
+
 
 	void RecordAIPathFail(class AController* AI, const class FString& Reason, const struct FVector& Dest);
 	class UGenericParamListStatEntry* GetGenericParamListEntry();
@@ -10959,7 +10866,6 @@ public:
 	void StartLogging(float optionalHeartbeatDelta);
 	int32_t ResolvePlayerIndex(class AController* Player);
 };
-
 // Class Engine.AliceGameplayEventsWriter
 // 0x0000 (0x0130 - 0x0130)
 class UAliceGameplayEventsWriter : public UGameplayEventsWriter
@@ -10980,7 +10886,6 @@ public:
 	};
 
 };
-
 // Class Engine.GameViewportClient
 // 0x00E0 (0x003C - 0x011C)
 class UGameViewportClient : public UObject
@@ -11030,6 +10935,7 @@ public:
 
 		return uClassPointer;
 	};
+
 
 	void ClearProgressMessages();
 	void SetProgressTime(float T);
@@ -11081,7 +10987,6 @@ public:
 	bool HandleInputAxis(int32_t ControllerId, const class FName& Key, float Delta, float DeltaTime, bool bGamepad);
 	bool HandleInputKey(int32_t ControllerId, const class FName& Key, EInputEvent EventType, float AmountDepressed, bool optionalBGamepad);
 };
-
 // Class Engine.GenericParamListStatEntry
 // 0x0008 (0x003C - 0x0044)
 class UGenericParamListStatEntry : public UObject
@@ -11103,6 +11008,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void CommitToDisk();
 	bool GetString(const class FName& ParamName, class FString& outOut_string);
 	bool GetVector(const class FName& ParamName, struct FVector& outOut_vector);
@@ -11113,7 +11019,6 @@ public:
 	void AddInt(const class FName& ParamName, int32_t Value);
 	void AddFloat(const class FName& ParamName, float Value);
 };
-
 // Class Engine.GuidCache
 // 0x0048 (0x003C - 0x0084)
 class UGuidCache : public UObject
@@ -11135,7 +11040,6 @@ public:
 	};
 
 };
-
 // Class Engine.IniLocPatcher
 // 0x0020 (0x003C - 0x005C)
 class UIniLocPatcher : public UObject
@@ -11159,6 +11063,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void ClearCachedFiles();
 	void ClearReadFileDelegate(const struct FScriptDelegate& ReadTitleFileCompleteDelegate);
 	void AddReadFileDelegate(const struct FScriptDelegate& ReadTitleFileCompleteDelegate);
@@ -11169,7 +11074,6 @@ public:
 	void Init();
 	void OnReadTitleFileComplete(bool bWasSuccessful, const class FString& Filename);
 };
-
 // Class Engine.Interface_NavigationHandle
 // 0x0000 (0x003C - 0x003C)
 class UInterface_NavigationHandle : public UInterface
@@ -11189,9 +11093,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventNotifyPathChanged();
 };
-
 // Class Engine.InterpCurveEdSetup
 // 0x0010 (0x003C - 0x004C)
 class UInterpCurveEdSetup : public UObject
@@ -11214,7 +11118,6 @@ public:
 	};
 
 };
-
 // Class Engine.InterpTrack
 // 0x0020 (0x003C - 0x005C)
 class UInterpTrack : public UObject
@@ -11224,6 +11127,7 @@ public:
 	struct FPointer                                    CurveEdVTable;                                 // 0x0040 (0x0004) [0x0000000000801000] (CPF_Native | CPF_NoExport)
 	class UClass*                                      TrackInstClass;                                // 0x0044 (0x0004) [0x0000000000000000]               
 	ETrackActiveCondition                              ActiveCondition;                               // 0x0048 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0049 (0x0003) MISSED OFFSET
 	class FString                                      TrackTitle;                                    // 0x004C (0x000C) [0x0000000000400000] (CPF_NeedCtorLink)
 	uint32_t                                           bOnePerGroup : 1;                              // 0x0058 (0x0004) [0x0000000000000000] [0x00000001] 
 	uint32_t                                           bDirGroupOnly : 1;                             // 0x0058 (0x0004) [0x0000000000000000] [0x00000002] 
@@ -11247,7 +11151,6 @@ public:
 	};
 
 };
-
 // Class Engine.KMeshProps
 // 0x0044 (0x003C - 0x0080)
 class UKMeshProps : public UObject
@@ -11270,7 +11173,6 @@ public:
 	};
 
 };
-
 // Class Engine.LevelBase
 // 0x0054 (0x003C - 0x0090)
 class ULevelBase : public UObject
@@ -11292,7 +11194,6 @@ public:
 	};
 
 };
-
 // Class Engine.Level
 // 0x01D0 (0x0090 - 0x0260)
 class ULevel : public ULevelBase
@@ -11317,7 +11218,6 @@ public:
 	};
 
 };
-
 // Class Engine.PendingLevel
 // 0x0030 (0x0090 - 0x00C0)
 class UPendingLevel : public ULevelBase
@@ -11339,7 +11239,6 @@ public:
 	};
 
 };
-
 // Class Engine.DemoPlayPendingLevel
 // 0x0000 (0x00C0 - 0x00C0)
 class UDemoPlayPendingLevel : public UPendingLevel
@@ -11360,7 +11259,6 @@ public:
 	};
 
 };
-
 // Class Engine.NetPendingLevel
 // 0x0000 (0x00C0 - 0x00C0)
 class UNetPendingLevel : public UPendingLevel
@@ -11381,7 +11279,6 @@ public:
 	};
 
 };
-
 // Class Engine.LevelStreaming
 // 0x005C (0x003C - 0x0098)
 class ULevelStreaming : public UObject
@@ -11425,7 +11322,6 @@ public:
 	};
 
 };
-
 // Class Engine.LevelStreamingAlwaysLoaded
 // 0x0004 (0x0098 - 0x009C)
 class ULevelStreamingAlwaysLoaded : public ULevelStreaming
@@ -11447,7 +11343,6 @@ public:
 	};
 
 };
-
 // Class Engine.LevelStreamingDistance
 // 0x0010 (0x0098 - 0x00A8)
 class ULevelStreamingDistance : public ULevelStreaming
@@ -11470,7 +11365,6 @@ public:
 	};
 
 };
-
 // Class Engine.LevelStreamingKismet
 // 0x0000 (0x0098 - 0x0098)
 class ULevelStreamingKismet : public ULevelStreaming
@@ -11491,7 +11385,6 @@ public:
 	};
 
 };
-
 // Class Engine.LevelStreamingPersistent
 // 0x0000 (0x0098 - 0x0098)
 class ULevelStreamingPersistent : public ULevelStreaming
@@ -11512,7 +11405,6 @@ public:
 	};
 
 };
-
 // Class Engine.LightmappedSurfaceCollection
 // 0x0010 (0x003C - 0x004C)
 class ULightmappedSurfaceCollection : public UObject
@@ -11535,7 +11427,6 @@ public:
 	};
 
 };
-
 // Class Engine.LightmassLevelSettings
 // 0x0030 (0x003C - 0x006C)
 class ULightmassLevelSettings : public UObject
@@ -11569,7 +11460,6 @@ public:
 	};
 
 };
-
 // Class Engine.LightmassPrimitiveSettingsObject
 // 0x001C (0x003C - 0x0058)
 class ULightmassPrimitiveSettingsObject : public UObject
@@ -11591,7 +11481,6 @@ public:
 	};
 
 };
-
 // Class Engine.MapInfo
 // 0x0000 (0x003C - 0x003C)
 class UMapInfo : public UObject
@@ -11612,7 +11501,6 @@ public:
 	};
 
 };
-
 // Class Engine.Surface
 // 0x0000 (0x003C - 0x003C)
 class USurface : public UObject
@@ -11632,10 +11520,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	float GetSurfaceHeight();
 	float GetSurfaceWidth();
 };
-
 // Class Engine.MaterialInterface
 // 0x003C (0x003C - 0x0078)
 class UMaterialInterface : public USurface
@@ -11660,6 +11548,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SetForceMipLevelsToBeResident(bool OverrideForceMiplevelsToBeResident, bool bForceMiplevelsToBeResidentValue, float ForceDuration, int32_t optionalCinematicTextureGroups);
 	bool GetVectorCurveParameterValue(const class FName& ParameterName, struct FInterpCurveVector& outOutValue);
 	bool GetVectorParameterValue(const class FName& ParameterName, struct FLinearColor& outOutValue);
@@ -11670,7 +11559,6 @@ public:
 	class UPhysicalMaterial* GetPhysicalMaterial();
 	class UMaterial* GetMaterial();
 };
-
 // Class Engine.Material
 // 0x02FC (0x0078 - 0x0374)
 class UMaterial : public UMaterialInterface
@@ -11694,6 +11582,7 @@ public:
 	struct FVector2MaterialInput                       Distortion;                                    // 0x01BC (0x0028) [0x0000000000000000]               
 	EBlendMode                                         BlendMode;                                     // 0x01E4 (0x0001) [0x0000000000000001] (CPF_Edit)    
 	EMaterialLightingModel                             LightingModel;                                 // 0x01E5 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x2];                              // 0x01E6 (0x0002) MISSED OFFSET
 	struct FColorMaterialInput                         CustomLighting;                                // 0x01E8 (0x0024) [0x0000000000000000]               
 	struct FColorMaterialInput                         CustomSkylightDiffuse;                         // 0x020C (0x0024) [0x0000000000000000]               
 	struct FVectorMaterialInput                        AnisotropicDirection;                          // 0x0230 (0x002C) [0x0000000000000000]               
@@ -11732,6 +11621,7 @@ public:
 	uint32_t                                           bUsedWithMorphTargets : 1;                     // 0x02D0 (0x0004) [0x0000000000000003] [0x20000000] (CPF_Edit | CPF_Const)
 	uint32_t                                           bUsedWithRadialBlur : 1;                       // 0x02D0 (0x0004) [0x0000000000000003] [0x40000000] (CPF_Edit | CPF_Const)
 	uint32_t                                           bUsedWithInstancedMeshes : 1;                  // 0x02D0 (0x0004) [0x0000000000000003] [0x80000000] (CPF_Edit | CPF_Const)
+	uint32_t : 0;                                  // 0x02D4 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bUsedWithSplineMeshes : 1;                     // 0x02D4 (0x0004) [0x0000000000000003] [0x00000001] (CPF_Edit | CPF_Const)
 	uint32_t                                           bUsedWithAPEXMeshes : 1;                       // 0x02D4 (0x0004) [0x0000000000000003] [0x00000002] (CPF_Edit | CPF_Const)
 	uint32_t                                           bUsedWithSPHFluid : 1;                         // 0x02D4 (0x0004) [0x0000000000000003] [0x00000004] (CPF_Edit | CPF_Const)
@@ -11755,7 +11645,7 @@ public:
 	class TArray<class UMaterialExpression*>           Expressions;                                   // 0x02FC (0x000C) [0x0000000000400000] (CPF_NeedCtorLink)
 	class TArray<class UMaterialExpressionComment*>    EditorComments;                                // 0x0308 (0x000C) [0x0000000000400000] (CPF_NeedCtorLink | CPF_EditorOnly)
 	class TArray<class UMaterialExpressionCompound*>   EditorCompounds;                               // 0x0314 (0x000C) [0x0000000000400000] (CPF_NeedCtorLink | CPF_EditorOnly)
-	uint8_t                                            UnknownData00[0x3C];                            // 0x0320 (0x003C) MISSED OFFSET
+	uint8_t                                            UnknownData01[0x3C];                            // 0x0320 (0x003C) MISSED OFFSET
 	class TArray<class UTexture*>                      ReferencedTextures;                            // 0x035C (0x000C) [0x0000000020400002] (CPF_Const | CPF_NeedCtorLink | CPF_Deprecated)
 	class TArray<struct FGuid>                         ReferencedTextureGuids;                        // 0x0368 (0x000C) [0x0000000000400002] (CPF_Const | CPF_NeedCtorLink | CPF_EditorOnly)
 
@@ -11773,7 +11663,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpression
 // 0x0030 (0x003C - 0x006C)
 class UMaterialExpression : public UObject
@@ -11806,7 +11695,6 @@ public:
 	};
 
 };
-
 // Class Engine.Model
 // 0x09D0 (0x003C - 0x0A0C)
 class UModel : public UObject
@@ -11828,7 +11716,6 @@ public:
 	};
 
 };
-
 // Class Engine.MusicTrackDataStructures
 // 0x0000 (0x003C - 0x003C)
 class UMusicTrackDataStructures : public UObject
@@ -11849,7 +11736,6 @@ public:
 	};
 
 };
-
 // Class Engine.NavigationMeshBase
 // 0x0294 (0x003C - 0x02D0)
 class UNavigationMeshBase : public UObject
@@ -11871,7 +11757,6 @@ public:
 	};
 
 };
-
 // Class Engine.NetDriver
 // 0x0130 (0x0040 - 0x0170)
 class UNetDriver : public USubsystem
@@ -11888,6 +11773,7 @@ public:
 	int32_t                                            MaxInternetClientRate;                         // 0x007C (0x0004) [0x0000000000004000] (CPF_Config)  
 	int32_t                                            NetServerMaxTickRate;                          // 0x0080 (0x0004) [0x0000000000004000] (CPF_Config)  
 	uint32_t                                           bClampListenServerTickRate : 1;                // 0x0084 (0x0004) [0x0000000000004000] [0x00000001] (CPF_Config)
+	uint32_t : 0;                                  // 0x0088 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           AllowDownloads : 1;                            // 0x0088 (0x0004) [0x0000000000004000] [0x00000001] (CPF_Config)
 	uint8_t                                            UnknownData01[0x14];                            // 0x008C (0x0014) MISSED OFFSET
 	int32_t                                            MaxDownloadSize;                               // 0x00A0 (0x0004) [0x0000000000004000] (CPF_Config)  
@@ -11910,7 +11796,6 @@ public:
 	};
 
 };
-
 // Class Engine.DemoRecDriver
 // 0x00C4 (0x0170 - 0x0234)
 class UDemoRecDriver : public UNetDriver
@@ -11939,7 +11824,6 @@ public:
 	};
 
 };
-
 // Class Engine.ObjectReferencer
 // 0x000C (0x003C - 0x0048)
 class UObjectReferencer : public UObject
@@ -11961,7 +11845,6 @@ public:
 	};
 
 };
-
 // Class Engine.OnlineGameplayEvents
 // 0x005C (0x003C - 0x0098)
 class UOnlineGameplayEvents : public UObject
@@ -11990,7 +11873,6 @@ public:
 	};
 
 };
-
 // Class Engine.OnlinePlayerStorage
 // 0x002C (0x003C - 0x0068)
 class UOnlinePlayerStorage : public UObject
@@ -12000,6 +11882,7 @@ public:
 	class TArray<struct FOnlineProfileSetting>         ProfileSettings;                               // 0x0040 (0x000C) [0x0000000000400000] (CPF_NeedCtorLink)
 	class TArray<struct FSettingsPropertyPropertyMetaData> ProfileMappings;                               // 0x004C (0x000C) [0x0000000000400000] (CPF_NeedCtorLink)
 	EOnlinePlayerStorageAsyncState                     AsyncState;                                    // 0x0058 (0x0001) [0x0000000000000002] (CPF_Const)   
+	uint8_t                                            UnknownData00[0x3];                              // 0x0059 (0x0003) MISSED OFFSET
 	struct FScriptDelegate                             __NotifySettingValueUpdated__Delegate;         // 0x005C (0x000C) [0x0000000000400000] (CPF_NeedCtorLink)
 
 public:
@@ -12015,6 +11898,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventSetToDefaults();
 	void AddSettingFloat(int32_t SettingId);
 	void AddSettingInt(int32_t SettingId);
@@ -12028,7 +11912,7 @@ public:
 	bool SetProfileSettingValueId(int32_t ProfileSettingId, int32_t Value);
 	bool GetProfileSettingValueFloat(int32_t ProfileSettingId, float& outValue);
 	bool GetProfileSettingValueInt(int32_t ProfileSettingId, int32_t& outValue);
-	bool GetProfileSettingValueId(int32_t ProfileSettingId, int32_t& outValueId, int32_t& outListIndex);
+	bool GetProfileSettingValueId(int32_t ProfileSettingId, int32_t& outValueId, int32_t& optionalOutListIndex);
 	bool SetProfileSettingValue(int32_t ProfileSettingId, class FString& outNewValue);
 	bool SetProfileSettingValueByName(const class FName& ProfileSettingName, class FString& outNewValue);
 	bool GetProfileSettingValueByName(const class FName& ProfileSettingName, class FString& outValue);
@@ -12045,7 +11929,6 @@ public:
 	bool GetProfileSettingId(const class FName& ProfileSettingName, int32_t& outProfileSettingId);
 	void NotifySettingValueUpdated(const class FName& SettingName);
 };
-
 // Class Engine.OnlineProfileSettings
 // 0x0024 (0x0068 - 0x008C)
 class UOnlineProfileSettings : public UOnlinePlayerStorage
@@ -12068,6 +11951,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventModifyAvailableProfileSettings();
 	void SetDefaultVersionNumber();
 	int32_t GetVersionNumber();
@@ -12078,7 +11962,6 @@ public:
 	bool GetProfileSettingDefaultInt(int32_t ProfileSettingId, int32_t& outDefaultInt);
 	bool GetProfileSettingDefaultId(int32_t ProfileSettingId, int32_t& outDefaultId, int32_t& outListIndex);
 };
-
 // Class Engine.OnlinePlaylistManager
 // 0x003C (0x003C - 0x0078)
 class UOnlinePlaylistManager : public UObject
@@ -12105,6 +11988,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void Reset();
 	void GetContentIdsFromPlaylist(int32_t PlaylistId, class TArray<int32_t>& outContentIds);
 	void GetTeamInfoFromPlaylist(int32_t PlaylistId, int32_t& outTeamSize, int32_t& outTeamCount);
@@ -12117,7 +12001,6 @@ public:
 	void DownloadPlaylist();
 	void OnReadPlaylistComplete();
 };
-
 // Class Engine.OnlineStats
 // 0x000C (0x003C - 0x0048)
 class UOnlineStats : public UObject
@@ -12138,10 +12021,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	class FName GetViewName(int32_t ViewId);
 	bool GetViewId(const class FName& ViewName, int32_t& outViewId);
 };
-
 // Class Engine.OnlineStatsRead
 // 0x0040 (0x0048 - 0x0088)
 class UOnlineStatsRead : public UOnlineStats
@@ -12169,6 +12052,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	int32_t GetRankForPlayer(const struct FUniqueNetId& PlayerID);
 	void AddPlayer(const class FString& PlayerName, const struct FUniqueNetId& PlayerID);
 	bool SetFloatStatValueForPlayer(const struct FUniqueNetId& PlayerID, int32_t StatColumnNo, float StatValue);
@@ -12177,7 +12061,6 @@ public:
 	bool GetIntStatValueForPlayer(const struct FUniqueNetId& PlayerID, int32_t StatColumnNo, int32_t& outStatValue);
 	void eventOnReadComplete();
 };
-
 // Class Engine.OnlineStatsWrite
 // 0x0040 (0x0048 - 0x0088)
 class UOnlineStatsWrite : public UOnlineStats
@@ -12203,6 +12086,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void DecrementIntStat(int32_t StatId, int32_t optionalDecBy);
 	void DecrementFloatStat(int32_t StatId, float optionalDecBy);
 	void IncrementIntStat(int32_t StatId, int32_t optionalIncBy);
@@ -12213,7 +12097,6 @@ public:
 	bool GetStatId(const class FName& StatName, int32_t& outStatId);
 	void OnStatsWriteComplete();
 };
-
 // Class Engine.OnlineSubsystem
 // 0x0094 (0x003C - 0x00D0)
 class UOnlineSubsystem : public UObject
@@ -12262,6 +12145,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SetDebugSpewLevel(int32_t DebugSpewLevel);
 	void DumpVoiceRegistration();
 	static void DumpNetIds(const class FString& DebugLabel, class TArray<struct FUniqueNetId>& outPlayers);
@@ -12288,7 +12172,6 @@ public:
 	bool eventPostInit();
 	bool eventInit();
 };
-
 // Class Engine.PackageMapLevel
 // 0x0004 (0x00C0 - 0x00C4)
 class UPackageMapLevel : public UPackageMap
@@ -12310,7 +12193,6 @@ public:
 	};
 
 };
-
 // Class Engine.PackageMapSeekFree
 // 0x0000 (0x00C4 - 0x00C4)
 class UPackageMapSeekFree : public UPackageMapLevel
@@ -12331,7 +12213,6 @@ public:
 	};
 
 };
-
 // Class Engine.Player
 // 0x0024 (0x003C - 0x0060)
 class UPlayer : public UObject
@@ -12360,9 +12241,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SwitchController(class APlayerController* PC);
 };
-
 // Class Engine.LocalPlayer
 // 0x0418 (0x0060 - 0x0478)
 class ULocalPlayer : public UPlayer
@@ -12404,6 +12285,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	class FString eventGetNickname();
 	struct FUniqueNetId eventGetUniqueNetId();
 	void DeProject(const struct FVector2D& RelativeScreenPos, struct FVector& outWorldOrigin, struct FVector& outWorldDirection);
@@ -12421,7 +12303,6 @@ public:
 	void SendSplitJoin();
 	bool SpawnPlayActor(const class FString& URL, class FString& outOutError);
 };
-
 // Class Engine.NetConnection
 // 0x4DE8 (0x0060 - 0x4E48)
 class UNetConnection : public UPlayer
@@ -12445,7 +12326,6 @@ public:
 	};
 
 };
-
 // Class Engine.ChildConnection
 // 0x0004 (0x4E48 - 0x4E4C)
 class UChildConnection : public UNetConnection
@@ -12467,7 +12347,6 @@ public:
 	};
 
 };
-
 // Class Engine.DemoRecConnection
 // 0x0000 (0x4E48 - 0x4E48)
 class UDemoRecConnection : public UNetConnection
@@ -12488,7 +12367,6 @@ public:
 	};
 
 };
-
 // Class Engine.Polys
 // 0x0010 (0x003C - 0x004C)
 class UPolys : public UObject
@@ -12510,7 +12388,6 @@ public:
 	};
 
 };
-
 // Class Engine.PostProcessChain
 // 0x000C (0x003C - 0x0048)
 class UPostProcessChain : public UObject
@@ -12531,9 +12408,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	class UPostProcessEffect* eventFindPostProcessEffect(const class FName& EffectName);
 };
-
 // Class Engine.PostProcessEffect
 // 0x0025 (0x003C - 0x0061)
 class UPostProcessEffect : public UObject
@@ -12566,7 +12443,6 @@ public:
 	};
 
 };
-
 // Class Engine.AmbientOcclusionEffect
 // 0x005F (0x0061 - 0x00C0)
 class UAmbientOcclusionEffect : public UPostProcessEffect
@@ -12581,6 +12457,7 @@ public:
 	float                                              OcclusionRadius;                               // 0x0088 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	float                                              OcclusionAttenuation;                          // 0x008C (0x0004) [0x0000000020000000]  CPF_Deprecated)
 	EAmbientOcclusionQuality                           OcclusionQuality;                              // 0x0090 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0091 (0x0003) MISSED OFFSET
 	float                                              OcclusionFadeoutMinDistance;                   // 0x0094 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	float                                              OcclusionFadeoutMaxDistance;                   // 0x0098 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	float                                              HaloDistanceThreshold;                         // 0x009C (0x0004) [0x0000000000000001] (CPF_Edit)    
@@ -12607,7 +12484,6 @@ public:
 	};
 
 };
-
 // Class Engine.BlurEffect
 // 0x0007 (0x0061 - 0x0068)
 class UBlurEffect : public UPostProcessEffect
@@ -12629,7 +12505,6 @@ public:
 	};
 
 };
-
 // Class Engine.DOFEffect
 // 0x005F (0x0061 - 0x00C0)
 class UDOFEffect : public UPostProcessEffect
@@ -12641,6 +12516,7 @@ public:
 	float                                              MaxFarBlurAmount;                              // 0x0070 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	struct FColor                                      ModulateBlurColor;                             // 0x0074 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	EFocusType                                         FocusType;                                     // 0x0078 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0079 (0x0003) MISSED OFFSET
 	float                                              FocusNearInnerRadius;                          // 0x007C (0x0004) [0x0000000000000001] (CPF_Edit)    
 	float                                              FocusFarInnerRadius;                           // 0x0080 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	float                                              FocusDistance;                                 // 0x0084 (0x0004) [0x0000000000000001] (CPF_Edit)    
@@ -12670,7 +12546,6 @@ public:
 	};
 
 };
-
 // Class Engine.DOFAndBloomEffect
 // 0x0010 (0x00C0 - 0x00D0)
 class UDOFAndBloomEffect : public UDOFEffect
@@ -12696,7 +12571,6 @@ public:
 	};
 
 };
-
 // Class Engine.DOFBloomMotionBlurEffect
 // 0x0014 (0x00D0 - 0x00E4)
 class UDOFBloomMotionBlurEffect : public UDOFAndBloomEffect
@@ -12722,7 +12596,6 @@ public:
 	};
 
 };
-
 // Class Engine.UberPostProcessEffect
 // 0x002C (0x00E4 - 0x0110)
 class UUberPostProcessEffect : public UDOFBloomMotionBlurEffect
@@ -12748,7 +12621,6 @@ public:
 	};
 
 };
-
 // Class Engine.DynamicTonemapping
 // 0x001F (0x0061 - 0x0080)
 class UDynamicTonemapping : public UPostProcessEffect
@@ -12776,7 +12648,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialEffect
 // 0x000B (0x0061 - 0x006C)
 class UMaterialEffect : public UPostProcessEffect
@@ -12799,7 +12670,6 @@ public:
 	};
 
 };
-
 // Class Engine.MotionBlurEffect
 // 0x0017 (0x0061 - 0x0078)
 class UMotionBlurEffect : public UPostProcessEffect
@@ -12825,7 +12695,6 @@ public:
 	};
 
 };
-
 // Class Engine.PrimitiveComponentFactory
 // 0x0004 (0x003C - 0x0040)
 class UPrimitiveComponentFactory : public UObject
@@ -12854,7 +12723,6 @@ public:
 	};
 
 };
-
 // Class Engine.MeshComponentFactory
 // 0x000C (0x0040 - 0x004C)
 class UMeshComponentFactory : public UPrimitiveComponentFactory
@@ -12876,7 +12744,6 @@ public:
 	};
 
 };
-
 // Class Engine.StaticMeshComponentFactory
 // 0x0004 (0x004C - 0x0050)
 class UStaticMeshComponentFactory : public UMeshComponentFactory
@@ -12898,7 +12765,6 @@ public:
 	};
 
 };
-
 // Class Engine.ReachSpec
 // 0x0054 (0x003C - 0x0090)
 class UReachSpec : public UObject
@@ -12915,6 +12781,7 @@ public:
 	int32_t                                            MaxLandingVelocity;                            // 0x0074 (0x0004) [0x0000000000000000]               
 	uint8_t                                            bPruned;                                       // 0x0078 (0x0001) [0x0000000000000000]               
 	uint8_t                                            PathColorIndex;                                // 0x0079 (0x0001) [0x0000000000000000]               
+	uint8_t                                            UnknownData00[0x2];                              // 0x007A (0x0002) MISSED OFFSET
 	uint32_t                                           bAddToNavigationOctree : 1;                    // 0x007C (0x0004) [0x0000000000020002] [0x00000001] (CPF_Const | CPF_EditConst)
 	uint32_t                                           bCanCutCorners : 1;                            // 0x007C (0x0004) [0x0000000000000000] [0x00000002] 
 	uint32_t                                           bCheckForObstructions : 1;                     // 0x007C (0x0004) [0x0000000000000000] [0x00000004] 
@@ -12936,12 +12803,12 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool IsBlockedFor(class APawn* P);
 	struct FVector GetDirection();
 	class ANavigationPoint* GetEnd();
 	int32_t CostFor(class APawn* P);
 };
-
 // Class Engine.AdvancedReachSpec
 // 0x0000 (0x0090 - 0x0090)
 class UAdvancedReachSpec : public UReachSpec
@@ -12962,7 +12829,6 @@ public:
 	};
 
 };
-
 // Class Engine.CeilingReachSpec
 // 0x0000 (0x0090 - 0x0090)
 class UCeilingReachSpec : public UReachSpec
@@ -12983,7 +12849,6 @@ public:
 	};
 
 };
-
 // Class Engine.ForcedReachSpec
 // 0x0000 (0x0090 - 0x0090)
 class UForcedReachSpec : public UReachSpec
@@ -13004,7 +12869,6 @@ public:
 	};
 
 };
-
 // Class Engine.CoverSlipReachSpec
 // 0x0001 (0x0090 - 0x0091)
 class UCoverSlipReachSpec : public UForcedReachSpec
@@ -13026,7 +12890,6 @@ public:
 	};
 
 };
-
 // Class Engine.FloorToCeilingReachSpec
 // 0x0000 (0x0090 - 0x0090)
 class UFloorToCeilingReachSpec : public UForcedReachSpec
@@ -13047,7 +12910,6 @@ public:
 	};
 
 };
-
 // Class Engine.MantleReachSpec
 // 0x0004 (0x0090 - 0x0094)
 class UMantleReachSpec : public UForcedReachSpec
@@ -13069,7 +12931,6 @@ public:
 	};
 
 };
-
 // Class Engine.SlotToSlotReachSpec
 // 0x0001 (0x0090 - 0x0091)
 class USlotToSlotReachSpec : public UForcedReachSpec
@@ -13091,7 +12952,6 @@ public:
 	};
 
 };
-
 // Class Engine.SwatTurnReachSpec
 // 0x0001 (0x0090 - 0x0091)
 class USwatTurnReachSpec : public UForcedReachSpec
@@ -13113,7 +12973,6 @@ public:
 	};
 
 };
-
 // Class Engine.WallTransReachSpec
 // 0x0000 (0x0090 - 0x0090)
 class UWallTransReachSpec : public UForcedReachSpec
@@ -13134,7 +12993,6 @@ public:
 	};
 
 };
-
 // Class Engine.LadderReachSpec
 // 0x0000 (0x0090 - 0x0090)
 class ULadderReachSpec : public UReachSpec
@@ -13155,7 +13013,6 @@ public:
 	};
 
 };
-
 // Class Engine.ProscribedReachSpec
 // 0x0000 (0x0090 - 0x0090)
 class UProscribedReachSpec : public UReachSpec
@@ -13176,7 +13033,6 @@ public:
 	};
 
 };
-
 // Class Engine.TeleportReachSpec
 // 0x0000 (0x0090 - 0x0090)
 class UTeleportReachSpec : public UReachSpec
@@ -13197,7 +13053,6 @@ public:
 	};
 
 };
-
 // Class Engine.SavedMove
 // 0x00AC (0x003C - 0x00E8)
 class USavedMove : public UObject
@@ -13217,6 +13072,7 @@ public:
 	EDoubleClickDir                                    DoubleClickMove;                               // 0x004C (0x0001) [0x0000000000000000]               
 	EPhysics                                           SavedPhysics;                                  // 0x004D (0x0001) [0x0000000000000000]               
 	ERootMotionMode                                    RootMotionMode;                                // 0x004E (0x0001) [0x0000000000000000]               
+	uint8_t                                            UnknownData00[0x1];                              // 0x004F (0x0001) MISSED OFFSET
 	struct FVector                                     StartLocation;                                 // 0x0050 (0x000C) [0x0000000000000000]               
 	struct FVector                                     StartRelativeLocation;                         // 0x005C (0x000C) [0x0000000000000000]               
 	struct FVector                                     StartVelocity;                                 // 0x0068 (0x000C) [0x0000000000000000]               
@@ -13247,6 +13103,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	class FString GetDebugString();
 	static EDoubleClickDir SetFlags(uint8_t Flags, class APlayerController* PC);
 	uint8_t CompressedFlags();
@@ -13260,7 +13117,6 @@ public:
 	void PostUpdate(class APlayerController* P);
 	void Clear();
 };
-
 // Class Engine.SaveGameSummary
 // 0x0014 (0x003C - 0x0050)
 class USaveGameSummary : public UObject
@@ -13283,7 +13139,6 @@ public:
 	};
 
 };
-
 // Class Engine.Selection
 // 0x0024 (0x003C - 0x0060)
 class USelection : public UObject
@@ -13305,7 +13160,6 @@ public:
 	};
 
 };
-
 // Class Engine.ServerCommandlet
 // 0x0000 (0x007C - 0x007C)
 class UServerCommandlet : public UCommandlet
@@ -13326,7 +13180,6 @@ public:
 	};
 
 };
-
 // Class Engine.Settings
 // 0x0048 (0x003C - 0x0084)
 class USettings : public UObject
@@ -13351,6 +13204,7 @@ public:
 
 		return uClassPointer;
 	};
+
 
 	void UpdateFromURL(class AGameInfo* Game, class FString& outURL);
 	void BuildURL(class FString& outURL);
@@ -13410,7 +13264,6 @@ public:
 	void NotifyPropertyValueUpdated(const class FName& PropertyName);
 	void NotifySettingValueUpdated(const class FName& SettingName);
 };
-
 // Class Engine.OnlineGameSearch
 // 0x0080 (0x0084 - 0x0104)
 class UOnlineGameSearch : public USettings
@@ -13442,10 +13295,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventSortSearchResults();
 	void SetSkillOverride(int32_t LeaderboardId, class TArray<struct FUniqueNetId>& outPlayers);
 };
-
 // Class Engine.OnlineGameSettings
 // 0x0040 (0x0084 - 0x00C4)
 class UOnlineGameSettings : public USettings
@@ -13474,6 +13327,7 @@ public:
 	int32_t                                            PingInMs;                                      // 0x00B4 (0x0004) [0x0000000040000000] (CPF_DataBinding)
 	float                                              MatchQuality;                                  // 0x00B8 (0x0004) [0x0000000040000000] (CPF_DataBinding)
 	EOnlineGameState                                   GameState;                                     // 0x00BC (0x0001) [0x0000000040000002] (CPF_Const | CPF_DataBinding)
+	uint8_t                                            UnknownData00[0x3];                              // 0x00BD (0x0003) MISSED OFFSET
 	int32_t                                            BuildUniqueId;                                 // 0x00C0 (0x0004) [0x0000000000000002] (CPF_Const)   
 
 public:
@@ -13490,7 +13344,6 @@ public:
 	};
 
 };
-
 // Class Engine.ShaderCache
 // 0x00C0 (0x003C - 0x00FC)
 class UShaderCache : public UObject
@@ -13512,7 +13365,6 @@ public:
 	};
 
 };
-
 // Class Engine.ShadowMap1D
 // 0x0040 (0x003C - 0x007C)
 class UShadowMap1D : public UObject
@@ -13534,7 +13386,6 @@ public:
 	};
 
 };
-
 // Class Engine.ShadowMap2D
 // 0x0030 (0x003C - 0x006C)
 class UShadowMap2D : public UObject
@@ -13562,7 +13413,6 @@ public:
 	};
 
 };
-
 // Class Engine.SmokeTestCommandlet
 // 0x0000 (0x007C - 0x007C)
 class USmokeTestCommandlet : public UCommandlet
@@ -13583,7 +13433,6 @@ public:
 	};
 
 };
-
 // Class Engine.SoundCue
 // 0x0084 (0x003C - 0x00C0)
 class USoundCue : public UObject
@@ -13616,9 +13465,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	float GetCueDuration();
 };
-
 // Class Engine.SpeechRecognition
 // 0x0088 (0x003C - 0x00C4)
 class USpeechRecognition : public UObject
@@ -13649,7 +13498,6 @@ public:
 	};
 
 };
-
 // Class Engine.StaticMesh
 // 0x00F8 (0x003C - 0x0134)
 class UStaticMesh : public UObject
@@ -13666,12 +13514,19 @@ public:
 	class URB_BodySetup*                               BodySetup;                                     // 0x008C (0x0004) [0x0000000004000001] (CPF_Edit | CPF_EditInline)
 	uint8_t                                            UnknownData03[0x34];                            // 0x0090 (0x0034) MISSED OFFSET
 	uint32_t                                           UseSimpleLineCollision : 1;                    // 0x00C4 (0x0004) [0x0000000000000001] [0x00000001] (CPF_Edit)
+	uint32_t : 0;                                  // 0x00C8 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           UseSimpleBoxCollision : 1;                     // 0x00C8 (0x0004) [0x0000000000000001] [0x00000001] (CPF_Edit)
+	uint32_t : 0;                                  // 0x00CC CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           UseSimpleRigidBodyCollision : 1;               // 0x00CC (0x0004) [0x0000000000000001] [0x00000001] (CPF_Edit)
+	uint32_t : 0;                                  // 0x00D0 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           UseFullPrecisionUVs : 1;                       // 0x00D0 (0x0004) [0x0000000000000001] [0x00000001] (CPF_Edit)
+	uint32_t : 0;                                  // 0x00D4 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bUsedForInstancing : 1;                        // 0x00D4 (0x0004) [0x0000000000000001] [0x00000001] (CPF_Edit)
+	uint32_t : 0;                                  // 0x00D8 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bUseMaximumStreamingTexelRatio : 1;            // 0x00D8 (0x0004) [0x0000000000000001] [0x00000001] (CPF_Edit)
+	uint32_t : 0;                                  // 0x00DC CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bPartitionForEdgeGeometry : 1;                 // 0x00DC (0x0004) [0x0000000000000001] [0x00000001] (CPF_Edit)
+	uint32_t : 0;                                  // 0x00E0 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bCanBecomeDynamic : 1;                         // 0x00E0 (0x0004) [0x0000000000000001] [0x00000001] (CPF_Edit)
 	uint8_t                                            UnknownData04[0x20];                            // 0x00E4 (0x0020) MISSED OFFSET
 	class FString                                      SourceFilePath;                                // 0x0104 (0x000C) [0x0000000000420001] (CPF_Edit | CPF_EditConst | CPF_NeedCtorLink | CPF_EditorOnly)
@@ -13692,13 +13547,13 @@ public:
 	};
 
 };
-
 // Class Engine.RB_BodySetup
 // 0x0058 (0x0080 - 0x00D8)
 class URB_BodySetup : public UKMeshProps
 {
 public:
 	ESleepFamily                                       SleepFamily;                                   // 0x0080 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0081 (0x0003) MISSED OFFSET
 	class FName                                        BoneName;                                      // 0x0084 (0x0008) [0x0000000000020001] (CPF_Edit | CPF_EditConst)
 	uint32_t                                           bFixed : 1;                                    // 0x008C (0x0004) [0x0000000000000001] [0x00000001] (CPF_Edit)
 	uint32_t                                           bNoCollision : 1;                              // 0x008C (0x0004) [0x0000000000000001] [0x00000002] (CPF_Edit)
@@ -13730,7 +13585,6 @@ public:
 	};
 
 };
-
 // Class Engine.FracturedStaticMesh
 // 0x00C4 (0x0134 - 0x01F8)
 class UFracturedStaticMesh : public UStaticMesh
@@ -13753,7 +13607,9 @@ public:
 	float                                              ChunkLinHorizontalScale;                       // 0x01A0 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	float                                              ExplosionVelScale;                             // 0x01A4 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	uint32_t                                           bCompositeChunksExplodeOnImpact : 1;           // 0x01A8 (0x0004) [0x0000000000000001] [0x00000001] (CPF_Edit)
+	uint32_t : 0;                                  // 0x01AC CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bFixIsolatedChunks : 1;                        // 0x01AC (0x0004) [0x0000000000000001] [0x00000001] (CPF_Edit)
+	uint32_t : 0;                                  // 0x01B0 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bSpawnPhysicsChunks : 1;                       // 0x01B0 (0x0004) [0x0000000000000001] [0x00000001] (CPF_Edit)
 	float                                              ChanceOfPhysicsChunk;                          // 0x01B4 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	float                                              ExplosionChanceOfPhysicsChunk;                 // 0x01B8 (0x0004) [0x0000000000000001] (CPF_Edit)    
@@ -13781,7 +13637,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleSystem
 // 0x00FC (0x003C - 0x0138)
 class UParticleSystem : public UObject
@@ -13790,6 +13645,7 @@ public:
 	EParticleSystemUpdateMode                          SystemUpdateMode;                              // 0x003C (0x0001) [0x0000000000000001] (CPF_Edit)    
 	EParticleSystemLODMethod                           LODMethod;                                     // 0x003D (0x0001) [0x0000000000000001] (CPF_Edit)    
 	EParticleSystemOcclusionBoundsMethod               OcclusionBoundsMethod;                         // 0x003E (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x1];                              // 0x003F (0x0001) MISSED OFFSET
 	float                                              UpdateTime_FPS;                                // 0x0040 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	float                                              UpdateTime_Delta;                              // 0x0044 (0x0004) [0x0000000000000000]               
 	float                                              WarmupTime;                                    // 0x0048 (0x0004) [0x0000000000000001] (CPF_Edit)    
@@ -13846,13 +13702,13 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool SetLODDistance(int32_t LODLevelIndex, float InDistance);
 	void SetCurrentLODMethod(EParticleSystemLODMethod InMethod);
 	float GetLODDistance(int32_t LODLevelIndex);
 	int32_t GetLODLevelCount();
 	EParticleSystemLODMethod GetCurrentLODMethod();
 };
-
 // Class Engine.Texture
 // 0x00B0 (0x003C - 0x00EC)
 class UTexture : public USurface
@@ -13911,7 +13767,6 @@ public:
 	};
 
 };
-
 // Class Engine.Texture2D
 // 0x0080 (0x00EC - 0x016C)
 class UTexture2D : public UTexture
@@ -13926,6 +13781,7 @@ public:
 	EPixelFormat                                       Format;                                        // 0x0114 (0x0001) [0x0000000000000002] (CPF_Const)   
 	ETextureAddress                                    AddressX;                                      // 0x0115 (0x0001) [0x0000000000000001] (CPF_Edit)    
 	ETextureAddress                                    AddressY;                                      // 0x0116 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x1];                              // 0x0117 (0x0001) MISSED OFFSET
 	uint32_t                                           bIsStreamable : 1;                             // 0x0118 (0x0004) [0x0000000000002002] [0x00000001] (CPF_Const | CPF_Transient)
 	uint32_t                                           bHasCancelationPending : 1;                    // 0x0118 (0x0004) [0x0000000000002002] [0x00000002] (CPF_Const | CPF_Transient)
 	uint32_t                                           bHasBeenLoadedFromPersistentArchive : 1;       // 0x0118 (0x0004) [0x0000000000002002] [0x00000004] (CPF_Const | CPF_Transient)
@@ -13957,10 +13813,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	static class UTexture2D* Create(int32_t InSizeX, int32_t InSizeY, EPixelFormat optionalInFormat);
 	void SetForceMipLevelsToBeResident(float Seconds, int32_t optionalCinematicTextureGroups);
 };
-
 // Class Engine.LightMapTexture2D
 // 0x0004 (0x016C - 0x0170)
 class ULightMapTexture2D : public UTexture2D
@@ -13982,7 +13838,6 @@ public:
 	};
 
 };
-
 // Class Engine.ShadowMapTexture2D
 // 0x0004 (0x016C - 0x0170)
 class UShadowMapTexture2D : public UTexture2D
@@ -14004,7 +13859,6 @@ public:
 	};
 
 };
-
 // Class Engine.WaveFormBase
 // 0x0004 (0x003C - 0x0040)
 class UWaveFormBase : public UObject
@@ -14026,7 +13880,6 @@ public:
 	};
 
 };
-
 // Class Engine.World
 // 0x0270 (0x003C - 0x02AC)
 class UWorld : public UObject
@@ -14048,7 +13901,6 @@ public:
 	};
 
 };
-
 // Class Engine.EnvironmentVolume
 // 0x000C (0x0264 - 0x0270)
 class AEnvironmentVolume : public AVolume
@@ -14071,9 +13923,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SetSplitNavMesh(bool bNewValue);
 };
-
 // Class Engine.TestSplittingVolume
 // 0x0004 (0x0264 - 0x0268)
 class ATestSplittingVolume : public AVolume
@@ -14095,7 +13947,6 @@ public:
 	};
 
 };
-
 // Class Engine.AIController
 // 0x0018 (0x03C4 - 0x03DC)
 class AAIController : public AController
@@ -14122,6 +13973,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool CanFireWeapon(class AWeapon* Wpn, uint8_t FireModeNum);
 	bool ShouldRefire();
 	void NotifyWeaponFinishedFiring(class AWeapon* W, uint8_t FireMode);
@@ -14133,7 +13985,6 @@ public:
 	void Reset();
 	void eventPreBeginPlay();
 };
-
 // Class Engine.CrowdAgentBase
 // 0x0004 (0x0228 - 0x022C)
 class ACrowdAgentBase : public AActor
@@ -14154,9 +14005,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventNotifyPathChanged();
 };
-
 // Class Engine.CrowdPopulationManagerBase
 // 0x0000 (0x0228 - 0x0228)
 class ACrowdPopulationManagerBase : public AActor
@@ -14177,7 +14028,6 @@ public:
 	};
 
 };
-
 // Class Engine.PathTargetPoint
 // 0x0000 (0x022C - 0x022C)
 class APathTargetPoint : public AKeypoint
@@ -14198,7 +14048,6 @@ public:
 	};
 
 };
-
 // Class Engine.NavMeshObstacle
 // 0x0008 (0x0228 - 0x0230)
 class ANavMeshObstacle : public AActor
@@ -14221,13 +14070,13 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SetEnabled(bool bInEnabled);
 	void OnToggle(class USeqAct_Toggle* Action);
 	void PostBeginPlay();
 	void UnRegisterObstacle();
 	void RegisterObstacle();
 };
-
 // Class Engine.PylonSeed
 // 0x0004 (0x0228 - 0x022C)
 class APylonSeed : public AActor
@@ -14249,7 +14098,6 @@ public:
 	};
 
 };
-
 // Class Engine.CoverGroupRenderingComponent
 // 0x0000 (0x01D4 - 0x01D4)
 class UCoverGroupRenderingComponent : public UPrimitiveComponent
@@ -14270,7 +14118,6 @@ public:
 	};
 
 };
-
 // Class Engine.CoverMeshComponent
 // 0x0024 (0x023C - 0x0260)
 class UCoverMeshComponent : public UStaticMeshComponent
@@ -14296,7 +14143,6 @@ public:
 	};
 
 };
-
 // Class Engine.NavMeshRenderingComponent
 // 0x0000 (0x01D4 - 0x01D4)
 class UNavMeshRenderingComponent : public UPrimitiveComponent
@@ -14317,7 +14163,6 @@ public:
 	};
 
 };
-
 // Class Engine.PathRenderingComponent
 // 0x0000 (0x01D4 - 0x01D4)
 class UPathRenderingComponent : public UPrimitiveComponent
@@ -14338,7 +14183,6 @@ public:
 	};
 
 };
-
 // Class Engine.RouteRenderingComponent
 // 0x0000 (0x01D4 - 0x01D4)
 class URouteRenderingComponent : public UPrimitiveComponent
@@ -14359,7 +14203,6 @@ public:
 	};
 
 };
-
 // Class Engine.AutoNavMeshPathObstacleUnregister
 // 0x0008 (0x003C - 0x0044)
 class UAutoNavMeshPathObstacleUnregister : public UObject
@@ -14382,7 +14225,6 @@ public:
 	};
 
 };
-
 // Class Engine.Interface_NavMeshPathObject
 // 0x0000 (0x003C - 0x003C)
 class UInterface_NavMeshPathObject : public UInterface
@@ -14403,7 +14245,6 @@ public:
 	};
 
 };
-
 // Class Engine.Interface_NavMeshPathSwitch
 // 0x0000 (0x003C - 0x003C)
 class UInterface_NavMeshPathSwitch : public UInterface_NavMeshPathObject
@@ -14423,9 +14264,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool eventAIActivateSwitch(class AAIController* AI);
 };
-
 // Class Engine.Interface_NavMeshPathObstacle
 // 0x0000 (0x003C - 0x003C)
 class UInterface_NavMeshPathObstacle : public UInterface
@@ -14446,7 +14287,6 @@ public:
 	};
 
 };
-
 // Class Engine.NavigationHandle
 // 0x008C (0x003C - 0x00C8)
 class UNavigationHandle : public UObject
@@ -14480,6 +14320,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	static struct FVector MoveToDesiredHeightAboveMesh(const struct FVector& Point, float Height);
 	float CalculatePathDistance(const struct FVector& optionalFinalDest);
 	struct FVector GetFirstMoveLocation();
@@ -14491,11 +14332,11 @@ public:
 	bool ActorReachable(class AActor* A);
 	bool PointReachable(const struct FVector& Point, const struct FVector& optionalOverrideStartPoint);
 	bool PointCheck(const struct FVector& Pt, const struct FVector& Extent);
-	bool LineCheck(const struct FVector& Start, const struct FVector& End, const struct FVector& Extent, struct FVector& outOut_HitLocation, struct FVector& outOut_HitNormal);
+	bool LineCheck(const struct FVector& Start, const struct FVector& End, const struct FVector& Extent, struct FVector& optionalOutOut_HitLocation, struct FVector& optionalOutOut_HitNormal);
 	static bool ObstaclePointCheck(const struct FVector& Pt, const struct FVector& Extent);
-	static bool ObstacleLineCheck(const struct FVector& Start, const struct FVector& End, const struct FVector& Extent, struct FVector& outOut_HitLoc, struct FVector& outOut_HitNorm);
+	static bool ObstacleLineCheck(const struct FVector& Start, const struct FVector& End, const struct FVector& Extent, struct FVector& optionalOutOut_HitLoc, struct FVector& optionalOutOut_HitNorm);
 	bool SuggestMovePreparation(const struct FVector& MovePt, class AController* C);
-	bool FindPath(class AActor*& outOut_DestActor, int32_t& outOut_DestItem);
+	bool FindPath(class AActor*& optionalOutOut_DestActor, int32_t& optionalOutOut_DestItem);
 	bool ComputeValidFinalDestination(struct FVector& outOut_ComputedPosition);
 	bool SetFinalDestination(const struct FVector& FinalDest);
 	bool GetNextMoveLocation(float ArrivalDistance, struct FVector& outOut_MoveDest);
@@ -14512,7 +14353,6 @@ public:
 	void AddPathConstraint(class UNavMeshPathConstraint* Constraint);
 	void ClearConstraints();
 };
-
 // Class Engine.NavMeshPathConstraint
 // 0x0014 (0x003C - 0x0050)
 class UNavMeshPathConstraint : public UObject
@@ -14537,10 +14377,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	class FString eventGetDumpString();
 	void eventRecycle();
 };
-
 // Class Engine.NavMeshPath_AlongLine
 // 0x000C (0x0050 - 0x005C)
 class UNavMeshPath_AlongLine : public UNavMeshPathConstraint
@@ -14561,10 +14401,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void Recycle();
 	static bool AlongLine(class UNavigationHandle* NavHandle, const struct FVector& Dir);
 };
-
 // Class Engine.NavMeshPath_EnforceTwoWayEdges
 // 0x0000 (0x0050 - 0x0050)
 class UNavMeshPath_EnforceTwoWayEdges : public UNavMeshPathConstraint
@@ -14584,9 +14424,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	static bool EnforceTwoWayEdges(class UNavigationHandle* NavHandle);
 };
-
 // Class Engine.NavMeshPath_MinDistBetweenSpecsOfType
 // 0x0011 (0x0050 - 0x0061)
 class UNavMeshPath_MinDistBetweenSpecsOfType : public UNavMeshPathConstraint
@@ -14609,10 +14449,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void Recycle();
 	static bool EnforceMinDist(class UNavigationHandle* NavHandle, float InMinDist, ENavMeshEdgeType InEdgeType, const struct FVector& optionalLastLocation);
 };
-
 // Class Engine.NavMeshPath_Toward
 // 0x0010 (0x0050 - 0x0060)
 class UNavMeshPath_Toward : public UNavMeshPathConstraint
@@ -14634,11 +14474,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	void Recycle();
 	static bool TowardPoint(class UNavigationHandle* NavHandle, const struct FVector& Point);
 	static bool TowardGoal(class UNavigationHandle* NavHandle, class AActor* Goal);
 };
-
 // Class Engine.NavMeshPath_WithinDistanceEnvelope
 // 0x001C (0x0050 - 0x006C)
 class UNavMeshPath_WithinDistanceEnvelope : public UNavMeshPathConstraint
@@ -14664,10 +14504,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void Recycle();
 	static bool StayWithinEnvelopeToLoc(class UNavigationHandle* NavHandle, const struct FVector& InEnvelopeTestPoint, float InMaxDistance, float InMinDistance, bool optionalBInSoft, float optionalInSoftStartPenalty, bool optionalBOnlyTossOutSpecsThatLeave);
 };
-
 // Class Engine.NavMeshPath_WithinTraversalDist
 // 0x000C (0x0050 - 0x005C)
 class UNavMeshPath_WithinTraversalDist : public UNavMeshPathConstraint
@@ -14690,10 +14530,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void Recycle();
 	static bool DontExceedMaxDist(class UNavigationHandle* NavHandle, float InMaxTraversalDist, bool optionalBInSoft);
 };
-
 // Class Engine.NavMeshPathGoalEvaluator
 // 0x0014 (0x003C - 0x0050)
 class UNavMeshPathGoalEvaluator : public UObject
@@ -14718,10 +14558,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	class FString eventGetDumpString();
 	void eventRecycle();
 };
-
 // Class Engine.NavMeshGoal_At
 // 0x001C (0x0050 - 0x006C)
 class UNavMeshGoal_At : public UNavMeshPathGoalEvaluator
@@ -14746,12 +14586,12 @@ public:
 		return uClassPointer;
 	};
 
+
 	void Recycle();
 	static bool AtLocation(class UNavigationHandle* NavHandle, const struct FVector& GoalLocation, float optionalDist, bool optionalBReturnPartial);
 	static bool AtActor(class UNavigationHandle* NavHandle, class AActor* GoalActor, float optionalDist, bool optionalBReturnPartial);
 	void RecycleNative();
 };
-
 // Class Engine.NavMeshGoal_ClosestActorInList
 // 0x004C (0x0050 - 0x009C)
 class UNavMeshGoal_ClosestActorInList : public UNavMeshPathGoalEvaluator
@@ -14774,11 +14614,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	void RecycleInternal();
 	void eventRecycle();
 	static class UNavMeshGoal_ClosestActorInList* ClosestActorInList(class UNavigationHandle* NavHandle, class TArray<struct FBiasedGoalActor>& outInGoalList);
 };
-
 // Class Engine.NavMeshGoal_Null
 // 0x0004 (0x0050 - 0x0054)
 class UNavMeshGoal_Null : public UNavMeshPathGoalEvaluator
@@ -14799,11 +14639,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	void Recycle();
 	void RecycleNative();
 	static bool GoUntilBust(class UNavigationHandle* NavHandle, int32_t optionalInMaxPathVisits);
 };
-
 // Class Engine.NavMeshGoal_PolyEncompassesAI
 // 0x0000 (0x0050 - 0x0050)
 class UNavMeshGoal_PolyEncompassesAI : public UNavMeshPathGoalEvaluator
@@ -14823,10 +14663,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void Recycle();
 	static bool MakeSureAIFits(class UNavigationHandle* NavHandle);
 };
-
 // Class Engine.PathConstraint
 // 0x0008 (0x003C - 0x0044)
 class UPathConstraint : public UObject
@@ -14848,10 +14688,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	class FString eventGetDumpString();
 	void eventRecycle();
 };
-
 // Class Engine.Path_AlongLine
 // 0x000C (0x0044 - 0x0050)
 class UPath_AlongLine : public UPathConstraint
@@ -14872,10 +14712,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void Recycle();
 	static bool AlongLine(class APawn* P, const struct FVector& Dir);
 };
-
 // Class Engine.Path_AvoidInEscapableNodes
 // 0x0010 (0x0044 - 0x0054)
 class UPath_AvoidInEscapableNodes : public UPathConstraint
@@ -14899,11 +14739,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	void Recycle();
 	static bool DontGetStuck(class APawn* P);
 	void CachePawnReacFlags(class APawn* P);
 };
-
 // Class Engine.Path_MinDistBetweenSpecsOfType
 // 0x0014 (0x0044 - 0x0058)
 class UPath_MinDistBetweenSpecsOfType : public UPathConstraint
@@ -14926,10 +14766,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void Recycle();
 	static bool EnforceMinDist(class APawn* P, float InMinDist, class UClass* InSpecClass, const struct FVector& optionalLastLocation);
 };
-
 // Class Engine.Path_TowardGoal
 // 0x0004 (0x0044 - 0x0048)
 class UPath_TowardGoal : public UPathConstraint
@@ -14950,10 +14790,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void Recycle();
 	static bool TowardGoal(class APawn* P, class AActor* Goal);
 };
-
 // Class Engine.Path_TowardPoint
 // 0x000C (0x0044 - 0x0050)
 class UPath_TowardPoint : public UPathConstraint
@@ -14974,10 +14814,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void Recycle();
 	static bool TowardPoint(class APawn* P, const struct FVector& Point);
 };
-
 // Class Engine.Path_WithinDistanceEnvelope
 // 0x001C (0x0044 - 0x0060)
 class UPath_WithinDistanceEnvelope : public UPathConstraint
@@ -15003,10 +14843,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void Recycle();
 	static bool StayWithinEnvelopeToLoc(class APawn* P, const struct FVector& InEnvelopeTestPoint, float InMaxDistance, float InMinDistance, bool optionalBInSoft, float optionalInSoftStartPenalty, bool optionalBOnlyTossOutSpecsThatLeave);
 };
-
 // Class Engine.Path_WithinTraversalDist
 // 0x000C (0x0044 - 0x0050)
 class UPath_WithinTraversalDist : public UPathConstraint
@@ -15029,10 +14869,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void Recycle();
 	static bool DontExceedMaxDist(class APawn* P, float InMaxTraversalDist, bool optionalBInSoft);
 };
-
 // Class Engine.PathGoalEvaluator
 // 0x0010 (0x003C - 0x004C)
 class UPathGoalEvaluator : public UObject
@@ -15056,10 +14896,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	class FString eventGetDumpString();
 	void eventRecycle();
 };
-
 // Class Engine.Goal_AtActor
 // 0x000C (0x004C - 0x0058)
 class UGoal_AtActor : public UPathGoalEvaluator
@@ -15082,10 +14922,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void Recycle();
 	static bool AtActor(class APawn* P, class AActor* Goal, float optionalDist, bool optionalBReturnPartial);
 };
-
 // Class Engine.Goal_Null
 // 0x0000 (0x004C - 0x004C)
 class UGoal_Null : public UPathGoalEvaluator
@@ -15105,10 +14945,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void Recycle();
 	static bool GoUntilBust(class APawn* P, int32_t optionalInMaxPathVisits);
 };
-
 // Class Engine.SkeletalMeshActor
 // 0x00EC (0x0228 - 0x0314)
 class ASkeletalMeshActor : public AActor
@@ -15135,6 +14975,7 @@ public:
 	float                                              RandomFacialMinTime;                           // 0x0274 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	float                                              RandomFacialAnimTime;                          // 0x0278 (0x0004) [0x0000000000002000] (CPF_Transient)
 	ESpeechPriority                                    CurrentSpeechPriority;                         // 0x027C (0x0001) [0x0000000000002000] (CPF_Transient)
+	uint8_t                                            UnknownData00[0x3];                              // 0x027D (0x0003) MISSED OFFSET
 	float                                              SpeakRotateRate;                               // 0x0280 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	struct FSpeakLineParamStruct                       ReplicatedSpeakLineParams;                     // 0x0284 (0x002C) [0x0000000000400000] (CPF_NeedCtorLink | CPF_RepNotify)
 	struct FSpeakLineParamStruct                       QueuedSpeakLineParams;                         // 0x02B0 (0x002C) [0x0000000000400000] (CPF_NeedCtorLink)
@@ -15155,6 +14996,7 @@ public:
 
 		return uClassPointer;
 	};
+
 
 	void updateSonarMat(float DeltaTime);
 	void eventTick(float DeltaTime);
@@ -15197,7 +15039,6 @@ public:
 	void eventPostBeginPlay();
 	class USkeletalMeshComponent* GetFaceFXSkelMeshComp();
 };
-
 // Class Engine.SkeletalMeshActorBasedOnExtremeContent
 // 0x0018 (0x0314 - 0x032C)
 class ASkeletalMeshActorBasedOnExtremeContent : public ASkeletalMeshActor
@@ -15219,10 +15060,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SetMaterialBasedOnExtremeContent();
 	void eventPostBeginPlay();
 };
-
 // Class Engine.SkeletalMeshActorSpawnable
 // 0x0000 (0x0314 - 0x0314)
 class ASkeletalMeshActorSpawnable : public ASkeletalMeshActor
@@ -15243,7 +15084,6 @@ public:
 	};
 
 };
-
 // Class Engine.SkeletalMeshCinematicActor
 // 0x0000 (0x0314 - 0x0314)
 class ASkeletalMeshCinematicActor : public ASkeletalMeshActor
@@ -15264,7 +15104,6 @@ public:
 	};
 
 };
-
 // Class Engine.SkeletalMeshActorMAT
 // 0x0010 (0x0314 - 0x0324)
 class ASkeletalMeshActorMAT : public ASkeletalMeshCinematicActor
@@ -15287,6 +15126,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void PlaySpeechGesture(const class FName& GestureAnim);
 	void ApplyCheckpointRecord(struct ASkeletalMeshActorMAT_FCheckpointRecord& outRecord);
 	void CreateCheckpointRecord(struct ASkeletalMeshActorMAT_FCheckpointRecord& outRecord);
@@ -15304,7 +15144,6 @@ public:
 	void MAT_AutoReduceSlotAnimWeight(const class TArray<struct FAnimSlotInfo>& SlotInfos, float RevertTime);
 	void MAT_SetAnimWeights(const class TArray<struct FAnimSlotInfo>& SlotInfos);
 };
-
 // Class Engine.AnimationCompressionAlgorithm
 // 0x0012 (0x003C - 0x004E)
 class UAnimationCompressionAlgorithm : public UObject
@@ -15329,7 +15168,6 @@ public:
 	};
 
 };
-
 // Class Engine.AnimationCompressionAlgorithm_BitwiseCompressOnly
 // 0x0000 (0x004E - 0x004E)
 class UAnimationCompressionAlgorithm_BitwiseCompressOnly : public UAnimationCompressionAlgorithm
@@ -15350,7 +15188,6 @@ public:
 	};
 
 };
-
 // Class Engine.AnimationCompressionAlgorithm_RemoveEverySecondKey
 // 0x000A (0x004E - 0x0058)
 class UAnimationCompressionAlgorithm_RemoveEverySecondKey : public UAnimationCompressionAlgorithm
@@ -15373,7 +15210,6 @@ public:
 	};
 
 };
-
 // Class Engine.AnimationCompressionAlgorithm_RemoveLinearKeys
 // 0x001A (0x004E - 0x0068)
 class UAnimationCompressionAlgorithm_RemoveLinearKeys : public UAnimationCompressionAlgorithm
@@ -15400,7 +15236,6 @@ public:
 	};
 
 };
-
 // Class Engine.AnimationCompressionAlgorithm_RemoveTrivialKeys
 // 0x000A (0x004E - 0x0058)
 class UAnimationCompressionAlgorithm_RemoveTrivialKeys : public UAnimationCompressionAlgorithm
@@ -15423,7 +15258,6 @@ public:
 	};
 
 };
-
 // Class Engine.AnimationCompressionAlgorithm_RevertToRaw
 // 0x0000 (0x004E - 0x004E)
 class UAnimationCompressionAlgorithm_RevertToRaw : public UAnimationCompressionAlgorithm
@@ -15444,7 +15278,6 @@ public:
 	};
 
 };
-
 // Class Engine.AnimMetaData
 // 0x0000 (0x003C - 0x003C)
 class UAnimMetaData : public UObject
@@ -15465,7 +15298,6 @@ public:
 	};
 
 };
-
 // Class Engine.AnimMetaData_SkelControl
 // 0x0018 (0x003C - 0x0054)
 class UAnimMetaData_SkelControl : public UAnimMetaData
@@ -15489,7 +15321,6 @@ public:
 	};
 
 };
-
 // Class Engine.AnimMetaData_SkelControlKeyFrame
 // 0x000C (0x0054 - 0x0060)
 class UAnimMetaData_SkelControlKeyFrame : public UAnimMetaData_SkelControl
@@ -15511,7 +15342,6 @@ public:
 	};
 
 };
-
 // Class Engine.AnimNotify
 // 0x0004 (0x003C - 0x0040)
 class UAnimNotify : public UObject
@@ -15534,9 +15364,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool FindNextNotifyOfClass(class UAnimNodeSequence* AnimSeqInstigator, class UClass* NotifyClass, struct FAnimNotifyEvent& outOutEvent);
 };
-
 // Class Engine.AnimNotify_CameraEffect
 // 0x0004 (0x0040 - 0x0044)
 class UAnimNotify_CameraEffect : public UAnimNotify
@@ -15558,7 +15388,6 @@ public:
 	};
 
 };
-
 // Class Engine.AnimNotify_ClothingMaxDistanceScale
 // 0x0010 (0x0040 - 0x0050)
 class UAnimNotify_ClothingMaxDistanceScale : public UAnimNotify
@@ -15567,6 +15396,7 @@ public:
 	float                                              StartScale;                                    // 0x0040 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	float                                              EndScale;                                      // 0x0044 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	EMaxDistanceScaleMode                              ScaleMode;                                     // 0x0048 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0049 (0x0003) MISSED OFFSET
 	float                                              Duration;                                      // 0x004C (0x0004) [0x0000000000000000]               
 
 public:
@@ -15583,7 +15413,6 @@ public:
 	};
 
 };
-
 // Class Engine.AnimNotify_Footstep
 // 0x0004 (0x0040 - 0x0044)
 class UAnimNotify_Footstep : public UAnimNotify
@@ -15605,7 +15434,6 @@ public:
 	};
 
 };
-
 // Class Engine.AnimNotify_ForceField
 // 0x0018 (0x0040 - 0x0058)
 class UAnimNotify_ForceField : public UAnimNotify
@@ -15630,7 +15458,6 @@ public:
 	};
 
 };
-
 // Class Engine.AnimNotify_Kismet
 // 0x0008 (0x0040 - 0x0048)
 class UAnimNotify_Kismet : public UAnimNotify
@@ -15652,7 +15479,6 @@ public:
 	};
 
 };
-
 // Class Engine.AnimNotify_PlayParticleEffect
 // 0x0020 (0x0040 - 0x0060)
 class UAnimNotify_PlayParticleEffect : public UAnimNotify
@@ -15683,7 +15509,6 @@ public:
 	};
 
 };
-
 // Class Engine.AnimNotify_RefBoxBlend
 // 0x0008 (0x0040 - 0x0048)
 class UAnimNotify_RefBoxBlend : public UAnimNotify
@@ -15706,7 +15531,6 @@ public:
 	};
 
 };
-
 // Class Engine.AnimNotify_Rumble
 // 0x0010 (0x0040 - 0x0050)
 class UAnimNotify_Rumble : public UAnimNotify
@@ -15731,7 +15555,6 @@ public:
 	};
 
 };
-
 // Class Engine.AnimNotify_Script
 // 0x0020 (0x0040 - 0x0060)
 class UAnimNotify_Script : public UAnimNotify
@@ -15757,7 +15580,6 @@ public:
 	};
 
 };
-
 // Class Engine.AnimNotify_Scripted
 // 0x0000 (0x0040 - 0x0040)
 class UAnimNotify_Scripted : public UAnimNotify
@@ -15777,10 +15599,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventEditorNotify(class UAnimNodeSequence* AnimSeqInstigator);
 	void eventNotify(class AActor* Owner, class UAnimNodeSequence* AnimSeqInstigator);
 };
-
 // Class Engine.AnimNotify_PawnMaterialParam
 // 0x000C (0x0040 - 0x004C)
 class UAnimNotify_PawnMaterialParam : public UAnimNotify_Scripted
@@ -15801,9 +15623,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventNotify(class AActor* Owner, class UAnimNodeSequence* AnimSeqInstigator);
 };
-
 // Class Engine.AnimNotify_PlayFaceFXAnim
 // 0x0028 (0x0040 - 0x0068)
 class UAnimNotify_PlayFaceFXAnim : public UAnimNotify_Scripted
@@ -15829,10 +15651,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventEditorNotify(class UAnimNodeSequence* AnimSeqInstigator);
 	void eventNotify(class AActor* Owner, class UAnimNodeSequence* AnimSeqInstigator);
 };
-
 // Class Engine.AnimNotify_ViewShake
 // 0x0050 (0x0040 - 0x0090)
 class UAnimNotify_ViewShake : public UAnimNotify_Scripted
@@ -15864,9 +15686,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventNotify(class AActor* Owner, class UAnimNodeSequence* AnimSeqInstigator);
 };
-
 // Class Engine.AnimNotify_SlideToTarget
 // 0x0018 (0x0040 - 0x0058)
 class UAnimNotify_SlideToTarget : public UAnimNotify
@@ -15894,7 +15716,6 @@ public:
 	};
 
 };
-
 // Class Engine.AnimNotify_Sound
 // 0x001C (0x0040 - 0x005C)
 class UAnimNotify_Sound : public UAnimNotify
@@ -15922,7 +15743,6 @@ public:
 	};
 
 };
-
 // Class Engine.AnimNotify_Trails
 // 0x005A (0x0040 - 0x009A)
 class UAnimNotify_Trails : public UAnimNotify
@@ -15962,9 +15782,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	int32_t GetNumSteps(int32_t InLastTrailIndex);
 };
-
 // Class Engine.AnimNotify_WaterEffect
 // 0x000C (0x0040 - 0x004C)
 class UAnimNotify_WaterEffect : public UAnimNotify
@@ -15987,7 +15807,6 @@ public:
 	};
 
 };
-
 // Class Engine.AnimNotify_ZAxisMovement
 // 0x0008 (0x0040 - 0x0048)
 class UAnimNotify_ZAxisMovement : public UAnimNotify
@@ -16010,7 +15829,6 @@ public:
 	};
 
 };
-
 // Class Engine.AnimObject
 // 0x0024 (0x003C - 0x0060)
 class UAnimObject : public UObject
@@ -16038,7 +15856,6 @@ public:
 	};
 
 };
-
 // Class Engine.AnimNode
 // 0x0080 (0x0060 - 0x00E0)
 class UAnimNode : public UAnimObject
@@ -16076,6 +15893,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void ReplayAnim();
 	void StopAnim();
 	void PlayAnim(bool optionalBLoop, float optionalRate, float optionalStartTime);
@@ -16084,7 +15902,6 @@ public:
 	void eventOnBecomeRelevant();
 	void eventOnInit();
 };
-
 // Class Engine.AnimNodeBlendBase
 // 0x0011 (0x00E0 - 0x00F1)
 class UAnimNodeBlendBase : public UAnimNode
@@ -16108,11 +15925,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	void ReplayAnim();
 	void StopAnim();
 	void PlayAnim(bool optionalBLoop, float optionalRate, float optionalStartTime);
 };
-
 // Class Engine.AnimNode_MultiBlendPerBone
 // 0x0014 (0x00F1 - 0x0105)
 class UAnimNode_MultiBlendPerBone : public UAnimNodeBlendBase
@@ -16135,9 +15952,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SetMaskWeight(int32_t MaskIndex, float DesiredWeight, float BlendTime);
 };
-
 // Class Engine.AnimNodeAimOffset
 // 0x0057 (0x00F1 - 0x0148)
 class UAnimNodeAimOffset : public UAnimNodeBlendBase
@@ -16151,6 +15968,7 @@ public:
 	uint32_t                                           bSynchronizeNodesInEditor : 1;                 // 0x0104 (0x0004) [0x0000000000000001] [0x00000008] (CPF_Edit)
 	int32_t                                            PassThroughAtOrAboveLOD;                       // 0x0108 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	EAnimAimDir                                        ForcedAimDir;                                  // 0x010C (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x010D (0x0003) MISSED OFFSET
 	class TArray<uint8_t>                              RequiredBones;                                 // 0x0110 (0x000C) [0x0000000000402000] (CPF_Transient | CPF_NeedCtorLink)
 	class TArray<uint8_t>                              AimCpntBoneIndex;                              // 0x011C (0x000C) [0x0000000000402000] (CPF_Transient | CPF_NeedCtorLink)
 	class TArray<uint8_t>                              AimCpntIndexLUT;                               // 0x0128 (0x000C) [0x0000000000402000] (CPF_Transient | CPF_NeedCtorLink)
@@ -16171,10 +15989,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SetActiveProfileByIndex(int32_t ProfileIndex);
 	void SetActiveProfileByName(const class FName& ProfileName);
 };
-
 // Class Engine.AnimNodeBlend
 // 0x0013 (0x00F1 - 0x0104)
 class UAnimNodeBlend : public UAnimNodeBlendBase
@@ -16198,9 +16016,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SetBlendTarget(float BlendTarget, float BlendTime);
 };
-
 // Class Engine.AnimNodeAdditiveBlending
 // 0x0004 (0x0104 - 0x0108)
 class UAnimNodeAdditiveBlending : public UAnimNodeBlend
@@ -16222,7 +16040,6 @@ public:
 	};
 
 };
-
 // Class Engine.AnimNodeBlendPerBone
 // 0x0028 (0x0104 - 0x012C)
 class UAnimNodeBlendPerBone : public UAnimNodeBlend
@@ -16247,7 +16064,6 @@ public:
 	};
 
 };
-
 // Class Engine.AnimNodeCrossfader
 // 0x0010 (0x0104 - 0x0114)
 class UAnimNodeCrossfader : public UAnimNodeBlend
@@ -16270,12 +16086,12 @@ public:
 		return uClassPointer;
 	};
 
+
 	class UAnimNodeSequence* GetActiveChild();
 	class FName GetAnimName();
 	void BlendToLoopingAnim(const class FName& AnimSeqName, float optionalBlendInTime, float optionalRate);
 	void PlayOneShotAnim(const class FName& AnimSeqName, float optionalBlendInTime, float optionalBlendOutTime, bool optionalBDontBlendOut, float optionalRate);
 };
-
 // Class Engine.AnimNodePlayCustomAnim
 // 0x0008 (0x0104 - 0x010C)
 class UAnimNodePlayCustomAnim : public UAnimNodeBlend
@@ -16297,6 +16113,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SetRootBoneAxisOption(ERootBoneAxis optionalAxisX, ERootBoneAxis optionalAxisY, ERootBoneAxis optionalAxisZ);
 	class UAnimNodeSequence* GetCustomAnimNodeSeq();
 	void SetActorAnimEndNotification(bool bNewStatus);
@@ -16305,7 +16122,6 @@ public:
 	void PlayCustomAnimByDuration(const class FName& AnimName, float Duration, float optionalBlendInTime, float optionalBlendOutTime, bool optionalBLooping, bool optionalBOverride);
 	float PlayCustomAnim(const class FName& AnimName, float Rate, float optionalBlendInTime, float optionalBlendOutTime, bool optionalBLooping, bool optionalBOverride);
 };
-
 // Class Engine.AnimNodeBlendDirectional
 // 0x001B (0x00F1 - 0x010C)
 class UAnimNodeBlendDirectional : public UAnimNodeBlendBase
@@ -16330,7 +16146,6 @@ public:
 	};
 
 };
-
 // Class Engine.AnimNodeBlendList
 // 0x0023 (0x00F1 - 0x0114)
 class UAnimNodeBlendList : public UAnimNodeBlendBase
@@ -16358,15 +16173,16 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SetActiveChild(int32_t ChildIndex, float BlendTime);
 };
-
 // Class Engine.AnimNodeBlendByBase
 // 0x0018 (0x0114 - 0x012C)
 class UAnimNodeBlendByBase : public UAnimNodeBlendList
 {
 public:
 	EBaseBlendType                                     Type;                                          // 0x0114 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0115 (0x0003) MISSED OFFSET
 	class FName                                        ActorTag;                                      // 0x0118 (0x0008) [0x0000000000000001] (CPF_Edit)    
 	class UClass*                                      ActorClass;                                    // 0x0120 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	float                                              BlendTime;                                     // 0x0124 (0x0004) [0x0000000000000001] (CPF_Edit)    
@@ -16386,7 +16202,6 @@ public:
 	};
 
 };
-
 // Class Engine.AnimNodeBlendByPhysics
 // 0x0000 (0x0114 - 0x0114)
 class UAnimNodeBlendByPhysics : public UAnimNodeBlendList
@@ -16407,7 +16222,6 @@ public:
 	};
 
 };
-
 // Class Engine.AnimNodeBlendByPosture
 // 0x0000 (0x0114 - 0x0114)
 class UAnimNodeBlendByPosture : public UAnimNodeBlendList
@@ -16428,7 +16242,6 @@ public:
 	};
 
 };
-
 // Class Engine.AnimNodeBlendByProperty
 // 0x0030 (0x0114 - 0x0144)
 class UAnimNodeBlendByProperty : public UAnimNodeBlendList
@@ -16461,7 +16274,6 @@ public:
 	};
 
 };
-
 // Class Engine.AnimNodeBlendBySpeed
 // 0x0030 (0x0114 - 0x0144)
 class UAnimNodeBlendBySpeed : public UAnimNodeBlendList
@@ -16492,7 +16304,6 @@ public:
 	};
 
 };
-
 // Class Engine.AnimNodeRandom
 // 0x0014 (0x0114 - 0x0128)
 class UAnimNodeRandom : public UAnimNodeBlendList
@@ -16516,7 +16327,6 @@ public:
 	};
 
 };
-
 // Class Engine.AnimNodeBlendMultiBone
 // 0x001B (0x00F1 - 0x010C)
 class UAnimNodeBlendMultiBone : public UAnimNodeBlendBase
@@ -16538,9 +16348,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SetTargetStartBone(int32_t TargetIdx, const class FName& StartBoneName, float optionalPerBoneIncrease);
 };
-
 // Class Engine.AnimNodeMirror
 // 0x0007 (0x00F1 - 0x00F8)
 class UAnimNodeMirror : public UAnimNodeBlendBase
@@ -16562,7 +16372,6 @@ public:
 	};
 
 };
-
 // Class Engine.AnimNodeScalePlayRate
 // 0x0007 (0x00F1 - 0x00F8)
 class UAnimNodeScalePlayRate : public UAnimNodeBlendBase
@@ -16584,7 +16393,6 @@ public:
 	};
 
 };
-
 // Class Engine.AnimNodeScaleRateBySpeed
 // 0x0004 (0x00F8 - 0x00FC)
 class UAnimNodeScaleRateBySpeed : public UAnimNodeScalePlayRate
@@ -16606,7 +16414,6 @@ public:
 	};
 
 };
-
 // Class Engine.AnimNodeSlot
 // 0x0027 (0x00F1 - 0x0118)
 class UAnimNodeSlot : public UAnimNodeBlendBase
@@ -16636,6 +16443,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void AddToSynchGroup(const class FName& GroupName);
 	void SetRootBoneRotationOption(ERootRotationOption optionalAxisX, ERootRotationOption optionalAxisY, ERootRotationOption optionalAxisZ);
 	void SetRootBoneAxisOption(ERootBoneAxis optionalAxisX, ERootBoneAxis optionalAxisY, ERootBoneAxis optionalAxisZ);
@@ -16647,7 +16455,6 @@ public:
 	bool PlayCustomAnimByDuration(const class FName& AnimName, float Duration, float optionalBlendInTime, float optionalBlendOutTime, bool optionalBLooping, bool optionalBOverride);
 	float PlayCustomAnim(const class FName& AnimName, float Rate, float optionalBlendInTime, float optionalBlendOutTime, bool optionalBLooping, bool optionalBOverride, float optionalStartTime);
 };
-
 // Class Engine.AnimNodeSynch
 // 0x000F (0x00F1 - 0x0100)
 class UAnimNodeSynch : public UAnimNodeBlendBase
@@ -16668,6 +16475,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SetGroupRateScale(const class FName& GroupName, float NewRateScale);
 	float GetRelativePosition(const class FName& GroupName);
 	void ForceRelativePosition(const class FName& GroupName, float RelativePosition);
@@ -16675,7 +16483,6 @@ public:
 	void RemoveNodeFromGroup(class UAnimNodeSequence* SeqNode, const class FName& GroupName);
 	void AddNodeToGroup(class UAnimNodeSequence* SeqNode, const class FName& GroupName);
 };
-
 // Class Engine.AnimTree
 // 0x00EB (0x00F1 - 0x01DC)
 class UAnimTree : public UAnimNodeBlendBase
@@ -16723,6 +16530,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	int32_t GetGroupIndex(const class FName& GroupName);
 	float GetGroupRateScale(const class FName& GroupName);
 	void SetGroupRateScale(const class FName& GroupName, float NewRateScale);
@@ -16735,7 +16543,6 @@ public:
 	class UMorphNodeBase* FindMorphNode(const class FName& InNodeName);
 	class USkelControlBase* FindSkelControl(const class FName& InControlName);
 };
-
 // Class Engine.AnimNodeSequence
 // 0x0052 (0x00E0 - 0x0132)
 class UAnimNodeSequence : public UAnimNode
@@ -16792,6 +16599,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SetRootBoneRotationOption(ERootRotationOption optionalAxisX, ERootRotationOption optionalAxisY, ERootRotationOption optionalAxisZ);
 	void SetRootBoneAxisOption(ERootBoneAxis optionalAxisX, ERootBoneAxis optionalAxisY, ERootBoneAxis optionalAxisZ);
 	float GetTimeLeft();
@@ -16807,7 +16615,6 @@ public:
 	void PlayAnim(bool optionalBLoop, float optionalInRate, float optionalStartTime);
 	void SetAnim(const class FName& Sequence);
 };
-
 // Class Engine.AnimNodeSequenceBlendBase
 // 0x000E (0x0132 - 0x0140)
 class UAnimNodeSequenceBlendBase : public UAnimNodeSequence
@@ -16829,7 +16636,6 @@ public:
 	};
 
 };
-
 // Class Engine.AnimNodeSequenceBlendByAim
 // 0x0070 (0x0140 - 0x01B0)
 class UAnimNodeSequenceBlendByAim : public UAnimNodeSequenceBlendBase
@@ -16863,9 +16669,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void CheckAnimsUpToDate();
 };
-
 // Class Engine.MorphNodeBase
 // 0x000C (0x0060 - 0x006C)
 class UMorphNodeBase : public UAnimObject
@@ -16888,7 +16694,6 @@ public:
 	};
 
 };
-
 // Class Engine.MorphNodeMultiPose
 // 0x0024 (0x006C - 0x0090)
 class UMorphNodeMultiPose : public UMorphNodeBase
@@ -16911,11 +16716,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool UpdateMorphTarget(class UMorphTarget* Target, float InWeight);
 	void RemoveMorphTarget(const class FName& MorphTargetName);
 	bool AddMorphTarget(const class FName& MorphTargetName, float optionalInWeight);
 };
-
 // Class Engine.MorphNodePose
 // 0x001C (0x006C - 0x0088)
 class UMorphNodePose : public UMorphNodeBase
@@ -16939,9 +16744,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SetMorphTarget(const class FName& MorphTargetName);
 };
-
 // Class Engine.MorphNodeWeightBase
 // 0x000C (0x006C - 0x0078)
 class UMorphNodeWeightBase : public UMorphNodeBase
@@ -16963,7 +16768,6 @@ public:
 	};
 
 };
-
 // Class Engine.MorphNodeWeight
 // 0x0008 (0x0078 - 0x0080)
 class UMorphNodeWeight : public UMorphNodeWeightBase
@@ -16985,10 +16789,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void ResetNodeWeight(float NewWeight);
 	void SetNodeWeight(float NewWeight);
 };
-
 // Class Engine.MorphNodeWeightByBoneAngle
 // 0x003C (0x0078 - 0x00B4)
 class UMorphNodeWeightByBoneAngle : public UMorphNodeWeightBase
@@ -16999,6 +16803,7 @@ public:
 	class FName                                        BaseBoneName;                                  // 0x0080 (0x0008) [0x0000000000000001] (CPF_Edit)    
 	EAxis                                              BaseBoneAxis;                                  // 0x0088 (0x0001) [0x0000000000000001] (CPF_Edit)    
 	EAxis                                              AngleBoneAxis;                                 // 0x0089 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x2];                              // 0x008A (0x0002) MISSED OFFSET
 	uint32_t                                           bInvertBaseBoneAxis : 1;                       // 0x008C (0x0004) [0x0000000000000001] [0x00000001] (CPF_Edit)
 	uint32_t                                           bInvertAngleBoneAxis : 1;                      // 0x008C (0x0004) [0x0000000000000001] [0x00000002] (CPF_Edit)
 	uint32_t                                           bControlMaterialParameter : 1;                 // 0x008C (0x0004) [0x0000000000000001] [0x00000004] (CPF_Edit)
@@ -17022,7 +16827,6 @@ public:
 	};
 
 };
-
 // Class Engine.MorphNodeWeightByBoneRotation
 // 0x0034 (0x0078 - 0x00AC)
 class UMorphNodeWeightByBoneRotation : public UMorphNodeWeightBase
@@ -17032,6 +16836,7 @@ public:
 	float                                              NodeWeight;                                    // 0x007C (0x0004) [0x0000000000002002] (CPF_Const | CPF_Transient)
 	class FName                                        BoneName;                                      // 0x0080 (0x0008) [0x0000000000000001] (CPF_Edit)    
 	EAxis                                              BoneAxis;                                      // 0x0088 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0089 (0x0003) MISSED OFFSET
 	uint32_t                                           bInvertBoneAxis : 1;                           // 0x008C (0x0004) [0x0000000000000001] [0x00000001] (CPF_Edit)
 	uint32_t                                           bControlMaterialParameter : 1;                 // 0x008C (0x0004) [0x0000000000000001] [0x00000002] (CPF_Edit)
 	class TArray<struct FBoneAngleMorph>               WeightArray;                                   // 0x0090 (0x000C) [0x0000000000400001] (CPF_Edit | CPF_NeedCtorLink)
@@ -17053,7 +16858,6 @@ public:
 	};
 
 };
-
 // Class Engine.SkelControlBase
 // 0x0064 (0x0060 - 0x00C4)
 class USkelControlBase : public UAnimObject
@@ -17064,6 +16868,7 @@ public:
 	float                                              BlendInTime;                                   // 0x006C (0x0004) [0x0000000000000001] (CPF_Edit)    
 	float                                              BlendOutTime;                                  // 0x0070 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	EAlphaBlendType                                    BlendType;                                     // 0x0074 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0075 (0x0003) MISSED OFFSET
 	uint32_t                                           bPostPhysicsController : 1;                    // 0x0078 (0x0004) [0x0000000000000001] [0x00000001] (CPF_Edit)
 	uint32_t                                           bSetStrengthFromAnimNode : 1;                  // 0x0078 (0x0004) [0x0000000000000001] [0x00000002] (CPF_Edit)
 	uint32_t                                           bInitializedCachedNodeList : 1;                // 0x0078 (0x0004) [0x0000000000002000] [0x00000004] (CPF_Transient)
@@ -17098,11 +16903,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventTickSkelControl(float DeltaTime, class USkeletalMeshComponent* SkelComp);
 	void SetSkelControlStrength(float NewStrength, float InBlendTime);
 	void SetSkelControlActive(bool bInActive);
 };
-
 // Class Engine.SkelControl_CCD_IK
 // 0x0048 (0x00C4 - 0x010C)
 class USkelControl_CCD_IK : public USkelControlBase
@@ -17110,6 +16915,7 @@ class USkelControl_CCD_IK : public USkelControlBase
 public:
 	struct FVector                                     EffectorLocation;                              // 0x00C4 (0x000C) [0x0000000000000001] (CPF_Edit)    
 	EBoneControlSpace                                  EffectorLocationSpace;                         // 0x00D0 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x00D1 (0x0003) MISSED OFFSET
 	class FName                                        EffectorSpaceBoneName;                         // 0x00D4 (0x0008) [0x0000000000000001] (CPF_Edit)    
 	struct FVector                                     EffectorTranslationFromBone;                   // 0x00DC (0x000C) [0x0000000000000001] (CPF_Edit)    
 	int32_t                                            NumBones;                                      // 0x00E8 (0x0004) [0x0000000000000001] (CPF_Edit)    
@@ -17135,7 +16941,6 @@ public:
 	};
 
 };
-
 // Class Engine.SkelControl_TwistBone
 // 0x000C (0x00C4 - 0x00D0)
 class USkelControl_TwistBone : public USkelControlBase
@@ -17158,7 +16963,6 @@ public:
 	};
 
 };
-
 // Class Engine.SkelControlCloth
 // 0x0084 (0x00C4 - 0x0148)
 class USkelControlCloth : public USkelControlBase
@@ -17180,6 +16984,7 @@ public:
 	float                                              MaxGuideDistance;                              // 0x0128 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	float                                              WorldScale;                                    // 0x012C (0x0004) [0x0000000000000001] (CPF_Edit)    
 	EAxis                                              BoneAxis;                                      // 0x0130 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0131 (0x0003) MISSED OFFSET
 	uint32_t                                           bVisualizeSimulation : 1;                      // 0x0134 (0x0004) [0x0000000000000001] [0x00000001] (CPF_Edit)
 	uint32_t                                           bVisualizeSpheres : 1;                         // 0x0134 (0x0004) [0x0000000000000001] [0x00000002] (CPF_Edit)
 	uint32_t                                           bVisualizeBones : 1;                           // 0x0134 (0x0004) [0x0000000000000001] [0x00000004] (CPF_Edit)
@@ -17201,7 +17006,6 @@ public:
 	};
 
 };
-
 // Class Engine.SkelControlLimb
 // 0x0040 (0x00C4 - 0x0104)
 class USkelControlLimb : public USkelControlBase
@@ -17237,7 +17041,6 @@ public:
 	};
 
 };
-
 // Class Engine.SkelControlFootPlacement
 // 0x0024 (0x0104 - 0x0128)
 class USkelControlFootPlacement : public USkelControlLimb
@@ -17245,6 +17048,7 @@ class USkelControlFootPlacement : public USkelControlLimb
 public:
 	float                                              FootOffset;                                    // 0x0104 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	EAxis                                              FootUpAxis;                                    // 0x0108 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0109 (0x0003) MISSED OFFSET
 	struct FRotator                                    FootRotOffset;                                 // 0x010C (0x000C) [0x0000000000000001] (CPF_Edit)    
 	uint32_t                                           bInvertFootUpAxis : 1;                         // 0x0118 (0x0004) [0x0000000000000001] [0x00000001] (CPF_Edit)
 	uint32_t                                           bOrientFootToGround : 1;                       // 0x0118 (0x0004) [0x0000000000000001] [0x00000002] (CPF_Edit)
@@ -17267,7 +17071,6 @@ public:
 	};
 
 };
-
 // Class Engine.SkelControlLookAt
 // 0x0074 (0x00C4 - 0x0138)
 class USkelControlLookAt : public USkelControlBase
@@ -17317,12 +17120,12 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool CanLookAtPoint(const struct FVector& PointLoc, bool optionalBDrawDebugInfo, bool optionalBDebugUsePersistentLines, bool optionalBDebugFlushLinesFirst);
 	void SetLookAtAlpha(float DesiredAlpha, float DesiredBlendTime);
 	void InterpolateTargetLocation(float DeltaTime);
 	void SetTargetLocation(const struct FVector& NewTargetLocation);
 };
-
 // Class Engine.SkelControlSingleBone
 // 0x0030 (0x00C4 - 0x00F4)
 class USkelControlSingleBone : public USkelControlBase
@@ -17336,6 +17139,7 @@ public:
 	struct FVector                                     BoneTranslation;                               // 0x00C8 (0x000C) [0x0000000000000001] (CPF_Edit)    
 	EBoneControlSpace                                  BoneTranslationSpace;                          // 0x00D4 (0x0001) [0x0000000000000001] (CPF_Edit)    
 	EBoneControlSpace                                  BoneRotationSpace;                             // 0x00D5 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x2];                              // 0x00D6 (0x0002) MISSED OFFSET
 	class FName                                        TranslationSpaceBoneName;                      // 0x00D8 (0x0008) [0x0000000000000001] (CPF_Edit)    
 	struct FRotator                                    BoneRotation;                                  // 0x00E0 (0x000C) [0x0000000000000001] (CPF_Edit)    
 	class FName                                        RotationSpaceBoneName;                         // 0x00EC (0x0008) [0x0000000000000001] (CPF_Edit)    
@@ -17354,7 +17158,6 @@ public:
 	};
 
 };
-
 // Class Engine.SkelControlHandlebars
 // 0x0014 (0x00F4 - 0x0108)
 class USkelControlHandlebars : public USkelControlSingleBone
@@ -17362,6 +17165,7 @@ class USkelControlHandlebars : public USkelControlSingleBone
 public:
 	EAxis                                              WheelRollAxis;                                 // 0x00F4 (0x0001) [0x0000000000000001] (CPF_Edit)    
 	EAxis                                              HandlebarRotateAxis;                           // 0x00F5 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x2];                              // 0x00F6 (0x0002) MISSED OFFSET
 	class FName                                        WheelBoneName;                                 // 0x00F8 (0x0008) [0x0000000000000001] (CPF_Edit)    
 	uint32_t                                           bInvertRotation : 1;                           // 0x0100 (0x0004) [0x0000000000000001] [0x00000001] (CPF_Edit)
 	int32_t                                            SteerWheelBoneIndex;                           // 0x0104 (0x0004) [0x0000000000000000]               
@@ -17380,7 +17184,6 @@ public:
 	};
 
 };
-
 // Class Engine.SkelControlWheel
 // 0x0018 (0x00F4 - 0x010C)
 class USkelControlWheel : public USkelControlSingleBone
@@ -17391,6 +17194,7 @@ public:
 	float                                              WheelRoll;                                     // 0x00FC (0x0004) [0x0000000000002001] (CPF_Edit | CPF_Transient)
 	EAxis                                              WheelRollAxis;                                 // 0x0100 (0x0001) [0x0000000000000001] (CPF_Edit)    
 	EAxis                                              WheelSteeringAxis;                             // 0x0101 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x2];                              // 0x0102 (0x0002) MISSED OFFSET
 	float                                              WheelSteering;                                 // 0x0104 (0x0004) [0x0000000000002001] (CPF_Edit | CPF_Transient)
 	uint32_t                                           bInvertWheelRoll : 1;                          // 0x0108 (0x0004) [0x0000000000000001] [0x00000001] (CPF_Edit)
 	uint32_t                                           bInvertWheelSteering : 1;                      // 0x0108 (0x0004) [0x0000000000000001] [0x00000002] (CPF_Edit)
@@ -17409,7 +17213,6 @@ public:
 	};
 
 };
-
 // Class Engine.SkelControlSpline
 // 0x0014 (0x00C4 - 0x00D8)
 class USkelControlSpline : public USkelControlBase
@@ -17418,6 +17221,7 @@ public:
 	int32_t                                            SplineLength;                                  // 0x00C4 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	EAxis                                              SplineBoneAxis;                                // 0x00C8 (0x0001) [0x0000000000000001] (CPF_Edit)    
 	ESplineControlRotMode                              BoneRotMode;                                   // 0x00C9 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x2];                              // 0x00CA (0x0002) MISSED OFFSET
 	uint32_t                                           bInvertSplineBoneAxis : 1;                     // 0x00CC (0x0004) [0x0000000000000001] [0x00000001] (CPF_Edit)
 	float                                              EndSplineTension;                              // 0x00D0 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	float                                              StartSplineTension;                            // 0x00D4 (0x0004) [0x0000000000000001] (CPF_Edit)    
@@ -17436,7 +17240,6 @@ public:
 	};
 
 };
-
 // Class Engine.SkelControlTrail
 // 0x007C (0x00C4 - 0x0140)
 class USkelControlTrail : public USkelControlBase
@@ -17444,6 +17247,7 @@ class USkelControlTrail : public USkelControlBase
 public:
 	int32_t                                            ChainLength;                                   // 0x00C4 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	EAxis                                              ChainBoneAxis;                                 // 0x00C8 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x00C9 (0x0003) MISSED OFFSET
 	uint32_t                                           bInvertChainBoneAxis : 1;                      // 0x00CC (0x0004) [0x0000000000000001] [0x00000001] (CPF_Edit)
 	uint32_t                                           bLimitStretch : 1;                             // 0x00CC (0x0004) [0x0000000000000001] [0x00000002] (CPF_Edit)
 	uint32_t                                           bActorSpaceFakeVel : 1;                        // 0x00CC (0x0004) [0x0000000000000001] [0x00000004] (CPF_Edit)
@@ -17453,7 +17257,7 @@ public:
 	struct FVector                                     FakeVelocity;                                  // 0x00D8 (0x000C) [0x0000000000000001] (CPF_Edit)    
 	float                                              ThisTimstep;                                   // 0x00E4 (0x0004) [0x0000000000000000]               
 	class TArray<struct FVector>                       TrailBoneLocations;                            // 0x00E8 (0x000C) [0x0000000000402000] (CPF_Transient | CPF_NeedCtorLink)
-	uint8_t                                            UnknownData00[0xC];                              // 0x00F4 (0x000C) MISSED OFFSET
+	uint8_t                                            UnknownData01[0xC];                              // 0x00F4 (0x000C) MISSED OFFSET
 	struct FMatrix                                     OldLocalToWorld;                               // 0x0100 (0x0040) [0x0000000000002000] (CPF_Transient)
 
 public:
@@ -17470,7 +17274,6 @@ public:
 	};
 
 };
-
 // Class Engine.AnimSequence
 // 0x0110 (0x003C - 0x014C)
 class UAnimSequence : public UObject
@@ -17498,6 +17301,7 @@ public:
 	EAnimationCompressionFormat                        TranslationCompressionFormat;                  // 0x00C4 (0x0001) [0x0000000000000002] (CPF_Const)   
 	EAnimationCompressionFormat                        RotationCompressionFormat;                     // 0x00C5 (0x0001) [0x0000000000000002] (CPF_Const)   
 	EAnimationKeyFormat                                KeyEncodingFormat;                             // 0x00C6 (0x0001) [0x0000000000000002] (CPF_Const)   
+	uint8_t                                            UnknownData00[0x1];                              // 0x00C7 (0x0001) MISSED OFFSET
 	class TArray<int32_t>                              CompressedTrackOffsets;                        // 0x00C8 (0x000C) [0x0000000000400000] (CPF_NeedCtorLink)
 	struct FNativeStructGuy                            CompressedByteStream;                          // 0x00D4 (0x000C) [0x0000000000001000] (CPF_Native)  
 	struct FPointer                                    CompressedByteData;                            // 0x00E0 (0x0004) [0x0000000000003000] (CPF_Native | CPF_Transient)
@@ -17528,10 +17332,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	float GetNotifyTime(class UAnimNotify* Notify);
 	float GetNotifyTimeByClass(class UClass* NotifyClass, float optionalPlayRate, float optionalStartPosition);
 };
-
 // Class Engine.AnimSet
 // 0x0048 (0x003C - 0x0084)
 class UAnimSet : public UObject
@@ -17559,7 +17363,6 @@ public:
 	};
 
 };
-
 // Class Engine.MorphTarget
 // 0x001C (0x003C - 0x0058)
 class UMorphTarget : public UObject
@@ -17584,7 +17387,6 @@ public:
 	};
 
 };
-
 // Class Engine.MorphTargetSet
 // 0x001C (0x003C - 0x0058)
 class UMorphTargetSet : public UObject
@@ -17607,9 +17409,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	class UMorphTarget* FindMorphTarget(const class FName& MorphTargetName);
 };
-
 // Class Engine.MorphWeightSequence
 // 0x0000 (0x003C - 0x003C)
 class UMorphWeightSequence : public UObject
@@ -17630,7 +17432,6 @@ public:
 	};
 
 };
-
 // Class Engine.DecalActorBase
 // 0x0004 (0x0228 - 0x022C)
 class ADecalActorBase : public AActor
@@ -17652,7 +17453,6 @@ public:
 	};
 
 };
-
 // Class Engine.DecalActor
 // 0x0004 (0x022C - 0x0230)
 class ADecalActor : public ADecalActorBase
@@ -17674,6 +17474,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventDestroyed();
 	void updateSonarMat(float DeltaTime);
 	void eventTick(float DeltaTime);
@@ -17681,7 +17482,6 @@ public:
 	void CreateAndSetSonarMat();
 	void eventPostBeginPlay();
 };
-
 // Class Engine.DecalActorMovable
 // 0x0000 (0x022C - 0x022C)
 class ADecalActorMovable : public ADecalActorBase
@@ -17702,7 +17502,6 @@ public:
 	};
 
 };
-
 // Class Engine.DecalManager
 // 0x0030 (0x0228 - 0x0258)
 class ADecalManager : public AActor
@@ -17729,6 +17528,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	class UDecalComponent* SpawnDecal(class UMaterialInterface* DecalMaterial, const struct FVector& DecalLocation, const struct FRotator& DecalOrientation, float Width, float Height, float Thickness, bool bNoClip, float optionalDecalRotation, class UPrimitiveComponent* optionalHitComponent, bool optionalBProjectOnTerrain, bool optionalBProjectOnSkeletalMeshes, const class FName& optionalHitBone, int32_t optionalHitNodeIndex, int32_t optionalHitLevelIndex, float optionalInDecalLifeSpan, int32_t optionalInFracturedStaticMeshComponentIndex, float optionalInDepthBias, const struct FVector2D& optionalInBlendRange);
 	class UDecalComponent* GetPooledComponent();
 	static void SetDecalParameters(class UDecalComponent* TheDecal, class UMaterialInterface* DecalMaterial, const struct FVector& DecalLocation, const struct FRotator& DecalOrientation, float Width, float Height, float Thickness, bool bNoClip, float DecalRotation, class UPrimitiveComponent* HitComponent, bool bProjectOnTerrain, bool bProjectOnSkeletalMeshes, const class FName& HitBone, int32_t HitNodeIndex, int32_t HitLevelIndex, int32_t InFracturedStaticMeshComponentIndex, float DepthBias, const struct FVector2D& BlendRange);
@@ -17736,7 +17536,6 @@ public:
 	void eventDecalFinished(class UDecalComponent* Decal);
 	static bool AreDynamicDecalsEnabled();
 };
-
 // Class Engine.DecalComponent
 // 0x012C (0x01D4 - 0x0300)
 class UDecalComponent : public UPrimitiveComponent
@@ -17789,6 +17588,7 @@ public:
 	struct FVector2D                                   BlendRange;                                    // 0x02AC (0x0008) [0x0000000000000001] (CPF_Edit)    
 	EDecalTransform                                    DecalTransform;                                // 0x02B4 (0x0001) [0x0000000000000002] (CPF_Const)   
 	EFilterMode                                        FilterMode;                                    // 0x02B5 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x2];                              // 0x02B6 (0x0002) MISSED OFFSET
 	class TArray<class AActor*>                        Filter;                                        // 0x02B8 (0x000C) [0x0000000000400001] (CPF_Edit | CPF_NeedCtorLink)
 	class TArray<class UPrimitiveComponent*>           ReceiverImages;                                // 0x02C4 (0x000C) [0x0000000004480009] (CPF_Edit | CPF_ExportObject | CPF_Component | CPF_NeedCtorLink | CPF_EditInline)
 	struct FVector                                     ParentRelativeLocation;                        // 0x02D0 (0x000C) [0x0000000000000001] (CPF_Edit)    
@@ -17809,11 +17609,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	class UMaterialInterface* GetDecalMaterial();
 	void SetDecalMaterial(class UMaterialInterface* NewDecalMaterial);
 	void ResetToDefaults();
 };
-
 // Class Engine.ActorFactoryDecal
 // 0x0004 (0x005C - 0x0060)
 class UActorFactoryDecal : public UActorFactory
@@ -17835,7 +17635,6 @@ public:
 	};
 
 };
-
 // Class Engine.DecalMaterial
 // 0x0000 (0x0374 - 0x0374)
 class UDecalMaterial : public UMaterial
@@ -17856,7 +17655,6 @@ public:
 	};
 
 };
-
 // Class Engine.FogVolumeDensityInfo
 // 0x000C (0x0228 - 0x0234)
 class AFogVolumeDensityInfo : public AInfo
@@ -17879,6 +17677,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void ApplyCheckpointRecord(struct AFogVolumeDensityInfo_FCheckpointRecord& outRecord);
 	void CreateCheckpointRecord(struct AFogVolumeDensityInfo_FCheckpointRecord& outRecord);
 	bool ShouldSaveForCheckpoint();
@@ -17886,7 +17685,6 @@ public:
 	void eventReplicatedEvent(const class FName& VarName);
 	void eventPostBeginPlay();
 };
-
 // Class Engine.FogVolumeConeDensityInfo
 // 0x0000 (0x0234 - 0x0234)
 class AFogVolumeConeDensityInfo : public AFogVolumeDensityInfo
@@ -17907,7 +17705,6 @@ public:
 	};
 
 };
-
 // Class Engine.FogVolumeConstantDensityInfo
 // 0x0000 (0x0234 - 0x0234)
 class AFogVolumeConstantDensityInfo : public AFogVolumeDensityInfo
@@ -17928,7 +17725,6 @@ public:
 	};
 
 };
-
 // Class Engine.FogVolumeLinearHalfspaceDensityInfo
 // 0x0000 (0x0234 - 0x0234)
 class AFogVolumeLinearHalfspaceDensityInfo : public AFogVolumeDensityInfo
@@ -17949,7 +17745,6 @@ public:
 	};
 
 };
-
 // Class Engine.FogVolumeSphericalDensityInfo
 // 0x0000 (0x0234 - 0x0234)
 class AFogVolumeSphericalDensityInfo : public AFogVolumeDensityInfo
@@ -17970,7 +17765,6 @@ public:
 	};
 
 };
-
 // Class Engine.FogVolumeDensityComponent
 // 0x003F (0x0055 - 0x0094)
 class UFogVolumeDensityComponent : public UActorComponent
@@ -17998,9 +17792,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SetEnabled(bool bSetEnabled);
 };
-
 // Class Engine.FogVolumeConeDensityComponent
 // 0x0028 (0x0094 - 0x00BC)
 class UFogVolumeConeDensityComponent : public UFogVolumeDensityComponent
@@ -18027,7 +17821,6 @@ public:
 	};
 
 };
-
 // Class Engine.FogVolumeConstantDensityComponent
 // 0x0004 (0x0094 - 0x0098)
 class UFogVolumeConstantDensityComponent : public UFogVolumeDensityComponent
@@ -18049,7 +17842,6 @@ public:
 	};
 
 };
-
 // Class Engine.FogVolumeLinearHalfspaceDensityComponent
 // 0x001C (0x0094 - 0x00B0)
 class UFogVolumeLinearHalfspaceDensityComponent : public UFogVolumeDensityComponent
@@ -18073,7 +17865,6 @@ public:
 	};
 
 };
-
 // Class Engine.FogVolumeSphericalDensityComponent
 // 0x0018 (0x0094 - 0x00AC)
 class UFogVolumeSphericalDensityComponent : public UFogVolumeDensityComponent
@@ -18098,7 +17889,6 @@ public:
 	};
 
 };
-
 // Class Engine.ActorFactoryFogVolumeConstantDensityInfo
 // 0x0008 (0x005C - 0x0064)
 class UActorFactoryFogVolumeConstantDensityInfo : public UActorFactory
@@ -18121,7 +17911,6 @@ public:
 	};
 
 };
-
 // Class Engine.ActorFactoryFogVolumeLinearHalfspaceDensityInfo
 // 0x0000 (0x0064 - 0x0064)
 class UActorFactoryFogVolumeLinearHalfspaceDensityInfo : public UActorFactoryFogVolumeConstantDensityInfo
@@ -18142,7 +17931,6 @@ public:
 	};
 
 };
-
 // Class Engine.ActorFactoryFogVolumeSphericalDensityInfo
 // 0x0000 (0x0064 - 0x0064)
 class UActorFactoryFogVolumeSphericalDensityInfo : public UActorFactoryFogVolumeConstantDensityInfo
@@ -18163,7 +17951,6 @@ public:
 	};
 
 };
-
 // Class Engine.ApexDestructibleActor
 // 0x0054 (0x0228 - 0x027C)
 class AApexDestructibleActor : public AActor
@@ -18193,6 +17980,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void TakeRadiusDamage(class AController* InstigatedBy, float BaseDamage, float DamageRadius, class UClass* DamageType, float Momentum, const struct FVector& HurtOrigin, bool bFullDamage, class AActor* DamageCauser, float optionalDamageFalloffExponent);
 	void TakeDamage(int32_t Damage, class AController* EventInstigator, const struct FVector& HitLocation, const struct FVector& Momentum, class UClass* DamageType, const struct FTraceHitInfo& optionalHitInfo, class AActor* optionalDamageCauser);
 	void eventHandleTakeDamageEvent(int32_t Damage, class AController* EventInstigator, const struct FVector& HitLocation, const struct FVector& Momentum, class UClass* DamageType, const struct FTraceHitInfo& optionalHitInfo, class AActor* optionalDamageCauser);
@@ -18203,7 +17991,6 @@ public:
 	void ApplyCheckpointRecord(struct AApexDestructibleActor_FCheckpointRecord& outRecord);
 	void CreateCheckpointRecord(struct AApexDestructibleActor_FCheckpointRecord& outRecord);
 };
-
 // Class Engine.FracturedStaticMeshActor
 // 0x0068 (0x0228 - 0x0290)
 class AFracturedStaticMeshActor : public AActor
@@ -18239,6 +18026,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SetLoseChunkReplacementMaterial();
 	void eventHideFragmentsToMaximizeMemoryUsage();
 	void eventHideOneFragment();
@@ -18256,7 +18044,6 @@ public:
 	class AFracturedStaticMeshPart* SpawnPartMulti(const class TArray<int32_t>& ChunkIndices, const struct FVector& InitialVel, const struct FVector& InitialAngVel, float RelativeScale, bool bExplosion);
 	class AFracturedStaticMeshPart* SpawnPart(int32_t ChunkIndex, const struct FVector& InitialVel, const struct FVector& InitialAngVel, float RelativeScale, bool bExplosion);
 };
-
 // Class Engine.FracturedStaticMeshPart
 // 0x0030 (0x0290 - 0x02C0)
 class AFracturedStaticMeshPart : public AFracturedStaticMeshActor
@@ -18271,6 +18058,7 @@ public:
 	int32_t                                            PartPoolIndex;                                 // 0x02A0 (0x0004) [0x0000000000000000]               
 	float                                              FracPartGravScale;                             // 0x02A4 (0x0004) [0x0000000000000000]               
 	ERBCollisionChannel                                AsleepRBChannel;                               // 0x02A8 (0x0001) [0x0000000000000000]               
+	uint8_t                                            UnknownData00[0x3];                              // 0x02A9 (0x0003) MISSED OFFSET
 	struct FVector                                     OldVelocity;                                   // 0x02AC (0x000C) [0x0000000000000000]               
 	float                                              CurrentVibrationLevel;                         // 0x02B8 (0x0004) [0x0000000000000000]               
 	float                                              LastImpactSoundTime;                           // 0x02BC (0x0004) [0x0000000000000000]               
@@ -18288,6 +18076,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventBreakOffPartsInRadius(const struct FVector& Origin, float Radius, float RBStrength, bool bWantPhysChunksAndParticles);
 	void eventExplode();
 	void eventFellOutOfWorld(class UClass* dmgType);
@@ -18296,7 +18085,6 @@ public:
 	void RecyclePart(bool bAddToFreePool);
 	void Initialize();
 };
-
 // Class Engine.PhysXDestructibleActor
 // 0x0085 (0x0290 - 0x0315)
 class APhysXDestructibleActor : public AFracturedStaticMeshActor
@@ -18333,6 +18121,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventExplode();
 	void TakeRadiusDamage(class AController* InstigatedBy, float BaseDamage, float DamageRadius, class UClass* DamageType, float Momentum, const struct FVector& HurtOrigin, bool bFullDamage, class AActor* DamageCauser, float optionalDamageFalloffExponent);
 	void eventTakeDamage(int32_t Damage, class AController* EventInstigator, const struct FVector& HitLocation, const struct FVector& Momentum, class UClass* DamageType, const struct FTraceHitInfo& optionalHitInfo, class AActor* optionalDamageCauser);
@@ -18344,7 +18133,6 @@ public:
 	void Term();
 	void Init();
 };
-
 // Class Engine.FractureManager
 // 0x0038 (0x0228 - 0x0260)
 class AFractureManager : public AActor
@@ -18373,6 +18161,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void Tick(float DeltaTime);
 	void SpawnDeferredParts();
 	void eventReturnPartActor(class AFracturedStaticMeshPart* Part);
@@ -18389,7 +18178,6 @@ public:
 	float GetNumFSMPartsScale();
 	void eventSpawnChunkDestroyEffect(class UParticleSystem* Effect, const struct FBox& ChunkBox, const struct FVector& ChunkDir, float Scale);
 };
-
 // Class Engine.PhysXDestructiblePart
 // 0x0031 (0x0228 - 0x0259)
 class APhysXDestructiblePart : public AActor
@@ -18418,10 +18206,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void TakeRadiusDamage(class AController* InstigatedBy, float BaseDamage, float DamageRadius, class UClass* DamageType, float Momentum, const struct FVector& HurtOrigin, bool bFullDamage, class AActor* DamageCauser, float optionalDamageFalloffExponent);
 	void eventTakeDamage(int32_t Damage, class AController* EventInstigator, const struct FVector& HitLocation, const struct FVector& Momentum, class UClass* DamageType, const struct FTraceHitInfo& optionalHitInfo, class AActor* optionalDamageCauser);
 };
-
 // Class Engine.ApexComponentBase
 // 0x0014 (0x01E0 - 0x01F4)
 class UApexComponentBase : public UMeshComponent
@@ -18447,7 +18235,6 @@ public:
 	};
 
 };
-
 // Class Engine.ApexDynamicComponent
 // 0x0004 (0x01F4 - 0x01F8)
 class UApexDynamicComponent : public UApexComponentBase
@@ -18469,7 +18256,6 @@ public:
 	};
 
 };
-
 // Class Engine.ApexStaticComponent
 // 0x0000 (0x01F4 - 0x01F4)
 class UApexStaticComponent : public UApexComponentBase
@@ -18490,7 +18276,6 @@ public:
 	};
 
 };
-
 // Class Engine.ApexStaticDestructibleComponent
 // 0x0014 (0x01F4 - 0x0208)
 class UApexStaticDestructibleComponent : public UApexStaticComponent
@@ -18516,7 +18301,6 @@ public:
 	};
 
 };
-
 // Class Engine.FracturedBaseComponent
 // 0x0024 (0x023C - 0x0260)
 class UFracturedBaseComponent : public UStaticMeshComponent
@@ -18547,13 +18331,13 @@ public:
 		return uClassPointer;
 	};
 
+
 	int32_t GetNumVisibleFragments();
 	int32_t GetNumFragments();
 	bool IsFragmentVisible(int32_t FragmentIndex);
 	class TArray<uint8_t> GetVisibleFragments();
 	bool SetStaticMesh(class UStaticMesh* NewMesh, bool optionalBForce);
 };
-
 // Class Engine.FracturedSkinnedMeshComponent
 // 0x0020 (0x0260 - 0x0280)
 class UFracturedSkinnedMeshComponent : public UFracturedBaseComponent
@@ -18579,7 +18363,6 @@ public:
 	};
 
 };
-
 // Class Engine.FracturedStaticMeshComponent
 // 0x0040 (0x0260 - 0x02A0)
 class UFracturedStaticMeshComponent : public UFracturedBaseComponent
@@ -18610,6 +18393,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	class UPhysicalMaterial* GetFracturedMeshPhysMaterial();
 	void RecreatePhysState();
 	class TArray<int32_t> GetBoundaryHiddenFragments(const class TArray<int32_t>& AdditionalVisibleFragments);
@@ -18622,7 +18406,6 @@ public:
 	bool IsFragmentDestroyable(int32_t FragmentIndex);
 	void SetVisibleFragments(const class TArray<uint8_t>& VisibilityFactors);
 };
-
 // Class Engine.InstancedStaticMeshComponent
 // 0x0030 (0x023C - 0x026C)
 class UInstancedStaticMeshComponent : public UStaticMeshComponent
@@ -18649,7 +18432,6 @@ public:
 	};
 
 };
-
 // Class Engine.SplineMeshComponent
 // 0x0068 (0x023C - 0x02A4)
 class USplineMeshComponent : public UStaticMeshComponent
@@ -18673,7 +18455,6 @@ public:
 	};
 
 };
-
 // Class Engine.PhysXDestructibleComponent
 // 0x0028 (0x01D4 - 0x01FC)
 class UPhysXDestructibleComponent : public UPrimitiveComponent
@@ -18698,7 +18479,6 @@ public:
 	};
 
 };
-
 // Class Engine.ApexAsset
 // 0x0024 (0x003C - 0x0060)
 class UApexAsset : public UObject
@@ -18722,7 +18502,6 @@ public:
 	};
 
 };
-
 // Class Engine.ApexClothingAsset
 // 0x0038 (0x0060 - 0x0098)
 class UApexClothingAsset : public UApexAsset
@@ -18758,7 +18537,6 @@ public:
 	};
 
 };
-
 // Class Engine.ApexDestructibleAsset
 // 0x00C0 (0x0060 - 0x0120)
 class UApexDestructibleAsset : public UApexAsset
@@ -18789,7 +18567,6 @@ public:
 	};
 
 };
-
 // Class Engine.ApexGenericAsset
 // 0x0010 (0x0060 - 0x0070)
 class UApexGenericAsset : public UApexAsset
@@ -18812,7 +18589,6 @@ public:
 	};
 
 };
-
 // Class Engine.PhysXDestructible
 // 0x004C (0x003C - 0x0088)
 class UPhysXDestructible : public UObject
@@ -18837,7 +18613,6 @@ public:
 	};
 
 };
-
 // Class Engine.PhysXDestructibleAsset
 // 0x0028 (0x003C - 0x0064)
 class UPhysXDestructibleAsset : public UObject
@@ -18862,7 +18637,6 @@ public:
 	};
 
 };
-
 // Class Engine.PhysXDestructibleStructure
 // 0x009C (0x003C - 0x00D8)
 class UPhysXDestructibleStructure : public UObject
@@ -18899,13 +18673,13 @@ public:
 		return uClassPointer;
 	};
 
+
 	struct FVector GetChunkCentroid(int32_t ChunkIndex);
 	struct FMatrix GetChunkMatrix(int32_t ChunkIndex);
 	void CrumbleChunk(int32_t ChunkIndex);
 	void FractureChunk(int32_t ChunkIndex, const struct FVector& Point, const struct FVector& Impulse, bool bInheritRootVel);
 	bool DamageChunk(int32_t ChunkIndex, const struct FVector& Point, float BaseDamage, float Radius, bool bFullDamage, float DamageFalloffExp, class TArray<int32_t>& outOutput);
 };
-
 // Class Engine.InterpFilter
 // 0x000C (0x003C - 0x0048)
 class UInterpFilter : public UObject
@@ -18927,7 +18701,6 @@ public:
 	};
 
 };
-
 // Class Engine.InterpFilter_Classes
 // 0x0010 (0x0048 - 0x0058)
 class UInterpFilter_Classes : public UInterpFilter
@@ -18950,7 +18723,6 @@ public:
 	};
 
 };
-
 // Class Engine.InterpFilter_Custom
 // 0x000C (0x0048 - 0x0054)
 class UInterpFilter_Custom : public UInterpFilter
@@ -18972,7 +18744,6 @@ public:
 	};
 
 };
-
 // Class Engine.InterpGroup
 // 0x002C (0x003C - 0x0068)
 class UInterpGroup : public UObject
@@ -19003,7 +18774,6 @@ public:
 	};
 
 };
-
 // Class Engine.InterpGroupAI
 // 0x0018 (0x0068 - 0x0080)
 class UInterpGroupAI : public UInterpGroup
@@ -19029,7 +18799,6 @@ public:
 	};
 
 };
-
 // Class Engine.InterpGroupDirector
 // 0x0000 (0x0068 - 0x0068)
 class UInterpGroupDirector : public UInterpGroup
@@ -19050,7 +18819,6 @@ public:
 	};
 
 };
-
 // Class Engine.InterpGroupInst
 // 0x0014 (0x003C - 0x0050)
 class UInterpGroupInst : public UObject
@@ -19074,7 +18842,6 @@ public:
 	};
 
 };
-
 // Class Engine.InterpGroupInstAI
 // 0x0005 (0x0050 - 0x0055)
 class UInterpGroupInstAI : public UInterpGroupInst
@@ -19097,7 +18864,6 @@ public:
 	};
 
 };
-
 // Class Engine.InterpGroupInstDirector
 // 0x0000 (0x0050 - 0x0050)
 class UInterpGroupInstDirector : public UInterpGroupInst
@@ -19118,7 +18884,6 @@ public:
 	};
 
 };
-
 // Class Engine.InterpTrackDirector
 // 0x0010 (0x005C - 0x006C)
 class UInterpTrackDirector : public UInterpTrack
@@ -19141,7 +18906,6 @@ public:
 	};
 
 };
-
 // Class Engine.InterpTrackEvent
 // 0x0010 (0x005C - 0x006C)
 class UInterpTrackEvent : public UInterpTrack
@@ -19166,7 +18930,6 @@ public:
 	};
 
 };
-
 // Class Engine.InterpTrackEventPPEffect
 // 0x0010 (0x006C - 0x007C)
 class UInterpTrackEventPPEffect : public UInterpTrackEvent
@@ -19189,7 +18952,6 @@ public:
 	};
 
 };
-
 // Class Engine.InterpTrackFaceFX
 // 0x0028 (0x005C - 0x0084)
 class UInterpTrackFaceFX : public UInterpTrack
@@ -19214,7 +18976,6 @@ public:
 	};
 
 };
-
 // Class Engine.InterpTrackFloatBase
 // 0x0014 (0x005C - 0x0070)
 class UInterpTrackFloatBase : public UInterpTrack
@@ -19237,7 +18998,6 @@ public:
 	};
 
 };
-
 // Class Engine.InterpTrackAnimControl
 // 0x0020 (0x0070 - 0x0090)
 class UInterpTrackAnimControl : public UInterpTrackFloatBase
@@ -19261,7 +19021,6 @@ public:
 	};
 
 };
-
 // Class Engine.InterpTrackFade
 // 0x0008 (0x0070 - 0x0078)
 class UInterpTrackFade : public UInterpTrackFloatBase
@@ -19284,7 +19043,6 @@ public:
 	};
 
 };
-
 // Class Engine.InterpTrackFloatMaterialParam
 // 0x0018 (0x0070 - 0x0088)
 class UInterpTrackFloatMaterialParam : public UInterpTrackFloatBase
@@ -19308,7 +19066,6 @@ public:
 	};
 
 };
-
 // Class Engine.InterpTrackFloatParticleParam
 // 0x0008 (0x0070 - 0x0078)
 class UInterpTrackFloatParticleParam : public UInterpTrackFloatBase
@@ -19330,7 +19087,6 @@ public:
 	};
 
 };
-
 // Class Engine.InterpTrackFloatProp
 // 0x0008 (0x0070 - 0x0078)
 class UInterpTrackFloatProp : public UInterpTrackFloatBase
@@ -19352,7 +19108,6 @@ public:
 	};
 
 };
-
 // Class Engine.InterpTrackMorphWeight
 // 0x0008 (0x0070 - 0x0078)
 class UInterpTrackMorphWeight : public UInterpTrackFloatBase
@@ -19374,7 +19129,6 @@ public:
 	};
 
 };
-
 // Class Engine.InterpTrackSkelControlScale
 // 0x0008 (0x0070 - 0x0078)
 class UInterpTrackSkelControlScale : public UInterpTrackFloatBase
@@ -19396,7 +19150,6 @@ public:
 	};
 
 };
-
 // Class Engine.InterpTrackSlomo
 // 0x0000 (0x0070 - 0x0070)
 class UInterpTrackSlomo : public UInterpTrackFloatBase
@@ -19417,7 +19170,6 @@ public:
 	};
 
 };
-
 // Class Engine.InterpTrackLinearColorBase
 // 0x0014 (0x005C - 0x0070)
 class UInterpTrackLinearColorBase : public UInterpTrack
@@ -19440,7 +19192,6 @@ public:
 	};
 
 };
-
 // Class Engine.InterpTrackLinearColorProp
 // 0x0008 (0x0070 - 0x0078)
 class UInterpTrackLinearColorProp : public UInterpTrackLinearColorBase
@@ -19462,7 +19213,6 @@ public:
 	};
 
 };
-
 // Class Engine.InterpTrackMove
 // 0x0042 (0x005C - 0x009E)
 class UInterpTrackMove : public UInterpTrack
@@ -19499,7 +19249,6 @@ public:
 	};
 
 };
-
 // Class Engine.InterpTrackParticleReplay
 // 0x0014 (0x005C - 0x0070)
 class UInterpTrackParticleReplay : public UInterpTrack
@@ -19523,7 +19272,6 @@ public:
 	};
 
 };
-
 // Class Engine.InterpTrackToggle
 // 0x0010 (0x005C - 0x006C)
 class UInterpTrackToggle : public UInterpTrack
@@ -19549,7 +19297,6 @@ public:
 	};
 
 };
-
 // Class Engine.InterpTrackVectorBase
 // 0x0014 (0x005C - 0x0070)
 class UInterpTrackVectorBase : public UInterpTrack
@@ -19572,7 +19319,6 @@ public:
 	};
 
 };
-
 // Class Engine.InterpTrackAudioMaster
 // 0x0000 (0x0070 - 0x0070)
 class UInterpTrackAudioMaster : public UInterpTrackVectorBase
@@ -19593,7 +19339,6 @@ public:
 	};
 
 };
-
 // Class Engine.InterpTrackColorProp
 // 0x0008 (0x0070 - 0x0078)
 class UInterpTrackColorProp : public UInterpTrackVectorBase
@@ -19615,7 +19360,6 @@ public:
 	};
 
 };
-
 // Class Engine.InterpTrackColorScale
 // 0x0000 (0x0070 - 0x0070)
 class UInterpTrackColorScale : public UInterpTrackVectorBase
@@ -19636,7 +19380,6 @@ public:
 	};
 
 };
-
 // Class Engine.InterpTrackSound
 // 0x0010 (0x0070 - 0x0080)
 class UInterpTrackSound : public UInterpTrackVectorBase
@@ -19661,7 +19404,6 @@ public:
 	};
 
 };
-
 // Class Engine.InterpTrackVectorMaterialParam
 // 0x0018 (0x0070 - 0x0088)
 class UInterpTrackVectorMaterialParam : public UInterpTrackVectorBase
@@ -19685,7 +19427,6 @@ public:
 	};
 
 };
-
 // Class Engine.InterpTrackVectorProp
 // 0x0008 (0x0070 - 0x0078)
 class UInterpTrackVectorProp : public UInterpTrackVectorBase
@@ -19707,7 +19448,6 @@ public:
 	};
 
 };
-
 // Class Engine.InterpTrackVisibility
 // 0x0010 (0x005C - 0x006C)
 class UInterpTrackVisibility : public UInterpTrack
@@ -19732,7 +19472,6 @@ public:
 	};
 
 };
-
 // Class Engine.InterpTrackInst
 // 0x0000 (0x003C - 0x003C)
 class UInterpTrackInst : public UObject
@@ -19753,7 +19492,6 @@ public:
 	};
 
 };
-
 // Class Engine.InterpTrackInstAnimControl
 // 0x0004 (0x003C - 0x0040)
 class UInterpTrackInstAnimControl : public UInterpTrackInst
@@ -19775,7 +19513,6 @@ public:
 	};
 
 };
-
 // Class Engine.InterpTrackInstAudioMaster
 // 0x0000 (0x003C - 0x003C)
 class UInterpTrackInstAudioMaster : public UInterpTrackInst
@@ -19796,7 +19533,6 @@ public:
 	};
 
 };
-
 // Class Engine.InterpTrackInstColorScale
 // 0x0000 (0x003C - 0x003C)
 class UInterpTrackInstColorScale : public UInterpTrackInst
@@ -19817,7 +19553,6 @@ public:
 	};
 
 };
-
 // Class Engine.InterpTrackInstDirector
 // 0x0008 (0x003C - 0x0044)
 class UInterpTrackInstDirector : public UInterpTrackInst
@@ -19840,7 +19575,6 @@ public:
 	};
 
 };
-
 // Class Engine.InterpTrackInstEvent
 // 0x0004 (0x003C - 0x0040)
 class UInterpTrackInstEvent : public UInterpTrackInst
@@ -19862,7 +19596,6 @@ public:
 	};
 
 };
-
 // Class Engine.InterpTrackInstEventPPEffect
 // 0x000C (0x003C - 0x0048)
 class UInterpTrackInstEventPPEffect : public UInterpTrackInst
@@ -19886,7 +19619,6 @@ public:
 	};
 
 };
-
 // Class Engine.InterpTrackInstFaceFX
 // 0x0008 (0x003C - 0x0044)
 class UInterpTrackInstFaceFX : public UInterpTrackInst
@@ -19909,7 +19641,6 @@ public:
 	};
 
 };
-
 // Class Engine.InterpTrackInstFade
 // 0x0000 (0x003C - 0x003C)
 class UInterpTrackInstFade : public UInterpTrackInst
@@ -19930,7 +19661,6 @@ public:
 	};
 
 };
-
 // Class Engine.InterpTrackInstFloatMaterialParam
 // 0x0010 (0x003C - 0x004C)
 class UInterpTrackInstFloatMaterialParam : public UInterpTrackInst
@@ -19953,7 +19683,6 @@ public:
 	};
 
 };
-
 // Class Engine.InterpTrackInstFloatParticleParam
 // 0x0004 (0x003C - 0x0040)
 class UInterpTrackInstFloatParticleParam : public UInterpTrackInst
@@ -19975,7 +19704,6 @@ public:
 	};
 
 };
-
 // Class Engine.InterpTrackInstMorphWeight
 // 0x0000 (0x003C - 0x003C)
 class UInterpTrackInstMorphWeight : public UInterpTrackInst
@@ -19996,7 +19724,6 @@ public:
 	};
 
 };
-
 // Class Engine.InterpTrackInstMove
 // 0x0090 (0x003C - 0x00CC)
 class UInterpTrackInstMove : public UInterpTrackInst
@@ -20008,6 +19735,7 @@ public:
 	struct FMatrix                                     InitialTM;                                     // 0x0060 (0x0040) [0x0000000000000000]               
 	struct FQuat                                       InitialQuat;                                   // 0x00A0 (0x0010) [0x0000000000000000]               
 	EPhysics                                           SavedPhysics;                                  // 0x00B0 (0x0001) [0x0000000000000000]               
+	uint8_t                                            UnknownData01[0x3];                              // 0x00B1 (0x0003) MISSED OFFSET
 	struct FVector                                     InitLocation;                                  // 0x00B4 (0x000C) [0x0000000000000000]               
 	struct FRotator                                    InitRotation;                                  // 0x00C0 (0x000C) [0x0000000000000000]               
 
@@ -20025,7 +19753,6 @@ public:
 	};
 
 };
-
 // Class Engine.InterpTrackInstParticleReplay
 // 0x0004 (0x003C - 0x0040)
 class UInterpTrackInstParticleReplay : public UInterpTrackInst
@@ -20047,7 +19774,6 @@ public:
 	};
 
 };
-
 // Class Engine.InterpTrackInstProperty
 // 0x0008 (0x003C - 0x0044)
 class UInterpTrackInstProperty : public UInterpTrackInst
@@ -20070,7 +19796,6 @@ public:
 	};
 
 };
-
 // Class Engine.InterpTrackInstColorProp
 // 0x0008 (0x0044 - 0x004C)
 class UInterpTrackInstColorProp : public UInterpTrackInstProperty
@@ -20093,7 +19818,6 @@ public:
 	};
 
 };
-
 // Class Engine.InterpTrackInstFloatProp
 // 0x0008 (0x0044 - 0x004C)
 class UInterpTrackInstFloatProp : public UInterpTrackInstProperty
@@ -20116,7 +19840,6 @@ public:
 	};
 
 };
-
 // Class Engine.InterpTrackInstLinearColorProp
 // 0x0014 (0x0044 - 0x0058)
 class UInterpTrackInstLinearColorProp : public UInterpTrackInstProperty
@@ -20139,7 +19862,6 @@ public:
 	};
 
 };
-
 // Class Engine.InterpTrackInstVectorProp
 // 0x0010 (0x0044 - 0x0054)
 class UInterpTrackInstVectorProp : public UInterpTrackInstProperty
@@ -20162,7 +19884,6 @@ public:
 	};
 
 };
-
 // Class Engine.InterpTrackInstSkelControlScale
 // 0x0000 (0x003C - 0x003C)
 class UInterpTrackInstSkelControlScale : public UInterpTrackInst
@@ -20183,7 +19904,6 @@ public:
 	};
 
 };
-
 // Class Engine.InterpTrackInstSlomo
 // 0x0004 (0x003C - 0x0040)
 class UInterpTrackInstSlomo : public UInterpTrackInst
@@ -20205,7 +19925,6 @@ public:
 	};
 
 };
-
 // Class Engine.InterpTrackInstSound
 // 0x0008 (0x003C - 0x0044)
 class UInterpTrackInstSound : public UInterpTrackInst
@@ -20228,13 +19947,13 @@ public:
 	};
 
 };
-
 // Class Engine.InterpTrackInstToggle
 // 0x000C (0x003C - 0x0048)
 class UInterpTrackInstToggle : public UInterpTrackInst
 {
 public:
 	ETrackToggleAction                                 Action;                                        // 0x003C (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x003D (0x0003) MISSED OFFSET
 	float                                              LastUpdatePosition;                            // 0x0040 (0x0004) [0x0000000000000000]               
 	uint32_t                                           bSavedActiveState : 1;                         // 0x0044 (0x0004) [0x0000000000000000] [0x00000001] 
 
@@ -20252,7 +19971,6 @@ public:
 	};
 
 };
-
 // Class Engine.InterpTrackInstVectorMaterialParam
 // 0x0010 (0x003C - 0x004C)
 class UInterpTrackInstVectorMaterialParam : public UInterpTrackInst
@@ -20275,13 +19993,13 @@ public:
 	};
 
 };
-
 // Class Engine.InterpTrackInstVisibility
 // 0x0008 (0x003C - 0x0044)
 class UInterpTrackInstVisibility : public UInterpTrackInst
 {
 public:
 	EVisibilityTrackAction                             Action;                                        // 0x003C (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x003D (0x0003) MISSED OFFSET
 	float                                              LastUpdatePosition;                            // 0x0040 (0x0004) [0x0000000000000000]               
 
 public:
@@ -20298,7 +20016,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionAbs
 // 0x001C (0x006C - 0x0088)
 class UMaterialExpressionAbs : public UMaterialExpression
@@ -20320,7 +20037,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionAdd
 // 0x0038 (0x006C - 0x00A4)
 class UMaterialExpressionAdd : public UMaterialExpression
@@ -20343,7 +20059,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionAppendVector
 // 0x0038 (0x006C - 0x00A4)
 class UMaterialExpressionAppendVector : public UMaterialExpression
@@ -20366,7 +20081,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionBumpOffset
 // 0x0040 (0x006C - 0x00AC)
 class UMaterialExpressionBumpOffset : public UMaterialExpression
@@ -20391,7 +20105,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionCameraVector
 // 0x0000 (0x006C - 0x006C)
 class UMaterialExpressionCameraVector : public UMaterialExpression
@@ -20412,7 +20125,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionCameraWorldPosition
 // 0x0000 (0x006C - 0x006C)
 class UMaterialExpressionCameraWorldPosition : public UMaterialExpression
@@ -20433,7 +20145,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionCeil
 // 0x001C (0x006C - 0x0088)
 class UMaterialExpressionCeil : public UMaterialExpression
@@ -20455,7 +20166,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionClamp
 // 0x0054 (0x006C - 0x00C0)
 class UMaterialExpressionClamp : public UMaterialExpression
@@ -20479,7 +20189,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionComment
 // 0x001C (0x006C - 0x0088)
 class UMaterialExpressionComment : public UMaterialExpression
@@ -20505,7 +20214,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionComponentMask
 // 0x0020 (0x006C - 0x008C)
 class UMaterialExpressionComponentMask : public UMaterialExpression
@@ -20531,7 +20239,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionCompound
 // 0x001C (0x006C - 0x0088)
 class UMaterialExpressionCompound : public UMaterialExpression
@@ -20555,7 +20262,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionConstant
 // 0x0004 (0x006C - 0x0070)
 class UMaterialExpressionConstant : public UMaterialExpression
@@ -20577,7 +20283,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionConstant2Vector
 // 0x0008 (0x006C - 0x0074)
 class UMaterialExpressionConstant2Vector : public UMaterialExpression
@@ -20600,7 +20305,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionConstant3Vector
 // 0x001C (0x006C - 0x0088)
 class UMaterialExpressionConstant3Vector : public UMaterialExpression
@@ -20625,7 +20329,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionConstant4Vector
 // 0x0010 (0x006C - 0x007C)
 class UMaterialExpressionConstant4Vector : public UMaterialExpression
@@ -20650,7 +20353,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionConstantBiasScale
 // 0x0024 (0x006C - 0x0090)
 class UMaterialExpressionConstantBiasScale : public UMaterialExpression
@@ -20674,7 +20376,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionConstantClamp
 // 0x0024 (0x006C - 0x0090)
 class UMaterialExpressionConstantClamp : public UMaterialExpression
@@ -20698,7 +20399,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionCosine
 // 0x0020 (0x006C - 0x008C)
 class UMaterialExpressionCosine : public UMaterialExpression
@@ -20721,7 +20421,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionCrossProduct
 // 0x0038 (0x006C - 0x00A4)
 class UMaterialExpressionCrossProduct : public UMaterialExpression
@@ -20744,7 +20443,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionCustom
 // 0x0028 (0x006C - 0x0094)
 class UMaterialExpressionCustom : public UMaterialExpression
@@ -20752,6 +20450,7 @@ class UMaterialExpressionCustom : public UMaterialExpression
 public:
 	class FString                                      Code;                                          // 0x006C (0x000C) [0x0000000000400001] (CPF_Edit | CPF_NeedCtorLink | CPF_EditTextBox)
 	ECustomMaterialOutputType                          OutputType;                                    // 0x0078 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0079 (0x0003) MISSED OFFSET
 	class FString                                      Description;                                   // 0x007C (0x000C) [0x0000000000400001] (CPF_Edit | CPF_NeedCtorLink)
 	class TArray<struct FCustomInput>                  Inputs;                                        // 0x0088 (0x000C) [0x0000000000400001] (CPF_Edit | CPF_NeedCtorLink)
 
@@ -20769,7 +20468,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionCustomTexture
 // 0x0004 (0x006C - 0x0070)
 class UMaterialExpressionCustomTexture : public UMaterialExpression
@@ -20791,7 +20489,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionDepthBiasedAlpha
 // 0x0040 (0x006C - 0x00AC)
 class UMaterialExpressionDepthBiasedAlpha : public UMaterialExpression
@@ -20816,7 +20513,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionDepthBiasedBlend
 // 0x005C (0x006C - 0x00C8)
 class UMaterialExpressionDepthBiasedBlend : public UMaterialExpression
@@ -20842,7 +20538,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionDeriveNormalZ
 // 0x001C (0x006C - 0x0088)
 class UMaterialExpressionDeriveNormalZ : public UMaterialExpression
@@ -20864,7 +20559,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionDesaturation
 // 0x0048 (0x006C - 0x00B4)
 class UMaterialExpressionDesaturation : public UMaterialExpression
@@ -20888,7 +20582,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionDestColor
 // 0x0000 (0x006C - 0x006C)
 class UMaterialExpressionDestColor : public UMaterialExpression
@@ -20909,7 +20602,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionDestDepth
 // 0x0004 (0x006C - 0x0070)
 class UMaterialExpressionDestDepth : public UMaterialExpression
@@ -20931,7 +20623,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionDistance
 // 0x0038 (0x006C - 0x00A4)
 class UMaterialExpressionDistance : public UMaterialExpression
@@ -20954,7 +20645,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionDivide
 // 0x0038 (0x006C - 0x00A4)
 class UMaterialExpressionDivide : public UMaterialExpression
@@ -20977,7 +20667,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionDotProduct
 // 0x0038 (0x006C - 0x00A4)
 class UMaterialExpressionDotProduct : public UMaterialExpression
@@ -21000,7 +20689,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionDynamicParameter
 // 0x000C (0x006C - 0x0078)
 class UMaterialExpressionDynamicParameter : public UMaterialExpression
@@ -21022,7 +20710,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionMeshEmitterDynamicParameter
 // 0x0000 (0x0078 - 0x0078)
 class UMaterialExpressionMeshEmitterDynamicParameter : public UMaterialExpressionDynamicParameter
@@ -21043,7 +20730,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionFloor
 // 0x001C (0x006C - 0x0088)
 class UMaterialExpressionFloor : public UMaterialExpression
@@ -21065,7 +20751,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionFluidNormal
 // 0x0000 (0x006C - 0x006C)
 class UMaterialExpressionFluidNormal : public UMaterialExpression
@@ -21086,7 +20771,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionFmod
 // 0x0038 (0x006C - 0x00A4)
 class UMaterialExpressionFmod : public UMaterialExpression
@@ -21109,7 +20793,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionFoliageImpulseDirection
 // 0x0000 (0x006C - 0x006C)
 class UMaterialExpressionFoliageImpulseDirection : public UMaterialExpression
@@ -21130,7 +20813,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionFoliageNormalizedRotationAxisAndAngle
 // 0x0000 (0x006C - 0x006C)
 class UMaterialExpressionFoliageNormalizedRotationAxisAndAngle : public UMaterialExpression
@@ -21151,7 +20833,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionFontSample
 // 0x0008 (0x006C - 0x0074)
 class UMaterialExpressionFontSample : public UMaterialExpression
@@ -21174,7 +20855,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionFontSampleParameter
 // 0x0018 (0x0074 - 0x008C)
 class UMaterialExpressionFontSampleParameter : public UMaterialExpressionFontSample
@@ -21197,7 +20877,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionFrac
 // 0x001C (0x006C - 0x0088)
 class UMaterialExpressionFrac : public UMaterialExpression
@@ -21219,7 +20898,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionFresnel
 // 0x0020 (0x006C - 0x008C)
 class UMaterialExpressionFresnel : public UMaterialExpression
@@ -21242,7 +20920,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionIf
 // 0x008C (0x006C - 0x00F8)
 class UMaterialExpressionIf : public UMaterialExpression
@@ -21268,7 +20945,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionLensFlareIntensity
 // 0x0000 (0x006C - 0x006C)
 class UMaterialExpressionLensFlareIntensity : public UMaterialExpression
@@ -21289,7 +20965,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionLensFlareOcclusion
 // 0x0000 (0x006C - 0x006C)
 class UMaterialExpressionLensFlareOcclusion : public UMaterialExpression
@@ -21310,7 +20985,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionLensFlareRadialDistance
 // 0x0000 (0x006C - 0x006C)
 class UMaterialExpressionLensFlareRadialDistance : public UMaterialExpression
@@ -21331,7 +21005,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionLensFlareRayDistance
 // 0x0000 (0x006C - 0x006C)
 class UMaterialExpressionLensFlareRayDistance : public UMaterialExpression
@@ -21352,7 +21025,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionLensFlareSourceDistance
 // 0x0000 (0x006C - 0x006C)
 class UMaterialExpressionLensFlareSourceDistance : public UMaterialExpression
@@ -21373,7 +21045,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionLightmapUVs
 // 0x0000 (0x006C - 0x006C)
 class UMaterialExpressionLightmapUVs : public UMaterialExpression
@@ -21394,7 +21065,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionLightmassReplace
 // 0x0038 (0x006C - 0x00A4)
 class UMaterialExpressionLightmassReplace : public UMaterialExpression
@@ -21417,7 +21087,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionLightVector
 // 0x0000 (0x006C - 0x006C)
 class UMaterialExpressionLightVector : public UMaterialExpression
@@ -21438,7 +21107,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionLinearInterpolate
 // 0x0054 (0x006C - 0x00C0)
 class UMaterialExpressionLinearInterpolate : public UMaterialExpression
@@ -21462,7 +21130,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionMeshEmitterVertexColor
 // 0x0000 (0x006C - 0x006C)
 class UMaterialExpressionMeshEmitterVertexColor : public UMaterialExpression
@@ -21483,7 +21150,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionMultiply
 // 0x0038 (0x006C - 0x00A4)
 class UMaterialExpressionMultiply : public UMaterialExpression
@@ -21506,7 +21172,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionNormalize
 // 0x001C (0x006C - 0x0088)
 class UMaterialExpressionNormalize : public UMaterialExpression
@@ -21528,7 +21193,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionObjectOrientation
 // 0x0000 (0x006C - 0x006C)
 class UMaterialExpressionObjectOrientation : public UMaterialExpression
@@ -21549,7 +21213,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionObjectRadius
 // 0x0000 (0x006C - 0x006C)
 class UMaterialExpressionObjectRadius : public UMaterialExpression
@@ -21570,7 +21233,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionObjectWorldPosition
 // 0x0000 (0x006C - 0x006C)
 class UMaterialExpressionObjectWorldPosition : public UMaterialExpression
@@ -21591,7 +21253,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionOcclusionPercentage
 // 0x0000 (0x006C - 0x006C)
 class UMaterialExpressionOcclusionPercentage : public UMaterialExpression
@@ -21612,7 +21273,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionOneMinus
 // 0x001C (0x006C - 0x0088)
 class UMaterialExpressionOneMinus : public UMaterialExpression
@@ -21634,7 +21294,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionPanner
 // 0x0040 (0x006C - 0x00AC)
 class UMaterialExpressionPanner : public UMaterialExpression
@@ -21659,7 +21318,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionParameter
 // 0x0018 (0x006C - 0x0084)
 class UMaterialExpressionParameter : public UMaterialExpression
@@ -21682,7 +21340,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionScalarParameter
 // 0x0004 (0x0084 - 0x0088)
 class UMaterialExpressionScalarParameter : public UMaterialExpressionParameter
@@ -21704,7 +21361,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionStaticComponentMaskParameter
 // 0x0024 (0x0084 - 0x00A8)
 class UMaterialExpressionStaticComponentMaskParameter : public UMaterialExpressionParameter
@@ -21731,7 +21387,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionStaticSwitchParameter
 // 0x0040 (0x0084 - 0x00C4)
 class UMaterialExpressionStaticSwitchParameter : public UMaterialExpressionParameter
@@ -21757,7 +21412,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionVectorParameter
 // 0x0010 (0x0084 - 0x0094)
 class UMaterialExpressionVectorParameter : public UMaterialExpressionParameter
@@ -21779,7 +21433,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionParticleMacroUV
 // 0x0004 (0x006C - 0x0070)
 class UMaterialExpressionParticleMacroUV : public UMaterialExpression
@@ -21801,7 +21454,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionPerInstanceRandom
 // 0x0000 (0x006C - 0x006C)
 class UMaterialExpressionPerInstanceRandom : public UMaterialExpression
@@ -21822,7 +21474,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionPixelDepth
 // 0x0004 (0x006C - 0x0070)
 class UMaterialExpressionPixelDepth : public UMaterialExpression
@@ -21844,7 +21495,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionPower
 // 0x0038 (0x006C - 0x00A4)
 class UMaterialExpressionPower : public UMaterialExpression
@@ -21867,7 +21517,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionReflectionVector
 // 0x0000 (0x006C - 0x006C)
 class UMaterialExpressionReflectionVector : public UMaterialExpression
@@ -21888,7 +21537,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionRotateAboutAxis
 // 0x0054 (0x006C - 0x00C0)
 class UMaterialExpressionRotateAboutAxis : public UMaterialExpression
@@ -21912,7 +21560,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionRotator
 // 0x0044 (0x006C - 0x00B0)
 class UMaterialExpressionRotator : public UMaterialExpression
@@ -21938,7 +21585,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionSceneDepth
 // 0x0020 (0x006C - 0x008C)
 class UMaterialExpressionSceneDepth : public UMaterialExpression
@@ -21961,7 +21607,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionSceneTexture
 // 0x0024 (0x006C - 0x0090)
 class UMaterialExpressionSceneTexture : public UMaterialExpression
@@ -21969,6 +21614,7 @@ class UMaterialExpressionSceneTexture : public UMaterialExpression
 public:
 	struct FExpressionInput                            Coordinates;                                   // 0x006C (0x001C) [0x0000000000000000]               
 	ESceneTextureType                                  SceneTextureType;                              // 0x0088 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0089 (0x0003) MISSED OFFSET
 	uint32_t                                           ScreenAlign : 1;                               // 0x008C (0x0004) [0x0000000000000001] [0x00000001] (CPF_Edit)
 
 public:
@@ -21985,7 +21631,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionScreenPosition
 // 0x0004 (0x006C - 0x0070)
 class UMaterialExpressionScreenPosition : public UMaterialExpression
@@ -22007,7 +21652,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionSine
 // 0x0020 (0x006C - 0x008C)
 class UMaterialExpressionSine : public UMaterialExpression
@@ -22030,7 +21674,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionSineParameter
 // 0x0028 (0x006C - 0x0094)
 class UMaterialExpressionSineParameter : public UMaterialExpression
@@ -22055,7 +21698,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionSphereMask
 // 0x0040 (0x006C - 0x00AC)
 class UMaterialExpressionSphereMask : public UMaterialExpression
@@ -22080,7 +21722,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionSquareRoot
 // 0x001C (0x006C - 0x0088)
 class UMaterialExpressionSquareRoot : public UMaterialExpression
@@ -22102,7 +21743,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionSubtract
 // 0x0038 (0x006C - 0x00A4)
 class UMaterialExpressionSubtract : public UMaterialExpression
@@ -22125,7 +21765,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionTextureCoordinate
 // 0x0010 (0x006C - 0x007C)
 class UMaterialExpressionTextureCoordinate : public UMaterialExpression
@@ -22151,7 +21790,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionTextureSample
 // 0x0020 (0x006C - 0x008C)
 class UMaterialExpressionTextureSample : public UMaterialExpression
@@ -22174,7 +21812,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionDepthBiasBlend
 // 0x0024 (0x008C - 0x00B0)
 class UMaterialExpressionDepthBiasBlend : public UMaterialExpressionTextureSample
@@ -22198,7 +21835,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionFlipBookSample
 // 0x0000 (0x008C - 0x008C)
 class UMaterialExpressionFlipBookSample : public UMaterialExpressionTextureSample
@@ -22219,7 +21855,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionMeshSubUV
 // 0x0000 (0x008C - 0x008C)
 class UMaterialExpressionMeshSubUV : public UMaterialExpressionTextureSample
@@ -22240,7 +21875,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionMeshSubUVBlend
 // 0x0000 (0x008C - 0x008C)
 class UMaterialExpressionMeshSubUVBlend : public UMaterialExpressionMeshSubUV
@@ -22261,7 +21895,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionParticleSubUV
 // 0x0000 (0x008C - 0x008C)
 class UMaterialExpressionParticleSubUV : public UMaterialExpressionTextureSample
@@ -22282,7 +21915,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionTextureSampleParameter
 // 0x0018 (0x008C - 0x00A4)
 class UMaterialExpressionTextureSampleParameter : public UMaterialExpressionTextureSample
@@ -22305,7 +21937,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionTextureSampleParameter2D
 // 0x0000 (0x00A4 - 0x00A4)
 class UMaterialExpressionTextureSampleParameter2D : public UMaterialExpressionTextureSampleParameter
@@ -22326,7 +21957,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionAntialiasedTextureMask
 // 0x0005 (0x00A4 - 0x00A9)
 class UMaterialExpressionAntialiasedTextureMask : public UMaterialExpressionTextureSampleParameter2D
@@ -22349,7 +21979,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionTextureSampleParameterMeshSubUV
 // 0x0000 (0x00A4 - 0x00A4)
 class UMaterialExpressionTextureSampleParameterMeshSubUV : public UMaterialExpressionTextureSampleParameter2D
@@ -22370,7 +21999,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionTextureSampleParameterMeshSubUVBlend
 // 0x0000 (0x00A4 - 0x00A4)
 class UMaterialExpressionTextureSampleParameterMeshSubUVBlend : public UMaterialExpressionTextureSampleParameterMeshSubUV
@@ -22391,7 +22019,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionTextureSampleParameterSubUV
 // 0x0000 (0x00A4 - 0x00A4)
 class UMaterialExpressionTextureSampleParameterSubUV : public UMaterialExpressionTextureSampleParameter2D
@@ -22412,7 +22039,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionTextureSampleParameterCube
 // 0x0000 (0x00A4 - 0x00A4)
 class UMaterialExpressionTextureSampleParameterCube : public UMaterialExpressionTextureSampleParameter
@@ -22433,7 +22059,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionTextureSampleParameterMovie
 // 0x0000 (0x00A4 - 0x00A4)
 class UMaterialExpressionTextureSampleParameterMovie : public UMaterialExpressionTextureSampleParameter
@@ -22454,7 +22079,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionTextureSampleParameterNormal
 // 0x0004 (0x00A4 - 0x00A8)
 class UMaterialExpressionTextureSampleParameterNormal : public UMaterialExpressionTextureSampleParameter
@@ -22476,7 +22100,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionTicker
 // 0x0044 (0x006C - 0x00B0)
 class UMaterialExpressionTicker : public UMaterialExpression
@@ -22502,7 +22125,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionTickerNoLoop
 // 0x0044 (0x006C - 0x00B0)
 class UMaterialExpressionTickerNoLoop : public UMaterialExpression
@@ -22528,7 +22150,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionTime
 // 0x0004 (0x006C - 0x0070)
 class UMaterialExpressionTime : public UMaterialExpression
@@ -22550,7 +22171,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionTransform
 // 0x001E (0x006C - 0x008A)
 class UMaterialExpressionTransform : public UMaterialExpression
@@ -22574,7 +22194,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionTransformPosition
 // 0x001D (0x006C - 0x0089)
 class UMaterialExpressionTransformPosition : public UMaterialExpression
@@ -22597,7 +22216,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionTwoSidedSign
 // 0x0000 (0x006C - 0x006C)
 class UMaterialExpressionTwoSidedSign : public UMaterialExpression
@@ -22618,7 +22236,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionVertexColor
 // 0x0000 (0x006C - 0x006C)
 class UMaterialExpressionVertexColor : public UMaterialExpression
@@ -22639,7 +22256,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionWindDirectionAndSpeed
 // 0x0000 (0x006C - 0x006C)
 class UMaterialExpressionWindDirectionAndSpeed : public UMaterialExpression
@@ -22660,7 +22276,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionWorldNormal
 // 0x0000 (0x006C - 0x006C)
 class UMaterialExpressionWorldNormal : public UMaterialExpression
@@ -22681,7 +22296,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialExpressionWorldPosition
 // 0x0000 (0x006C - 0x006C)
 class UMaterialExpressionWorldPosition : public UMaterialExpression
@@ -22702,7 +22316,6 @@ public:
 	};
 
 };
-
 // Class Engine.MaterialInstance
 // 0x0050 (0x0078 - 0x00C8)
 class UMaterialInstance : public UMaterialInterface
@@ -22735,6 +22348,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	class UMaterialInstance* DuplicateInstance();
 	bool IsInMapOrTransientPackage();
 	void ClearParameterValues();
@@ -22745,7 +22359,6 @@ public:
 	void SetVectorParameterValue(const class FName& ParameterName, struct FLinearColor& outValue);
 	void SetParent(class UMaterialInterface* NewParent);
 };
-
 // Class Engine.MaterialInstanceConstant
 // 0x0040 (0x00C8 - 0x0108)
 class UMaterialInstanceConstant : public UMaterialInstance
@@ -22774,6 +22387,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void ClearParameterValues();
 	void SetFontParameterValue(const class FName& ParameterName, class UFont* FontValue, int32_t FontPage);
 	void SetVectorParameterValue(const class FName& ParameterName, struct FLinearColor& outValue);
@@ -22782,7 +22396,6 @@ public:
 	void SetParent(class UMaterialInterface* NewParent);
 	void initSonarParam(class UMaterialInstanceConstant* origMat);
 };
-
 // Class Engine.MaterialInstanceTimeVarying
 // 0x0038 (0x00C8 - 0x0100)
 class UMaterialInstanceTimeVarying : public UMaterialInstance
@@ -22808,6 +22421,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void ClearRenderingThreadParameterMaps();
 	float GetMaxDurationFromAllParameters();
 	void ClearParameterValues();
@@ -22822,7 +22436,6 @@ public:
 	void SetScalarParameterValue(const class FName& ParameterName, float Value);
 	void SetParent(class UMaterialInterface* NewParent);
 };
-
 // Class Engine.EmitterCameraLensEffectBase
 // 0x0018 (0x0238 - 0x0250)
 class AEmitterCameraLensEffectBase : public AEmitter
@@ -22848,6 +22461,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void UpdateLocation(float CamFOVDeg, struct FVector& outCamLoc, struct FRotator& outCamRot);
 	void ActivateLensEffect();
 	void PostBeginPlay();
@@ -22855,7 +22469,6 @@ public:
 	void RegisterCamera(class ACamera* C);
 	void Destroyed();
 };
-
 // Class Engine.PhysXEmitterSpawnable
 // 0x0008 (0x0238 - 0x0240)
 class APhysXEmitterSpawnable : public AEmitter
@@ -22877,12 +22490,12 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventReplicatedEvent(const class FName& VarName);
 	void eventSetTemplate(class UParticleSystem* NewTemplate, bool optionalBDestroyOnFinish);
 	void eventDestroyed();
 	void Term();
 };
-
 // Class Engine.ParticleEventManager
 // 0x0000 (0x0228 - 0x0228)
 class AParticleEventManager : public AActor
@@ -22902,9 +22515,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventHandleParticleModuleEventSendToGame(class UParticleModuleEventSendToGame* InEvent, struct FVector& outInCollideDirection, struct FVector& outInHitLocation, struct FVector& outInHitNormal, class FName& outInBoneName);
 };
-
 // Class Engine.ParticleSystemComponent
 // 0x00F4 (0x01D4 - 0x02C8)
 class UParticleSystemComponent : public UPrimitiveComponent
@@ -22952,6 +22565,7 @@ public:
 	float                                              AccumTickTime;                                 // 0x0254 (0x0004) [0x0000000000002000] (CPF_Transient)
 	EParticleSystemLODMethod                           LODMethod;                                     // 0x0258 (0x0001) [0x0000000000000001] (CPF_Edit)    
 	EParticleReplayState                               ReplayState;                                   // 0x0259 (0x0001) [0x0000000000002002] (CPF_Const | CPF_Transient)
+	uint8_t                                            UnknownData00[0x2];                              // 0x025A (0x0002) MISSED OFFSET
 	class TArray<struct FMaterialViewRelevance>        CachedViewRelevanceFlags;                      // 0x025C (0x000C) [0x0000000000402002] (CPF_Const | CPF_Transient | CPF_NeedCtorLink)
 	class TArray<class UParticleSystemReplay*>         ReplayClips;                                   // 0x0268 (0x000C) [0x0000000004400003] (CPF_Edit | CPF_Const | CPF_NeedCtorLink | CPF_EditInline)
 	int32_t                                            ReplayClipIDNumber;                            // 0x0274 (0x0004) [0x0000000000002002] (CPF_Const | CPF_Transient)
@@ -22978,6 +22592,7 @@ public:
 
 		return uClassPointer;
 	};
+
 
 	void SetStopSpawning(int32_t InEmitterIndex, bool bInStopSpawning);
 	void ResetToDefaults();
@@ -23020,7 +22635,6 @@ public:
 	void SetTemplate(class UParticleSystem* NewTemplate);
 	void OnSystemFinished(class UParticleSystemComponent* PSystem);
 };
-
 // Class Engine.DistributionFloatParticleParameter
 // 0x0000 (0x006D - 0x006D)
 class UDistributionFloatParticleParameter : public UDistributionFloatParameterBase
@@ -23041,7 +22655,6 @@ public:
 	};
 
 };
-
 // Class Engine.DistributionVectorParticleParameter
 // 0x0000 (0x009F - 0x009F)
 class UDistributionVectorParticleParameter : public UDistributionVectorParameterBase
@@ -23062,7 +22675,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleEmitter
 // 0x002C (0x003C - 0x0068)
 class UParticleEmitter : public UObject
@@ -23071,6 +22683,7 @@ public:
 	class FName                                        EmitterName;                                   // 0x003C (0x0008) [0x0000000000000001] (CPF_Edit)    
 	int32_t                                            SubUVDataOffset;                               // 0x0044 (0x0004) [0x0000000000002000] (CPF_Transient)
 	EEmitterRenderMode                                 EmitterRenderMode;                             // 0x0048 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0049 (0x0003) MISSED OFFSET
 	struct FColor                                      EmitterEditorColor;                            // 0x004C (0x0004) [0x0000000000000001] (CPF_Edit)    
 	class TArray<class UParticleLODLevel*>             LODLevels;                                     // 0x0050 (0x000C) [0x0000000004400008] (CPF_ExportObject | CPF_NeedCtorLink | CPF_EditInline)
 	uint32_t                                           ConvertedModules : 1;                          // 0x005C (0x0004) [0x0000000000000000] [0x00000001] 
@@ -23094,7 +22707,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleSpriteEmitter
 // 0x0000 (0x0068 - 0x0068)
 class UParticleSpriteEmitter : public UParticleEmitter
@@ -23115,7 +22727,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleLODLevel
 // 0x0064 (0x003C - 0x00A0)
 class UParticleLODLevel : public UObject
@@ -23150,7 +22761,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModule
 // 0x000C (0x003C - 0x0048)
 class UParticleModule : public UObject
@@ -23166,6 +22776,7 @@ public:
 	uint32_t                                           bEditable : 1;                                 // 0x003C (0x0004) [0x0000000000000000] [0x00000080] 
 	uint32_t                                           LODDuplicate : 1;                              // 0x003C (0x0004) [0x0000000000000000] [0x00000100] 
 	uint8_t                                            LODValidity;                                   // 0x0040 (0x0001) [0x0000000000000002] (CPF_Const)   
+	uint8_t                                            UnknownData00[0x3];                              // 0x0041 (0x0003) MISSED OFFSET
 	struct FColor                                      ModuleEditorColor;                             // 0x0044 (0x0004) [0x0000000000000001] (CPF_Edit)    
 
 public:
@@ -23182,7 +22793,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleAccelerationBase
 // 0x0004 (0x0048 - 0x004C)
 class UParticleModuleAccelerationBase : public UParticleModule
@@ -23204,7 +22814,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleAcceleration
 // 0x0020 (0x004C - 0x006C)
 class UParticleModuleAcceleration : public UParticleModuleAccelerationBase
@@ -23227,7 +22836,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleAccelerationOverLifetime
 // 0x001C (0x004C - 0x0068)
 class UParticleModuleAccelerationOverLifetime : public UParticleModuleAccelerationBase
@@ -23249,7 +22857,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleAttractorBase
 // 0x0000 (0x0048 - 0x0048)
 class UParticleModuleAttractorBase : public UParticleModule
@@ -23270,7 +22877,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleAttractorLine
 // 0x0050 (0x0048 - 0x0098)
 class UParticleModuleAttractorLine : public UParticleModuleAttractorBase
@@ -23295,7 +22901,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleAttractorParticle
 // 0x004C (0x0048 - 0x0094)
 class UParticleModuleAttractorParticle : public UParticleModuleAttractorBase
@@ -23309,6 +22914,7 @@ public:
 	uint32_t                                           bInheritSourceVel : 1;                         // 0x006C (0x0004) [0x0000000000000001] [0x00000008] (CPF_Edit)
 	struct FRawDistributionFloat                       Strength;                                      // 0x0070 (0x001C) [0x0000000000480001] (CPF_Edit | CPF_Component | CPF_NeedCtorLink)
 	EAttractorParticleSelectionMethod                  SelectionMethod;                               // 0x008C (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x008D (0x0003) MISSED OFFSET
 	int32_t                                            LastSelIndex;                                  // 0x0090 (0x0004) [0x0000000000000000]               
 
 public:
@@ -23325,7 +22931,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleAttractorPoint
 // 0x0060 (0x0048 - 0x00A8)
 class UParticleModuleAttractorPoint : public UParticleModuleAttractorBase
@@ -23356,7 +22961,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleAttractorSkeleton
 // 0x0058 (0x0048 - 0x00A0)
 class UParticleModuleAttractorSkeleton : public UParticleModuleAttractorBase
@@ -23385,7 +22989,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleBeamBase
 // 0x0000 (0x0048 - 0x0048)
 class UParticleModuleBeamBase : public UParticleModule
@@ -23406,13 +23009,13 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleBeamModifier
 // 0x0068 (0x0048 - 0x00B0)
 class UParticleModuleBeamModifier : public UParticleModuleBeamBase
 {
 public:
 	EBeamModifierType                                  ModifierType;                                  // 0x0048 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0049 (0x0003) MISSED OFFSET
 	struct FBeamModifierOptions                        PositionOptions;                               // 0x004C (0x0004) [0x0000000000000001] (CPF_Edit)    
 	struct FRawDistributionVector                      Position;                                      // 0x0050 (0x001C) [0x0000000000480001] (CPF_Edit | CPF_Component | CPF_NeedCtorLink)
 	struct FBeamModifierOptions                        TangentOptions;                                // 0x006C (0x0004) [0x0000000000000001] (CPF_Edit)    
@@ -23435,7 +23038,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleBeamNoise
 // 0x00AC (0x0048 - 0x00F4)
 class UParticleModuleBeamNoise : public UParticleModuleBeamBase
@@ -23476,7 +23078,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleBeamSource
 // 0x0064 (0x0048 - 0x00AC)
 class UParticleModuleBeamSource : public UParticleModuleBeamBase
@@ -23484,6 +23085,7 @@ class UParticleModuleBeamSource : public UParticleModuleBeamBase
 public:
 	EBeam2SourceTargetMethod                           SourceMethod;                                  // 0x0048 (0x0001) [0x0000000000000001] (CPF_Edit)    
 	EBeam2SourceTargetTangentMethod                    SourceTangentMethod;                           // 0x0049 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x2];                              // 0x004A (0x0002) MISSED OFFSET
 	class FName                                        SourceName;                                    // 0x004C (0x0008) [0x0000000000000001] (CPF_Edit)    
 	uint32_t                                           bSourceAbsolute : 1;                           // 0x0054 (0x0004) [0x0000000000000001] [0x00000001] (CPF_Edit)
 	uint32_t                                           bLockSource : 1;                               // 0x0054 (0x0004) [0x0000000000000001] [0x00000002] (CPF_Edit)
@@ -23507,7 +23109,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleBeamTarget
 // 0x0068 (0x0048 - 0x00B0)
 class UParticleModuleBeamTarget : public UParticleModuleBeamBase
@@ -23515,6 +23116,7 @@ class UParticleModuleBeamTarget : public UParticleModuleBeamBase
 public:
 	EBeam2SourceTargetMethod                           TargetMethod;                                  // 0x0048 (0x0001) [0x0000000000000001] (CPF_Edit)    
 	EBeam2SourceTargetTangentMethod                    TargetTangentMethod;                           // 0x0049 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x2];                              // 0x004A (0x0002) MISSED OFFSET
 	class FName                                        TargetName;                                    // 0x004C (0x0008) [0x0000000000000001] (CPF_Edit)    
 	struct FRawDistributionVector                      Target;                                        // 0x0054 (0x001C) [0x0000000000480001] (CPF_Edit | CPF_Component | CPF_NeedCtorLink)
 	uint32_t                                           bTargetAbsolute : 1;                           // 0x0070 (0x0004) [0x0000000000000001] [0x00000001] (CPF_Edit)
@@ -23539,7 +23141,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleCollisionBase
 // 0x0000 (0x0048 - 0x0048)
 class UParticleModuleCollisionBase : public UParticleModule
@@ -23560,7 +23161,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleCollision
 // 0x009C (0x0048 - 0x00E4)
 class UParticleModuleCollision : public UParticleModuleCollisionBase
@@ -23570,6 +23170,7 @@ public:
 	struct FRawDistributionVector                      DampingFactorRotation;                         // 0x0064 (0x001C) [0x0000000000480001] (CPF_Edit | CPF_Component | CPF_NeedCtorLink)
 	struct FRawDistributionFloat                       MaxCollisions;                                 // 0x0080 (0x001C) [0x0000000000480001] (CPF_Edit | CPF_Component | CPF_NeedCtorLink)
 	EParticleCollisionComplete                         CollisionCompletionOption;                     // 0x009C (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x009D (0x0003) MISSED OFFSET
 	uint32_t                                           bApplyPhysics : 1;                             // 0x00A0 (0x0004) [0x0000000000000001] [0x00000001] (CPF_Edit)
 	uint32_t                                           bPawnsDoNotDecrementCount : 1;                 // 0x00A0 (0x0004) [0x0000000000000001] [0x00000002] (CPF_Edit)
 	uint32_t                                           bOnlyVerticalNormalsDecrementCount : 1;        // 0x00A0 (0x0004) [0x0000000000000001] [0x00000004] (CPF_Edit)
@@ -23593,7 +23194,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleColorBase
 // 0x0000 (0x0048 - 0x0048)
 class UParticleModuleColorBase : public UParticleModule
@@ -23614,7 +23214,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleColor
 // 0x003C (0x0048 - 0x0084)
 class UParticleModuleColor : public UParticleModuleColorBase
@@ -23638,7 +23237,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleColorByParameter
 // 0x000C (0x0048 - 0x0054)
 class UParticleModuleColorByParameter : public UParticleModuleColorBase
@@ -23661,7 +23259,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleColorOverLife
 // 0x003C (0x0048 - 0x0084)
 class UParticleModuleColorOverLife : public UParticleModuleColorBase
@@ -23685,7 +23282,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleColorScaleOverDensity
 // 0x0038 (0x0048 - 0x0080)
 class UParticleModuleColorScaleOverDensity : public UParticleModuleColorBase
@@ -23708,7 +23304,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleColorScaleOverLife
 // 0x003C (0x0048 - 0x0084)
 class UParticleModuleColorScaleOverLife : public UParticleModuleColorBase
@@ -23732,7 +23327,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleEventBase
 // 0x0000 (0x0048 - 0x0048)
 class UParticleModuleEventBase : public UParticleModule
@@ -23753,7 +23347,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleEventGenerator
 // 0x000C (0x0048 - 0x0054)
 class UParticleModuleEventGenerator : public UParticleModuleEventBase
@@ -23775,13 +23368,13 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleEventReceiverBase
 // 0x000C (0x0048 - 0x0054)
 class UParticleModuleEventReceiverBase : public UParticleModuleEventBase
 {
 public:
 	EParticleEventType                                 EventGeneratorType;                            // 0x0048 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0049 (0x0003) MISSED OFFSET
 	class FName                                        EventName;                                     // 0x004C (0x0008) [0x0000000000000001] (CPF_Edit)    
 
 public:
@@ -23798,7 +23391,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleEventReceiverKillParticles
 // 0x0004 (0x0054 - 0x0058)
 class UParticleModuleEventReceiverKillParticles : public UParticleModuleEventReceiverBase
@@ -23820,13 +23412,13 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleEventReceiverSpawn
 // 0x0048 (0x0054 - 0x009C)
 class UParticleModuleEventReceiverSpawn : public UParticleModuleEventReceiverBase
 {
 public:
 	EParticleEventType                                 EventGeneratorType;                            // 0x0054 (0x0001) [0x0000000020000000]  CPF_Deprecated)
+	uint8_t                                            UnknownData00[0x3];                              // 0x0055 (0x0003) MISSED OFFSET
 	class FName                                        EventName;                                     // 0x0058 (0x0008) [0x0000000020000000]  CPF_Deprecated)
 	struct FRawDistributionFloat                       SpawnCount;                                    // 0x0060 (0x001C) [0x0000000000480001] (CPF_Edit | CPF_Component | CPF_NeedCtorLink)
 	uint32_t                                           bUseParticleTime : 1;                          // 0x007C (0x0004) [0x0000000000000001] [0x00000001] (CPF_Edit)
@@ -23848,7 +23440,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleKillBase
 // 0x0000 (0x0048 - 0x0048)
 class UParticleModuleKillBase : public UParticleModule
@@ -23869,7 +23460,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleKillBox
 // 0x003C (0x0048 - 0x0084)
 class UParticleModuleKillBox : public UParticleModuleKillBase
@@ -23894,7 +23484,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleKillHeight
 // 0x0020 (0x0048 - 0x0068)
 class UParticleModuleKillHeight : public UParticleModuleKillBase
@@ -23918,7 +23507,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleLifetimeBase
 // 0x0000 (0x0048 - 0x0048)
 class UParticleModuleLifetimeBase : public UParticleModule
@@ -23939,7 +23527,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleLifetime
 // 0x001C (0x0048 - 0x0064)
 class UParticleModuleLifetime : public UParticleModuleLifetimeBase
@@ -23961,7 +23548,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleLocationBase
 // 0x0000 (0x0048 - 0x0048)
 class UParticleModuleLocationBase : public UParticleModule
@@ -23982,7 +23568,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleLocation
 // 0x001C (0x0048 - 0x0064)
 class UParticleModuleLocation : public UParticleModuleLocationBase
@@ -24004,7 +23589,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleLocationSkeleton
 // 0x0024 (0x0064 - 0x0088)
 class UParticleModuleLocationSkeleton : public UParticleModuleLocation
@@ -24030,7 +23614,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleLocationDirect
 // 0x0070 (0x0048 - 0x00B8)
 class UParticleModuleLocationDirect : public UParticleModuleLocationBase
@@ -24055,7 +23638,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleLocationEmitter
 // 0x0018 (0x0048 - 0x0060)
 class UParticleModuleLocationEmitter : public UParticleModuleLocationBase
@@ -24063,6 +23645,7 @@ class UParticleModuleLocationEmitter : public UParticleModuleLocationBase
 public:
 	class FName                                        EmitterName;                                   // 0x0048 (0x0008) [0x0000000002000009] (CPF_Edit | CPF_ExportObject | CPF_NoClear)
 	ELocationEmitterSelectionMethod                    SelectionMethod;                               // 0x0050 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0051 (0x0003) MISSED OFFSET
 	uint32_t                                           InheritSourceVelocity : 1;                     // 0x0054 (0x0004) [0x0000000000000001] [0x00000001] (CPF_Edit)
 	uint32_t                                           bInheritSourceRotation : 1;                    // 0x0054 (0x0004) [0x0000000000000001] [0x00000002] (CPF_Edit)
 	float                                              InheritSourceVelocityScale;                    // 0x0058 (0x0004) [0x0000000000000001] (CPF_Edit)    
@@ -24082,7 +23665,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleLocationEmitterDirect
 // 0x0008 (0x0048 - 0x0050)
 class UParticleModuleLocationEmitterDirect : public UParticleModuleLocationBase
@@ -24104,7 +23686,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleLocationPrimitiveBase
 // 0x003C (0x0048 - 0x0084)
 class UParticleModuleLocationPrimitiveBase : public UParticleModuleLocationBase
@@ -24135,7 +23716,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleLocationPrimitiveCylinder
 // 0x0058 (0x0084 - 0x00DC)
 class UParticleModuleLocationPrimitiveCylinder : public UParticleModuleLocationPrimitiveBase
@@ -24146,6 +23726,7 @@ public:
 	struct FRawDistributionFloat                       StartRadius;                                   // 0x0088 (0x001C) [0x0000000000480001] (CPF_Edit | CPF_Component | CPF_NeedCtorLink)
 	struct FRawDistributionFloat                       StartHeight;                                   // 0x00A4 (0x001C) [0x0000000000480001] (CPF_Edit | CPF_Component | CPF_NeedCtorLink)
 	ECylinderHeightAxis                                HeightAxis;                                    // 0x00C0 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x00C1 (0x0003) MISSED OFFSET
 	int32_t                                            DivisionNum;                                   // 0x00C4 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	int32_t                                            OldDivisionNum;                                // 0x00C8 (0x0004) [0x0000000000000000]               
 	class TArray<uint8_t>                              DivisionArray;                                 // 0x00CC (0x000C) [0x0000000000400000] (CPF_NeedCtorLink)
@@ -24165,7 +23746,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleLocationPrimitiveSphere
 // 0x001C (0x0084 - 0x00A0)
 class UParticleModuleLocationPrimitiveSphere : public UParticleModuleLocationPrimitiveBase
@@ -24187,7 +23767,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleSourceMovement
 // 0x001C (0x0048 - 0x0064)
 class UParticleModuleSourceMovement : public UParticleModuleLocationBase
@@ -24209,7 +23788,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleMaterialBase
 // 0x0000 (0x0048 - 0x0048)
 class UParticleModuleMaterialBase : public UParticleModule
@@ -24230,7 +23808,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleMaterialByParameter
 // 0x0018 (0x0048 - 0x0060)
 class UParticleModuleMaterialByParameter : public UParticleModuleMaterialBase
@@ -24253,7 +23830,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleMeshMaterial
 // 0x000C (0x0048 - 0x0054)
 class UParticleModuleMeshMaterial : public UParticleModuleMaterialBase
@@ -24275,7 +23851,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleOrbitBase
 // 0x0004 (0x0048 - 0x004C)
 class UParticleModuleOrbitBase : public UParticleModule
@@ -24297,13 +23872,13 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleOrbit
 // 0x0064 (0x004C - 0x00B0)
 class UParticleModuleOrbit : public UParticleModuleOrbitBase
 {
 public:
 	EOrbitChainMode                                    ChainMode;                                     // 0x004C (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x004D (0x0003) MISSED OFFSET
 	struct FRawDistributionVector                      OffsetAmount;                                  // 0x0050 (0x001C) [0x0000000000480001] (CPF_Edit | CPF_Component | CPF_NeedCtorLink)
 	struct FOrbitOptions                               OffsetOptions;                                 // 0x006C (0x0004) [0x0000000000000001] (CPF_Edit)    
 	struct FRawDistributionVector                      RotationAmount;                                // 0x0070 (0x001C) [0x0000000000480001] (CPF_Edit | CPF_Component | CPF_NeedCtorLink)
@@ -24325,7 +23900,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleOrientationBase
 // 0x0000 (0x0048 - 0x0048)
 class UParticleModuleOrientationBase : public UParticleModule
@@ -24346,7 +23920,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleOrientationAxisLock
 // 0x0001 (0x0048 - 0x0049)
 class UParticleModuleOrientationAxisLock : public UParticleModuleOrientationBase
@@ -24368,7 +23941,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleParameterBase
 // 0x0000 (0x0048 - 0x0048)
 class UParticleModuleParameterBase : public UParticleModule
@@ -24389,7 +23961,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleParameterDynamic
 // 0x000C (0x0048 - 0x0054)
 class UParticleModuleParameterDynamic : public UParticleModuleParameterBase
@@ -24411,7 +23982,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleRequired
 // 0x007C (0x0048 - 0x00C4)
 class UParticleModuleRequired : public UParticleModule
@@ -24423,6 +23993,7 @@ public:
 	EParticleBurstMethod                               ParticleBurstMethod;                           // 0x004E (0x0001) [0x0000000000000000]               
 	EParticleSubUVInterpMethod                         InterpolationMethod;                           // 0x004F (0x0001) [0x0000000000000001] (CPF_Edit)    
 	EEmitterNormalsMode                                EmitterNormalsMode;                            // 0x0050 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0051 (0x0003) MISSED OFFSET
 	uint32_t                                           bUseLocalSpace : 1;                            // 0x0054 (0x0004) [0x0000000000000001] [0x00000001] (CPF_Edit)
 	uint32_t                                           bKillOnDeactivate : 1;                         // 0x0054 (0x0004) [0x0000000000000001] [0x00000002] (CPF_Edit)
 	uint32_t                                           bKillOnCompleted : 1;                          // 0x0054 (0x0004) [0x0000000000000001] [0x00000004] (CPF_Edit)
@@ -24465,7 +24036,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleRotationBase
 // 0x0000 (0x0048 - 0x0048)
 class UParticleModuleRotationBase : public UParticleModule
@@ -24486,7 +24056,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleMeshRotation
 // 0x0020 (0x0048 - 0x0068)
 class UParticleModuleMeshRotation : public UParticleModuleRotationBase
@@ -24509,7 +24078,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleRotation
 // 0x001C (0x0048 - 0x0064)
 class UParticleModuleRotation : public UParticleModuleRotationBase
@@ -24531,7 +24099,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleRotationOverLifetime
 // 0x0020 (0x0048 - 0x0068)
 class UParticleModuleRotationOverLifetime : public UParticleModuleRotationBase
@@ -24554,7 +24121,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleRotationRateBase
 // 0x0000 (0x0048 - 0x0048)
 class UParticleModuleRotationRateBase : public UParticleModule
@@ -24575,7 +24141,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleMeshRotationRate
 // 0x001C (0x0048 - 0x0064)
 class UParticleModuleMeshRotationRate : public UParticleModuleRotationRateBase
@@ -24597,7 +24162,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleMeshRotationRateMultiplyLife
 // 0x001C (0x0048 - 0x0064)
 class UParticleModuleMeshRotationRateMultiplyLife : public UParticleModuleRotationRateBase
@@ -24619,7 +24183,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleRotationRate
 // 0x001C (0x0048 - 0x0064)
 class UParticleModuleRotationRate : public UParticleModuleRotationRateBase
@@ -24641,7 +24204,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleRotationRateMultiplyLife
 // 0x001C (0x0048 - 0x0064)
 class UParticleModuleRotationRateMultiplyLife : public UParticleModuleRotationRateBase
@@ -24663,7 +24225,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleSizeBase
 // 0x0000 (0x0048 - 0x0048)
 class UParticleModuleSizeBase : public UParticleModule
@@ -24684,7 +24245,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleSize
 // 0x001C (0x0048 - 0x0064)
 class UParticleModuleSize : public UParticleModuleSizeBase
@@ -24706,7 +24266,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleSizeMultiplyLife
 // 0x0020 (0x0048 - 0x0068)
 class UParticleModuleSizeMultiplyLife : public UParticleModuleSizeBase
@@ -24731,7 +24290,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleSizeMultiplyVelocity
 // 0x0020 (0x0048 - 0x0068)
 class UParticleModuleSizeMultiplyVelocity : public UParticleModuleSizeBase
@@ -24756,7 +24314,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleSizeScale
 // 0x0020 (0x0048 - 0x0068)
 class UParticleModuleSizeScale : public UParticleModuleSizeBase
@@ -24781,7 +24338,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleSizeScaleByTime
 // 0x0020 (0x0048 - 0x0068)
 class UParticleModuleSizeScaleByTime : public UParticleModuleSizeBase
@@ -24806,7 +24362,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleSizeScaleOverDensity
 // 0x001C (0x0048 - 0x0064)
 class UParticleModuleSizeScaleOverDensity : public UParticleModuleSizeBase
@@ -24828,7 +24383,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleSpawnBase
 // 0x0004 (0x0048 - 0x004C)
 class UParticleModuleSpawnBase : public UParticleModule
@@ -24851,7 +24405,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleSpawn
 // 0x0048 (0x004C - 0x0094)
 class UParticleModuleSpawn : public UParticleModuleSpawnBase
@@ -24860,6 +24413,7 @@ public:
 	struct FRawDistributionFloat                       Rate;                                          // 0x004C (0x001C) [0x0000000000480001] (CPF_Edit | CPF_Component | CPF_NeedCtorLink)
 	struct FRawDistributionFloat                       RateScale;                                     // 0x0068 (0x001C) [0x0000000000480001] (CPF_Edit | CPF_Component | CPF_NeedCtorLink)
 	EParticleBurstMethod                               ParticleBurstMethod;                           // 0x0084 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0085 (0x0003) MISSED OFFSET
 	class TArray<struct FParticleBurst>                BurstList;                                     // 0x0088 (0x000C) [0x0000000002400009] (CPF_Edit | CPF_ExportObject | CPF_NeedCtorLink | CPF_NoClear)
 
 public:
@@ -24876,7 +24430,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleSpawnPerUnit
 // 0x0028 (0x004C - 0x0074)
 class UParticleModuleSpawnPerUnit : public UParticleModuleSpawnBase
@@ -24901,7 +24454,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleStoreSpawnTimeBase
 // 0x0000 (0x0048 - 0x0048)
 class UParticleModuleStoreSpawnTimeBase : public UParticleModule
@@ -24922,7 +24474,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleStoreSpawnTime
 // 0x0000 (0x0048 - 0x0048)
 class UParticleModuleStoreSpawnTime : public UParticleModuleStoreSpawnTimeBase
@@ -24943,7 +24494,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleSubUVBase
 // 0x0000 (0x0048 - 0x0048)
 class UParticleModuleSubUVBase : public UParticleModule
@@ -24964,7 +24514,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleSubUV
 // 0x001C (0x0048 - 0x0064)
 class UParticleModuleSubUV : public UParticleModuleSubUVBase
@@ -24986,7 +24535,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleSubUVMovie
 // 0x0024 (0x0064 - 0x0088)
 class UParticleModuleSubUVMovie : public UParticleModuleSubUV
@@ -25010,7 +24558,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleSubUVDirect
 // 0x0038 (0x0048 - 0x0080)
 class UParticleModuleSubUVDirect : public UParticleModuleSubUVBase
@@ -25033,7 +24580,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleSubUVSelect
 // 0x001C (0x0048 - 0x0064)
 class UParticleModuleSubUVSelect : public UParticleModuleSubUVBase
@@ -25055,7 +24601,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleTrailBase
 // 0x0000 (0x0048 - 0x0048)
 class UParticleModuleTrailBase : public UParticleModule
@@ -25076,7 +24621,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleTrailSource
 // 0x003C (0x0048 - 0x0084)
 class UParticleModuleTrailSource : public UParticleModuleTrailBase
@@ -25084,6 +24628,7 @@ class UParticleModuleTrailSource : public UParticleModuleTrailBase
 public:
 	ETrail2SourceMethod                                SourceMethod;                                  // 0x0048 (0x0001) [0x0000000000000001] (CPF_Edit)    
 	EParticleSourceSelectionMethod                     SelectionMethod;                               // 0x0049 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x2];                              // 0x004A (0x0002) MISSED OFFSET
 	class FName                                        SourceName;                                    // 0x004C (0x0008) [0x0000000000000001] (CPF_Edit)    
 	struct FRawDistributionFloat                       SourceStrength;                                // 0x0054 (0x001C) [0x0000000000480001] (CPF_Edit | CPF_Component | CPF_NeedCtorLink)
 	uint32_t                                           bLockSourceStength : 1;                        // 0x0070 (0x0004) [0x0000000000000001] [0x00000001] (CPF_Edit)
@@ -25105,7 +24650,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleTrailSpawn
 // 0x0008 (0x0048 - 0x0050)
 class UParticleModuleTrailSpawn : public UParticleModuleTrailBase
@@ -25128,13 +24672,13 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleTrailTaper
 // 0x0020 (0x0048 - 0x0068)
 class UParticleModuleTrailTaper : public UParticleModuleTrailBase
 {
 public:
 	ETrailTaperMethod                                  TaperMethod;                                   // 0x0048 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0049 (0x0003) MISSED OFFSET
 	struct FRawDistributionFloat                       TaperFactor;                                   // 0x004C (0x001C) [0x0000000000480001] (CPF_Edit | CPF_Component | CPF_NeedCtorLink)
 
 public:
@@ -25151,7 +24695,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleTypeDataBase
 // 0x0000 (0x0048 - 0x0048)
 class UParticleModuleTypeDataBase : public UParticleModule
@@ -25172,7 +24715,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleTypeDataAnimTrail
 // 0x001C (0x0048 - 0x0064)
 class UParticleModuleTypeDataAnimTrail : public UParticleModuleTypeDataBase
@@ -25206,7 +24748,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleTypeDataApex
 // 0x0008 (0x0048 - 0x0050)
 class UParticleModuleTypeDataApex : public UParticleModuleTypeDataBase
@@ -25229,7 +24770,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleTypeDataBeam
 // 0x009C (0x0048 - 0x00E4)
 class UParticleModuleTypeDataBeam : public UParticleModuleTypeDataBase
@@ -25237,6 +24777,7 @@ class UParticleModuleTypeDataBeam : public UParticleModuleTypeDataBase
 public:
 	EBeamMethod                                        BeamMethod;                                    // 0x0048 (0x0001) [0x0000000000000001] (CPF_Edit)    
 	EBeamEndPointMethod                                EndPointMethod;                                // 0x0049 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x2];                              // 0x004A (0x0002) MISSED OFFSET
 	struct FRawDistributionFloat                       Distance;                                      // 0x004C (0x001C) [0x0000000000480001] (CPF_Edit | CPF_Component | CPF_NeedCtorLink)
 	struct FRawDistributionVector                      EndPoint;                                      // 0x0068 (0x001C) [0x0000000000480001] (CPF_Edit | CPF_Component | CPF_NeedCtorLink)
 	int32_t                                            TessellationFactor;                            // 0x0084 (0x0004) [0x0000000000000001] (CPF_Edit)    
@@ -25263,7 +24804,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleTypeDataBeam2
 // 0x0080 (0x0048 - 0x00C8)
 class UParticleModuleTypeDataBeam2 : public UParticleModuleTypeDataBase
@@ -25271,6 +24811,7 @@ class UParticleModuleTypeDataBeam2 : public UParticleModuleTypeDataBase
 public:
 	EBeam2Method                                       BeamMethod;                                    // 0x0048 (0x0001) [0x0000000000000001] (CPF_Edit)    
 	EBeamTaperMethod                                   TaperMethod;                                   // 0x0049 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x2];                              // 0x004A (0x0002) MISSED OFFSET
 	int32_t                                            TextureTile;                                   // 0x004C (0x0004) [0x0000000000000001] (CPF_Edit)    
 	float                                              TextureTileDistance;                           // 0x0050 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	int32_t                                            Sheets;                                        // 0x0054 (0x0004) [0x0000000000000001] (CPF_Edit)    
@@ -25302,7 +24843,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleTypeDataIsosurfacePhysX
 // 0x0028 (0x0048 - 0x0070)
 class UParticleModuleTypeDataIsosurfacePhysX : public UParticleModuleTypeDataBase
@@ -25330,7 +24870,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleTypeDataMesh
 // 0x0018 (0x0048 - 0x0060)
 class UParticleModuleTypeDataMesh : public UParticleModuleTypeDataBase
@@ -25364,7 +24903,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleTypeDataMeshPhysX
 // 0x0020 (0x0060 - 0x0080)
 class UParticleModuleTypeDataMeshPhysX : public UParticleModuleTypeDataMesh
@@ -25372,6 +24910,7 @@ class UParticleModuleTypeDataMeshPhysX : public UParticleModuleTypeDataMesh
 public:
 	class UPhysXParticleSystem*                        PhysXParSys;                                   // 0x0060 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	EPhysXMeshRotationMethod                           PhysXRotationMethod;                           // 0x0064 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0065 (0x0003) MISSED OFFSET
 	float                                              FluidRotationCoefficient;                      // 0x0068 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	struct FPointer                                    RenderInstance;                                // 0x006C (0x0004) [0x0000000000001000] (CPF_Native)  
 	struct FPhysXEmitterVerticalLodProperties          VerticalLod;                                   // 0x0070 (0x0010) [0x0000000000000001] (CPF_Edit)    
@@ -25390,7 +24929,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleTypeDataPhysX
 // 0x001C (0x0048 - 0x0064)
 class UParticleModuleTypeDataPhysX : public UParticleModuleTypeDataBase
@@ -25415,7 +24953,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleTypeDataRibbon
 // 0x0028 (0x0048 - 0x0070)
 class UParticleModuleTypeDataRibbon : public UParticleModuleTypeDataBase
@@ -25434,6 +24971,7 @@ public:
 	uint32_t                                           bRenderTangents : 1;                           // 0x0058 (0x0004) [0x0000000000000001] [0x00000040] (CPF_Edit)
 	uint32_t                                           bRenderTessellation : 1;                       // 0x0058 (0x0004) [0x0000000000000001] [0x00000080] (CPF_Edit)
 	ETrailsRenderAxisOption                            RenderAxis;                                    // 0x005C (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x005D (0x0003) MISSED OFFSET
 	float                                              TangentSpawningScalar;                         // 0x0060 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	float                                              TilingDistance;                                // 0x0064 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	float                                              DistanceTessellationStepSize;                  // 0x0068 (0x0004) [0x0000000000000001] (CPF_Edit)    
@@ -25453,7 +24991,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleTypeDataTrail
 // 0x0030 (0x0048 - 0x0078)
 class UParticleModuleTypeDataTrail : public UParticleModuleTypeDataBase
@@ -25482,7 +25019,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleTypeDataTrail2
 // 0x0040 (0x0048 - 0x0088)
 class UParticleModuleTypeDataTrail2 : public UParticleModuleTypeDataBase
@@ -25521,7 +25057,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleUberBase
 // 0x000C (0x0048 - 0x0054)
 class UParticleModuleUberBase : public UParticleModule
@@ -25543,7 +25078,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleUberLTISIVCL
 // 0x00A8 (0x0054 - 0x00FC)
 class UParticleModuleUberLTISIVCL : public UParticleModuleUberBase
@@ -25570,7 +25104,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleUberLTISIVCLIL
 // 0x00C4 (0x0054 - 0x0118)
 class UParticleModuleUberLTISIVCLIL : public UParticleModuleUberBase
@@ -25598,7 +25131,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleUberLTISIVCLILIRSSBLIRR
 // 0x011C (0x0054 - 0x0170)
 class UParticleModuleUberLTISIVCLILIRSSBLIRR : public UParticleModuleUberBase
@@ -25632,7 +25164,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleUberRainDrops
 // 0x0088 (0x0054 - 0x00DC)
 class UParticleModuleUberRainDrops : public UParticleModuleUberBase
@@ -25663,6 +25194,7 @@ public:
 	float                                              PC_StartRadius;                                // 0x00B8 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	float                                              PC_StartHeight;                                // 0x00BC (0x0004) [0x0000000000000001] (CPF_Edit)    
 	ECylinderHeightAxis                                PC_HeightAxis;                                 // 0x00C0 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x00C1 (0x0003) MISSED OFFSET
 	struct FVector                                     StartLocationMin;                              // 0x00C4 (0x000C) [0x0000000000000001] (CPF_Edit)    
 	struct FVector                                     StartLocationMax;                              // 0x00D0 (0x000C) [0x0000000000000001] (CPF_Edit)    
 
@@ -25680,7 +25212,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleUberRainImpacts
 // 0x0120 (0x0054 - 0x0174)
 class UParticleModuleUberRainImpacts : public UParticleModuleUberBase
@@ -25709,6 +25240,7 @@ public:
 	struct FRawDistributionFloat                       PC_StartRadius;                                // 0x0100 (0x001C) [0x0000000000480001] (CPF_Edit | CPF_Component | CPF_NeedCtorLink)
 	struct FRawDistributionFloat                       PC_StartHeight;                                // 0x011C (0x001C) [0x0000000000480001] (CPF_Edit | CPF_Component | CPF_NeedCtorLink)
 	ECylinderHeightAxis                                PC_HeightAxis;                                 // 0x0138 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0139 (0x0003) MISSED OFFSET
 	struct FRawDistributionVector                      ColorOverLife;                                 // 0x013C (0x001C) [0x0000000000480001] (CPF_Edit | CPF_Component | CPF_NeedCtorLink)
 	struct FRawDistributionFloat                       AlphaOverLife;                                 // 0x0158 (0x001C) [0x0000000000480001] (CPF_Edit | CPF_Component | CPF_NeedCtorLink)
 
@@ -25726,7 +25258,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleUberRainSplashA
 // 0x00AC (0x0054 - 0x0100)
 class UParticleModuleUberRainSplashA : public UParticleModuleUberBase
@@ -25757,7 +25288,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleUberRainSplashB
 // 0x00AC (0x0054 - 0x0100)
 class UParticleModuleUberRainSplashB : public UParticleModuleUberBase
@@ -25787,7 +25317,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleVelocityBase
 // 0x0004 (0x0048 - 0x004C)
 class UParticleModuleVelocityBase : public UParticleModule
@@ -25810,7 +25339,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleVelocity
 // 0x0038 (0x004C - 0x0084)
 class UParticleModuleVelocity : public UParticleModuleVelocityBase
@@ -25833,7 +25361,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleVelocityInheritParent
 // 0x001C (0x004C - 0x0068)
 class UParticleModuleVelocityInheritParent : public UParticleModuleVelocityBase
@@ -25855,7 +25382,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleVelocityOverLifetime
 // 0x0020 (0x004C - 0x006C)
 class UParticleModuleVelocityOverLifetime : public UParticleModuleVelocityBase
@@ -25878,7 +25404,6 @@ public:
 	};
 
 };
-
 // Class Engine.ParticleModuleEventSendToGame
 // 0x0000 (0x003C - 0x003C)
 class UParticleModuleEventSendToGame : public UObject
@@ -25898,9 +25423,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void DoEvent(struct FVector& outInCollideDirection, struct FVector& outInHitLocation, struct FVector& outInHitNormal, class FName& outInBoneName);
 };
-
 // Class Engine.ParticleSystemReplay
 // 0x0010 (0x003C - 0x004C)
 class UParticleSystemReplay : public UObject
@@ -25923,7 +25448,6 @@ public:
 	};
 
 };
-
 // Class Engine.PhysXParticleSystem
 // 0x005C (0x003C - 0x0098)
 class UPhysXParticleSystem : public UObject
@@ -25934,6 +25458,7 @@ public:
 	ERBCollisionChannel                                RBChannel;                                     // 0x0044 (0x0001) [0x0000000000000003] (CPF_Edit | CPF_Const)
 	ESimulationMethod                                  SimulationMethod;                              // 0x0045 (0x0001) [0x0000000000000001] (CPF_Edit)    
 	EPacketSizeMultiplier                              PacketSizeMultiplier;                          // 0x0046 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x1];                              // 0x0047 (0x0001) MISSED OFFSET
 	struct FRBCollisionChannelContainer                RBCollideWithChannels;                         // 0x0048 (0x0004) [0x0000000000000003] (CPF_Edit | CPF_Const)
 	float                                              CollisionDistance;                             // 0x004C (0x0004) [0x0000000000000001] (CPF_Edit)    
 	float                                              RestitutionWithStaticShapes;                   // 0x0050 (0x0004) [0x0000000000000001] (CPF_Edit)    
@@ -25973,7 +25498,6 @@ public:
 	};
 
 };
-
 // Class Engine.KActor
 // 0x00B4 (0x0264 - 0x0318)
 class AKActor : public ADynamicSMActor
@@ -26018,6 +25542,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void Reset();
 	void OnTeleport(class USeqAct_Teleport* inAction);
 	void OnToggle(class USeqAct_Toggle* Action);
@@ -26033,7 +25558,6 @@ public:
 	void ResolveRBState();
 	class UPhysicalMaterial* GetKActorPhysMaterial();
 };
-
 // Class Engine.KActorFromStatic
 // 0x0008 (0x0318 - 0x0320)
 class AKActorFromStatic : public AKActor
@@ -26055,6 +25579,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void TakeRadiusDamage(class AController* InstigatedBy, float BaseDamage, float DamageRadius, class UClass* DamageType, float Momentum, const struct FVector& HurtOrigin, bool bFullDamage, class AActor* DamageCauser, float optionalDamageFalloffExponent);
 	void eventBump(class AActor* Other, class UPrimitiveComponent* OtherComp, const struct FVector& HitNormal);
 	void eventApplyImpulse(const struct FVector& ImpulseDir, float ImpulseMag, const struct FVector& HitLocation, const struct FTraceHitInfo& optionalHitInfo, class UClass* optionalDamageType);
@@ -26064,7 +25589,6 @@ public:
 	void eventOnWakeRBPhysics();
 	void eventOnSleepRBPhysics();
 };
-
 // Class Engine.KActorSpawnable
 // 0x0004 (0x0318 - 0x031C)
 class AKActorSpawnable : public AKActor
@@ -26086,12 +25610,12 @@ public:
 		return uClassPointer;
 	};
 
+
 	void ResetComponents();
 	void eventRecycleInternal();
 	void Recycle();
 	void Initialize();
 };
-
 // Class Engine.KAsset
 // 0x0010 (0x0228 - 0x0238)
 class AKAsset : public AActor
@@ -26117,6 +25641,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void DoKismetAttachment(class AActor* Attachment, class USeqAct_AttachToActor* Action);
 	void OnTeleport(class USeqAct_Teleport* inAction);
 	void OnToggle(class USeqAct_Toggle* Action);
@@ -26126,7 +25651,6 @@ public:
 	void SetMeshAndPhysAsset(class USkeletalMesh* NewMesh, class UPhysicsAsset* NewPhysAsset);
 	void eventPostBeginPlay();
 };
-
 // Class Engine.Pawn
 // 0x03B0 (0x0228 - 0x05D8)
 class APawn : public AActor
@@ -26173,6 +25697,7 @@ public:
 	uint32_t                                           bCanSwatTurn : 1;                              // 0x024C (0x0004) [0x0000000000004020] [0x20000000] (CPF_Net | CPF_Config)
 	uint32_t                                           bCanLeap : 1;                                  // 0x024C (0x0004) [0x0000000000004000] [0x40000000] (CPF_Config)
 	uint32_t                                           bCanCoverSlip : 1;                             // 0x024C (0x0004) [0x0000000000004000] [0x80000000] (CPF_Config)
+	uint32_t : 0;                                  // 0x0250 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bDisplayPathErrors : 1;                        // 0x0250 (0x0004) [0x0000000000044000] [0x00000001] (CPF_Config | CPF_GlobalConfig)
 	uint32_t                                           bIsFemale : 1;                                 // 0x0250 (0x0004) [0x0000000000000000] [0x00000002] 
 	uint32_t                                           bCanPickupInventory : 1;                       // 0x0250 (0x0004) [0x0000000000000000] [0x00000004] 
@@ -26205,6 +25730,7 @@ public:
 	uint32_t                                           IgnoreXYMovementWhileZAxisMovement : 1;        // 0x0250 (0x0004) [0x0000000000002000] [0x20000000] (CPF_Transient)
 	uint32_t                                           bSlidingToTarget : 1;                          // 0x0250 (0x0004) [0x0000000000002000] [0x40000000] (CPF_Transient)
 	uint32_t                                           bDebugShowCameraLocation : 1;                  // 0x0250 (0x0004) [0x0000000000000001] [0x80000000] (CPF_Edit)
+	uint32_t : 0;                                  // 0x0254 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bInDeathRagdoll : 1;                           // 0x0254 (0x0004) [0x0000000000000000] [0x00000001] 
 	uint32_t                                           bCanBeLockedOn : 1;                            // 0x0254 (0x0004) [0x0000000000000001] [0x00000002] (CPF_Edit)
 	uint32_t                                           bLockedOn : 1;                                 // 0x0254 (0x0004) [0x0000000000002000] [0x00000004] (CPF_Transient)
@@ -26227,6 +25753,7 @@ public:
 	uint8_t                                            FlashCount;                                    // 0x028A (0x0001) [0x0000000000000020] (CPF_Net | CPF_RepNotify)
 	uint8_t                                            FiringMode;                                    // 0x028B (0x0001) [0x0000000000000020] (CPF_Net | CPF_RepNotify)
 	ECmnLedgeType                                      LedgeTypeWhileZAxisMovement;                   // 0x028C (0x0001) [0x0000000000002000] (CPF_Transient)
+	uint8_t                                            UnknownData00[0x3];                              // 0x028D (0x0003) MISSED OFFSET
 	class UPathConstraint*                             PathConstraintList;                            // 0x0290 (0x0004) [0x0000000000000000]               
 	class UPathGoalEvaluator*                          PathGoalList;                                  // 0x0294 (0x0004) [0x0000000000000000]               
 	float                                              DesiredSpeed;                                  // 0x0298 (0x0004) [0x0000000000000000]               
@@ -26357,7 +25884,7 @@ public:
 	float                                              MeshHeightOffset;                              // 0x0554 (0x0004) [0x0000000000002000] (CPF_Transient)
 	float                                              bJustPushDownSpeed;                            // 0x0558 (0x0004) [0x0000000000002000] (CPF_Transient)
 	float                                              ThresholdHeightToCancelPushDownByIK;           // 0x055C (0x0004) [0x0000000000000001] (CPF_Edit)    
-	uint8_t                                            UnknownData00[0x78];                            // 0x0560 (0x0078) MISSED OFFSET
+	uint8_t                                            UnknownData01[0x78];                            // 0x0560 (0x0078) MISSED OFFSET
 
 public:
 	static UClass* StaticClass()
@@ -26371,6 +25898,7 @@ public:
 
 		return uClassPointer;
 	};
+
 
 	void eventPostSetPhysFalling();
 	void StartSlideToTarget();
@@ -26503,7 +26031,7 @@ public:
 	void JumpOutOfWater(const struct FVector& jumpDir);
 	void FinishedInterpolation();
 	void eventClientMessage(const class FString& S, const class FName& optionalType);
-	void ReceiveLocalizedMessage(class UClass* Message, int32_t optionalSwitch, class APlayerReplicationInfo* optionalRelatedPRI, class APlayerReplicationInfo* optionalRelatedPRI01, class UObject* optionalOptionalObject);
+	void ReceiveLocalizedMessage(class UClass* Message, int32_t optionalSwitch, class APlayerReplicationInfo* optionalRelatedPRI_1, class APlayerReplicationInfo* optionalRelatedPRI_2, class UObject* optionalOptionalObject);
 	void HandlePickup(class AInventory* Inv);
 	float AdjustedStrength();
 	bool LineOfSightTo(class AActor* Other);
@@ -26647,7 +26175,6 @@ public:
 	bool SetDesiredRotation(const struct FRotator& TargetDesiredRotation, bool optionalInLockDesiredRotation, bool optionalInUnlockWhenReached, float optionalInterpolationTime);
 	bool PickWallAdjust(const struct FVector& WallHitNormal, class AActor* HitActor);
 };
-
 // Class Engine.Vehicle
 // 0x0074 (0x05D8 - 0x064C)
 class AVehicle : public APawn
@@ -26680,6 +26207,7 @@ public:
 	float                                              MinCrushSpeed;                                 // 0x0620 (0x0004) [0x0000000000000000]               
 	float                                              ForceCrushPenetration;                         // 0x0624 (0x0004) [0x0000000000000000]               
 	uint8_t                                            StuckCount;                                    // 0x0628 (0x0001) [0x0000000000000000]               
+	uint8_t                                            UnknownData00[0x3];                              // 0x0629 (0x0003) MISSED OFFSET
 	float                                              ThrottleTime;                                  // 0x062C (0x0004) [0x0000000000000000]               
 	float                                              StuckTime;                                     // 0x0630 (0x0004) [0x0000000000000000]               
 	float                                              OldSteering;                                   // 0x0634 (0x0004) [0x0000000000000000]               
@@ -26701,6 +26229,7 @@ public:
 
 		return uClassPointer;
 	};
+
 
 	void ZeroMovementVariables();
 	void NotifyDriverTakeHit(class AController* InstigatedBy, const struct FVector& HitLocation, int32_t Damage, class UClass* DamageType, const struct FVector& Momentum);
@@ -26756,7 +26285,6 @@ public:
 	void DisplayDebug(class AHUD* HUD, float& outOut_YL, float& outOut_YPos);
 	void NotifyTeamChanged();
 };
-
 // Class Engine.SVehicle
 // 0x011C (0x064C - 0x0768)
 class ASVehicle : public AVehicle
@@ -26832,6 +26360,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SetAllWheelParticleSystem(class UParticleSystem* NewSystem);
 	void GetSVehicleDebug(class TArray<class FString>& outDebugInfo);
 	float HermiteEval(float Slip);
@@ -26866,7 +26395,6 @@ public:
 	void AddImpulse(const struct FVector& Impulse);
 	void AddForce(const struct FVector& Force);
 };
-
 // Class Engine.RB_ConstraintActor
 // 0x001C (0x0228 - 0x0244)
 class ARB_ConstraintActor : public ARigidBodyBase
@@ -26895,6 +26423,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void OnToggleConstraintDrive(class USeqAct_ToggleConstraintDrive* Action);
 	void OnToggle(class USeqAct_Toggle* Action);
 	void OnDestroy(class USeqAct_Destroy* Action);
@@ -26902,7 +26431,6 @@ public:
 	void InitConstraint(class AActor* Actor1, class AActor* Actor2, const class FName& optionalActor1Bone, const class FName& optionalActor2Bone, float optionalBreakThreshold);
 	void SetDisableCollision(bool NewDisableCollision);
 };
-
 // Class Engine.RB_LineImpulseActor
 // 0x0011 (0x0228 - 0x0239)
 class ARB_LineImpulseActor : public ARigidBodyBase
@@ -26929,11 +26457,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventReplicatedEvent(const class FName& VarName);
 	void OnToggle(class USeqAct_Toggle* inAction);
 	void FireLineImpulse();
 };
-
 // Class Engine.RB_RadialImpulseActor
 // 0x0009 (0x0228 - 0x0231)
 class ARB_RadialImpulseActor : public ARigidBodyBase
@@ -26956,10 +26484,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventReplicatedEvent(const class FName& VarName);
 	void OnToggle(class USeqAct_Toggle* inAction);
 };
-
 // Class Engine.RB_Thruster
 // 0x0008 (0x0228 - 0x0230)
 class ARB_Thruster : public ARigidBodyBase
@@ -26981,9 +26509,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void OnToggle(class USeqAct_Toggle* Action);
 };
-
 // Class Engine.RB_ConstraintDrawComponent
 // 0x0004 (0x01D4 - 0x01D8)
 class URB_ConstraintDrawComponent : public UPrimitiveComponent
@@ -27005,13 +26533,13 @@ public:
 	};
 
 };
-
 // Class Engine.RB_RadialImpulseComponent
 // 0x0014 (0x01D4 - 0x01E8)
 class URB_RadialImpulseComponent : public UPrimitiveComponent
 {
 public:
 	ERadialImpulseFalloff                              ImpulseFalloff;                                // 0x01D4 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x01D5 (0x0003) MISSED OFFSET
 	float                                              ImpulseStrength;                               // 0x01D8 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	float                                              ImpulseRadius;                                 // 0x01DC (0x0004) [0x0000000000000001] (CPF_Edit)    
 	uint32_t                                           bVelChange : 1;                                // 0x01E0 (0x0004) [0x0000000000000001] [0x00000001] (CPF_Edit)
@@ -27031,9 +26559,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void FireImpulse(const struct FVector& Origin);
 };
-
 // Class Engine.RB_Handle
 // 0x006B (0x0055 - 0x00C0)
 class URB_Handle : public UActorComponent
@@ -27070,6 +26598,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	struct FQuat GetOrientation();
 	void SetOrientation(struct FQuat& outNewOrientation);
 	void UpdateSmoothLocation(struct FVector& outNewLocation);
@@ -27078,7 +26607,6 @@ public:
 	void ReleaseComponent();
 	void GrabComponent(class UPrimitiveComponent* Component, const class FName& InBoneName, const struct FVector& GrabLocation, bool bConstrainRotation);
 };
-
 // Class Engine.RB_Spring
 // 0x0053 (0x0055 - 0x00A8)
 class URB_Spring : public UActorComponent
@@ -27114,10 +26642,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void Clear();
 	void SetComponents(class UPrimitiveComponent* InComponent1, const class FName& InBoneName1, const struct FVector& Position1, class UPrimitiveComponent* InComponent2, const class FName& InBoneName2, const struct FVector& Position2);
 };
-
 // Class Engine.SVehicleSimBase
 // 0x003B (0x0055 - 0x0090)
 class USVehicleSimBase : public UActorComponent
@@ -27154,7 +26682,6 @@ public:
 	};
 
 };
-
 // Class Engine.SVehicleSimCar
 // 0x0034 (0x0090 - 0x00C4)
 class USVehicleSimCar : public USVehicleSimBase
@@ -27185,7 +26712,6 @@ public:
 	};
 
 };
-
 // Class Engine.SVehicleSimTank
 // 0x0030 (0x00C4 - 0x00F4)
 class USVehicleSimTank : public USVehicleSimCar
@@ -27218,7 +26744,6 @@ public:
 	};
 
 };
-
 // Class Engine.ActorFactoryApexClothing
 // 0x0014 (0x006C - 0x0080)
 class UActorFactoryApexClothing : public UActorFactorySkeletalMesh
@@ -27226,6 +26751,7 @@ class UActorFactoryApexClothing : public UActorFactorySkeletalMesh
 public:
 	class TArray<class UApexClothingAsset*>            ClothingAssets;                                // 0x006C (0x000C) [0x0000000000400001] (CPF_Edit | CPF_NeedCtorLink)
 	ERBCollisionChannel                                ClothingRBChannel;                             // 0x0078 (0x0001) [0x0000000000000003] (CPF_Edit | CPF_Const)
+	uint8_t                                            UnknownData00[0x3];                              // 0x0079 (0x0003) MISSED OFFSET
 	struct FRBCollisionChannelContainer                ClothingRBCollideWithChannels;                 // 0x007C (0x0004) [0x0000000000000003] (CPF_Edit | CPF_Const)
 
 public:
@@ -27242,7 +26768,6 @@ public:
 	};
 
 };
-
 // Class Engine.FractureMaterial
 // 0x0008 (0x003C - 0x0044)
 class UFractureMaterial : public UObject
@@ -27265,7 +26790,6 @@ public:
 	};
 
 };
-
 // Class Engine.PhysicalMaterial
 // 0x006C (0x003C - 0x00A8)
 class UPhysicalMaterial : public UObject
@@ -27313,11 +26837,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	class UPhysicalMaterialPropertyBase* GetPhysicalMaterialProperty(class UClass* DesiredClass);
 	void FindFractureSounds(class USoundCue*& outOutSoundExplosion, class USoundCue*& outOutSoundSingle);
 	struct FPhysEffectInfo FindPhysEffectInfo(EPhysEffectType Type);
 };
-
 // Class Engine.PhysicalMaterialPropertyBase
 // 0x0000 (0x003C - 0x003C)
 class UPhysicalMaterialPropertyBase : public UObject
@@ -27338,7 +26862,6 @@ public:
 	};
 
 };
-
 // Class Engine.PhysicsAsset
 // 0x0068 (0x003C - 0x00A4)
 class UPhysicsAsset : public UObject
@@ -27364,11 +26887,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool DetectAABBHitGround(class USkeletalMeshComponent* SkelComp, const struct FVector& GroundLoc, const struct FVector& vExtent, bool optionalBDebugInfo, class UPhysicalMaterial*& outPhysMat, struct FVector& outHitLocation);
 	bool DetectRBHitGround(const class FName& BodyName, class USkeletalMeshComponent* SkelComp, const struct FVector& GroundLoc, const struct FVector& vExtent);
 	int32_t FindBodyIndex(const class FName& BodyName);
 };
-
 // Class Engine.PhysicsAssetInstance
 // 0x0078 (0x003C - 0x00B4)
 class UPhysicsAssetInstance : public UObject
@@ -27400,6 +26923,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	class URB_ConstraintInstance* FindConstraintInstance(const class FName& ConName, class UPhysicsAsset* InAsset);
 	class URB_BodyInstance* FindBodyInstance(const class FName& BodyName, class UPhysicsAsset* InAsset);
 	void SetFullAnimWeightBonesFixed(bool bNewFixed, class USkeletalMeshComponent* SkelMesh);
@@ -27418,7 +26942,6 @@ public:
 	void SetAngularDriveScale(float InAngularSpringScale, float InAngularDampingScale, float InAngularForceLimitScale);
 	void SetLinearDriveScale(float InLinearSpringScale, float InLinearDampingScale, float InLinearForceLimitScale);
 };
-
 // Class Engine.PhysicsLODVerticalDestructible
 // 0x0008 (0x003C - 0x0044)
 class UPhysicsLODVerticalDestructible : public UObject
@@ -27441,7 +26964,6 @@ public:
 	};
 
 };
-
 // Class Engine.PhysicsLODVerticalEmitter
 // 0x0004 (0x003C - 0x0040)
 class UPhysicsLODVerticalEmitter : public UObject
@@ -27463,7 +26985,6 @@ public:
 	};
 
 };
-
 // Class Engine.RB_BodyInstance
 // 0x0060 (0x003C - 0x009C)
 class URB_BodyInstance : public UObject
@@ -27514,6 +27035,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void UpdateDampingProperties();
 	void UpdateMassProperties(class URB_BodySetup* Setup);
 	void SetContactReportForceThreshold(float Threshold);
@@ -27533,7 +27055,6 @@ public:
 	void SetFixed(bool bNewFixed);
 	float GetBodyMass();
 };
-
 // Class Engine.RB_ConstraintInstance
 // 0x0070 (0x003C - 0x00AC)
 class URB_ConstraintInstance : public UObject
@@ -27583,6 +27104,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void MoveKinActorTransform(struct FMatrix& outNewTM);
 	void SetLinearLimitSize(float NewLimitSize);
 	void SetAngularDOFLimitScale(float InSwing1LimitScale, float InSwing2LimitScale, float InTwistLimitScale, class URB_ConstraintSetup* InSetup);
@@ -27601,7 +27123,6 @@ public:
 	void TermConstraint();
 	void InitConstraint(class UPrimitiveComponent* PrimComp1, class UPrimitiveComponent* PrimComp2, class URB_ConstraintSetup* Setup, float Scale, class AActor* InOwner, class UPrimitiveComponent* InPrimComp, bool bMakeKinForBody1);
 };
-
 // Class Engine.RB_ConstraintSetup
 // 0x00C4 (0x003C - 0x0100)
 class URB_ConstraintSetup : public UObject
@@ -27658,7 +27179,6 @@ public:
 	};
 
 };
-
 // Class Engine.RB_BSJointSetup
 // 0x0000 (0x0100 - 0x0100)
 class URB_BSJointSetup : public URB_ConstraintSetup
@@ -27679,7 +27199,6 @@ public:
 	};
 
 };
-
 // Class Engine.RB_DistanceJointSetup
 // 0x0000 (0x0100 - 0x0100)
 class URB_DistanceJointSetup : public URB_ConstraintSetup
@@ -27700,7 +27219,6 @@ public:
 	};
 
 };
-
 // Class Engine.RB_HingeSetup
 // 0x0000 (0x0100 - 0x0100)
 class URB_HingeSetup : public URB_ConstraintSetup
@@ -27721,7 +27239,6 @@ public:
 	};
 
 };
-
 // Class Engine.RB_PrismaticSetup
 // 0x0000 (0x0100 - 0x0100)
 class URB_PrismaticSetup : public URB_ConstraintSetup
@@ -27742,7 +27259,6 @@ public:
 	};
 
 };
-
 // Class Engine.RB_PulleyJointSetup
 // 0x0000 (0x0100 - 0x0100)
 class URB_PulleyJointSetup : public URB_ConstraintSetup
@@ -27763,7 +27279,6 @@ public:
 	};
 
 };
-
 // Class Engine.RB_SkelJointSetup
 // 0x0000 (0x0100 - 0x0100)
 class URB_SkelJointSetup : public URB_ConstraintSetup
@@ -27784,7 +27299,6 @@ public:
 	};
 
 };
-
 // Class Engine.RB_StayUprightSetup
 // 0x0000 (0x0100 - 0x0100)
 class URB_StayUprightSetup : public URB_ConstraintSetup
@@ -27805,7 +27319,6 @@ public:
 	};
 
 };
-
 // Class Engine.SVehicleWheel
 // 0x00CC (0x0048 - 0x0114)
 class USVehicleWheel : public UComponent
@@ -27831,6 +27344,7 @@ public:
 	float                                              SuspensionSpeed;                               // 0x0088 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	class UParticleSystem*                             WheelParticleSystem;                           // 0x008C (0x0004) [0x0000000000000001] (CPF_Edit)    
 	EWheelSide                                         Side;                                          // 0x0090 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0091 (0x0003) MISSED OFFSET
 	float                                              LongSlipFactor;                                // 0x0094 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	float                                              LatSlipFactor;                                 // 0x0098 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	float                                              HandbrakeLongSlipFactor;                       // 0x009C (0x0004) [0x0000000000000001] (CPF_Edit)    
@@ -27869,7 +27383,6 @@ public:
 	};
 
 };
-
 // Class Engine.NxGenericForceFieldBrush
 // 0x00CC (0x0264 - 0x0330)
 class ANxGenericForceFieldBrush : public AVolume
@@ -27879,6 +27392,7 @@ public:
 	struct FRBCollisionChannelContainer                CollideWithChannels;                           // 0x0268 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	ERBCollisionChannel                                RBChannel;                                     // 0x026C (0x0001) [0x0000000000000003] (CPF_Edit | CPF_Const)
 	EFFB_ForceFieldCoordinates                         Coordinates;                                   // 0x026D (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x2];                              // 0x026E (0x0002) MISSED OFFSET
 	struct FVector                                     Constant;                                      // 0x0270 (0x000C) [0x0000000000000001] (CPF_Edit)    
 	struct FVector                                     PositionMultiplierX;                           // 0x027C (0x000C) [0x0000000000000001] (CPF_Edit)    
 	struct FVector                                     PositionMultiplierY;                           // 0x0288 (0x000C) [0x0000000000000001] (CPF_Edit)    
@@ -27911,10 +27425,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool StopsProjectile(class AProjectile* P);
 	void eventPostBeginPlay();
 };
-
 // Class Engine.RB_ForceFieldExcludeVolume
 // 0x0008 (0x0264 - 0x026C)
 class ARB_ForceFieldExcludeVolume : public AVolume
@@ -27937,7 +27451,6 @@ public:
 	};
 
 };
-
 // Class Engine.NxForceField
 // 0x0040 (0x0228 - 0x0268)
 class ANxForceField : public AActor
@@ -27947,6 +27460,7 @@ public:
 	uint32_t                                           bForceActive : 1;                              // 0x022C (0x0004) [0x0000000000000021] [0x00000001] (CPF_Edit | CPF_Net)
 	struct FRBCollisionChannelContainer                CollideWithChannels;                           // 0x0230 (0x0004) [0x0000000000000003] (CPF_Edit | CPF_Const)
 	ERBCollisionChannel                                RBChannel;                                     // 0x0234 (0x0001) [0x0000000000000003] (CPF_Edit | CPF_Const)
+	uint8_t                                            UnknownData00[0x3];                              // 0x0235 (0x0003) MISSED OFFSET
 	struct FPointer                                    ForceField;                                    // 0x0238 (0x0004) [0x0000000000003002] (CPF_Const | CPF_Native | CPF_Transient)
 	class TArray<struct FPointer>                      ConvexMeshes;                                  // 0x023C (0x000C) [0x0000000000003002] (CPF_Const | CPF_Native | CPF_Transient)
 	class TArray<struct FPointer>                      ExclusionShapes;                               // 0x0248 (0x000C) [0x0000000000003002] (CPF_Const | CPF_Native | CPF_Transient)
@@ -27967,10 +27481,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void OnToggle(class USeqAct_Toggle* inAction);
 	void DoInitRBPhys();
 };
-
 // Class Engine.NxCylindricalForceField
 // 0x002C (0x0268 - 0x0294)
 class ANxCylindricalForceField : public ANxForceField
@@ -28002,7 +27516,6 @@ public:
 	};
 
 };
-
 // Class Engine.NxCylindricalForceFieldCapsule
 // 0x0004 (0x0294 - 0x0298)
 class ANxCylindricalForceFieldCapsule : public ANxCylindricalForceField
@@ -28023,9 +27536,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void DoInitRBPhys();
 };
-
 // Class Engine.NxForceFieldGeneric
 // 0x00B0 (0x0268 - 0x0318)
 class ANxForceFieldGeneric : public ANxForceField
@@ -28037,6 +27550,7 @@ public:
 	float                                              RoughExtentY;                                  // 0x0274 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	float                                              RoughExtentZ;                                  // 0x0278 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	EFFG_ForceFieldCoordinates                         Coordinates;                                   // 0x027C (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x027D (0x0003) MISSED OFFSET
 	struct FVector                                     Constant;                                      // 0x0280 (0x000C) [0x0000000000000001] (CPF_Edit)    
 	struct FVector                                     PositionMultiplierX;                           // 0x028C (0x000C) [0x0000000000000001] (CPF_Edit)    
 	struct FVector                                     PositionMultiplierY;                           // 0x0298 (0x000C) [0x0000000000000001] (CPF_Edit)    
@@ -28065,9 +27579,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void DoInitRBPhys();
 };
-
 // Class Engine.NxForceFieldRadial
 // 0x001C (0x0268 - 0x0284)
 class ANxForceFieldRadial : public ANxForceField
@@ -28079,6 +27593,7 @@ public:
 	float                                              ForceRadius;                                   // 0x0274 (0x0004) [0x0000000000000001] (CPF_Edit | CPF_Interp)
 	float                                              SelfRotationStrength;                          // 0x0278 (0x0004) [0x0000000000000001] (CPF_Edit | CPF_Interp)
 	ERadialImpulseFalloff                              ForceFalloff;                                  // 0x027C (0x0001) [0x0000000000080009] (CPF_Edit | CPF_ExportObject | CPF_Component)
+	uint8_t                                            UnknownData00[0x3];                              // 0x027D (0x0003) MISSED OFFSET
 	struct FPointer                                    Kernel;                                        // 0x0280 (0x0004) [0x0000000000003002] (CPF_Const | CPF_Native | CPF_Transient)
 
 public:
@@ -28094,9 +27609,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void DoInitRBPhys();
 };
-
 // Class Engine.NxForceFieldTornado
 // 0x0038 (0x0268 - 0x02A0)
 class ANxForceFieldTornado : public ANxForceField
@@ -28130,15 +27645,16 @@ public:
 		return uClassPointer;
 	};
 
+
 	void DoInitRBPhys();
 };
-
 // Class Engine.NxGenericForceField
 // 0x009C (0x0268 - 0x0304)
 class ANxGenericForceField : public ANxForceField
 {
 public:
 	EFFG_ForceFieldCoordinates                         Coordinates;                                   // 0x0268 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0269 (0x0003) MISSED OFFSET
 	struct FVector                                     Constant;                                      // 0x026C (0x000C) [0x0000000000000001] (CPF_Edit)    
 	struct FVector                                     PositionMultiplierX;                           // 0x0278 (0x000C) [0x0000000000000001] (CPF_Edit)    
 	struct FVector                                     PositionMultiplierY;                           // 0x0284 (0x000C) [0x0000000000000001] (CPF_Edit)    
@@ -28168,7 +27684,6 @@ public:
 	};
 
 };
-
 // Class Engine.NxGenericForceFieldBox
 // 0x0010 (0x0304 - 0x0314)
 class ANxGenericForceFieldBox : public ANxGenericForceField
@@ -28190,9 +27705,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void DoInitRBPhys();
 };
-
 // Class Engine.NxGenericForceFieldCapsule
 // 0x000C (0x0304 - 0x0310)
 class ANxGenericForceFieldCapsule : public ANxGenericForceField
@@ -28216,7 +27731,6 @@ public:
 	};
 
 };
-
 // Class Engine.NxRadialForceField
 // 0x0014 (0x0268 - 0x027C)
 class ANxRadialForceField : public ANxForceField
@@ -28226,6 +27740,7 @@ public:
 	float                                              ForceStrength;                                 // 0x026C (0x0004) [0x0000000000000001] (CPF_Edit | CPF_Interp)
 	float                                              ForceRadius;                                   // 0x0270 (0x0004) [0x0000000000000001] (CPF_Edit | CPF_Interp)
 	ERadialImpulseFalloff                              ForceFalloff;                                  // 0x0274 (0x0001) [0x0000000000080009] (CPF_Edit | CPF_ExportObject | CPF_Component)
+	uint8_t                                            UnknownData00[0x3];                              // 0x0275 (0x0003) MISSED OFFSET
 	struct FPointer                                    LinearKernel;                                  // 0x0278 (0x0004) [0x0000000000003002] (CPF_Const | CPF_Native | CPF_Transient)
 
 public:
@@ -28242,7 +27757,6 @@ public:
 	};
 
 };
-
 // Class Engine.NxRadialCustomForceField
 // 0x0008 (0x027C - 0x0284)
 class ANxRadialCustomForceField : public ANxRadialForceField
@@ -28265,7 +27779,6 @@ public:
 	};
 
 };
-
 // Class Engine.NxTornadoAngularForceField
 // 0x0030 (0x0268 - 0x0298)
 class ANxTornadoAngularForceField : public ANxForceField
@@ -28298,7 +27811,6 @@ public:
 	};
 
 };
-
 // Class Engine.NxTornadoAngularForceFieldCapsule
 // 0x0004 (0x0298 - 0x029C)
 class ANxTornadoAngularForceFieldCapsule : public ANxTornadoAngularForceField
@@ -28320,7 +27832,6 @@ public:
 	};
 
 };
-
 // Class Engine.NxTornadoForceField
 // 0x002C (0x0268 - 0x0294)
 class ANxTornadoForceField : public ANxForceField
@@ -28352,7 +27863,6 @@ public:
 	};
 
 };
-
 // Class Engine.NxTornadoForceFieldCapsule
 // 0x0004 (0x0294 - 0x0298)
 class ANxTornadoForceFieldCapsule : public ANxTornadoForceField
@@ -28374,7 +27884,6 @@ public:
 	};
 
 };
-
 // Class Engine.NxForceFieldSpawnable
 // 0x0004 (0x0228 - 0x022C)
 class ANxForceFieldSpawnable : public AActor
@@ -28395,9 +27904,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void OnToggle(class USeqAct_Toggle* inAction);
 };
-
 // Class Engine.RB_CylindricalForceActor
 // 0x0030 (0x0228 - 0x0258)
 class ARB_CylindricalForceActor : public ARigidBodyBase
@@ -28433,9 +27942,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void OnToggle(class USeqAct_Toggle* inAction);
 };
-
 // Class Engine.RB_RadialForceActor
 // 0x0020 (0x0228 - 0x0248)
 class ARB_RadialForceActor : public ARigidBodyBase
@@ -28448,6 +27957,7 @@ public:
 	float                                              SpinTorque;                                    // 0x0238 (0x0004) [0x0000000000000001] (CPF_Edit | CPF_Interp)
 	ERadialImpulseFalloff                              ForceFalloff;                                  // 0x023C (0x0001) [0x0000000000080009] (CPF_Edit | CPF_ExportObject | CPF_Component)
 	ERadialForceType                                   RadialForceMode;                               // 0x023D (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x2];                              // 0x023E (0x0002) MISSED OFFSET
 	uint32_t                                           bForceActive : 1;                              // 0x0240 (0x0004) [0x0000000000000021] [0x00000001] (CPF_Edit | CPF_Net)
 	uint32_t                                           bForceApplyToCloth : 1;                        // 0x0240 (0x0004) [0x0000000000000001] [0x00000002] (CPF_Edit)
 	uint32_t                                           bForceApplyToFluid : 1;                        // 0x0240 (0x0004) [0x0000000000000001] [0x00000004] (CPF_Edit)
@@ -28468,9 +27978,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void OnToggle(class USeqAct_Toggle* inAction);
 };
-
 // Class Engine.NxForceFieldComponent
 // 0x0050 (0x01D4 - 0x0224)
 class UNxForceFieldComponent : public UPrimitiveComponent
@@ -28505,9 +28015,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void DoInitRBPhys();
 };
-
 // Class Engine.NxForceFieldCylindricalComponent
 // 0x002C (0x0224 - 0x0250)
 class UNxForceFieldCylindricalComponent : public UNxForceFieldComponent
@@ -28539,7 +28049,6 @@ public:
 	};
 
 };
-
 // Class Engine.NxForceFieldGenericComponent
 // 0x00A8 (0x0224 - 0x02CC)
 class UNxForceFieldGenericComponent : public UNxForceFieldComponent
@@ -28549,6 +28058,7 @@ public:
 	float                                              RoughExtentY;                                  // 0x0228 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	float                                              RoughExtentZ;                                  // 0x022C (0x0004) [0x0000000000000001] (CPF_Edit)    
 	EFFG_ForceFieldCoordinates                         Coordinates;                                   // 0x0230 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0231 (0x0003) MISSED OFFSET
 	struct FVector                                     Constant;                                      // 0x0234 (0x000C) [0x0000000000000001] (CPF_Edit)    
 	struct FVector                                     PositionMultiplierX;                           // 0x0240 (0x000C) [0x0000000000000001] (CPF_Edit)    
 	struct FVector                                     PositionMultiplierY;                           // 0x024C (0x000C) [0x0000000000000001] (CPF_Edit)    
@@ -28578,7 +28088,6 @@ public:
 	};
 
 };
-
 // Class Engine.NxForceFieldRadialComponent
 // 0x0014 (0x0224 - 0x0238)
 class UNxForceFieldRadialComponent : public UNxForceFieldComponent
@@ -28588,6 +28097,7 @@ public:
 	float                                              ForceRadius;                                   // 0x0228 (0x0004) [0x0000000000000001] (CPF_Edit | CPF_Interp)
 	float                                              SelfRotationStrength;                          // 0x022C (0x0004) [0x0000000000000001] (CPF_Edit | CPF_Interp)
 	ERadialImpulseFalloff                              ForceFalloff;                                  // 0x0230 (0x0001) [0x0000000000080009] (CPF_Edit | CPF_ExportObject | CPF_Component)
+	uint8_t                                            UnknownData00[0x3];                              // 0x0231 (0x0003) MISSED OFFSET
 	struct FPointer                                    Kernel;                                        // 0x0234 (0x0004) [0x0000000000003002] (CPF_Const | CPF_Native | CPF_Transient)
 
 public:
@@ -28604,7 +28114,6 @@ public:
 	};
 
 };
-
 // Class Engine.NxForceFieldTornadoComponent
 // 0x0030 (0x0224 - 0x0254)
 class UNxForceFieldTornadoComponent : public UNxForceFieldComponent
@@ -28637,7 +28146,6 @@ public:
 	};
 
 };
-
 // Class Engine.ForceFieldShape
 // 0x0000 (0x003C - 0x003C)
 class UForceFieldShape : public UObject
@@ -28657,13 +28165,13 @@ public:
 		return uClassPointer;
 	};
 
+
 	class UPrimitiveComponent* eventGetDrawComponent();
 	void eventFillByCylinder(float BottomRadius, float TopRadius, float Height, float HeightOffset);
 	void eventFillByCapsule(float Height, float Radius);
 	void eventFillByBox(const struct FVector& Dimension);
 	void eventFillBySphere(float Radius);
 };
-
 // Class Engine.ForceFieldShapeBox
 // 0x0004 (0x003C - 0x0040)
 class UForceFieldShapeBox : public UForceFieldShape
@@ -28684,6 +28192,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	class UPrimitiveComponent* eventGetDrawComponent();
 	void eventFillByCylinder(float BottomRadius, float TopRadius, float Height, float HeightOffset);
 	void eventFillByCapsule(float Height, float Radius);
@@ -28691,7 +28200,6 @@ public:
 	void eventFillBySphere(float Radius);
 	struct FVector eventGetRadii();
 };
-
 // Class Engine.ForceFieldShapeCapsule
 // 0x0004 (0x003C - 0x0040)
 class UForceFieldShapeCapsule : public UForceFieldShape
@@ -28712,6 +28220,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	class UPrimitiveComponent* eventGetDrawComponent();
 	void eventFillByCylinder(float BottomRadius, float TopRadius, float Height, float HeightOffset);
 	void eventFillByCapsule(float Height, float Radius);
@@ -28720,7 +28229,6 @@ public:
 	float eventGetRadius();
 	float eventGetHeight();
 };
-
 // Class Engine.ForceFieldShapeSphere
 // 0x0004 (0x003C - 0x0040)
 class UForceFieldShapeSphere : public UForceFieldShape
@@ -28741,6 +28249,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	class UPrimitiveComponent* eventGetDrawComponent();
 	void eventFillByCylinder(float BottomRadius, float TopRadius, float Height, float HeightOffset);
 	void eventFillByCapsule(float Height, float Radius);
@@ -28748,7 +28257,6 @@ public:
 	void eventFillBySphere(float Radius);
 	float eventGetRadius();
 };
-
 // Class Engine.PrefabInstance
 // 0x00BC (0x0228 - 0x02E4)
 class APrefabInstance : public AActor
@@ -28780,7 +28288,6 @@ public:
 	};
 
 };
-
 // Class Engine.Prefab
 // 0x0024 (0x003C - 0x0060)
 class UPrefab : public UObject
@@ -28806,7 +28313,6 @@ public:
 	};
 
 };
-
 // Class Engine.SequenceObject
 // 0x0050 (0x003C - 0x008C)
 class USequenceObject : public UObject
@@ -28842,6 +28348,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	static int32_t eventGetObjClassVersion();
 	bool eventIsPastingIntoUISequenceAllowed();
 	bool eventIsValidUISequenceObject(class UUIScreenObject* optionalTargetObject);
@@ -28850,7 +28357,6 @@ public:
 	class AWorldInfo* GetWorldInfo();
 	void ScriptLog(const class FString& LogText, bool optionalBWarning);
 };
-
 // Class Engine.SequenceFrame
 // 0x0020 (0x008C - 0x00AC)
 class USequenceFrame : public USequenceObject
@@ -28880,9 +28386,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool eventIsValidUISequenceObject(class UUIScreenObject* optionalTargetObject);
 };
-
 // Class Engine.SequenceFrameWrapped
 // 0x0000 (0x00AC - 0x00AC)
 class USequenceFrameWrapped : public USequenceFrame
@@ -28903,7 +28409,6 @@ public:
 	};
 
 };
-
 // Class Engine.SequenceOp
 // 0x0044 (0x008C - 0x00D0)
 class USequenceOp : public USequenceObject
@@ -28922,6 +28427,7 @@ public:
 	class TArray<struct FSeqEventLink>                 EventLinks;                                    // 0x00B4 (0x000C) [0x0000000000400000] (CPF_NeedCtorLink)
 	int32_t                                            PlayerIndex;                                   // 0x00C0 (0x0004) [0x0000000001002000] (CPF_Transient)
 	uint8_t                                            GamepadID;                                     // 0x00C4 (0x0001) [0x0000000001002000] (CPF_Transient)
+	uint8_t                                            UnknownData00[0x3];                              // 0x00C5 (0x0003) MISSED OFFSET
 	int32_t                                            ActivateCount;                                 // 0x00C8 (0x0004) [0x0000000000002000] (CPF_Transient)
 	int32_t                                            SearchTag;                                     // 0x00CC (0x0004) [0x0000000000202002] (CPF_Const | CPF_Transient)
 
@@ -28938,6 +28444,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void ForceActivateInput(int32_t InputIdx);
 	class AController* GetController(class AActor* TheActor);
 	class APawn* GetPawn(class AActor* TheActor);
@@ -28952,11 +28459,10 @@ public:
 	void LinkedVariables(class UClass* VarClass, const class FString& optionalInDesc, class USequenceVariable*& outOutVariable);
 	void GetBoolVars(const class FString& optionalInDesc, class TArray<uint8_t>& outBoolVars);
 	void GetInterpDataVars(const class FString& optionalInDesc, class TArray<class UInterpData*>& outOutIData);
-	void GetObjectVarsW(const class FString& optionalInDesc, class TArray<class UObject*>& outObjVars);
+	void GetObjectVarsWin(const class FString& optionalInDesc, class TArray<class UObject*>& outObjVars);
 	void GetLinkedObjects(class UClass* optionalObjectType, bool optionalBRecurse, class TArray<class USequenceObject*>& outOut_Objects);
 	bool HasLinkedOps(bool optionalBConsiderInputLinks);
 };
-
 // Class Engine.Sequence
 // 0x005C (0x00D0 - 0x012C)
 class USequence : public USequenceOp
@@ -28987,12 +28493,12 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SetEnabled(bool bInEnabled);
 	void Reset();
 	void FindSeqObjectsByName(const class FString& SeqObjName, bool bCheckComment, bool optionalBRecursive, class TArray<class USequenceObject*>& outOutputObjects);
 	void FindSeqObjectsByClass(class UClass* DesiredClass, bool bRecursive, class TArray<class USequenceObject*>& outOutputObjects);
 };
-
 // Class Engine.PrefabSequence
 // 0x0004 (0x012C - 0x0130)
 class UPrefabSequence : public USequence
@@ -29013,10 +28519,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	class APrefabInstance* GetOwnerPrefab();
 	void SetOwnerPrefab(class APrefabInstance* InOwner);
 };
-
 // Class Engine.PrefabSequenceContainer
 // 0x0000 (0x012C - 0x012C)
 class UPrefabSequenceContainer : public USequence
@@ -29037,7 +28543,6 @@ public:
 	};
 
 };
-
 // Class Engine.SequenceAction
 // 0x0018 (0x00D0 - 0x00E8)
 class USequenceAction : public USequenceOp
@@ -29061,7 +28566,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqAct_ActivateRemoteEvent
 // 0x0010 (0x00E8 - 0x00F8)
 class USeqAct_ActivateRemoteEvent : public USequenceAction
@@ -29084,9 +28588,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	static int32_t eventGetObjClassVersion();
 };
-
 // Class Engine.SeqAct_AndGate
 // 0x001C (0x00E8 - 0x0104)
 class USeqAct_AndGate : public USequenceAction
@@ -29110,7 +28614,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqAct_ApplySoundNode
 // 0x0008 (0x00E8 - 0x00F0)
 class USeqAct_ApplySoundNode : public USequenceAction
@@ -29133,7 +28636,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqAct_AttachToEvent
 // 0x0004 (0x00E8 - 0x00EC)
 class USeqAct_AttachToEvent : public USequenceAction
@@ -29155,7 +28657,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqAct_BlendTwoMatineeAnim
 // 0x0004 (0x00E8 - 0x00EC)
 class USeqAct_BlendTwoMatineeAnim : public USequenceAction
@@ -29177,7 +28678,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqAct_CameraFade
 // 0x0028 (0x00E8 - 0x0110)
 class USeqAct_CameraFade : public USequenceAction
@@ -29204,9 +28704,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	static int32_t eventGetObjClassVersion();
 };
-
 // Class Engine.SeqAct_CameraLookAt
 // 0x0034 (0x00E8 - 0x011C)
 class USeqAct_CameraLookAt : public USequenceAction
@@ -29245,9 +28745,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	static int32_t eventGetObjClassVersion();
 };
-
 // Class Engine.SeqAct_CameraShake
 // 0x0020 (0x00E8 - 0x0108)
 class USeqAct_CameraShake : public USequenceAction
@@ -29263,6 +28763,7 @@ public:
 	float                                              RadialShake_OuterRadius;                       // 0x00F8 (0x0004) [0x0000000000000001] (CPF_Edit | CPF_ProtectedWrite)
 	float                                              RadialShake_Falloff;                           // 0x00FC (0x0004) [0x0000000000000001] (CPF_Edit | CPF_ProtectedWrite)
 	ECameraAnimPlaySpace                               PlaySpace;                                     // 0x0100 (0x0001) [0x0000000000000001] (CPF_Edit | CPF_ProtectedWrite)
+	uint8_t                                            UnknownData00[0x3];                              // 0x0101 (0x0003) MISSED OFFSET
 	class AActor*                                      LocationActor;                                 // 0x0104 (0x0004) [0x0000000000000000]               
 
 public:
@@ -29278,9 +28779,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	static int32_t eventGetObjClassVersion();
 };
-
 // Class Engine.SeqAct_ChangeCollision
 // 0x0005 (0x00E8 - 0x00ED)
 class USeqAct_ChangeCollision : public USequenceAction
@@ -29304,9 +28805,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	static int32_t eventGetObjClassVersion();
 };
-
 // Class Engine.SeqAct_CommitMapChange
 // 0x0000 (0x00E8 - 0x00E8)
 class USeqAct_CommitMapChange : public USequenceAction
@@ -29327,7 +28828,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqAct_ConvertToString
 // 0x0014 (0x00E8 - 0x00FC)
 class USeqAct_ConvertToString : public USequenceAction
@@ -29350,9 +28850,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	static int32_t eventGetObjClassVersion();
 };
-
 // Class Engine.SeqAct_DrawText
 // 0x0030 (0x00E8 - 0x0118)
 class USeqAct_DrawText : public USequenceAction
@@ -29375,9 +28875,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	static int32_t eventGetObjClassVersion();
 };
-
 // Class Engine.SeqAct_FinishSequence
 // 0x000C (0x00E8 - 0x00F4)
 class USeqAct_FinishSequence : public USequenceAction
@@ -29399,7 +28899,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqAct_Gate
 // 0x000C (0x00E8 - 0x00F4)
 class USeqAct_Gate : public USequenceAction
@@ -29422,9 +28921,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool eventIsValidUISequenceObject(class UUIScreenObject* optionalTargetObject);
 };
-
 // Class Engine.SeqAct_GetDistance
 // 0x0004 (0x00E8 - 0x00EC)
 class USeqAct_GetDistance : public USequenceAction
@@ -29446,7 +28945,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqAct_GetInputVectorToRotation
 // 0x0018 (0x00E8 - 0x0100)
 class USeqAct_GetInputVectorToRotation : public USequenceAction
@@ -29471,7 +28969,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqAct_GetLocationAndRotation
 // 0x0020 (0x00E8 - 0x0108)
 class USeqAct_GetLocationAndRotation : public USequenceAction
@@ -29494,9 +28991,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	static int32_t eventGetObjClassVersion();
 };
-
 // Class Engine.SeqAct_GetProperty
 // 0x0008 (0x00E8 - 0x00F0)
 class USeqAct_GetProperty : public USequenceAction
@@ -29518,7 +29015,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqAct_GetVectorComponents
 // 0x0018 (0x00E8 - 0x0100)
 class USeqAct_GetVectorComponents : public USequenceAction
@@ -29543,7 +29039,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqAct_GetVelocity
 // 0x0010 (0x00E8 - 0x00F8)
 class USeqAct_GetVelocity : public USequenceAction
@@ -29565,9 +29060,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	static int32_t eventGetObjClassVersion();
 };
-
 // Class Engine.SeqAct_IsInObjectList
 // 0x0004 (0x00E8 - 0x00EC)
 class USeqAct_IsInObjectList : public USequenceAction
@@ -29589,9 +29084,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool eventIsValidUISequenceObject(class UUIScreenObject* optionalTargetObject);
 };
-
 // Class Engine.SeqAct_Latent
 // 0x0010 (0x00E8 - 0x00F8)
 class USeqAct_Latent : public USequenceAction
@@ -29613,10 +29108,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool eventUpdate(float DeltaTime);
 	void AbortFor(class AActor* latentActor);
 };
-
 // Class Engine.SeqAct_ActorFactory
 // 0x0044 (0x00F8 - 0x013C)
 class USeqAct_ActorFactory : public USeqAct_Latent
@@ -29627,6 +29122,7 @@ public:
 	uint32_t                                           bCheckSpawnCollision : 1;                      // 0x00F8 (0x0004) [0x0000000000000001] [0x00000004] (CPF_Edit)
 	class UActorFactory*                               Factory;                                       // 0x00FC (0x0004) [0x0000000004400009] (CPF_Edit | CPF_ExportObject | CPF_NeedCtorLink | CPF_EditInline)
 	EPointSelection                                    PointSelection;                                // 0x0100 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0101 (0x0003) MISSED OFFSET
 	class TArray<class AActor*>                        SpawnPoints;                                   // 0x0104 (0x000C) [0x0000000000400001] (CPF_Edit | CPF_NeedCtorLink)
 	class TArray<struct FVector>                       SpawnLocations;                                // 0x0110 (0x000C) [0x0000000000400001] (CPF_Edit | CPF_NeedCtorLink)
 	class TArray<struct FVector>                       SpawnOrientations;                             // 0x011C (0x000C) [0x0000000000400001] (CPF_Edit | CPF_NeedCtorLink)
@@ -29649,9 +29145,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	static int32_t eventGetObjClassVersion();
 };
-
 // Class Engine.SeqAct_ActorFactoryEx
 // 0x0000 (0x013C - 0x013C)
 class USeqAct_ActorFactoryEx : public USeqAct_ActorFactory
@@ -29672,7 +29168,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqAct_AIMoveToActor
 // 0x001C (0x00F8 - 0x0114)
 class USeqAct_AIMoveToActor : public USeqAct_Latent
@@ -29699,10 +29194,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	class AActor* PickDestination(class AActor* Requestor);
 	static int32_t eventGetObjClassVersion();
 };
-
 // Class Engine.SeqAct_Delay
 // 0x0014 (0x00F8 - 0x010C)
 class USeqAct_Delay : public USeqAct_Latent
@@ -29728,11 +29223,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	void ResetDelayActive();
 	void Reset();
 	bool eventIsValidUISequenceObject(class UUIScreenObject* optionalTargetObject);
 };
-
 // Class Engine.SeqAct_DelaySwitch
 // 0x0010 (0x00F8 - 0x0108)
 class USeqAct_DelaySwitch : public USeqAct_Latent
@@ -29757,7 +29252,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqAct_ForceGarbageCollection
 // 0x0000 (0x00F8 - 0x00F8)
 class USeqAct_ForceGarbageCollection : public USeqAct_Latent
@@ -29778,7 +29272,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqAct_Interp
 // 0x012C (0x00F8 - 0x0224)
 class USeqAct_Interp : public USeqAct_Latent
@@ -29840,13 +29333,13 @@ public:
 		return uClassPointer;
 	};
 
+
 	static int32_t eventGetObjClassVersion();
 	void Reset();
 	void AddPlayerToDirectorTracks(class APlayerController* PC);
 	void Stop();
 	void SetPosition(float NewPosition, bool optionalBJump);
 };
-
 // Class Engine.SeqAct_LatentWithInterpData
 // 0x0004 (0x00F8 - 0x00FC)
 class USeqAct_LatentWithInterpData : public USeqAct_Latent
@@ -29867,9 +29360,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	static int32_t eventGetObjClassVersion();
 };
-
 // Class Engine.SeqAct_LevelStreamingBase
 // 0x0008 (0x00F8 - 0x0100)
 class USeqAct_LevelStreamingBase : public USeqAct_Latent
@@ -29894,7 +29387,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqAct_LevelStreaming
 // 0x0010 (0x0100 - 0x0110)
 class USeqAct_LevelStreaming : public USeqAct_LevelStreamingBase
@@ -29918,7 +29410,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqAct_MultiLevelStreaming
 // 0x0010 (0x0100 - 0x0110)
 class USeqAct_MultiLevelStreaming : public USeqAct_LevelStreamingBase
@@ -29942,7 +29433,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqAct_LevelVisibility
 // 0x0010 (0x00F8 - 0x0108)
 class USeqAct_LevelVisibility : public USeqAct_Latent
@@ -29966,7 +29456,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqAct_PlayBinkMovie
 // 0x0010 (0x00F8 - 0x0108)
 class USeqAct_PlayBinkMovie : public USeqAct_Latent
@@ -29991,9 +29480,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	static int32_t eventGetObjClassVersion();
 };
-
 // Class Engine.SeqAct_PlaySound
 // 0x0020 (0x00F8 - 0x0118)
 class USeqAct_PlaySound : public USeqAct_Latent
@@ -30022,9 +29511,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	static int32_t eventGetObjClassVersion();
 };
-
 // Class Engine.SeqAct_PrepareMapChange
 // 0x0018 (0x00F8 - 0x0110)
 class USeqAct_PrepareMapChange : public USeqAct_Latent
@@ -30049,7 +29538,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqAct_SetCameraTargetAdvanced
 // 0x0078 (0x00F8 - 0x0170)
 class USeqAct_SetCameraTargetAdvanced : public USeqAct_Latent
@@ -30093,9 +29581,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	static int32_t eventGetObjClassVersion();
 };
-
 // Class Engine.SeqAct_SetDOFParams
 // 0x008C (0x00F8 - 0x0184)
 class USeqAct_SetDOFParams : public USeqAct_Latent
@@ -30146,7 +29634,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqAct_SetMotionBlurParams
 // 0x0010 (0x00F8 - 0x0108)
 class USeqAct_SetMotionBlurParams : public USeqAct_Latent
@@ -30171,7 +29658,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqAct_StreamInTextures
 // 0x002C (0x00F8 - 0x0124)
 class USeqAct_StreamInTextures : public USeqAct_Latent
@@ -30199,10 +29685,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	static int32_t eventGetObjClassVersion();
 	bool eventIsValidUISequenceObject(class UUIScreenObject* optionalTargetObject);
 };
-
 // Class Engine.SeqAct_WaitForLevelsVisible
 // 0x0014 (0x00F8 - 0x010C)
 class USeqAct_WaitForLevelsVisible : public USeqAct_Latent
@@ -30228,7 +29714,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqAct_Log
 // 0x0014 (0x00E8 - 0x00FC)
 class USeqAct_Log : public USequenceAction
@@ -30252,10 +29737,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	static int32_t eventGetObjClassVersion();
 	bool eventIsValidUISequenceObject(class UUIScreenObject* optionalTargetObject);
 };
-
 // Class Engine.SeqAct_ModifyCover
 // 0x0014 (0x00E8 - 0x00FC)
 class USeqAct_ModifyCover : public USequenceAction
@@ -30263,6 +29748,7 @@ class USeqAct_ModifyCover : public USequenceAction
 public:
 	class TArray<int32_t>                              Slots;                                         // 0x00E8 (0x000C) [0x0000000000400001] (CPF_Edit | CPF_NeedCtorLink)
 	ECoverType                                         ManualCoverType;                               // 0x00F4 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x00F5 (0x0003) MISSED OFFSET
 	uint32_t                                           bManualAdjustPlayersOnly : 1;                  // 0x00F8 (0x0004) [0x0000000000000001] [0x00000001] (CPF_Edit)
 
 public:
@@ -30279,7 +29765,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqAct_ModifyHealth
 // 0x0018 (0x00E8 - 0x0100)
 class USeqAct_ModifyHealth : public USequenceAction
@@ -30307,9 +29792,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	static int32_t eventGetObjClassVersion();
 };
-
 // Class Engine.SeqAct_ParticleEventGenerator
 // 0x0048 (0x00E8 - 0x0130)
 class USeqAct_ParticleEventGenerator : public USequenceAction
@@ -30338,9 +29823,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	static int32_t eventGetObjClassVersion();
 };
-
 // Class Engine.SeqAct_PhysXSwitch
 // 0x0000 (0x00E8 - 0x00E8)
 class USeqAct_PhysXSwitch : public USequenceAction
@@ -30360,9 +29845,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool eventIsValidUISequenceObject(class UUIScreenObject* optionalTargetObject);
 };
-
 // Class Engine.SeqAct_PlayCameraAnim
 // 0x0020 (0x00E8 - 0x0108)
 class USeqAct_PlayCameraAnim : public USequenceAction
@@ -30378,6 +29863,7 @@ public:
 	float                                              Rate;                                          // 0x00F8 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	float                                              IntensityScale;                                // 0x00FC (0x0004) [0x0000000000000001] (CPF_Edit)    
 	ECameraAnimPlaySpace                               PlaySpace;                                     // 0x0100 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0101 (0x0003) MISSED OFFSET
 	class AActor*                                      UserDefinedSpaceActor;                         // 0x0104 (0x0004) [0x0000000000000001] (CPF_Edit)    
 
 public:
@@ -30393,9 +29879,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	static int32_t eventGetObjClassVersion();
 };
-
 // Class Engine.SeqAct_PlayFaceFXAnim
 // 0x0020 (0x00E8 - 0x0108)
 class USeqAct_PlayFaceFXAnim : public USequenceAction
@@ -30420,7 +29906,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqAct_PlayMusicTrack
 // 0x0018 (0x00E8 - 0x0100)
 class USeqAct_PlayMusicTrack : public USequenceAction
@@ -30442,7 +29927,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqAct_Possess
 // 0x0008 (0x00E8 - 0x00F0)
 class USeqAct_Possess : public USequenceAction
@@ -30466,7 +29950,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqAct_RangeSwitch
 // 0x000C (0x00E8 - 0x00F4)
 class USeqAct_RangeSwitch : public USequenceAction
@@ -30488,7 +29971,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqAct_SetApexClothingParam
 // 0x0004 (0x00E8 - 0x00EC)
 class USeqAct_SetApexClothingParam : public USequenceAction
@@ -30510,7 +29992,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqAct_SetBlockRigidBody
 // 0x0000 (0x00E8 - 0x00E8)
 class USeqAct_SetBlockRigidBody : public USequenceAction
@@ -30531,7 +30012,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqAct_SetCameraTarget
 // 0x0018 (0x00E8 - 0x0100)
 class USeqAct_SetCameraTarget : public USequenceAction
@@ -30553,9 +30033,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	static int32_t eventGetObjClassVersion();
 };
-
 // Class Engine.SeqAct_SetMaterial
 // 0x0008 (0x00E8 - 0x00F0)
 class USeqAct_SetMaterial : public USequenceAction
@@ -30578,7 +30058,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqAct_SetMaterialEffect
 // 0x001C (0x00E8 - 0x0104)
 class USeqAct_SetMaterialEffect : public USequenceAction
@@ -30605,9 +30084,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	static int32_t eventGetObjClassVersion();
 };
-
 // Class Engine.SeqAct_SetMatInstScalarParam
 // 0x0010 (0x00E8 - 0x00F8)
 class USeqAct_SetMatInstScalarParam : public USequenceAction
@@ -30631,7 +30110,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqAct_SetMesh
 // 0x0010 (0x00E8 - 0x00F8)
 class USeqAct_SetMesh : public USequenceAction
@@ -30640,6 +30118,7 @@ public:
 	class USkeletalMesh*                               NewSkeletalMesh;                               // 0x00E8 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	class UStaticMesh*                                 NewStaticMesh;                                 // 0x00EC (0x0004) [0x0000000000000001] (CPF_Edit)    
 	EMeshType                                          MeshType;                                      // 0x00F0 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x00F1 (0x0003) MISSED OFFSET
 	uint32_t                                           bIsAllowedToMove : 1;                          // 0x00F4 (0x0004) [0x0000000000000001] [0x00000001] (CPF_Edit)
 	uint32_t                                           bAllowDecalsToReattach : 1;                    // 0x00F4 (0x0004) [0x0000000000000001] [0x00000002] (CPF_Edit)
 
@@ -30657,7 +30136,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqAct_SetMonochromeFactor
 // 0x0008 (0x00E8 - 0x00F0)
 class USeqAct_SetMonochromeFactor : public USequenceAction
@@ -30679,9 +30157,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	static int32_t eventGetObjClassVersion();
 };
-
 // Class Engine.SeqAct_SetPhysics
 // 0x0001 (0x00E8 - 0x00E9)
 class USeqAct_SetPhysics : public USequenceAction
@@ -30703,7 +30181,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqAct_SetRigidBodyIgnoreVehicles
 // 0x0000 (0x00E8 - 0x00E8)
 class USeqAct_SetRigidBodyIgnoreVehicles : public USequenceAction
@@ -30724,7 +30201,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqAct_SetSequenceVariable
 // 0x0000 (0x00E8 - 0x00E8)
 class USeqAct_SetSequenceVariable : public USequenceAction
@@ -30744,9 +30220,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool eventIsValidUISequenceObject(class UUIScreenObject* optionalTargetObject);
 };
-
 // Class Engine.SeqAct_AccessObjectList
 // 0x0008 (0x00E8 - 0x00F0)
 class USeqAct_AccessObjectList : public USeqAct_SetSequenceVariable
@@ -30769,7 +30245,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqAct_AddFloat
 // 0x0010 (0x00E8 - 0x00F8)
 class USeqAct_AddFloat : public USeqAct_SetSequenceVariable
@@ -30794,7 +30269,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqAct_AddInt
 // 0x0010 (0x00E8 - 0x00F8)
 class USeqAct_AddInt : public USeqAct_SetSequenceVariable
@@ -30819,7 +30293,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqAct_CastToFloat
 // 0x0008 (0x00E8 - 0x00F0)
 class USeqAct_CastToFloat : public USeqAct_SetSequenceVariable
@@ -30842,7 +30315,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqAct_CastToInt
 // 0x000C (0x00E8 - 0x00F4)
 class USeqAct_CastToInt : public USeqAct_SetSequenceVariable
@@ -30866,7 +30338,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqAct_DivideFloat
 // 0x0010 (0x00E8 - 0x00F8)
 class USeqAct_DivideFloat : public USeqAct_SetSequenceVariable
@@ -30891,7 +30362,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqAct_DivideInt
 // 0x0010 (0x00E8 - 0x00F8)
 class USeqAct_DivideInt : public USeqAct_SetSequenceVariable
@@ -30916,7 +30386,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqAct_ModifyObjectList
 // 0x0004 (0x00E8 - 0x00EC)
 class USeqAct_ModifyObjectList : public USeqAct_SetSequenceVariable
@@ -30938,7 +30407,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqAct_MultiplyFloat
 // 0x0010 (0x00E8 - 0x00F8)
 class USeqAct_MultiplyFloat : public USeqAct_SetSequenceVariable
@@ -30963,7 +30431,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqAct_MultiplyInt
 // 0x0010 (0x00E8 - 0x00F8)
 class USeqAct_MultiplyInt : public USeqAct_SetSequenceVariable
@@ -30988,7 +30455,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqAct_SetBool
 // 0x0004 (0x00E8 - 0x00EC)
 class USeqAct_SetBool : public USeqAct_SetSequenceVariable
@@ -31010,7 +30476,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqAct_SetFloat
 // 0x0010 (0x00E8 - 0x00F8)
 class USeqAct_SetFloat : public USeqAct_SetSequenceVariable
@@ -31032,9 +30497,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	static int32_t eventGetObjClassVersion();
 };
-
 // Class Engine.SeqAct_SetInt
 // 0x0010 (0x00E8 - 0x00F8)
 class USeqAct_SetInt : public USeqAct_SetSequenceVariable
@@ -31056,9 +30521,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	static int32_t eventGetObjClassVersion();
 };
-
 // Class Engine.SeqAct_SetLocation
 // 0x0020 (0x00E8 - 0x0108)
 class USeqAct_SetLocation : public USeqAct_SetSequenceVariable
@@ -31083,9 +30548,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	static int32_t eventGetObjClassVersion();
 };
-
 // Class Engine.SeqAct_SetObject
 // 0x0008 (0x00E8 - 0x00F0)
 class USeqAct_SetObject : public USeqAct_SetSequenceVariable
@@ -31107,9 +30572,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	static int32_t eventGetObjClassVersion();
 };
-
 // Class Engine.SeqAct_SetString
 // 0x0018 (0x00E8 - 0x0100)
 class USeqAct_SetString : public USeqAct_SetSequenceVariable
@@ -31131,9 +30596,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	static int32_t eventGetObjClassVersion();
 };
-
 // Class Engine.SeqAct_SubtractFloat
 // 0x0010 (0x00E8 - 0x00F8)
 class USeqAct_SubtractFloat : public USeqAct_SetSequenceVariable
@@ -31158,7 +30623,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqAct_SubtractInt
 // 0x0010 (0x00E8 - 0x00F8)
 class USeqAct_SubtractInt : public USeqAct_SetSequenceVariable
@@ -31183,7 +30647,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqAct_SetVectorComponents
 // 0x0018 (0x00E8 - 0x0100)
 class USeqAct_SetVectorComponents : public USequenceAction
@@ -31208,7 +30671,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqAct_Switch
 // 0x0018 (0x00E8 - 0x0100)
 class USeqAct_Switch : public USequenceAction
@@ -31233,9 +30695,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool eventIsValidUISequenceObject(class UUIScreenObject* optionalTargetObject);
 };
-
 // Class Engine.SeqAct_RandomSwitch
 // 0x000C (0x0100 - 0x010C)
 class USeqAct_RandomSwitch : public USeqAct_Switch
@@ -31256,9 +30718,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	static int32_t eventGetObjClassVersion();
 };
-
 // Class Engine.SeqAct_Timer
 // 0x0008 (0x00E8 - 0x00F0)
 class USeqAct_Timer : public USequenceAction
@@ -31280,9 +30742,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool eventIsValidUISequenceObject(class UUIScreenObject* optionalTargetObject);
 };
-
 // Class Engine.SeqAct_Toggle
 // 0x0000 (0x00E8 - 0x00E8)
 class USeqAct_Toggle : public USequenceAction
@@ -31302,9 +30764,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool eventIsValidUISequenceObject(class UUIScreenObject* optionalTargetObject);
 };
-
 // Class Engine.SeqAct_ToggleNPCJumpPad
 // 0x0000 (0x00E8 - 0x00E8)
 class USeqAct_ToggleNPCJumpPad : public USeqAct_Toggle
@@ -31325,7 +30787,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqAct_ToggleCinematicMode
 // 0x0004 (0x00E8 - 0x00EC)
 class USeqAct_ToggleCinematicMode : public USequenceAction
@@ -31355,10 +30816,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool eventIsValidUISequenceObject(class UUIScreenObject* optionalTargetObject);
 	void eventActivated();
 };
-
 // Class Engine.SeqAct_Trace
 // 0x003C (0x00E8 - 0x0124)
 class USeqAct_Trace : public USequenceAction
@@ -31386,9 +30847,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	static int32_t eventGetObjClassVersion();
 };
-
 // Class Engine.SequenceCondition
 // 0x0000 (0x00D0 - 0x00D0)
 class USequenceCondition : public USequenceOp
@@ -31408,9 +30869,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool eventIsValidUISequenceObject(class UUIScreenObject* optionalTargetObject);
 };
-
 // Class Engine.SeqCond_CompareBool
 // 0x0000 (0x00D0 - 0x00D0)
 class USeqCond_CompareBool : public USequenceCondition
@@ -31431,7 +30892,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqCond_CompareFloat
 // 0x0008 (0x00D0 - 0x00D8)
 class USeqCond_CompareFloat : public USequenceCondition
@@ -31454,7 +30914,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqCond_CompareInt
 // 0x0008 (0x00D0 - 0x00D8)
 class USeqCond_CompareInt : public USequenceCondition
@@ -31477,7 +30936,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqCond_CompareObject
 // 0x0000 (0x00D0 - 0x00D0)
 class USeqCond_CompareObject : public USequenceCondition
@@ -31498,7 +30956,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqCond_GetServerType
 // 0x0000 (0x00D0 - 0x00D0)
 class USeqCond_GetServerType : public USequenceCondition
@@ -31518,9 +30975,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	static int32_t eventGetObjClassVersion();
 };
-
 // Class Engine.SeqCond_Increment
 // 0x000C (0x00D0 - 0x00DC)
 class USeqCond_Increment : public USequenceCondition
@@ -31544,7 +31001,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqCond_IncrementFloat
 // 0x000C (0x00D0 - 0x00DC)
 class USeqCond_IncrementFloat : public USequenceCondition
@@ -31568,7 +31024,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqCond_IsAlive
 // 0x0000 (0x00D0 - 0x00D0)
 class USeqCond_IsAlive : public USequenceCondition
@@ -31589,7 +31044,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqCond_IsConsole
 // 0x0000 (0x00D0 - 0x00D0)
 class USeqCond_IsConsole : public USequenceCondition
@@ -31610,7 +31064,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqCond_IsInCombat
 // 0x0000 (0x00D0 - 0x00D0)
 class USeqCond_IsInCombat : public USequenceCondition
@@ -31631,7 +31084,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqCond_IsLoggedIn
 // 0x0004 (0x00D0 - 0x00D4)
 class USeqCond_IsLoggedIn : public USequenceCondition
@@ -31652,9 +31104,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool eventCheckLogins();
 };
-
 // Class Engine.SeqCond_IsSameTeam
 // 0x0000 (0x00D0 - 0x00D0)
 class USeqCond_IsSameTeam : public USequenceCondition
@@ -31675,7 +31127,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqCond_SwitchBase
 // 0x0000 (0x00D0 - 0x00D0)
 class USeqCond_SwitchBase : public USequenceCondition
@@ -31695,12 +31146,12 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventRemoveValueEntry(int32_t RemoveIndex);
 	void eventInsertValueEntry(int32_t InsertIndex);
 	bool eventIsFallThruEnabled(int32_t ValueIndex);
 	void eventVerifyDefaultCaseValue();
 };
-
 // Class Engine.SeqCond_SwitchClass
 // 0x000C (0x00D0 - 0x00DC)
 class USeqCond_SwitchClass : public USeqCond_SwitchBase
@@ -31721,12 +31172,12 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventRemoveValueEntry(int32_t RemoveIndex);
 	void eventInsertValueEntry(int32_t InsertIndex);
 	bool eventIsFallThruEnabled(int32_t ValueIndex);
 	void eventVerifyDefaultCaseValue();
 };
-
 // Class Engine.SeqCond_SwitchObject
 // 0x0010 (0x00D0 - 0x00E0)
 class USeqCond_SwitchObject : public USeqCond_SwitchBase
@@ -31748,12 +31199,12 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventRemoveValueEntry(int32_t RemoveIndex);
 	void eventInsertValueEntry(int32_t InsertIndex);
 	bool eventIsFallThruEnabled(int32_t ValueIndex);
 	void eventVerifyDefaultCaseValue();
 };
-
 // Class Engine.SeqCond_SwitchPlatform
 // 0x0000 (0x00D0 - 0x00D0)
 class USeqCond_SwitchPlatform : public USequenceCondition
@@ -31773,9 +31224,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool eventIsValidUISequenceObject(class UUIScreenObject* optionalTargetObject);
 };
-
 // Class Engine.SequenceEvent
 // 0x0030 (0x00D0 - 0x0100)
 class USequenceEvent : public USequenceOp
@@ -31793,6 +31244,7 @@ public:
 	uint32_t                                           bRegistered : 1;                               // 0x00F4 (0x0004) [0x0000000000002000] [0x00000004] (CPF_Transient)
 	uint32_t                                           bClientSideOnly : 1;                           // 0x00F4 (0x0004) [0x0000000000000003] [0x00000008] (CPF_Edit | CPF_Const)
 	uint8_t                                            Priority;                                      // 0x00F8 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x00F9 (0x0003) MISSED OFFSET
 	int32_t                                            MaxWidth;                                      // 0x00FC (0x0004) [0x0000000000000000]               
 
 public:
@@ -31808,12 +31260,12 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventToggled();
 	void Reset();
-	bool CheckActivate(class AActor* InOriginator, class AActor* InInstigator, bool optionalBTest, bool optionalBPushTop, class TArray<int32_t>& outActivateIndices);
+	bool CheckActivate(class AActor* InOriginator, class AActor* InInstigator, bool optionalBTest, bool optionalBPushTop, class TArray<int32_t>& optionalOutActivateIndices);
 	void eventRegisterEvent();
 };
-
 // Class Engine.SeqEvent_AICollidePlayer
 // 0x0000 (0x0100 - 0x0100)
 class USeqEvent_AICollidePlayer : public USequenceEvent
@@ -31834,7 +31286,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqEvent_AIHearNoise
 // 0x0000 (0x0100 - 0x0100)
 class USeqEvent_AIHearNoise : public USequenceEvent
@@ -31855,7 +31306,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqEvent_AISeeEnemy
 // 0x0004 (0x0100 - 0x0104)
 class USeqEvent_AISeeEnemy : public USequenceEvent
@@ -31877,7 +31327,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqEvent_AITakeDamage
 // 0x0000 (0x0100 - 0x0100)
 class USeqEvent_AITakeDamage : public USequenceEvent
@@ -31898,7 +31347,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqEvent_AnimNotify
 // 0x0008 (0x0100 - 0x0108)
 class USeqEvent_AnimNotify : public USequenceEvent
@@ -31920,7 +31368,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqEvent_ChapterPointLoaded
 // 0x0001 (0x0100 - 0x0101)
 class USeqEvent_ChapterPointLoaded : public USequenceEvent
@@ -31942,7 +31389,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqEvent_Console
 // 0x0014 (0x0100 - 0x0114)
 class USeqEvent_Console : public USequenceEvent
@@ -31965,7 +31411,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqEvent_ConstraintBroken
 // 0x0000 (0x0100 - 0x0100)
 class USeqEvent_ConstraintBroken : public USequenceEvent
@@ -31986,7 +31431,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqEvent_Destroyed
 // 0x0000 (0x0100 - 0x0100)
 class USeqEvent_Destroyed : public USequenceEvent
@@ -32007,7 +31451,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqEvent_GetInventory
 // 0x0000 (0x0100 - 0x0100)
 class USeqEvent_GetInventory : public USequenceEvent
@@ -32028,7 +31471,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqEvent_InputCommand
 // 0x0018 (0x0100 - 0x0118)
 class USeqEvent_InputCommand : public USequenceEvent
@@ -32051,7 +31493,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqEvent_LevelBeginning
 // 0x0000 (0x0100 - 0x0100)
 class USeqEvent_LevelBeginning : public USequenceEvent
@@ -32072,7 +31513,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqEvent_LevelLoaded
 // 0x0000 (0x0100 - 0x0100)
 class USeqEvent_LevelLoaded : public USequenceEvent
@@ -32092,9 +31532,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	static int32_t eventGetObjClassVersion();
 };
-
 // Class Engine.SeqEvent_LevelStartup
 // 0x0000 (0x0100 - 0x0100)
 class USeqEvent_LevelStartup : public USequenceEvent
@@ -32115,7 +31555,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqEvent_Mover
 // 0x0004 (0x0100 - 0x0104)
 class USeqEvent_Mover : public USequenceEvent
@@ -32136,19 +31575,20 @@ public:
 		return uClassPointer;
 	};
 
+
 	void NotifyFinishedOpen();
 	void NotifyDetached(class AActor* Other);
 	void NotifyAttached(class AActor* Other);
 	void NotifyEncroachingOn(class AActor* Hit);
 	void eventRegisterEvent();
 };
-
 // Class Engine.SeqEvent_ParticleEvent
 // 0x0034 (0x0100 - 0x0134)
 class USeqEvent_ParticleEvent : public USequenceEvent
 {
 public:
 	EParticleEventOutputType                           EventType;                                     // 0x0100 (0x0001) [0x0000000000000000]               
+	uint8_t                                            UnknownData00[0x3];                              // 0x0101 (0x0003) MISSED OFFSET
 	struct FVector                                     EventPosition;                                 // 0x0104 (0x000C) [0x0000000000000000]               
 	float                                              EventEmitterTime;                              // 0x0110 (0x0004) [0x0000000000000000]               
 	struct FVector                                     EventVelocity;                                 // 0x0114 (0x000C) [0x0000000000000000]               
@@ -32169,9 +31609,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	static int32_t eventGetObjClassVersion();
 };
-
 // Class Engine.SeqEvent_ProjectileLanded
 // 0x0004 (0x0100 - 0x0104)
 class USeqEvent_ProjectileLanded : public USequenceEvent
@@ -32193,7 +31633,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqEvent_RemoteEvent
 // 0x000C (0x0100 - 0x010C)
 class USeqEvent_RemoteEvent : public USequenceEvent
@@ -32215,9 +31654,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	static int32_t eventGetObjClassVersion();
 };
-
 // Class Engine.SeqEvent_RigidBodyCollision
 // 0x0004 (0x0100 - 0x0104)
 class USeqEvent_RigidBodyCollision : public USequenceEvent
@@ -32239,7 +31678,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqEvent_SeeDeath
 // 0x0000 (0x0100 - 0x0100)
 class USeqEvent_SeeDeath : public USequenceEvent
@@ -32260,7 +31698,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqEvent_SequenceActivated
 // 0x000C (0x0100 - 0x010C)
 class USeqEvent_SequenceActivated : public USequenceEvent
@@ -32282,7 +31719,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqEvent_TakeDamage
 // 0x0028 (0x0100 - 0x0128)
 class USeqEvent_TakeDamage : public USequenceEvent
@@ -32308,13 +31744,13 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventToggled();
 	static int32_t eventGetObjClassVersion();
 	void Reset();
 	void HandleDamage(class AActor* InOriginator, class AActor* InInstigator, class UClass* inDamageType, int32_t inAmount);
 	bool IsValidDamageType(class UClass* inDamageType);
 };
-
 // Class Engine.SeqEvent_Touch
 // 0x0028 (0x0100 - 0x0128)
 class USeqEvent_Touch : public USequenceEvent
@@ -32340,13 +31776,13 @@ public:
 		return uClassPointer;
 	};
 
+
 	static int32_t eventGetObjClassVersion();
 	void NotifyTouchingPawnDied(class APawn* P);
 	void eventToggled();
 	bool CheckUnTouchActivate(class AActor* InOriginator, class AActor* InInstigator, bool optionalBTest);
 	bool CheckTouchActivate(class AActor* InOriginator, class AActor* InInstigator, bool optionalBTest);
 };
-
 // Class Engine.SeqEvent_Used
 // 0x0030 (0x0100 - 0x0130)
 class USeqEvent_Used : public USequenceEvent
@@ -32373,7 +31809,6 @@ public:
 	};
 
 };
-
 // Class Engine.SequenceVariable
 // 0x0008 (0x008C - 0x0094)
 class USequenceVariable : public USequenceObject
@@ -32394,9 +31829,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool eventIsValidUISequenceObject(class UUIScreenObject* optionalTargetObject);
 };
-
 // Class Engine.InterpData
 // 0x0040 (0x0094 - 0x00D4)
 class UInterpData : public USequenceVariable
@@ -32427,7 +31862,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqVar_Bool
 // 0x0004 (0x0094 - 0x0098)
 class USeqVar_Bool : public USequenceVariable
@@ -32449,7 +31883,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqVar_External
 // 0x0010 (0x0094 - 0x00A4)
 class USeqVar_External : public USequenceVariable
@@ -32472,7 +31905,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqVar_Float
 // 0x0004 (0x0094 - 0x0098)
 class USeqVar_Float : public USequenceVariable
@@ -32494,7 +31926,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqVar_RandomFloat
 // 0x0008 (0x0098 - 0x00A0)
 class USeqVar_RandomFloat : public USeqVar_Float
@@ -32517,7 +31948,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqVar_Int
 // 0x0004 (0x0094 - 0x0098)
 class USeqVar_Int : public USequenceVariable
@@ -32539,7 +31969,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqVar_RandomInt
 // 0x0008 (0x0098 - 0x00A0)
 class USeqVar_RandomInt : public USeqVar_Int
@@ -32562,7 +31991,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqVar_Named
 // 0x0010 (0x0094 - 0x00A4)
 class USeqVar_Named : public USequenceVariable
@@ -32586,7 +32014,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqVar_Object
 // 0x001C (0x0094 - 0x00B0)
 class USeqVar_Object : public USequenceVariable
@@ -32609,10 +32036,10 @@ public:
 		return uClassPointer;
 	};
 
-	void SetObjectValue(class UObject* NewValue);
-	class UObject* GetObjectValueW();
-};
 
+	void SetObjectValue(class UObject* NewValue);
+	class UObject* GetObjectValueWin();
+};
 // Class Engine.SeqVar_Character
 // 0x0004 (0x00B0 - 0x00B4)
 class USeqVar_Character : public USeqVar_Object
@@ -32634,7 +32061,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqVar_Group
 // 0x0018 (0x00B0 - 0x00C8)
 class USeqVar_Group : public USeqVar_Object
@@ -32658,7 +32084,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqVar_ObjectList
 // 0x000C (0x00B0 - 0x00BC)
 class USeqVar_ObjectList : public USeqVar_Object
@@ -32679,10 +32104,10 @@ public:
 		return uClassPointer;
 	};
 
-	void SetObjectValue(class UObject* NewValue);
-	class UObject* GetObjectValueW();
-};
 
+	void SetObjectValue(class UObject* NewValue);
+	class UObject* GetObjectValueWin();
+};
 // Class Engine.SeqVar_ObjectVolume
 // 0x0020 (0x00B0 - 0x00D0)
 class USeqVar_ObjectVolume : public USeqVar_Object
@@ -32707,7 +32132,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqVar_Player
 // 0x0014 (0x00B0 - 0x00C4)
 class USeqVar_Player : public USeqVar_Object
@@ -32730,10 +32154,10 @@ public:
 		return uClassPointer;
 	};
 
-	class UObject* GetObjectValueW();
+
+	class UObject* GetObjectValueWin();
 	void UpdatePlayersList();
 };
-
 // Class Engine.SeqVar_PlayerPawn
 // 0x0014 (0x00B0 - 0x00C4)
 class USeqVar_PlayerPawn : public USeqVar_Object
@@ -32756,10 +32180,10 @@ public:
 		return uClassPointer;
 	};
 
-	class UObject* GetObjectValueW();
+
+	class UObject* GetObjectValueWin();
 	void UpdatePlayersList();
 };
-
 // Class Engine.SeqVar_String
 // 0x000C (0x0094 - 0x00A0)
 class USeqVar_String : public USequenceVariable
@@ -32781,7 +32205,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqVar_Vector
 // 0x000C (0x0094 - 0x00A0)
 class USeqVar_Vector : public USequenceVariable
@@ -32803,7 +32226,6 @@ public:
 	};
 
 };
-
 // Class Engine.AmbientSound
 // 0x0008 (0x022C - 0x0234)
 class AAmbientSound : public AKeypoint
@@ -32827,7 +32249,6 @@ public:
 	};
 
 };
-
 // Class Engine.AmbientSoundMovable
 // 0x0000 (0x0234 - 0x0234)
 class AAmbientSoundMovable : public AAmbientSound
@@ -32848,7 +32269,6 @@ public:
 	};
 
 };
-
 // Class Engine.AmbientSoundSimple
 // 0x000C (0x0234 - 0x0240)
 class AAmbientSoundSimple : public AAmbientSound
@@ -32872,7 +32292,6 @@ public:
 	};
 
 };
-
 // Class Engine.AmbientSoundNonLoop
 // 0x0000 (0x0240 - 0x0240)
 class AAmbientSoundNonLoop : public AAmbientSoundSimple
@@ -32893,7 +32312,6 @@ public:
 	};
 
 };
-
 // Class Engine.AmbientSoundSimpleToggleable
 // 0x0014 (0x0240 - 0x0254)
 class AAmbientSoundSimpleToggleable : public AAmbientSoundSimple
@@ -32919,6 +32337,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void ApplyCheckpointRecord(struct AAmbientSoundSimpleToggleable_FCheckpointRecord& outRecord);
 	void CreateCheckpointRecord(struct AAmbientSoundSimpleToggleable_FCheckpointRecord& outRecord);
 	void OnToggle(class USeqAct_Toggle* Action);
@@ -32927,7 +32346,6 @@ public:
 	void eventReplicatedEvent(const class FName& VarName);
 	void eventPostBeginPlay();
 };
-
 // Class Engine.DistributionFloatSoundParameter
 // 0x0000 (0x006D - 0x006D)
 class UDistributionFloatSoundParameter : public UDistributionFloatParameterBase
@@ -32948,7 +32366,6 @@ public:
 	};
 
 };
-
 // Class Engine.SoundNode
 // 0x0010 (0x003C - 0x004C)
 class USoundNode : public UObject
@@ -32971,7 +32388,6 @@ public:
 	};
 
 };
-
 // Class Engine.SoundNodeAmbient
 // 0x00E4 (0x004C - 0x0130)
 class USoundNodeAmbient : public USoundNode
@@ -32983,6 +32399,7 @@ public:
 	uint32_t                                           bAttenuateWithLowPassFilter : 1;               // 0x004C (0x0004) [0x0000000020000000] [0x00000008]  CPF_Deprecated)
 	float                                              dBAttenuationAtMax;                            // 0x0050 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	ESoundDistanceModel                                DistanceModel;                                 // 0x0054 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0055 (0x0003) MISSED OFFSET
 	float                                              RadiusMin;                                     // 0x0058 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	float                                              RadiusMax;                                     // 0x005C (0x0004) [0x0000000000000001] (CPF_Edit)    
 	float                                              LPFRadiusMin;                                  // 0x0060 (0x0004) [0x0000000000000001] (CPF_Edit)    
@@ -33014,7 +32431,6 @@ public:
 	};
 
 };
-
 // Class Engine.SoundNodeAmbientNonLoop
 // 0x0024 (0x0130 - 0x0154)
 class USoundNodeAmbientNonLoop : public USoundNodeAmbient
@@ -33038,7 +32454,6 @@ public:
 	};
 
 };
-
 // Class Engine.SoundNodeAttenuation
 // 0x0090 (0x004C - 0x00DC)
 class USoundNodeAttenuation : public USoundNode
@@ -33052,6 +32467,7 @@ public:
 	ESoundDistanceModel                                DistanceAlgorithm;                             // 0x0054 (0x0001) [0x0000000000000001] (CPF_Edit)    
 	ESoundDistanceCalc                                 DistanceType;                                  // 0x0055 (0x0001) [0x0000000000000001] (CPF_Edit)    
 	ESoundDistanceModel                                DistanceModel;                                 // 0x0056 (0x0001) [0x0000000020020000] (CPF_EditConst | CPF_Deprecated)
+	uint8_t                                            UnknownData00[0x1];                              // 0x0057 (0x0001) MISSED OFFSET
 	float                                              RadiusMin;                                     // 0x0058 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	float                                              RadiusMax;                                     // 0x005C (0x0004) [0x0000000000000001] (CPF_Edit)    
 	float                                              ReverseMinVolume;                              // 0x0060 (0x0004) [0x0000000000000001] (CPF_Edit)    
@@ -33076,7 +32492,6 @@ public:
 	};
 
 };
-
 // Class Engine.SoundNodeConcatenator
 // 0x000C (0x004C - 0x0058)
 class USoundNodeConcatenator : public USoundNode
@@ -33098,7 +32513,6 @@ public:
 	};
 
 };
-
 // Class Engine.SoundNodeDelay
 // 0x0024 (0x004C - 0x0070)
 class USoundNodeDelay : public USoundNode
@@ -33122,7 +32536,6 @@ public:
 	};
 
 };
-
 // Class Engine.SoundNodeDistanceCrossFade
 // 0x000C (0x004C - 0x0058)
 class USoundNodeDistanceCrossFade : public USoundNode
@@ -33144,7 +32557,6 @@ public:
 	};
 
 };
-
 // Class Engine.SoundNodeLooping
 // 0x0028 (0x004C - 0x0074)
 class USoundNodeLooping : public USoundNode
@@ -33169,7 +32581,6 @@ public:
 	};
 
 };
-
 // Class Engine.SoundNodeMature
 // 0x0000 (0x004C - 0x004C)
 class USoundNodeMature : public USoundNode
@@ -33190,7 +32601,6 @@ public:
 	};
 
 };
-
 // Class Engine.SoundNodeMixer
 // 0x000C (0x004C - 0x0058)
 class USoundNodeMixer : public USoundNode
@@ -33212,7 +32622,6 @@ public:
 	};
 
 };
-
 // Class Engine.SoundNodeModulator
 // 0x0048 (0x004C - 0x0094)
 class USoundNodeModulator : public USoundNode
@@ -33239,7 +32648,6 @@ public:
 	};
 
 };
-
 // Class Engine.SoundNodeModulatorContinuous
 // 0x0038 (0x004C - 0x0084)
 class USoundNodeModulatorContinuous : public USoundNode
@@ -33262,7 +32670,6 @@ public:
 	};
 
 };
-
 // Class Engine.SoundNodeOscillator
 // 0x0094 (0x004C - 0x00E0)
 class USoundNodeOscillator : public USoundNode
@@ -33297,7 +32704,6 @@ public:
 	};
 
 };
-
 // Class Engine.SoundNodeRandom
 // 0x0020 (0x004C - 0x006C)
 class USoundNodeRandom : public USoundNode
@@ -33322,7 +32728,6 @@ public:
 	};
 
 };
-
 // Class Engine.SoundNodeWave
 // 0x0168 (0x004C - 0x01B4)
 class USoundNodeWave : public USoundNode
@@ -33339,6 +32744,7 @@ public:
 	uint32_t                                           bManualWordWrap : 1;                           // 0x0050 (0x0004) [0x0000000000008003] [0x00000080] (CPF_Edit | CPF_Const | CPF_Localized)
 	ETTSSpeaker                                        TTSSpeaker;                                    // 0x0054 (0x0001) [0x0000000000000001] (CPF_Edit)    
 	EDecompressionType                                 DecompressionType;                             // 0x0055 (0x0001) [0x0000000000002002] (CPF_Const | CPF_Transient)
+	uint8_t                                            UnknownData00[0x2];                              // 0x0056 (0x0002) MISSED OFFSET
 	class FString                                      SpokenText;                                    // 0x0058 (0x000C) [0x0000000000408003] (CPF_Edit | CPF_Const | CPF_Localized | CPF_NeedCtorLink)
 	float                                              Volume;                                        // 0x0064 (0x0004) [0x0000000000020003] (CPF_Edit | CPF_Const | CPF_EditConst)
 	float                                              Pitch;                                         // 0x0068 (0x0004) [0x0000000000020003] (CPF_Edit | CPF_Const | CPF_EditConst)
@@ -33376,9 +32782,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventGeneratePCMData(int32_t SamplesNeeded, class TArray<uint8_t>& outBuffer);
 };
-
 // Class Engine.SoundNodeWaveStreaming
 // 0x000C (0x01B4 - 0x01C0)
 class USoundNodeWaveStreaming : public USoundNodeWave
@@ -33399,12 +32805,12 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventGeneratePCMData(int32_t SamplesNeeded, class TArray<uint8_t>& outBuffer);
 	int32_t eventAvailableAudioBytes();
 	void eventResetAudio();
 	void eventQueueAudio(const class TArray<uint8_t>& Data);
 };
-
 // Class Engine.SoundNodeWaveParam
 // 0x0008 (0x004C - 0x0054)
 class USoundNodeWaveParam : public USoundNode
@@ -33426,7 +32832,6 @@ public:
 	};
 
 };
-
 // Class Engine.Terrain
 // 0x0114 (0x0228 - 0x033C)
 class ATerrain : public AInfo
@@ -33496,11 +32901,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	void GetLayerAlpha(const struct FVector& Loc, class TArray<float>& outLayerAlphaArray);
 	void eventPostBeginPlay();
 	void CalcLayerBounds();
 };
-
 // Class Engine.TerrainComponent
 // 0x0094 (0x01D4 - 0x0268)
 class UTerrainComponent : public UPrimitiveComponent
@@ -33544,7 +32949,6 @@ public:
 	};
 
 };
-
 // Class Engine.TerrainWeightMapTexture
 // 0x0010 (0x016C - 0x017C)
 class UTerrainWeightMapTexture : public UTexture2D
@@ -33567,7 +32971,6 @@ public:
 	};
 
 };
-
 // Class Engine.TerrainLayerSetup
 // 0x000C (0x003C - 0x0048)
 class UTerrainLayerSetup : public UObject
@@ -33588,10 +32991,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void PostBeginPlay();
 	void SetMaterials(const class TArray<struct FTerrainFilteredMaterial>& NewMaterials);
 };
-
 // Class Engine.TerrainMaterial
 // 0x0070 (0x003C - 0x00AC)
 class UTerrainMaterial : public UObject
@@ -33600,6 +33003,7 @@ public:
 	uint8_t                                            UnknownData00[0x4];                              // 0x003C (0x0004) MISSED OFFSET
 	struct FMatrix                                     LocalToMapping;                                // 0x0040 (0x0040) [0x0000000000000000]               
 	ETerrainMappingType                                MappingType;                                   // 0x0080 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData01[0x3];                              // 0x0081 (0x0003) MISSED OFFSET
 	float                                              MappingScale;                                  // 0x0084 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	float                                              MappingRotation;                               // 0x0088 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	float                                              MappingPanU;                                   // 0x008C (0x0004) [0x0000000000000001] (CPF_Edit)    
@@ -33623,7 +33027,6 @@ public:
 	};
 
 };
-
 // Class Engine.UIRoot
 // 0x0000 (0x003C - 0x003C)
 class UUIRoot : public UObject
@@ -33642,6 +33045,7 @@ public:
 
 		return uClassPointer;
 	};
+
 
 	static class UOnlinePlayerInterfaceEx* GetOnlinePlayerInterfaceEx();
 	static class UOnlinePlayerInterface* GetOnlinePlayerInterface();
@@ -33663,7 +33067,6 @@ public:
 	static bool IsConsole(EConsoleType optionalConsoleType);
 	static EInputPlatformType GetInputPlatformType(class ULocalPlayer* optionalOwningPlayer);
 };
-
 // Class Engine.UIScreenObject
 // 0x0164 (0x003C - 0x01A0)
 class UUIScreenObject : public UUIRoot
@@ -33724,6 +33127,7 @@ public:
 
 		return uClassPointer;
 	};
+
 
 	void LogCurrentState(int32_t Indent);
 	int32_t Find_UIAnimTrackCompletedHandler(const struct FScriptDelegate& TrackCompletedDelegate);
@@ -33815,7 +33219,7 @@ public:
 	bool CanPropagateFocusFor(class UUIObject* TestChild);
 	bool CanAcceptFocus(int32_t optionalPlayerIndex, bool optionalBIncludeParentVisibility);
 	bool IsNeverFocused();
-	bool NavigateFocus(class UUIScreenObject* Sender, EUIWidgetFace Direction, int32_t optionalPlayerIndex, uint8_t& outBFocusChanged);
+	bool NavigateFocus(class UUIScreenObject* Sender, EUIWidgetFace Direction, int32_t optionalPlayerIndex, uint8_t& optionalOutBFocusChanged);
 	bool PrevControl(class UUIScreenObject* Sender, int32_t optionalPlayerIndex);
 	bool NextControl(class UUIScreenObject* Sender, int32_t optionalPlayerIndex);
 	bool FocusLastControl(class UUIScreenObject* Sender, int32_t optionalPlayerIndex);
@@ -33824,15 +33228,15 @@ public:
 	bool IsHoldingAlt(int32_t ControllerId);
 	bool IsHoldingCtrl(int32_t ControllerId);
 	bool ConditionalPropagateEnabledState(int32_t PlayerIndex, bool optionalBForce);
-	bool DeactivateStateByClass(class UClass* StateToRemove, int32_t PlayerIndex, class UUIState*& outStateThatWasRemoved);
+	bool DeactivateStateByClass(class UClass* StateToRemove, int32_t PlayerIndex, class UUIState*& optionalOutStateThatWasRemoved);
 	bool DeactivateState(class UUIState* StateToRemove, int32_t PlayerIndex);
-	bool ActivateStateByClass(class UClass* StateToActivate, int32_t PlayerIndex, class UUIState*& outStateThatWasAdded);
+	bool ActivateStateByClass(class UClass* StateToActivate, int32_t PlayerIndex, class UUIState*& optionalOutStateThatWasAdded);
 	bool ActivateState(class UUIState* StateToActivate, int32_t PlayerIndex);
-	bool HasActiveStateOfClass(class UClass* StateClass, int32_t PlayerIndex, int32_t& outStateIndex);
+	bool HasActiveStateOfClass(class UClass* StateClass, int32_t PlayerIndex, int32_t& optionalOutStateIndex);
 	class UUIState* GetCurrentState(int32_t optionalPlayerIndex);
 	bool SetEnabled(bool bEnabled, int32_t optionalPlayerIndex);
 	void FindEventsOfClass(class UClass* EventClassToFind, class UUIState* optionalLimitScope, bool optionalBExactClass, class TArray<class UUIEvent*>& outOut_EventInstances);
-	void ActivateEventByClass(int32_t PlayerIndex, class UClass* EventClassToActivate, class UObject* optionalInEventActivator, bool optionalBActivateImmediately, const class TArray<int32_t>& optionalIndicesToActivate, class TArray<class UUIEvent*>& outOut_ActivatedEvents);
+	void ActivateEventByClass(int32_t PlayerIndex, class UClass* EventClassToActivate, class UObject* optionalInEventActivator, bool optionalBActivateImmediately, const class TArray<int32_t>& optionalIndicesToActivate, class TArray<class UUIEvent*>& optionalOutOut_ActivatedEvents);
 	float GetAspectRatio();
 	float GetViewportHeight();
 	float GetViewportWidth();
@@ -33845,8 +33249,8 @@ public:
 	void RequestSceneInputMaskUpdate();
 	void RequestFormattingUpdate();
 	void RequestSceneUpdate(bool bDockingStackChanged, bool bPositionsChanged, bool optionalBNavLinksOutdated, bool optionalBWidgetStylesChanged);
-	int32_t GetDockClients(bool optionalBDirectDockClientsOnly, EUIWidgetFace optionalTargetFace, EUIWidgetFace optionalSourceFace, class TArray<class UUIObject*>& outDockClients);
-	int32_t GetObjectCountW();
+	int32_t GetDockClients(bool optionalBDirectDockClientsOnly, EUIWidgetFace optionalTargetFace, EUIWidgetFace optionalSourceFace, class TArray<class UUIObject*>& optionalOutDockClients);
+	int32_t GetObjectCountWin();
 	class TArray<class UUIObject*> GetChildren(bool optionalBRecurse, const class TArray<class UUIObject*>& optionalExclusionSet);
 	bool ContainsChildOfClass(class UClass* SearchClass, bool optionalBRecurse);
 	bool ContainsChild(class UUIObject* Child, bool optionalBRecurse);
@@ -33860,7 +33264,7 @@ public:
 	bool RemoveChild(class UUIObject* ExistingChild, const class TArray<class UUIObject*>& optionalExclusionSet);
 	int32_t InsertChild(class UUIObject* NewChild, int32_t optionalInsertIndex, bool optionalBRenameExisting);
 	void Initialize(class UUIScene* inOwnerScene, class UUIObject* optionalInOwner);
-	class UUIPrefabInstance* InstanceUIPrefab(class UUIPrefab* SourcePrefab, const class FName& optionalPrefabInstanceName, int32_t optionalInsertIndex, bool optionalBRenameExisting, struct FVector2D& outPlacementLocation);
+	class UUIPrefabInstance* InstanceUIPrefab(class UUIPrefab* SourcePrefab, const class FName& optionalPrefabInstanceName, int32_t optionalInsertIndex, bool optionalBRenameExisting, struct FVector2D& optionalOutPlacementLocation);
 	class UUIObject* CreateWidget(class UUIScreenObject* Owner, class UClass* WidgetClass, class UObject* optionalWidgetArchetype, const class FName& optionalWidgetName);
 	static bool PlayUISound(const class FName& SoundCueName, int32_t optionalPlayerIndex);
 	class ULocalPlayer* GetPlayerOwner(int32_t optionalPlayerIndex);
@@ -33883,7 +33287,6 @@ public:
 	bool OnRawInputKey(struct FInputEventParameters& outEventParms);
 	void NotifyActiveSkinChanged();
 };
-
 // Class Engine.UIComponent
 // 0x0000 (0x0048 - 0x0048)
 class UUIComponent : public UComponent
@@ -33904,7 +33307,6 @@ public:
 	};
 
 };
-
 // Class Engine.UIComp_Event
 // 0x0020 (0x0048 - 0x0068)
 class UUIComp_Event : public UUIComponent
@@ -33928,10 +33330,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void UnregisterInputEvents(class UUIState* InputEventOwner, int32_t PlayerIndex);
 	void RegisterInputEvents(class UUIState* InputEventOwner, int32_t PlayerIndex);
 };
-
 // Class Engine.UIEventContainer
 // 0x0000 (0x003C - 0x003C)
 class UUIEventContainer : public UInterface
@@ -33951,12 +33353,12 @@ public:
 		return uClassPointer;
 	};
 
+
 	void RemoveSequenceObjects(const class TArray<class USequenceObject*>& ObjectsToRemove);
 	void RemoveSequenceObject(class USequenceObject* ObjectToRemove);
 	bool AddSequenceObject(class USequenceObject* NewObj, bool optionalBRecurse);
 	void GetUIEvents(class UClass* optionalLimitClass, class TArray<class UUIEvent*>& outOut_Events);
 };
-
 // Class Engine.DataStoreClient
 // 0x003C (0x003C - 0x0078)
 class UDataStoreClient : public UUIRoot
@@ -33981,6 +33383,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void DebugDumpDataStoreInfo(bool bVerbose);
 	void eventNotifyGameSessionEnded();
 	class UClass* FindDataStoreClass(class UClass* RequiredMetaClass);
@@ -33992,7 +33395,6 @@ public:
 	class UUIDataStore* CreateDataStore(class UClass* DataStoreClass);
 	class UUIDataStore* FindDataStore(const class FName& DataStoreTag, class ULocalPlayer* optionalPlayerOwner);
 };
-
 // Class Engine.Interaction
 // 0x0030 (0x003C - 0x006C)
 class UInteraction : public UUIRoot
@@ -34016,6 +33418,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void NotifyPlayerRemoved(int32_t PlayerIndex, class ULocalPlayer* RemovedPlayer);
 	void NotifyPlayerAdded(int32_t PlayerIndex, class ULocalPlayer* AddedPlayer);
 	void NotifyGameSessionEnded();
@@ -34028,7 +33431,6 @@ public:
 	bool OnReceivedNativeInputAxis(int32_t ControllerId, const class FName& Key, float Delta, float DeltaTime, bool optionalBGamepad);
 	bool OnReceivedNativeInputKey(int32_t ControllerId, const class FName& Key, EInputEvent EventType, float optionalAmountDepressed, bool optionalBGamepad);
 };
-
 // Class Engine.Console
 // 0x016C (0x006C - 0x01D8)
 class UConsole : public UInteraction
@@ -34080,6 +33482,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void UpdateCompleteIndices();
 	void BuildRuntimeAutoCompleteList(bool optionalBForce);
 	void AppendInputText(const class FString& Text);
@@ -34100,7 +33503,6 @@ public:
 	void SetInputText(const class FString& Text);
 	void Initialized();
 };
-
 // Class Engine.Input
 // 0x0078 (0x006C - 0x00E4)
 class UInput : public UInteraction
@@ -34109,9 +33511,10 @@ public:
 	class TArray<struct FKeyBind>                      Bindings;                                      // 0x006C (0x000C) [0x0000000000404000] (CPF_Config | CPF_NeedCtorLink)
 	class TArray<class FName>                          PressedKeys;                                   // 0x0078 (0x000C) [0x0000000000400002] (CPF_Const | CPF_NeedCtorLink)
 	EInputEvent                                        CurrentEvent;                                  // 0x0084 (0x0001) [0x0000000000000002] (CPF_Const)   
+	uint8_t                                            UnknownData00[0x3];                              // 0x0085 (0x0003) MISSED OFFSET
 	float                                              CurrentDelta;                                  // 0x0088 (0x0004) [0x0000000000000002] (CPF_Const)   
 	float                                              CurrentDeltaTime;                              // 0x008C (0x0004) [0x0000000000000002] (CPF_Const)   
-	uint8_t                                            UnknownData00[0x3C];                            // 0x0090 (0x003C) MISSED OFFSET
+	uint8_t                                            UnknownData01[0x3C];                            // 0x0090 (0x003C) MISSED OFFSET
 	class TArray<struct FPointer>                      AxisArray;                                     // 0x00CC (0x000C) [0x0000000000101002] (CPF_Const | CPF_Native)
 	class TArray<uint8_t>                              ButtonArray;                                   // 0x00D8 (0x000C) [0x0000000000101000] (CPF_Native)  
 
@@ -34128,6 +33531,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	int32_t eventGetKeyFromBind(const class FString& Command, int32_t optionalNStartID, class FName& outKeyName);
 	void eventRebindCommand(const class FName& BindName, const class FString& Command, bool optionalBOverwriteCommand, class TArray<class FName>& outIgnoreBindNames);
 	void eventRemoveBind(const class FName& BindName, const class FString& Command);
@@ -34136,7 +33540,6 @@ public:
 	void ResetInput();
 	void EnableInputCommands(bool bEnabled);
 };
-
 // Class Engine.PlayerInput
 // 0x00A0 (0x00E4 - 0x0184)
 class UPlayerInput : public UInput
@@ -34189,6 +33592,7 @@ public:
 	uint8_t                                            bStrafe;                                       // 0x0164 (0x0001) [0x0000000000000004] (CPF_Input)   
 	uint8_t                                            bXAxis;                                        // 0x0165 (0x0001) [0x0000000000000004] (CPF_Input)   
 	uint8_t                                            bYAxis;                                        // 0x0166 (0x0001) [0x0000000000000004] (CPF_Input)   
+	uint8_t                                            UnknownData00[0x1];                              // 0x0167 (0x0001) MISSED OFFSET
 	float                                              ZeroTime[2];                                   // 0x0168 (0x0008) [0x0000000000000000]               
 	float                                              SmoothedMouse[2];                              // 0x0170 (0x0008) [0x0000000000000000]               
 	int32_t                                            MouseSamples;                                  // 0x0178 (0x0004) [0x0000000000000000]               
@@ -34207,6 +33611,7 @@ public:
 
 		return uClassPointer;
 	};
+
 
 	float SmoothMouse(float aMouse, float DeltaTime, int32_t Index, uint8_t& outSampleCount);
 	void ClearSmoothing();
@@ -34227,7 +33632,6 @@ public:
 	bool InvertTurn();
 	bool InvertMouse();
 };
-
 // Class Engine.PlayerManagerInteraction
 // 0x0000 (0x006C - 0x006C)
 class UPlayerManagerInteraction : public UInteraction
@@ -34248,7 +33652,6 @@ public:
 	};
 
 };
-
 // Class Engine.UIInteraction
 // 0x0140 (0x006C - 0x01AC)
 class UUIInteraction : public UInteraction
@@ -34296,6 +33699,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void NotifyGameSessionEnded();
 	static ENATType eventGetNATType();
 	bool CanAllPlayOnline();
@@ -34320,7 +33724,6 @@ public:
 	static int32_t GetPlayerIndex(int32_t ControllerId);
 	static int32_t GetPlayerCount();
 };
-
 // Class Engine.UIInputConfiguration
 // 0x0018 (0x003C - 0x0054)
 class UUIInputConfiguration : public UUIRoot
@@ -34342,10 +33745,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void NotifyGameSessionEnded();
 	void LoadInputAliasClasses();
 };
-
 // Class Engine.UILayerBase
 // 0x0000 (0x003C - 0x003C)
 class UUILayerBase : public UUIRoot
@@ -34366,7 +33769,6 @@ public:
 	};
 
 };
-
 // Class Engine.UISceneClient
 // 0x00BC (0x003C - 0x00F8)
 class UUISceneClient : public UUIRoot
@@ -34399,6 +33801,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventInitializeSceneClient();
 	struct FMatrix GetInverseCanvasToScreen(class UUIObject* optionalWidget);
 	struct FMatrix GetCanvasToScreen(class UUIObject* optionalWidget);
@@ -34407,16 +33810,15 @@ public:
 	void SetMousePosition(int32_t NewMouseX, int32_t NewMouseY);
 	bool CloseSceneAtIndex(int32_t SceneStackIndex, bool optionalBCloseChildScenes, bool optionalBForceCloseImmediately);
 	bool CloseScene(class UUIScene* Scene, bool optionalBCloseChildScenes, bool optionalBForceCloseImmediately);
-	bool ReplaceSceneAtIndex(int32_t IndexOfSceneToReplace, class UUIScene* SceneToOpen, class ULocalPlayer* optionalSceneOwner, uint8_t optionalForcedPriority, class UUIScene*& outOpenedScene);
-	bool ReplaceScene(class UUIScene* SceneInstanceToReplace, class UUIScene* SceneToOpen, class ULocalPlayer* optionalSceneOwner, uint8_t optionalForcedPriority, class UUIScene*& outOpenedScene);
-	bool InsertScene(int32_t DesiredInsertIndex, class UUIScene* Scene, class ULocalPlayer* optionalSceneOwner, uint8_t optionalForcedPriority, class UUIScene*& outOpenedScene, int32_t& outActualInsertIndex);
-	bool OpenScene(class UUIScene* Scene, class ULocalPlayer* optionalSceneOwner, uint8_t optionalForcedPriority, class UUIScene*& outOpenedScene);
-	bool InitializeScene(class UUIScene* Scene, class ULocalPlayer* optionalSceneOwner, class UUIScene*& outInitializedScene);
+	bool ReplaceSceneAtIndex(int32_t IndexOfSceneToReplace, class UUIScene* SceneToOpen, class ULocalPlayer* optionalSceneOwner, uint8_t optionalForcedPriority, class UUIScene*& optionalOutOpenedScene);
+	bool ReplaceScene(class UUIScene* SceneInstanceToReplace, class UUIScene* SceneToOpen, class ULocalPlayer* optionalSceneOwner, uint8_t optionalForcedPriority, class UUIScene*& optionalOutOpenedScene);
+	bool InsertScene(int32_t DesiredInsertIndex, class UUIScene* Scene, class ULocalPlayer* optionalSceneOwner, uint8_t optionalForcedPriority, class UUIScene*& optionalOutOpenedScene, int32_t& optionalOutActualInsertIndex);
+	bool OpenScene(class UUIScene* Scene, class ULocalPlayer* optionalSceneOwner, uint8_t optionalForcedPriority, class UUIScene*& optionalOutOpenedScene);
+	bool InitializeScene(class UUIScene* Scene, class ULocalPlayer* optionalSceneOwner, class UUIScene*& optionalOutInitializedScene);
 	bool IsSceneInitialized(class UUIScene* Scene);
 	bool IsUIActive(int32_t optionalFlags);
 	bool ChangeActiveSkin(class UUISkin* NewActiveSkin);
 };
-
 // Class Engine.UIState
 // 0x002A (0x003C - 0x0066)
 class UUIState : public UUIRoot
@@ -34443,6 +33845,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void RemoveSequenceObjects(class TArray<class USequenceObject*>& outObjectsToRemove);
 	void RemoveSequenceObject(class USequenceObject* ObjectToRemove);
 	bool AddSequenceObject(class USequenceObject* NewObj, bool optionalBRecurse);
@@ -34455,7 +33858,6 @@ public:
 	bool IsActiveForPlayer(int32_t PlayerIndex);
 	bool eventIsWidgetClassSupported(class UClass* WidgetClass);
 };
-
 // Class Engine.UIState_Disabled
 // 0x0000 (0x0066 - 0x0066)
 class UUIState_Disabled : public UUIState
@@ -34475,10 +33877,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool eventIsStateAllowed(class UUIScreenObject* Target, class UUIState* NewState, int32_t PlayerIndex);
 	bool eventActivateState(class UUIScreenObject* Target, int32_t PlayerIndex);
 };
-
 // Class Engine.UIState_Enabled
 // 0x0000 (0x0066 - 0x0066)
 class UUIState_Enabled : public UUIState
@@ -34499,7 +33901,6 @@ public:
 	};
 
 };
-
 // Class Engine.UIString
 // 0x00A8 (0x003C - 0x00E4)
 class UUIString : public UUIRoot
@@ -34522,18 +33923,19 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool ContainsMarkup();
 	void GetAutoScaleValue(const struct FVector2D& BoundingRegionSize, const struct FVector2D& StringSize, struct FVector2D& outOut_AutoScalePercent);
 	class FString GetValue(bool optionalBReturnProcessedText);
 	bool SetValue(const class FString& InputString, bool bIgnoreMarkup);
 };
-
 // Class Engine.UIDataProvider
 // 0x001C (0x003C - 0x0058)
 class UUIDataProvider : public UUIRoot
 {
 public:
 	EProviderAccessType                                WriteAccessType;                               // 0x003C (0x0001) [0x0000000000000000]               
+	uint8_t                                            UnknownData00[0x3];                              // 0x003D (0x0003) MISSED OFFSET
 	class TArray<struct FScriptDelegate>               ProviderChangedNotifies;                       // 0x0040 (0x000C) [0x0000000000402000] (CPF_Transient | CPF_NeedCtorLink)
 	struct FScriptDelegate                             __OnDataProviderPropertyChange__Delegate;      // 0x004C (0x000C) [0x0000000000402000] (CPF_Transient | CPF_NeedCtorLink)
 
@@ -34549,6 +33951,7 @@ public:
 
 		return uClassPointer;
 	};
+
 
 	int32_t ParseTagArrayDelimiter(class FName& outFieldName);
 	bool RemovePropertyNotificationChangeRequest(const struct FScriptDelegate& InDelegate);
@@ -34566,7 +33969,6 @@ public:
 	bool GetProviderFieldType(const class FString& DataTag, EUIDataProviderFieldType& outOut_ProviderFieldType);
 	void OnDataProviderPropertyChange(class UUIDataProvider* SourceProvider, const class FName& optionalPropTag);
 };
-
 // Class Engine.UIDataStore
 // 0x0020 (0x0058 - 0x0078)
 class UUIDataStore : public UUIDataProvider
@@ -34589,6 +33991,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	class UDataStoreClient* GetDataStoreClient();
 	void OnCommit();
 	void eventRefreshSubscribers(const class FName& optionalPropertyTag, bool optionalBInvalidateValues, class UUIDataProvider* optionalSourceProvider, int32_t optionalArrayIndex);
@@ -34599,7 +34002,6 @@ public:
 	void eventRegistered(class ULocalPlayer* PlayerOwner);
 	void OnDataStoreValueUpdated(class UUIDataStore* SourceDataStore, bool bValuesInvalidated, const class FName& PropertyTag, class UUIDataProvider* SourceProvider, int32_t ArrayIndex);
 };
-
 // Class Engine.UISkin
 // 0x0120 (0x0078 - 0x0198)
 class UUISkin : public UUIDataStore
@@ -34625,6 +34027,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventSubscriberDetached(class UUIDataStoreSubscriber* Subscriber);
 	void eventSubscriberAttached(class UUIDataStoreSubscriber* Subscriber);
 	void GetStyleGroups(bool optionalBIncludeInheritedGroups, class TArray<class FString>& outStyleGroupArray);
@@ -34640,7 +34043,6 @@ public:
 	class UUITexture* GetCursorResource(const class FName& CursorName);
 	void GetAvailableStyles(bool optionalBIncludeInheritedStyles, class TArray<class UUIStyle*>& outOut_Styles);
 };
-
 // Class Engine.UIStyle
 // 0x0070 (0x003C - 0x00AC)
 class UUIStyle : public UUIRoot
@@ -34666,11 +34068,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	class UUIStyle_Data* eventGetDefaultStyle();
 	class UUIStyle_Data* GetStyleForStateByClass(class UClass* StateClass);
 	class UUIStyle_Data* GetStyleForState(class UUIState* StateObject);
 };
-
 // Class Engine.UIObject
 // 0x0274 (0x01A0 - 0x0414)
 class UUIObject : public UUIScreenObject
@@ -34683,12 +34085,13 @@ public:
 	struct FUIStyleReference                           PrimaryStyle;                                  // 0x01C0 (0x0020) [0x0000000000000000]               
 	uint8_t                                            PlayerInputMask;                               // 0x01E0 (0x0001) [0x0000000000000001] (CPF_Edit)    
 	EUIPostProcessGroup                                MaskPostProcess;                               // 0x01E1 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x2];                              // 0x01E2 (0x0002) MISSED OFFSET
 	struct FUINavigationData                           NavigationTargets;                             // 0x01E4 (0x0024) [0x0000000000000001] (CPF_Edit)    
 	int32_t                                            TabIndex;                                      // 0x0208 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	struct FUIDockingSet                               DockTargets;                                   // 0x020C (0x0038) [0x0000000000020001] (CPF_Edit | CPF_EditConst)
 	float                                              RenderBounds[4];                               // 0x0244 (0x0010) [0x0000000000022003] (CPF_Edit | CPF_Const | CPF_Transient | CPF_EditConst)
 	struct FVector2D                                   RenderBoundsVertices[4];                       // 0x0254 (0x0020) [0x0000000000022003] (CPF_Edit | CPF_Const | CPF_Transient | CPF_EditConst)
-	uint8_t                                            UnknownData00[0xC];                              // 0x0274 (0x000C) MISSED OFFSET
+	uint8_t                                            UnknownData01[0xC];                              // 0x0274 (0x000C) MISSED OFFSET
 	struct FUIRotation                                 Rotation;                                      // 0x0280 (0x0070) [0x0000000000000001] (CPF_Edit)    
 	struct FVector                                     RenderOffset;                                  // 0x02F0 (0x000C) [0x0000000000000001] (CPF_Edit)    
 	int32_t                                            PrivateFlags;                                  // 0x02FC (0x0004) [0x0000000000000000]               
@@ -34727,6 +34130,7 @@ public:
 
 		return uClassPointer;
 	};
+
 
 	void LogRenderBounds(int32_t Indent);
 	void ClearDockTargets();
@@ -34782,7 +34186,6 @@ public:
 	void OnPreSceneUpdate(class UUIObject* Sender);
 	void OnCreate(class UUIObject* CreatedWidget, class UUIScreenObject* CreatorContainer);
 };
-
 // Class Engine.UIComp_AutoAlignment
 // 0x0002 (0x0048 - 0x004A)
 class UUIComp_AutoAlignment : public UUIComponent
@@ -34805,13 +34208,13 @@ public:
 	};
 
 };
-
 // Class Engine.UIComp_DrawComponents
 // 0x0024 (0x0048 - 0x006C)
 class UUIComp_DrawComponents : public UUIComponent
 {
 public:
 	EFadeType                                          FadeType;                                      // 0x0048 (0x0001) [0x0000000000002001] (CPF_Edit | CPF_Transient)
+	uint8_t                                            UnknownData00[0x3];                              // 0x0049 (0x0003) MISSED OFFSET
 	float                                              FadeAlpha;                                     // 0x004C (0x0004) [0x0000000000002001] (CPF_Edit | CPF_Transient)
 	float                                              FadeTarget;                                    // 0x0050 (0x0004) [0x0000000000002001] (CPF_Edit | CPF_Transient)
 	float                                              FadeTime;                                      // 0x0054 (0x0004) [0x0000000000002001] (CPF_Edit | CPF_Transient)
@@ -34832,12 +34235,12 @@ public:
 		return uClassPointer;
 	};
 
+
 	void OnFadeComplete(class UUIComp_DrawComponents* Sender);
 	void ResetFade();
 	void Pulse(float optionalMaxAlpha, float optionalMinAlpha, float optionalPulseRate);
 	void Fade(float FromAlpha, float ToAlpha, float TargetFadeTime);
 };
-
 // Class Engine.UIComp_DrawImage
 // 0x0090 (0x006C - 0x00FC)
 class UUIComp_DrawImage : public UUIComp_DrawComponents
@@ -34863,6 +34266,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool NotifyResolveStyle(class UUISkin* ActiveSkin, bool bClearExistingValue, class UUIState* optionalCurrentMenuState, const class FName& optionalStylePropertyName);
 	bool SetStyleResolverTag(const class FName& NewResolverTag);
 	class FName GetStyleResolverTag();
@@ -34880,7 +34284,6 @@ public:
 	void SetImage(class USurface* NewImage);
 	class UUIStyle_Image* GetAppliedImageStyle(class UUIState* optionalDesiredMenuState);
 };
-
 // Class Engine.UIComp_DrawString
 // 0x0108 (0x006C - 0x0174)
 class UUIComp_DrawString : public UUIComp_DrawComponents
@@ -34916,6 +34319,7 @@ public:
 
 		return uClassPointer;
 	};
+
 
 	void eventSetAutoSizePadding(EUIOrientation Orientation, float NearValue, float FarValue, EUIExtentEvalType NearScaleType, EUIExtentEvalType FarScaleType);
 	void eventEnableAutoSizing(EUIOrientation Orientation, bool optionalBShouldEnable);
@@ -34961,7 +34365,6 @@ public:
 	class FString GetValue(bool optionalBReturnProcessedText);
 	void SetValue(const class FString& NewText);
 };
-
 // Class Engine.UIComp_DrawCaption
 // 0x0000 (0x0174 - 0x0174)
 class UUIComp_DrawCaption : public UUIComp_DrawString
@@ -34982,7 +34385,6 @@ public:
 	};
 
 };
-
 // Class Engine.UIEditBox
 // 0x0060 (0x0414 - 0x0474)
 class UUIEditBox : public UUIObject
@@ -34997,6 +34399,7 @@ public:
 	uint32_t                                           bPasswordMode : 1;                             // 0x045C (0x0004) [0x0000000000000001] [0x00000002] (CPF_Edit)
 	int32_t                                            MaxCharacters;                                 // 0x0460 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	EEditBoxCharacterSet                               CharacterSet;                                  // 0x0464 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0465 (0x0003) MISSED OFFSET
 	struct FScriptDelegate                             __OnSubmitText__Delegate;                      // 0x0468 (0x000C) [0x0000000000400000] (CPF_NeedCtorLink)
 
 public:
@@ -35011,6 +34414,7 @@ public:
 
 		return uClassPointer;
 	};
+
 
 	void IgnoreMarkup(bool bShouldIgnoreMarkup);
 	void SetReadOnly(bool bShouldBeReadOnly);
@@ -35029,7 +34433,6 @@ public:
 	void SetBackgroundImage(class USurface* NewImage);
 	bool OnSubmitText(class UUIEditBox* Sender, int32_t PlayerIndex);
 };
-
 // Class Engine.UIComp_DrawStringEditbox
 // 0x0060 (0x0174 - 0x01D4)
 class UUIComp_DrawStringEditbox : public UUIComp_DrawString
@@ -35058,6 +34461,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	class FString GetSelectedText();
 	bool GetSelectionRange(int32_t& outOut_StartIndex, int32_t& outOut_EndIndex);
 	bool ClearSelection();
@@ -35067,7 +34471,6 @@ public:
 	int32_t GetUserTextLength();
 	bool SetUserText(const class FString& NewValue);
 };
-
 // Class Engine.UIComp_DrawStringSlider
 // 0x0000 (0x0174 - 0x0174)
 class UUIComp_DrawStringSlider : public UUIComp_DrawString
@@ -35088,7 +34491,6 @@ public:
 	};
 
 };
-
 // Class Engine.UIList
 // 0x02A4 (0x0414 - 0x06B8)
 class UUIList : public UUIObject
@@ -35162,6 +34564,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void OnStateChanged(class UUIScreenObject* Sender, int32_t PlayerIndex, class UUIState* NewlyActiveState, class UUIState* optionalPreviouslyActiveState);
 	void ClickedScrollZone(class UUIScrollbar* Sender, float PositionPerc, int32_t PlayerIndex);
 	bool ShouldRenderColumnHeaders();
@@ -35199,7 +34602,7 @@ public:
 	class FString GetElementValue(int32_t ElementIndex, int32_t optionalCellIndex);
 	int32_t GetCurrentItem();
 	class TArray<int32_t> GetSelectedItems();
-	int32_t GetResizeColumn(struct FCellHitDetectionInfo& outClickedCell);
+	int32_t GetResizeColumn(struct FCellHitDetectionInfo& optionalOutClickedCell);
 	int32_t CalculateIndexFromCursorLocation(bool optionalBRequireValidIndex);
 	struct FVector2D GetClientRegion();
 	float GetRowHeight(int32_t optionalRowIndex, bool optionalBColHeader, bool optionalBReturnUnformattedValue);
@@ -35219,7 +34622,6 @@ public:
 	void OnListElementsSorted(class UUIList* Sender);
 	void OnSubmitSelection(class UUIList* Sender, int32_t optionalPlayerIndex);
 };
-
 // Class Engine.UIComp_ListComponentBase
 // 0x0000 (0x0048 - 0x0048)
 class UUIComp_ListComponentBase : public UUIComponent
@@ -35240,7 +34642,6 @@ public:
 	};
 
 };
-
 // Class Engine.UIComp_ListElementSorter
 // 0x0020 (0x0048 - 0x0068)
 class UUIComp_ListElementSorter : public UUIComp_ListComponentBase
@@ -35268,12 +34669,12 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool ResortItems(bool optionalBCaseSensitive);
 	bool SortItems(int32_t ColumnIndex, bool optionalBSecondarySort, bool optionalBCaseSensitive);
 	void ResetSortColumns(bool optionalBResort);
 	bool OverrideListSort(class UUIList* Sender, const class FName& CollectionFieldName, struct FUIListSortingParameters& outSortParameters, class TArray<int32_t>& outOrderedIndices);
 };
-
 // Class Engine.UIComp_ListPresenterBase
 // 0x0004 (0x0048 - 0x004C)
 class UUIComp_ListPresenterBase : public UUIComp_ListComponentBase
@@ -35294,6 +34695,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	int32_t GetMaxElementsPerPage();
 	void SetMaxElementsPerPage(int32_t NewMaxVisibleElements);
 	class FString GetElementValue(int32_t ElementIndex, int32_t optionalCellIndex);
@@ -35308,7 +34710,6 @@ public:
 	int32_t GetSchemaCellCount();
 	class UUIListElementCellProvider* GetCellSchemaProvider();
 };
-
 // Class Engine.UIComp_ListPresenter
 // 0x00B8 (0x004C - 0x0104)
 class UUIComp_ListPresenter : public UUIComp_ListPresenterBase
@@ -35338,9 +34739,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	int32_t FindElementIndex(int32_t DataSourceIndex);
 };
-
 // Class Engine.UIComp_ListPresenterCascade
 // 0x0000 (0x0104 - 0x0104)
 class UUIComp_ListPresenterCascade : public UUIComp_ListPresenter
@@ -35361,7 +34762,6 @@ public:
 	};
 
 };
-
 // Class Engine.UIContextMenu
 // 0x0014 (0x06B8 - 0x06CC)
 class UUIContextMenu : public UUIList
@@ -35384,6 +34784,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	int32_t eventFindMenuItemIndex(class UUIObject* Widget, const class FString& ItemToFind);
 	bool eventGetMenuItem(class UUIObject* Widget, int32_t IndexToGet, class FString& outOut_MenuItem);
 	bool eventGetAllMenuItems(class UUIObject* Widget, class TArray<class FString>& outOut_MenuItems);
@@ -35396,7 +34797,6 @@ public:
 	bool Open(int32_t optionalPlayerIndex);
 	bool IsActiveContextMenu();
 };
-
 // Class Engine.UIComp_ContextMenuListPresenter
 // 0x0000 (0x0104 - 0x0104)
 class UUIComp_ContextMenuListPresenter : public UUIComp_ListPresenterCascade
@@ -35417,7 +34817,6 @@ public:
 	};
 
 };
-
 // Class Engine.UIComp_ListPresenterTree
 // 0x0000 (0x0104 - 0x0104)
 class UUIComp_ListPresenterTree : public UUIComp_ListPresenter
@@ -35438,7 +34837,6 @@ public:
 	};
 
 };
-
 // Class Engine.UIObjectList
 // 0x0000 (0x06B8 - 0x06B8)
 class UUIObjectList : public UUIList
@@ -35458,9 +34856,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	class UUIObject* GetElementObjectValue(int32_t ElementIndex, int32_t optionalCellIndex);
 };
-
 // Class Engine.UIComp_ObjectListPresenter
 // 0x0000 (0x0104 - 0x0104)
 class UUIComp_ObjectListPresenter : public UUIComp_ListPresenter
@@ -35481,7 +34879,6 @@ public:
 	};
 
 };
-
 // Class Engine.UIDataStoreSubscriber
 // 0x0000 (0x003C - 0x003C)
 class UUIDataStoreSubscriber : public UInterface
@@ -35501,6 +34898,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void ClearBoundDataStores();
 	void GetBoundDataStores(class TArray<class UUIDataStore*>& outOut_BoundDataStores);
 	void NotifyDataStoreValueUpdated(class UUIDataStore* SourceDataStore, bool bValuesInvalidated, const class FName& PropertyTag, class UUIDataProvider* SourceProvider, int32_t ArrayIndex);
@@ -35508,7 +34906,6 @@ public:
 	class FString GetDataStoreBinding(int32_t optionalBindingIndex);
 	void SetDataStoreBinding(const class FString& MarkupText, int32_t optionalBindingIndex);
 };
-
 // Class Engine.UIDataStorePublisher
 // 0x0000 (0x003C - 0x003C)
 class UUIDataStorePublisher : public UUIDataStoreSubscriber
@@ -35528,9 +34925,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool SaveSubscriberValue(int32_t optionalBindingIndex, class TArray<class UUIDataStore*>& outOut_BoundDataStores);
 };
-
 // Class Engine.UIListElementCellProvider
 // 0x0000 (0x003C - 0x003C)
 class UUIListElementCellProvider : public UInterface
@@ -35551,7 +34948,6 @@ public:
 	};
 
 };
-
 // Class Engine.UIListElementProvider
 // 0x0000 (0x003C - 0x003C)
 class UUIListElementProvider : public UInterface
@@ -35572,7 +34968,6 @@ public:
 	};
 
 };
-
 // Class Engine.UIAnimation
 // 0x0000 (0x003C - 0x003C)
 class UUIAnimation : public UUIRoot
@@ -35593,7 +34988,6 @@ public:
 	};
 
 };
-
 // Class Engine.UIAnimationSeq
 // 0x0015 (0x003C - 0x0051)
 class UUIAnimationSeq : public UUIAnimation
@@ -35616,12 +35010,12 @@ public:
 		return uClassPointer;
 	};
 
+
 	float GetSequenceLength();
 	bool GetTrackLength(int32_t TrackIndex, float& outOut_TrackLength);
 	bool GetFrameLength(int32_t TrackIndex, int32_t FrameIndex, float& outOut_FrameLength);
 	bool IsValidFrameIndex(int32_t TrackIndex, int32_t FrameIndex);
 };
-
 // Class Engine.UIConfigProvider
 // 0x0000 (0x0058 - 0x0058)
 class UUIConfigProvider : public UUIDataProvider
@@ -35642,7 +35036,6 @@ public:
 	};
 
 };
-
 // Class Engine.UIConfigFileProvider
 // 0x0018 (0x0058 - 0x0070)
 class UUIConfigFileProvider : public UUIConfigProvider
@@ -35665,7 +35058,6 @@ public:
 	};
 
 };
-
 // Class Engine.UIConfigSectionProvider
 // 0x000C (0x0058 - 0x0064)
 class UUIConfigSectionProvider : public UUIConfigProvider
@@ -35687,7 +35079,6 @@ public:
 	};
 
 };
-
 // Class Engine.UIDataProvider_OnlinePlayerDataBase
 // 0x0004 (0x0058 - 0x005C)
 class UUIDataProvider_OnlinePlayerDataBase : public UUIDataProvider
@@ -35708,10 +35099,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventOnUnregister();
 	void eventOnRegister(class ULocalPlayer* InPlayer);
 };
-
 // Class Engine.UIDataProvider_OnlineClanMates
 // 0x0004 (0x005C - 0x0060)
 class UUIDataProvider_OnlineClanMates : public UUIDataProvider_OnlinePlayerDataBase
@@ -35732,10 +35123,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void OnClanMatesReadComplete();
 	void eventOnRegister(class ULocalPlayer* InPlayer);
 };
-
 // Class Engine.UIDataProvider_OnlineFriendMessages
 // 0x0058 (0x005C - 0x00B4)
 class UUIDataProvider_OnlineFriendMessages : public UUIDataProvider_OnlinePlayerDataBase
@@ -35763,6 +35154,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void OnGameInviteReceived(uint8_t LocalUserNum, const class FString& InviterName);
 	void OnLoginChange(uint8_t LocalUserNum);
 	void OnFriendMessageReceived(uint8_t LocalUserNum, const struct FUniqueNetId& SendingPlayer, const class FString& SendingNick, const class FString& Message);
@@ -35771,7 +35163,6 @@ public:
 	void eventOnUnregister();
 	void eventOnRegister(class ULocalPlayer* InPlayer);
 };
-
 // Class Engine.UIDataProvider_OnlineFriends
 // 0x00B8 (0x005C - 0x0114)
 class UUIDataProvider_OnlineFriends : public UUIDataProvider_OnlinePlayerDataBase
@@ -35807,13 +35198,13 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventRefreshFriendsList();
 	void OnLoginChange(uint8_t LocalUserNum);
 	void OnFriendsReadComplete(bool bWasSuccessful);
 	void eventOnUnregister();
 	void eventOnRegister(class ULocalPlayer* InPlayer);
 };
-
 // Class Engine.UIDataProvider_OnlinePartyChatList
 // 0x0070 (0x005C - 0x00CC)
 class UUIDataProvider_OnlinePartyChatList : public UUIDataProvider_OnlinePlayerDataBase
@@ -35843,12 +35234,12 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventRefreshMembersList();
 	void OnLoginChange(uint8_t LocalUserNum);
 	void eventOnUnregister();
 	void eventOnRegister(class ULocalPlayer* InPlayer);
 };
-
 // Class Engine.UIDataProvider_OnlinePlayers
 // 0x0004 (0x005C - 0x0060)
 class UUIDataProvider_OnlinePlayers : public UUIDataProvider_OnlinePlayerDataBase
@@ -35869,10 +35260,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void OnPlayersReadComplete();
 	void eventOnRegister(class ULocalPlayer* InPlayer);
 };
-
 // Class Engine.UIDataProvider_OnlinePlayerStorage
 // 0x001C (0x005C - 0x0078)
 class UUIDataProvider_OnlinePlayerStorage : public UUIDataProvider_OnlinePlayerDataBase
@@ -35896,6 +35287,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void OnSettingValueUpdated(const class FName& SettingName);
 	void ArrayProviderPropertyChanged(class UUIDataProvider* SourceProvider, const class FName& optionalPropTag);
 	bool eventSaveStorageData();
@@ -35909,7 +35301,6 @@ public:
 	bool WriteData(class UOnlinePlayerInterface* PlayerInterface, uint8_t LocalUserNum, class UOnlinePlayerStorage* PlayerStorage);
 	bool ReadData(class UOnlinePlayerInterface* PlayerInterface, uint8_t LocalUserNum, class UOnlinePlayerStorage* PlayerStorage);
 };
-
 // Class Engine.UIDataProvider_OnlineProfileSettings
 // 0x0000 (0x0078 - 0x0078)
 class UUIDataProvider_OnlineProfileSettings : public UUIDataProvider_OnlinePlayerStorage
@@ -35929,12 +35320,12 @@ public:
 		return uClassPointer;
 	};
 
+
 	void ClearReadCompleteDelegate(class UOnlinePlayerInterface* PlayerInterface, uint8_t LocalUserNum);
 	void AddReadCompleteDelegate(class UOnlinePlayerInterface* PlayerInterface, uint8_t LocalUserNum);
 	bool WriteData(class UOnlinePlayerInterface* PlayerInterface, uint8_t LocalUserNum, class UOnlinePlayerStorage* PlayerStorage);
 	bool ReadData(class UOnlinePlayerInterface* PlayerInterface, uint8_t LocalUserNum, class UOnlinePlayerStorage* PlayerStorage);
 };
-
 // Class Engine.UIDataProvider_PlayerAchievements
 // 0x0010 (0x005C - 0x006C)
 class UUIDataProvider_PlayerAchievements : public UUIDataProvider_OnlinePlayerDataBase
@@ -35956,6 +35347,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void UpdateAchievements();
 	void OnLoginChange(uint8_t LocalUserNum);
 	void eventOnUnregister();
@@ -35968,7 +35360,6 @@ public:
 	int32_t GetMaxTotalGamerScore();
 	int32_t GetTotalGamerScore();
 };
-
 // Class Engine.UIDataProvider_OnlinePlayerStorageArray
 // 0x0030 (0x0058 - 0x0088)
 class UUIDataProvider_OnlinePlayerStorageArray : public UUIDataProvider
@@ -35996,7 +35387,6 @@ public:
 	};
 
 };
-
 // Class Engine.UIDataProvider_SettingsArray
 // 0x0030 (0x0058 - 0x0088)
 class UUIDataProvider_SettingsArray : public UUIDataProvider
@@ -36024,7 +35414,6 @@ public:
 	};
 
 };
-
 // Class Engine.SceneDataStore
 // 0x0010 (0x0078 - 0x0088)
 class USceneDataStore : public UUIDataStore
@@ -36048,6 +35437,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventRegistered(class ULocalPlayer* PlayerOwner);
 	void SceneDataFieldChanged(class UUIDataProvider* SourceProvider, const class FName& optionalPropTag);
 	int32_t FindCollectionValueIndex(const class FName& FieldName, bool optionalBPersistent, const class FName& optionalCellTag, class FString& outValueToFind);
@@ -36063,9 +35453,8 @@ public:
 	bool ClearFields(bool optionalBReinitializeRuntimeFields);
 	int32_t FindFieldIndex(const class FName& FieldName, bool optionalBSearchPersistentFields);
 	bool RemoveField(const class FName& FieldName);
-	bool AddField(const class FName& FieldName, EUIDataProviderFieldType optionalFieldType, bool optionalBPersistent, int32_t& outOut_InsertPosition);
+	bool AddField(const class FName& FieldName, EUIDataProviderFieldType optionalFieldType, bool optionalBPersistent, int32_t& optionalOutOut_InsertPosition);
 };
-
 // Class Engine.UIDataStore_Color
 // 0x0000 (0x0078 - 0x0078)
 class UUIDataStore_Color : public UUIDataStore
@@ -36086,7 +35475,6 @@ public:
 	};
 
 };
-
 // Class Engine.UIDataStore_DynamicResource
 // 0x0054 (0x0078 - 0x00CC)
 class UUIDataStore_DynamicResource : public UUIDataStore
@@ -36111,6 +35499,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventUnregistered(class ULocalPlayer* PlayerOwner);
 	void eventRegistered(class ULocalPlayer* PlayerOwner);
 	void OnLoginChange(uint8_t LocalUserNum);
@@ -36122,7 +35511,6 @@ public:
 	class FName GenerateProviderAccessTag(int32_t ProviderIndex, int32_t InstanceIndex);
 	int32_t FindProviderTypeIndex(const class FName& ProviderTag);
 };
-
 // Class Engine.UIDataStore_Fonts
 // 0x0000 (0x0078 - 0x0078)
 class UUIDataStore_Fonts : public UUIDataStore
@@ -36143,7 +35531,6 @@ public:
 	};
 
 };
-
 // Class Engine.UIDataStore_GameResource
 // 0x004C (0x0078 - 0x00C4)
 class UUIDataStore_GameResource : public UUIDataStore
@@ -36166,6 +35553,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	int32_t FindProviderIndexByFieldValue(const class FName& ProviderTag, const class FName& SearchField, struct FUIProviderScriptFieldValue& outValueToSearchFor);
 	bool GetProviderFieldValue(const class FName& ProviderTag, const class FName& SearchField, int32_t ProviderIndex, struct FUIProviderScriptFieldValue& outOut_FieldValue);
 	bool GetResourceProviderFields(const class FName& ProviderTag, class TArray<class FName>& outProviderFieldTags);
@@ -36174,7 +35562,6 @@ public:
 	class FName GenerateProviderAccessTag(int32_t ProviderIndex, int32_t InstanceIndex);
 	int32_t FindProviderTypeIndex(const class FName& ProviderTag);
 };
-
 // Class Engine.UIDataStore_MenuItems
 // 0x0050 (0x00C4 - 0x0114)
 class UUIDataStore_MenuItems : public UUIDataStore_GameResource
@@ -36197,6 +35584,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventUnregistered(class ULocalPlayer* PlayerOwner);
 	void eventRegistered(class ULocalPlayer* PlayerOwner);
 	void OnGameSettingsChanged(class UUIDataProvider* SourceProvider, const class FName& optionalPropTag);
@@ -36204,7 +35592,6 @@ public:
 	void AppendToSet(const class FName& SetName, int32_t NumOptions);
 	void ClearSet(const class FName& SetName);
 };
-
 // Class Engine.UIDataStore_GameState
 // 0x000C (0x0078 - 0x0084)
 class UUIDataStore_GameState : public UUIDataStore
@@ -36225,10 +35612,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool NotifyGameSessionEnded();
 	void OnRefreshDataFieldValue();
 };
-
 // Class Engine.CurrentGameDataStore
 // 0x003C (0x0084 - 0x00C0)
 class UCurrentGameDataStore : public UUIDataStore_GameState
@@ -36256,6 +35643,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void OnAddTeamProvider(class UTeamDataProvider* Provider);
 	bool NotifyGameSessionEnded();
 	void RefreshTeamDataProviders();
@@ -36276,7 +35664,6 @@ public:
 	void AddPlayerDataProvider(class APlayerReplicationInfo* PRI);
 	void CreateGameDataProvider(class AGameReplicationInfo* GRI);
 };
-
 // Class Engine.PlayerOwnerDataStore
 // 0x0030 (0x0084 - 0x00B4)
 class UPlayerOwnerDataStore : public UUIDataStore_GameState
@@ -36301,11 +35688,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool NotifyGameSessionEnded();
 	void ClearDataProviders();
 	void SetPlayerDataProvider(class UPlayerDataProvider* NewPlayerData);
 };
-
 // Class Engine.UIDataStore_Gamma
 // 0x0000 (0x0078 - 0x0078)
 class UUIDataStore_Gamma : public UUIDataStore
@@ -36326,7 +35713,6 @@ public:
 	};
 
 };
-
 // Class Engine.UIDataStore_Images
 // 0x0000 (0x0078 - 0x0078)
 class UUIDataStore_Images : public UUIDataStore
@@ -36347,7 +35733,6 @@ public:
 	};
 
 };
-
 // Class Engine.UIDataStore_OnlinePlaylists
 // 0x002C (0x0078 - 0x00A4)
 class UUIDataStore_OnlinePlaylists : public UUIDataStore
@@ -36372,7 +35757,8 @@ public:
 		return uClassPointer;
 	};
 
-	static class UOnlinePlaylistProvider* GetOnlinePlaylistProvider(const class FName& ProviderTag, int32_t PlaylistId, int32_t& outProviderIndex);
+
+	static class UOnlinePlaylistProvider* GetOnlinePlaylistProvider(const class FName& ProviderTag, int32_t PlaylistId, int32_t& optionalOutProviderIndex);
 	bool GetPlaylistProvider(const class FName& ProviderTag, int32_t ProviderIndex, class UUIResourceDataProvider*& outOut_Provider);
 	int32_t FindProviderIndexByFieldValue(const class FName& ProviderTag, const class FName& SearchField, struct FUIProviderScriptFieldValue& outValueToSearchFor);
 	bool GetProviderFieldValue(const class FName& ProviderTag, const class FName& SearchField, int32_t ProviderIndex, struct FUIProviderScriptFieldValue& outOut_FieldValue);
@@ -36380,7 +35766,6 @@ public:
 	bool GetResourceProviders(const class FName& ProviderTag, class TArray<class UUIResourceDataProvider*>& outOut_Providers);
 	int32_t GetProviderCount(const class FName& ProviderTag);
 };
-
 // Class Engine.UIDataStore_Registry
 // 0x0004 (0x0078 - 0x007C)
 class UUIDataStore_Registry : public UUIDataStore
@@ -36401,9 +35786,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	class UUIDynamicFieldProvider* GetDataProvider();
 };
-
 // Class Engine.UIDataStore_Remote
 // 0x0000 (0x0078 - 0x0078)
 class UUIDataStore_Remote : public UUIDataStore
@@ -36424,7 +35809,6 @@ public:
 	};
 
 };
-
 // Class Engine.UIDataStore_OnlineGameSearch
 // 0x0030 (0x0078 - 0x00A8)
 class UUIDataStore_OnlineGameSearch : public UUIDataStore_Remote
@@ -36453,6 +35837,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void ClearAllSearchResults();
 	void eventMoveToPrevious(bool optionalBInvalidateExistingSearchResults);
 	void eventMoveToNext(bool optionalBInvalidateExistingSearchResults);
@@ -36470,7 +35855,6 @@ public:
 	bool InvalidateCurrentSearchResults();
 	void eventInit();
 };
-
 // Class Engine.UIDataStore_OnlinePlayerData
 // 0x00BC (0x0078 - 0x0134)
 class UUIDataStore_OnlinePlayerData : public UUIDataStore_Remote
@@ -36519,6 +35903,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	static class UOnlinePlayerStorage* eventGetCachedPlayerStorage(int32_t ControllerId);
 	static class UOnlineProfileSettings* eventGetCachedPlayerProfile(int32_t ControllerId);
 	bool eventSaveProfileData();
@@ -36531,7 +35916,6 @@ public:
 	void eventOnRegister(class ULocalPlayer* InPlayer);
 	void OnSettingProviderChanged(class UUIDataProvider* SourceProvider, const class FName& optionalSettingsName);
 };
-
 // Class Engine.UIDataStore_OnlineStats
 // 0x0070 (0x0078 - 0x00E8)
 class UUIDataStore_OnlineStats : public UUIDataStore_Remote
@@ -36547,6 +35931,7 @@ public:
 	class TArray<class UOnlineStatsRead*>              StatsReadObjects;                              // 0x00C4 (0x000C) [0x0000000000400000] (CPF_NeedCtorLink)
 	class UOnlineStatsRead*                            StatsRead;                                     // 0x00D0 (0x0004) [0x0000000000000000]               
 	EStatsFetchType                                    CurrentReadType;                               // 0x00D4 (0x0001) [0x0000000000000000]               
+	uint8_t                                            UnknownData00[0x3];                              // 0x00D5 (0x0003) MISSED OFFSET
 	class UOnlineStatsInterface*                       StatsInterface_Object;                         // 0x00D8 (0x0004) [0x0000000000000000] 
 	class UOnlineStatsInterface*                       StatsInterface_Interface;                      // 0x00DC (0x0004) [0x0000000000000000]               
 	class UOnlinePlayerInterface*                      PlayerInterface_Object;                        // 0x00E0 (0x0004) [0x0000000000000000] 
@@ -36565,6 +35950,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SortResultsByRank();
 	void OnReadComplete(bool bWasSuccessful);
 	bool eventShowGamercard(uint8_t ConrollerIndex, int32_t ListIndex);
@@ -36572,7 +35958,6 @@ public:
 	void SetStatsReadInfo();
 	void eventInit();
 };
-
 // Class Engine.UIDataStore_Settings
 // 0x0000 (0x0078 - 0x0078)
 class UUIDataStore_Settings : public UUIDataStore
@@ -36593,7 +35978,6 @@ public:
 	};
 
 };
-
 // Class Engine.UIDataStore_OnlineGameSettings
 // 0x0014 (0x0078 - 0x008C)
 class UUIDataStore_OnlineGameSettings : public UUIDataStore_Settings
@@ -36616,6 +36000,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventUnregistered(class ULocalPlayer* PlayerOwner);
 	void eventRegistered(class ULocalPlayer* PlayerOwner);
 	void eventMoveToPrevious();
@@ -36627,7 +36012,6 @@ public:
 	bool eventCreateGame(uint8_t ControllerIndex);
 	void OnSettingProviderChanged(class UUIDataProvider* SourceProvider, const class FName& optionalSettingsName);
 };
-
 // Class Engine.UIDataStore_SessionSettings
 // 0x0024 (0x0078 - 0x009C)
 class UUIDataStore_SessionSettings : public UUIDataStore_Settings
@@ -36650,10 +36034,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool NotifyGameSessionEnded();
 	void ClearDataProviders();
 };
-
 // Class Engine.UIDataStore_StringBase
 // 0x0000 (0x0078 - 0x0078)
 class UUIDataStore_StringBase : public UUIDataStore
@@ -36674,7 +36058,6 @@ public:
 	};
 
 };
-
 // Class Engine.UIDataStore_InputAlias
 // 0x0048 (0x0078 - 0x00C0)
 class UUIDataStore_InputAlias : public UUIDataStore_StringBase
@@ -36696,6 +36079,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool HasAliasMappingForPlatform(const class FName& DesiredAlias, EInputPlatformType DesiredPlatform);
 	int32_t FindInputAliasIndex(const class FName& DesiredAlias);
 	bool GetAliasInputKeyDataByIndex(int32_t AliasIndex, EInputPlatformType optionalOverridePlatform, struct FRawInputKeyEventData& outOut_InputKeyData);
@@ -36705,7 +36089,6 @@ public:
 	class FString GetAliasFontMarkupByIndex(int32_t AliasIndex, EInputPlatformType optionalOverridePlatform);
 	class FString GetAliasFontMarkup(const class FName& DesiredAlias, EInputPlatformType optionalOverridePlatform);
 };
-
 // Class Engine.UIDataStore_StringAliasMap
 // 0x004C (0x0078 - 0x00C4)
 class UUIDataStore_StringAliasMap : public UUIDataStore_StringBase
@@ -36728,11 +36111,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	int32_t GetStringWithFieldName(const class FString& FieldName, class FString& outMappedString);
 	int32_t FindMappingWithFieldName(const class FString& optionalFieldName, const class FString& optionalSetName);
 	class ULocalPlayer* GetPlayerOwner();
 };
-
 // Class Engine.UIDataStore_Strings
 // 0x000C (0x0078 - 0x0084)
 class UUIDataStore_Strings : public UUIDataStore_StringBase
@@ -36754,7 +36137,6 @@ public:
 	};
 
 };
-
 // Class Engine.UICustomSkin
 // 0x003C (0x0198 - 0x01D4)
 class UUICustomSkin : public UUISkin
@@ -36776,7 +36158,6 @@ public:
 	};
 
 };
-
 // Class Engine.UIDynamicFieldProvider
 // 0x0090 (0x0058 - 0x00E8)
 class UUIDynamicFieldProvider : public UUIDataProvider
@@ -36800,6 +36181,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	int32_t FindCollectionValueIndex(const class FName& FieldName, bool optionalBPersistent, const class FName& optionalCellTag, class FString& outValueToFind);
 	bool GetCollectionValue(const class FName& FieldName, int32_t ValueIndex, bool optionalBPersistent, const class FName& optionalCellTag, class FString& outOut_Value);
 	bool ClearCollectionValueArray(const class FName& FieldName, bool optionalBPersistent, const class FName& optionalCellTag);
@@ -36817,10 +36199,9 @@ public:
 	bool ClearFields(bool optionalBReinitializeRuntimeFields);
 	int32_t FindFieldIndex(const class FName& FieldName, bool optionalBSearchPersistentFields);
 	bool RemoveField(const class FName& FieldName);
-	bool AddField(const class FName& FieldName, EUIDataProviderFieldType optionalFieldType, bool optionalBPersistent, int32_t& outOut_InsertPosition);
+	bool AddField(const class FName& FieldName, EUIDataProviderFieldType optionalFieldType, bool optionalBPersistent, int32_t& optionalOutOut_InsertPosition);
 	void InitializeRuntimeFields();
 };
-
 // Class Engine.UIPropertyDataProvider
 // 0x0018 (0x0058 - 0x0070)
 class UUIPropertyDataProvider : public UUIDataProvider
@@ -36842,10 +36223,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool eventGetCustomPropertyValue(int32_t optionalArrayIndex, struct FUIProviderScriptFieldValue& outPropertyValue);
 	bool CanSupportComplexPropertyType(class UProperty* UnsupportedProperty);
 };
-
 // Class Engine.UIDynamicDataProvider
 // 0x000C (0x0070 - 0x007C)
 class UUIDynamicDataProvider : public UUIPropertyDataProvider
@@ -36868,6 +36249,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool CleanupDataProvider();
 	class UObject* GetDataSource();
 	bool eventIsValidDataSourceClass(class UClass* PotentialDataSourceClass);
@@ -36876,7 +36258,6 @@ public:
 	bool UnbindProviderInstance();
 	bool BindProviderInstance(class UObject* DataSourceInstance);
 };
-
 // Class Engine.GameInfoDataProvider
 // 0x0004 (0x007C - 0x0080)
 class UGameInfoDataProvider : public UUIDynamicDataProvider
@@ -36897,9 +36278,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventProviderInstanceBound(class UObject* DataSourceInstance);
 };
-
 // Class Engine.InventoryDataProvider
 // 0x0000 (0x007C - 0x007C)
 class UInventoryDataProvider : public UUIDynamicDataProvider
@@ -36920,7 +36301,6 @@ public:
 	};
 
 };
-
 // Class Engine.PowerupDataProvider
 // 0x0000 (0x007C - 0x007C)
 class UPowerupDataProvider : public UInventoryDataProvider
@@ -36940,9 +36320,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool eventIsValidDataSourceClass(class UClass* PotentialDataSourceClass);
 };
-
 // Class Engine.WeaponDataProvider
 // 0x0000 (0x007C - 0x007C)
 class UWeaponDataProvider : public UInventoryDataProvider
@@ -36963,7 +36343,6 @@ public:
 	};
 
 };
-
 // Class Engine.CurrentWeaponDataProvider
 // 0x0000 (0x007C - 0x007C)
 class UCurrentWeaponDataProvider : public UWeaponDataProvider
@@ -36984,7 +36363,6 @@ public:
 	};
 
 };
-
 // Class Engine.PickupDataProvider
 // 0x0000 (0x007C - 0x007C)
 class UPickupDataProvider : public UUIDynamicDataProvider
@@ -37005,7 +36383,6 @@ public:
 	};
 
 };
-
 // Class Engine.PlayerDataProvider
 // 0x0000 (0x007C - 0x007C)
 class UPlayerDataProvider : public UUIDynamicDataProvider
@@ -37026,7 +36403,6 @@ public:
 	};
 
 };
-
 // Class Engine.PlayerOwnerDataProvider
 // 0x0004 (0x007C - 0x0080)
 class UPlayerOwnerDataProvider : public UPlayerDataProvider
@@ -37047,10 +36423,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool CleanupDataProvider();
 	void SetPlayerDataProvider(class UPlayerDataProvider* NewPlayerData);
 };
-
 // Class Engine.TeamDataProvider
 // 0x0018 (0x007C - 0x0094)
 class UTeamDataProvider : public UUIDynamicDataProvider
@@ -37073,9 +36449,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void RegeneratePlayerLists(const class TArray<class UPlayerDataProvider*>& AllPlayers);
 };
-
 // Class Engine.UIDataProvider_Settings
 // 0x0014 (0x007C - 0x0090)
 class UUIDataProvider_Settings : public UUIDynamicDataProvider
@@ -37098,12 +36474,12 @@ public:
 		return uClassPointer;
 	};
 
+
 	void OnSettingValueUpdated(const class FName& SettingName);
 	void ArrayProviderPropertyChanged(class UUIDataProvider* SourceProvider, const class FName& optionalPropTag);
 	void eventProviderInstanceUnbound(class UObject* DataSourceInstance);
 	void eventProviderInstanceBound(class UObject* DataSourceInstance);
 };
-
 // Class Engine.UIResourceDataProvider
 // 0x000C (0x0070 - 0x007C)
 class UUIResourceDataProvider : public UUIPropertyDataProvider
@@ -37127,9 +36503,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventInitializeProvider(bool bIsEditor);
 };
-
 // Class Engine.UIDataProvider_MenuItem
 // 0x0088 (0x007C - 0x0104)
 class UUIDataProvider_MenuItem : public UUIResourceDataProvider
@@ -37137,6 +36513,7 @@ class UUIDataProvider_MenuItem : public UUIResourceDataProvider
 public:
 	EMenuOptionType                                    OptionType;                                    // 0x007C (0x0001) [0x0000000000004000] (CPF_Config)  
 	EEditBoxCharacterSet                               EditboxAllowedChars;                           // 0x007D (0x0001) [0x0000000000004000] (CPF_Config)  
+	uint8_t                                            UnknownData00[0x2];                              // 0x007E (0x0002) MISSED OFFSET
 	class TArray<class FName>                          OptionSet;                                     // 0x0080 (0x000C) [0x0000000000404000] (CPF_Config | CPF_NeedCtorLink)
 	class FString                                      DataStoreMarkup;                               // 0x008C (0x000C) [0x0000000000404000] (CPF_Config | CPF_NeedCtorLink)
 	class FString                                      DescriptionMarkup;                             // 0x0098 (0x000C) [0x0000000000404000] (CPF_Config | CPF_NeedCtorLink)
@@ -37171,9 +36548,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool IsFiltered();
 };
-
 // Class Engine.UIMapSummary
 // 0x0030 (0x007C - 0x00AC)
 class UUIMapSummary : public UUIResourceDataProvider
@@ -37198,7 +36575,6 @@ public:
 	};
 
 };
-
 // Class Engine.UISettingsProvider
 // 0x0008 (0x0070 - 0x0078)
 class UUISettingsProvider : public UUIPropertyDataProvider
@@ -37219,12 +36595,12 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool CleanupDataProvider();
 	bool OnModifiedProperty(const class FName& PropertyName, class UUIObject* Widget);
 	void SavePropertyValue(const class FName& PropertyName, class UUIObject* Widget);
 	void LoadPropertyValue(const class FName& PropertyName, class UUIObject* Widget);
 };
-
 // Class Engine.SessionSettingsProvider
 // 0x000C (0x0078 - 0x0084)
 class USessionSettingsProvider : public UUISettingsProvider
@@ -37247,6 +36623,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool CleanupDataProvider();
 	bool eventIsValidDataSourceClass(class UClass* PotentialDataSourceClass);
 	void eventProviderClientUnbound(class UClass* DataSourceClass);
@@ -37254,7 +36631,6 @@ public:
 	bool UnbindProviderClient();
 	bool BindProviderClient(class UClass* DataSourceClass);
 };
-
 // Class Engine.UIResourceCombinationProvider
 // 0x0010 (0x0058 - 0x0068)
 class UUIResourceCombinationProvider : public UUIDataProvider
@@ -37278,12 +36654,13 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool ReplaceProviderCollection(const class FName& TargetFieldTag, class TArray<struct FUIDataProviderField>& outOut_Fields, class TArray<class UUIDataProvider*>& outReplacementProviders);
 	bool ReplaceProviderValue(const class FName& TargetFieldTag, class UUIDataProvider* ReplacementProvider, class TArray<struct FUIDataProviderField>& outOut_Fields);
 	void ClearProviderReferences();
 	bool eventGetCellFieldValue(const class FName& FieldName, const class FName& CellTag, int32_t ListIndex, int32_t optionalArrayIndex, struct FUIProviderFieldValue& outOut_FieldValue);
 	bool eventGetCellFieldType(const class FName& FieldName, const class FName& CellTag, EUIDataProviderFieldType& outFieldType);
-	void eventGetElementCellTags(const class FName& FieldName, class TArray<class FName>& outCellFieldTags, class TArray<class FString>& outColumnHeaderDisplayText);
+	void eventGetElementCellTags(const class FName& FieldName, class TArray<class FName>& outCellFieldTags, class TArray<class FString>& optionalOutColumnHeaderDisplayText);
 	bool eventGetElementCellValueProvider(const class FName& FieldName, int32_t ListIndex, class UUIListElementCellProvider*& outOut_ValueProvider);
 	bool eventGetElementCellSchemaProvider(const class FName& FieldName, class UUIListElementCellProvider*& outOut_SchemaProvider);
 	bool eventIsElementEnabled(const class FName& FieldName, int32_t CollectionIndex);
@@ -37292,7 +36669,6 @@ public:
 	class TArray<class FName> eventGetElementProviderTags();
 	void eventInitializeProvider(bool bIsEditor, class UUIResourceDataProvider* InStaticResourceProvider, class UUIDataProvider_OnlineProfileSettings* InProfileProvider);
 };
-
 // Class Engine.GameUISceneClient
 // 0x00A0 (0x00F8 - 0x0198)
 class UGameUISceneClient : public UUISceneClient
@@ -37349,6 +36725,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	class UUIAnimationSeq* FindUIAnimation(const class FName& NameOfSequence);
 	void ShowMenuProgression();
 	void DebugShowMessage(const class FString& Message, const class FString& optionalAliases, const class FString& optionalTitle, const class FString& optionalQuestion);
@@ -37364,7 +36741,7 @@ public:
 	void ShowRenderBounds();
 	void ShowDockingStacks();
 	static bool ClearUIMessageScene(const class FName& SceneTag, class ULocalPlayer* optionalScenePlayerOwner, bool optionalBCloseChildScenes);
-	static bool ShowUIMessage(const class FName& SceneTag, const class FString& Title, const class FString& Message, const class FString& Question, const class TArray<class FName>& ButtonAliases, const struct FScriptDelegate& SelectionCallback, class ULocalPlayer* optionalScenePlayerOwner, uint8_t optionalForcedPriority, class UUIMessageBoxBase*& outOut_CreatedScene);
+	static bool ShowUIMessage(const class FName& SceneTag, const class FString& Title, const class FString& Message, const class FString& Question, const class TArray<class FName>& ButtonAliases, const struct FScriptDelegate& SelectionCallback, class ULocalPlayer* optionalScenePlayerOwner, uint8_t optionalForcedPriority, class UUIMessageBoxBase*& optionalOutOut_CreatedScene);
 	static class UUIMessageBoxBase* CreateUIMessageBox(const class FName& SceneTag, class UClass* optionalCustomMessageBoxClass, class UUIMessageBoxBase* optionalSceneTemplate);
 	void RestoreMenuProgression(class UUIScene* optionalBaseScene);
 	void ClearMenuProgression();
@@ -37404,7 +36781,6 @@ public:
 	class UUIScene* GetTransientScene();
 	static ENetMode GetCurrentNetMode();
 };
-
 // Class Engine.ConsoleEntry
 // 0x001C (0x0414 - 0x0430)
 class UConsoleEntry : public UUIObject
@@ -37431,13 +36807,13 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SetValue(const class FString& NewValue);
 	void SetupDockingLinks();
 	void eventPostInitialize();
 	void eventRemovedChild(class UUIScreenObject* WidgetOwner, class UUIObject* OldChild, const class TArray<class UUIObject*>& optionalExclusionSet);
 	void eventAddedChild(class UUIScreenObject* WidgetOwner, class UUIObject* NewChild);
 };
-
 // Class Engine.UIButton
 // 0x000C (0x0414 - 0x0420)
 class UUIButton : public UUIObject
@@ -37459,9 +36835,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SetImage(class USurface* NewImage);
 };
-
 // Class Engine.UICheckbox
 // 0x004C (0x0420 - 0x046C)
 class UUICheckbox : public UUIButton
@@ -37487,6 +36863,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SetValue(bool bShouldBeChecked, int32_t optionalPlayerIndex);
 	bool SaveSubscriberValue(int32_t optionalBindingIndex, class TArray<class UUIDataStore*>& outOut_BoundDataStores);
 	void ClearBoundDataStores();
@@ -37498,7 +36875,6 @@ public:
 	bool IsChecked();
 	void SetCheckImage(class USurface* NewImage);
 };
-
 // Class Engine.UILabelButton
 // 0x0038 (0x0420 - 0x0458)
 class UUILabelButton : public UUIButton
@@ -37521,6 +36897,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool SaveSubscriberValue(int32_t optionalBindingIndex, class TArray<class UUIDataStore*>& outOut_BoundDataStores);
 	void ClearBoundDataStores();
 	void GetBoundDataStores(class TArray<class UUIDataStore*>& outOut_BoundDataStores);
@@ -37532,7 +36909,6 @@ public:
 	class FString eventGetCaption();
 	void SetCaption(const class FString& NewText);
 };
-
 // Class Engine.UICalloutButton
 // 0x0024 (0x0458 - 0x047C)
 class UUICalloutButton : public UUILabelButton
@@ -37542,6 +36918,7 @@ public:
 	class FName                                        CalloutDataStoreTag;                           // 0x0464 (0x0008) [0x0000000000004002] (CPF_Const | CPF_Config)
 	class FName                                        InputAliasTag;                                 // 0x046C (0x0008) [0x0000000000020003] (CPF_Edit | CPF_Const | CPF_EditConst)
 	EUIAlignment                                       IconAlignment;                                 // 0x0474 (0x0001) [0x0000000000000003] (CPF_Edit | CPF_Const)
+	uint8_t                                            UnknownData00[0x3];                              // 0x0475 (0x0003) MISSED OFFSET
 	uint32_t                                           bSupportsButtonRepeat : 1;                     // 0x0478 (0x0004) [0x0000000000002000] [0x00000001] (CPF_Transient)
 	uint32_t                                           bPlayErrorSoundWhenDisabled : 1;               // 0x0478 (0x0004) [0x0000000000004002] [0x00000002] (CPF_Const | CPF_Config)
 
@@ -37558,6 +36935,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	class UUIEvent_CalloutButtonInputProxy* GetCalloutInputProxy(bool optionalBCreateIfNecessary);
 	bool VerifyDefaultMarkupString();
 	class UUICalloutButtonPanel* GetPanelOwner();
@@ -37573,7 +36951,6 @@ public:
 	void SetInputTag(const class FName& NewInputAlias);
 	class UUIDataStore_InputAlias* GetCalloutDataStore(class ULocalPlayer* optionalAlternatePlayer);
 };
-
 // Class Engine.UITabButton
 // 0x0010 (0x0458 - 0x0468)
 class UUITabButton : public UUILabelButton
@@ -37595,16 +36972,16 @@ public:
 		return uClassPointer;
 	};
 
+
 	void OnStateChanged(class UUIScreenObject* Sender, int32_t PlayerIndex, class UUIState* NewlyActiveState, class UUIState* optionalPreviouslyActiveState);
 	class UUITabPage* GetTabPage();
-	bool IsTargeted(int32_t optionalPlayerIndex, int32_t& outStateIndex);
+	bool IsTargeted(int32_t optionalPlayerIndex, int32_t& optionalOutStateIndex);
 	bool CanActivateButton(int32_t PlayerIndex);
 	void eventRemovedFromParent(class UUIScreenObject* WidgetOwner);
 	void eventRemovedChild(class UUIScreenObject* WidgetOwner, class UUIObject* OldChild, const class TArray<class UUIObject*>& optionalExclusionSet);
 	void eventAddedChild(class UUIScreenObject* WidgetOwner, class UUIObject* NewChild);
 	bool IsActivationAllowed(class UUITabButton* Sender, int32_t PlayerIndex);
 };
-
 // Class Engine.UIToggleButton
 // 0x003C (0x0458 - 0x0494)
 class UUIToggleButton : public UUILabelButton
@@ -37628,12 +37005,12 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool ButtonClicked(class UUIScreenObject* Sender, int32_t PlayerIndex);
 	void SetValue(bool bShouldBeChecked, int32_t optionalPlayerIndex);
 	bool IsChecked();
 	void SetCaption(const class FString& NewText);
 };
-
 // Class Engine.UINumericEditBoxButton
 // 0x0000 (0x0420 - 0x0420)
 class UUINumericEditBoxButton : public UUIButton
@@ -37654,7 +37031,6 @@ public:
 	};
 
 };
-
 // Class Engine.UIOptionListBase
 // 0x00BC (0x0414 - 0x04D0)
 class UUIOptionListBase : public UUIObject
@@ -37689,6 +37065,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void OnStateChanged(class UUIScreenObject* Sender, int32_t PlayerIndex, class UUIState* NewlyActiveState, class UUIState* optionalPreviouslyActiveState);
 	bool OnButtonClicked(class UUIScreenObject* Sender, int32_t PlayerIndex);
 	void InitializeInternalControls();
@@ -37708,7 +37085,6 @@ public:
 	class UUIOptionListButton* CreateCustomIncrementButton(class UUIOptionListBase* ButtonOwner);
 	class UUIOptionListButton* CreateCustomDecrementButton(class UUIOptionListBase* ButtonOwner);
 };
-
 // Class Engine.UIOptionListButton
 // 0x0000 (0x0420 - 0x0420)
 class UUIOptionListButton : public UUIButton
@@ -37728,9 +37104,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void UpdateButtonState(int32_t optionalPlayerIndex);
 };
-
 // Class Engine.UIScrollbar
 // 0x00CC (0x0414 - 0x04E0)
 class UUIScrollbar : public UUIObject
@@ -37752,6 +37128,7 @@ public:
 	struct FUIScreenValue_Extent                       MinimumMarkerSize;                             // 0x04A0 (0x0008) [0x0000000000000001] (CPF_Edit)    
 	struct FUIScreenValue_Extent                       ButtonsExtent;                                 // 0x04A8 (0x0008) [0x0000000000000001] (CPF_Edit)    
 	EUIOrientation                                     ScrollbarOrientation;                          // 0x04B0 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x04B1 (0x0003) MISSED OFFSET
 	uint32_t                                           bAddCornerPadding : 1;                         // 0x04B4 (0x0004) [0x0000000000000001] [0x00000001] (CPF_Edit)
 	uint32_t                                           bInitializeMarker : 1;                         // 0x04B4 (0x0004) [0x0000000000002000] [0x00000002] (CPF_Transient)
 	struct FUIScreenValue_Position                     MousePosition;                                 // 0x04B8 (0x000C) [0x0000000000002000] (CPF_Transient)
@@ -37772,6 +37149,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	float GetMarkerSizePercent();
 	float GetMarkerPosPercent();
 	float GetNudgePercent();
@@ -37789,12 +37167,11 @@ public:
 	void SetMarkerPosition(float PositionPercentage);
 	void SetMarkerSize(float SizePercentage);
 	float GetScrollZoneWidth();
-	float GetScrollZoneExtent(float& outScrollZoneStart);
+	float GetScrollZoneExtent(float& optionalOutScrollZoneStart);
 	float GetMarkerButtonPosition();
 	void OnClickedScrollZone(class UUIScrollbar* Sender, float PositionPerc, int32_t PlayerIndex);
 	bool OnScrollActivity(class UUIScrollbar* Sender, float PositionChange, bool optionalBPositionMaxed);
 };
-
 // Class Engine.UIScrollbarButton
 // 0x0000 (0x0420 - 0x0420)
 class UUIScrollbarButton : public UUIButton
@@ -37815,7 +37192,6 @@ public:
 	};
 
 };
-
 // Class Engine.UIScrollbarMarkerButton
 // 0x000C (0x0420 - 0x042C)
 class UUIScrollbarMarkerButton : public UUIScrollbarButton
@@ -37836,9 +37212,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void OnButtonDragged(class UUIScrollbarMarkerButton* Sender, int32_t PlayerIndex);
 };
-
 // Class Engine.UIComboBox
 // 0x008C (0x0414 - 0x04A0)
 class UUIComboBox : public UUIObject
@@ -37874,6 +37250,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void ListItemSelected(class UUIList* Sender, int32_t optionalPlayerIndex);
 	void SelectedItemChanged(class UUIObject* Sender, int32_t PlayerIndex);
 	void EditboxTextChanged(class UUIObject* Sender, int32_t PlayerIndex);
@@ -37899,7 +37276,6 @@ public:
 	class UUIToggleButton* CreateCustomComboButton(class UUIComboBox* ButtonOwner);
 	class UUIEditBox* CreateCustomComboEditbox(class UUIComboBox* EditboxOwner);
 };
-
 // Class Engine.UIContainer
 // 0x0004 (0x0414 - 0x0418)
 class UUIContainer : public UUIObject
@@ -37921,7 +37297,6 @@ public:
 	};
 
 };
-
 // Class Engine.UICalloutButtonPanel
 // 0x0070 (0x0418 - 0x0488)
 class UUICalloutButtonPanel : public UUIContainer
@@ -37931,8 +37306,9 @@ public:
 	class TArray<class UUICalloutButton*>              CalloutButtons;                                // 0x041C (0x000C) [0x0000000004422001] (CPF_Edit | CPF_Transient | CPF_EditConst | CPF_NeedCtorLink | CPF_EditInline)
 	EUIOrientation                                     ButtonBarOrientation;                          // 0x0428 (0x0001) [0x0000000000000001] (CPF_Edit)    
 	ECalloutButtonLayoutType                           ButtonLayout;                                  // 0x0429 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x2];                              // 0x042A (0x0002) MISSED OFFSET
 	struct FUIScreenValue_Extent                       ButtonPadding[2];                              // 0x042C (0x0010) [0x0000000000000001] (CPF_Edit)    
-	uint8_t                                            UnknownData00[0x3C];                            // 0x043C (0x003C) MISSED OFFSET
+	uint8_t                                            UnknownData01[0x3C];                            // 0x043C (0x003C) MISSED OFFSET
 	class TArray<class FName>                          CalloutButtonAliases;                          // 0x0478 (0x000C) [0x0000000000404000] (CPF_Config | CPF_NeedCtorLink)
 	uint32_t                                           bGeneratingInitialButtons : 1;                 // 0x0484 (0x0004) [0x0000000000002000] [0x00000001] (CPF_Transient)
 	uint32_t                                           bSupportsButtonRepeat : 1;                     // 0x0484 (0x0004) [0x0000000000000001] [0x00000002] (CPF_Edit)
@@ -37950,6 +37326,7 @@ public:
 
 		return uClassPointer;
 	};
+
 
 	void OnButtonVisibilityChanged(class UUIScreenObject* SourceWidget, bool bIsVisible);
 	void InitializeInputProxy();
@@ -37979,7 +37356,6 @@ public:
 	void eventSynchronizeInputAliases();
 	void PopulateCalloutButtonArray();
 };
-
 // Class Engine.UIFrameBox
 // 0x0054 (0x0418 - 0x046C)
 class UUIFrameBox : public UUIContainer
@@ -38001,9 +37377,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SetBackgroundImage(EFrameBoxImage ImageToSet, class USurface* NewImage);
 };
-
 // Class Engine.UIPanel
 // 0x0008 (0x0418 - 0x0420)
 class UUIPanel : public UUIContainer
@@ -38025,15 +37401,16 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SetBackgroundImage(class USurface* NewImage);
 };
-
 // Class Engine.UISafeRegionPanel
 // 0x0010 (0x0418 - 0x0428)
 class UUISafeRegionPanel : public UUIContainer
 {
 public:
 	ESafeRegionType                                    RegionType;                                    // 0x0418 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0419 (0x0003) MISSED OFFSET
 	float                                              RegionPercentages[2];                          // 0x041C (0x0008) [0x0000000004004001] (CPF_Edit | CPF_Config | CPF_EditInline)
 	uint32_t                                           bForce4x3AspectRatio : 1;                      // 0x0424 (0x0004) [0x0000000000000001] [0x00000001] (CPF_Edit)
 	uint32_t                                           bUseFullRegionIn4x3 : 1;                       // 0x0424 (0x0004) [0x0000000000000001] [0x00000002] (CPF_Edit)
@@ -38053,7 +37430,6 @@ public:
 	};
 
 };
-
 // Class Engine.UIScrollFrame
 // 0x0038 (0x0418 - 0x0450)
 class UUIScrollFrame : public UUIContainer
@@ -38082,6 +37458,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventScrollZoneClicked(class UUIScrollbar* Sender, float PositionPerc, int32_t PlayerIndex);
 	void OnChildRepositioned(class UUIScreenObject* Sender);
 	void eventRemovedChild(class UUIScreenObject* WidgetOwner, class UUIObject* OldChild, const class TArray<class UUIObject*>& optionalExclusionSet);
@@ -38098,7 +37475,6 @@ public:
 	void ReapplyFormatting(bool optionalBImmediately);
 	void RefreshScrollbars(bool optionalBImmediately);
 };
-
 // Class Engine.UITabPage
 // 0x009C (0x0418 - 0x04B4)
 class UUITabPage : public UUIContainer
@@ -38124,6 +37500,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool IsActivePage();
 	void SetTabCaption(const class FString& NewButtonMarkup);
 	bool IsFocusInitializationRequired(int32_t PlayerIndex);
@@ -38142,7 +37519,6 @@ public:
 	static class UUITabButton* eventCreateTabButton(class UUITabControl* TabControl);
 	bool eventActivatePage(int32_t PlayerIndex, bool bActivate, bool optionalBTakeFocus);
 };
-
 // Class Engine.UINumericEditBox
 // 0x0098 (0x0474 - 0x050C)
 class UUINumericEditBox : public UUIEditBox
@@ -38170,6 +37546,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	float GetNumericValue();
 	bool SetNumericValue(float NewValue, bool optionalBForceRefreshString);
 	void eventPostInitialize();
@@ -38177,7 +37554,6 @@ public:
 	void DecrementValue(class UUIScreenObject* Sender, int32_t PlayerIndex);
 	void IncrementValue(class UUIScreenObject* Sender, int32_t PlayerIndex);
 };
-
 // Class Engine.UIImage
 // 0x0038 (0x0414 - 0x044C)
 class UUIImage : public UUIObject
@@ -38200,6 +37576,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool SaveSubscriberValue(int32_t optionalBindingIndex, class TArray<class UUIDataStore*>& outOut_BoundDataStores);
 	void ClearBoundDataStores();
 	void GetBoundDataStores(class TArray<class UUIDataStore*>& outOut_BoundDataStores);
@@ -38209,7 +37586,6 @@ public:
 	void SetDataStoreBinding(const class FString& MarkupText, int32_t optionalBindingIndex);
 	void SetValue(class USurface* NewImage);
 };
-
 // Class Engine.UILabel
 // 0x0040 (0x0414 - 0x0454)
 class UUILabel : public UUIObject
@@ -38234,6 +37610,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void IgnoreMarkup(bool bShouldIgnoreMarkup);
 	class FString GetValue();
 	void SetArrayValue(const class TArray<class FString>& ValueArray);
@@ -38246,7 +37623,6 @@ public:
 	void SetTextAlignment(EUIAlignment Horizontal, EUIAlignment Vertical);
 	void SetValue(const class FString& NewText);
 };
-
 // Class Engine.UINavigationList
 // 0x0000 (0x06B8 - 0x06B8)
 class UUINavigationList : public UUIList
@@ -38266,13 +37642,13 @@ public:
 		return uClassPointer;
 	};
 
+
 	class FString GetScenePathAtIndex(int32_t DesiredIndex);
 	class FString GetItemTagAtIndex(int32_t DesiredIndex);
 	class FString GetSelectedItemTag();
 	class FString GetSelectedScenePath();
 	static class UUIDataStore_GameResource* GetGameResourceDataStore();
 };
-
 // Class Engine.UIMeshWidget
 // 0x0004 (0x0414 - 0x0418)
 class UUIMeshWidget : public UUIObject
@@ -38294,7 +37670,6 @@ public:
 	};
 
 };
-
 // Class Engine.UINumericOptionList
 // 0x0014 (0x04D0 - 0x04E4)
 class UUINumericOptionList : public UUIOptionListBase
@@ -38315,10 +37690,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	float GetValue(bool optionalBPercentageValue);
 	bool SetValue(float NewValue, bool optionalBPercentageValue);
 };
-
 // Class Engine.UIOptionList
 // 0x0018 (0x04D0 - 0x04E8)
 class UUIOptionList : public UUIOptionListBase
@@ -38342,6 +37717,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SetCurrentIndex(int32_t NewIndex);
 	int32_t GetCurrentIndex();
 	bool OnIsCurrValueValid();
@@ -38350,7 +37726,6 @@ public:
 	void SetPrevValue();
 	bool GetListValue(int32_t ListIndex, class FString& outOutValue);
 };
-
 // Class Engine.UIPrefab
 // 0x0020 (0x0414 - 0x0434)
 class UUIPrefab : public UUIObject
@@ -38377,7 +37752,6 @@ public:
 	};
 
 };
-
 // Class Engine.UIPrefabInstance
 // 0x00BC (0x0414 - 0x04D0)
 class UUIPrefabInstance : public UUIObject
@@ -38408,9 +37782,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void DetachFromSourcePrefab();
 };
-
 // Class Engine.UIProgressBar
 // 0x0059 (0x0414 - 0x046D)
 class UUIProgressBar : public UUIObject
@@ -38438,6 +37812,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SetOverlayImage(class USurface* NewImage);
 	void SetFillImage(class USurface* NewImage);
 	void SetBackgroundImage(class USurface* NewImage);
@@ -38451,7 +37826,6 @@ public:
 	class FString GetDataStoreBinding(int32_t optionalBindingIndex);
 	void SetDataStoreBinding(const class FString& MarkupText, int32_t optionalBindingIndex);
 };
-
 // Class Engine.UISlider
 // 0x0088 (0x0414 - 0x049C)
 class UUISlider : public UUIObject
@@ -38466,6 +37840,7 @@ public:
 	struct FUIRangeData                                SliderValue;                                   // 0x0458 (0x0014) [0x0000000000000001] (CPF_Edit)    
 	uint32_t                                           bRenderCaption : 1;                            // 0x046C (0x0004) [0x0000000000000001] [0x00000001] (CPF_Edit)
 	EUIOrientation                                     SliderOrientation;                             // 0x0470 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0471 (0x0003) MISSED OFFSET
 	struct FUIScreenValue_Extent                       BarSize;                                       // 0x0474 (0x0008) [0x0000000000000001] (CPF_Edit)    
 	struct FUIScreenValue_Extent                       MarkerHeight;                                  // 0x047C (0x0008) [0x0000000000000001] (CPF_Edit)    
 	struct FUIScreenValue_Extent                       MarkerWidth;                                   // 0x0484 (0x0008) [0x0000000000000001] (CPF_Edit)    
@@ -38485,6 +37860,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void OnStateChanged(class UUIScreenObject* Sender, int32_t PlayerIndex, class UUIState* NewlyActiveState, class UUIState* optionalPreviouslyActiveState);
 	void SetMarkerImage(class USurface* NewImage);
 	void SetBarImage(class USurface* NewImage);
@@ -38499,7 +37875,6 @@ public:
 	class FString GetDataStoreBinding(int32_t optionalBindingIndex);
 	void SetDataStoreBinding(const class FString& MarkupText, int32_t optionalBindingIndex);
 };
-
 // Class Engine.UITabControl
 // 0x00A0 (0x0414 - 0x04B4)
 class UUITabControl : public UUIObject
@@ -38510,6 +37885,7 @@ public:
 	class UUITabPage*                                  PendingPage;                                   // 0x0424 (0x0004) [0x0000000004022001] (CPF_Edit | CPF_Transient | CPF_EditConst | CPF_EditInline)
 	EUIWidgetFace                                      TabDockFace;                                   // 0x0428 (0x0001) [0x0000000000000001] (CPF_Edit)    
 	EUITabAutosizeType                                 TabSizeMode;                                   // 0x0429 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x2];                              // 0x042A (0x0002) MISSED OFFSET
 	struct FUIScreenValue_Extent                       TabButtonSize;                                 // 0x042C (0x0008) [0x0000000000000001] (CPF_Edit)    
 	struct FUIScreenValue_Extent                       TabButtonPadding[2];                           // 0x0434 (0x0010) [0x0000000000000001] (CPF_Edit)    
 	struct FUIStyleReference                           TabButtonBackgroundStyle;                      // 0x0444 (0x0020) [0x0000000000000000]               
@@ -38533,6 +37909,7 @@ public:
 
 		return uClassPointer;
 	};
+
 
 	bool TabButtonClicked(class UUIScreenObject* EventObject, int32_t PlayerIndex);
 	bool ProcessInputKey(struct FInputEventParameters& outEventParms);
@@ -38560,7 +37937,6 @@ public:
 	void OnPageInserted(class UUITabControl* Sender, class UUITabPage* NewPage, int32_t PlayerIndex);
 	void OnPageActivated(class UUITabControl* Sender, class UUITabPage* NewlyActivePage, int32_t PlayerIndex);
 };
-
 // Class Engine.UIScene
 // 0x03E8 (0x01A0 - 0x0588)
 class UUIScene : public UUIScreenObject
@@ -38653,6 +38029,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void DebugShowAnimators();
 	void LogCurrentState(int32_t Indent);
 	void LogRenderBounds(int32_t Indent);
@@ -38726,7 +38103,6 @@ public:
 	bool OnInterceptRawInputKey(struct FInputEventParameters& outEventParms);
 	EScreenInputMode GetSceneInputModeOverride();
 };
-
 // Class Engine.UIPrefabScene
 // 0x0004 (0x0588 - 0x058C)
 class UUIPrefabScene : public UUIScene
@@ -38748,7 +38124,6 @@ public:
 	};
 
 };
-
 // Class Engine.UIState_Active
 // 0x0000 (0x0066 - 0x0066)
 class UUIState_Active : public UUIState
@@ -38769,7 +38144,6 @@ public:
 	};
 
 };
-
 // Class Engine.UIState_Focused
 // 0x0000 (0x0066 - 0x0066)
 class UUIState_Focused : public UUIState
@@ -38789,9 +38163,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool eventActivateState(class UUIScreenObject* Target, int32_t PlayerIndex);
 };
-
 // Class Engine.UIState_Pressed
 // 0x0000 (0x0066 - 0x0066)
 class UUIState_Pressed : public UUIState
@@ -38812,7 +38186,6 @@ public:
 	};
 
 };
-
 // Class Engine.UIState_TargetedTab
 // 0x0000 (0x0066 - 0x0066)
 class UUIState_TargetedTab : public UUIState
@@ -38832,9 +38205,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool eventIsWidgetClassSupported(class UClass* WidgetClass);
 };
-
 // Class Engine.UIEditboxString
 // 0x0000 (0x00E4 - 0x00E4)
 class UUIEditboxString : public UUIString
@@ -38855,7 +38228,6 @@ public:
 	};
 
 };
-
 // Class Engine.UIListString
 // 0x0000 (0x00E4 - 0x00E4)
 class UUIListString : public UUIString
@@ -38876,7 +38248,6 @@ public:
 	};
 
 };
-
 // Class Engine.UIStyle_Data
 // 0x0034 (0x003C - 0x0070)
 class UUIStyle_Data : public UUIRoot
@@ -38902,9 +38273,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool MatchesStyleData(class UUIStyle_Data* OtherStyle);
 };
-
 // Class Engine.UIStyle_Combo
 // 0x0040 (0x0070 - 0x00B0)
 class UUIStyle_Combo : public UUIStyle_Data
@@ -38926,10 +38297,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	class UUIStyle_Image* GetComboImageStyle();
 	class UUIStyle_Text* GetComboTextStyle();
 };
-
 // Class Engine.UIStyle_Image
 // 0x003C (0x0070 - 0x00AC)
 class UUIStyle_Image : public UUIStyle_Data
@@ -38953,7 +38324,6 @@ public:
 	};
 
 };
-
 // Class Engine.UIStyle_Text
 // 0x0024 (0x0070 - 0x0094)
 class UUIStyle_Text : public UUIStyle_Data
@@ -38982,7 +38352,6 @@ public:
 	};
 
 };
-
 // Class Engine.UITexture
 // 0x0098 (0x003C - 0x00D4)
 class UUITexture : public UUIRoot
@@ -39004,12 +38373,12 @@ public:
 		return uClassPointer;
 	};
 
+
 	class USurface* GetSurface();
 	bool HasValidStyleData();
 	void SetImageStyle(class UUIStyle_Image* NewImageStyle);
-	class UUIScreenObject* GetOwnerWidget(class UUIComponent*& outOwnerComponent);
+	class UUIScreenObject* GetOwnerWidget(class UUIComponent*& optionalOutOwnerComponent);
 };
-
 // Class Engine.UITickableObjectProxy
 // 0x0010 (0x003C - 0x004C)
 class UUITickableObjectProxy : public UUIRoot
@@ -39031,10 +38400,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventScriptTick(float DeltaTime);
 	void OnScriptTick(class UUITickableObjectProxy* Sender, float DeltaTime);
 };
-
 // Class Engine.UIStringRenderer
 // 0x0000 (0x003C - 0x003C)
 class UUIStringRenderer : public UInterface
@@ -39054,9 +38423,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SetTextAlignment(EUIAlignment Horizontal, EUIAlignment Vertical);
 };
-
 // Class Engine.UIStyleResolver
 // 0x0000 (0x003C - 0x003C)
 class UUIStyleResolver : public UInterface
@@ -39076,11 +38445,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool NotifyResolveStyle(class UUISkin* ActiveSkin, bool bClearExistingValue, class UUIState* optionalCurrentMenuState, const class FName& optionalStylePropertyName);
 	bool SetStyleResolverTag(const class FName& NewResolverTag);
 	class FName GetStyleResolverTag();
 };
-
 // Class Engine.UITickableObject
 // 0x0000 (0x003C - 0x003C)
 class UUITickableObject : public UInterface
@@ -39101,7 +38470,6 @@ public:
 	};
 
 };
-
 // Class Engine.UISequence
 // 0x0010 (0x012C - 0x013C)
 class UUISequence : public USequence
@@ -39123,13 +38491,13 @@ public:
 		return uClassPointer;
 	};
 
+
 	void RemoveSequenceObjects(class TArray<class USequenceObject*>& outObjectsToRemove);
 	void RemoveSequenceObject(class USequenceObject* ObjectToRemove);
 	bool AddSequenceObject(class USequenceObject* NewObj, bool optionalBRecurse);
 	void GetUIEvents(class UClass* optionalLimitClass, class TArray<class UUIEvent*>& outOut_Events);
 	class UUIScreenObject* GetOwner();
 };
-
 // Class Engine.UIStateSequence
 // 0x0000 (0x013C - 0x013C)
 class UUIStateSequence : public UUISequence
@@ -39149,9 +38517,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	class UUIState* GetOwnerState();
 };
-
 // Class Engine.UIAction
 // 0x0004 (0x00E8 - 0x00EC)
 class UUIAction : public USequenceAction
@@ -39172,13 +38540,13 @@ public:
 		return uClassPointer;
 	};
 
+
 	static int32_t eventGetObjClassVersion();
 	bool eventIsValidUISequenceObject(class UUIScreenObject* optionalTargetObject);
 	bool eventIsValidLevelSequenceObject();
 	class UUIScene* GetOwnerScene();
 	class UUIScreenObject* GetOwner();
 };
-
 // Class Engine.UIAction_ActivateLevelEvent
 // 0x0008 (0x00EC - 0x00F4)
 class UUIAction_ActivateLevelEvent : public UUIAction
@@ -39200,7 +38568,6 @@ public:
 	};
 
 };
-
 // Class Engine.UIAction_Scene
 // 0x0005 (0x00EC - 0x00F1)
 class UUIAction_Scene : public UUIAction
@@ -39222,10 +38589,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	static int32_t eventGetObjClassVersion();
 	bool eventIsValidLevelSequenceObject();
 };
-
 // Class Engine.UIAction_CloseScene
 // 0x0000 (0x00F1 - 0x00F1)
 class UUIAction_CloseScene : public UUIAction_Scene
@@ -39246,7 +38613,6 @@ public:
 	};
 
 };
-
 // Class Engine.UIAction_OpenScene
 // 0x000B (0x00F1 - 0x00FC)
 class UUIAction_OpenScene : public UUIAction_Scene
@@ -39268,9 +38634,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	static int32_t eventGetObjClassVersion();
 };
-
 // Class Engine.UICond_IsFocused
 // 0x0000 (0x00D0 - 0x00D0)
 class UUICond_IsFocused : public USequenceCondition
@@ -39290,9 +38656,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool eventIsValidLevelSequenceObject();
 };
-
 // Class Engine.UIEvent
 // 0x0028 (0x0100 - 0x0128)
 class UUIEvent : public USequenceEvent
@@ -39319,18 +38685,18 @@ public:
 		return uClassPointer;
 	};
 
+
 	static int32_t eventGetObjClassVersion();
 	bool eventShouldAlwaysInstance();
 	bool eventIsValidUISequenceObject(class UUIScreenObject* optionalTargetObject);
 	bool eventIsValidLevelSequenceObject();
-	bool ActivateUIEvent(int32_t ControllerIndex, class UUIScreenObject* InEventOwner, class UObject* optionalInEventActivator, bool optionalBActivateImmediately, class TArray<int32_t>& outIndicesToActivate);
-	bool ConditionalActivateUIEvent(int32_t ControllerIndex, class UUIScreenObject* InEventOwner, class UObject* optionalInEventActivator, bool optionalBActivateImmediately, class TArray<int32_t>& outIndicesToActivate);
-	bool CanBeActivated(int32_t ControllerIndex, class UUIScreenObject* InEventOwner, class UObject* optionalInEventActivator, bool optionalBActivateImmediately, class TArray<int32_t>& outIndicesToActivate);
+	bool ActivateUIEvent(int32_t ControllerIndex, class UUIScreenObject* InEventOwner, class UObject* optionalInEventActivator, bool optionalBActivateImmediately, class TArray<int32_t>& optionalOutIndicesToActivate);
+	bool ConditionalActivateUIEvent(int32_t ControllerIndex, class UUIScreenObject* InEventOwner, class UObject* optionalInEventActivator, bool optionalBActivateImmediately, class TArray<int32_t>& optionalOutIndicesToActivate);
+	bool CanBeActivated(int32_t ControllerIndex, class UUIScreenObject* InEventOwner, class UObject* optionalInEventActivator, bool optionalBActivateImmediately, class TArray<int32_t>& optionalOutIndicesToActivate);
 	class UUIScene* GetOwnerScene();
 	class UUIScreenObject* GetOwner();
 	bool AllowEventActivation(int32_t ControllerIndex, class UUIScreenObject* InEventOwner, class UObject* InEventActivator, bool bActivateImmediately, class TArray<int32_t>& outIndicesToActivate);
 };
-
 // Class Engine.UIEvent_CalloutButtonInputProxy
 // 0x0004 (0x0128 - 0x012C)
 class UUIEvent_CalloutButtonInputProxy : public UUIEvent
@@ -39351,6 +38717,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	static int32_t eventGetObjClassVersion();
 	bool eventIsPastingIntoUISequenceAllowed();
 	bool eventIsValidUISequenceObject(class UUIScreenObject* optionalTargetObject);
@@ -39359,7 +38726,6 @@ public:
 	bool UnregisterButtonAlias(const class FName& ButtonAliasName);
 	bool RegisterButtonAlias(const class FName& ButtonAliasName);
 };
-
 // Class Engine.UIEvent_MetaObject
 // 0x0004 (0x0128 - 0x012C)
 class UUIEvent_MetaObject : public UUIEvent
@@ -39380,10 +38746,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool eventIsPastingIntoUISequenceAllowed();
 	bool eventIsValidUISequenceObject(class UUIScreenObject* optionalTargetObject);
 };
-
 // Class Engine.UIEvent_OnClick
 // 0x0000 (0x0128 - 0x0128)
 class UUIEvent_OnClick : public UUIEvent
@@ -39404,7 +38770,6 @@ public:
 	};
 
 };
-
 // Class Engine.UIEvent_OnDoubleClick
 // 0x0000 (0x0128 - 0x0128)
 class UUIEvent_OnDoubleClick : public UUIEvent
@@ -39425,7 +38790,6 @@ public:
 	};
 
 };
-
 // Class Engine.UIEvent_ProcessInput
 // 0x003C (0x0128 - 0x0164)
 class UUIEvent_ProcessInput : public UUIEvent
@@ -39446,9 +38810,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool eventIsValidUISequenceObject(class UUIScreenObject* optionalTargetObject);
 };
-
 // Class Engine.UIEvent_Scene
 // 0x0000 (0x0128 - 0x0128)
 class UUIEvent_Scene : public UUIEvent
@@ -39469,7 +38833,6 @@ public:
 	};
 
 };
-
 // Class Engine.UIEvent_State
 // 0x0000 (0x0128 - 0x0128)
 class UUIEvent_State : public UUIEvent
@@ -39490,7 +38853,6 @@ public:
 	};
 
 };
-
 // Class Engine.UIEvent_OnEnterState
 // 0x0000 (0x0128 - 0x0128)
 class UUIEvent_OnEnterState : public UUIEvent_State
@@ -39511,7 +38873,6 @@ public:
 	};
 
 };
-
 // Class Engine.UIEvent_OnLeaveState
 // 0x0000 (0x0128 - 0x0128)
 class UUIEvent_OnLeaveState : public UUIEvent_State
@@ -39532,7 +38893,6 @@ public:
 	};
 
 };
-
 // Class Engine.UIEvent_ValueChanged
 // 0x0000 (0x0128 - 0x0128)
 class UUIEvent_ValueChanged : public UUIEvent
@@ -39553,7 +38913,6 @@ public:
 	};
 
 };
-
 // Class Engine.Scene
 // 0x0000 (0x003C - 0x003C)
 class UScene : public UObject
@@ -39574,7 +38933,6 @@ public:
 	};
 
 };
-
 // Class Engine.FoliageFactory
 // 0x0028 (0x0264 - 0x028C)
 class AFoliageFactory : public AVolume
@@ -39603,7 +38961,6 @@ public:
 	};
 
 };
-
 // Class Engine.InteractiveFoliageActor
 // 0x0058 (0x0230 - 0x0288)
 class AInteractiveFoliageActor : public AStaticMeshActor
@@ -39637,10 +38994,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventTouch(class AActor* Other, class UPrimitiveComponent* OtherComp, const struct FVector& HitLocation, const struct FVector& HitNormal);
 	void eventTakeDamage(int32_t Damage, class AController* EventInstigator, const struct FVector& HitLocation, const struct FVector& Momentum, class UClass* DamageType, const struct FTraceHitInfo& optionalHitInfo, class AActor* optionalDamageCauser);
 };
-
 // Class Engine.FoliageComponent
 // 0x0088 (0x01D4 - 0x025C)
 class UFoliageComponent : public UPrimitiveComponent
@@ -39675,7 +39032,6 @@ public:
 	};
 
 };
-
 // Class Engine.InteractiveFoliageComponent
 // 0x0004 (0x023C - 0x0240)
 class UInteractiveFoliageComponent : public UStaticMeshComponent
@@ -39697,7 +39053,6 @@ public:
 	};
 
 };
-
 // Class Engine.ActorFactoryInteractiveFoliage
 // 0x0000 (0x006C - 0x006C)
 class UActorFactoryInteractiveFoliage : public UActorFactoryStaticMesh
@@ -39718,7 +39073,6 @@ public:
 	};
 
 };
-
 // Class Engine.FluidInfluenceActor
 // 0x0010 (0x0228 - 0x0238)
 class AFluidInfluenceActor : public AActor
@@ -39743,10 +39097,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventReplicatedEvent(const class FName& VarName);
 	void OnToggle(class USeqAct_Toggle* inAction);
 };
-
 // Class Engine.FluidSurfaceActor
 // 0x0008 (0x0228 - 0x0230)
 class AFluidSurfaceActor : public AActor
@@ -39768,10 +39122,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventTouch(class AActor* Other, class UPrimitiveComponent* OtherComp, const struct FVector& HitLocation, const struct FVector& HitNormal);
 	void eventTakeDamage(int32_t Damage, class AController* EventInstigator, const struct FVector& HitLocation, const struct FVector& Momentum, class UClass* DamageType, const struct FTraceHitInfo& optionalHitInfo, class AActor* optionalDamageCauser);
 };
-
 // Class Engine.FluidSurfaceActorMovable
 // 0x0000 (0x0230 - 0x0230)
 class AFluidSurfaceActorMovable : public AFluidSurfaceActor
@@ -39792,7 +39146,6 @@ public:
 	};
 
 };
-
 // Class Engine.FluidInfluenceComponent
 // 0x0060 (0x01D4 - 0x0234)
 class UFluidInfluenceComponent : public UPrimitiveComponent
@@ -39803,6 +39156,7 @@ public:
 	uint32_t                                           bIsToggleTriggered : 1;                        // 0x01D4 (0x0004) [0x0000000000002000] [0x00000004] (CPF_Transient)
 	class AFluidSurfaceActor*                          FluidActor;                                    // 0x01D8 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	EInfluenceType                                     InfluenceType;                                 // 0x01DC (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x01DD (0x0003) MISSED OFFSET
 	float                                              MaxDistance;                                   // 0x01E0 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	float                                              WaveStrength;                                  // 0x01E4 (0x0004) [0x0000000000000001] (CPF_Edit | CPF_Interp)
 	float                                              WaveFrequency;                                 // 0x01E8 (0x0004) [0x0000000000000001] (CPF_Edit | CPF_Interp)
@@ -39839,7 +39193,6 @@ public:
 	};
 
 };
-
 // Class Engine.FluidSurfaceComponent
 // 0x00E0 (0x01D4 - 0x02B4)
 class UFluidSurfaceComponent : public UPrimitiveComponent
@@ -39911,11 +39264,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SetSimulationPosition(const struct FVector& WorldPos);
 	void SetDetailPosition(const struct FVector& WorldPos);
 	void ApplyForce(const struct FVector& WorldPos, float Strength, float Radius, bool optionalBImpulse);
 };
-
 // Class Engine.SpeedTreeActor
 // 0x0004 (0x0228 - 0x022C)
 class ASpeedTreeActor : public AActor
@@ -39937,7 +39290,6 @@ public:
 	};
 
 };
-
 // Class Engine.SpeedTreeComponent
 // 0x00B8 (0x01D4 - 0x028C)
 class USpeedTreeComponent : public UPrimitiveComponent
@@ -39984,10 +39336,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SetMaterial(ESpeedTreeMeshType MeshType, class UMaterialInterface* Material);
 	class UMaterialInterface* GetMaterial(ESpeedTreeMeshType MeshType);
 };
-
 // Class Engine.SpeedTreeActorFactory
 // 0x0004 (0x005C - 0x0060)
 class USpeedTreeActorFactory : public UActorFactory
@@ -40009,7 +39361,6 @@ public:
 	};
 
 };
-
 // Class Engine.SpeedTreeComponentFactory
 // 0x0004 (0x0040 - 0x0044)
 class USpeedTreeComponentFactory : public UPrimitiveComponentFactory
@@ -40031,7 +39382,6 @@ public:
 	};
 
 };
-
 // Class Engine.SpeedTree
 // 0x0044 (0x003C - 0x0080)
 class USpeedTree : public UObject
@@ -40064,7 +39414,6 @@ public:
 	};
 
 };
-
 // Class Engine.LensFlareSource
 // 0x0008 (0x0228 - 0x0230)
 class ALensFlareSource : public AActor
@@ -40086,6 +39435,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SetActorParameter(const class FName& ParameterName, class AActor* Param);
 	void SetExtColorParameter(const class FName& ParameterName, float Red, float Green, float Blue, float Alpha);
 	void SetColorParameter(const class FName& ParameterName, const struct FLinearColor& Param);
@@ -40094,7 +39444,6 @@ public:
 	void OnToggle(class USeqAct_Toggle* Action);
 	void SetTemplate(class ULensFlare* NewTemplate);
 };
-
 // Class Engine.LensFlareComponent
 // 0x0038 (0x01D4 - 0x020C)
 class ULensFlareComponent : public UPrimitiveComponent
@@ -40130,11 +39479,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SetIsActive(bool bInIsActive);
 	void SetSourceColor(const struct FLinearColor& InSourceColor);
 	void SetTemplate(class ULensFlare* NewTemplate);
 };
-
 // Class Engine.LensFlare
 // 0x01BC (0x003C - 0x01F8)
 class ULensFlare : public UObject
@@ -40144,6 +39493,7 @@ public:
 	class UStaticMesh*                                 SourceMesh;                                    // 0x017C (0x0004) [0x0000000000000001] (CPF_Edit)    
 	ESceneDepthPriorityGroup                           SourceDPG;                                     // 0x0180 (0x0001) [0x0000000000000003] (CPF_Edit | CPF_Const)
 	ESceneDepthPriorityGroup                           ReflectionsDPG;                                // 0x0181 (0x0001) [0x0000000000000003] (CPF_Edit | CPF_Const)
+	uint8_t                                            UnknownData00[0x2];                              // 0x0182 (0x0002) MISSED OFFSET
 	class TArray<struct FLensFlareElement>             Reflections;                                   // 0x0184 (0x000C) [0x0000000004480008] (CPF_ExportObject | CPF_Component | CPF_NeedCtorLink | CPF_EditInline)
 	float                                              OuterCone;                                     // 0x0190 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	float                                              InnerCone;                                     // 0x0194 (0x0004) [0x0000000000000001] (CPF_Edit)    
@@ -40174,7 +39524,6 @@ public:
 	};
 
 };
-
 // Class Engine.HairComponent
 // 0x0074 (0x01D4 - 0x0248)
 class UHairComponent : public UPrimitiveComponent
@@ -40218,9 +39567,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void Reset();
 };
-
 // Class Engine.Hair
 // 0x0050 (0x003C - 0x008C)
 class UHair : public UObject
@@ -40248,9 +39597,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void UpdateStrands();
 };
-
 // Class Engine.SkeletalMeshComponent
 // 0x0444 (0x01E0 - 0x0624)
 class USkeletalMeshComponent : public UMeshComponent
@@ -40400,6 +39749,7 @@ public:
 	class TArray<int32_t>                              ClothMeshWeldedIndexData;                      // 0x04BC (0x000C) [0x0000000000003002] (CPF_Const | CPF_Native | CPF_Transient)
 	int32_t                                            ClothDirtyBufferFlag;                          // 0x04C8 (0x0004) [0x0000000000000000]               
 	ERBCollisionChannel                                ClothRBChannel;                                // 0x04CC (0x0001) [0x0000000000000003] (CPF_Edit | CPF_Const)
+	uint8_t                                            UnknownData01[0x3];                              // 0x04CD (0x0003) MISSED OFFSET
 	struct FRBCollisionChannelContainer                ClothRBCollideWithChannels;                    // 0x04D0 (0x0004) [0x0000000000000003] (CPF_Edit | CPF_Const)
 	float                                              ClothForceScale;                               // 0x04D4 (0x0004) [0x0000000000000003] (CPF_Edit | CPF_Const)
 	float                                              ClothImpulseScale;                             // 0x04D8 (0x0004) [0x0000000000000001] (CPF_Edit)    
@@ -40408,6 +39758,7 @@ public:
 	float                                              MinDistanceForClothReset;                      // 0x04E4 (0x0004) [0x0000000000000003] (CPF_Edit | CPF_Const)
 	struct FVector                                     LastClothLocation;                             // 0x04E8 (0x000C) [0x0000000000002002] (CPF_Const | CPF_Transient)
 	ERBCollisionChannel                                ApexClothingRBChannel;                         // 0x04F4 (0x0001) [0x0000000000000003] (CPF_Edit | CPF_Const)
+	uint8_t                                            UnknownData02[0x3];                              // 0x04F5 (0x0003) MISSED OFFSET
 	struct FRBCollisionChannelContainer                ApexClothingRBCollideWithChannels;             // 0x04F8 (0x0004) [0x0000000000000003] (CPF_Edit | CPF_Const)
 	uint32_t                                           bAutoFreezeApexClothingWhenNotRendered : 1;    // 0x04FC (0x0004) [0x0000000000000001] [0x00000001] (CPF_Edit)
 	struct FVector                                     WindVelocity;                                  // 0x0500 (0x000C) [0x0000000000000001] (CPF_Edit)    
@@ -40426,10 +39777,11 @@ public:
 	uint32_t                                           bSoftBodyAwakeOnStartup : 1;                   // 0x0544 (0x0004) [0x0000000000000001] [0x00000004] (CPF_Edit)
 	uint32_t                                           bSoftBodyUseCompartment : 1;                   // 0x0544 (0x0004) [0x0000000000000003] [0x00000008] (CPF_Edit | CPF_Const)
 	ERBCollisionChannel                                SoftBodyRBChannel;                             // 0x0548 (0x0001) [0x0000000000000003] (CPF_Edit | CPF_Const)
+	uint8_t                                            UnknownData03[0x3];                              // 0x0549 (0x0003) MISSED OFFSET
 	struct FRBCollisionChannelContainer                SoftBodyRBCollideWithChannels;                 // 0x054C (0x0004) [0x0000000000000003] (CPF_Edit | CPF_Const)
 	struct FPointer                                    SoftBodyASVPlane;                              // 0x0550 (0x0004) [0x0000000000003002] (CPF_Const | CPF_Native | CPF_Transient)
 	class UMaterial*                                   LimitMaterial;                                 // 0x0554 (0x0004) [0x0000000000000000]               
-	uint8_t                                            UnknownData01[0x8];                              // 0x0558 (0x0008) MISSED OFFSET
+	uint8_t                                            UnknownData04[0x8];                              // 0x0558 (0x0008) MISSED OFFSET
 	struct FBoneAtom                                   RootMotionDelta;                               // 0x0560 (0x0020) [0x0000000000002002] (CPF_Const | CPF_Transient)
 	struct FBoneAtom                                   FakeRootMotionDelta;                           // 0x0580 (0x0020) [0x0000000000002002] (CPF_Const | CPF_Transient)
 	struct FVector                                     RootMotionVelocity;                            // 0x05A0 (0x000C) [0x0000000000002000] (CPF_Transient)
@@ -40442,9 +39794,11 @@ public:
 	ERootMotionMode                                    PreviousRMM;                                   // 0x05DE (0x0001) [0x0000000000000002] (CPF_Const)   
 	ERootMotionMode                                    PendingRMM;                                    // 0x05DF (0x0001) [0x0000000000000000]               
 	ERootMotionMode                                    OldPendingRMM;                                 // 0x05E0 (0x0001) [0x0000000000000000]               
+	uint8_t                                            UnknownData05[0x3];                              // 0x05E1 (0x0003) MISSED OFFSET
 	int32_t                                            bRMMOneFrameDelay;                             // 0x05E4 (0x0004) [0x0000000000000002] (CPF_Const)   
 	ERootMotionRotationMode                            RootMotionRotationMode;                        // 0x05E8 (0x0001) [0x0000000000000001] (CPF_Edit)    
 	EFaceFXBlendMode                                   FaceFXBlendMode;                               // 0x05E9 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData06[0x2];                              // 0x05EA (0x0002) MISSED OFFSET
 	struct FPointer                                    FaceFXActorInstance;                           // 0x05EC (0x0004) [0x0000000000003000] (CPF_Native | CPF_Transient)
 	class UAudioComponent*                             CachedFaceFXAudioComp;                         // 0x05F0 (0x0004) [0x0000000004080008] (CPF_ExportObject | CPF_Component | CPF_EditInline)
 	class TArray<uint8_t>                              BoneVisibility;                                // 0x05F4 (0x000C) [0x0000000000402002] (CPF_Const | CPF_Transient | CPF_NeedCtorLink)
@@ -40463,6 +39817,7 @@ public:
 
 		return uClassPointer;
 	};
+
 
 	void AutoSetMaterialsForSkelComponent(bool optionalBIgnoreUserSet);
 	void SetMorphWeight(const class FName& MorphNodeName, float MorphWeight);
@@ -40506,7 +39861,7 @@ public:
 	void SetParentAnimComponent(class USkeletalMeshComponent* NewParentAnimComp);
 	void SetAnimTreeTemplate(class UAnimTree* NewTemplate);
 	struct FVector GetClosestCollidingBoneLocation(const struct FVector& TestLocation, bool bCheckZeroExtent, bool bCheckNonZeroExtent);
-	class FName FindClosestBone(const struct FVector& TestLocation, float optionalIgnoreScale, struct FVector& outBoneLocation);
+	class FName FindClosestBone(const struct FVector& TestLocation, float optionalIgnoreScale, struct FVector& optionalOutBoneLocation);
 	void TransformFromBoneSpace(const class FName& BoneName, const struct FVector& InPosition, const struct FRotator& InRotation, struct FVector& outOutPosition, struct FRotator& outOutRotation);
 	void TransformToBoneSpace(const class FName& BoneName, const struct FVector& InPosition, const struct FRotator& InRotation, struct FVector& outOutPosition, struct FRotator& outOutRotation);
 	struct FVector GetBoneAxis(const class FName& BoneName, EAxis Axis);
@@ -40583,12 +39938,11 @@ public:
 	class UActorComponent* FindComponentAttachedToBone(const class FName& InBoneName);
 	class FName GetSocketBoneName(const class FName& InSocketName);
 	class USkeletalMeshSocket* GetSocketByName(const class FName& InSocketName);
-	bool GetSocketWorldLocationAndRotation(const class FName& InSocketName, int32_t optionalSpace, struct FVector& outOutLocation, struct FRotator& outOutRotation);
+	bool GetSocketWorldLocationAndRotation(const class FName& InSocketName, int32_t optionalSpace, struct FVector& outOutLocation, struct FRotator& optionalOutOutRotation);
 	void AttachComponentToSocket(class UActorComponent* Component, const class FName& SocketName);
 	void DetachComponent(class UActorComponent* Component);
 	void AttachComponent(class UActorComponent* Component, const class FName& BoneName, const struct FVector& optionalRelativeLocation, const struct FRotator& optionalRelativeRotation, const struct FVector& optionalRelativeScale);
 };
-
 // Class Engine.ClothComponent
 // 0x00CC (0x0624 - 0x06F0)
 class UClothComponent : public USkeletalMeshComponent
@@ -40643,11 +39997,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SetClothSpec(const class FName& TargetClothName, float NewGuideRestitutionDecay);
 	void DeleteSimulator();
 	void Reset();
 };
-
 // Class Engine.TextureFlipBook
 // 0x0040 (0x016C - 0x01AC)
 class UTextureFlipBook : public UTexture2D
@@ -40665,6 +40019,7 @@ public:
 	int32_t                                            HorizontalImages;                              // 0x0184 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	int32_t                                            VerticalImages;                                // 0x0188 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	ETextureFlipBookMethod                             FBMethod;                                      // 0x018C (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x018D (0x0003) MISSED OFFSET
 	float                                              FrameRate;                                     // 0x0190 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	float                                              FrameTime;                                     // 0x0194 (0x0004) [0x0000000000000000]               
 	int32_t                                            CurrentRow;                                    // 0x0198 (0x0004) [0x0000000000002002] (CPF_Const | CPF_Transient)
@@ -40686,12 +40041,12 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SetCurrentFrame(int32_t Row, int32_t Col);
 	void Stop();
 	void Pause();
 	void Play();
 };
-
 // Class Engine.Texture2DComposite
 // 0x0010 (0x00EC - 0x00FC)
 class UTexture2DComposite : public UTexture
@@ -40713,11 +40068,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	void ResetSourceRegions();
 	void UpdateCompositeTexture(int32_t NumMipsToGenerate);
 	bool SourceTexturesFullyStreamedIn();
 };
-
 // Class Engine.Texture2DDynamic
 // 0x0014 (0x00EC - 0x0100)
 class UTexture2DDynamic : public UTexture
@@ -40726,6 +40081,7 @@ public:
 	int32_t                                            SizeX;                                         // 0x00EC (0x0004) [0x0000000000003000] (CPF_Native | CPF_Transient)
 	int32_t                                            SizeY;                                         // 0x00F0 (0x0004) [0x0000000000003000] (CPF_Native | CPF_Transient)
 	EPixelFormat                                       Format;                                        // 0x00F4 (0x0001) [0x0000000000003000] (CPF_Native | CPF_Transient)
+	uint8_t                                            UnknownData00[0x3];                              // 0x00F5 (0x0003) MISSED OFFSET
 	int32_t                                            NumMips;                                       // 0x00F8 (0x0004) [0x0000000000003000] (CPF_Native | CPF_Transient)
 	uint32_t                                           bIsResolveTarget : 1;                          // 0x00FC (0x0004) [0x0000000000003000] [0x00000001] (CPF_Native | CPF_Transient)
 
@@ -40742,10 +40098,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	static class UTexture2DDynamic* Create(int32_t InSizeX, int32_t InSizeY, EPixelFormat optionalInFormat, bool optionalInIsResolveTarget);
 	void Init(int32_t InSizeX, int32_t InSizeY, EPixelFormat optionalInFormat, bool optionalInIsResolveTarget);
 };
-
 // Class Engine.TextureCube
 // 0x002C (0x00EC - 0x0118)
 class UTextureCube : public UTexture
@@ -40754,6 +40110,7 @@ public:
 	int32_t                                            SizeX;                                         // 0x00EC (0x0004) [0x0000000000002002] (CPF_Const | CPF_Transient)
 	int32_t                                            SizeY;                                         // 0x00F0 (0x0004) [0x0000000000002002] (CPF_Const | CPF_Transient)
 	EPixelFormat                                       Format;                                        // 0x00F4 (0x0001) [0x0000000000002002] (CPF_Const | CPF_Transient)
+	uint8_t                                            UnknownData00[0x3];                              // 0x00F5 (0x0003) MISSED OFFSET
 	int32_t                                            NumMips;                                       // 0x00F8 (0x0004) [0x0000000000002002] (CPF_Const | CPF_Transient)
 	uint32_t                                           bIsCubemapValid : 1;                           // 0x00FC (0x0004) [0x0000000000002002] [0x00000001] (CPF_Const | CPF_Transient)
 	class UTexture2D*                                  FacePosX;                                      // 0x0100 (0x0004) [0x0000000000000003] (CPF_Edit | CPF_Const)
@@ -40777,7 +40134,6 @@ public:
 	};
 
 };
-
 // Class Engine.TextureMovie
 // 0x0050 (0x00EC - 0x013C)
 class UTextureMovie : public UTexture
@@ -40811,11 +40167,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	void Stop();
 	void Pause();
 	void Play();
 };
-
 // Class Engine.TextureRenderTarget
 // 0x0004 (0x00EC - 0x00F0)
 class UTextureRenderTarget : public UTexture
@@ -40839,7 +40195,6 @@ public:
 	};
 
 };
-
 // Class Engine.TextureRenderTarget2D
 // 0x0020 (0x00F0 - 0x0110)
 class UTextureRenderTarget2D : public UTextureRenderTarget
@@ -40850,6 +40205,7 @@ public:
 	EPixelFormat                                       Format;                                        // 0x00F8 (0x0001) [0x0000000000000002] (CPF_Const)   
 	ETextureAddress                                    AddressX;                                      // 0x00F9 (0x0001) [0x0000000000000001] (CPF_Edit)    
 	ETextureAddress                                    AddressY;                                      // 0x00FA (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x1];                              // 0x00FB (0x0001) MISSED OFFSET
 	struct FLinearColor                                ClearColor;                                    // 0x00FC (0x0010) [0x0000000000000002] (CPF_Const)   
 	uint32_t                                           bForceLinearGamma : 1;                         // 0x010C (0x0004) [0x0000000000002003] [0x00000001] (CPF_Edit | CPF_Const | CPF_Transient)
 
@@ -40866,9 +40222,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	static class UTextureRenderTarget2D* Create(int32_t InSizeX, int32_t InSizeY, EPixelFormat optionalInFormat, const struct FLinearColor& optionalInClearColor, bool optionalBOnlyRenderOnce);
 };
-
 // Class Engine.ScriptedTexture
 // 0x0010 (0x0110 - 0x0120)
 class UScriptedTexture : public UTextureRenderTarget2D
@@ -40891,9 +40247,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void Render(class UCanvas* C);
 };
-
 // Class Engine.TextureRenderTargetCube
 // 0x0005 (0x00F0 - 0x00F5)
 class UTextureRenderTargetCube : public UTextureRenderTarget
@@ -40916,7 +40272,6 @@ public:
 	};
 
 };
-
 // Class Engine.AudioDevice
 // 0x0268 (0x0040 - 0x02A8)
 class UAudioDevice : public USubsystem
@@ -40960,6 +40315,7 @@ public:
 	class UAudioComponent*                             TestAudioComponent;                            // 0x0294 (0x0004) [0x000000000408000A] (CPF_Const | CPF_ExportObject | CPF_Component | CPF_EditInline)
 	struct FPointer                                    TextToSpeech;                                  // 0x0298 (0x0004) [0x0000000000001002] (CPF_Const | CPF_Native)
 	EDebugState                                        DebugState;                                    // 0x029C (0x0001) [0x0000000000001002] (CPF_Const | CPF_Native)
+	uint8_t                                            UnknownData02[0x3];                              // 0x029D (0x0003) MISSED OFFSET
 	float                                              TransientMasterVolume;                         // 0x02A0 (0x0004) [0x0000000000002000] (CPF_Transient)
 	float                                              LastUpdateTime;                                // 0x02A4 (0x0004) [0x0000000000002000] (CPF_Transient)
 
@@ -40976,9 +40332,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool SetSoundMode(const class FName& NewMode);
 };
-
 // Class Engine.SoundClass
 // 0x006C (0x003C - 0x00A8)
 class USoundClass : public UObject
@@ -41004,7 +40360,6 @@ public:
 	};
 
 };
-
 // Class Engine.SoundMode
 // 0x0044 (0x003C - 0x0080)
 class USoundMode : public UObject
@@ -41032,7 +40387,6 @@ public:
 	};
 
 };
-
 // Class Engine.DebugCameraController
 // 0x0030 (0x0604 - 0x0634)
 class ADebugCameraController : public APlayerController
@@ -41062,6 +40416,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	class FString ConsoleCommand(const class FString& Command, bool optionalBWriteToLog);
 	void ShowDebugSelectedInfo();
 	bool NativeInputKey(int32_t ControllerId, const class FName& Key, EInputEvent Event, float optionalAmountDepressed, bool optionalBGamepad);
@@ -41076,7 +40431,6 @@ public:
 	void SecondarySelect(const struct FVector& HitLoc, const struct FVector& HitNormal, const struct FTraceHitInfo& HitInfo);
 	void PrimarySelect(const struct FVector& HitLoc, const struct FVector& HitNormal, const struct FTraceHitInfo& HitInfo);
 };
-
 // Class Engine.MatineePawn
 // 0x0004 (0x05D8 - 0x05DC)
 class AMatineePawn : public APawn
@@ -41098,7 +40452,6 @@ public:
 	};
 
 };
-
 // Class Engine.Scout
 // 0x006C (0x05D8 - 0x0644)
 class AScout : public APawn
@@ -41143,9 +40496,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventPreBeginPlay();
 };
-
 // Class Engine.LightVolume
 // 0x0000 (0x0264 - 0x0264)
 class ALightVolume : public AVolume
@@ -41166,7 +40519,6 @@ public:
 	};
 
 };
-
 // Class Engine.Light
 // 0x0008 (0x0228 - 0x0230)
 class ALight : public AActor
@@ -41188,10 +40540,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void OnToggle(class USeqAct_Toggle* Action);
 	void eventReplicatedEvent(const class FName& VarName);
 };
-
 // Class Engine.DirectionalLight
 // 0x0000 (0x0230 - 0x0230)
 class ADirectionalLight : public ALight
@@ -41212,7 +40564,6 @@ public:
 	};
 
 };
-
 // Class Engine.DirectionalLightToggleable
 // 0x0000 (0x0230 - 0x0230)
 class ADirectionalLightToggleable : public ADirectionalLight
@@ -41233,7 +40584,6 @@ public:
 	};
 
 };
-
 // Class Engine.DominantDirectionalLight
 // 0x0000 (0x0230 - 0x0230)
 class ADominantDirectionalLight : public ADirectionalLight
@@ -41254,7 +40604,6 @@ public:
 	};
 
 };
-
 // Class Engine.DominantDirectionalLightMovable
 // 0x0000 (0x0230 - 0x0230)
 class ADominantDirectionalLightMovable : public ADominantDirectionalLight
@@ -41275,7 +40624,6 @@ public:
 	};
 
 };
-
 // Class Engine.PointLight
 // 0x0000 (0x0230 - 0x0230)
 class APointLight : public ALight
@@ -41296,7 +40644,6 @@ public:
 	};
 
 };
-
 // Class Engine.DominantPointLight
 // 0x0000 (0x0230 - 0x0230)
 class ADominantPointLight : public APointLight
@@ -41317,7 +40664,6 @@ public:
 	};
 
 };
-
 // Class Engine.PointLightMovable
 // 0x0000 (0x0230 - 0x0230)
 class APointLightMovable : public APointLight
@@ -41338,7 +40684,6 @@ public:
 	};
 
 };
-
 // Class Engine.PointLightToggleable
 // 0x0000 (0x0230 - 0x0230)
 class APointLightToggleable : public APointLight
@@ -41358,11 +40703,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	void ApplyCheckpointRecord(struct APointLightToggleable_FCheckpointRecord& outRecord);
 	void CreateCheckpointRecord(struct APointLightToggleable_FCheckpointRecord& outRecord);
 	bool ShouldSaveForCheckpoint();
 };
-
 // Class Engine.SkyLight
 // 0x0000 (0x0230 - 0x0230)
 class ASkyLight : public ALight
@@ -41383,7 +40728,6 @@ public:
 	};
 
 };
-
 // Class Engine.SkyLightToggleable
 // 0x0000 (0x0230 - 0x0230)
 class ASkyLightToggleable : public ASkyLight
@@ -41404,7 +40748,6 @@ public:
 	};
 
 };
-
 // Class Engine.SpotLight
 // 0x0000 (0x0230 - 0x0230)
 class ASpotLight : public ALight
@@ -41425,7 +40768,6 @@ public:
 	};
 
 };
-
 // Class Engine.DominantSpotLight
 // 0x0000 (0x0230 - 0x0230)
 class ADominantSpotLight : public ASpotLight
@@ -41446,7 +40788,6 @@ public:
 	};
 
 };
-
 // Class Engine.SpotLightMovable
 // 0x0000 (0x0230 - 0x0230)
 class ASpotLightMovable : public ASpotLight
@@ -41467,7 +40808,6 @@ public:
 	};
 
 };
-
 // Class Engine.SpotLightToggleable
 // 0x0000 (0x0230 - 0x0230)
 class ASpotLightToggleable : public ASpotLight
@@ -41487,11 +40827,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	void ApplyCheckpointRecord(struct ASpotLightToggleable_FCheckpointRecord& outRecord);
 	void CreateCheckpointRecord(struct ASpotLightToggleable_FCheckpointRecord& outRecord);
 	bool ShouldSaveForCheckpoint();
 };
-
 // Class Engine.StaticLightCollectionActor
 // 0x0010 (0x0230 - 0x0240)
 class AStaticLightCollectionActor : public ALight
@@ -41514,7 +40854,6 @@ public:
 	};
 
 };
-
 // Class Engine.LightComponent
 // 0x0137 (0x0055 - 0x018C)
 class ULightComponent : public UActorComponent
@@ -41556,12 +40895,14 @@ public:
 	class TArray<struct FPointer>                      ExclusionConvexVolumes;                        // 0x0150 (0x000C) [0x0000000000001002] (CPF_Const | CPF_Native)
 	ELightAffectsClassification                        LightAffectsClassification;                    // 0x015C (0x0001) [0x0000000000020003] (CPF_Edit | CPF_Const | CPF_EditConst)
 	ELightShadowMode                                   LightShadowMode;                               // 0x015D (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData01[0x2];                              // 0x015E (0x0002) MISSED OFFSET
 	struct FLinearColor                                ModShadowColor;                                // 0x0160 (0x0010) [0x0000000000000001] (CPF_Edit)    
 	float                                              ModShadowFadeoutTime;                          // 0x0170 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	float                                              ModShadowFadeoutExponent;                      // 0x0174 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	int32_t                                            LightListIndex;                                // 0x0178 (0x0004) [0x0000000000201002] (CPF_Const | CPF_Native)
 	EShadowProjectionTechnique                         ShadowProjectionTechnique;                     // 0x017C (0x0001) [0x0000000000000001] (CPF_Edit)    
 	EShadowFilterQuality                               ShadowFilterQuality;                           // 0x017D (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData02[0x2];                              // 0x017E (0x0002) MISSED OFFSET
 	int32_t                                            MinShadowResolution;                           // 0x0180 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	int32_t                                            MaxShadowResolution;                           // 0x0184 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	int32_t                                            ShadowFadeResolution;                          // 0x0188 (0x0004) [0x0000000000000001] (CPF_Edit)    
@@ -41579,13 +40920,13 @@ public:
 		return uClassPointer;
 	};
 
+
 	void UpdateColorAndBrightness();
 	struct FVector GetDirection();
 	struct FVector GetOrigin();
 	void SetLightProperties(float optionalNewBrightness, const struct FColor& optionalNewLightColor, class ULightFunction* optionalNewLightFunction);
 	void SetEnabled(bool bSetEnabled);
 };
-
 // Class Engine.DirectionalLightComponent
 // 0x0020 (0x018C - 0x01AC)
 class UDirectionalLightComponent : public ULightComponent
@@ -41610,10 +40951,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void OnUpdatePropertyBrightness();
 	void OnUpdatePropertyLightColor();
 };
-
 // Class Engine.DominantDirectionalLightComponent
 // 0x00C0 (0x01AC - 0x026C)
 class UDominantDirectionalLightComponent : public UDirectionalLightComponent
@@ -41637,7 +40978,6 @@ public:
 	};
 
 };
-
 // Class Engine.PointLightComponent
 // 0x0078 (0x018C - 0x0204)
 class UPointLightComponent : public ULightComponent
@@ -41667,11 +41007,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	void OnUpdatePropertyBrightness();
 	void OnUpdatePropertyLightColor();
 	void SetTranslation(const struct FVector& NewTranslation);
 };
-
 // Class Engine.DominantPointLightComponent
 // 0x0000 (0x0204 - 0x0204)
 class UDominantPointLightComponent : public UPointLightComponent
@@ -41692,7 +41032,6 @@ public:
 	};
 
 };
-
 // Class Engine.SpotLightComponent
 // 0x001C (0x0204 - 0x0220)
 class USpotLightComponent : public UPointLightComponent
@@ -41717,9 +41056,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SetRotation(const struct FRotator& NewRotation);
 };
-
 // Class Engine.DominantSpotLightComponent
 // 0x00BC (0x0220 - 0x02DC)
 class UDominantSpotLightComponent : public USpotLightComponent
@@ -41742,7 +41081,6 @@ public:
 	};
 
 };
-
 // Class Engine.SkyLightComponent
 // 0x0008 (0x018C - 0x0194)
 class USkyLightComponent : public ULightComponent
@@ -41765,7 +41103,6 @@ public:
 	};
 
 };
-
 // Class Engine.SphericalHarmonicLightComponent
 // 0x0098 (0x018C - 0x0224)
 class USphericalHarmonicLightComponent : public ULightComponent
@@ -41789,7 +41126,6 @@ public:
 	};
 
 };
-
 // Class Engine.DrawLightConeComponent
 // 0x0000 (0x01E4 - 0x01E4)
 class UDrawLightConeComponent : public UDrawConeComponent
@@ -41810,7 +41146,6 @@ public:
 	};
 
 };
-
 // Class Engine.DrawLightRadiusComponent
 // 0x0000 (0x01E8 - 0x01E8)
 class UDrawLightRadiusComponent : public UDrawSphereComponent
@@ -41831,7 +41166,6 @@ public:
 	};
 
 };
-
 // Class Engine.LightFunction
 // 0x0010 (0x003C - 0x004C)
 class ULightFunction : public UObject
@@ -41854,7 +41188,6 @@ public:
 	};
 
 };
-
 // Class Engine.SkeletalMesh
 // 0x0388 (0x003C - 0x03C4)
 class USkeletalMesh : public UObject
@@ -41873,6 +41206,7 @@ public:
 	class TArray<struct FBoneMirrorInfo>               SkelMirrorTable;                               // 0x00EC (0x000C) [0x0000000000400041] (CPF_Edit | CPF_EditFixedSize | CPF_NeedCtorLink)
 	EAxis                                              SkelMirrorAxis;                                // 0x00F8 (0x0001) [0x0000000000000001] (CPF_Edit)    
 	EAxis                                              SkelMirrorFlipAxis;                            // 0x00F9 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData02[0x2];                              // 0x00FA (0x0002) MISSED OFFSET
 	class TArray<class USkeletalMeshSocket*>           Sockets;                                       // 0x00FC (0x000C) [0x0000000000400000] (CPF_NeedCtorLink)
 	class TArray<class FString>                        BoneBreakNames;                                // 0x0108 (0x000C) [0x0000000000021003] (CPF_Edit | CPF_Const | CPF_Native | CPF_EditConst)
 	class TArray<struct FSkeletalMeshLODInfo>          LODInfo;                                       // 0x0114 (0x000C) [0x0000000000400041] (CPF_Edit | CPF_EditFixedSize | CPF_NeedCtorLink)
@@ -41898,6 +41232,7 @@ public:
 	class TArray<int32_t>                              ClothToGraphicsVertMap;                        // 0x0198 (0x000C) [0x0000000000400002] (CPF_Const | CPF_NeedCtorLink)
 	class TArray<float>                                ClothMovementScale;                            // 0x01A4 (0x000C) [0x0000000000400002] (CPF_Const | CPF_NeedCtorLink)
 	EClothMovementScaleGen                             ClothMovementScaleGenMode;                     // 0x01B0 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData03[0x3];                              // 0x01B1 (0x0003) MISSED OFFSET
 	float                                              ClothToAnimMeshMaxDist;                        // 0x01B4 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	uint32_t                                           bLimitClothToAnimMesh : 1;                     // 0x01B8 (0x0004) [0x0000000000000001] [0x00000001] (CPF_Edit)
 	class TArray<int32_t>                              ClothWeldingMap;                               // 0x01BC (0x000C) [0x0000000000400002] (CPF_Const | CPF_NeedCtorLink)
@@ -41998,7 +41333,6 @@ public:
 	};
 
 };
-
 // Class Engine.SkeletalMeshSocket
 // 0x0050 (0x003C - 0x008C)
 class USkeletalMeshSocket : public UObject
@@ -42030,7 +41364,6 @@ public:
 	};
 
 };
-
 // Class Engine.SplineActor
 // 0x0050 (0x0228 - 0x0278)
 class ASplineActor : public AActor
@@ -42062,6 +41395,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void OnToggle(class USeqAct_Toggle* inAction);
 	void GetAllConnectedSplineActors(class TArray<class ASplineActor*>& outOutSet);
 	bool FindSplinePathTo(class ASplineActor* Goal, class TArray<class ASplineActor*>& outOutRoute);
@@ -42078,7 +41412,6 @@ public:
 	void UpdateSplineComponents(bool bFinish);
 	struct FVector GetWorldSpaceTangent();
 };
-
 // Class Engine.SplineLoftActor
 // 0x0040 (0x0278 - 0x02B8)
 class ASplineLoftActor : public ASplineActor
@@ -42108,9 +41441,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void ClearLoftMesh();
 };
-
 // Class Engine.SplineComponent
 // 0x0034 (0x01D4 - 0x0208)
 class USplineComponent : public UPrimitiveComponent
@@ -42137,13 +41470,13 @@ public:
 		return uClassPointer;
 	};
 
+
 	struct FVector GetTangentAtDistanceAlongSpline(float Distance);
 	struct FVector GetLocationAtDistanceAlongSpline(float Distance);
 	float GetSplineLength();
 	void UpdateSplineReparamTable();
 	void UpdateSplineCurviness();
 };
-
 // Class Engine.ProcBuilding
 // 0x00D4 (0x0264 - 0x0338)
 class AProcBuilding : public AVolume
@@ -42200,6 +41533,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	int32_t FindEdgeForTopLevelScope(int32_t TopLevelScopeIndex, EScopeEdge Edge);
 	void BreakFractureComponent(class UFracturedStaticMeshComponent* Comp, const struct FVector& BoxMin, const struct FVector& BoxMax);
 	void GetAllGroupedProcBuildings(class TArray<class AProcBuilding*>& outOutSet);
@@ -42207,7 +41541,6 @@ public:
 	class TArray<class UStaticMeshComponent*> FindComponentsForTopLevelScope(int32_t TopLevelScopeIndex);
 	void ClearBuildingMeshes();
 };
-
 // Class Engine.ProcBuilding_SimpleLODActor
 // 0x0000 (0x0230 - 0x0230)
 class AProcBuilding_SimpleLODActor : public AStaticMeshActor
@@ -42228,7 +41561,6 @@ public:
 	};
 
 };
-
 // Class Engine.PBRuleNodeBase
 // 0x002C (0x003C - 0x0068)
 class UPBRuleNodeBase : public UObject
@@ -42256,13 +41588,13 @@ public:
 	};
 
 };
-
 // Class Engine.PBRuleNodeAlternate
 // 0x0010 (0x0068 - 0x0078)
 class UPBRuleNodeAlternate : public UPBRuleNodeBase
 {
 public:
 	EProcBuildingAxis                                  RepeatAxis;                                    // 0x0068 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0069 (0x0003) MISSED OFFSET
 	float                                              ASize;                                         // 0x006C (0x0004) [0x0000000000000001] (CPF_Edit)    
 	float                                              BMaxSize;                                      // 0x0070 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	uint32_t                                           bInvertPatternOrder : 1;                       // 0x0074 (0x0004) [0x0000000000000001] [0x00000001] (CPF_Edit)
@@ -42282,7 +41614,6 @@ public:
 	};
 
 };
-
 // Class Engine.PBRuleNodeComment
 // 0x0018 (0x0068 - 0x0080)
 class UPBRuleNodeComment : public UPBRuleNodeBase
@@ -42309,7 +41640,6 @@ public:
 	};
 
 };
-
 // Class Engine.PBRuleNodeCorner
 // 0x0028 (0x0068 - 0x0090)
 class UPBRuleNodeCorner : public UPBRuleNodeBase
@@ -42321,6 +41651,7 @@ public:
 	uint32_t                                           bNoMeshForConcaveCorners : 1;                  // 0x007C (0x0004) [0x0000000000000001] [0x00000001] (CPF_Edit)
 	uint32_t                                           bUseAdjacentRulesetForRightGap : 1;            // 0x007C (0x0004) [0x0000000000000001] [0x00000002] (CPF_Edit)
 	EPBCornerType                                      CornerType;                                    // 0x0080 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0081 (0x0003) MISSED OFFSET
 	float                                              CornerShapeOffset;                             // 0x0084 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	int32_t                                            RoundTesselation;                              // 0x0088 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	float                                              RoundCurvature;                                // 0x008C (0x0004) [0x0000000000000001] (CPF_Edit)    
@@ -42339,13 +41670,13 @@ public:
 	};
 
 };
-
 // Class Engine.PBRuleNodeCycle
 // 0x0010 (0x0068 - 0x0078)
 class UPBRuleNodeCycle : public UPBRuleNodeBase
 {
 public:
 	EProcBuildingAxis                                  RepeatAxis;                                    // 0x0068 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0069 (0x0003) MISSED OFFSET
 	float                                              RepeatSize;                                    // 0x006C (0x0004) [0x0000000000000001] (CPF_Edit)    
 	int32_t                                            CycleSize;                                     // 0x0070 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	uint32_t                                           bFixRepeatSize : 1;                            // 0x0074 (0x0004) [0x0000000000000001] [0x00000001] (CPF_Edit)
@@ -42364,13 +41695,13 @@ public:
 	};
 
 };
-
 // Class Engine.PBRuleNodeEdgeAngle
 // 0x0010 (0x0068 - 0x0078)
 class UPBRuleNodeEdgeAngle : public UPBRuleNodeBase
 {
 public:
 	EProcBuildingEdge                                  Edge;                                          // 0x0068 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0069 (0x0003) MISSED OFFSET
 	class TArray<struct FRBEdgeAngleInfo>              Angles;                                        // 0x006C (0x000C) [0x0000000000400001] (CPF_Edit | CPF_NeedCtorLink)
 
 public:
@@ -42387,7 +41718,6 @@ public:
 	};
 
 };
-
 // Class Engine.PBRuleNodeEdgeMesh
 // 0x0008 (0x0068 - 0x0070)
 class UPBRuleNodeEdgeMesh : public UPBRuleNodeBase
@@ -42410,7 +41740,6 @@ public:
 	};
 
 };
-
 // Class Engine.PBRuleNodeExtractTopBottom
 // 0x0010 (0x0068 - 0x0078)
 class UPBRuleNodeExtractTopBottom : public UPBRuleNodeBase
@@ -42435,7 +41764,6 @@ public:
 	};
 
 };
-
 // Class Engine.PBRuleNodeLODQuad
 // 0x0004 (0x0068 - 0x006C)
 class UPBRuleNodeLODQuad : public UPBRuleNodeBase
@@ -42457,7 +41785,6 @@ public:
 	};
 
 };
-
 // Class Engine.PBRuleNodeMesh
 // 0x0048 (0x0068 - 0x00B0)
 class UPBRuleNodeMesh : public UPBRuleNodeBase
@@ -42481,9 +41808,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	int32_t PickRandomBuildingMesh();
 };
-
 // Class Engine.PBRuleNodeOcclusion
 // 0x0000 (0x0068 - 0x0068)
 class UPBRuleNodeOcclusion : public UPBRuleNodeBase
@@ -42504,7 +41831,6 @@ public:
 	};
 
 };
-
 // Class Engine.PBRuleNodeQuad
 // 0x0018 (0x0068 - 0x0080)
 class UPBRuleNodeQuad : public UPBRuleNodeBase
@@ -42531,7 +41857,6 @@ public:
 	};
 
 };
-
 // Class Engine.PBRuleNodeRandom
 // 0x000C (0x0068 - 0x0074)
 class UPBRuleNodeRandom : public UPBRuleNodeBase
@@ -42555,13 +41880,13 @@ public:
 	};
 
 };
-
 // Class Engine.PBRuleNodeRepeat
 // 0x0008 (0x0068 - 0x0070)
 class UPBRuleNodeRepeat : public UPBRuleNodeBase
 {
 public:
 	EProcBuildingAxis                                  RepeatAxis;                                    // 0x0068 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0069 (0x0003) MISSED OFFSET
 	float                                              RepeatMaxSize;                                 // 0x006C (0x0004) [0x0000000000000001] (CPF_Edit)    
 
 public:
@@ -42578,13 +41903,13 @@ public:
 	};
 
 };
-
 // Class Engine.PBRuleNodeSize
 // 0x000C (0x0068 - 0x0074)
 class UPBRuleNodeSize : public UPBRuleNodeBase
 {
 public:
 	EProcBuildingAxis                                  SizeAxis;                                      // 0x0068 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0069 (0x0003) MISSED OFFSET
 	float                                              DecisionSize;                                  // 0x006C (0x0004) [0x0000000000000001] (CPF_Edit)    
 	uint32_t                                           bUseTopLevelScopeSize : 1;                     // 0x0070 (0x0004) [0x0000000000000001] [0x00000001] (CPF_Edit)
 
@@ -42602,13 +41927,13 @@ public:
 	};
 
 };
-
 // Class Engine.PBRuleNodeSplit
 // 0x0010 (0x0068 - 0x0078)
 class UPBRuleNodeSplit : public UPBRuleNodeBase
 {
 public:
 	EProcBuildingAxis                                  SplitAxis;                                     // 0x0068 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0069 (0x0003) MISSED OFFSET
 	class TArray<struct FRBSplitInfo>                  SplitSetup;                                    // 0x006C (0x000C) [0x0000000000400001] (CPF_Edit | CPF_NeedCtorLink)
 
 public:
@@ -42625,7 +41950,6 @@ public:
 	};
 
 };
-
 // Class Engine.PBRuleNodeSubRuleset
 // 0x0004 (0x0068 - 0x006C)
 class UPBRuleNodeSubRuleset : public UPBRuleNodeBase
@@ -42647,7 +41971,6 @@ public:
 	};
 
 };
-
 // Class Engine.PBRuleNodeTransform
 // 0x000C (0x0068 - 0x0074)
 class UPBRuleNodeTransform : public UPBRuleNodeBase
@@ -42671,7 +41994,6 @@ public:
 	};
 
 };
-
 // Class Engine.PBRuleNodeVariation
 // 0x0004 (0x0068 - 0x006C)
 class UPBRuleNodeVariation : public UPBRuleNodeBase
@@ -42693,7 +42015,6 @@ public:
 	};
 
 };
-
 // Class Engine.PBRuleNodeWindowWall
 // 0x0024 (0x0068 - 0x008C)
 class UPBRuleNodeWindowWall : public UPBRuleNodeBase
@@ -42723,7 +42044,6 @@ public:
 	};
 
 };
-
 // Class Engine.ProcBuildingRuleset
 // 0x0060 (0x003C - 0x009C)
 class UProcBuildingRuleset : public UObject
@@ -42764,7 +42084,6 @@ public:
 	};
 
 };
-
 // Class Engine.ReplicationInfo
 // 0x0000 (0x0228 - 0x0228)
 class AReplicationInfo : public AInfo
@@ -42785,7 +42104,6 @@ public:
 	};
 
 };
-
 // Class Engine.GameReplicationInfo
 // 0x0054 (0x0228 - 0x027C)
 class AGameReplicationInfo : public AReplicationInfo
@@ -42820,6 +42138,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool eventShouldShowGore();
 	bool IsCoopMultiplayerGame();
 	bool IsMultiplayerGame();
@@ -42843,7 +42162,6 @@ public:
 	void eventReplicatedEvent(const class FName& VarName);
 	void eventPostBeginPlay();
 };
-
 // Class Engine.PlayerReplicationInfo
 // 0x00B8 (0x0228 - 0x02E0)
 class APlayerReplicationInfo : public AReplicationInfo
@@ -42853,6 +42171,7 @@ public:
 	int32_t                                            Deaths;                                        // 0x022C (0x0004) [0x0000000040000020] (CPF_Net | CPF_DataBinding)
 	uint8_t                                            Ping;                                          // 0x0230 (0x0001) [0x0000000000000020] (CPF_Net)     
 	ETTSSpeaker                                        TTSSpeaker;                                    // 0x0231 (0x0001) [0x0000000000002000] (CPF_Transient)
+	uint8_t                                            UnknownData00[0x2];                              // 0x0232 (0x0002) MISSED OFFSET
 	class AActor*                                      PlayerLocationHint;                            // 0x0234 (0x0004) [0x0000000000000020] (CPF_Net)     
 	int32_t                                            NumLives;                                      // 0x0238 (0x0004) [0x0000000000000000]               
 	class FString                                      PlayerName;                                    // 0x023C (0x000C) [0x0000000040400020] (CPF_Net | CPF_NeedCtorLink | CPF_DataBinding | CPF_RepNotify)
@@ -42908,6 +42227,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void UnregisterPlayerFromSession();
 	void RegisterPlayerWithSession();
 	bool IsInvalidName();
@@ -42944,7 +42264,6 @@ public:
 	void eventPostBeginPlay();
 	class FString GetPlayerAlias();
 };
-
 // Class Engine.TeamInfo
 // 0x001C (0x0228 - 0x0244)
 class ATeamInfo : public AReplicationInfo
@@ -42969,6 +42288,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	uint8_t GetTeamNum();
 	struct FColor GetTextColor();
 	struct FColor GetHUDColor();
@@ -42980,7 +42300,6 @@ public:
 	class UCurrentGameDataStore* GetCurrentGameDS();
 	void eventReplicatedEvent(const class FName& VarName);
 };
-
 // Class Engine.Camera
 // 0x0288 (0x0228 - 0x04B0)
 class ACamera : public AActor
@@ -43043,6 +42362,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void StopCameraAnim(class UCameraAnimInst* AnimInst, bool optionalBImmediate);
 	void StopAllCameraAnimsByType(class UCameraAnim* Anim, bool optionalBImmediate);
 	void StopAllCameraAnims(bool optionalBImmediate);
@@ -43079,7 +42399,6 @@ public:
 	float eventGetCurViewAspectRatio();
 	class UCameraModifier* CreateCameraModifier(class UClass* ModifierClass);
 };
-
 // Class Engine.CameraActor
 // 0x0128 (0x0228 - 0x0350)
 class ACameraActor : public AActor
@@ -43109,10 +42428,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void DisplayDebug(class AHUD* HUD, float& outOut_YL, float& outOut_YPos);
 	void GetCameraView(float DeltaTime, struct FTPOV& outOutPOV);
 };
-
 // Class Engine.DynamicCameraActor
 // 0x0000 (0x0350 - 0x0350)
 class ADynamicCameraActor : public ACameraActor
@@ -43133,7 +42452,6 @@ public:
 	};
 
 };
-
 // Class Engine.CameraAnim
 // 0x0114 (0x003C - 0x0150)
 class UCameraAnim : public UObject
@@ -43160,7 +42478,6 @@ public:
 	};
 
 };
-
 // Class Engine.CameraAnimInst
 // 0x0170 (0x003C - 0x01AC)
 class UCameraAnimInst : public UObject
@@ -43188,6 +42505,7 @@ public:
 	class UInterpTrackInstMove*                        MoveInst;                                      // 0x0074 (0x0004) [0x0000000000002000] (CPF_Transient)
 	class UAnimNodeSequence*                           SourceAnimNode;                                // 0x0078 (0x0004) [0x0000000000002000] (CPF_Transient)
 	ECameraAnimPlaySpace                               PlaySpace;                                     // 0x007C (0x0001) [0x0000000000000000] (CPF_ProtectedWrite)
+	uint8_t                                            UnknownData00[0x3];                              // 0x007D (0x0003) MISSED OFFSET
 	struct FMatrix                                     UserPlaySpaceMatrix;                           // 0x0080 (0x0040) [0x0000000000002000] (CPF_Transient)
 	struct FPostProcessSettings                        LastPPSettings;                                // 0x00C0 (0x00E8) [0x0000000000002000] (CPF_Transient)
 	float                                              LastPPSettingsAlpha;                           // 0x01A8 (0x0004) [0x0000000000002000] (CPF_Transient)
@@ -43205,6 +42523,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SetPlaySpace(ECameraAnimPlaySpace NewSpace, const struct FRotator& optionalUserPlaySpace);
 	void ApplyTransientScaling(float Scalar);
 	void Stop(bool optionalBImmediate);
@@ -43212,7 +42531,6 @@ public:
 	void Update(float NewRate, float NewScale, float NewBlendInTime, float NewBlendOutTime, float optionalNewDuration);
 	void Play(class UCameraAnim* Anim, class AActor* CamActor, float InRate, float InScale, float InBlendInTime, float InBlendOutTime, bool bInLoop, bool bRandomStartTime, float optionalDuration);
 };
-
 // Class Engine.CameraModifier
 // 0x001C (0x003C - 0x0058)
 class UCameraModifier : public UObject
@@ -43225,6 +42543,7 @@ public:
 	uint32_t                                           bDebug : 1;                                    // 0x003C (0x0004) [0x0000000000000001] [0x00000010] (CPF_Edit)
 	class ACamera*                                     CameraOwner;                                   // 0x0040 (0x0004) [0x0000000000000000]               
 	uint8_t                                            Priority;                                      // 0x0044 (0x0001) [0x0000000000000000]               
+	uint8_t                                            UnknownData00[0x3];                              // 0x0045 (0x0003) MISSED OFFSET
 	float                                              AlphaInTime;                                   // 0x0048 (0x0004) [0x0000000000000000]               
 	float                                              AlphaOutTime;                                  // 0x004C (0x0004) [0x0000000000000000]               
 	float                                              Alpha;                                         // 0x0050 (0x0004) [0x0000000000002000] (CPF_Transient)
@@ -43243,6 +42562,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void UpdateAlpha(class ACamera* Camera, float DeltaTime);
 	bool ProcessViewRotation(class AActor* ViewTarget, float DeltaTime, struct FRotator& outOut_ViewRotation, struct FRotator& outOut_DeltaRot);
 	void ToggleModifier();
@@ -43254,7 +42574,6 @@ public:
 	bool ModifyCamera(class ACamera* Camera, float DeltaTime, struct FTPOV& outOutPOV);
 	void Init();
 };
-
 // Class Engine.CameraModifier_CameraShake
 // 0x0010 (0x0058 - 0x0068)
 class UCameraModifier_CameraShake : public UCameraModifier
@@ -43276,6 +42595,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool ModifyCamera(class ACamera* Camera, float DeltaTime, struct FTPOV& outOutPOV);
 	void UpdateCameraShake(float DeltaTime, struct FCameraShakeInstance& outShake, struct FTPOV& outOutPOV);
 	void RemoveAllCameraShakes();
@@ -43286,7 +42606,6 @@ public:
 	void ReinitShake(int32_t ActiveShakeIdx, float Scale);
 	static float InitializeOffset(struct FFOscillator& outParam);
 };
-
 // Class Engine.CameraShake
 // 0x0080 (0x003C - 0x00BC)
 class UCameraShake : public UObject
@@ -43322,10 +42641,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	float GetLocOscillationMagnitude();
 	float GetRotOscillationMagnitude();
 };
-
 // Class Engine.SeqEvent_HitWall
 // 0x0000 (0x0100 - 0x0100)
 class USeqEvent_HitWall : public USequenceEvent
@@ -43346,7 +42665,6 @@ public:
 	};
 
 };
-
 // Class Engine.LocalMessage
 // 0x0014 (0x003C - 0x0050)
 class ULocalMessage : public UObject
@@ -43376,18 +42694,18 @@ public:
 		return uClassPointer;
 	};
 
+
 	static bool PartiallyDuplicates(int32_t Switch1, int32_t Switch2, class UObject* OptionalObject1, class UObject* OptionalObject2);
 	static bool IsKeyObjectiveMessage(int32_t Switch);
 	static bool IsConsoleMessage(int32_t Switch);
 	static float GetLifeTime(int32_t Switch);
 	static int32_t GetFontSize(int32_t Switch, class APlayerReplicationInfo* RelatedPRI1, class APlayerReplicationInfo* RelatedPRI2, class APlayerReplicationInfo* LocalPlayer);
 	static float GetPos(int32_t Switch, class AHUD* myHUD);
-	static struct FColor GetColor(int32_t optionalSwitch, class APlayerReplicationInfo* optionalRelatedPRI, class APlayerReplicationInfo* optionalRelatedPRI01, class UObject* optionalOptionalObject);
-	static struct FColor GetConsoleColor(class APlayerReplicationInfo* RelatedPRI);
-	static class FString GetString(int32_t optionalSwitch, bool optionalBPRI1HUD, class APlayerReplicationInfo* optionalRelatedPRI, class APlayerReplicationInfo* optionalRelatedPRI01, class UObject* optionalOptionalObject);
-	static void ClientReceive(class APlayerController* P, int32_t optionalSwitch, class APlayerReplicationInfo* optionalRelatedPRI, class APlayerReplicationInfo* optionalRelatedPRI01, class UObject* optionalOptionalObject);
+	static struct FColor GetColor(int32_t optionalSwitch, class APlayerReplicationInfo* optionalRelatedPRI_1, class APlayerReplicationInfo* optionalRelatedPRI_2, class UObject* optionalOptionalObject);
+	static struct FColor GetConsoleColor(class APlayerReplicationInfo* RelatedPRI_1);
+	static class FString GetString(int32_t optionalSwitch, bool optionalBPRI1HUD, class APlayerReplicationInfo* optionalRelatedPRI_1, class APlayerReplicationInfo* optionalRelatedPRI_2, class UObject* optionalOptionalObject);
+	static void ClientReceive(class APlayerController* P, int32_t optionalSwitch, class APlayerReplicationInfo* optionalRelatedPRI_1, class APlayerReplicationInfo* optionalRelatedPRI_2, class UObject* optionalOptionalObject);
 };
-
 // Class Engine.SeqAct_Destroy
 // 0x0010 (0x00E8 - 0x00F8)
 class USeqAct_Destroy : public USequenceAction
@@ -43410,7 +42728,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqAct_Teleport
 // 0x0004 (0x00E8 - 0x00EC)
 class USeqAct_Teleport : public USequenceAction
@@ -43432,7 +42749,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqAct_SetVelocity
 // 0x0014 (0x00E8 - 0x00FC)
 class USeqAct_SetVelocity : public USequenceAction
@@ -43455,9 +42771,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	static int32_t eventGetObjClassVersion();
 };
-
 // Class Engine.SeqAct_ToggleHidden
 // 0x0010 (0x00E8 - 0x00F8)
 class USeqAct_ToggleHidden : public USeqAct_Toggle
@@ -43479,9 +42795,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool eventIsValidUISequenceObject(class UUIScreenObject* optionalTargetObject);
 };
-
 // Class Engine.SeqAct_AttachToActor
 // 0x0024 (0x00E8 - 0x010C)
 class USeqAct_AttachToActor : public USequenceAction
@@ -43508,9 +42824,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	static int32_t eventGetObjClassVersion();
 };
-
 // Class Engine.OnlinePartyChatInterface
 // 0x0024 (0x003C - 0x0060)
 class UOnlinePartyChatInterface : public UInterface
@@ -43533,6 +42849,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool ShowCommunitySessionsUI(uint8_t LocalUserNum);
 	bool ShowVoiceChannelUI(uint8_t LocalUserNum);
 	bool ShowPartyUI(uint8_t LocalUserNum);
@@ -43551,7 +42868,6 @@ public:
 	void OnSendPartyGameInvitesComplete(bool bWasSuccessful);
 	bool SendPartyGameInvites(uint8_t LocalUserNum);
 };
-
 // Class Engine.OnlineNewsInterface
 // 0x000C (0x003C - 0x0048)
 class UOnlineNewsInterface : public UInterface
@@ -43572,13 +42888,13 @@ public:
 		return uClassPointer;
 	};
 
+
 	class FString GetNews(uint8_t LocalUserNum, EOnlineNewsType NewsType);
 	void ClearReadNewsCompletedDelegate(const struct FScriptDelegate& ReadNewsDelegate);
 	void AddReadNewsCompletedDelegate(const struct FScriptDelegate& ReadNewsDelegate);
 	void OnReadNewsCompleted(bool bWasSuccessful, EOnlineNewsType NewsType);
 	bool ReadNews(uint8_t LocalUserNum, EOnlineNewsType NewsType);
 };
-
 // Class Engine.OnlineStatsInterface
 // 0x0024 (0x003C - 0x0060)
 class UOnlineStatsInterface : public UInterface
@@ -43600,6 +42916,7 @@ public:
 
 		return uClassPointer;
 	};
+
 
 	bool RegisterStatGuid(const struct FUniqueNetId& PlayerID, class FString& outClientStatGuid);
 	class FString GetClientStatGuid();
@@ -43623,7 +42940,6 @@ public:
 	bool ReadOnlineStatsForFriends(uint8_t LocalUserNum, class UOnlineStatsRead* StatsRead);
 	bool ReadOnlineStats(class UOnlineStatsRead* StatsRead, class TArray<struct FUniqueNetId>& outPlayers);
 };
-
 // Class Engine.OnlineVoiceInterface
 // 0x0018 (0x003C - 0x0054)
 class UOnlineVoiceInterface : public UInterface
@@ -43644,6 +42960,7 @@ public:
 
 		return uClassPointer;
 	};
+
 
 	bool UnmuteAll(uint8_t LocalUserNum);
 	bool MuteAll(uint8_t LocalUserNum, bool bAllowFriends);
@@ -43671,7 +42988,6 @@ public:
 	bool UnregisterLocalTalker(uint8_t LocalUserNum);
 	bool RegisterLocalTalker(uint8_t LocalUserNum);
 };
-
 // Class Engine.OnlineContentInterface
 // 0x0024 (0x003C - 0x0060)
 class UOnlineContentInterface : public UInterface
@@ -43694,6 +43010,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void GetAvailableDownloadCounts(uint8_t LocalUserNum, int32_t& outNewDownloads, int32_t& outTotalDownloads);
 	void ClearQueryAvailableDownloadsComplete(uint8_t LocalUserNum, const struct FScriptDelegate& QueryDownloadsDelegate);
 	void AddQueryAvailableDownloadsComplete(uint8_t LocalUserNum, const struct FScriptDelegate& QueryDownloadsDelegate);
@@ -43708,7 +43025,6 @@ public:
 	void AddContentChangeDelegate(const struct FScriptDelegate& ContentDelegate, uint8_t optionalLocalUserNum);
 	void OnContentChange();
 };
-
 // Class Engine.OnlineGameInterface
 // 0x0090 (0x003C - 0x00CC)
 class UOnlineGameInterface : public UInterface
@@ -43739,6 +43055,7 @@ public:
 
 		return uClassPointer;
 	};
+
 
 	bool RecalculateSkillRating(const class FName& SessionName, class TArray<struct FUniqueNetId>& outPlayers);
 	bool AcceptGameInvite(uint8_t LocalUserNum, const class FName& SessionName);
@@ -43775,8 +43092,8 @@ public:
 	bool FreeSearchResults(class UOnlineGameSearch* optionalSearch);
 	class UOnlineGameSearch* GetGameSearch();
 	bool BindPlatformSpecificSessionToSearch(uint8_t SearchingPlayerNum, class UOnlineGameSearch* SearchSettings, uint8_t PlatformSpecificInfo[80]);
-	bool ReadPlatformSpecificSessionInfoBySessionName(const class FName& SessionName, uint8_t& outPlatformSpecificInfo);
-	bool ReadPlatformSpecificSessionInfo(struct FOnlineGameSearchResult& outDesiredGame, uint8_t& outPlatformSpecificInfo);
+	bool ReadPlatformSpecificSessionInfoBySessionName(const class FName& SessionName, uint8_t* outPlatformSpecificInfo_80);
+	bool ReadPlatformSpecificSessionInfo(struct FOnlineGameSearchResult& outDesiredGame, uint8_t* outPlatformSpecificInfo_80);
 	void ClearCancelFindOnlineGamesCompleteDelegate(const struct FScriptDelegate& CancelFindOnlineGamesCompleteDelegate);
 	void AddCancelFindOnlineGamesCompleteDelegate(const struct FScriptDelegate& CancelFindOnlineGamesCompleteDelegate);
 	void OnCancelFindOnlineGamesComplete(bool bWasSuccessful);
@@ -43799,7 +43116,6 @@ public:
 	void OnCreateOnlineGameComplete(const class FName& SessionName, bool bWasSuccessful);
 	bool CreateOnlineGame(uint8_t HostingPlayerNum, const class FName& SessionName, class UOnlineGameSettings* NewGameSettings);
 };
-
 // Class Engine.OnlineSystemInterface
 // 0x0048 (0x003C - 0x0084)
 class UOnlineSystemInterface : public UInterface
@@ -43824,6 +43140,7 @@ public:
 
 		return uClassPointer;
 	};
+
 
 	EOnlineEnumerationReadState GetTitleFileState(const class FString& Filename);
 	bool GetTitleFileContents(const class FString& Filename, class TArray<uint8_t>& outFileContents);
@@ -43852,7 +43169,6 @@ public:
 	void OnLinkStatusChange(bool bIsConnected);
 	bool HasLinkConnection();
 };
-
 // Class Engine.OnlinePlayerInterfaceEx
 // 0x0018 (0x003C - 0x0054)
 class UOnlinePlayerInterfaceEx : public UInterface
@@ -43873,6 +43189,7 @@ public:
 
 		return uClassPointer;
 	};
+
 
 	bool ShowCustomPlayersUI(uint8_t LocalUserNum, const class FString& Title, const class FString& Description, class TArray<struct FUniqueNetId>& outPlayers);
 	bool ShowPlayersUI(uint8_t LocalUserNum);
@@ -43895,7 +43212,6 @@ public:
 	bool ShowGamerCardUI(uint8_t LocalUserNum, const struct FUniqueNetId& PlayerID);
 	bool ShowFeedbackUI(uint8_t LocalUserNum, const struct FUniqueNetId& PlayerID);
 };
-
 // Class Engine.OnlinePlayerInterface
 // 0x0108 (0x003C - 0x0144)
 class UOnlinePlayerInterface : public UInterface
@@ -43937,6 +43253,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	EOnlineEnumerationReadState GetAchievements(uint8_t LocalUserNum, int32_t optionalTitleId, class TArray<struct FAchievementDetails>& outAchievements);
 	void ClearReadAchievementsCompleteDelegate(uint8_t LocalUserNum, const struct FScriptDelegate& ReadAchievementsCompleteDelegate);
 	void AddReadAchievementsCompleteDelegate(uint8_t LocalUserNum, const struct FScriptDelegate& ReadAchievementsCompleteDelegate);
@@ -43960,7 +43277,7 @@ public:
 	void OnReceivedGameInvite(uint8_t LocalUserNum, const class FString& InviterName);
 	bool SendGameInviteToFriends(uint8_t LocalUserNum, const class TArray<struct FUniqueNetId>& Friends, const class FString& optionalText);
 	bool SendGameInviteToFriend(uint8_t LocalUserNum, const struct FUniqueNetId& Friend, const class FString& optionalText);
-	bool SendMessageToFriendW(uint8_t LocalUserNum, const struct FUniqueNetId& Friend, const class FString& Message);
+	bool SendMessageToFriendWin(uint8_t LocalUserNum, const struct FUniqueNetId& Friend, const class FString& Message);
 	void ClearFriendInviteReceivedDelegate(uint8_t LocalUserNum, const struct FScriptDelegate& InviteDelegate);
 	void AddFriendInviteReceivedDelegate(uint8_t LocalUserNum, const struct FScriptDelegate& InviteDelegate);
 	void OnFriendInviteReceived(uint8_t LocalUserNum, const struct FUniqueNetId& RequestingPlayer, const class FString& RequestingNick, const class FString& Message);
@@ -44049,7 +43366,6 @@ public:
 	void AddDLCContentInstalledDelegate(const struct FScriptDelegate& DLCContentInstalledDelegate);
 	void OnDLCContentInstalled();
 };
-
 // Class Engine.OnlineAccountInterface
 // 0x000C (0x003C - 0x0048)
 class UOnlineAccountInterface : public UInterface
@@ -44070,6 +43386,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool GetLocalAccountNames(class TArray<class FString>& outAccounts);
 	bool DeleteLocalAccount(const class FString& UserName, const class FString& optionalPassword);
 	bool RenameLocalAccount(const class FString& NewUserName, const class FString& OldUserName, const class FString& optionalPassword);
@@ -44079,7 +43396,6 @@ public:
 	void OnCreateOnlineAccountCompleted(EOnlineAccountCreateStatus ErrorStatus);
 	bool CreateOnlineAccount(const class FString& UserName, const class FString& Password, const class FString& EmailAddress, const class FString& optionalProductKey);
 };
-
 // Class Engine.AccessControl
 // 0x00D4 (0x0228 - 0x02FC)
 class AAccessControl : public AInfo
@@ -44114,6 +43430,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool IsIDBanned(struct FUniqueNetId& outNetId);
 	bool CheckIPPolicy(const class FString& Address);
 	void eventPreLogin(const class FString& Options, const class FString& Address, bool bSpectator, class FString& outOutError);
@@ -44133,7 +43450,6 @@ public:
 	bool SetAdminPassword(const class FString& P);
 	bool IsAdmin(class APlayerController* P);
 };
-
 // Class Engine.Admin
 // 0x0000 (0x0604 - 0x0604)
 class AAdmin : public APlayerController
@@ -44153,6 +43469,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	void ServerSwitch(const class FString& URL);
 	void Switch(const class FString& URL);
 	void ServerRestartMap();
@@ -44166,7 +43483,6 @@ public:
 	void Admin(const class FString& CommandLine);
 	void eventPostBeginPlay();
 };
-
 // Class Engine.ApexDestructibleActorSpawnable
 // 0x0000 (0x027C - 0x027C)
 class AApexDestructibleActorSpawnable : public AApexDestructibleActor
@@ -44187,7 +43503,6 @@ public:
 	};
 
 };
-
 // Class Engine.EmitterSpawnable
 // 0x0004 (0x0238 - 0x023C)
 class AEmitterSpawnable : public AEmitter
@@ -44208,10 +43523,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventReplicatedEvent(const class FName& VarName);
 	void eventSetTemplate(class UParticleSystem* NewTemplate, bool optionalBDestroyOnFinish);
 };
-
 // Class Engine.KAssetSpawnable
 // 0x0000 (0x0238 - 0x0238)
 class AKAssetSpawnable : public AKAsset
@@ -44232,7 +43547,6 @@ public:
 	};
 
 };
-
 // Class Engine.ActorFactorySkeletalMeshCinematic
 // 0x0000 (0x006C - 0x006C)
 class UActorFactorySkeletalMeshCinematic : public UActorFactorySkeletalMesh
@@ -44253,7 +43567,6 @@ public:
 	};
 
 };
-
 // Class Engine.ActorFactorySkeletalMeshMAT
 // 0x0000 (0x006C - 0x006C)
 class UActorFactorySkeletalMeshMAT : public UActorFactorySkeletalMesh
@@ -44274,7 +43587,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqEvent_Death
 // 0x0000 (0x0100 - 0x0100)
 class USeqEvent_Death : public USequenceEvent
@@ -44295,7 +43607,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqAct_ToggleGodMode
 // 0x0000 (0x00E8 - 0x00E8)
 class USeqAct_ToggleGodMode : public USequenceAction
@@ -44315,9 +43626,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool eventIsValidUISequenceObject(class UUIScreenObject* optionalTargetObject);
 };
-
 // Class Engine.SeqAct_ToggleAffectedByHitEffects
 // 0x0000 (0x00E8 - 0x00E8)
 class USeqAct_ToggleAffectedByHitEffects : public USequenceAction
@@ -44337,9 +43648,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool eventIsValidUISequenceObject(class UUIScreenObject* optionalTargetObject);
 };
-
 // Class Engine.SeqAct_ControlMovieTexture
 // 0x0004 (0x00E8 - 0x00EC)
 class USeqAct_ControlMovieTexture : public USequenceAction
@@ -44360,9 +43671,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventActivated();
 };
-
 // Class Engine.CoverReplicator
 // 0x000C (0x0228 - 0x0234)
 class ACoverReplicator : public AReplicationInfo
@@ -44382,6 +43693,7 @@ public:
 
 		return uClassPointer;
 	};
+
 
 	void ClientReceiveLinkDisabledState(int32_t Index, class ACoverLink* Link, bool bLinkDisabled);
 	void ServerSendLinkDisabledState(int32_t Index);
@@ -44404,7 +43716,6 @@ public:
 	void ReplicateInitialCoverInfo();
 	void PurgeOldEntries();
 };
-
 // Class Engine.GameMessage
 // 0x0114 (0x0050 - 0x0164)
 class UGameMessage : public ULocalMessage
@@ -44447,9 +43758,9 @@ public:
 		return uClassPointer;
 	};
 
-	static class FString GetString(int32_t optionalSwitch, bool optionalBPRI1HUD, class APlayerReplicationInfo* optionalRelatedPRI, class APlayerReplicationInfo* optionalRelatedPRI01, class UObject* optionalOptionalObject);
-};
 
+	static class FString GetString(int32_t optionalSwitch, bool optionalBPRI1HUD, class APlayerReplicationInfo* optionalRelatedPRI_1, class APlayerReplicationInfo* optionalRelatedPRI_2, class UObject* optionalOptionalObject);
+};
 // Class Engine.ScoreBoard
 // 0x0004 (0x04B4 - 0x04B8)
 class AScoreBoard : public AHUD
@@ -44470,12 +43781,12 @@ public:
 		return uClassPointer;
 	};
 
+
 	void ChangeState(bool bIsVisible);
 	void UpdateScoreBoard();
 	bool UpdateGRI();
 	void DrawHUD();
 };
-
 // Class Engine.DmgType_Suicided
 // 0x0000 (0x006C - 0x006C)
 class UDmgType_Suicided : public UKillZDamageType
@@ -44496,7 +43807,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqAct_ToggleInput
 // 0x0004 (0x00E8 - 0x00EC)
 class USeqAct_ToggleInput : public USeqAct_Toggle
@@ -44518,9 +43828,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool eventIsValidUISequenceObject(class UUIScreenObject* optionalTargetObject);
 };
-
 // Class Engine.SeqAct_ToggleHUD
 // 0x0000 (0x00E8 - 0x00E8)
 class USeqAct_ToggleHUD : public USequenceAction
@@ -44540,10 +43850,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	static int32_t eventGetObjClassVersion();
 	bool eventIsValidUISequenceObject(class UUIScreenObject* optionalTargetObject);
 };
-
 // Class Engine.SeqAct_ForceFeedback
 // 0x0008 (0x00E8 - 0x00F0)
 class USeqAct_ForceFeedback : public USequenceAction
@@ -44566,7 +43876,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqAct_ConsoleCommand
 // 0x0018 (0x00E8 - 0x0100)
 class USeqAct_ConsoleCommand : public USequenceAction
@@ -44588,10 +43897,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	static int32_t eventGetObjClassVersion();
 	void VersionUpdated(int32_t OldVersion, int32_t NewVersion);
 };
-
 // Class Engine.SeqAct_FlyThroughHasEnded
 // 0x0000 (0x00E8 - 0x00E8)
 class USeqAct_FlyThroughHasEnded : public USequenceAction
@@ -44612,7 +43921,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqAct_SetSoundMode
 // 0x0008 (0x00E8 - 0x00F0)
 class USeqAct_SetSoundMode : public USequenceAction
@@ -44634,10 +43942,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	static int32_t eventGetObjClassVersion();
 	void eventActivated();
 };
-
 // Class Engine.DmgType_Fell
 // 0x0000 (0x006C - 0x006C)
 class UDmgType_Fell : public UDamageType
@@ -44658,7 +43966,6 @@ public:
 	};
 
 };
-
 // Class Engine.DmgType_Telefragged
 // 0x0000 (0x006C - 0x006C)
 class UDmgType_Telefragged : public UDamageType
@@ -44679,7 +43986,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqAct_AssignController
 // 0x0004 (0x00E8 - 0x00EC)
 class USeqAct_AssignController : public USequenceAction
@@ -44701,7 +44007,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqAct_GiveInventory
 // 0x0010 (0x00E8 - 0x00F8)
 class USeqAct_GiveInventory : public USequenceAction
@@ -44725,7 +44030,6 @@ public:
 	};
 
 };
-
 // Class Engine.BroadcastHandler
 // 0x0008 (0x0228 - 0x0230)
 class ABroadcastHandler : public AInfo
@@ -44747,16 +44051,16 @@ public:
 		return uClassPointer;
 	};
 
-	void eventAllowBroadcastLocalizedTeam(int32_t TeamIndex, class AActor* Sender, class UClass* Message, int32_t optionalSwitch, class APlayerReplicationInfo* optionalRelatedPRI, class APlayerReplicationInfo* optionalRelatedPRI01, class UObject* optionalOptionalObject);
-	void eventAllowBroadcastLocalized(class AActor* Sender, class UClass* Message, int32_t optionalSwitch, class APlayerReplicationInfo* optionalRelatedPRI, class APlayerReplicationInfo* optionalRelatedPRI01, class UObject* optionalOptionalObject);
+
+	void eventAllowBroadcastLocalizedTeam(int32_t TeamIndex, class AActor* Sender, class UClass* Message, int32_t optionalSwitch, class APlayerReplicationInfo* optionalRelatedPRI_1, class APlayerReplicationInfo* optionalRelatedPRI_2, class UObject* optionalOptionalObject);
+	void eventAllowBroadcastLocalized(class AActor* Sender, class UClass* Message, int32_t optionalSwitch, class APlayerReplicationInfo* optionalRelatedPRI_1, class APlayerReplicationInfo* optionalRelatedPRI_2, class UObject* optionalOptionalObject);
 	void BroadcastTeam(class AController* Sender, const class FString& msg, const class FName& optionalType);
 	void Broadcast(class AActor* Sender, const class FString& msg, const class FName& optionalType);
-	void BroadcastLocalized(class AActor* Sender, class APlayerController* Receiver, class UClass* Message, int32_t optionalSwitch, class APlayerReplicationInfo* optionalRelatedPRI, class APlayerReplicationInfo* optionalRelatedPRI01, class UObject* optionalOptionalObject);
+	void BroadcastLocalized(class AActor* Sender, class APlayerController* Receiver, class UClass* Message, int32_t optionalSwitch, class APlayerReplicationInfo* optionalRelatedPRI_1, class APlayerReplicationInfo* optionalRelatedPRI_2, class UObject* optionalOptionalObject);
 	void BroadcastText(class APlayerReplicationInfo* SenderPRI, class APlayerController* Receiver, const class FString& msg, const class FName& optionalType);
 	bool AllowsBroadcast(class AActor* broadcaster, int32_t InLen);
 	void UpdateSentText();
 };
-
 // Class Engine.VolumeTimer
 // 0x0004 (0x0228 - 0x022C)
 class AVolumeTimer : public AInfo
@@ -44777,10 +44081,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventTimer();
 	void eventPostBeginPlay();
 };
-
 // Class Engine.SeqAct_SetDamageInstigator
 // 0x0004 (0x00E8 - 0x00EC)
 class USeqAct_SetDamageInstigator : public USequenceAction
@@ -44802,7 +44106,6 @@ public:
 	};
 
 };
-
 // Class Engine.ColorScaleVolume
 // 0x0010 (0x0264 - 0x0274)
 class AColorScaleVolume : public AVolume
@@ -44824,10 +44127,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventUnTouch(class AActor* Other);
 	void eventTouch(class AActor* Other, class UPrimitiveComponent* OtherComp, const struct FVector& HitLocation, const struct FVector& HitNormal);
 };
-
 // Class Engine.UIAction_ConsoleCommand
 // 0x000C (0x00EC - 0x00F8)
 class UUIAction_ConsoleCommand : public UUIAction
@@ -44849,7 +44152,6 @@ public:
 	};
 
 };
-
 // Class Engine.UIEvent_Initialized
 // 0x0000 (0x0128 - 0x0128)
 class UUIEvent_Initialized : public UUIEvent
@@ -44870,7 +44172,6 @@ public:
 	};
 
 };
-
 // Class Engine.DebugCameraHUD
 // 0x0000 (0x04B4 - 0x04B4)
 class ADebugCameraHUD : public AHUD
@@ -44890,11 +44191,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventPostRender();
 	bool DisplayMaterials(float X, float DY, class UMeshComponent* MeshComp, float& outY);
 	void eventPostBeginPlay();
 };
-
 // Class Engine.DebugCameraInput
 // 0x0000 (0x0184 - 0x0184)
 class UDebugCameraInput : public UPlayerInput
@@ -44914,9 +44215,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool InputKey(int32_t ControllerId, const class FName& Key, EInputEvent Event, float optionalAmountDepressed, bool optionalBGamepad);
 };
-
 // Class Engine.DmgType_Crushed
 // 0x0000 (0x006C - 0x006C)
 class UDmgType_Crushed : public UDamageType
@@ -44937,7 +44238,6 @@ public:
 	};
 
 };
-
 // Class Engine.DynamicPhysicsVolume
 // 0x0004 (0x02A4 - 0x02A8)
 class ADynamicPhysicsVolume : public APhysicsVolume
@@ -44958,9 +44258,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventPostBeginPlay();
 };
-
 // Class Engine.DynamicSMActor_Spawnable
 // 0x0000 (0x0264 - 0x0264)
 class ADynamicSMActor_Spawnable : public ADynamicSMActor
@@ -44981,7 +44281,6 @@ public:
 	};
 
 };
-
 // Class Engine.DynamicTriggerVolume
 // 0x0004 (0x0264 - 0x0268)
 class ADynamicTriggerVolume : public ATriggerVolume
@@ -45002,9 +44301,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventPostBeginPlay();
 };
-
 // Class Engine.SeqAct_SetParticleSysParam
 // 0x0014 (0x00E8 - 0x00FC)
 class USeqAct_SetParticleSysParam : public USequenceAction
@@ -45028,7 +44327,6 @@ public:
 	};
 
 };
-
 // Class Engine.FailedConnect
 // 0x0030 (0x0050 - 0x0080)
 class UFailedConnect : public ULocalMessage
@@ -45049,10 +44347,10 @@ public:
 		return uClassPointer;
 	};
 
-	static class FString GetString(int32_t optionalSwitch, bool optionalBPRI1HUD, class APlayerReplicationInfo* optionalRelatedPRI, class APlayerReplicationInfo* optionalRelatedPRI01, class UObject* optionalOptionalObject);
+
+	static class FString GetString(int32_t optionalSwitch, bool optionalBPRI1HUD, class APlayerReplicationInfo* optionalRelatedPRI_1, class APlayerReplicationInfo* optionalRelatedPRI_2, class UObject* optionalOptionalObject);
 	static int32_t GetFailSwitch(const class FString& FailString);
 };
-
 // Class Engine.FracturedSMActorSpawnable
 // 0x0000 (0x0290 - 0x0290)
 class AFracturedSMActorSpawnable : public AFracturedStaticMeshActor
@@ -45073,7 +44371,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqEvent_PlayerSpawned
 // 0x0004 (0x0100 - 0x0104)
 class USeqEvent_PlayerSpawned : public USequenceEvent
@@ -45095,7 +44392,6 @@ public:
 	};
 
 };
-
 // Class Engine.UIMessageBoxBase
 // 0x005C (0x0588 - 0x05E4)
 class UUIMessageBoxBase : public UUIScene
@@ -45129,12 +44425,13 @@ public:
 		return uClassPointer;
 	};
 
+
 	void HandleSceneActivated(class UUIScene* ActivatedScene, bool bInitialActivation);
 	bool OptionChosen(class UUIScreenObject* EventObject, int32_t PlayerIndex);
 	void SetupDockingRelationships();
 	void LayoutControls();
 	class UUICalloutButtonPanel* GetButtonBar();
-	class UUILabel* GetMessageLabelW();
+	class UUILabel* GetMessageLabelWin();
 	class UUILabel* GetTitleLabel();
 	int32_t FindButtonIndex(const class FName& ButtonAlias);
 	bool HasButton(const class FName& ButtonAlias);
@@ -45147,7 +44444,6 @@ public:
 	void SetupMessageBox(const class FString& Title, const class FString& Message, const class FString& Question, const class TArray<class FName>& ButtonAliases, const struct FScriptDelegate& optionalSelectionCallback);
 	bool OnOptionSelected(class UUIMessageBoxBase* Sender, const class FName& SelectedInputAlias, int32_t PlayerIndex);
 };
-
 // Class Engine.UIMessageBox
 // 0x0000 (0x05E4 - 0x05E4)
 class UUIMessageBox : public UUIMessageBoxBase
@@ -45167,9 +44463,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void SetupDockingRelationships();
 };
-
 // Class Engine.HeightFog
 // 0x0008 (0x0228 - 0x0230)
 class AHeightFog : public AInfo
@@ -45191,11 +44487,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	void OnToggle(class USeqAct_Toggle* Action);
 	void eventReplicatedEvent(const class FName& VarName);
 	void eventPostBeginPlay();
 };
-
 // Class Engine.InterpActor_ForCinematic
 // 0x0000 (0x0290 - 0x0290)
 class AInterpActor_ForCinematic : public AInterpActor
@@ -45216,7 +44512,6 @@ public:
 	};
 
 };
-
 // Class Engine.NavMeshBoundsVolume
 // 0x0000 (0x0264 - 0x0264)
 class ANavMeshBoundsVolume : public AVolume
@@ -45237,7 +44532,6 @@ public:
 	};
 
 };
-
 // Class Engine.OnlineCommunityContentInterface
 // 0x003C (0x003C - 0x0078)
 class UOnlineCommunityContentInterface : public UInterface
@@ -45261,6 +44555,7 @@ public:
 
 		return uClassPointer;
 	};
+
 
 	void RateContent(uint8_t PlayerNum, int32_t NewRating, struct FCommunityContentFile& outFileToRate);
 	void ClearGetContentPayloadCompleteDelegate(const struct FScriptDelegate& GetContentPayloadCompleteDelegate);
@@ -45288,7 +44583,6 @@ public:
 	void Exit();
 	bool Init();
 };
-
 // Class Engine.OnlineEventsInterface
 // 0x0000 (0x003C - 0x003C)
 class UOnlineEventsInterface : public UInterface
@@ -45308,11 +44602,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool UploadHardwareData(const struct FUniqueNetId& UniqueId, const class FString& PlayerNick);
 	bool UploadGameplayEventsData(class UOnlineGameplayEvents* Events);
 	bool UploadProfileData(const struct FUniqueNetId& UniqueId, const class FString& PlayerNick, class UOnlineProfileSettings* ProfileSettings);
 };
-
 // Class Engine.OnlinePlaylistGameTypeProvider
 // 0x0024 (0x007C - 0x00A0)
 class UOnlinePlaylistGameTypeProvider : public UUIResourceDataProvider
@@ -45337,7 +44631,6 @@ public:
 	};
 
 };
-
 // Class Engine.OnlinePlaylistProvider
 // 0x0024 (0x007C - 0x00A0)
 class UOnlinePlaylistProvider : public UUIResourceDataProvider
@@ -45363,7 +44656,6 @@ public:
 	};
 
 };
-
 // Class Engine.OnlineRecentPlayersList
 // 0x0048 (0x003C - 0x0084)
 class UOnlineRecentPlayersList : public UObject
@@ -45391,6 +44683,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	int32_t GetCurrentPlayersListCount();
 	void SetCurrentPlayersList(const class TArray<struct FCurrentPlayerMet>& Players);
 	void DumpPlayersList(class TArray<struct FCurrentPlayerMet>& outPlayers);
@@ -45408,7 +44701,6 @@ public:
 	void ClearRecentPlayers();
 	void AddPlayerToRecentPlayers(const struct FUniqueNetId& NewPlayer);
 };
-
 // Class Engine.PathNode_Dynamic
 // 0x0000 (0x0300 - 0x0300)
 class APathNode_Dynamic : public APathNode
@@ -45428,9 +44720,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	class FString eventGetDebugAbbrev();
 };
-
 // Class Engine.SeqEvent_AIReachedRouteActor
 // 0x0000 (0x0100 - 0x0100)
 class USeqEvent_AIReachedRouteActor : public USequenceEvent
@@ -45451,7 +44743,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqEvent_PickupStatusChange
 // 0x0000 (0x0100 - 0x0100)
 class USeqEvent_PickupStatusChange : public USequenceEvent
@@ -45472,7 +44763,6 @@ public:
 	};
 
 };
-
 // Class Engine.RadialBlurActor
 // 0x0004 (0x0228 - 0x022C)
 class ARadialBlurActor : public AActor
@@ -45494,7 +44784,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqAct_ToggleConstraintDrive
 // 0x0004 (0x00E8 - 0x00EC)
 class USeqAct_ToggleConstraintDrive : public USequenceAction
@@ -45519,7 +44808,6 @@ public:
 	};
 
 };
-
 // Class Engine.RB_BSJointActor
 // 0x0000 (0x0244 - 0x0244)
 class ARB_BSJointActor : public ARB_ConstraintActor
@@ -45540,7 +44828,6 @@ public:
 	};
 
 };
-
 // Class Engine.RB_ConstraintActorSpawnable
 // 0x0000 (0x0244 - 0x0244)
 class ARB_ConstraintActorSpawnable : public ARB_ConstraintActor
@@ -45561,7 +44848,6 @@ public:
 	};
 
 };
-
 // Class Engine.RB_HingeActor
 // 0x0000 (0x0244 - 0x0244)
 class ARB_HingeActor : public ARB_ConstraintActor
@@ -45582,7 +44868,6 @@ public:
 	};
 
 };
-
 // Class Engine.RB_PrismaticActor
 // 0x0000 (0x0244 - 0x0244)
 class ARB_PrismaticActor : public ARB_ConstraintActor
@@ -45603,7 +44888,6 @@ public:
 	};
 
 };
-
 // Class Engine.RB_PulleyJointActor
 // 0x0000 (0x0244 - 0x0244)
 class ARB_PulleyJointActor : public ARB_ConstraintActor
@@ -45624,7 +44908,6 @@ public:
 	};
 
 };
-
 // Class Engine.ScriptConsoleEntry
 // 0x000C (0x0420 - 0x042C)
 class UScriptConsoleEntry : public UUIPanel
@@ -45647,11 +44930,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	void OnCreateChild(class UUIObject* CreatedWidget, class UUIScreenObject* CreatorContainer);
 	void SetValue(const class FString& NewValue);
 	void eventPostInitialize();
 };
-
 // Class Engine.SeqAct_AddRemoveFaceFXAnimSet
 // 0x000C (0x00E8 - 0x00F4)
 class USeqAct_AddRemoveFaceFXAnimSet : public USequenceAction
@@ -45673,7 +44956,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqAct_AIAbortMoveToActor
 // 0x0000 (0x00E8 - 0x00E8)
 class USeqAct_AIAbortMoveToActor : public USequenceAction
@@ -45694,7 +44976,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqAct_InterruptSpeech
 // 0x0000 (0x00E8 - 0x00E8)
 class USeqAct_InterruptSpeech : public USequenceAction
@@ -45714,9 +44995,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	static int32_t eventGetObjClassVersion();
 };
-
 // Class Engine.SeqAct_SetMatInstTexParam
 // 0x0010 (0x00E8 - 0x00F8)
 class USeqAct_SetMatInstTexParam : public USequenceAction
@@ -45740,7 +45021,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqAct_SetMatInstVectorParam
 // 0x001C (0x00E8 - 0x0104)
 class USeqAct_SetMatInstVectorParam : public USequenceAction
@@ -45763,9 +45043,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	static int32_t eventGetObjClassVersion();
 };
-
 // Class Engine.SeqAct_SetSkelControlTarget
 // 0x0014 (0x00E8 - 0x00FC)
 class USeqAct_SetSkelControlTarget : public USequenceAction
@@ -45788,7 +45068,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqAct_SetVector
 // 0x000C (0x00E8 - 0x00F4)
 class USeqAct_SetVector : public USeqAct_SetSequenceVariable
@@ -45809,9 +45088,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventActivated();
 };
-
 // Class Engine.SeqAct_UpdatePhysBonesFromAnim
 // 0x0000 (0x00E8 - 0x00E8)
 class USeqAct_UpdatePhysBonesFromAnim : public USequenceAction
@@ -45831,9 +45110,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	static int32_t eventGetObjClassVersion();
 };
-
 // Class Engine.SeqEvent_LOS
 // 0x000C (0x0100 - 0x010C)
 class USeqEvent_LOS : public USequenceEvent
@@ -45856,9 +45135,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	static int32_t eventGetObjClassVersion();
 };
-
 // Class Engine.SeqVar_Byte
 // 0x0000 (0x0094 - 0x0094)
 class USeqVar_Byte : public USequenceVariable
@@ -45879,7 +45158,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqVar_Name
 // 0x0000 (0x0094 - 0x0094)
 class USeqVar_Name : public USequenceVariable
@@ -45900,7 +45178,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqVar_UIRange
 // 0x0000 (0x0094 - 0x0094)
 class USeqVar_UIRange : public USequenceVariable
@@ -45921,7 +45198,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqVar_Union
 // 0x0000 (0x0094 - 0x0094)
 class USeqVar_Union : public USequenceVariable
@@ -45942,7 +45218,6 @@ public:
 	};
 
 };
-
 // Class Engine.SeqVar_UniqueNetId
 // 0x0000 (0x0094 - 0x0094)
 class USeqVar_UniqueNetId : public USequenceVariable
@@ -45963,7 +45238,6 @@ public:
 	};
 
 };
-
 // Class Engine.UISettingsClient
 // 0x0000 (0x003C - 0x003C)
 class UUISettingsClient : public UInterface
@@ -45984,7 +45258,6 @@ public:
 	};
 
 };
-
 // Class Engine.SessionSettingsProvider_GameInfo
 // 0x0000 (0x0084 - 0x0084)
 class USessionSettingsProvider_GameInfo : public USessionSettingsProvider
@@ -46005,7 +45278,6 @@ public:
 	};
 
 };
-
 // Class Engine.SkeletalMeshActorMATSpawnable
 // 0x0000 (0x0324 - 0x0324)
 class ASkeletalMeshActorMATSpawnable : public ASkeletalMeshActorMAT
@@ -46026,7 +45298,6 @@ public:
 	};
 
 };
-
 // Class Engine.Trigger_Dynamic
 // 0x0000 (0x0250 - 0x0250)
 class ATrigger_Dynamic : public ATrigger
@@ -46047,7 +45318,6 @@ public:
 	};
 
 };
-
 // Class Engine.Trigger_LOS
 // 0x000C (0x0250 - 0x025C)
 class ATrigger_LOS : public ATrigger
@@ -46068,9 +45338,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventTick(float DeltaTime);
 };
-
 // Class Engine.TriggeredPath
 // 0x0008 (0x0300 - 0x0308)
 class ATriggeredPath : public ANavigationPoint
@@ -46092,11 +45362,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool eventSuggestMovePreparation(class APawn* Other);
 	class AActor* eventSpecialHandling(class APawn* Other);
 	void OnToggle(class USeqAct_Toggle* inAction);
 };
-
 // Class Engine.TriggerStreamingLevel
 // 0x000C (0x0250 - 0x025C)
 class ATriggerStreamingLevel : public ATrigger
@@ -46117,9 +45387,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventTouch(class AActor* Other, class UPrimitiveComponent* OtherComp, const struct FVector& HitLocation, const struct FVector& HitNormal);
 };
-
 // Class Engine.UICharacterSummary
 // 0x0028 (0x007C - 0x00A4)
 class UUICharacterSummary : public UUIResourceDataProvider
@@ -46143,9 +45413,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool eventIsProviderDisabled();
 };
-
 // Class Engine.UICond_SwitchWidget
 // 0x0000 (0x00E0 - 0x00E0)
 class UUICond_SwitchWidget : public USeqCond_SwitchObject
@@ -46165,9 +45435,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool eventIsValidLevelSequenceObject();
 };
-
 // Class Engine.UIEvent_SceneActivated
 // 0x0004 (0x0128 - 0x012C)
 class UUIEvent_SceneActivated : public UUIEvent_Scene
@@ -46188,10 +45458,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	static int32_t eventGetObjClassVersion();
 	void eventDeactivated();
 };
-
 // Class Engine.UIEvent_SceneDeactivated
 // 0x0000 (0x0128 - 0x0128)
 class UUIEvent_SceneDeactivated : public UUIEvent_Scene
@@ -46212,7 +45482,6 @@ public:
 	};
 
 };
-
 // Class Engine.UIFocusHint
 // 0x0000 (0x0454 - 0x0454)
 class UUIFocusHint : public UUILabel
@@ -46232,9 +45501,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	void eventRemovedFromParent(class UUIScreenObject* WidgetOwner);
 };
-
 // Class Engine.UIGameInfoSummary
 // 0x004C (0x007C - 0x00C8)
 class UUIGameInfoSummary : public UUIResourceDataProvider
@@ -46262,9 +45531,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool eventIsProviderDisabled();
 };
-
 // Class Engine.UIScriptConsoleScene
 // 0x000C (0x0588 - 0x0594)
 class UUIScriptConsoleScene : public UUIScene
@@ -46287,10 +45556,10 @@ public:
 		return uClassPointer;
 	};
 
+
 	void OnCreateChild(class UUIObject* CreatedWidget, class UUIScreenObject* CreatorContainer);
 	void eventPostInitialize();
 };
-
 // Class Engine.UIWeaponSummary
 // 0x0028 (0x007C - 0x00A4)
 class UUIWeaponSummary : public UUIResourceDataProvider
@@ -46314,9 +45583,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool eventIsProviderDisabled();
 };
-
 // Class Engine.WaterVolume
 // 0x0014 (0x02A4 - 0x02B8)
 class AWaterVolume : public APhysicsVolume
@@ -46341,12 +45610,12 @@ public:
 		return uClassPointer;
 	};
 
+
 	void PlayExitSplash(class AActor* Other);
 	void eventUnTouch(class AActor* Other);
 	void PlayEntrySplash(class AActor* Other);
 	void eventTouch(class AActor* Other, class UPrimitiveComponent* OtherComp, const struct FVector& HitLocation, const struct FVector& HitNormal);
 };
-
 // Class Engine.WindDirectionalSource
 // 0x0004 (0x0228 - 0x022C)
 class AWindDirectionalSource : public AInfo
@@ -46368,7 +45637,6 @@ public:
 	};
 
 };
-
 /*
 # ========================================================================================= #
 #

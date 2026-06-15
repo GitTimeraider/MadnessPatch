@@ -1,7 +1,7 @@
 /*
 #############################################################################################
 # Alice2 (ASDK) SDK 1.0.0.0
-# Generated with the CodeRedGenerator v1.1.6
+# Generated with the CodeRedGenerator v1.2.0
 # ========================================================================================= #
 # File: GFxUI_parameters.hpp
 # ========================================================================================= #
@@ -59,6 +59,7 @@ struct UGFxInteraction_execSetFocusMovie_Params
 {
 	class FString                                      MovieName;                                        // 0x0000 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 	uint32_t                                           captureInput : 1;                                 // 0x000C (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0010 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0010 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -395,6 +396,7 @@ struct UGFxMovie_execAddCaptureKey_Params
 struct UGFxMovie_execSetFocus_Params
 {
 	uint32_t                                           captureInput : 1;                                 // 0x0000 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           Focus : 1;                                        // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 };
 
@@ -485,6 +487,7 @@ struct UGFxMovie_execClose_Params
 struct UGFxMovie_eventStart_Params
 {
 	uint32_t                                           StartPaused : 1;                                  // 0x0000 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -495,8 +498,10 @@ struct UGFxMovie_execHandleInputKey_Params
 	int32_t                                            ControllerId;                                     // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	class FName                                        Key;                                              // 0x0004 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            EventType;                                        // 0x000C (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x000D (0x0003) MISSED OFFSET
 	float                                              AmountDepressed;                                  // 0x0010 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bGamepad : 1;                                     // 0x0014 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0018 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0018 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -683,6 +688,7 @@ struct UGFxValue_execSetElementVisible_Params
 struct UGFxValue_execSetElementDisplayMatrix_Params
 {
 	int32_t                                            Index;                                            // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0xC];                              // 0x0004 (0x000C) MISSED OFFSET
 	struct FMatrix                                     M;                                                // 0x0010 (0x0040) [0x0000000000000080] (CPF_Parm)    
 };
 
@@ -739,6 +745,7 @@ struct UGFxValue_execSetElement_Params
 struct UGFxValue_execGetElementDisplayMatrix_Params
 {
 	int32_t                                            Index;                                            // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0xC];                              // 0x0004 (0x000C) MISSED OFFSET
 	struct FMatrix                                     ReturnValue;                                      // 0x0010 (0x0040) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -1002,7 +1009,7 @@ struct UGFxValue_execGetBool_Params
 
 // Function GFxUI.GFxValue.GetObject
 // [0x00024401]  (iNative[28017])
-struct UGFxValue_execGetObjectW_Params
+struct UGFxValue_execGetObjectWin_Params
 {
 	class FString                                      member;                                           // 0x0000 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 	class UClass*                                      Type;                                             // 0x000C (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)

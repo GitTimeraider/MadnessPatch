@@ -1,7 +1,7 @@
 /*
 #############################################################################################
 # Alice2 (ASDK) SDK 1.0.0.0
-# Generated with the CodeRedGenerator v1.1.6
+# Generated with the CodeRedGenerator v1.2.0
 # ========================================================================================= #
 # File: AliceGame_parameters.hpp
 # ========================================================================================= #
@@ -552,6 +552,7 @@ struct AAliceGameCrowdAgent_execInitializeAgent_Params
 	class UGameCrowdGroup*                             NewGroup;                                         // 0x0008 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	float                                              AgentWarmupTime;                                  // 0x000C (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bWarmupPosition : 1;                              // 0x0010 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0014 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bCheckWarmupVisibility : 1;                       // 0x0014 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
 };
 
@@ -656,6 +657,7 @@ struct UAliceGameEngine_execGetAliceKeyIndex_Params
 	int32_t                                            Index;                                            // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            nKeyType;                                         // 0x0004 (0x0001) [0x0000000000000180] (CPF_Parm | CPF_OutParm)
 	uint8_t                                            nKeyGroup;                                        // 0x0005 (0x0001) [0x0000000000000180] (CPF_Parm | CPF_OutParm)
+	uint8_t                                            UnknownData00[0x2];                              // 0x0006 (0x0002) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0008 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -665,6 +667,7 @@ struct UAliceGameEngine_execSetAliceKeys_Params
 {
 	uint8_t                                            nKeyType;                                         // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            nKeyGroup;                                        // 0x0001 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x2];                              // 0x0002 (0x0002) MISSED OFFSET
 	class FName                                        KeyName;                                          // 0x0004 (0x0008) [0x0000000000000080] (CPF_Parm)    
 };
 
@@ -674,6 +677,7 @@ struct UAliceGameEngine_execGetAliceKeys_Params
 {
 	uint8_t                                            nKeyType;                                         // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            nKeyGroup;                                        // 0x0001 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x2];                              // 0x0002 (0x0002) MISSED OFFSET
 	class FName                                        ReturnValue;                                      // 0x0004 (0x0008) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -683,6 +687,7 @@ struct UAliceGameEngine_execExecRebindKey_Params
 {
 	uint8_t                                            nAliceKeyType;                                    // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            nAliceKeyGroup;                                   // 0x0001 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x2];                              // 0x0002 (0x0002) MISSED OFFSET
 	class FName                                        KeyName;                                          // 0x0004 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	class TArray<int32_t>                              RemovedAliceKeys;                                 // 0x000C (0x000C) [0x0000000000400180] (CPF_Parm | CPF_OutParm | CPF_NeedCtorLink)
 };
@@ -1748,6 +1753,7 @@ struct AAliceGameKynapseAIController_execDraw3Dtext_Params
 struct AAliceGameKynapseAIController_execRegisterSphinxEvent_Params
 {
 	uint8_t                                            Type;                                             // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	int32_t                                            Info1;                                            // 0x0004 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	int32_t                                            Info2;                                            // 0x0008 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 };
@@ -1929,6 +1935,7 @@ struct AAliceGameKynapseAIController_eventBreakByAI_Params
 struct AAliceGameKynapseAIController_eventActiveAIEventTrigger_Params
 {
 	uint8_t                                            Type;                                             // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	int32_t                                            Info1;                                            // 0x0004 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	int32_t                                            Info2;                                            // 0x0008 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 };
@@ -2631,6 +2638,7 @@ struct ATeapotCannonProjectile_execInitConfigData_Params
 	float                                              DmgValueSplash;                                   // 0x0008 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            StrengthCore;                                     // 0x000C (0x0001) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            StrengthSplash;                                   // 0x000D (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x2];                              // 0x000E (0x0002) MISSED OFFSET
 	float                                              CoreRadius;                                       // 0x0010 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	float                                              SplashRadius;                                     // 0x0014 (0x0004) [0x0000000000000080] (CPF_Parm)    
 };
@@ -2954,6 +2962,7 @@ struct AAliceGameSkeletalMeshActorMAT_execMAT_SetAnimPosition_Params
 	class FName                                        InAnimSeqName;                                    // 0x000C (0x0008) [0x0000000000000080] (CPF_Parm)    
 	float                                              InPosition;                                       // 0x0014 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bFireNotifies : 1;                                // 0x0018 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x001C CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bLooping : 1;                                     // 0x001C (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
 	int32_t                                            RootMotionLevel;                                  // 0x0020 (0x0004) [0x0000000000000080] (CPF_Parm)    
 };
@@ -2969,6 +2978,7 @@ struct AAliceGameWeaponBase_eventTriggerRadiusDamageLight_Params
 struct AAliceGameWeaponBase_execProcessInstantHit_Params
 {
 	uint8_t                                            FiringMode;                                       // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FImpactInfo                                 Impact;                                           // 0x0004 (0x0050) [0x0000000000000080] (CPF_Parm)    
 	int32_t                                            NumHits;                                          // 0x0054 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	// int32_t                                         TotalDamage;                                      // 0x0058 (0x0004) [0x0000000000000000]               
@@ -3307,6 +3317,7 @@ struct AAliceGameWeapon_eventMuzzleFlashTimer_Params
 struct AAliceGameWeapon_execPlayFireEffects_Params
 {
 	uint8_t                                            FireModeNum;                                      // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FVector                                     HitLocation;                                      // 0x0004 (0x000C) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 };
 
@@ -3317,6 +3328,7 @@ struct AAliceGameWeapon_execPlayArmAnimation_Params
 	class FName                                        Sequence;                                         // 0x0000 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	float                                              fDesiredDuration;                                 // 0x0008 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           OffHand : 1;                                      // 0x000C (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0010 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bLoop : 1;                                        // 0x0010 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 	class USkeletalMeshComponent*                      SkelMesh;                                         // 0x0014 (0x0004) [0x0000000004000090] (CPF_OptionalParm | CPF_Parm | CPF_EditInline)
 };
@@ -3372,6 +3384,7 @@ struct AAliceGameWeapon_execHasAnyAmmo_Params
 struct AAliceGameWeapon_execHasAmmo_Params
 {
 	uint8_t                                            FireModeNum;                                      // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	int32_t                                            Amount;                                           // 0x0004 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	bool                                               ReturnValue : 1;                                  // 0x0008 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
@@ -3763,6 +3776,7 @@ struct AWeaponForAlice_execForceWeaponSetHidden_Params
 struct AWeaponForAlice_execWeaponSetHidden_Params
 {
 	uint32_t                                           Set : 1;                                          // 0x0000 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bForce : 1;                                       // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 };
 
@@ -3771,6 +3785,7 @@ struct AWeaponForAlice_execWeaponSetHidden_Params
 struct AWeaponForAlice_execProcessInstantHit_Params
 {
 	uint8_t                                            FiringMode;                                       // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FImpactInfo                                 Impact;                                           // 0x0004 (0x0050) [0x0000000000000080] (CPF_Parm)    
 	int32_t                                            NumHits;                                          // 0x0054 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	// class AAliceGameKynapsePawn*                    ap;                                               // 0x0058 (0x0004) [0x0000000000000000]               
@@ -3870,6 +3885,7 @@ struct AWeaponForAliceMelee_execChangeWeaponLevelData_Params
 struct AWeaponForAliceMelee_execWeaponSetHidden_Params
 {
 	uint32_t                                           Set : 1;                                          // 0x0000 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bForce : 1;                                       // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 };
 
@@ -4168,6 +4184,7 @@ struct AWeaponForAliceRange_eventAdjustFireSocketRotation_Params
 struct AWeaponForAliceRange_execWeaponSetHidden_Params
 {
 	uint32_t                                           Set : 1;                                          // 0x0000 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bForce : 1;                                       // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 };
 
@@ -5542,8 +5559,8 @@ struct AAliceItemPickupFactory_execSpawnCopyFor_Params
 struct AAliceItemPickupFactory_execGetLocalString_Params
 {
 	int32_t                                            Switch;                                           // 0x0000 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
-	class APlayerReplicationInfo*                      RelatedPRI;                                       // 0x0004 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
-	class APlayerReplicationInfo*                      RelatedPRI01;                                     // 0x0008 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	class APlayerReplicationInfo*                      RelatedPRI_1;                                     // 0x0004 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	class APlayerReplicationInfo*                      RelatedPRI_2;                                     // 0x0008 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	class FString                                      ReturnValue;                                      // 0x000C (0x000C) [0x0000000000400580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink)
 };
 
@@ -7057,6 +7074,7 @@ struct APressurePad_execPlayFxEffect_Params
 struct APressurePad_execSetFrameCollision_Params
 {
 	uint32_t                                           bCollideActor : 1;                                // 0x0000 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bBlockRigidBody : 1;                              // 0x0004 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
 	// class UStaticMeshComponent*                     SMC;                                              // 0x0008 (0x0004) [0x0000000004000000] (CPF_EditInline)
 };
@@ -7866,6 +7884,7 @@ struct AAliceGamePawn_eventOnHeadLookAt_Params
 struct AAliceGamePawn_eventResetClothHair_Params
 {
 	uint32_t                                           bResetPose : 1;                                   // 0x0000 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bResetWind : 1;                                   // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 	// class UHairComponent*                           HairComponent;                                    // 0x0008 (0x0004) [0x0000000004000000] (CPF_EditInline)
 	// class UClothComponent*                          ClothComponent;                                   // 0x000C (0x0004) [0x0000000004000000] (CPF_EditInline)
@@ -7876,6 +7895,7 @@ struct AAliceGamePawn_eventResetClothHair_Params
 struct AAliceGamePawn_execShouldDoKnockBack_Params
 {
 	uint8_t                                            DmgStrength;                                      // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -7937,6 +7957,7 @@ struct AAliceGamePawn_execOnInterruptSpeech_Params
 struct AAliceGamePawn_execShouldFilterOutSpeech_Params
 {
 	uint8_t                                            Filter;                                           // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	class AActor*                                      Addressee;                                        // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	bool                                               ReturnValue : 1;                                  // 0x0008 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
@@ -7946,6 +7967,7 @@ struct AAliceGamePawn_execShouldFilterOutSpeech_Params
 struct AAliceGamePawn_execShouldSuppressSubtitlesForQueuedSpeakLine_Params
 {
 	uint32_t                                           bVersusMulti : 1;                                 // 0x0000 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -7959,11 +7981,13 @@ struct AAliceGamePawn_execSpeakLine_Params
 	float                                              DelaySec;                                         // 0x0014 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            Priority;                                         // 0x0018 (0x0001) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint8_t                                            IntCondition;                                     // 0x0019 (0x0001) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	uint8_t                                            UnknownData00[0x2];                              // 0x001A (0x0002) MISSED OFFSET
 	uint32_t                                           bNoHeadTrack : 1;                                 // 0x001C (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 	int32_t                                            BroadcastFilter;                                  // 0x0020 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint32_t                                           bSuppressSubtitle : 1;                            // 0x0024 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 	float                                              InExtraHeadTrackTime;                             // 0x0028 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint32_t                                           bClientSide : 1;                                  // 0x002C (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0030 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0030 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -7972,6 +7996,7 @@ struct AAliceGamePawn_execSpeakLine_Params
 struct AAliceGamePawn_execWasPawnInAStance_Params
 {
 	uint8_t                                            Instance;                                         // 0x0000 (0x0001) [0x0000000000000082] (CPF_Const | CPF_Parm)
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -7980,6 +8005,7 @@ struct AAliceGamePawn_execWasPawnInAStance_Params
 struct AAliceGamePawn_execIsPawnInAStance_Params
 {
 	uint8_t                                            Instance;                                         // 0x0000 (0x0001) [0x0000000000000082] (CPF_Const | CPF_Parm)
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -8020,6 +8046,7 @@ struct AAliceGamePawn_execSpecialMoveStarted_Params
 {
 	uint8_t                                            NewMove;                                          // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            PrevMove;                                         // 0x0001 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x2];                              // 0x0002 (0x0002) MISSED OFFSET
 	uint32_t                                           bForced : 1;                                      // 0x0004 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
 	// class AAlicePlayerController*                   PC;                                               // 0x0008 (0x0004) [0x0000000000000000]               
 };
@@ -8051,6 +8078,7 @@ struct AAliceGamePawn_execEndSpecialMove_Params
 struct AAliceGamePawn_execCanChainSpecialMove_Params
 {
 	uint8_t                                            NextMove;                                         // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -8109,6 +8137,7 @@ struct AAliceGamePawn_execIsDoingASpecialMove_Params
 struct AAliceGamePawn_execIsDoingSpecialMove_Params
 {
 	uint8_t                                            AMove;                                            // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -8124,7 +8153,9 @@ struct AAliceGamePawn_execAutoSetMaterialsForAllSkelComponents_Params
 struct AAliceGamePawn_eventCanDoSpecialMove_Params
 {
 	uint8_t                                            AMove;                                            // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	uint32_t                                           bForceCheck : 1;                                  // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0008 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -8133,6 +8164,7 @@ struct AAliceGamePawn_eventCanDoSpecialMove_Params
 struct AAliceGamePawn_execLocalDoSpecialMove_Params
 {
 	uint8_t                                            NewMove;                                          // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	uint32_t                                           bForceMove : 1;                                   // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 	class AAliceGamePawn*                              InInteractionPawn;                                // 0x0008 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	int32_t                                            InSpecialMoveFlags;                               // 0x000C (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
@@ -8151,6 +8183,7 @@ struct AAliceGamePawn_execDoSpecialMoveFromStruct_Params
 struct AAliceGamePawn_eventDoSpecialMove_Params
 {
 	uint8_t                                            NewMove;                                          // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	uint32_t                                           bForceMove : 1;                                   // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 	class AAliceGamePawn*                              InInteractionPawn;                                // 0x0008 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	int32_t                                            InSpecialMoveFlags;                               // 0x000C (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
@@ -8164,6 +8197,7 @@ struct AAliceGamePawn_eventDoSpecialMove_Params
 struct AAliceGamePawn_execSpecialMoveToString_Params
 {
 	uint8_t                                            InSpecialMove;                                    // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	class AAliceGamePawn*                              InInteractionPawn;                                // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	int32_t                                            InSpecialMoveFlags;                               // 0x0008 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	class FString                                      ReturnValue;                                      // 0x000C (0x000C) [0x0000000000400580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink)
@@ -8182,6 +8216,7 @@ struct AAliceGamePawn_execSMStructToString_Params
 struct AAliceGamePawn_execFillSMStructFromParams_Params
 {
 	uint8_t                                            InSpecialMove;                                    // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	class AAliceGamePawn*                              InInteractionPawn;                                // 0x0004 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	int32_t                                            InSpecialMoveFlags;                               // 0x0008 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	struct FSMStruct                                   ReturnValue;                                      // 0x000C (0x000C) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
@@ -8193,6 +8228,7 @@ struct AAliceGamePawn_execFillSMStructFromParams_Params
 struct AAliceGamePawn_execVerifySMHasBeenInstanced_Params
 {
 	uint8_t                                            AMove;                                            // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -8270,6 +8306,7 @@ struct AAliceGamePawn_execSetLookAtControllerTrackActor_Params
 	class AActor*                                      ActorToTrack;                                     // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	class FName                                        LookatBoneName;                                   // 0x0008 (0x0008) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint32_t                                           bEnableStrength : 1;                              // 0x0010 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0014 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0014 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 	// class AController*                              ControllerActor;                                  // 0x0018 (0x0004) [0x0000000000000000]               
 };
@@ -8282,6 +8319,7 @@ struct AAliceGamePawn_eventSetHeadTrackActor_Params
 	class FName                                        SkelControlName;                                  // 0x0004 (0x0008) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	class FName                                        LookatBoneName;                                   // 0x000C (0x0008) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint32_t                                           bEnableStrength : 1;                              // 0x0014 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0018 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0018 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 	// class USkelControlLookAt*                       SkelControlItem;                                  // 0x001C (0x0004) [0x0000000000000000]               
 };
@@ -8575,6 +8613,7 @@ struct AAliceGamePawn_execMAT_SetAnimPosition_Params
 	class FName                                        InAnimSeqName;                                    // 0x000C (0x0008) [0x0000000000000080] (CPF_Parm)    
 	float                                              InPosition;                                       // 0x0014 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bFireNotifies : 1;                                // 0x0018 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x001C CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bLooping : 1;                                     // 0x001C (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
 	int32_t                                            RootMotionLevel;                                  // 0x0020 (0x0004) [0x0000000000000080] (CPF_Parm)    
 };
@@ -8585,7 +8624,9 @@ struct AAliceGamePawn_execStopAllConfigAnim_Params
 {
 	float                                              BlendOutTime;                                     // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bForceStop : 1;                                   // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bForceAnimNotify : 1;                             // 0x0008 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x000C CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bForceAnimEnd : 1;                                // 0x000C (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 };
 
@@ -8596,7 +8637,9 @@ struct AAliceGamePawn_execStopConfigAnim_Params
 	struct FAnimationParaConfig                        AnimConfig;                                       // 0x0000 (0x0038) [0x0000000000400182] (CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink)
 	float                                              BlendOutTime;                                     // 0x0038 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bForceStop : 1;                                   // 0x003C (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0040 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bForceAnimNotify : 1;                             // 0x0040 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0044 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bForceAnimEnd : 1;                                // 0x0044 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 };
 
@@ -9204,6 +9247,7 @@ struct AAliceGameKynapsePawn_eventTakeDamage_Params
 struct AAliceGameKynapsePawn_execShouldDoKnockBack_Params
 {
 	uint8_t                                            DmgStrength;                                      // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -9608,6 +9652,7 @@ struct AAlicePawn_execGetContextEvents_Params
 struct AAlicePawn_execActivateContextEventClass_Params
 {
 	uint8_t                                            InContextItem;                                    // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	class TArray<class USequenceEvent*>                EventList;                                        // 0x0004 (0x000C) [0x0000000000400182] (CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink)
 	class TArray<int32_t>                              ActivateIndices;                                  // 0x0010 (0x000C) [0x0000000000400192] (CPF_Const | CPF_OptionalParm | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink)
 	uint32_t                                           bTest : 1;                                        // 0x001C (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
@@ -9623,6 +9668,7 @@ struct AAlicePawn_execActivateContextEventClass_Params
 struct AAlicePawn_execTriggerContextEventClass_Params
 {
 	uint8_t                                            ContextItem;                                      // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	int32_t                                            ActivateIndex;                                    // 0x0004 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint32_t                                           bTest : 1;                                        // 0x0008 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 	class TArray<class USequenceEvent*>                ActivatedEvents;                                  // 0x000C (0x000C) [0x0000000000400190] (CPF_OptionalParm | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink)
@@ -9635,6 +9681,7 @@ struct AAlicePawn_execTriggerContextEventClass_Params
 struct AAlicePawn_execCanDoContextAction_Params
 {
 	uint32_t                                           bClockBomb : 1;                                   // 0x0000 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -9862,6 +9909,7 @@ struct AAlicePawn_eventSetWonderlandDress_Params
 struct AAlicePawn_execCheckPendingAndCurrentDress_Params
 {
 	uint8_t                                            DressID;                                          // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -9870,6 +9918,7 @@ struct AAlicePawn_execCheckPendingAndCurrentDress_Params
 struct AAlicePawn_execDelayedChangeWonderlandDress_Params
 {
 	uint8_t                                            NewDress;                                         // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	uint32_t                                           bShouldBlock : 1;                                 // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 	class UGFxMovie*                                   pGFXMovie;                                        // 0x0008 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	int32_t                                            ReturnValue;                                      // 0x000C (0x0004) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
@@ -9880,6 +9929,7 @@ struct AAlicePawn_execDelayedChangeWonderlandDress_Params
 struct AAlicePawn_execChangeWonderlandDress_Params
 {
 	uint8_t                                            NewDress;                                         // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	uint32_t                                           bShouldBlock : 1;                                 // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 	class UGFxMovie*                                   pGFXMovie;                                        // 0x0008 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint32_t                                           bWithoutDressCheck : 1;                           // 0x000C (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
@@ -9909,6 +9959,7 @@ struct AAlicePawn_execUpdateAliceDressLoading_Params
 struct AAlicePawn_execDoesWonderlandDressPackageExist_Params
 {
 	uint8_t                                            Dress;                                            // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -9931,6 +9982,7 @@ struct AAlicePawn_execSetUserWonderlandDress_Params
 struct AAlicePawn_execIsLoadingWonderlandDressPackage_Params
 {
 	uint8_t                                            Dress;                                            // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -9939,6 +9991,7 @@ struct AAlicePawn_execIsLoadingWonderlandDressPackage_Params
 struct AAlicePawn_execLoadWonderlandDressPackage_Params
 {
 	uint8_t                                            Dress;                                            // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	uint32_t                                           bShouldBlock : 1;                                 // 0x0004 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
 	class UGFxMovie*                                   pGFXMovie;                                        // 0x0008 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	int32_t                                            ReturnValue;                                      // 0x000C (0x0004) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
@@ -10499,6 +10552,7 @@ struct AAlicePawn_execSetUsingCommLink_Params
 struct AAlicePawn_eventSetConversing_Params
 {
 	uint32_t                                           bConv : 1;                                        // 0x0000 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bUseCommLink : 1;                                 // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 };
 
@@ -10681,6 +10735,7 @@ struct AAlicePawn_execUpdateFreezingHit_Params
 struct AAlicePawn_execShouldDoKnockBack_Params
 {
 	uint8_t                                            DmgStrength;                                      // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -10858,6 +10913,7 @@ struct AAlicePawn_eventIsDoubleJumping_Params
 struct AAlicePawn_execDoJump_Params
 {
 	uint32_t                                           bUpdating : 1;                                    // 0x0000 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 	// float                                           OldVelocityZ;                                     // 0x0008 (0x0004) [0x0000000000000000]               
 };
@@ -11165,6 +11221,7 @@ struct AAlicePawn_execBlendShrinkCameraDistance_Params
 {
 	float                                              fDeltaTime;                                       // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bShrinking : 1;                                   // 0x0004 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bForceSet : 1;                                    // 0x0008 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 	// float                                           Weight;                                           // 0x000C (0x0004) [0x0000000000000000]               
 };
@@ -11238,6 +11295,7 @@ struct AAlicePawn_eventSetAliceAbilityCamera_Params
 {
 	struct FAliceCameraProperties                      ACP;                                              // 0x0000 (0x0078) [0x0000000000000180] (CPF_Parm | CPF_OutParm)
 	uint32_t                                           bSetBackToDefault : 1;                            // 0x0078 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x007C CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bChangeAnim : 1;                                  // 0x007C (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 	// struct FAliceCameraProperties                   CamPreset;                                        // 0x0080 (0x0078) [0x0000000000000000]               
 	// struct FAliceCameraProperties                   FlagACP;                                          // 0x00F8 (0x0078) [0x0000000000000000]               
@@ -11273,6 +11331,7 @@ struct AAlicePawn_eventSetAliceCameraProperties_Params
 {
 	struct FAliceCameraProperties                      ACP;                                              // 0x0000 (0x0078) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bSetBackToDefault : 1;                            // 0x0078 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x007C CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bChangeAnim : 1;                                  // 0x007C (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 };
 
@@ -11696,6 +11755,7 @@ struct AAlicePawn_execForceWeaponSetHidden_Params
 struct AAlicePawn_execWeaponSetHidden_Params
 {
 	uint32_t                                           Set : 1;                                          // 0x0000 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bForce : 1;                                       // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 };
 
@@ -12639,6 +12699,7 @@ struct AAlicePlayerCamera_execCanSeeEx_Params
 	struct FVector                                     vLocation;                                        // 0x0000 (0x000C) [0x0000000000000080] (CPF_Parm)    
 	float                                              Scale;                                            // 0x000C (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint32_t                                           bNeedOcclusionTesting : 1;                        // 0x0010 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0014 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0014 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 	// uint32_t                                        bResult : 1;                                      // 0x0018 (0x0004) [0x0000000000000000] [0x00000001] 
 	// class AActor*                                   HitActor;                                         // 0x001C (0x0004) [0x0000000000000000]               
@@ -12760,6 +12821,7 @@ struct AAlicePlayerCamera_execTickCheatCommand_Params
 struct AAlicePlayerCamera_execToggleHide_Params
 {
 	uint32_t                                           bHide : 1;                                        // 0x0000 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bDrawHint : 1;                                    // 0x0004 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
 	// class AAlicePlayerController*                   APC;                                              // 0x0008 (0x0004) [0x0000000000000000]               
 };
@@ -12800,6 +12862,7 @@ struct AAlicePlayerCamera_execProjectWithMatrix_Params
 {
 	struct FMatrix                                     ProjMatrix;                                       // 0x0000 (0x0040) [0x0000000000000180] (CPF_Parm | CPF_OutParm)
 	struct FVector                                     vLocation;                                        // 0x0040 (0x000C) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x4];                              // 0x004C (0x0004) MISSED OFFSET
 	struct FPlane                                      ReturnValue;                                      // 0x0050 (0x0010) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -12816,6 +12879,7 @@ struct AAlicePlayerCamera_execCalcViewMatrix_Params
 {
 	struct FRotator                                    ViewRotation;                                     // 0x0000 (0x000C) [0x0000000000000080] (CPF_Parm)    
 	struct FVector                                     ViewLocation;                                     // 0x000C (0x000C) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x8];                              // 0x0018 (0x0008) MISSED OFFSET
 	struct FMatrix                                     ReturnValue;                                      // 0x0020 (0x0040) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -12972,6 +13036,7 @@ struct AAlicePlayerCamera_execSetProjectionInfo_Params
 	struct FMatrix                                     ProjMatrix;                                       // 0x0000 (0x0040) [0x0000000000000080] (CPF_Parm)    
 	float                                              CX;                                               // 0x0040 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	float                                              CY;                                               // 0x0044 (0x0004) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x8];                              // 0x0048 (0x0008) MISSED OFFSET
 	struct FMatrix                                     VMatrix;                                          // 0x0050 (0x0040) [0x0000000000000080] (CPF_Parm)    
 	struct FMatrix                                     PersMatrix;                                       // 0x0090 (0x0040) [0x0000000000000080] (CPF_Parm)    
 };
@@ -13020,6 +13085,7 @@ struct AAlicePlayerCamera_execGetCameraTrackElapsedTime_Params
 struct AAlicePlayerCamera_execProject_Params
 {
 	struct FVector                                     Position;                                         // 0x0000 (0x000C) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x4];                              // 0x000C (0x0004) MISSED OFFSET
 	struct FPlane                                      ReturnValue;                                      // 0x0010 (0x0010) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -13170,6 +13236,7 @@ struct AAlicePlayerController_execOnLoginStatusChange_Params
 {
 	uint8_t                                            NewStatus;                                        // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            PreviousStatus;                                   // 0x0001 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x2];                              // 0x0002 (0x0002) MISSED OFFSET
 	struct FUniqueNetId                                NewId;                                            // 0x0004 (0x0008) [0x0000000000000080] (CPF_Parm)    
 };
 
@@ -13312,6 +13379,7 @@ struct AAlicePlayerController_execUI_PlayMemory_Params
 {
 	class FString                                      Filename;                                         // 0x0000 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 	uint32_t                                           bBlock : 1;                                       // 0x000C (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0010 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bSoundOnly : 1;                                   // 0x0010 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 	class UAliceGFXMovie*                              pGFXMovie;                                        // 0x0014 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 };
@@ -14442,12 +14510,19 @@ struct AAlicePlayerController_execForceEndStateInCinematic_Params
 struct AAlicePlayerController_execSetCinematicMode_Params
 {
 	uint32_t                                           bInCinematicMode : 1;                             // 0x0000 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bHidePlayer : 1;                                  // 0x0004 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bAffectsHUD : 1;                                  // 0x0008 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x000C CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bAffectsMovement : 1;                             // 0x000C (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0010 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bAffectsTurning : 1;                              // 0x0010 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0014 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bAffectsButtons : 1;                              // 0x0014 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0018 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bHideCurrenWeapon : 1;                            // 0x0018 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x001C CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bPauseClockBomb : 1;                              // 0x001C (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
 	// struct FRotator                                 ResetRoll;                                        // 0x0020 (0x000C) [0x0000000000000000]               
 	// uint8_t                                         CinematicPhysic;                                  // 0x002C (0x0001) [0x0000000000000000]               
@@ -14458,9 +14533,13 @@ struct AAlicePlayerController_execSetCinematicMode_Params
 struct AAlicePlayerController_execClientSetCinematicMode_Params
 {
 	uint32_t                                           bInCinematicMode : 1;                             // 0x0000 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bAffectsMovement : 1;                             // 0x0004 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bAffectsTurning : 1;                              // 0x0008 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x000C CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bAffectsHUD : 1;                                  // 0x000C (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0010 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bHideCurrenWeapon : 1;                            // 0x0010 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
 	// class AHealthPickup*                            HP;                                               // 0x0014 (0x0004) [0x0000000000000000]               
 	// class AXPPickup*                                XP;                                               // 0x0018 (0x0004) [0x0000000000000000]               
@@ -14586,6 +14665,7 @@ struct AAlicePlayerController_execnotifyInputKey_Params
 	int32_t                                            ControllerId;                                     // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	class FName                                        Key;                                              // 0x0004 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            Event;                                            // 0x000C (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x000D (0x0003) MISSED OFFSET
 	float                                              AmountDepressed;                                  // 0x0010 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bGamepad : 1;                                     // 0x0014 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
 	// class USeqAct_Interp*                           Matinee;                                          // 0x0018 (0x0004) [0x0000000000000000]               
@@ -14821,6 +14901,7 @@ struct AAlicePlayerController_execEndSpecialMove_Params
 struct AAlicePlayerController_eventDoSpecialMove_Params
 {
 	uint8_t                                            NewMove;                                          // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	uint32_t                                           bForceMove : 1;                                   // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 	class AAliceGamePawn*                              InInteractionPawn;                                // 0x0008 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	int32_t                                            InSpecialMoveFlags;                               // 0x000C (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
@@ -14832,7 +14913,9 @@ struct AAlicePlayerController_eventDoSpecialMove_Params
 struct AAlicePlayerController_execCanDoSpecialMove_Params
 {
 	uint8_t                                            AMove;                                            // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	uint32_t                                           bForceCheck : 1;                                  // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0008 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -14841,6 +14924,7 @@ struct AAlicePlayerController_execCanDoSpecialMove_Params
 struct AAlicePlayerController_execIsDoingSpecialMove_Params
 {
 	uint8_t                                            AMove;                                            // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -14899,6 +14983,7 @@ struct AAlicePlayerController_execServerAbortConversation_Params
 struct AAlicePlayerController_eventClientSetConversationMode_Params
 {
 	uint32_t                                           bEnabled : 1;                                     // 0x0000 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bAbortable : 1;                                   // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 };
 
@@ -14993,6 +15078,7 @@ struct AAlicePlayerController_execStopForceLookAtPointOfInterest_Params
 struct AAlicePlayerController_execClearFocusPoint_Params
 {
 	uint32_t                                           bFromKismet : 1;                                  // 0x0000 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bForceLeaveRotation : 1;                          // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 	// uint32_t                                        bLeaveRotation : 1;                               // 0x0008 (0x0004) [0x0000000000000000] [0x00000001] 
 };
@@ -15007,7 +15093,9 @@ struct AAlicePlayerController_execSetFocusPoint_Params
 	struct FVector2D                                   InFocusFOV;                                       // 0x0010 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	float                                              CameraFOV;                                        // 0x0018 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint32_t                                           bAlwaysFocus : 1;                                 // 0x001C (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0020 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bAdjustCamera : 1;                                // 0x0020 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0024 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bIgnoreTrace : 1;                                 // 0x0024 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 	class FName                                        FocusBoneName;                                    // 0x0028 (0x0008) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 };
@@ -15112,6 +15200,7 @@ struct AAlicePlayerController_execPlayCameraAnim_Params
 	float                                              BlendInTime;                                      // 0x0010 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	float                                              BlendOutTime;                                     // 0x0014 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint32_t                                           bLoop : 1;                                        // 0x0018 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x001C CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bIsDamageShake : 1;                               // 0x001C (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 };
 
@@ -15600,6 +15689,7 @@ struct AAlicePlayerController_execCanDodge_Params
 struct AAlicePlayerController_execTrySlideOnDodge_Params
 {
 	uint8_t                                            DodgeDir;                                         // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 	// class AWeaponForAlice*                          Weapon;                                           // 0x0008 (0x0004) [0x0000000000000000]               
 	// struct FVector                                  vOffset;                                          // 0x000C (0x000C) [0x0000000000000000]               
@@ -15777,7 +15867,9 @@ struct AAlicePlayerController_execIsOnSlidePlatform_Params
 struct AAlicePlayerController_execRecoverToDefaultStatus_Params
 {
 	uint32_t                                           bResetControllerState : 1;                        // 0x0000 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bStopFiring : 1;                                  // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bQuitShrinking : 1;                               // 0x0008 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 };
 
@@ -16436,6 +16528,7 @@ struct AAlicePlayerController_execResetInputFlags_Params
 struct AAlicePlayerController_execUpdateComboInputState_Params
 {
 	uint8_t                                            curInput;                                         // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -17040,6 +17133,7 @@ struct AAlicePlayerController_execPlayBinkFile_Params
 {
 	class FString                                      Filename;                                         // 0x0000 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 	uint32_t                                           bBlock : 1;                                       // 0x000C (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0010 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bSoundOnly : 1;                                   // 0x0010 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 };
 
@@ -17055,6 +17149,7 @@ struct AAlicePlayerController_execDoesAliceGameSupportSecondController_Params
 struct AAlicePlayerController_execSwitchAliceArcheTypePointer_Params
 {
 	uint8_t                                            nAliceArcheType;                                  // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -17133,8 +17228,11 @@ struct UAliceObjectiveManager_execUpdateObjective_Params
 	class FName                                        ObjectiveName;                                    // 0x0000 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	class FString                                      ObjectiveDesc;                                    // 0x0008 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 	uint32_t                                           bUpdated : 1;                                     // 0x0014 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0018 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bCompleted : 1;                                   // 0x0018 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x001C CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bFailed : 1;                                      // 0x001C (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0020 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bNotifyPlayer : 1;                                // 0x0020 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
 	// int32_t                                         Idx;                                              // 0x0024 (0x0004) [0x0000000000000000]               
 };
@@ -17422,6 +17520,7 @@ struct AAliceRemoteSpeaker_execPlayQueuedSpeakLine_Params
 struct AAliceRemoteSpeaker_execShouldFilterOutSpeech_Params
 {
 	uint8_t                                            Filter;                                           // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	class AActor*                                      Addressee;                                        // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	bool                                               ReturnValue : 1;                                  // 0x0008 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 	// class APlayerController*                        PC;                                               // 0x000C (0x0004) [0x0000000000000000]               
@@ -17445,6 +17544,7 @@ struct AAliceRemoteSpeaker_eventRemoteSpeakLine_Params
 	uint32_t                                           bSuppressSubtitle : 1;                            // 0x0018 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 	uint8_t                                            MPBroadcastFilter;                                // 0x001C (0x0001) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint8_t                                            Priority;                                         // 0x001D (0x0001) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	uint8_t                                            UnknownData00[0x2];                              // 0x001E (0x0002) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0020 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -17453,6 +17553,7 @@ struct AAliceRemoteSpeaker_eventRemoteSpeakLine_Params
 struct AAliceSpeechManager_execIsSpeechActive_Params
 {
 	uint8_t                                            PriFilter;                                        // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 	// int32_t                                         Idx;                                              // 0x0008 (0x0004) [0x0000000000000000]               
 };
@@ -17614,7 +17715,7 @@ struct UAliceGFxFSCmdHandler_eventFSCommand_Params
 
 // Function AliceGame.AliceGFxMovieGameMenu.PlaySound
 // [0x00020002] 
-struct UAliceGFxMovieGameMenu_execPlaySoundW_Params
+struct UAliceGFxMovieGameMenu_execPlaySoundWin_Params
 {
 	int32_t                                            Index;                                            // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 };
@@ -17669,6 +17770,7 @@ struct UAliceGFxMovieGameMenu_eventOnClose_Params
 struct UAliceGFxMovieGameMenu_execStart_Params
 {
 	uint32_t                                           StartPaused : 1;                                  // 0x0000 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 	// struct FVector2D                                ViewSize;                                         // 0x0008 (0x0008) [0x0000000000000000]               
 };
@@ -17690,6 +17792,7 @@ struct UAliceSpecialMove_execPreSpecialMove_Params
 struct UAliceSpecialMove_execRootMotionExtracted_Params
 {
 	class USkeletalMeshComponent*                      SkelComp;                                         // 0x0000 (0x0004) [0x0000000004000080] (CPF_Parm | CPF_EditInline)
+	uint8_t                                            UnknownData00[0xC];                              // 0x0004 (0x000C) MISSED OFFSET
 	struct FBoneAtom                                   ExtractedRootMotionDelta;                         // 0x0010 (0x0020) [0x0000000000000180] (CPF_Parm | CPF_OutParm)
 };
 
@@ -17782,6 +17885,7 @@ struct UAliceSpecialMove_execInternalCanDoSpecialMove_Params
 struct UAliceSpecialMove_execCanDoSpecialMove_Params
 {
 	uint32_t                                           bForceCheck : 1;                                  // 0x0000 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -17790,6 +17894,7 @@ struct UAliceSpecialMove_execCanDoSpecialMove_Params
 struct UAliceSpecialMove_execCanOverrideSpecialMove_Params
 {
 	uint8_t                                            InMove;                                           // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -17798,6 +17903,7 @@ struct UAliceSpecialMove_execCanOverrideSpecialMove_Params
 struct UAliceSpecialMove_execCanOverrideMoveWith_Params
 {
 	uint8_t                                            NewMove;                                          // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -17806,6 +17912,7 @@ struct UAliceSpecialMove_execCanOverrideMoveWith_Params
 struct UAliceSpecialMove_execCanChainMove_Params
 {
 	uint8_t                                            NextMove;                                         // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -18407,6 +18514,7 @@ struct UASM_Rotate_execGetAnimation_Params
 struct UASM_ShieldBreakingDash_execCanChainMove_Params
 {
 	uint8_t                                            NextMove;                                         // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -18509,6 +18617,7 @@ struct UASM_SlideToTarget_execSpecialMoveStarted_Params
 struct UASM_ToggleShrink_execCanChainMove_Params
 {
 	uint8_t                                            NextMove;                                         // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -18557,6 +18666,7 @@ struct UASM_WeaponCMABase_execPreSpecialMove_Params
 struct UASM_WeaponCMABase_execCanOverrideMoveWith_Params
 {
 	uint8_t                                            NewMove;                                          // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -18565,6 +18675,7 @@ struct UASM_WeaponCMABase_execCanOverrideMoveWith_Params
 struct UASM_WeaponCMABase_execCanChainMove_Params
 {
 	uint8_t                                            NextMove;                                         // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -18620,6 +18731,7 @@ struct AContextActor_eventSetAnimPosition_Params
 	class FName                                        InAnimSeqName;                                    // 0x000C (0x0008) [0x0000000000000080] (CPF_Parm)    
 	float                                              InPosition;                                       // 0x0014 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bFireNotifies : 1;                                // 0x0018 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x001C CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bLooping : 1;                                     // 0x001C (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
 	int32_t                                            RootMotionLevel;                                  // 0x0020 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	// class UAnimNodeSequence*                        SeqNode;                                          // 0x0024 (0x0004) [0x0000000000000000]               
@@ -18833,6 +18945,7 @@ struct AContextActor_execPlayLoopAnimation_Params
 {
 	class FName                                        InSeqName;                                        // 0x0000 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bCauseAnimEnd : 1;                                // 0x0008 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x000C CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bLoop : 1;                                        // 0x000C (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 	float                                              fBlendTime;                                       // 0x0010 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	// class UAnimNodeSequence*                        SeqNode;                                          // 0x0014 (0x0004) [0x0000000000000000]               
@@ -19033,6 +19146,7 @@ struct AAliceChessBoard_execIsBlockEachOther_Params
 {
 	uint8_t                                            outAction1;                                       // 0x0000 (0x0001) [0x0000000000000190] (CPF_OptionalParm | CPF_Parm | CPF_OutParm)
 	uint8_t                                            outAction2;                                       // 0x0001 (0x0001) [0x0000000000000190] (CPF_OptionalParm | CPF_Parm | CPF_OutParm)
+	uint8_t                                            UnknownData00[0x2];                              // 0x0002 (0x0002) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -19042,6 +19156,7 @@ struct AAliceChessBoard_execIsBlocked_Params
 {
 	struct AAliceBlockPuzzleBoard_FPieceLoc            Loc;                                              // 0x0000 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            outAction;                                        // 0x0008 (0x0001) [0x0000000000000190] (CPF_OptionalParm | CPF_Parm | CPF_OutParm)
+	uint8_t                                            UnknownData00[0x3];                              // 0x0009 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x000C (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 	// int32_t                                         I;                                                // 0x0010 (0x0004) [0x0000000000000000]               
 };
@@ -19073,6 +19188,7 @@ struct AAliceChessBoard_execcanShowResetMenu_Params
 struct AAliceChessBoard_execHandleCommand_Params
 {
 	uint8_t                                            Command;                                          // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	float                                              DeltaTime;                                        // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 };
 
@@ -19089,6 +19205,7 @@ struct AAliceChessBoard_execIsAnyTrapMoving_Params
 struct AAliceChessBoard_execGetCornerRawLoc_Params
 {
 	uint8_t                                            corner;                                           // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FVector                                     ReturnValue;                                      // 0x0004 (0x000C) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 	// struct FVector                                  vResult;                                          // 0x0010 (0x000C) [0x0000000000000000]               
 	// float                                           fLength;                                          // 0x001C (0x0004) [0x0000000000000000]               
@@ -19685,6 +19802,7 @@ struct AAliceBlockPuzzleBoard_execCheckPuzzleComplete_Params
 struct AAliceBlockPuzzleBoard_execGetCornerRawLoc_Params
 {
 	uint8_t                                            corner;                                           // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	struct FVector                                     ReturnValue;                                      // 0x0004 (0x000C) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 	// struct FVector                                  vResult;                                          // 0x0010 (0x000C) [0x0000000000000000]               
 	// float                                           fLength;                                          // 0x001C (0x0004) [0x0000000000000000]               
@@ -19793,6 +19911,7 @@ struct AAliceBlockPuzzleBoard_execIsMoving_Params
 struct AAliceBlockPuzzleBoard_execHandleCommand_Params
 {
 	uint8_t                                            Command;                                          // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	float                                              DeltaTime;                                        // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 };
 
@@ -20010,6 +20129,7 @@ struct UAlicePlayerInput_eventExecInputKey_Params
 	int32_t                                            ControllerId;                                     // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	class FName                                        Key;                                              // 0x0004 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            Event;                                            // 0x000C (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x000D (0x0003) MISSED OFFSET
 	float                                              AmountDepressed;                                  // 0x0010 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bGamepad : 1;                                     // 0x0014 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
 	// class AAlicePlayerController*                   APC;                                              // 0x0018 (0x0004) [0x0000000000000000]               
@@ -20744,6 +20864,7 @@ struct UAliceCheatManager_execSetGlideType_Params
 struct UAliceCheatManager_execToggleHide_Params
 {
 	uint32_t                                           bHide : 1;                                        // 0x0000 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bDrawHint : 1;                                    // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 	// class AAlicePlayerCamera*                       AliceCamera;                                      // 0x0008 (0x0004) [0x0000000000000000]               
 };
@@ -21379,6 +21500,7 @@ struct AAliceChessWhitePiece_eventOnAnimEnd_Params
 struct UASM_BeGrabbed_execCanChainMove_Params
 {
 	uint8_t                                            NextMove;                                         // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -21432,7 +21554,7 @@ struct UAliceGFXMovie_execRestart_Params
 
 // Function AliceGame.AliceGFXMovie.PlaySound
 // [0x00020002] 
-struct UAliceGFXMovie_execPlaySoundW_Params
+struct UAliceGFXMovie_execPlaySoundWin_Params
 {
 	class FString                                      Index;                                            // 0x0000 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 };
@@ -21782,6 +21904,7 @@ struct UAliceGFXMovie_execPlayMemory_Params
 {
 	class FString                                      Filename;                                         // 0x0000 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 	uint32_t                                           bBlock : 1;                                       // 0x000C (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0010 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bSoundOnly : 1;                                   // 0x0010 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 };
 
@@ -22095,6 +22218,7 @@ struct UAliceGFXMovie_execgetAliceKeyBind_Params
 {
 	uint8_t                                            nKeyType;                                         // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            nKeyGroup;                                        // 0x0001 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x2];                              // 0x0002 (0x0002) MISSED OFFSET
 	class FString                                      ReturnValue;                                      // 0x0004 (0x000C) [0x0000000000400580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink)
 };
 
@@ -22590,6 +22714,7 @@ struct UAliceGFXMovie_eventOnClose_Params
 struct UAliceGFXMovie_execStart_Params
 {
 	uint32_t                                           StartPaused : 1;                                  // 0x0000 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -22641,7 +22766,7 @@ struct UAliceGFXMovie_execPlayWeaponPickupSound_Params
 
 // Function AliceGame.AliceGFXMovie.PlaySoundWhenPause
 // [0x00020002] 
-struct UAliceGFXMovie_execPlaySoundWhenPauseW_Params
+struct UAliceGFXMovie_execPlaySoundWhenPauseWin_Params
 {
 	class USoundCue*                                   Sound;                                            // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	// class UAudioComponent*                          AC;                                               // 0x0004 (0x0004) [0x0000000004000000] (CPF_EditInline)
@@ -22841,6 +22966,7 @@ struct UAliceConfigDataManager_execgetRemovedAliceKeyBind_Params
 	int32_t                                            Index;                                            // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            nKeyType;                                         // 0x0004 (0x0001) [0x0000000000000180] (CPF_Parm | CPF_OutParm)
 	uint8_t                                            nKeyGroup;                                        // 0x0005 (0x0001) [0x0000000000000180] (CPF_Parm | CPF_OutParm)
+	uint8_t                                            UnknownData00[0x2];                              // 0x0006 (0x0002) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0008 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 	// uint32_t                                        bHasData : 1;                                     // 0x000C (0x0004) [0x0000000000000000] [0x00000001] 
 };
@@ -22851,6 +22977,7 @@ struct UAliceConfigDataManager_execgetAliceKeyBind_Params
 {
 	uint8_t                                            nKeyType;                                         // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            nKeyGroup;                                        // 0x0001 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x2];                              // 0x0002 (0x0002) MISSED OFFSET
 	class FName                                        ReturnValue;                                      // 0x0004 (0x0008) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -23140,14 +23267,14 @@ struct UAliceConfigDataManager_execgetDifficulty_Params
 
 // Function AliceGame.AliceGFxMovie_HUD.PlaySound
 // [0x00020002] 
-struct UAliceGFxMovie_HUD_execPlaySoundW_Params
+struct UAliceGFxMovie_HUD_execPlaySoundWin_Params
 {
 	class FString                                      Index;                                            // 0x0000 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 };
 
 // Function AliceGame.AliceGFxMovie_HUD.PlaySoundWhenPause
 // [0x00020002] 
-struct UAliceGFxMovie_HUD_execPlaySoundWhenPauseW_Params
+struct UAliceGFxMovie_HUD_execPlaySoundWhenPauseWin_Params
 {
 	class USoundCue*                                   Sound;                                            // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	// class UAudioComponent*                          AC;                                               // 0x0004 (0x0004) [0x0000000004000000] (CPF_EditInline)
@@ -23687,7 +23814,7 @@ struct UAliceGFxMovie_HUD_eventOnClose_Params
 
 // Function AliceGame.AliceGfxMovie_inGameMenu.PlaySound
 // [0x00020002] 
-struct UAliceGfxMovie_inGameMenu_execPlaySoundW_Params
+struct UAliceGfxMovie_inGameMenu_execPlaySoundWin_Params
 {
 	class FString                                      Index;                                            // 0x0000 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 };
@@ -23830,7 +23957,7 @@ struct UAliceGfxMovie_inGameMenu_execLoadCheckpoint_Params
 
 // Function AliceGame.AliceGfxMovie_inGameMenu.PlaySoundWhenPause
 // [0x00020002] 
-struct UAliceGfxMovie_inGameMenu_execPlaySoundWhenPauseW_Params
+struct UAliceGfxMovie_inGameMenu_execPlaySoundWhenPauseWin_Params
 {
 	class USoundCue*                                   Sound;                                            // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 };
@@ -23955,11 +24082,14 @@ struct APepperGrinderAlternateProjectile_execGetDLCWeaponFlag_Params
 struct ADropItemsFactory_execDropPickupsForGBA_Params
 {
 	uint32_t                                           bCanSpawnHealth : 1;                              // 0x0000 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bCanSpawnXP : 1;                                  // 0x0004 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           UseSmartHealthSpawn : 1;                          // 0x0008 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
 	int32_t                                            nManualHPAmount;                                  // 0x000C (0x0004) [0x0000000000000080] (CPF_Parm)    
 	int32_t                                            nManualXPAmount;                                  // 0x0010 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            FixedXPEnum;                                      // 0x0014 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0015 (0x0003) MISSED OFFSET
 	int32_t                                            LayoutRadius;                                     // 0x0018 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	// int32_t                                         nLargeHP;                                         // 0x001C (0x0004) [0x0000000000000000]               
 	// int32_t                                         nSmallHP;                                         // 0x0020 (0x0004) [0x0000000000000000]               
@@ -23975,13 +24105,17 @@ struct ADropItemsFactory_execDropPickupsForGBA_Params
 struct ADropItemsFactory_execDropPickupsForNPC_Params
 {
 	uint32_t                                           bCanSpawnHealth : 1;                              // 0x0000 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bCanSpawnXP : 1;                                  // 0x0004 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           UseSmartHealthSpawn : 1;                          // 0x0008 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
 	int32_t                                            nManualHPAmount;                                  // 0x000C (0x0004) [0x0000000000000080] (CPF_Parm)    
 	int32_t                                            nManualXPAmount;                                  // 0x0010 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            FixedXPEnum;                                      // 0x0014 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0015 (0x0003) MISSED OFFSET
 	int32_t                                            LayoutRadius;                                     // 0x0018 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint32_t                                           bForceUseManualHP : 1;                            // 0x001C (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0020 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bForceUseManualXP : 1;                            // 0x0020 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 	// int32_t                                         nLargeHP;                                         // 0x0024 (0x0004) [0x0000000000000000]               
 	// int32_t                                         nSmallHP;                                         // 0x0028 (0x0004) [0x0000000000000000]               
@@ -24018,6 +24152,7 @@ struct ADropItemsFactory_execSpawnPickups_Params
 struct ADropItemsFactory_execGetGBADropXPValue_Params
 {
 	uint8_t                                            FixedXPEnum;                                      // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	int32_t                                            nManualXPAmount;                                  // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	int32_t                                            ReturnValue;                                      // 0x0008 (0x0004) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 	// int32_t                                         nXPValue;                                         // 0x000C (0x0004) [0x0000000000000000]               
@@ -24029,6 +24164,7 @@ struct ADropItemsFactory_execGetGBADropXPValue_Params
 struct ADropItemsFactory_execGetNPCDropXPValue_Params
 {
 	uint8_t                                            FixedXPEnum;                                      // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	int32_t                                            nManualXPAmount;                                  // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	int32_t                                            ReturnValue;                                      // 0x0008 (0x0004) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 	// int32_t                                         nXPValue;                                         // 0x000C (0x0004) [0x0000000000000000]               
@@ -24383,6 +24519,7 @@ struct UAlicePersistentDataManager_execsetUpgradeHealth_Params
 struct UAlicePersistentDataManager_execgetAbilityName_Params
 {
 	uint8_t                                            Index;                                            // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	class FString                                      ReturnValue;                                      // 0x0004 (0x000C) [0x0000000000400580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink)
 	// class FString                                   abilityName;                                      // 0x0010 (0x000C) [0x0000000000400000] (CPF_NeedCtorLink)
 };
@@ -24585,6 +24722,7 @@ struct AAliceInventoryManager_execAddInventory_Params
 {
 	class AInventory*                                  NewItem;                                          // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bDoNotActivate : 1;                               // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0008 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -24655,6 +24793,7 @@ struct ACheshireCatSkeletalMeshActor_execPlayCustomAnim_Params
 	float                                              BlendInTime;                                      // 0x000C (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	float                                              BlendOutTime;                                     // 0x0010 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint32_t                                           bLooping : 1;                                     // 0x0014 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0018 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bOverride : 1;                                    // 0x0018 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 	float                                              ReturnValue;                                      // 0x001C (0x0004) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
@@ -25064,6 +25203,7 @@ struct UASM_GiantStomp_execSpecialMoveStarted_Params
 struct UASM_TeapotCannonRA_Fire_execCanChainMove_Params
 {
 	uint8_t                                            NextMove;                                         // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -25105,6 +25245,7 @@ struct UASM_WeaponRABase_execSpecialMoveStarted_Params
 struct UASM_WeaponRABase_execCanChainMove_Params
 {
 	uint8_t                                            NextMove;                                         // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -25113,6 +25254,7 @@ struct UASM_WeaponRABase_execCanChainMove_Params
 struct UASM_TeapotCannonRA_Charge_execCanChainMove_Params
 {
 	uint8_t                                            NextMove;                                         // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -25137,6 +25279,7 @@ struct UASM_TeapotCannonRA_Charge_execSpecialMoveStarted_Params
 struct UASM_EyeStaffRA_Fire_execCanChainMove_Params
 {
 	uint8_t                                            NextMove;                                         // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -25161,6 +25304,7 @@ struct UASM_EyeStaffRA_Fire_execSpecialMoveStarted_Params
 struct UASM_EyeStaffRA_NoAmmo_execCanChainMove_Params
 {
 	uint8_t                                            NextMove;                                         // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -25185,6 +25329,7 @@ struct UASM_EyeStaffRA_NoAmmo_execSpecialMoveStarted_Params
 struct UASM_EyeStaffRA_DoubleFire_execCanChainMove_Params
 {
 	uint8_t                                            NextMove;                                         // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -25209,6 +25354,7 @@ struct UASM_EyeStaffRA_DoubleFire_execSpecialMoveStarted_Params
 struct UASM_EyeStaffRA_DoubleFireReady_execCanChainMove_Params
 {
 	uint8_t                                            NextMove;                                         // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -25233,6 +25379,7 @@ struct UASM_EyeStaffRA_DoubleFireReady_execSpecialMoveStarted_Params
 struct UASM_EyeStaffRA_StopWindUp_execCanChainMove_Params
 {
 	uint8_t                                            NextMove;                                         // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -25257,6 +25404,7 @@ struct UASM_EyeStaffRA_StopWindUp_execSpecialMoveStarted_Params
 struct UASM_EyeStaffRA_Charge_execCanChainMove_Params
 {
 	uint8_t                                            NextMove;                                         // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -25281,6 +25429,7 @@ struct UASM_EyeStaffRA_Charge_execSpecialMoveStarted_Params
 struct UASM_EyeStaffRA_ChargeComplete_execCanChainMove_Params
 {
 	uint8_t                                            NextMove;                                         // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -25336,6 +25485,7 @@ struct UASM_VorpalBladeCMANL_execSpecialMoveStarted_Params
 struct UASM_VorpalBladeCMANL_execCanOverrideMoveWith_Params
 {
 	uint8_t                                            NewMove;                                          // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -25397,6 +25547,7 @@ struct UASM_Denotate_execGetAnimation_Params
 struct UASM_Denotate_execCanChainMove_Params
 {
 	uint8_t                                            NextMove;                                         // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -25444,6 +25595,7 @@ struct UASM_Disarm_execGetAnimation_Params
 struct UASM_Combat_Dodge_execCanChainMove_Params
 {
 	uint8_t                                            NextMove;                                         // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -25579,6 +25731,7 @@ struct UASM_GetHurt_execGetAnimation_Params
 struct UASM_GetHurt_execCanChainMove_Params
 {
 	uint8_t                                            NextMove;                                         // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -25625,6 +25778,7 @@ struct UASM_HitShieldReaction_execGetAnimation_Params
 struct UASM_GetNPCAttached_execCanChainMove_Params
 {
 	uint8_t                                            NextMove;                                         // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -25683,6 +25837,7 @@ struct UASM_BlockReaction_execGetAnimation_Params
 struct UASM_BlockReaction_execCanChainMove_Params
 {
 	uint8_t                                            NextMove;                                         // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -26769,6 +26924,7 @@ struct UTargetingMode_MergeManager_execCycleAdd_Params
 struct UTargetingMode_MergeManager_execAdjustSwitchTargetByPriority_Params
 {
 	uint8_t                                            SCommond;                                         // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	int32_t                                            OldIndex;                                         // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	class TArray<int32_t>                              TargetPriorities;                                 // 0x0008 (0x000C) [0x0000000000400180] (CPF_Parm | CPF_OutParm | CPF_NeedCtorLink)
 	float                                              ReturnValue;                                      // 0x0014 (0x0004) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
@@ -26785,6 +26941,7 @@ struct UTargetingMode_MergeManager_execAdjustSwitchTargetByPriority_Params
 struct UTargetingMode_MergeManager_execDetermineSwitchTarget_Params
 {
 	uint8_t                                            SCommond;                                         // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 	// class TArray<class AActor*>                     MergeActors;                                      // 0x0008 (0x000C) [0x0000000000400000] (CPF_NeedCtorLink)
 	// class TArray<struct FTargetingNPCInfo>          NPCs;                                             // 0x0014 (0x000C) [0x0000000000400000] (CPF_NeedCtorLink)
@@ -27246,7 +27403,7 @@ struct UAliceGFxMovie_Credits_execPlayMusic_Params
 
 // Function AliceGame.AliceGfxMovie_musicChallenge.PlaySound
 // [0x00020002] 
-struct UAliceGfxMovie_musicChallenge_execPlaySoundW_Params
+struct UAliceGfxMovie_musicChallenge_execPlaySoundWin_Params
 {
 	class FString                                      Id;                                               // 0x0000 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 };
@@ -27354,8 +27511,10 @@ struct UAliceGfxMovie_titlePlayerMenu_execInputKey_Params
 	int32_t                                            ControllerId;                                     // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	class FName                                        Key;                                              // 0x0004 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            Event;                                            // 0x000C (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x000D (0x0003) MISSED OFFSET
 	float                                              AmountDepressed;                                  // 0x0010 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bGamepad : 1;                                     // 0x0014 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0018 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0018 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 	// class UOnlinePlayerInterface*                   PlayerInterface;                                  // 0x001C (0x0008) [0x0000000000000000]               
 	// class UOnlineSubsystem*                         OnlineSub;                                        // 0x0024 (0x0004) [0x0000000000000000]               
@@ -27398,7 +27557,7 @@ struct UAliceGfxMovie_titlePlayerMenu_execIsControllerLoggedIn_Params
 
 // Function AliceGame.AliceGfxMovie_titlePlayerMenu.PlaySound
 // [0x00020002] 
-struct UAliceGfxMovie_titlePlayerMenu_execPlaySoundW_Params
+struct UAliceGfxMovie_titlePlayerMenu_execPlaySoundWin_Params
 {
 	class FString                                      Index;                                            // 0x0000 (0x000C) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 };
@@ -28242,6 +28401,7 @@ struct UGFxMovieHudMenu_execSetupResolution_Params
 struct UGFxMovieHudMenu_execStart_Params
 {
 	uint32_t                                           StartPaused : 1;                                  // 0x0000 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 	// struct FVector2D                                ViewSize;                                         // 0x0008 (0x0008) [0x0000000000000000]               
 };
@@ -28292,6 +28452,7 @@ struct AJumpPadSkeletalMeshActor_execPlayCustomAnim_Params
 	float                                              BlendInTime;                                      // 0x000C (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	float                                              BlendOutTime;                                     // 0x0010 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint32_t                                           bLooping : 1;                                     // 0x0014 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0018 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bOverride : 1;                                    // 0x0018 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 	float                                              ReturnValue;                                      // 0x001C (0x0004) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };

@@ -1,7 +1,7 @@
 /*
 #############################################################################################
 # Alice2 (ASDK) SDK 1.0.0.0
-# Generated with the CodeRedGenerator v1.1.6
+# Generated with the CodeRedGenerator v1.2.0
 # ========================================================================================= #
 # File: Kynapse_structs.hpp
 # ========================================================================================= #
@@ -46,6 +46,7 @@ struct FFpdBuilderGraphParamsList
 struct FFpdBuilderParams
 {
 	uint8_t                                            ProjectType;                                   // 0x0000 (0x0001) [0x0000000000000002] (CPF_Const)   
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	int32_t                                            RuntimeMemory;                                 // 0x0004 (0x0004) [0x0000000000000002] (CPF_Const)   
 	class FString                                      TargetDirectory;                               // 0x0008 (0x000C) [0x0000000000400002] (CPF_Const | CPF_NeedCtorLink)
 	class FString                                      TargetName;                                    // 0x0014 (0x000C) [0x0000000000400002] (CPF_Const | CPF_NeedCtorLink)
@@ -296,6 +297,7 @@ struct FLpfContext
 	float                                              inhibitionPeriod;                              // 0x0024 (0x0004) [0x0000000000000003] (CPF_Edit | CPF_Const)
 	class UKynapseLpfPreMerger*                        lpfPreMerger;                                  // 0x0028 (0x0004) [0x000000000440000B] (CPF_Edit | CPF_Const | CPF_ExportObject | CPF_NeedCtorLink | CPF_EditInline)
 	uint8_t                                            lpf3dMode;                                     // 0x002C (0x0001) [0x0000000000000003] (CPF_Edit | CPF_Const)
+	uint8_t                                            MinStructAlignment[0x3];                         // 0x002D (0x0003) ADDED PADDING
 };
 
 // ScriptStruct Kynapse.KynapseWorldServiceAIMeshManager.AiMesh
@@ -363,6 +365,7 @@ struct FAdvancedParams
 	float                                              OverConnectionRatio;                           // 0x000C (0x0004) [0x0000000000000003] (CPF_Edit | CPF_Const)
 	int32_t                                            ComponentSizeMin;                              // 0x0010 (0x0004) [0x0000000000000003] (CPF_Edit | CPF_Const)
 	uint8_t                                            CollisionModel;                                // 0x0014 (0x0001) [0x0000000000000003] (CPF_Edit | CPF_Const)
+	uint8_t                                            MinStructAlignment[0x3];                         // 0x0015 (0x0003) ADDED PADDING
 };
 
 // ScriptStruct Kynapse.KynapseWorldServiceMapBuilder.HidingDataParams
@@ -429,6 +432,7 @@ struct FSphinxRangeAttackInfo
 struct FStrikBackConditionData
 {
 	uint8_t                                            WeaponType;                                    // 0x0000 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	uint32_t                                           bIsShield : 1;                                 // 0x0004 (0x0004) [0x0000000000000001] [0x00000001] (CPF_Edit)
 	uint32_t                                           bUseSpecialAssignShieldIndex : 1;              // 0x0004 (0x0004) [0x0000000000000001] [0x00000002] (CPF_Edit)
 	int32_t                                            SpecialAssignShieldIndex1;                     // 0x0008 (0x0004) [0x0000000000000001] (CPF_Edit)    
@@ -453,10 +457,12 @@ struct FSphinxMiscActionData
 	float                                              ParamValue2;                                   // 0x0014 (0x0004) [0x0000000000000003] (CPF_Edit | CPF_Const)
 	class FString                                      ParamStr1;                                     // 0x0018 (0x000C) [0x0000000000400003] (CPF_Edit | CPF_Const | CPF_NeedCtorLink)
 	uint8_t                                            ParmWeaponType;                                // 0x0024 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0025 (0x0003) MISSED OFFSET
 	class FName                                        ParamStr1Fname;                                // 0x0028 (0x0008) [0x0000000000000000]               
 	uint32_t                                           DoBreakCurrentSubConditionEvent : 1;           // 0x0030 (0x0004) [0x0000000000000001] [0x00000001] (CPF_Edit)
 	uint32_t                                           DoReturnOriginalPackage : 1;                   // 0x0030 (0x0004) [0x0000000000000001] [0x00000002] (CPF_Edit)
 	uint8_t                                            ConditionType;                                 // 0x0034 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData01[0x3];                              // 0x0035 (0x0003) MISSED OFFSET
 	uint32_t                                           bAlwaysCheck : 1;                              // 0x0038 (0x0004) [0x0000000000000001] [0x00000001] (CPF_Edit)
 	uint32_t                                           bActived : 1;                                  // 0x0038 (0x0004) [0x0000000000000000] [0x00000002] 
 };
@@ -501,8 +507,10 @@ struct FAccessNPC
 struct FConditionCheckList
 {
 	uint8_t                                            CheckCondition;                                // 0x0000 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	int32_t                                            AdditionPassParam;                             // 0x0004 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	uint8_t                                            ExpressionType;                                // 0x0008 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData01[0x3];                              // 0x0009 (0x0003) MISSED OFFSET
 	int32_t                                            CheckParam;                                    // 0x000C (0x0004) [0x0000000000000001] (CPF_Edit)    
 };
 

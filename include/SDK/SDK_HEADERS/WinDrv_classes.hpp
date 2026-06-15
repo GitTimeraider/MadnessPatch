@@ -1,7 +1,7 @@
 /*
 #############################################################################################
 # Alice2 (ASDK) SDK 1.0.0.0
-# Generated with the CodeRedGenerator v1.1.6
+# Generated with the CodeRedGenerator v1.2.0
 # ========================================================================================= #
 # File: WinDrv_classes.hpp
 # ========================================================================================= #
@@ -14,14 +14,6 @@
 #ifdef _MSC_VER
 #pragma pack(push, 0x4)
 #endif
-
-// Forward Declarations
-class UClass;
-class UFunction;
-class UProperty;
-class UStructProperty;
-class UStruct;
-
 
 /*
 # ========================================================================================= #
@@ -68,7 +60,6 @@ public:
 	};
 
 };
-
 // Class WinDrv.XnaForceFeedbackManager
 // 0x0000 (0x0050 - 0x0050)
 class UXnaForceFeedbackManager : public UForceFeedbackManager
@@ -89,7 +80,6 @@ public:
 	};
 
 };
-
 /*
 # ========================================================================================= #
 #

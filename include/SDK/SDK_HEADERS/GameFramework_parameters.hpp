@@ -1,7 +1,7 @@
 /*
 #############################################################################################
 # Alice2 (ASDK) SDK 1.0.0.0
-# Generated with the CodeRedGenerator v1.1.6
+# Generated with the CodeRedGenerator v1.2.0
 # ========================================================================================= #
 # File: GameFramework_parameters.hpp
 # ========================================================================================= #
@@ -37,6 +37,7 @@ struct AGameAIController_eventGeneratePathToLocation_Params
 	struct FVector                                     Goal;                                             // 0x0000 (0x000C) [0x0000000000000080] (CPF_Parm)    
 	float                                              WithinDistance;                                   // 0x000C (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint32_t                                           bAllowPartialPath : 1;                            // 0x0010 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0014 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0014 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -47,6 +48,7 @@ struct AGameAIController_eventGeneratePathToActor_Params
 	class AActor*                                      Goal;                                             // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	float                                              WithinDistance;                                   // 0x0004 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint32_t                                           bAllowPartialPath : 1;                            // 0x0008 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x000C CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x000C (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -56,6 +58,7 @@ struct AGameAIController_execSetDesiredRotation_Params
 {
 	struct FRotator                                    TargetDesiredRotation;                            // 0x0000 (0x000C) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           InLockDesiredRotation : 1;                        // 0x000C (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0010 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           InUnlockWhenReached : 1;                          // 0x0010 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 	float                                              InterpolationTime;                                // 0x0014 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 };
@@ -509,6 +512,7 @@ struct AGameCrowdAgent_execInitializeAgent_Params
 	class UGameCrowdGroup*                             NewGroup;                                         // 0x0008 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	float                                              AgentWarmupTime;                                  // 0x000C (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bWarmupPosition : 1;                              // 0x0010 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0014 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bCheckWarmupVisibility : 1;                       // 0x0014 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
 	// uint32_t                                        bGroupDestination : 1;                            // 0x0018 (0x0004) [0x0000000000000000] [0x00000001] 
 	// uint32_t                                        bRealPreferVisible : 1;                           // 0x001C (0x0004) [0x0000000000000000] [0x00000001] 
@@ -1113,6 +1117,7 @@ struct AGameCrowdDestination_execReachedByAgent_Params
 	class AGameCrowdAgent*                             Agent;                                            // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	struct FVector                                     TestPosition;                                     // 0x0004 (0x000C) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bTestExactly : 1;                                 // 0x0010 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0014 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0014 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -1840,7 +1845,9 @@ struct AGamePawn_execStopAllConfigAnim_Params
 {
 	float                                              BlendOutTime;                                     // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bForceStop : 1;                                   // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bForceAnimNotify : 1;                             // 0x0008 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x000C CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bForceAnimEnd : 1;                                // 0x000C (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 };
 
@@ -1851,6 +1858,7 @@ struct AGamePlayerController_execClientColorFade_Params
 	struct FColor                                      FadeColor;                                        // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            FromAlpha;                                        // 0x0004 (0x0001) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            ToAlpha;                                          // 0x0005 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x2];                              // 0x0006 (0x0002) MISSED OFFSET
 	float                                              FadeTime;                                         // 0x0008 (0x0004) [0x0000000000000080] (CPF_Parm)    
 };
 
@@ -1883,7 +1891,9 @@ struct AGamePlayerController_eventClientStopMovie_Params
 {
 	float                                              DelayInSeconds;                                   // 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bAllowMovieToFinish : 1;                          // 0x0004 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bForceStopNonSkippable : 1;                       // 0x0008 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x000C CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bForceStopLoadingMovie : 1;                       // 0x000C (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
 };
 
@@ -1907,6 +1917,7 @@ struct AGamePlayerController_execKeepPlayingLoadingMovie_Params
 struct AGamePlayerController_execShowLoadingMovie_Params
 {
 	uint32_t                                           bShowMovie : 1;                                   // 0x0000 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bPauseAfterHide : 1;                              // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 	float                                              PauseDuration;                                    // 0x0008 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	float                                              KeepPlayingDuration;                              // 0x000C (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
@@ -2266,7 +2277,9 @@ struct UGameThirdPersonCamera_execSetFocusOnActor_Params
 	struct FVector2D                                   InFocusFOV;                                       // 0x0014 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	float                                              CameraFOV;                                        // 0x001C (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint32_t                                           bAlwaysFocus : 1;                                 // 0x0020 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0024 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bAdjustCamera : 1;                                // 0x0024 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0028 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bIgnoreTrace : 1;                                 // 0x0028 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 	float                                              FocusPitchOffsetDeg;                              // 0x002C (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 };
@@ -2280,7 +2293,9 @@ struct UGameThirdPersonCamera_execSetFocusOnLoc_Params
 	struct FVector2D                                   InFocusFOV;                                       // 0x0014 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	float                                              CameraFOV;                                        // 0x001C (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint32_t                                           bAlwaysFocus : 1;                                 // 0x0020 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0024 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bAdjustCamera : 1;                                // 0x0024 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0028 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bIgnoreTrace : 1;                                 // 0x0028 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 	float                                              FocusPitchOffsetDeg;                              // 0x002C (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 };
@@ -2747,6 +2762,7 @@ struct UGameSpecialMove_execInternalCanDoSpecialMove_Params
 struct UGameSpecialMove_execCanDoSpecialMove_Params
 {
 	uint32_t                                           bForceCheck : 1;                                  // 0x0000 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 

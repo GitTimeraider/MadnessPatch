@@ -1,7 +1,7 @@
 /*
 #############################################################################################
 # Alice2 (ASDK) SDK 1.0.0.0
-# Generated with the CodeRedGenerator v1.1.6
+# Generated with the CodeRedGenerator v1.2.0
 # ========================================================================================= #
 # File: SdkHeaders.hpp
 # ========================================================================================= #
@@ -42,6 +42,8 @@
 #include "SDK_HEADERS/AliceGame_structs.hpp"
 #include "SDK_HEADERS/AliceGame_classes.hpp"
 #include "SDK_HEADERS/AliceGame_parameters.hpp"
+
+#include "SDK_HEADERS/SdkHelpers.hpp"
 
 /*
 # ========================================================================================= #

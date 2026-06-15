@@ -1,7 +1,7 @@
 /*
 #############################################################################################
 # Alice2 (ASDK) SDK 1.0.0.0
-# Generated with the CodeRedGenerator v1.1.6
+# Generated with the CodeRedGenerator v1.2.0
 # ========================================================================================= #
 # File: GameDefines.hpp
 # ========================================================================================= #
@@ -20,6 +20,8 @@
 #include <thread>
 #include <vector>
 #include <string>
+#include <string.h>
+#include <math.h>
 #include <map>
 
 /*
@@ -329,6 +331,28 @@ enum EClassCastFlag : uint32_t
 // GNames
 #define GNames_Offset		(uintptr_t)0x10723A4
 
+enum class EGameBuild : int32_t
+{
+	Main = 0,
+	EA = 1,
+	Steam = 2,
+	AutoDetect = -1
+};
+
+struct FGameBuildOffsets
+{
+	const char* Name;
+	uintptr_t GObjectsOffset;
+	uintptr_t GNamesOffset;
+};
+
+static constexpr FGameBuildOffsets GGameBuilds[] =
+{
+	{ "Main", (uintptr_t)0x10723F8, (uintptr_t)0x10723A4 },
+	{ "EA", (uintptr_t)0x10F6CE0, (uintptr_t)0x10F6D00 },
+	{ "Steam", (uintptr_t)0x10F6CE0, (uintptr_t)0x10F6D00 },
+};
+
 /*
 # ========================================================================================= #
 # Classes
@@ -509,6 +533,11 @@ public:
 	int32_t capacity() const
 	{
 		return ArrayMax;
+	}
+
+	bool IsValidIndex(int32_t index) const
+	{
+		return ((index >= 0) && (index < ArrayCount));
 	}
 
 	bool empty() const
@@ -737,6 +766,18 @@ public:
 extern class TArray<class UObject*>* GObjects;
 extern class TArray<class FNameEntry*>* GNames;
 
+namespace SDKLoader
+{
+	bool AreGObjectsValid();
+	bool AreGNamesValid();
+	bool AreGlobalsValid();
+
+	int32_t GetLoadedBuild();
+	const char* GetLoadedBuildName();
+
+	bool Initialize(EGameBuild gameBuild = EGameBuild::AutoDetect, uint32_t timeoutMs = 1000);
+}
+
 /*
 # ========================================================================================= #
 # Structs
@@ -816,6 +857,7 @@ public:
 				{
 					nameCache.push_back(i);
 					FNameEntryId = i;
+					return;
 				}
 			}
 		}
@@ -871,7 +913,14 @@ public:
 	{
 		if (IsValid())
 		{
-			return GetDisplayNameEntry().ToString();
+			std::string name = Names()->at(FNameEntryId)->ToString();
+
+			if (InstanceNumber > 0)
+			{
+				name += ("_" + std::to_string(InstanceNumber - 1));
+			}
+
+			return name;
 		}
 
 		return "UnknownName";
@@ -879,7 +928,7 @@ public:
 
 	bool IsValid() const
 	{
-		if ((FNameEntryId < 0 || FNameEntryId > Names()->size()))
+		if (!Names() || (FNameEntryId < 0) || (FNameEntryId >= Names()->size()) || !Names()->at(FNameEntryId))
 		{
 			return false;
 		}
@@ -947,8 +996,20 @@ public:
 	{
 		if (!empty())
 		{
-			std::wstring wstr = ToWideString();
-			return std::string(wstr.begin(), wstr.end());
+			std::wstring wideStr = ToWideString();
+
+			if (!wideStr.empty())
+			{
+				int32_t neededSize = WideCharToMultiByte(CP_UTF8, 0, wideStr.c_str(), -1, nullptr, 0, nullptr, nullptr);
+
+				if (neededSize > 1)
+				{
+					std::string utf8Str(static_cast<size_t>(neededSize), '\0');
+					WideCharToMultiByte(CP_UTF8, 0, wideStr.c_str(), -1, &utf8Str[0], neededSize, nullptr, nullptr);
+					utf8Str.pop_back();
+					return utf8Str;
+				}
+			}
 		}
 
 		return "";
@@ -992,12 +1053,17 @@ public:
 
 	bool operator==(const FString& other)
 	{
+		if (!ArrayData || !other.ArrayData)
+		{
+			return (empty() == other.empty());
+		}
+
 		return (wcscmp(ArrayData, other.ArrayData) == 0);
 	}
 
 	bool operator!=(const FString& other)
 	{
-		return (wcscmp(ArrayData, other.ArrayData) != 0);
+		return !(*this == other);
 	}
 };
 

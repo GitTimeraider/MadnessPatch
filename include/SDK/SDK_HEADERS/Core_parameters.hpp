@@ -1,7 +1,7 @@
 /*
 #############################################################################################
 # Alice2 (ASDK) SDK 1.0.0.0
-# Generated with the CodeRedGenerator v1.1.6
+# Generated with the CodeRedGenerator v1.2.0
 # ========================================================================================= #
 # File: Core_parameters.hpp
 # ========================================================================================= #
@@ -86,6 +86,7 @@ struct UObject_execIsPendingKill_Params
 struct UObject_execByteToFloat_Params
 {
 	uint8_t                                            inputByte;                                        // 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	uint32_t                                           bSigned : 1;                                      // 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 	float                                              ReturnValue;                                      // 0x0008 (0x0004) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
@@ -362,6 +363,7 @@ struct UObject_execIsInState_Params
 {
 	class FName                                        TestState;                                        // 0x0000 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bTestStateStack : 1;                              // 0x0008 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x000C CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x000C (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -372,6 +374,7 @@ struct UObject_execGotoState_Params
 	class FName                                        NewState;                                         // 0x0000 (0x0008) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	class FName                                        Label;                                            // 0x0008 (0x0008) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	uint32_t                                           bForceEvents : 1;                                 // 0x0010 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x0014 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bKeepStack : 1;                                   // 0x0014 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 };
 
@@ -656,6 +659,7 @@ struct UObject_execQuatSlerp_Params
 	struct FQuat                                       B;                                                // 0x0010 (0x0010) [0x0000000000000080] (CPF_Parm)    
 	float                                              Alpha;                                            // 0x0020 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bShortestPath : 1;                                // 0x0024 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint8_t                                            UnknownData00[0x8];                              // 0x0028 (0x0008) MISSED OFFSET
 	struct FQuat                                       ReturnValue;                                      // 0x0030 (0x0010) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -672,6 +676,7 @@ struct UObject_execQuatToRotator_Params
 struct UObject_execQuatFromRotator_Params
 {
 	struct FRotator                                    A;                                                // 0x0000 (0x000C) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x4];                              // 0x000C (0x0004) MISSED OFFSET
 	struct FQuat                                       ReturnValue;                                      // 0x0010 (0x0010) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -690,6 +695,7 @@ struct UObject_execQuatFindBetween_Params
 {
 	struct FVector                                     A;                                                // 0x0000 (0x000C) [0x0000000000000080] (CPF_Parm)    
 	struct FVector                                     B;                                                // 0x000C (0x000C) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x8];                              // 0x0018 (0x0008) MISSED OFFSET
 	struct FQuat                                       ReturnValue;                                      // 0x0020 (0x0010) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -734,6 +740,7 @@ struct UObject_execMatrixGetAxis_Params
 {
 	struct FMatrix                                     TM;                                               // 0x0000 (0x0040) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            Axis;                                             // 0x0040 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0041 (0x0003) MISSED OFFSET
 	struct FVector                                     ReturnValue;                                      // 0x0044 (0x000C) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -758,6 +765,7 @@ struct UObject_execMatrixGetRotator_Params
 struct UObject_execMakeRotationMatrix_Params
 {
 	struct FRotator                                    Rotation;                                         // 0x0000 (0x000C) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x4];                              // 0x000C (0x0004) MISSED OFFSET
 	struct FMatrix                                     ReturnValue;                                      // 0x0010 (0x0040) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -767,6 +775,7 @@ struct UObject_execMakeRotationTranslationMatrix_Params
 {
 	struct FVector                                     Translation;                                      // 0x0000 (0x000C) [0x0000000000000080] (CPF_Parm)    
 	struct FRotator                                    Rotation;                                         // 0x000C (0x000C) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x8];                              // 0x0018 (0x0008) MISSED OFFSET
 	struct FMatrix                                     ReturnValue;                                      // 0x0020 (0x0040) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -855,7 +864,9 @@ struct UObject_execClassIsChildOf_Params
 struct UObject_execNotEqual_InterfaceInterface_Params
 {
 	class UInterface*                                  A;                                                // 0x0000 (0x0008) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x4];                              // 0x0004 (0x0004) FIX WRONG SIZE OF PREVIOUS PROPERTY
 	class UInterface*                                  B;                                                // 0x0008 (0x0008) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData01[0x4];                              // 0x000C (0x0004) FIX WRONG SIZE OF PREVIOUS PROPERTY
 	bool                                               ReturnValue : 1;                                  // 0x0010 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -864,7 +875,9 @@ struct UObject_execNotEqual_InterfaceInterface_Params
 struct UObject_execEqualEqual_InterfaceInterface_Params
 {
 	class UInterface*                                  A;                                                // 0x0000 (0x0008) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData00[0x4];                              // 0x0004 (0x0004) FIX WRONG SIZE OF PREVIOUS PROPERTY
 	class UInterface*                                  B;                                                // 0x0008 (0x0008) [0x0000000000000080] (CPF_Parm)    
+	uint8_t                                            UnknownData01[0x4];                              // 0x000C (0x0004) FIX WRONG SIZE OF PREVIOUS PROPERTY
 	bool                                               ReturnValue : 1;                                  // 0x0010 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -1024,6 +1037,7 @@ struct UObject_execInStr_Params
 	class FString                                      S;                                                // 0x0000 (0x000C) [0x0000000000400880] (CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink)
 	class FString                                      T;                                                // 0x000C (0x000C) [0x0000000000400880] (CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink)
 	uint32_t                                           bSearchFromRight : 1;                             // 0x0018 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x001C CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           bIgnoreCase : 1;                                  // 0x001C (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 	int32_t                                            StartPos;                                         // 0x0020 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 	int32_t                                            ReturnValue;                                      // 0x0024 (0x0004) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
@@ -1438,6 +1452,7 @@ struct UObject_execInCylinder_Params
 	float                                              Width;                                            // 0x0018 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	struct FVector                                     A;                                                // 0x001C (0x000C) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bIgnoreZ : 1;                                     // 0x0028 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	uint32_t : 0;                                  // 0x002C CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x002C (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 	// struct FVector                                  B;                                                // 0x0030 (0x000C) [0x0000000000000000]               
 	// struct FVector                                  VDir;                                             // 0x003C (0x000C) [0x0000000000000000]               
@@ -2503,6 +2518,7 @@ struct UObject_execDivideEqual_ByteByte_Params
 struct UObject_execMultiplyEqual_ByteFloat_Params
 {
 	uint8_t                                            A;                                                // 0x0000 (0x0001) [0x0000000000000180] (CPF_Parm | CPF_OutParm)
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	float                                              B;                                                // 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	uint8_t                                            ReturnValue;                                      // 0x0008 (0x0001) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
@@ -2521,7 +2537,9 @@ struct UObject_execMultiplyEqual_ByteByte_Params
 struct UObject_execOrOr_BoolBool_Params
 {
 	uint32_t                                           A : 1;                                            // 0x0000 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           B : 1;                                            // 0x0004 (0x0004) [0x0000000000000280] [0x00000001] (CPF_Parm | CPF_SkipParm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0008 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -2530,7 +2548,9 @@ struct UObject_execOrOr_BoolBool_Params
 struct UObject_execXorXor_BoolBool_Params
 {
 	uint32_t                                           A : 1;                                            // 0x0000 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           B : 1;                                            // 0x0004 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0008 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -2539,7 +2559,9 @@ struct UObject_execXorXor_BoolBool_Params
 struct UObject_execAndAnd_BoolBool_Params
 {
 	uint32_t                                           A : 1;                                            // 0x0000 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           B : 1;                                            // 0x0004 (0x0004) [0x0000000000000280] [0x00000001] (CPF_Parm | CPF_SkipParm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0008 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -2548,7 +2570,9 @@ struct UObject_execAndAnd_BoolBool_Params
 struct UObject_execNotEqual_BoolBool_Params
 {
 	uint32_t                                           A : 1;                                            // 0x0000 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           B : 1;                                            // 0x0004 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0008 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -2557,7 +2581,9 @@ struct UObject_execNotEqual_BoolBool_Params
 struct UObject_execEqualEqual_BoolBool_Params
 {
 	uint32_t                                           A : 1;                                            // 0x0000 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	uint32_t                                           B : 1;                                            // 0x0004 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0008 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0008 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
@@ -2566,6 +2592,7 @@ struct UObject_execEqualEqual_BoolBool_Params
 struct UObject_execNot_PreBool_Params
 {
 	uint32_t                                           A : 1;                                            // 0x0000 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	uint32_t : 0;                                  // 0x0004 CLOSE BITFIELD STORAGE UNIT
 	bool                                               ReturnValue : 1;                                  // 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 

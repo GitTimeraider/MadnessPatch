@@ -1,7 +1,7 @@
 /*
 #############################################################################################
 # Alice2 (ASDK) SDK 1.0.0.0
-# Generated with the CodeRedGenerator v1.1.6
+# Generated with the CodeRedGenerator v1.2.0
 # ========================================================================================= #
 # File: Core_classes.hpp
 # ========================================================================================= #
@@ -14,14 +14,6 @@
 #ifdef _MSC_VER
 #pragma pack(push, 0x4)
 #endif
-
-// Forward Declarations
-class UClass;
-class UFunction;
-class UProperty;
-class UStructProperty;
-class UStruct;
-
 
 /*
 # ========================================================================================= #
@@ -163,7 +155,7 @@ enum class EDistributionVectorMirrorFlags : uint8_t
 // Class Core.Object
 // (Custom Override)
 // Class Core.Object
-// 0x0040
+// 0x003C
 class UObject
 {
 public:
@@ -180,49 +172,89 @@ public:
     class FName                         Name;                   // 0x002C (0x08)
     class UClass*                       Class;                  // 0x0034 (0x04)
     class UObject*                      ObjectArchetype;        // 0x0038 (0x04)
-    class UStruct*                      SuperField;             // 0x003C (0x04)
 
 public:
-	static UClass* StaticClass()
-	{
-		static UClass* uClassPointer = nullptr;
+    static UClass* StaticClass()
+    {
+        static UClass* uClassPointer = nullptr;
+        if (!uClassPointer)
+        {
+            uClassPointer = UObject::FindClass("Class Core.Object");
+        }
+        return uClassPointer;
+    };
 
-		if (!uClassPointer)
-		{
-			uClassPointer = UObject::FindClass("Class Core.Object");
-		}
+    static TArray<UObject*>* GObjObjects();
+    static UClass* FindClass(const std::string& classFullName);
 
-		return uClassPointer;
-	};
+    template<typename T>
+    static T* FindObject(const std::string& objectFullName)
+    {
+        for (UObject* uObject : *UObject::GObjObjects())
+        {
+            if (uObject && uObject->IsA<T>())
+            {
+                if (uObject->GetFullName() == objectFullName)
+                {
+                    return static_cast<T*>(uObject);
+                }
+            }
+        }
+        return nullptr;
+    }
 
-	static class TArray<class UObject*>* GObjObjects();
+    bool IsA(class UClass* uClass);
+    bool IsA(int32_t objInternalInteger);
 
-	std::string GetName();
-	std::string GetNameCPP();
-	std::string GetFullName();
-	class UObject* GetPackageObj();
-	template<typename T> static T* FindObject(const std::string& objectFullName)
-	{
-		for (UObject* uObject : *UObject::GObjObjects())
-		{
-			if (uObject && uObject->IsA<T>())
-			{
-				if (uObject->GetFullName() == objectFullName)
-				{
-					return reinterpret_cast<T*>(uObject);
-				}
-			}
-		}
+    template<typename T>
+    bool IsA()
+    {
+        return IsA(T::StaticClass());
+    }
 
-		return nullptr;
-	}
-	static class UClass* FindClass(const std::string& classFullName);
-	bool IsA(class UClass* uClass);
-	bool IsA(int32_t objInternalInteger);
-	template<typename T> bool IsA()
-	{
-		return IsA(T::StaticClass());
-	}
+    std::string GetName();
+    std::string GetNameCPP();
+    std::string GetFullName();
+    class UObject* GetPackageObj();
+
+    // Returns true for a class default object (the "Default__" template instances).
+    bool IsDefaultObject();
+
+    // Returns the first live instance of T (skips class default objects by default).
+    template<typename T>
+    static T* FindFirstOf(bool skipDefaultObjects = true)
+    {
+        for (int32_t i = 0; i < UObject::GObjObjects()->size(); i++)
+        {
+            UObject* uObject = UObject::GObjObjects()->at(i);
+
+            if (uObject && uObject->IsA<T>() && (!skipDefaultObjects || !uObject->IsDefaultObject()))
+            {
+                return static_cast<T*>(uObject);
+            }
+        }
+
+        return nullptr;
+    }
+
+    // Returns every live instance of T (skips class default objects by default).
+    template<typename T>
+    static std::vector<T*> FindAllOf(bool skipDefaultObjects = true)
+    {
+        std::vector<T*> foundInstances;
+
+        for (int32_t i = 0; i < UObject::GObjObjects()->size(); i++)
+        {
+            UObject* uObject = UObject::GObjObjects()->at(i);
+
+            if (uObject && uObject->IsA<T>() && (!skipDefaultObjects || !uObject->IsDefaultObject()))
+            {
+                foundInstances.push_back(static_cast<T*>(uObject));
+            }
+        }
+
+        return foundInstances;
+    }
 
 	int32_t GetBuildChangelistNumber();
 	int32_t GetEngineVersion();
@@ -241,9 +273,9 @@ public:
 	static bool GetAngularDistance(const struct FVector& Direction, const struct FVector& AxisX, const struct FVector& AxisY, const struct FVector& AxisZ, struct FVector2D& outOutAngularDist);
 	static bool GetDotDistance(const struct FVector& Direction, const struct FVector& AxisX, const struct FVector& AxisY, const struct FVector& AxisZ, struct FVector2D& outOutDotDist);
 	static struct FVector PointProjectToPlane(const struct FVector& Point, const struct FVector& A, const struct FVector& B, const struct FVector& C);
-	float PointDistToPlane(const struct FVector& Point, const struct FRotator& Orientation, const struct FVector& Origin, struct FVector& outOut_ClosestPoint);
-	float PointDistToSegment(const struct FVector& Point, const struct FVector& StartPoint, const struct FVector& EndPoint, struct FVector& outOutClosestPoint);
-	float PointDistToLine(const struct FVector& Point, const struct FVector& Line, const struct FVector& Origin, struct FVector& outOutClosestPoint);
+	float PointDistToPlane(const struct FVector& Point, const struct FRotator& Orientation, const struct FVector& Origin, struct FVector& optionalOutOut_ClosestPoint);
+	float PointDistToSegment(const struct FVector& Point, const struct FVector& StartPoint, const struct FVector& EndPoint, struct FVector& optionalOutOutClosestPoint);
+	float PointDistToLine(const struct FVector& Point, const struct FVector& Line, const struct FVector& Origin, struct FVector& optionalOutOutClosestPoint);
 	static bool GetPerObjectConfigSections(class UClass* SearchClass, class UObject* optionalObjectOuter, int32_t optionalMaxResults, class TArray<class FString>& outOut_SectionNames);
 	static void StaticSaveConfig();
 	void SaveConfig();
@@ -531,7 +563,6 @@ public:
 	};
 
 };
-
 // Class Core.Subsystem
 // 0x0004 (0x003C - 0x0040)
 class USubsystem : public UObject
@@ -553,7 +584,6 @@ public:
 	};
 
 };
-
 // Class Core.System
 // 0x00BC (0x0040 - 0x00FC)
 class USystem : public USubsystem
@@ -593,7 +623,6 @@ public:
 	};
 
 };
-
 // Class Core.PackageMap
 // 0x0084 (0x003C - 0x00C0)
 class UPackageMap : public UObject
@@ -615,7 +644,6 @@ public:
 	};
 
 };
-
 // Class Core.ObjectSerializer
 // 0x000C (0x003C - 0x0048)
 class UObjectSerializer : public UObject
@@ -637,7 +665,6 @@ public:
 	};
 
 };
-
 // Class Core.ObjectRedirector
 // 0x0004 (0x003C - 0x0040)
 class UObjectRedirector : public UObject
@@ -659,7 +686,6 @@ public:
 	};
 
 };
-
 // Class Core.MetaData
 // 0x003C (0x003C - 0x0078)
 class UMetaData : public UObject
@@ -681,7 +707,6 @@ public:
 	};
 
 };
-
 // Class Core.Linker
 // 0x0110 (0x003C - 0x014C)
 class ULinker : public UObject
@@ -703,7 +728,6 @@ public:
 	};
 
 };
-
 // Class Core.LinkerSave
 // 0x00A0 (0x014C - 0x01EC)
 class ULinkerSave : public ULinker
@@ -725,7 +749,6 @@ public:
 	};
 
 };
-
 // Class Core.LinkerLoad
 // 0x05B8 (0x014C - 0x0704)
 class ULinkerLoad : public ULinker
@@ -747,7 +770,6 @@ public:
 	};
 
 };
-
 // Class Core.Interface
 // 0x0000 (0x003C - 0x003C)
 class UInterface : public UObject
@@ -768,14 +790,14 @@ public:
 	};
 
 };
-
 // Class Core.Field
 // (Custom Override)
 // Class Core.Field
-// 0x0004 (0x0040 - 0x0044)
+// 0x0008 (0x003C - 0x0044)
 class UField : public UObject
 {
 public:
+    class UField*                       SuperField;             // 0x003C (0x04)
     class UField*                       Next;                   // 0x0040 (0x04)
 
 public:
@@ -803,12 +825,13 @@ public:
     int32_t                             PropertySize;           // 0x0050 (0x04)
     TArray<uint8_t>                     Script;                 // 0x0054 (0x0C)
     int32_t                             TextPos;                // 0x0060 (0x04)
-    int32_t                             MinAlignment;           // 0x0064 (0x04)
-    class UProperty*                    RefLink;                // 0x0068 (0x04)
-    class UProperty*                    PropertyLink;           // 0x006C (0x04)
-    class UProperty*                    ConstructorLink;        // 0x0070 (0x04)
-    TArray<UObject*>                    ScriptRefs;             // 0x0074 (0x0C)
-    uint8_t                             UnknownData00[0x10];    // 0x0080 (0x10)
+    int32_t                             Line;                   // 0x0064 (0x04)
+    int32_t                             MinAlignment;           // 0x0068 (0x04)
+    class UProperty*                    RefLink;                // 0x006C (0x04)
+    class UProperty*                    PropertyLink;           // 0x0070 (0x04)
+    class UProperty*                    ConstructorLink;        // 0x0074 (0x04)
+    TArray<UObject*>                    ScriptRefs;             // 0x0078 (0x0C)
+    uint8_t                             UnknownData00[0x0C];    // 0x0084 (0x0C)
 
 public:
     static UClass* StaticClass()
@@ -843,7 +866,6 @@ public:
 	};
 
 };
-
 // Class Core.Function
 // (Custom Override)
 // Class Core.Function
@@ -854,14 +876,14 @@ public:
     uint64_t                            FunctionFlags;          // 0x0090 (0x08)
     uint16_t                            iNative;                // 0x0098 (0x02)
     uint16_t                            RepOffset;              // 0x009A (0x02)
-    uint8_t                             OperPrecedence;         // 0x009C (0x01)
-    uint8_t                             NumParms;               // 0x009D (0x01)
-    uint16_t                            ParmsSize;              // 0x009E (0x02)
-    uint16_t                            ReturnValueOffset;      // 0x00A0 (0x02)
-    uint8_t                             UnknownData00[0x02];    // 0x00A2 (0x02)
-    class UStructProperty*              StructDefaults;         // 0x00A4 (0x04)
-    struct FPointer                     Func;                   // 0x00A8 (0x04)
-    uint8_t                             UnknownData01[0x04];    // 0x00AC (0x04)
+    uint8_t                             UnknownData00[0x04];    // 0x009C (0x04)
+    uint8_t                             OperPrecedence;         // 0x00A0 (0x01)
+    uint8_t                             NumParms;               // 0x00A1 (0x01)
+    uint16_t                            ParmsSize;              // 0x00A2 (0x02)
+    uint16_t                            ReturnValueOffset;      // 0x00A4 (0x02)
+    uint8_t                             UnknownData01[0x02];    // 0x00A6 (0x02)
+    class UStructProperty*              StructDefaults;         // 0x00A8 (0x04)
+    struct FPointer                     Func;                   // 0x00AC (0x04)
 
 public:
     static UClass* StaticClass()
@@ -928,7 +950,6 @@ public:
 	};
 
 };
-
 // Class Core.StrProperty
 // 0x0000 (0x0084 - 0x0084)
 class UStrProperty : public UProperty
@@ -949,7 +970,6 @@ public:
 	};
 
 };
-
 // Class Core.ObjectProperty
 // 0x0004 (0x0084 - 0x0088)
 class UObjectProperty : public UProperty
@@ -971,7 +991,6 @@ public:
 	};
 
 };
-
 // Class Core.ComponentProperty
 // 0x0000 (0x0088 - 0x0088)
 class UComponentProperty : public UObjectProperty
@@ -992,7 +1011,6 @@ public:
 	};
 
 };
-
 // Class Core.ClassProperty
 // 0x0004 (0x0088 - 0x008C)
 class UClassProperty : public UObjectProperty
@@ -1014,7 +1032,6 @@ public:
 	};
 
 };
-
 // Class Core.NameProperty
 // 0x0000 (0x0084 - 0x0084)
 class UNameProperty : public UProperty
@@ -1035,7 +1052,6 @@ public:
 	};
 
 };
-
 // Class Core.MapProperty
 // 0x0008 (0x0084 - 0x008C)
 class UMapProperty : public UProperty
@@ -1058,7 +1074,6 @@ public:
 	};
 
 };
-
 // Class Core.IntProperty
 // 0x0000 (0x0084 - 0x0084)
 class UIntProperty : public UProperty
@@ -1079,7 +1094,6 @@ public:
 	};
 
 };
-
 // Class Core.InterfaceProperty
 // 0x0004 (0x0084 - 0x0088)
 class UInterfaceProperty : public UProperty
@@ -1101,7 +1115,6 @@ public:
 	};
 
 };
-
 // Class Core.FloatProperty
 // 0x0000 (0x0084 - 0x0084)
 class UFloatProperty : public UProperty
@@ -1122,7 +1135,6 @@ public:
 	};
 
 };
-
 // Class Core.DelegateProperty
 // 0x0008 (0x0084 - 0x008C)
 class UDelegateProperty : public UProperty
@@ -1144,7 +1156,6 @@ public:
 	};
 
 };
-
 // Class Core.ByteProperty
 // 0x0004 (0x0084 - 0x0088)
 class UByteProperty : public UProperty
@@ -1166,7 +1177,6 @@ public:
 	};
 
 };
-
 // Class Core.BoolProperty
 // 0x0004 (0x0084 - 0x0088)
 class UBoolProperty : public UProperty
@@ -1188,7 +1198,6 @@ public:
 	};
 
 };
-
 // Class Core.ArrayProperty
 // 0x0004 (0x0084 - 0x0088)
 class UArrayProperty : public UProperty
@@ -1210,7 +1219,6 @@ public:
 	};
 
 };
-
 // Class Core.Enum
 // 0x000C (0x0044 - 0x0050)
 class UEnum : public UField
@@ -1232,7 +1240,6 @@ public:
 	};
 
 };
-
 // Class Core.Const
 // 0x000C (0x0044 - 0x0050)
 class UConst : public UField
@@ -1254,7 +1261,6 @@ public:
 	};
 
 };
-
 // Class Core.Factory
 // 0x0040 (0x003C - 0x007C)
 class UFactory : public UObject
@@ -1280,7 +1286,6 @@ public:
 	};
 
 };
-
 // Class Core.TextBufferFactory
 // 0x0000 (0x007C - 0x007C)
 class UTextBufferFactory : public UFactory
@@ -1301,7 +1306,6 @@ public:
 	};
 
 };
-
 // Class Core.Exporter
 // 0x0028 (0x003C - 0x0064)
 class UExporter : public UObject
@@ -1326,7 +1330,6 @@ public:
 	};
 
 };
-
 // Class Core.Component
 // 0x000C (0x003C - 0x0048)
 class UComponent : public UObject
@@ -1349,7 +1352,6 @@ public:
 	};
 
 };
-
 // Class Core.DistributionVector
 // 0x0008 (0x0048 - 0x0050)
 class UDistributionVector : public UComponent
@@ -1372,9 +1374,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	struct FVector GetVectorValue(float optionalF, int32_t optionalLastExtreme);
 };
-
 // Class Core.DistributionFloat
 // 0x0008 (0x0048 - 0x0050)
 class UDistributionFloat : public UComponent
@@ -1397,9 +1399,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	float GetFloatValue(float optionalF);
 };
-
 // Class Core.Commandlet
 // 0x0040 (0x003C - 0x007C)
 class UCommandlet : public UObject
@@ -1429,9 +1431,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	int32_t eventMain(const class FString& Params);
 };
-
 // Class Core.HelpCommandlet
 // 0x0000 (0x007C - 0x007C)
 class UHelpCommandlet : public UCommandlet
@@ -1451,9 +1453,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	int32_t eventMain(const class FString& Params);
 };
-
 // Class Core.Package
 // 0x00AC (0x003C - 0x00E8)
 class UPackage : public UObject
@@ -1475,7 +1477,6 @@ public:
 	};
 
 };
-
 // Class Core.State
 // 0x0054 (0x0090 - 0x00E4)
 class UState : public UStruct
@@ -1497,7 +1498,6 @@ public:
 	};
 
 };
-
 // Class Core.Class
 // 0x00EC (0x00E4 - 0x01D0)
 class UClass : public UState
@@ -1519,7 +1519,6 @@ public:
 	};
 
 };
-
 /*
 # ========================================================================================= #
 #

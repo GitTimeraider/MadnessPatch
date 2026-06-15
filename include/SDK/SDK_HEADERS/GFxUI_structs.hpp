@@ -1,7 +1,7 @@
 /*
 #############################################################################################
 # Alice2 (ASDK) SDK 1.0.0.0
-# Generated with the CodeRedGenerator v1.1.6
+# Generated with the CodeRedGenerator v1.2.0
 # ========================================================================================= #
 # File: GFxUI_structs.hpp
 # ========================================================================================= #
@@ -26,6 +26,7 @@
 struct FASValue
 {
 	uint8_t                                            Type;                                          // 0x0000 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x3];                              // 0x0001 (0x0003) MISSED OFFSET
 	uint32_t                                           B : 1;                                         // 0x0004 (0x0004) [0x0000000000000001] [0x00000001] (CPF_Edit)
 	float                                              N;                                             // 0x0008 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	class FString                                      S;                                             // 0x000C (0x000C) [0x0000000000500001] (CPF_Edit | CPF_NeedCtorLink)

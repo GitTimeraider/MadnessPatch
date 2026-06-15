@@ -1,7 +1,7 @@
 /*
 #############################################################################################
 # Alice2 (ASDK) SDK 1.0.0.0
-# Generated with the CodeRedGenerator v1.1.6
+# Generated with the CodeRedGenerator v1.2.0
 # ========================================================================================= #
 # File: GFxUI_classes.hpp
 # ========================================================================================= #
@@ -14,14 +14,6 @@
 #ifdef _MSC_VER
 #pragma pack(push, 0x4)
 #endif
-
-// Forward Declarations
-class UClass;
-class UFunction;
-class UProperty;
-class UStructProperty;
-class UStruct;
-
 
 /*
 # ========================================================================================= #
@@ -118,7 +110,6 @@ public:
 	};
 
 };
-
 // Class GFxUI.GFxFSCmdHandler
 // 0x0000 (0x003C - 0x003C)
 class UGFxFSCmdHandler : public UObject
@@ -138,9 +129,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool eventFSCommand(class UGFxMovie* Movie, const class FString& Cmd, const class FString& Arg);
 };
-
 // Class GFxUI.GFxGameViewportClient
 // 0x0008 (0x011C - 0x0124)
 class UGFxGameViewportClient : public UGameViewportClient
@@ -162,9 +153,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool eventInit(class FString& outOutError);
 };
-
 // Class GFxUI.GFxInteraction
 // 0x0004 (0x006C - 0x0070)
 class UGFxInteraction : public UInteraction
@@ -185,11 +176,11 @@ public:
 		return uClassPointer;
 	};
 
+
 	void NotifyGameSessionEnded();
 	class UGFxMovie* GetFocusMovie();
 	bool SetFocusMovie(const class FString& MovieName, bool captureInput);
 };
-
 // Class GFxUI.GFxMovie
 // 0x00E4 (0x003C - 0x0120)
 class UGFxMovie : public UObject
@@ -208,9 +199,10 @@ public:
 	ESceneDepthPriorityGroup                           SceneDPG;                                      // 0x0074 (0x0001) [0x0000000000000001] (CPF_Edit)    
 	EGFxTimingMode                                     TimingMode;                                    // 0x0075 (0x0001) [0x0000000000000001] (CPF_Edit)    
 	EGFxRenderTextureMode                              RenderTextureMode;                             // 0x0076 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            UnknownData00[0x1];                              // 0x0077 (0x0001) MISSED OFFSET
 	uint32_t                                           bDisplayWithHudOff : 1;                        // 0x0078 (0x0004) [0x0000000000000001] [0x00000001] (CPF_Edit)
 	uint32_t                                           bGammaCorrection : 1;                          // 0x0078 (0x0004) [0x0000000000000001] [0x00000002] (CPF_Edit)
-	uint8_t                                            UnknownData00[0x78];                            // 0x007C (0x0078) MISSED OFFSET
+	uint8_t                                            UnknownData01[0x78];                            // 0x007C (0x0078) MISSED OFFSET
 	int32_t                                            NextASUObject;                                 // 0x00F4 (0x0004) [0x0000000000002002] (CPF_Const | CPF_Transient)
 	class TArray<struct FExternalTexture>              ExternalTextures;                              // 0x00F8 (0x000C) [0x0000000000400001] (CPF_Edit | CPF_NeedCtorLink)
 	class TArray<struct FGFxDataStoreBinding>          DataStoreBindings;                             // 0x0104 (0x000C) [0x0000000000400001] (CPF_Edit | CPF_NeedCtorLink)
@@ -229,6 +221,7 @@ public:
 
 		return uClassPointer;
 	};
+
 
 	void ActionScriptSetFunction(class UGFxValue* Obj, const class FString& member);
 	class UGFxValue* ActionScriptObject(const class FString& Path);
@@ -286,7 +279,6 @@ public:
 	bool eventStart(bool optionalStartPaused);
 	bool HandleInputKey(int32_t ControllerId, const class FName& Key, EInputEvent EventType, float AmountDepressed, bool optionalBGamepad);
 };
-
 // Class GFxUI.GFxMovieInfo
 // 0x0048 (0x003C - 0x0084)
 class UGFxMovieInfo : public UObject
@@ -317,7 +309,6 @@ public:
 	};
 
 };
-
 // Class GFxUI.GFxValue
 // 0x0030 (0x003C - 0x006C)
 class UGFxValue : public UObject
@@ -337,6 +328,7 @@ public:
 
 		return uClassPointer;
 	};
+
 
 	void ActionScriptSetFunctionOn(class UGFxValue* Target, const class FString& member);
 	void ActionScriptSetFunction(const class FString& member);
@@ -400,11 +392,10 @@ public:
 	class FString GetString(const class FString& member);
 	float GetNumber(const class FString& member);
 	bool GetBool(const class FString& member);
-	class UGFxValue* GetObjectW(const class FString& member, class UClass* optionalType);
+	class UGFxValue* GetObjectWin(const class FString& member, class UClass* optionalType);
 	struct FASValue Get(const class FString& member);
 	struct FASValue Invoke(const class FString& member, const class TArray<struct FASValue>& args);
 };
-
 // Class GFxUI.GFxAction_CloseMovie
 // 0x0008 (0x00E8 - 0x00F0)
 class UGFxAction_CloseMovie : public USequenceAction
@@ -426,9 +417,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool eventIsValidLevelSequenceObject();
 };
-
 // Class GFxUI.GFxAction_GetVariable
 // 0x0010 (0x00E8 - 0x00F8)
 class UGFxAction_GetVariable : public USequenceAction
@@ -450,9 +441,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool eventIsValidLevelSequenceObject();
 };
-
 // Class GFxUI.GFxAction_Invoke
 // 0x001C (0x00E8 - 0x0104)
 class UGFxAction_Invoke : public USequenceAction
@@ -475,9 +466,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool eventIsValidLevelSequenceObject();
 };
-
 // Class GFxUI.GFxAction_OpenMovie
 // 0x0008 (0x00E8 - 0x00F0)
 class UGFxAction_OpenMovie : public USequenceAction
@@ -502,9 +493,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool eventIsValidLevelSequenceObject();
 };
-
 // Class GFxUI.GFxAction_SetCaptureKeys
 // 0x0010 (0x00E8 - 0x00F8)
 class UGFxAction_SetCaptureKeys : public USequenceAction
@@ -527,7 +518,6 @@ public:
 	};
 
 };
-
 // Class GFxUI.GFxAction_SetFocus
 // 0x0008 (0x00E8 - 0x00F0)
 class UGFxAction_SetFocus : public USequenceAction
@@ -550,7 +540,6 @@ public:
 	};
 
 };
-
 // Class GFxUI.GFxAction_SetVariable
 // 0x0010 (0x00E8 - 0x00F8)
 class UGFxAction_SetVariable : public USequenceAction
@@ -572,9 +561,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool eventIsValidLevelSequenceObject();
 };
-
 // Class GFxUI.GFxEvent_FsCommand
 // 0x0010 (0x0100 - 0x0110)
 class UGFxEvent_FsCommand : public USequenceEvent
@@ -597,7 +586,6 @@ public:
 	};
 
 };
-
 // Class GFxUI.GFxFSCmdHandler_Kismet
 // 0x003C (0x003C - 0x0078)
 class UGFxFSCmdHandler_Kismet : public UGFxFSCmdHandler
@@ -618,9 +606,9 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool eventFSCommand(class UGFxMovie* Movie, const class FString& Cmd, const class FString& Arg);
 };
-
 // Class GFxUI.GFxDataStoreSubscriber
 // 0x0008 (0x003C - 0x0044)
 class UGFxDataStoreSubscriber : public UObject
@@ -642,6 +630,7 @@ public:
 		return uClassPointer;
 	};
 
+
 	bool SaveSubscriberValue(int32_t optionalBindingIndex, class TArray<class UUIDataStore*>& outOut_BoundDataStores);
 	void ClearBoundDataStores();
 	void GetBoundDataStores(class TArray<class UUIDataStore*>& outOut_BoundDataStores);
@@ -651,7 +640,6 @@ public:
 	void SetDataStoreBinding(const class FString& MarkupText, int32_t optionalBindingIndex);
 	void PublishValues();
 };
-
 /*
 # ========================================================================================= #
 #
