@@ -1,0 +1,45 @@
+Platine pour tous les autres trophées|Platine pour tous les autres trophées
+Sans joie|Retourne au pays des merveilles.
+La Fin de l'innocence|Termine la Vallée des Larmes.
+La Chute du Chapelier|Termine le premier chapitre du pays des merveilles.
+Folie macabre|Termine le deuxième chapitre du pays des merveilles.
+Choc de civilisations|Termine le troisième chapitre du pays des merveilles.
+Plus dure sera la chute|Termine le quatrième chapitre du pays des merveilles.
+Sortie du brouillard|Termine le cinquième chapitre du pays des merveilles.
+Forte survie|Termine le jeu en difficulté Facile.
+Survie imaginative|Termine le jeu en difficulté Moyenne.
+Prometteuse persévérance|Termine le jeu en difficulté Difficile.
+Le Début de la fin|Termine le premier chapitre en difficulté Cauchemar.
+Place à la démence|Termine le jeu en difficulté Cauchemar.
+Perce et tranche|Récupère le Glaive vorpalin.
+La Cuisine du diable|Récupère le Moulin à poivre.
+Bâton de rose|Récupère le Cheval bâton.
+Infusion sanguine|Récupère la Théière canon.
+Dent de lait|Améliore une arme.
+Appareil dentaire|Améliore une arme à fond.
+Jusqu'aux dents|Améliore toutes les armes à fond.
+Slictueux toves|Trouve quatre jarres d'eau de rose.
+Rouge sang|Termine toutes les salles Radula.
+Souvenirs de famille|Trouve tous les souvenirs de la famille Liddell.
+Devoir de mémoire|Trouve tous les souvenirs.
+L'Odeur du bacon|Assaisonne tous les groins d'un chapitre.
+Lard et la manière|Assaisonne tous les groins du jeu.
+Navire d'infortune|Termine le HMS Griffon sans subir de dégâts.
+Princesse Pêche|Trouve toutes les pêches du Parchemin du destin.
+Maîtresse de l'échec|Termine une énigme des échecs... sans échec.
+Une tête bien faite|Termine « Coupez-lui la tête bis», en moins de six minutes.
+À la mode|Habille-toi d'une robe de domaine différente.
+Schizophrénie|Enchaîne Cheval bâton, Glaive vorpalin et Cheval bâton.
+Broyeuse|Tue cinq Vissellules de suite avec le Moulin à poivre.
+Ruade|Touche quatre ennemis d'un seul écrasement de Cheval bâton.
+L'Heure du thé|Détruis dix barrières de ruines.
+Enrhumée|Passe sept minutes dans les courants d'air.
+Sérénité|Termine le jeu en n'utilisant l'hystérie qu'une seule fois.
+Des yeux merveilleux|Trouve la décalcomanie de mini-sensibilité cachée.
+Déflexion|Tue dix Enfants de putain par retour à l'envoyeur
+Attention au lagomorphe|Tue trente ennemis avec la Chronobombe.
+Eaux froides|Bats le Marin noyé sans subir de dégâts.
+Marionnettiste|Bats le Bimbelotier sans subir de dégâts.
+Sans merci|Bats cent ruines ennemies.
+Jeu de 52 cartes|Bats cinquante-deux Cardes.
+Sang froid|Avec une seule rose restante, tue cinq ennemis sans hystérie.

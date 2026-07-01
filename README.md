@@ -14,7 +14,7 @@ A patch that fixes various issues in the PC port of Alice: Madness Returns.
 > **Download**: [MadnessPatch.zip](https://github.com/Wemino/MadnessPatch/releases/latest/download/MadnessPatch.zip)  
 > Extract the contents of the zip file into the game's `Win32` folder, which contains the `AliceMadnessReturns.exe` file.
 >
-> <img width="240" src="https://raw.githubusercontent.com/Wemino/MadnessPatch/main/assets/install.png">
+> <img src="https://raw.githubusercontent.com/Wemino/MadnessPatch/main/assets/install.png">
 >
 > Directory path for Steam:  
 > `SteamLibrary\steamapps\common\Alice Madness Returns\Binaries\Win32`
@@ -50,17 +50,46 @@ If you want a different size, you can fine-tune it with `FontScalingFactor` in `
   </table>
 </div>
 
+## Achievement Support
+
+Adds an in-game achievement overlay that tracks your progress and shows a notification when one is unlocked, using the same achievements as the Xbox 360 and PlayStation 3 versions. Press **HOME** to open the list at any time.
+
+<div align="center">
+  <table>
+    <tr>
+      <td><img style="width:100%" src="https://raw.githubusercontent.com/Wemino/MadnessPatch/main/assets/AchievementSupport.jpg"></td>
+    </tr>
+    <tr>
+      <td align="center">Achievement List</td>
+    </tr>
+  </table>
+</div>
+
+> **Note**: Achievements that unlock automatically are the ones whose progress is stored in your save data. Any achievement obtained while MadnessPatch isn't running isn't recorded anywhere.
+
+> **Note**: Can be disabled by setting `AchievementSupport = 0` in `MadnessPatch.ini` if wanted.
+
 ## High FPS Fixes
 
 Fix multiple physics and gameplay issues that occur at high framerates by preventing hair and dress physics from becoming unstable and ensuring consistent hitbox size for projectiles like the Pepper Grinder.
 
 ## Crashes and Infinite Loading Fix
 
-Prevents crashes and infinite loading screens caused by race conditions that occur more frequently at higher framerates during map transitions.
+Prevents crashes and infinite loading screens caused by race conditions that occur more frequently at higher framerates during map transitions. It also fixes a crash that can occur when the game runs PhysX in CPU mode instead of on the GPU.
+
+## Save Protection
+
+Writes save files more safely to help prevent corruption, and keeps a backup (`.bak`) of your save just in case.
+
+Disable with `AtomicSaves = 0` in `MadnessPatch.ini`.
 
 ## Input Binding Fix
 
 Fix issues where certain input mappings fail to respond correctly. This particularly affects the umbrella key and other special action bindings that may not register during the input initialization process.
+
+## Stuck Keys Fix
+
+Stops Alice from moving on her own when using keyboard and mouse, caused by a sync issue between the game's key state and your actual key presses.
 
 ## Force High Resolution Textures
 
@@ -88,22 +117,9 @@ Will increase loading times.
 
 Disable with `DisableBackgroundLevelStreaming = 0` in `MadnessPatch.ini`.
 
-## Bink Video Color Space Fix
+## Missing Music Fix
 
-Switched the Bink video color profile from BT.601 to BT.709, which is the standard for HD video, so pre-rendered videos now show correct colors, especially deep reds and warm tones.
-
-<div align="center">
-  <table>
-    <tr>
-      <td width="50%"><img style="width:100%" src="https://raw.githubusercontent.com/Wemino/MadnessPatch/main/assets/FixBinkVideoBT709_Off.jpg"></td>
-      <td width="50%"><img style="width:100%" src="https://raw.githubusercontent.com/Wemino/MadnessPatch/main/assets/FixBinkVideoBT709_On.jpg"></td>
-    </tr>
-    <tr>
-      <td align="center">Vanilla (BT.601)</td>
-      <td align="center">MadnessPatch (BT.709)</td>
-    </tr>
-  </table>
-</div>
+Area music is triggered by in-game scripts, so loading a checkpoint or missing a trigger can leave an area silent. This fixes it so the music still plays.
 
 ## Input Improvements
 
@@ -113,16 +129,34 @@ Adds support for PlayStation and Nintendo Switch controllers via SDL3.
 
 PlayStation button icons are automatically displayed in the UI when a PlayStation controller is detected.
 
+### Controller Button Icons
+
+Replaces the keyboard and mouse button prompts with matching controller button icons while a controller is connected, using PlayStation or Xbox icons to match your controller. Disconnecting the controller switches the prompts back automatically.
+
 <div align="center">
   <table>
     <tr>
-      <td width="50%"><img style="width:100%" src="https://raw.githubusercontent.com/Wemino/MadnessPatch/main/assets/UsePS3ControllerIcons.png"></td>
+      <td width="50%"><img style="width:100%" src="https://raw.githubusercontent.com/Wemino/MadnessPatch/main/assets/ControllerIcons_PlayStation.jpg"></td>
+      <td width="50%"><img style="width:100%" src="https://raw.githubusercontent.com/Wemino/MadnessPatch/main/assets/ControllerIcons_Xbox.jpg"></td>
     </tr>
     <tr>
-      <td align="center">PlayStation Button Prompts</td>
+      <td align="center">PlayStation</td>
+      <td align="center">Xbox</td>
     </tr>
   </table>
 </div>
+
+> **Note**: While a controller is connected, the mouse cursor is hidden in menus, so you'll need to unplug the controller to use the mouse there.
+
+Disable with `EnableControllerIcons = 0` in `MadnessPatch.ini`.
+
+## Profile Creation Screen
+
+Adds an option to skip the profile creation and selection screen and go straight to the main menu. Useful for controller-only players, as profile names can't be typed with a controller.
+
+> **Note**: A save created while this is disabled won't be selectable in the profile screen if it's re-enabled later.
+
+Disable with `ShowProfileCreation = 0` in `MadnessPatch.ini`.
 
 ### Disable Mouse Acceleration
 
@@ -132,7 +166,7 @@ Stops the game from ramping up mouse speed when you start moving it.
 
 Turns off the same acceleration system for controllers. The game speeds up your look input as the stick starts moving, and this option removes that so the stick behaves more consistently.
 
-Enable with `DisableControllerAcceleration = 1` in `MadnessPatch.ini`.
+Disable with `DisableControllerAcceleration = 0` in `MadnessPatch.ini`.
 
 ### Disable Mouse Smoothing
 
@@ -140,9 +174,9 @@ Turns off camera smoothing so the view responds instantly to your mouse movement
 
 Enable with `DisableMouseSmoothing = 1` in `MadnessPatch.ini`.
 
-## Ultrawide FOV Fix
+## Aspect Ratio Fix
 
-Removes pillarboxing and adjusts the FOV for ultrawide monitors.
+Removes pillarboxing and adjusts the field of view for ultrawide monitors, and also removes the letterboxing that appears on 16:10 and narrower aspect ratios during gameplay.
 
 <div align="center">
   <table>
@@ -161,11 +195,28 @@ Removes pillarboxing and adjusts the FOV for ultrawide monitors.
   </table>
 </div>
 
+## Bink Video Color Space Fix
+
+Switched the Bink video color profile from BT.601 to BT.709, which is the standard for HD video, so pre-rendered videos now show correct colors, especially deep reds and warm tones.
+
+<div align="center">
+  <table>
+    <tr>
+      <td width="50%"><img style="width:100%" src="https://raw.githubusercontent.com/Wemino/MadnessPatch/main/assets/FixBinkVideoBT709_Off.jpg"></td>
+      <td width="50%"><img style="width:100%" src="https://raw.githubusercontent.com/Wemino/MadnessPatch/main/assets/FixBinkVideoBT709_On.jpg"></td>
+    </tr>
+    <tr>
+      <td align="center">Vanilla (BT.601)</td>
+      <td align="center">MadnessPatch (BT.709)</td>
+    </tr>
+  </table>
+</div>
+
 ## Skip Cutscenes with Enter
 
 Prevent accidental cutscene skips by moving the skip key from Space (jump) to Enter.
 
-Enable with `SkipCutscenesWithEnter = 1` in `MadnessPatch.ini`.
+Disable with `SkipCutscenesWithEnter = 0` in `MadnessPatch.ini`.
 
 ## Framerate Limiter
 
@@ -176,7 +227,6 @@ Set `MaxFPS` in `MadnessPatch.ini` (0 = disable, recommended maximum: 120).
 ## Complete Edition DLC Unlock
 
 Unlocks all Complete Edition costumes, weapons, and adds a menu option to launch the original Alice game without editing the game's files.
-> **Note**: While weapons are showing up, they are not functional. See: [AESylum](https://github.com/Wemino/AESylum)
 
 ## Improved Window Management
 
@@ -191,13 +241,31 @@ Forces the game to run in windowed mode instead of fullscreen.
 
 Enable with `UseWindowed = 1` in `MadnessPatch.ini`.
 
+## Auto Resolution
+
+Automatically sets the game to your screen resolution on first launch instead of defaulting to 1280×720.
+
 ## Alice 1 Installation Check
 
-Displays a warning prompt if the original American McGee's Alice is not found in the expected installation directory when attempting to launch it from within Alice: Madness Returns.
+The Complete Edition menu adds an option to launch the original *American McGee's Alice*. Two settings control what happens when Alice 1 isn't installed:
+- **WarnAlice1InstallFolder**: shows a warning prompt if Alice 1 can't be found in its expected installation directory when you try to launch it.
+- **HideAlice1WhenMissing**: removes the Alice 1 entry from the in-game menus entirely when it isn't installed.
 
-## Disable Legacy Driver Hacks
+Both are enabled by default and can be turned off individually in `MadnessPatch.ini`.
 
-Turns off old Unreal Engine 3 driver workarounds that were meant for very old GPUs (pre-2010). These hacks can slow down modern graphics cards by forcing the game to use outdated rendering methods. Disabling them lets the game run more efficiently on current hardware.
+## Developer Console
+
+Enables the game's built-in developer console, bound to the **F2** key.
+
+## Crash Handler
+
+Installs a crash handler that writes a detailed report (`crash_YYYYMMDD.txt`) whenever the game crashes. Each report captures what the game was doing at the moment it failed, which makes problems much easier to track down. If you run into a crash, these reports can be shared to help diagnose the issue and improve the patch in future updates.
+
+Disable with `EnableCrashHandler = 0` in `MadnessPatch.ini`.
+
+## Additional Fixes
+
+Fixes a couple of small UI issues, such as a leftover HUD cursor sprite from the first weapon-upgrade popup and an incorrect Pinball Cannon button prompt on PC.
 
 ## Skip Intro Videos
 
@@ -217,3 +285,4 @@ All features can be customized via the `MadnessPatch.ini` file.
 - [safetyhook](https://github.com/cursey/safetyhook) for hooking.  
 - [mINI](https://github.com/metayeti/mINI) for INI file handling.  
 - [CRASHARKI](https://github.com/CRASHARKI) for the logo.
+- [ImGui](https://github.com/ocornut/imgui) for the achievement window.  

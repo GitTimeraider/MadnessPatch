@@ -11,6 +11,15 @@ namespace MemoryHelper
 		return (mbi.State == MEM_COMMIT) && (mbi.Protect & (PAGE_READONLY | PAGE_READWRITE | PAGE_EXECUTE_READ | PAGE_EXECUTE_READWRITE)) && ((reinterpret_cast<uintptr_t>(ptr) + size) <= (reinterpret_cast<uintptr_t>(mbi.BaseAddress) + mbi.RegionSize));
 	}
 
+	__forceinline static bool IsWritable(const void* ptr, size_t size)
+	{
+		MEMORY_BASIC_INFORMATION mbi;
+		if (!VirtualQuery(ptr, &mbi, sizeof(mbi)))
+			return false;
+
+		return (mbi.State == MEM_COMMIT) && (mbi.Protect & (PAGE_READWRITE | PAGE_WRITECOPY | PAGE_EXECUTE_READWRITE | PAGE_EXECUTE_WRITECOPY)) && ((reinterpret_cast<uintptr_t>(ptr) + size) <= (reinterpret_cast<uintptr_t>(mbi.BaseAddress) + mbi.RegionSize));
+	}
+
 	template <typename T> static bool WriteMemory(uintptr_t address, T value, bool disableProtection = true)
 	{
 		DWORD oldProtect;
@@ -103,133 +112,36 @@ namespace MemoryHelper
 		return value;
 	}
 
-	DWORD64 PatternScan(HMODULE hModule, std::string_view signature)
+	inline void ComputeCodeRange()
 	{
-		auto dosHeader = reinterpret_cast<PIMAGE_DOS_HEADER>(hModule);
-		if (dosHeader->e_magic != IMAGE_DOS_SIGNATURE)
-			return 0;
+		uint8_t* base = reinterpret_cast<uint8_t*>(GetModuleHandleW(nullptr));
+		if (!base) return;
+		IMAGE_DOS_HEADER* dos = reinterpret_cast<IMAGE_DOS_HEADER*>(base);
+		IMAGE_NT_HEADERS* nt = reinterpret_cast<IMAGE_NT_HEADERS*>(base + dos->e_lfanew);
+		IMAGE_SECTION_HEADER* sec = IMAGE_FIRST_SECTION(nt);
+		uintptr_t lo = ~uintptr_t(0), hi = 0;
 
-		auto ntHeaders = reinterpret_cast<PIMAGE_NT_HEADERS>(reinterpret_cast<BYTE*>(hModule) + dosHeader->e_lfanew);
-
-		if (ntHeaders->Signature != IMAGE_NT_SIGNATURE)
-			return 0;
-
-		DWORD sizeOfImage = ntHeaders->OptionalHeader.SizeOfImage;
-		DWORD64 baseAddress = reinterpret_cast<DWORD64>(hModule);
-
-		// Convert pattern to byte array and mask
-		std::vector<uint8_t> patternBytes;
-		std::vector<bool> mask;
-		patternBytes.reserve(signature.size() / 2);
-		mask.reserve(signature.size() / 2);
-
-		for (size_t i = 0; i < signature.length(); i++)
+		for (UINT i = 0; i < nt->FileHeader.NumberOfSections; i++)
 		{
-			if (signature[i] == ' ')
-				continue;
-
-			if (signature[i] == '?')
+			if (sec[i].Characteristics & IMAGE_SCN_MEM_EXECUTE)
 			{
-				patternBytes.push_back(0);
-				mask.push_back(true);
-				if (i + 1 < signature.length() && signature[i + 1] == '?')
-				{
-					i++;
-				}
-			}
-			else
-			{
-				// fast hex parse
-				auto hexChar = [](char c) noexcept -> uint8_t 
-				{
-					if (c >= '0' && c <= '9') return c - '0';
-					if (c >= 'A' && c <= 'F') return c - 'A' + 10;
-					if (c >= 'a' && c <= 'f') return c - 'a' + 10;
-					return 0;
-				};
-				uint8_t byte = (hexChar(signature[i]) << 4) | hexChar(signature[i + 1]);
-				patternBytes.push_back(byte);
-				mask.push_back(false);
-				i++;
+				uintptr_t s = reinterpret_cast<uintptr_t>(base) + sec[i].VirtualAddress;
+				uintptr_t e = s + sec[i].Misc.VirtualSize;
+				if (s < lo) lo = s;
+				if (e > hi) hi = e;
 			}
 		}
 
-		size_t patternSize = patternBytes.size();
-		BYTE* data = reinterpret_cast<BYTE*>(baseAddress);
-
-		// Find first non-wildcard byte for quick scans
-		size_t firstCheck = 0;
-		while (firstCheck < patternSize && mask[firstCheck])
-			firstCheck++;
-
-		if (firstCheck == patternSize)
-			return baseAddress; // all wildcards -> match at start
-
-		uint8_t firstByte = patternBytes[firstCheck];
-		BYTE* scanEnd = data + sizeOfImage - patternSize;
-		BYTE* cur = data;
-
-		while (cur <= scanEnd)
+		if (hi > lo)
 		{
-			// find next occurrence of first significant byte
-			cur = reinterpret_cast<BYTE*>(std::memchr(cur + firstCheck, firstByte, (scanEnd + firstCheck) - cur));
-			if (!cur) break;
-			cur -= firstCheck;
-
-			// verify full pattern
-			bool found = true;
-			for (size_t j = 0; j < patternSize; ++j)
-			{
-				if (!mask[j] && data[(cur - data) + j] != patternBytes[j])
-				{
-					found = false;
-					break;
-				}
-			}
-
-			if (found)
-				return reinterpret_cast<DWORD64>(cur);
-
-			cur++;
+			g_State.CodeLo = lo;
+			g_State.CodeHi = hi;
 		}
-
-		return 0;
 	}
 
-	DWORD FindSignatureAddress(HMODULE Module, std::string_view Signature, int FunctionStartCheckCount = -1)
+	inline bool IsExeCode(uint32_t addr)
 	{
-		DWORD Address = static_cast<DWORD>(PatternScan(Module, Signature));
-		if (Address == 0) 
-			return 0;
-
-		if (FunctionStartCheckCount >= 0)
-		{
-			// After a RET, compilers pad with INT3 (0xCC) to align the next function (often on a 16-byte boundary).
-			// This padding also acts as a breakpoint if execution runs off the end of a function.
-			// We backtrack past any 0xCC bytes to find the real function start.
-			for (DWORD ScanAddress = Address; ScanAddress > Address - 0x1000; ScanAddress--)
-			{
-				bool IsValid = true;
-				for (int OffsetIndex = 1; OffsetIndex <= FunctionStartCheckCount; OffsetIndex++)
-				{
-					if (ReadMemory<uint8_t>(ScanAddress - OffsetIndex) != 0xCC)
-					{
-						IsValid = false;
-						break;
-					}
-				}
-				if (IsValid)
-					return ScanAddress;
-			}
-		}
-
-		return Address;
-	}
-
-	DWORD ResolveRelativeAddress(uintptr_t BaseAddress, std::size_t InstructionOffset)
-	{
-		int RelativeOffset = ReadMemory<int>(BaseAddress + InstructionOffset);
-		return BaseAddress + InstructionOffset + sizeof(RelativeOffset) + RelativeOffset;
+		return addr >= g_State.CodeLo && addr < g_State.CodeHi;
 	}
 };
 
@@ -323,16 +235,34 @@ namespace SystemHelper
 		return std::filesystem::path(path).parent_path().string();
 	}
 
-	static DWORD GetCurrentDisplayFrequency()
+	static bool ResolveDirectory(const wchar_t* pathStr, wchar_t* outFullPath = nullptr)
 	{
-		DEVMODE devMode = {};
-		devMode.dmSize = sizeof(DEVMODE);
+		if (!pathStr)
+			return false;
 
-		if (EnumDisplaySettings(NULL, ENUM_CURRENT_SETTINGS, &devMode))
+		wchar_t scratch[MAX_PATH];
+		wchar_t* fullPath = outFullPath ? outFullPath : scratch;
+
+		wchar_t currentDir[MAX_PATH];
+		GetCurrentDirectoryW(MAX_PATH, currentDir);
+
+		if (PathIsRelativeW(pathStr))
 		{
-			return devMode.dmDisplayFrequency;
+			PathCombineW(fullPath, currentDir, pathStr);
 		}
-		return 60;
+		else
+		{
+			wcscpy_s(fullPath, MAX_PATH, pathStr);
+		}
+
+		wchar_t canonicalPath[MAX_PATH];
+		if (PathCanonicalizeW(canonicalPath, fullPath))
+		{
+			wcscpy_s(fullPath, MAX_PATH, canonicalPath);
+		}
+
+		DWORD attribs = GetFileAttributesW(fullPath);
+		return attribs != INVALID_FILE_ATTRIBUTES && (attribs & FILE_ATTRIBUTE_DIRECTORY);
 	}
 
 	static std::pair<DWORD, DWORD> GetScreenResolution()
@@ -400,20 +330,20 @@ namespace SystemHelper
 
 namespace IniHelper
 {
-	mINI::INIFile iniFile(SystemHelper::GetModulePath() + "\\MadnessPatch.ini");
-	mINI::INIStructure iniReader;
+	inline mINI::INIFile iniFile(SystemHelper::GetModulePath() + "\\MadnessPatch.ini");
+	inline mINI::INIStructure iniReader;
 
-	void Init()
+	inline void Init()
 	{
 		iniFile.read(iniReader);
 	}
 
-	void Save()
+	inline void Save()
 	{
 		iniFile.write(iniReader);
 	}
 
-	char* ReadString(const char* sectionName, const char* valueName, const char* defaultValue)
+	inline char* ReadString(const char* sectionName, const char* valueName, const char* defaultValue)
 	{
 		char* result = new char[255];
 		try
@@ -427,19 +357,19 @@ namespace IniHelper
 				if (!value.empty() && (value.back() == '\"' || value.back() == '\''))
 					value.erase(value.size() - 1);
 
-				strncpy(result, value.c_str(), 254);
+				strncpy_s(result, 255, value.c_str(), _TRUNCATE);
 				result[254] = '\0';
 				return result;
 			}
 		}
 		catch (...) {}
 
-		strncpy(result, defaultValue, 254);
+		strncpy_s(result, 255, defaultValue, _TRUNCATE);
 		result[254] = '\0';
 		return result;
 	}
 
-	float ReadFloat(const char* sectionName, const char* valueName, float defaultValue)
+	inline float ReadFloat(const char* sectionName, const char* valueName, float defaultValue)
 	{
 		try
 		{
@@ -454,7 +384,7 @@ namespace IniHelper
 		return defaultValue;
 	}
 
-	int ReadInteger(const char* sectionName, const char* valueName, int defaultValue)
+	inline int ReadInteger(const char* sectionName, const char* valueName, int defaultValue)
 	{
 		try
 		{

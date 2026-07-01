@@ -1,0 +1,45 @@
+Platin für alle weiteren Trophäen|Platin für alle weiteren Trophäen
+Traurige Rückkehr|Zurück ins Wunderland
+Ende der Unschuld|Schließe "Tal der Tränen" ab
+Untergang des Hutmachers|Schließe das Wunderland-Kapitel 1 ab
+Makaberer Unsinn|Schließe das Wunderland-Kapitel 2 ab
+Wenn Welten aufeinanderprallen|Schließe das Wunderland-Kapitel 3 ab
+Desto tiefer der Fall|Schließe das Wunderland-Kapitel 4 ab
+Das Ende der Verwirrung|Schließe das Wunderland-Kapitel 5 ab
+Überleben der Stärkeren|Schließe das Spiel auf Schwierigkeit "Leicht" ab
+Bestehen der Einfallsreichen|Schließe das Spiel auf Schwierigkeit "Normal" ab
+Aufblühen der Unnachgiebigen|Schließe das Spiel auf Schwierigkeit "Schwer" ab
+Der Anfang vom Ende|Schließe Kapitel 1 auf Schwierigkeit "Alptraum" ab
+Sieg des Wahnsinns|Schließe das Spiel auf Schwierigkeit "Alptraum" ab
+Zerschnifer-schnück!|Verschaffe dir die Vorpal-Klinge
+Schweinehack pikant|Verschaffe dir die Pfeffermühle
+Seltsames Hobby|Verschaffe dir das Steckenpferd
+Tod durch Darjeeling|Verschaffe dir die Teekannone
+Ein Angebot zum Zuschlagen|Verbessere eine Waffe
+Mehr als ein Bissen|Verbessere eine Waffe maximal
+Bewaffnet bis an die Zähne|Verbessere alle Waffen maximal
+Große Pläne|Sammle 4 Gefäße Rosenfarbe
+Richtig auf den Putz hauen|Schließe alle Radula-Räume ab
+Zartes, verblasstes Gedenken|Finde alle Liddell-Erinnerungen
+Erinnerungsmacht|Finde alle Erinnerungen
+Unerreichter Schinkenduft|Pfeffre alle Schnauzen in einem Kapitel
+Veteranentum im Würzbereich|Pfeffre alle Schnauzen im Spiel
+Narrenschiff|Schließe "HMS Gryphon" ab, ohne Schaden zu nehmen
+An und Pfirsich|Sammle in "Schriftrolle des Schicksals" alle Pfirsiche
+Großmeister|Schließe ein Schach-Puzzle ab, ohne zu scheitern
+Mit Köpfchen und schnell|Schließe "Den Kopf ihr ab, Teil 2" in weniger als 6 Minuten ab
+Kostümzwang|Zieh ein anderes Domänenkostüm an
+Waffenschizophrenie|Steckenpferd/Vorpal-Klinge/Steckenpferd-Combo
+Pfeffer für alle!|Töte mit der Pfeffermühle 5 Schraubellen in Folge
+Wieherstandskämpfer|Triff 4 Gegner mit einem einzigen Steckenpferd-Bodenschlag
+Teegesellschaft|Zerstöre 10 Verfall-Barrieren
+Dampf ablassen|Verbringe insgesamt 7 Minuten auf Dampf-Luftströmen
+Ausgeglichenheit|Beende das Spiel, ohne mehr als einmal "Hysterie" zu nutzen
+Auge fürs Detail|Finde das verborgene Schrumpfsinn-Bildchen
+Schirmastisch|Töte 10 Biest-Babys mittels Umlenken
+Vorsicht vor Hasenartigem|Töte 30 Feinde mit der Uhrwerkbombe
+Kalte Arme, kaltes Herz|Besiege den Ertrunkenen Seemann, ohne Schaden zu nehmen
+Die Strippen des Ziehers|Besiege den Puppenmacher, ohne Schaden zu nehmen
+Kein Pardon! Kein Erbarmen!|Besiege 100 Verfall-Gegner
+52, heb auf!|Besiege 52 Kartenwachen
+Ruhe im Angesicht des Todes|Töte mit nur einer verbliebenen Rose 5 Feinde, ohne "Hysterie" zu nutzen

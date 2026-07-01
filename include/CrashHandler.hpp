@@ -567,9 +567,10 @@ namespace CrashHandler
 		mei.ClientPointers = FALSE;
 
 		MINIDUMP_TYPE dumpType = (MINIDUMP_TYPE)(
+			MiniDumpWithPrivateReadWriteMemory |
 			MiniDumpWithDataSegs |
+			MiniDumpWithFullMemoryInfo |
 			MiniDumpWithHandleData |
-			MiniDumpWithIndirectlyReferencedMemory |
 			MiniDumpWithUnloadedModules |
 			MiniDumpWithThreadInfo);
 

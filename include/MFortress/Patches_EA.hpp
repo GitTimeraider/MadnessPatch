@@ -1,18 +1,9 @@
-#define WIN32_LEAN_AND_MEAN
-#include <cstdint>
-#include <cstring>
-#include <Windows.h>
+#pragma once
+#include "PatchEngine.hpp"
 
 namespace MFortress_EA
 {
-#pragma pack(push, 1)
-    struct PatchEntry
-    {
-        uint32_t address;
-        uint8_t  offset;
-        uint8_t  size;
-    };
-#pragma pack(pop)
+    using MFortress::PatchEntry;
 
     static constexpr uint8_t patchBytes[39] =
     {
@@ -5213,52 +5204,6 @@ namespace MFortress_EA
 
     inline bool ApplyPatches()
     {
-        constexpr uintptr_t PAGE_MASK = ~uintptr_t(0xFFF);
-
-        size_t i = 0;
-        while (i < patchCount)
-        {
-            uintptr_t regionStart = patches[i].address & PAGE_MASK;
-            uintptr_t regionEnd   = (patches[i].address + patches[i].size + 0xFFF) & PAGE_MASK;
-
-            size_t j = i + 1;
-            while (j < patchCount)
-            {
-                uintptr_t pStart = patches[j].address & PAGE_MASK;
-                if (pStart > regionEnd) break;
-                uintptr_t pEnd = (patches[j].address + patches[j].size + 0xFFF) & PAGE_MASK;
-                if (pEnd > regionEnd) regionEnd = pEnd;
-                j++;
-            }
-
-            SIZE_T regionSize = static_cast<SIZE_T>(regionEnd - regionStart);
-            DWORD  oldProtect;
-            if (!VirtualProtect((LPVOID)regionStart, regionSize, PAGE_EXECUTE_READWRITE, &oldProtect))
-                return false;
-
-            for (size_t k = i; k < j; k++)
-            {
-                const auto& p = patches[k];
-                auto* dst = reinterpret_cast<uint8_t*>(p.address);
-                const auto* src = &patchBytes[p.offset];
-                switch (p.size)
-                {
-                    case 1:  std::memcpy(dst, src, 1); break;
-                    case 2:  std::memcpy(dst, src, 2); break;
-                    case 3:  std::memcpy(dst, src, 3); break;
-                    case 4:  std::memcpy(dst, src, 4); break;
-                    case 5:  std::memcpy(dst, src, 5); break;
-                    case 6:  std::memcpy(dst, src, 6); break;
-                    case 7:  std::memcpy(dst, src, 7); break;
-                    case 8:  std::memcpy(dst, src, 8); break;
-                    default: std::memcpy(dst, src, p.size); break;
-                }
-            }
-
-            VirtualProtect((LPVOID)regionStart, regionSize, oldProtect, &oldProtect);
-            i = j;
-        }
-
-        return true;
+        return MFortress::ApplyPatches(patches, patchCount, patchBytes);
     }
 }
