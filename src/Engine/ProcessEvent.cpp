@@ -2,7 +2,6 @@
 #include "Features.hpp"
 
 safetyhook::InlineHook ProcessEvent;
-safetyhook::InlineHook g_setCursorHook;
 
 static UFunction* g_tickAlice = nullptr;
 static UFunction* g_dlcStatusMovie = nullptr;
