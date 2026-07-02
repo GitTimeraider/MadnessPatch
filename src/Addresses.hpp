@@ -58,6 +58,8 @@ enum class Addr
 	// Render-element dispatch
 	RenderDispatchGuard,
 	RenderCacheGuard,
+	FieldF0BuildPrimaryDispatch,
+	FieldF0BuildFallbackDispatch,
 
 	// FixCPUPhysX
 	PhysXLoad,
@@ -210,6 +212,8 @@ namespace Addresses
 		// Render-element dispatch
 		/* RenderDispatchGuard             */ { 0xBB3162, 0xBB31D2, 0xB69032 },
 		/* RenderCacheGuard                */ { 0xBB3490, 0xBB3500, 0xB69360 },
+		/* FieldF0BuildPrimaryDispatch     */ { 0xBA660C, 0xBA661C, 0xB583FC },
+		/* FieldF0BuildFallbackDispatch    */ { 0xBA6639, 0xBA6649, 0xB58429 },
 
 		// FixCPUPhysX
 		/* PhysXLoad                       */ { 0x9DAC90, 0x9DB430, 0x9982C0 },
