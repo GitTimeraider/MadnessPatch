@@ -121,6 +121,10 @@ Disable with `DisableBackgroundLevelStreaming = 0` in `MadnessPatch.ini`.
 
 Area music is triggered by in-game scripts, so loading a checkpoint or missing a trigger can leave an area silent. This fixes it so the music still plays.
 
+## Hatter Elevator Fix
+
+Fixes the Chapter 1 softlock where the Hatter elevator's pressure pad stops responding when returning to pick the second section, a broken state the game can then bake into the checkpoint permanently. The room's script is kept re-entrant so it reconfigures on every visit, and saves already affected are repaired when loaded.
+
 ## Input Improvements
 
 ### SDL Controller Support

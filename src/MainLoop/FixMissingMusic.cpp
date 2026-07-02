@@ -11,7 +11,7 @@ static void OnLoadingBinkIsFinished(safetyhook::Context& ctx)
 
 void ApplyFixMissingMusic()
 {
-	if (!FixMissingMusicEnabled) return;
+	if (!FixMissingMusicEnabled && !FixHatterElevatorEnabled) return;
 
 	LoadingBinkIsFinished = safetyhook::create_mid(GetAddress(Addr::LoadingBinkIsFinished), OnLoadingBinkIsFinished);
 }

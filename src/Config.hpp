@@ -17,6 +17,7 @@ inline bool FixWindowHandling = false;
 inline bool HysteriaLockOnGuardEnabled = false;
 inline bool FixStuckKeysEnabled = false;
 inline bool FixMissingMusicEnabled = false;
+inline bool FixHatterElevatorEnabled = false;
 inline bool CutsceneFPSCapEnabled = false;
 inline bool FixUpgradeCursorLeak = false;
 inline bool FixPinballCannonPrompt = false;
@@ -78,6 +79,7 @@ inline void ReadConfig()
 	HysteriaLockOnGuardEnabled = IniHelper::ReadInteger("Fixes", "HysteriaLockOnGuard", 1) == 1;
 	FixStuckKeysEnabled = IniHelper::ReadInteger("Fixes", "FixStuckKeys", 1) == 1;
 	FixMissingMusicEnabled = IniHelper::ReadInteger("Fixes", "FixMissingMusic", 1) == 1;
+	FixHatterElevatorEnabled = IniHelper::ReadInteger("Fixes", "FixHatterElevator", 1) == 1;
 	CutsceneFPSCapEnabled = IniHelper::ReadInteger("Fixes", "CutsceneFPSCap", 1) == 1;
 	FixUpgradeCursorLeak = IniHelper::ReadInteger("Fixes", "FixUpgradeCursorLeak", 1) == 1;
 	FixPinballCannonPrompt = IniHelper::ReadInteger("Fixes", "FixPinballCannonPrompt", 1) == 1;
