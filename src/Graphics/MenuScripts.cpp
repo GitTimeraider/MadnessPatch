@@ -2,9 +2,10 @@
 #include "Features.hpp"
 
 safetyhook::InlineHook GFx_LoadRootMovie;
-static safetyhook::MidHook g_menuScriptMid{};
+static safetyhook::MidHook MenuScriptMid{};
 
 static uint8_t* g_letterboxBuf = nullptr;
+static uint8_t* g_memoryBuf = nullptr;
 
 static void ApplyLetterbox(uint8_t* buf)
 {
@@ -22,6 +23,17 @@ static void ApplyLetterbox(uint8_t* buf)
 
 	MemoryHelper::WriteMemory<int>((uintptr_t)(buf + 0x121), bottom, false);
 	MemoryHelper::WriteMemoryRaw((uintptr_t)(buf + 0xF1), swapped, 8, false);
+}
+
+static void ApplyMemoryPosition(uint8_t* buf)
+{
+	double stageH = 1280.0 * (double)g_State.screenHeight / (double)g_State.screenWidth;
+	double half = (stageH - 720.0) / 2.0;
+	if (half < 0.0) half = 0.0; // 16:9 or wider -> no change
+
+	int bottom = (int)(720.0 + half + 0.5);
+
+	MemoryHelper::WriteMemory<int>((uintptr_t)(buf + 0x5116), bottom, false);
 }
 
 // Re-apply the letterbox geometry after a resolution change
@@ -136,6 +148,11 @@ static void OnMenuScript(safetyhook::Context& ctx)
 		g_letterboxBuf = buf;
 		ApplyLetterbox(buf);
 	}
+	else if (FixAspectRatio && sig == 0x18159B88)
+	{
+		g_memoryBuf = buf;
+		ApplyMemoryPosition(buf);
+	}
 	else if (!HideAlice1WhenMissing && sig == 0xA409AC88)
 	{
 		// Remove the Alice 1 menu entry.
@@ -151,5 +168,5 @@ static void OnMenuScript(safetyhook::Context& ctx)
 void ApplyMenuScripts()
 {
 	GFx_LoadRootMovie = HookHelper::CreateHook((void*)GetAddress(Addr::GFxLoadRootMovie), &GFx_LoadRootMovie_Hook);
-	g_menuScriptMid = safetyhook::create_mid(GetAddress(Addr::MenuScripts), OnMenuScript);
+	MenuScriptMid = safetyhook::create_mid(GetAddress(Addr::MenuScripts), OnMenuScript);
 }
