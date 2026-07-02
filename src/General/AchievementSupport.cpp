@@ -83,6 +83,12 @@ static void OnLanguageSet(safetyhook::Context& ctx)
 {
 	const wchar_t* name = *reinterpret_cast<const wchar_t**>(GetAddress(Addr::GameLanguageName));
 
+	if (name == nullptr)
+	{
+		AchievementOverlay::SetLanguage("en");
+		return;
+	}
+
 	if (std::wcscmp(name, L"FRA") == 0)
 	{
 		AchievementOverlay::SetLanguage("fr");
