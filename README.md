@@ -269,7 +269,7 @@ Disable with `EnableCrashHandler = 0` in `MadnessPatch.ini`.
 
 ## Additional Fixes
 
-Fixes a couple of small UI issues, such as a leftover HUD cursor sprite from the first weapon-upgrade popup and an incorrect Pinball Cannon button prompt on PC.
+Fixes a couple of small UI issues, such as a leftover HUD cursor sprite from the first weapon-upgrade popup and an incorrect Pinball Cannon button prompt on PC. Full screen fades also reach true black now instead of leaving the scene faintly visible, especially at the beginning of Chapter 2.
 
 ## Skip Intro Videos
 

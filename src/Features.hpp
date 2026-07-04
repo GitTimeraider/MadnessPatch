@@ -52,6 +52,7 @@ namespace HysteriaLockOnGuard { void Tick(); }
 namespace FixStuckKeys { void Tick(); }
 namespace FixMissingMusic { void Tick(); }
 namespace FixHatterElevator { void Tick(); }
+namespace FixFadeToBlack { void Tick(); }
 namespace CutsceneFPSCap
 {
     void OnInterpStarted(USeqAct_Interp* mat);
