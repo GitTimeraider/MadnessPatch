@@ -18,7 +18,26 @@ static safetyhook::MidHook walkVelocityRecompute{};
 static uintptr_t WalkVelSkipTarget = 0;
 static float frameTimeScale = 0.0f;
 static float savedHairDeltaTime = 0.0f;
-static std::unordered_map<uintptr_t, ClothInstanceState> clothes;
+
+constexpr int CLOTH_MAX_INSTANCES = 32;
+constexpr int CLOTH_MAX_PARTICLES = 80;
+constexpr int CLOTH_MAX_FLOATS = CLOTH_MAX_PARTICLES * 3;
+
+struct ClothInstanceState
+{
+	uint32_t lastUsed = 0;
+	int numFloats = 0;
+	float accumulator = 0.0f;
+	bool primed = false;
+	float trueP1[CLOTH_MAX_FLOATS];
+	float relPrev[CLOTH_MAX_FLOATS];
+	float relCurr[CLOTH_MAX_FLOATS];
+	float applied[CLOTH_MAX_FLOATS];
+};
+
+static uintptr_t clothKeys[CLOTH_MAX_INSTANCES] = {};
+static ClothInstanceState clothes[CLOTH_MAX_INSTANCES];
+static uint32_t clothCounter = 0;
 
 static void __fastcall HairSimulator_Hook(void* thisPtr, int, float delta)
 {
@@ -34,26 +53,85 @@ static uint32_t __fastcall ClothSimulator_Hook(void* thisPtr, int, float delta)
 	int numParticles = *(int*)(cloth + 0xB8);
 	uint8_t* particles = *(uint8_t**)(cloth + 0xC4);
 
-	if (!particles || numParticles <= 0 || delta > (1.0f / 59.0f))
+	if (!particles || numParticles <= 0)
 		return ClothSimulator.unsafe_thiscall<uint32_t>(thisPtr, delta);
 
+	bool bypass = numParticles > CLOTH_MAX_PARTICLES || delta > (1.0f / 59.0f);
+
 	// Dollmaker strings
-	if (*(int*)(cloth + 0xC0) == 0)
+	if (!bypass && *(int*)(cloth + 0xC0) == 0)
 	{
 		int constraints = *(int*)(cloth + 0xBC);
-		if ((numParticles == 15 && constraints == 27) || (numParticles == 20 && constraints == 37))
+		bypass = (numParticles == 15 && constraints == 27) || (numParticles == 20 && constraints == 37);
+	}
+
+	uintptr_t key = (uintptr_t)thisPtr;
+
+	if (bypass)
+	{
+		for (int i = 0; i < CLOTH_MAX_INSTANCES; i++)
 		{
-			return ClothSimulator.unsafe_thiscall<uint32_t>(thisPtr, delta);
+			if (clothKeys[i] != key)
+				continue;
+
+			ClothInstanceState& state = clothes[i];
+
+			if (state.primed && state.numFloats == numParticles * 3)
+			{
+				for (int p = 0; p < numParticles; p++)
+				{
+					float* p1 = (float*)(particles + p * 0x70 + 0x10);
+
+					for (int j = 0; j < 3; j++)
+					{
+						int k = p * 3 + j;
+						if (p1[j] == state.applied[k])
+						{
+							p1[j] = state.trueP1[k];
+						}
+					}
+				}
+			}
+
+			state.primed = false;
+			break;
+		}
+
+		return ClothSimulator.unsafe_thiscall<uint32_t>(thisPtr, delta);
+	}
+
+	int slot = -1;
+	for (int i = 0; i < CLOTH_MAX_INSTANCES; i++)
+	{
+		if (clothKeys[i] == key)
+		{
+			slot = i;
+			break;
 		}
 	}
 
-	ClothInstanceState& state = clothes[(uintptr_t)cloth];
-	if ((int)state.trueP1.size() != numParticles * 3)
+	if (slot == -1)
 	{
-		state.trueP1.assign(numParticles * 3, 0.0f);
-		state.relPrev.assign(numParticles * 3, 0.0f);
-		state.relCurr.assign(numParticles * 3, 0.0f);
-		state.applied.assign(numParticles * 3, 0.0f);
+		slot = 0;
+		for (int i = 1; i < CLOTH_MAX_INSTANCES; i++)
+		{
+			if (clothes[i].lastUsed < clothes[slot].lastUsed)
+			{
+				slot = i;
+			}
+		}
+
+		clothKeys[slot] = key;
+		clothes[slot].numFloats = 0;
+	}
+
+	ClothInstanceState& state = clothes[slot];
+	state.lastUsed = ++clothCounter;
+
+	int numFloats = numParticles * 3;
+	if (state.numFloats != numFloats)
+	{
+		state.numFloats = numFloats;
 		state.primed = false;
 	}
 
@@ -91,7 +169,7 @@ static uint32_t __fastcall ClothSimulator_Hook(void* thisPtr, int, float delta)
 	uint32_t result = 0;
 	if (state.accumulator >= TARGET_FRAME_TIME)
 	{
-		state.relPrev = state.relCurr;
+		memcpy(state.relPrev, state.relCurr, numFloats * sizeof(float));
 		result = ClothSimulator.unsafe_thiscall<uint32_t>(thisPtr, TARGET_FRAME_TIME);
 		state.accumulator -= TARGET_FRAME_TIME;
 
@@ -109,7 +187,7 @@ static uint32_t __fastcall ClothSimulator_Hook(void* thisPtr, int, float delta)
 
 		if (!state.primed)
 		{
-			state.relPrev = state.relCurr;
+			memcpy(state.relPrev, state.relCurr, numFloats * sizeof(float));
 			state.primed = true;
 		}
 	}

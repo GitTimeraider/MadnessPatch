@@ -1,15 +1,5 @@
 #pragma once
 
-struct ClothInstanceState
-{
-	float accumulator = 0.0f;
-	bool primed = false;
-	std::vector<float> trueP1;
-	std::vector<float> relPrev;
-	std::vector<float> relCurr;
-	std::vector<float> applied;
-};
-
 struct GlobalState
 {
 	// System initialization
