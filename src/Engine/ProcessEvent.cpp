@@ -14,6 +14,17 @@ static UFunction* g_finishFirstUpgrade = nullptr;
 static UFunction* g_interpStarted = nullptr;
 static UFunction* g_interpFinished = nullptr;
 
+static UFunction* g_meleeAttack = nullptr;
+static UFunction* g_weaponAttack = nullptr;
+static UFunction* g_switchWeaponGroup = nullptr;
+static UFunction* g_rightClickAttack = nullptr;
+static UFunction* g_switchVorpal = nullptr;
+static UFunction* g_switchHobby = nullptr;
+static UFunction* g_switchEyeStaff = nullptr;
+static UFunction* g_pcCanFire = nullptr;
+static UFunction* g_pawnFadeOutWeapon = nullptr;
+static UFunction* g_pawnClearDelayAttach = nullptr;
+
 static AWeapon* volatile g_weaponToRefresh = nullptr;
 static AWeapon* s_lastSeenWeapon = nullptr;
 
@@ -28,6 +39,16 @@ static void __fastcall ProcessEvent_Hook(int This, void*, UFunction* Function, i
 {
 	bool isDlcStatus = (Function == g_dlcStatusMovie || Function == g_dlcStatusPC);
 	bool isCallout = (Function == g_calloutMovie || Function == g_calloutPC);
+
+	bool isWeaponSwitch = FixWeaponSwitchFadeInEnabled && g_meleeAttack && (Function == g_meleeAttack || Function == g_weaponAttack || Function == g_switchWeaponGroup || Function == g_rightClickAttack || Function == g_switchVorpal || Function == g_switchHobby || Function == g_switchEyeStaff);
+
+	bool switchWeaponWasHidden = false;
+	if (isWeaponSwitch)
+	{
+		AAlicePlayerController* wpc = g_State.AlicePlayerController;
+		AWeaponForAlice* w = (wpc && wpc->MyAlicePawn) ? reinterpret_cast<AWeaponForAlice*>(wpc->MyAlicePawn->Weapon) : nullptr;
+		switchWeaponWasHidden = (w == nullptr) || w->bFadeToHide;
+	}
 
 	if (UnlockCompleteEditionDLC && Function == g_tickAlice)
 	{
@@ -67,6 +88,31 @@ static void __fastcall ProcessEvent_Hook(int This, void*, UFunction* Function, i
 	}
 
 	ProcessEvent.thiscall<void>(This, Function, uParams, uResult);
+
+	if (isWeaponSwitch && switchWeaponWasHidden && g_pcCanFire && g_pawnFadeOutWeapon)
+	{
+		AAlicePlayerController* wpc = g_State.AlicePlayerController;
+		AAlicePawn* pawn = wpc ? wpc->MyAlicePawn : nullptr;
+		AWeaponForAlice* w = pawn ? reinterpret_cast<AWeaponForAlice*>(pawn->Weapon) : nullptr;
+
+		if (w && !w->bInUse)
+		{
+			struct { uint32_t ReturnValue; } canFire{};
+			wpc->ProcessEvent(g_pcCanFire, &canFire, nullptr);
+			if (!canFire.ReturnValue)
+			{
+				if (g_pawnClearDelayAttach)
+				{
+					int noParams = 0;
+					pawn->ProcessEvent(g_pawnClearDelayAttach, &noParams, nullptr);
+				}
+
+				AAlicePawn_execFadeOutWeapon_Params fade{};
+				fade.bDetachFromPawn = 1;
+				pawn->ProcessEvent(g_pawnFadeOutWeapon, &fade, nullptr);
+			}
+		}
+	}
 
 	if (UnlockCompleteEditionDLC && isDlcStatus && uParams)
 	{
@@ -181,6 +227,17 @@ void ResolveProcessEventFunctions()
 	g_finishFirstUpgrade = UFunction::FindFunction("Function AliceGame.AliceGFXMovie.finishFirstWeaponUpgrade");
 	g_interpStarted = UFunction::FindFunction("Function Engine.Actor.InterpolationStarted");
 	g_interpFinished = UFunction::FindFunction("Function Engine.Actor.InterpolationFinished");
+
+	g_meleeAttack = UFunction::FindFunction("Function AliceGame.AlicePlayerController.MeleeAttack");
+	g_weaponAttack = UFunction::FindFunction("Function AliceGame.AlicePlayerController.WeaponAttack");
+	g_switchWeaponGroup = UFunction::FindFunction("Function AliceGame.AlicePlayerController.SwitchWeaponGroup");
+	g_rightClickAttack = UFunction::FindFunction("Function AliceGame.AlicePlayerController.RightClickAttack");
+	g_switchVorpal = UFunction::FindFunction("Function AliceGame.AlicePlayerController.SwitchToVorpalBlade");
+	g_switchHobby = UFunction::FindFunction("Function AliceGame.AlicePlayerController.SwitchToHobbyHorse");
+	g_switchEyeStaff = UFunction::FindFunction("Function AliceGame.AlicePlayerController.SwitchToEyeStaff");
+	g_pcCanFire = UFunction::FindFunction("Function AliceGame.AlicePlayerController.CanFire");
+	g_pawnFadeOutWeapon = UFunction::FindFunction("Function AliceGame.AlicePawn.FadeOutWeapon");
+	g_pawnClearDelayAttach = UFunction::FindFunction("Function AliceGame.AlicePawn.ClearDelayAttachWeapon");
 
 	if (FixPinballCannonPrompt)
 	{
