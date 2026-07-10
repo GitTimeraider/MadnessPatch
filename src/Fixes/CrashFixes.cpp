@@ -22,6 +22,11 @@ static DWORD __cdecl Localize_Hook(DWORD* a1, void* a2, const wchar_t* a3, int a
 	const bool wantMatinee = SkipCutscenesWithEnter && a3 && _wcsicmp(a3, L"SKIP_CANCELMATINEE") == 0;
 	const bool pcIcons = (wantCannon || wantMatinee) && QueryCalloutPlatform() == 1;
 
+	if (a3 && _wcsicmp(a3, L"FlashUI_Chalkboard_Gryphon_2") == 0 && QueryCalloutPlatform() != 1)
+	{
+		a3 = L"FlashUI_Chalkboard_Gryphon_2_xbox";
+	}
+
 	// Fix a race condition
 	static std::mutex locMutex;
 	std::lock_guard<std::mutex> lock(locMutex);
