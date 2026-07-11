@@ -29,11 +29,18 @@ enum class Addr
 	RagdollDeath,
 
 	// FixHighFPSWalkingPhysics
-	WalkStationaryAbortX,
-	WalkStationaryAbortY,
 	WalkFloorStick,
 	WalkVelocityRecompute,
 	WalkVelocityRecomputeSkip,
+	WalkFloorAccepted,
+	WalkFallGate,
+	WalkFallGateResume,
+	FallIntegrated,
+	FallVelRecompute,
+	FallLandVelGate,
+	FallLandVelTake,
+	WalkSetBaseGuard,
+	WalkSetBaseSkip,
 
 	// Hash-table race condition
 	Localize,
@@ -183,11 +190,18 @@ namespace Addresses
 		/* RagdollDeath                    */ { 0xCA6939, 0xCA6ED9, 0xC4BBEA },
 
 		// FixHighFPSWalkingPhysics
-		/* WalkStationaryAbortX            */ { 0xD1A349, 0xD1A9E9, 0xCB2FF9 },
-		/* WalkStationaryAbortY            */ { 0xD1A3B1, 0xD1AA51, 0xCB3061 },
 		/* WalkFloorStick                  */ { 0xD1B4E1, 0xD1BB81, 0xCB4191 },
 		/* WalkVelocityRecompute           */ { 0xD1BC44, 0xD1C2E4, 0xCB48F4 },
 		/* WalkVelocityRecomputeSkip       */ { 0xD1BCC5, 0xD1C365, 0xCB4975 },
+		/* WalkFloorAccepted               */ { 0xD1B15D, 0xD1B7FD, 0xCB3E0D },
+		/* WalkFallGate                    */ { 0xD1B7BB, 0xD1BE5B, 0xCB446B },
+		/* WalkFallGateResume              */ { 0xD1B594, 0xD1BC34, 0xCB4244 },
+		/* FallIntegrated                  */ { 0xD3462F, 0xD34C0F, 0xCC994F },
+		/* FallVelRecompute                */ { 0xD34D3F, 0xD3531F, 0xCCA05F },
+		/* FallLandVelGate                 */ { 0xD3574F, 0xD35D2F, 0xCCAA6F },
+		/* FallLandVelTake                 */ { 0xD35758, 0xD35D38, 0xCCAA78 },
+		/* WalkSetBaseGuard                */ { 0xD1B0A4, 0xD1B744, 0xCB3D54 },
+		/* WalkSetBaseSkip                 */ { 0xD1B124, 0xD1B7C4, 0xCB3DD4 },
 
 		// Hash-table race condition
 		/* Localize                        */ { 0x4E9E80, 0x4EA250, 0x4D3ED0 },
