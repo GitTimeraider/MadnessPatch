@@ -5,16 +5,10 @@ safetyhook::InlineHook Localize;
 
 static uintptr_t Unattached_Collision_Skip = 0;
 static uintptr_t FxActorLoopExit = 0;
-static uintptr_t RenderDispatchContinue = 0;
-static uintptr_t FieldF0CacheExit = 0;
-static uintptr_t FieldF0BuildPrimaryContinue = 0;
-static uintptr_t FieldF0BuildFallbackContinue = 0;
+static uintptr_t ParticleDynDataDeferExit = 0;
 static safetyhook::MidHook UnattachedCollisionGuard{};
 static safetyhook::MidHook FxActorLoopGuard{};
-static safetyhook::MidHook RenderDispatchGuard{};
-static safetyhook::MidHook FieldF0CacheGuard{};
-static safetyhook::MidHook FieldF0BuildPrimaryGuard{};
-static safetyhook::MidHook FieldF0BuildFallbackGuard{};
+static safetyhook::MidHook ParticleDynDataDeferGuard{};
 
 static DWORD __cdecl Localize_Hook(DWORD* a1, void* a2, const wchar_t* a3, int a4, wchar_t* String1, int a6)
 {
@@ -81,39 +75,24 @@ static void OnFxActorLoop(safetyhook::Context& ctx)
 	}
 }
 
-static void OnRenderElementDispatch(safetyhook::Context& ctx)
+static void* pendingDynData[4] = {};
+static int pendingDynHead = 0;
+
+static void DeferDeleteDynamicData(void* oldDynData)
 {
-	if (!MemoryHelper::IsExeCode(ctx.edx))
+	void* victim = pendingDynData[pendingDynHead]; // ~4 updates old -> safe to free
+	pendingDynData[pendingDynHead] = oldDynData;
+	pendingDynHead = (pendingDynHead + 1) & 3;
+	if (victim)
 	{
-		ctx.eip = RenderDispatchContinue;
+		(*(void(__thiscall**)(void*, int))(*(void**)victim))(victim, 1);
 	}
 }
 
-static void OnFieldF0Cache(safetyhook::Context& ctx)
+static void OnParticleDynDataSwap(safetyhook::Context& ctx)
 {
-	if (*reinterpret_cast<const uint32_t*>(ctx.esi + 0xF0) == 0)
-	{
-		ctx.ecx = 0;
-		ctx.eip = FieldF0CacheExit;
-	}
-}
-
-static void OnFieldF0BuildPrimaryDispatch(safetyhook::Context& ctx)
-{
-	if (!MemoryHelper::IsExeCode(ctx.eax))
-	{
-		ctx.eax = 0;
-		ctx.eip = FieldF0BuildPrimaryContinue;
-	}
-}
-
-static void OnFieldF0BuildFallbackDispatch(safetyhook::Context& ctx)
-{
-	if (!MemoryHelper::IsExeCode(ctx.edx))
-	{
-		ctx.eax = 0;
-		ctx.eip = FieldF0BuildFallbackContinue;
-	}
+	DeferDeleteDynamicData(reinterpret_cast<void*>(ctx.ecx));
+	ctx.eip = ParticleDynDataDeferExit;
 }
 
 void ApplyCrashFixes()
@@ -142,20 +121,8 @@ void ApplyCrashFixes()
 	FxActorLoopExit = GetAddress(Addr::FaceFxActorLoopExit);
 	FxActorLoopGuard = safetyhook::create_mid(GetAddress(Addr::FaceFxActorLoopGuard), OnFxActorLoop);
 
-	// Render-element dispatch: a stale element's garbage vtable corrupts "this"
-	DWORD addr_RenderDispatch = GetAddress(Addr::RenderDispatchGuard);
-	RenderDispatchContinue = addr_RenderDispatch + 0x9;
-	RenderDispatchGuard = safetyhook::create_mid(addr_RenderDispatch, OnRenderElementDispatch);
-
-	DWORD addr_RenderCache = GetAddress(Addr::RenderCacheGuard);
-	FieldF0CacheExit = addr_RenderCache + 0x88;
-	FieldF0CacheGuard = safetyhook::create_mid(addr_RenderCache, OnFieldF0Cache);
-
-	DWORD addr_FieldF0BuildPrimary = GetAddress(Addr::FieldF0BuildPrimaryDispatch);
-	FieldF0BuildPrimaryContinue = addr_FieldF0BuildPrimary + 0x2;
-	FieldF0BuildPrimaryGuard = safetyhook::create_mid(addr_FieldF0BuildPrimary, OnFieldF0BuildPrimaryDispatch);
-
-	DWORD addr_FieldF0BuildFallback = GetAddress(Addr::FieldF0BuildFallbackDispatch);
-	FieldF0BuildFallbackContinue = addr_FieldF0BuildFallback + 0x2;
-	FieldF0BuildFallbackGuard = safetyhook::create_mid(addr_FieldF0BuildFallback, OnFieldF0BuildFallbackDispatch);
+	// Particle DynamicData deferred delete
+	DWORD addr_ParticleDynDataSwap = GetAddress(Addr::ParticleDynDataSwap);
+	ParticleDynDataDeferExit = addr_ParticleDynDataSwap + 0x8;
+	ParticleDynDataDeferGuard = safetyhook::create_mid(addr_ParticleDynDataSwap, OnParticleDynDataSwap);
 }
