@@ -6,7 +6,7 @@ namespace FixStuckKeys
 	// UE3 key FName -> Win32 virtual-key, cached by FName identity so the hot path never calls ToString()
 	static int NameToVK(const FName& key)
 	{
-		static const std::unordered_map<std::string, int> kMap = 
+		static const std::unordered_map<std::string, int> kMap =
 		{
 			{"A", 'A'}, {"B", 'B'}, {"C", 'C'}, {"D", 'D'}, {"E", 'E'}, {"F", 'F'}, {"G", 'G'}, {"H", 'H'},
 			{"I", 'I'}, {"J", 'J'}, {"K", 'K'}, {"L", 'L'}, {"M", 'M'}, {"N", 'N'}, {"O", 'O'}, {"P", 'P'},
@@ -57,19 +57,33 @@ namespace FixStuckKeys
 			{"Decimal", VK_DECIMAL},
 		};
 
-		static std::vector<std::pair<FName, int>> cache;
-		for (const auto& entry : cache)
+		static std::unordered_map<int32_t, int> cache;
+		auto cached = cache.find(key.GetDisplayIndex());
+		if (cached != cache.end())
 		{
-			if (entry.first == key)
-			{
-				return entry.second;
-			}
+			return cached->second;
 		}
 
 		auto it = kMap.find(key.ToString());
 		int vk = (it == kMap.end()) ? 0 : it->second;
-		cache.emplace_back(key, vk);
+		cache[key.GetDisplayIndex()] = vk;
 		return vk;
+	}
+
+	static bool IsExtendedVK(int vk)
+	{
+		switch (vk)
+		{
+			case VK_UP: case VK_DOWN: case VK_LEFT: case VK_RIGHT:
+			case VK_INSERT: case VK_DELETE:
+			case VK_HOME: case VK_END:
+			case VK_PRIOR: case VK_NEXT:
+			case VK_DIVIDE:
+			case VK_RCONTROL: case VK_RMENU:
+				return true;
+			default:
+				return false;
+		}
 	}
 
 	void Tick()
@@ -85,7 +99,10 @@ namespace FixStuckKeys
 
 		bool focusKnown = false, focused = false;
 
-		for (int i = 0; i < count; i++)
+		INPUT inputs[16] = {};
+		int numInputs = 0;
+
+		for (int i = 0; i < count && numInputs < 16; i++)
 		{
 			int vk = NameToVK(pressedKeys[i]);
 			if (vk <= 0)
@@ -103,14 +120,19 @@ namespace FixStuckKeys
 				focusKnown = true;
 			}
 
-			if (!focused) 
+			if (!focused)
 				return;
 
-			INPUT inp = {};
+			INPUT& inp = inputs[numInputs++];
 			inp.type = INPUT_KEYBOARD;
 			inp.ki.wVk = (WORD)vk;
-			inp.ki.dwFlags = KEYEVENTF_KEYUP;
-			SendInput(1, &inp, sizeof(INPUT));
+			inp.ki.wScan = (WORD)MapVirtualKey(vk, MAPVK_VK_TO_VSC);
+			inp.ki.dwFlags = KEYEVENTF_KEYUP | (IsExtendedVK(vk) ? KEYEVENTF_EXTENDEDKEY : 0);
+		}
+
+		if (numInputs > 0)
+		{
+			SendInput(numInputs, inputs, sizeof(INPUT));
 		}
 	}
 }
