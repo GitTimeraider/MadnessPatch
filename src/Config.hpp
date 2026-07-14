@@ -8,7 +8,7 @@
 inline bool FixHighFPSHairPhysics = false;
 inline bool FixHighFPSClothPhysics = false;
 inline bool FixHighFPSProjectileCollisionCheck = false;
-inline bool FixHighFPSRagdollDeath = false;
+inline bool FixHighFPSPhysX = false;
 inline bool FixHighFPSWalkingPhysics = false;
 inline bool CrashFixes = false;
 inline bool FixCPUPhysX = false;
@@ -72,7 +72,7 @@ inline void ReadConfig()
 	FixHighFPSHairPhysics = IniHelper::ReadInteger("Fixes", "FixHighFPSHairPhysics", 1) == 1;
 	FixHighFPSClothPhysics = IniHelper::ReadInteger("Fixes", "FixHighFPSClothPhysics", 1) == 1;
 	FixHighFPSProjectileCollisionCheck = IniHelper::ReadInteger("Fixes", "FixHighFPSProjectileCollisionCheck", 1) == 1;
-	FixHighFPSRagdollDeath = IniHelper::ReadInteger("Fixes", "FixHighFPSRagdollDeath", 1) == 1;
+	FixHighFPSPhysX = IniHelper::ReadInteger("Fixes", "FixHighFPSPhysX", 1) == 1;
 	FixHighFPSWalkingPhysics = IniHelper::ReadInteger("Fixes", "FixHighFPSWalkingPhysics", 1) == 1;
 	CrashFixes = IniHelper::ReadInteger("Fixes", "CrashFixes", 1) == 1;
 	FixCPUPhysX = IniHelper::ReadInteger("Fixes", "FixCPUPhysX", 1) == 1;

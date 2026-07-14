@@ -14,7 +14,7 @@
     <ClCompile Include="..\src\Fixes\CrashFixes.cpp">
       <Filter>src\Fixes</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\Fixes\PhysX.cpp">
+    <ClCompile Include="..\src\Fixes\FixCPUPhysX.cpp">
       <Filter>src\Fixes</Filter>
     </ClCompile>
     <ClCompile Include="..\src\Fixes\WindowHandling.cpp">

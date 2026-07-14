@@ -25,8 +25,13 @@ enum class Addr
 	// FixHighFPSProjectileCollisionCheck
 	RangeAttackPawnCollisionCheck,
 
-	// FixHighFPSRagdollDeath
-	RagdollDeath,
+	// FixHighFPSPhysX
+	PhysSceneSetTiming,
+	PhysSceneSetTimingSkip,
+	GetUnrealWorldTM,
+	RagdollTransition,
+	ApexBoneBufferWrite,
+	ApexClothVertexWrite,
 
 	// FixHighFPSWalkingPhysics
 	WalkFloorStick,
@@ -186,8 +191,13 @@ namespace Addresses
 		// FixHighFPSProjectileCollisionCheck
 		/* RangeAttackPawnCollisionCheck   */ { 0xD42A50, 0xD43030, 0xCD5A40 },
 
-		// FixHighFPSRagdollDeath
-		/* RagdollDeath                    */ { 0xCA6939, 0xCA6ED9, 0xC4BBEA },
+		// FixHighFPSPhysX
+		/* PhysSceneSetTiming              */ { 0x9E48E2, 0x9E4F52, 0x9A31D2 },
+		/* PhysSceneSetTimingSkip          */ { 0x9E48F8, 0x9E4F68, 0x9A31E8 },
+		/* GetUnrealWorldTM                */ { 0x99D270, 0x99D930, 0x95D830 },
+		/* RagdollTransition               */ { 0xCA6A20, 0xCA6FC0, 0xC4BCD1 },
+		/* ApexBoneBufferWrite             */ { 0xC11F90, 0xC12440, 0xBC30B0 },
+		/* ApexClothVertexWrite            */ { 0xC1A700, 0xC1AA70, 0xBCAC70 },
 
 		// FixHighFPSWalkingPhysics
 		/* WalkFloorStick                  */ { 0xD1B4E1, 0xD1BB81, 0xCB4191 },

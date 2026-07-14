@@ -4,7 +4,7 @@
 void ApplyFixHighFPSHairPhysics();
 void ApplyFixHighFPSClothPhysics();
 void ApplyFixHighFPSProjectileCollisionCheck();
-void ApplyFixHighFPSRagdollDeath();
+void ApplyFixHighFPSPhysX();
 void ApplyFixHighFPSWalkingPhysics();
 void ApplyCrashFixes();
 void ApplyFixMissingMusic();
