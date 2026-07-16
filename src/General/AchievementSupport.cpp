@@ -234,7 +234,6 @@ static void OnPersistentLoaded(safetyhook::Context& ctx)
 
 	if (pc && gi)
 	{
-		MessageBoxA(NULL, std::to_string(1).c_str(), "Base Address Info", MB_OK | MB_ICONINFORMATION);
 		SyncAchievementsFromSave(pc, gi);
 	}
 }
