@@ -145,6 +145,7 @@ enum class Addr
 
 	// AchievementSupport
 	PlayerControllerConsoleCommand,
+	GameConsoleCommand,
 	ActorConsoleCommand,
 	MenuCursorRead,
 	ProfileNameRead,
@@ -308,6 +309,7 @@ namespace Addresses
 
 		// AchievementSupport
 		/* PlayerControllerConsoleCommand  */ { 0x6DDE70, 0x6DE600, 0x6B32E0 },
+		/* GameConsoleCommand              */ { 0x89AA50, 0x89AC70, 0x8610C0 },
 		/* ActorConsoleCommand             */ { 0x728416, 0x728D36, 0x7021C6 },
 		/* MenuCursorRead                  */ { 0xC7EAE0, 0xC7F120, 0xC27D80 },
 		/* ProfileNameRead                 */ { 0xD72047, 0xD72547, 0xCFF6B7 },

@@ -11,6 +11,7 @@
 #include <cfloat>
 #include <filesystem>
 #include <fstream>
+#include <mutex>
 #include "Common.hpp"
 #include "Features.hpp"
 
@@ -65,6 +66,7 @@ namespace AchievementOverlay
     };
     inline std::vector<ToastItem> g_toasts;
     inline unsigned int g_toastNextId = 1;
+    inline std::mutex g_toastMutex;
 
     // Achievement data
     struct Texture
@@ -169,6 +171,8 @@ namespace AchievementOverlay
         ToastItem it{};
         it.achvId = achvId;
         it.start = GetTickCount64();
+
+        std::lock_guard<std::mutex> lock(g_toastMutex);
         it.uid = g_toastNextId++;
         g_toasts.push_back(it);
     }
@@ -760,6 +764,8 @@ namespace AchievementOverlay
 
     inline void DrawUnlockToast()
     {
+        std::lock_guard<std::mutex> lock(g_toastMutex);
+
         if (g_toasts.empty()) return;
 
         const float kSlideMs = 350.0f;

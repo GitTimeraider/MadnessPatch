@@ -8,6 +8,7 @@
 #pragma intrinsic(_ReturnAddress)
 
 safetyhook::InlineHook PlayerControllerConsoleCommand;
+safetyhook::InlineHook GameConsoleCommand;
 static safetyhook::InlineHook MenuCursorRead;
 static safetyhook::MidHook GetProfileName{};
 static safetyhook::MidHook GetGameLanguage{};
@@ -29,6 +30,24 @@ static int __fastcall PlayerControllerConsoleCommand_Hook(int thisp, int, void* 
 	}
 
 	return PlayerControllerConsoleCommand.unsafe_thiscall<int>(thisp, retStr, command, bWriteToLog);
+}
+
+static void* __stdcall GameConsoleCommand_Hook(void* retStr, void* command, int bWriteToLog)
+{
+	if (command)
+	{
+		const wchar_t* cmd = *reinterpret_cast<const wchar_t**>(command);
+		if (cmd)
+		{
+			if (const wchar_t* p = wcsstr(cmd, L"trophy unlock="))
+			{
+				int id = _wtoi(p + 14);
+				AchievementOverlay::NotifyUnlock(id);
+			}
+		}
+	}
+
+	return GameConsoleCommand.unsafe_stdcall<void*>(retStr, command, bWriteToLog);
 }
 
 static void OnActorConsoleCommand(safetyhook::Context& ctx)
@@ -116,6 +135,7 @@ void ApplyAchievementSupport()
 	if (!AchievementSupport) return;
 
 	PlayerControllerConsoleCommand = HookHelper::CreateHook((void*)GetAddress(Addr::PlayerControllerConsoleCommand), &PlayerControllerConsoleCommand_Hook);
+	GameConsoleCommand = HookHelper::CreateHook((void*)GetAddress(Addr::GameConsoleCommand), &GameConsoleCommand_Hook);
 	ActorConsoleCommand = safetyhook::create_mid(GetAddress(Addr::ActorConsoleCommand), OnActorConsoleCommand);
 	MenuCursorRead = HookHelper::CreateHook((void*)GetAddress(Addr::MenuCursorRead), &MenuCursorRead_Hook);
 	GetProfileName = safetyhook::create_mid(GetAddress(Addr::ProfileNameRead), OnProfileName);
