@@ -88,7 +88,7 @@ inline void ReadConfig()
 	FixUpgradeCursorLeak = IniHelper::ReadInteger("Fixes", "FixUpgradeCursorLeak", 1) == 1;
 	FixPinballCannonPrompt = IniHelper::ReadInteger("Fixes", "FixPinballCannonPrompt", 1) == 1;
 	AtomicSaves = IniHelper::ReadInteger("Fixes", "AtomicSaves", 1) == 1;
-	MaxProcessorCount = IniHelper::ReadInteger("Fixes", "MaxProcessorCount", 2);
+	MaxProcessorCount = IniHelper::ReadInteger("Fixes", "MaxProcessorCount", 8);
 	
 	// General
 	AchievementSupport = IniHelper::ReadInteger("General", "AchievementSupport", 1) == 1;
