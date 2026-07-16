@@ -8,6 +8,7 @@
 #include <vector>
 #include <cstdio>
 #include <cstdlib>
+#include <cerrno>
 #include <cfloat>
 #include <filesystem>
 #include <fstream>
@@ -95,6 +96,8 @@ namespace AchievementOverlay
     inline std::filesystem::path g_achievementFilePath;
     inline uint64_t g_unlockedBits = 0; // persistent unlock bitflags
     inline std::unordered_map<int, int> g_maxOverride; // runtime max overrides read from the game
+    inline std::recursive_mutex g_stateMutex;
+    inline bool g_achievementFileLoaded = false;
 
     inline constexpr int kAchievementCount = 45;
     inline float g_ventDuration = 0.0f; // persisted steam-vent timer
@@ -124,10 +127,10 @@ namespace AchievementOverlay
         { 35, 420 }, { 38, 10 }, { 39, 30 }, { 42, 100 }, { 43, 52 },
     };
 
-    inline int AchievementMax(int index)
+    inline int AchievementMaxFrom(const std::unordered_map<int, int>& overrides, int index)
     {
-        auto ov = g_maxOverride.find(index);
-        if (ov != g_maxOverride.end())
+        auto ov = overrides.find(index);
+        if (ov != overrides.end())
         {
             return ov->second;
         }
@@ -136,11 +139,19 @@ namespace AchievementOverlay
         return it != kAchievementMax.end() ? it->second : 1;
     }
 
+    inline int AchievementMax(int index)
+    {
+        std::lock_guard<std::recursive_mutex> lock(g_stateMutex);
+        return AchievementMaxFrom(g_maxOverride, index);
+    }
+
     inline bool IsVisible() { return g_visible; }
 
     inline void SetAchievementUnlocked(int index, bool unlocked)
     {
         if (index < 0) return;
+
+        std::lock_guard<std::recursive_mutex> lock(g_stateMutex);
 
         if ((int)g_unlocked.size() <= index)
         {
@@ -155,6 +166,8 @@ namespace AchievementOverlay
     {
         if (achvId < 0 || achvId >= 64)
             return false;
+
+        std::lock_guard<std::recursive_mutex> lock(g_stateMutex);
 
         const uint64_t bit = 1ull << achvId;
         if (g_unlockedBits & bit)
@@ -180,19 +193,44 @@ namespace AchievementOverlay
     // Persist the unlock flags and steam-vent timer to Achievements.txt
     inline void SaveAchievementBits()
     {
+        std::lock_guard<std::recursive_mutex> lock(g_stateMutex);
+
         if (g_achievementFilePath.empty())
             return;
 
-        std::ofstream f(g_achievementFilePath, std::ios::trunc);
-        if (f)
+        const std::wstring realPath = g_achievementFilePath.native();
+        const std::wstring tmpPath = realPath + L".tmp";
+
         {
+            std::ofstream f(tmpPath.c_str(), std::ios::trunc | std::ios::binary);
+            if (!f)
+                return;
+
             f << "UnlockFlag=" << g_unlockedBits << "\n" << "TotalVentDuration=" << g_ventDuration << "\n";
+            f.flush();
+
+            if (!f)
+            {
+                f.close();
+                DeleteFileW(tmpPath.c_str());
+                return;
+            }
         }
+
+        if (!MoveFileExW(tmpPath.c_str(), realPath.c_str(), MOVEFILE_REPLACE_EXISTING | MOVEFILE_WRITE_THROUGH))
+        {
+            DeleteFileW(tmpPath.c_str());
+            return;
+        }
+
+        g_achievementFileLoaded = true;
     }
 
     // Index 0 is the platinum, award it once every other trophy is unlocked
     inline void AwardPlatinumIfComplete()
     {
+        std::lock_guard<std::recursive_mutex> lock(g_stateMutex);
+
         if (g_unlockedBits & 1ull)
             return;
 
@@ -212,47 +250,77 @@ namespace AchievementOverlay
         }
     }
 
-    // Load the unlock flags + steam-vent timer for a profile's save folder
-    inline void InitAchievementFile(const std::filesystem::path& folder)
+    inline bool ParseAchievementFile(const std::filesystem::path& path, uint64_t& bitsOut, float& ventOut)
     {
-        if (folder == g_achievementFolder)
-            return;
+        std::error_code ec;
+        if (!std::filesystem::exists(path, ec))
+            return false;
+
+        std::ifstream f(path);
+        if (!f)
+            return false;
+
+        bool found = false;
+        uint64_t bits = 0;
+        float vent = 0.0f;
+
+        std::string line;
+        while (std::getline(f, line))
+        {
+            const size_t eq = line.find('=');
+            if (eq == std::string::npos)
+                continue;
+
+            const std::string key = line.substr(0, eq);
+            const char* val = line.c_str() + eq + 1;
+            if (key == "UnlockFlag")
+            {
+                errno = 0;
+                char* end = nullptr;
+                const uint64_t parsed = std::strtoull(val, &end, 10);
+                if (end == val || errno == ERANGE)
+                    return false;
+
+                bits = parsed;
+                found = true;
+            }
+            else if (key == "TotalVentDuration")
+            {
+                vent = std::strtof(val, nullptr);
+            }
+        }
+
+        if (!found)
+            return false;
+
+        bitsOut = bits;
+        ventOut = (vent >= 0.0f && vent < 1.0e9f) ? vent : 0.0f;
+        return true;
+    }
+
+    // Point the overlay at a profile's Achievements.txt and load it.
+    // Returns true when the file is not there yet, meaning the caller should import from the save
+    inline bool InitAchievementFile(const std::filesystem::path& folder)
+    {
+        std::lock_guard<std::recursive_mutex> lock(g_stateMutex);
+
+        if (folder.empty() || (folder == g_achievementFolder && g_achievementFileLoaded))
+            return false;
 
         g_achievementFolder = folder;
         g_achievementFilePath = folder / L"Achievements.txt";
 
         std::error_code ec;
-        if (!std::filesystem::exists(g_achievementFilePath, ec))
-        {
-            std::filesystem::create_directories(folder, ec);
-            std::ofstream create(g_achievementFilePath); // create an empty Achievements.txt
-        }
+        std::filesystem::create_directories(folder, ec);
 
-        g_unlockedBits = 0;
-        g_ventDuration = 0.0f;
-        {
-            std::ifstream f(g_achievementFilePath);
-            std::string line;
-            while (std::getline(f, line))
-            {
-                const size_t eq = line.find('=');
-                if (eq == std::string::npos)
-                    continue;
+        uint64_t bits = 0;
+        float vent = 0.0f;
+        const bool loaded = ParseAchievementFile(g_achievementFilePath, bits, vent);
 
-                const std::string key = line.substr(0, eq);
-                const char* val = line.c_str() + eq + 1;
-                if (key == "UnlockFlag")
-                {
-                    g_unlockedBits = std::strtoull(val, nullptr, 10);
-
-                }
-                else if (key == "TotalVentDuration")
-                {
-                    g_ventDuration = std::strtof(val, nullptr);
-                }
-            }
-        }
+        g_unlockedBits = bits;
+        g_ventDuration = vent;
         g_ventNeedsApply = true; // game-side restores g_ventDuration into the engine on the next tick
+        g_achievementFileLoaded = loaded;
 
         if ((int)g_unlocked.size() < 64)
         {
@@ -263,7 +331,14 @@ namespace AchievementOverlay
             g_unlocked[i] = ((g_unlockedBits >> i) & 1ull) != 0;
         }
 
+        g_current.assign(g_current.size(), 0);
+        g_maxOverride.clear();
+
+        if (!loaded)
+            return true;
+
         AwardPlatinumIfComplete(); // a save that already holds every non-platinum trophy
+        return false;
     }
 
     // Marks the achievement unlocked, saves, and shows a toast only if it wasn't already unlocked
@@ -271,6 +346,8 @@ namespace AchievementOverlay
     {
         if (achvId < 0 || achvId >= 64)
             return false;
+
+        std::lock_guard<std::recursive_mutex> lock(g_stateMutex);
 
         const uint64_t bit = 1ull << achvId;
         if (g_unlockedBits & bit)
@@ -292,6 +369,8 @@ namespace AchievementOverlay
     // Persist the current steam-vent timer (called when Alice leaves a vent).
     inline void SaveVentDuration(float seconds)
     {
+        std::lock_guard<std::recursive_mutex> lock(g_stateMutex);
+
         g_ventDuration = seconds;
         SaveAchievementBits();
     }
@@ -300,6 +379,8 @@ namespace AchievementOverlay
     inline void SetAchievementMax(int index, int maxValue)
     {
         if (index < 0) return;
+
+        std::lock_guard<std::recursive_mutex> lock(g_stateMutex);
         g_maxOverride[index] = maxValue;
     }
 
@@ -307,6 +388,8 @@ namespace AchievementOverlay
     inline void SetAchievementProgress(int index, int current)
     {
         if (index < 0) return;
+
+        std::lock_guard<std::recursive_mutex> lock(g_stateMutex);
 
         if ((int)g_current.size() <= index)
         {
@@ -323,6 +406,8 @@ namespace AchievementOverlay
     // Clear all unlock/progress state so everything shows as locked again, not called automatically
     inline void ResetProgress()
     {
+        std::lock_guard<std::recursive_mutex> lock(g_stateMutex);
+
         g_unlockedBits = 0;
         g_unlocked.assign(g_unlocked.size(), false);
         g_current.assign(g_current.size(), 0);
@@ -473,9 +558,19 @@ namespace AchievementOverlay
             Texture t;
             LoadTextureFromFile(dev, p.c_str(), t, target); // keep index alignment even if a load fails
             g_achievements.push_back(t);
+        }
 
-            if ((int)g_unlocked.size() <= i) g_unlocked.push_back(false);
-            if ((int)g_current.size() <= i) g_current.push_back(0);
+        {
+            std::lock_guard<std::recursive_mutex> lock(g_stateMutex);
+
+            if (g_unlocked.size() < g_achievements.size())
+            {
+                g_unlocked.resize(g_achievements.size(), false);
+            }
+            if (g_current.size() < g_achievements.size())
+            {
+                g_current.resize(g_achievements.size(), 0);
+            }
         }
     }
 
@@ -671,14 +766,24 @@ namespace AchievementOverlay
 
             const float iconSize = 64.0f * g_uiScale;
 
+            std::vector<bool> unlockedSnapshot;
+            std::vector<int> currentSnapshot;
+            std::unordered_map<int, int> maxSnapshot;
+            {
+                std::lock_guard<std::recursive_mutex> lock(g_stateMutex);
+                unlockedSnapshot = g_unlocked;
+                currentSnapshot = g_current;
+                maxSnapshot = g_maxOverride;
+            }
+
             for (size_t i = 0; i < g_achievements.size(); i++)
             {
                 ImGui::PushID((int)i);
 
                 const Texture& t = g_achievements[i];
-                bool unlocked = (i < g_unlocked.size()) ? g_unlocked[i] : false;
-                int maxv = AchievementMax((int)i);
-                int cur = (i < g_current.size()) ? g_current[i] : 0;
+                bool unlocked = (i < unlockedSnapshot.size()) ? unlockedSnapshot[i] : false;
+                int maxv = AchievementMaxFrom(maxSnapshot, (int)i);
+                int cur = (i < currentSnapshot.size()) ? currentSnapshot[i] : 0;
 
                 bool reveal = !IsSecret((int)i) || g_showSecrets || unlocked;
 

@@ -11,145 +11,28 @@ safetyhook::InlineHook PlayerControllerConsoleCommand;
 safetyhook::InlineHook GameConsoleCommand;
 static safetyhook::InlineHook MenuCursorRead;
 static safetyhook::MidHook GetProfileName{};
+static safetyhook::MidHook PersistentDataLoaded{};
 static safetyhook::MidHook GetGameLanguage{};
 static safetyhook::MidHook ActorConsoleCommand{};
 
-static int __fastcall PlayerControllerConsoleCommand_Hook(int thisp, int, void* retStr, void* command, int bWriteToLog)
-{
-	if (command)
-	{
-		const wchar_t* cmd = *reinterpret_cast<const wchar_t**>(command);
-		if (cmd)
-		{
-			if (const wchar_t* p = wcsstr(cmd, L"trophy unlock="))
-			{
-				int id = _wtoi(p + 14);
-				AchievementOverlay::NotifyUnlock(id);
-			}
-		}
-	}
+static std::wstring g_profileName;
 
-	return PlayerControllerConsoleCommand.unsafe_thiscall<int>(thisp, retStr, command, bWriteToLog);
+// <docPath>\AliceGame\CheckPoint\<profile> = the selected user's checkpoint folder.
+static std::filesystem::path ProfileSavePath()
+{
+	if (g_profileName.empty() || g_docPath.empty())
+		return {};
+
+	return std::filesystem::path(g_docPath) / L"AliceGame" / L"CheckPoint" / g_profileName;
 }
 
-static void* __stdcall GameConsoleCommand_Hook(void* retStr, void* command, int bWriteToLog)
-{
-	if (command)
-	{
-		const wchar_t* cmd = *reinterpret_cast<const wchar_t**>(command);
-		if (cmd)
-		{
-			if (const wchar_t* p = wcsstr(cmd, L"trophy unlock="))
-			{
-				int id = _wtoi(p + 14);
-				AchievementOverlay::NotifyUnlock(id);
-			}
-		}
-	}
-
-	return GameConsoleCommand.unsafe_stdcall<void*>(retStr, command, bWriteToLog);
-}
-
-static void OnActorConsoleCommand(safetyhook::Context& ctx)
-{
-	const wchar_t* cmd = *reinterpret_cast<const wchar_t**>(ctx.ebp - 0x18);
-	if (cmd)
-	{
-		if (const wchar_t* p = wcsstr(cmd, L"trophy unlock="))
-		{
-			int id = _wtoi(p + 14);
-			AchievementOverlay::NotifyUnlock(id);
-		}
-	}
-}
-
-static POINT g_frozenCursor{};
-static bool g_haveFrozenCursor = false;
-
-static POINT* __fastcall MenuCursorRead_Hook(int thisp, int, POINT* outPos)
-{
-	if (AchievementOverlay::IsVisible())
-	{
-		if (!g_haveFrozenCursor)
-		{
-			MenuCursorRead.unsafe_thiscall<POINT*>(thisp, outPos);
-			g_frozenCursor = *outPos;
-			g_haveFrozenCursor = true;
-		}
-		else
-		{
-			*outPos = g_frozenCursor;
-		}
-		return outPos;
-	}
-
-	g_haveFrozenCursor = false;
-	return MenuCursorRead.unsafe_thiscall<POINT*>(thisp, outPos);
-}
-
-static void OnProfileName(safetyhook::Context& ctx)
-{
-	const wchar_t* name = reinterpret_cast<const wchar_t*>(ctx.eax);
-	if (!name || g_docPath.empty())
-		return;
-
-	// <docPath>\AliceGame\CheckPoint\<profile> = the selected user's checkpoint folder.
-	std::filesystem::path savePath = std::filesystem::path(g_docPath) / L"AliceGame" / L"CheckPoint" / name;
-	AchievementOverlay::InitAchievementFile(savePath);
-}
-
-static void OnLanguageSet(safetyhook::Context& ctx)
-{
-	const wchar_t* name = *reinterpret_cast<const wchar_t**>(GetAddress(Addr::GameLanguageName));
-
-	if (name == nullptr)
-	{
-		AchievementOverlay::SetLanguage("en");
-		return;
-	}
-
-	if (std::wcscmp(name, L"FRA") == 0)
-	{
-		AchievementOverlay::SetLanguage("fr");
-	}
-	else if (std::wcscmp(name, L"DEU") == 0)
-	{
-		AchievementOverlay::SetLanguage("de");
-	}
-	else if (std::wcscmp(name, L"ITA") == 0)
-	{
-		AchievementOverlay::SetLanguage("it");
-	}
-	else if (std::wcscmp(name, L"ESN") == 0)
-	{
-		AchievementOverlay::SetLanguage("es");
-	}
-	else
-	{
-		AchievementOverlay::SetLanguage("en");
-	}
-}
-
-void ApplyAchievementSupport()
-{
-	if (!AchievementSupport) return;
-
-	PlayerControllerConsoleCommand = HookHelper::CreateHook((void*)GetAddress(Addr::PlayerControllerConsoleCommand), &PlayerControllerConsoleCommand_Hook);
-	GameConsoleCommand = HookHelper::CreateHook((void*)GetAddress(Addr::GameConsoleCommand), &GameConsoleCommand_Hook);
-	ActorConsoleCommand = safetyhook::create_mid(GetAddress(Addr::ActorConsoleCommand), OnActorConsoleCommand);
-	MenuCursorRead = HookHelper::CreateHook((void*)GetAddress(Addr::MenuCursorRead), &MenuCursorRead_Hook);
-	GetProfileName = safetyhook::create_mid(GetAddress(Addr::ProfileNameRead), OnProfileName);
-	GetGameLanguage = safetyhook::create_mid(GetAddress(Addr::GameLanguageSet), OnLanguageSet);
-}
-
-// Marks every achievement already satisfied by the loaded save as unlocked, with no toasts
+// Marks every achievement already satisfied by the loaded save as unlocked, with no toasts.
+// Runs once per profile, when that profile has no Achievements.txt yet
 static void SyncAchievementsFromSave(AAlicePlayerController* pc, AAliceGameInfo* gi)
 {
-	bool changed = false;
-	auto grant = [&](int id)
+	auto grant = [](int id)
 	{
-		if (AchievementOverlay::MarkUnlockedSilent(id))
-			changed = true;
+		AchievementOverlay::MarkUnlockedSilent(id);
 	};
 
 	const bool gameComplete = (gi->CompleteGameOnAnyDifficult != 0) || (gi->ChapterComplete[5] != 0);
@@ -233,11 +116,6 @@ static void SyncAchievementsFromSave(AAlicePlayerController* pc, AAliceGameInfo*
 	}
 	if (maxedWeapons >= 4) grant(19);
 
-	if (g_State.AliceEngine && g_State.AliceEngine->totalVentDuration >= 420.0f)
-	{
-		grant(35);
-	}
-
 	// Snouts: all in the game (25), or every snout within any one chapter (24)
 	int totalSnouts = 0, collectedSnouts = 0;
 	for (int i = 0; i < 6; i++)
@@ -260,11 +138,150 @@ static void SyncAchievementsFromSave(AAlicePlayerController* pc, AAliceGameInfo*
 	}
 
 	AchievementOverlay::AwardPlatinumIfComplete();
+	AchievementOverlay::SaveAchievementBits();
+}
 
-	if (changed)
+static int __fastcall PlayerControllerConsoleCommand_Hook(int thisp, int, void* retStr, void* command, int bWriteToLog)
+{
+	if (command)
 	{
-		AchievementOverlay::SaveAchievementBits();
+		const wchar_t* cmd = *reinterpret_cast<const wchar_t**>(command);
+		if (cmd)
+		{
+			if (const wchar_t* p = wcsstr(cmd, L"trophy unlock="))
+			{
+				int id = _wtoi(p + 14);
+				AchievementOverlay::NotifyUnlock(id);
+			}
+		}
 	}
+
+	return PlayerControllerConsoleCommand.unsafe_thiscall<int>(thisp, retStr, command, bWriteToLog);
+}
+
+static void* __stdcall GameConsoleCommand_Hook(void* retStr, void* command, int bWriteToLog)
+{
+	if (command)
+	{
+		const wchar_t* cmd = *reinterpret_cast<const wchar_t**>(command);
+		if (cmd)
+		{
+			if (const wchar_t* p = wcsstr(cmd, L"trophy unlock="))
+			{
+				int id = _wtoi(p + 14);
+				AchievementOverlay::NotifyUnlock(id);
+			}
+		}
+	}
+
+	return GameConsoleCommand.unsafe_stdcall<void*>(retStr, command, bWriteToLog);
+}
+
+static void OnActorConsoleCommand(safetyhook::Context& ctx)
+{
+	const wchar_t* cmd = *reinterpret_cast<const wchar_t**>(ctx.ebp - 0x18);
+	if (cmd)
+	{
+		if (const wchar_t* p = wcsstr(cmd, L"trophy unlock="))
+		{
+			int id = _wtoi(p + 14);
+			AchievementOverlay::NotifyUnlock(id);
+		}
+	}
+}
+
+static POINT g_frozenCursor{};
+static bool g_haveFrozenCursor = false;
+
+static POINT* __fastcall MenuCursorRead_Hook(int thisp, int, POINT* outPos)
+{
+	if (AchievementOverlay::IsVisible())
+	{
+		if (!g_haveFrozenCursor)
+		{
+			MenuCursorRead.unsafe_thiscall<POINT*>(thisp, outPos);
+			g_frozenCursor = *outPos;
+			g_haveFrozenCursor = true;
+		}
+		else
+		{
+			*outPos = g_frozenCursor;
+		}
+		return outPos;
+	}
+
+	g_haveFrozenCursor = false;
+	return MenuCursorRead.unsafe_thiscall<POINT*>(thisp, outPos);
+}
+
+static void OnProfileName(safetyhook::Context& ctx)
+{
+	const wchar_t* name = reinterpret_cast<const wchar_t*>(ctx.eax);
+	if (!name || !name[0] || g_profileName == name)
+		return;
+
+	g_profileName = name;
+	AchievementOverlay::InitAchievementFile(ProfileSavePath());
+}
+
+static void OnPersistentLoaded(safetyhook::Context& ctx)
+{
+	if (!AchievementOverlay::InitAchievementFile(ProfileSavePath()))
+		return;
+
+	AAlicePlayerController* pc = g_State.AlicePlayerController;
+	AAliceGameInfo* gi = (pc && pc->WorldInfo) ? static_cast<AAliceGameInfo*>(pc->WorldInfo->Game) : nullptr;
+
+	if (pc && gi)
+	{
+		MessageBoxA(NULL, std::to_string(1).c_str(), "Base Address Info", MB_OK | MB_ICONINFORMATION);
+		SyncAchievementsFromSave(pc, gi);
+	}
+}
+
+static void OnLanguageSet(safetyhook::Context& ctx)
+{
+	const wchar_t* name = *reinterpret_cast<const wchar_t**>(GetAddress(Addr::GameLanguageName));
+
+	if (name == nullptr)
+	{
+		AchievementOverlay::SetLanguage("en");
+		return;
+	}
+
+	if (std::wcscmp(name, L"FRA") == 0)
+	{
+		AchievementOverlay::SetLanguage("fr");
+	}
+	else if (std::wcscmp(name, L"DEU") == 0)
+	{
+		AchievementOverlay::SetLanguage("de");
+	}
+	else if (std::wcscmp(name, L"ITA") == 0)
+	{
+		AchievementOverlay::SetLanguage("it");
+	}
+	else if (std::wcscmp(name, L"ESN") == 0)
+	{
+		AchievementOverlay::SetLanguage("es");
+	}
+	else
+	{
+		AchievementOverlay::SetLanguage("en");
+	}
+}
+
+void ApplyAchievementSupport()
+{
+	if (!AchievementSupport) return;
+
+	PlayerControllerConsoleCommand = HookHelper::CreateHook((void*)GetAddress(Addr::PlayerControllerConsoleCommand), &PlayerControllerConsoleCommand_Hook);
+	GameConsoleCommand = HookHelper::CreateHook((void*)GetAddress(Addr::GameConsoleCommand), &GameConsoleCommand_Hook);
+	ActorConsoleCommand = safetyhook::create_mid(GetAddress(Addr::ActorConsoleCommand), OnActorConsoleCommand);
+	MenuCursorRead = HookHelper::CreateHook((void*)GetAddress(Addr::MenuCursorRead), &MenuCursorRead_Hook);
+	GetProfileName = safetyhook::create_mid(GetAddress(Addr::ProfileNameRead), OnProfileName);
+	PersistentDataLoaded = safetyhook::create_mid(GetAddress(Addr::PersistentLoaded), OnPersistentLoaded);
+	GetGameLanguage = safetyhook::create_mid(GetAddress(Addr::GameLanguageSet), OnLanguageSet);
 }
 
 void UpdateAchievementProgress()
@@ -294,11 +311,6 @@ void UpdateAchievementProgress()
 
 	if (!AchievementOverlay::IsVisible()) 
 		return;
-
-	if (aliceGameInfo)
-	{
-		SyncAchievementsFromSave(pc, aliceGameInfo);
-	}
 
 	AchievementOverlay::SetAchievementProgress(34, pc->DestroyedDoomBarriers);
 	AchievementOverlay::SetAchievementProgress(38, pc->AchievementsNew38Npcs);

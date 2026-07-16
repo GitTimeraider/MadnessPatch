@@ -149,6 +149,7 @@ enum class Addr
 	ActorConsoleCommand,
 	MenuCursorRead,
 	ProfileNameRead,
+	PersistentLoaded,
 	GameLanguageSet,
 	GameLanguageName,
 
@@ -316,7 +317,8 @@ namespace Addresses
 		/* GameConsoleCommand              */ { 0x89AA50, 0x89AC70, 0x8610C0 },
 		/* ActorConsoleCommand             */ { 0x728416, 0x728D36, 0x7021C6 },
 		/* MenuCursorRead                  */ { 0xC7EAE0, 0xC7F120, 0xC27D80 },
-		/* ProfileNameRead                 */ { 0xD72047, 0xD72547, 0xCFF6B7 },
+		/* ProfileNameRead                 */ { 0xD00EB9, 0xD01509, 0xC9A8D8 },
+		/* PersistentLoaded                */ { 0xD01190, 0xD017E0, 0xC9ABCA },
 		/* GameLanguageSet                 */ { 0x51F613, 0x51FA53, 0x50233D },
 		/* GameLanguageName                */ { 0x14F78C0, 0x14F78C0, 0x1472DE0 },
 
