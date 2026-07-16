@@ -163,6 +163,10 @@ enum class Addr
 	D3D9ResetPre,
 	D3D9ResetPost,
 
+	// AdaptivePhysXMemory
+	PhysXCreateSDK,
+	GetSystemVRAM,
+
 	Count
 };
 
@@ -326,6 +330,10 @@ namespace Addresses
 		/* D3D9PresentFullscreen           */ { 0xC7B648, 0xC7BC98, 0xC250E8 },
 		/* D3D9ResetPre                    */ { 0xC784EB, 0xC78B3B, 0xC2230D },
 		/* D3D9ResetPost                   */ { 0xC784F2, 0xC78B42, 0xC22314 },
+
+		// AdaptivePhysXMemory
+		/* PhysXCreateSDK                  */{ 0x9E80FF, 0x9E878F, 0x9A5607 },
+		/* GetSystemVRAM                   */{ 0xC77592, 0xC77BE2, 0xC21576 },
 	};
 
 	inline void SetBuild(GameBuild build, uintptr_t moduleBase)

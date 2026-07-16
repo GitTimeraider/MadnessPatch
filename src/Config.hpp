@@ -63,6 +63,7 @@ inline bool DisableBackgroundLevelStreaming = false;
 inline bool FixAspectRatio = false;
 inline bool ReducedMipMapBias = false;
 inline bool FixBinkVideoBT709 = false;
+inline bool AdaptivePhysXMemory = false;
 
 inline void ReadConfig()
 {
@@ -127,6 +128,7 @@ inline void ReadConfig()
 	FixAspectRatio = IniHelper::ReadInteger("Graphics", "FixAspectRatio", 1) == 1;
 	ReducedMipMapBias = IniHelper::ReadInteger("Graphics", "ReducedMipMapBias", 1) == 1;
 	FixBinkVideoBT709 = IniHelper::ReadInteger("Graphics", "FixBinkVideoBT709", 1) == 1;
+	AdaptivePhysXMemory = IniHelper::ReadInteger("Graphics", "AdaptivePhysXMemory", 1) == 1;
 
 	if (UseSDLControllerInput)
 	{

@@ -35,6 +35,7 @@ void ApplyDisableBackgroundLevelStreaming();
 void ApplyFixBinkVideoBT709();
 void ApplyFixAspectRatio();
 void ApplyMenuScripts();
+void ApplyAdaptivePhysXMemory();
 void ReapplyMenuLetterbox();
 
 // Engine

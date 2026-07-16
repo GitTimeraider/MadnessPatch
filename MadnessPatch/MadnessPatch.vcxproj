@@ -140,6 +140,7 @@
     <ClCompile Include="..\src\Graphics\FixBinkVideoBT709.cpp" />
     <ClCompile Include="..\src\Graphics\FixAspectRatio.cpp" />
     <ClCompile Include="..\src\Graphics\MenuScripts.cpp" />
+	<ClCompile Include="..\src\Graphics\AdaptivePhysXMemory.cpp" />
     <ClCompile Include="..\src\MainLoop\BlockCameraInMenu.cpp" />
     <ClCompile Include="..\src\MainLoop\MainLoop.cpp" />
     <ClCompile Include="..\src\MainLoop\HysteriaLockOnGuard.cpp" />

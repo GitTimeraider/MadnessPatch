@@ -81,6 +81,7 @@ static void Init()
 	ApplyFixBinkVideoBT709();
 	ApplyFixAspectRatio();
 	ApplyMenuScripts();
+	ApplyAdaptivePhysXMemory();
 
 	// Misc
 	ApplyResolutionHook();
