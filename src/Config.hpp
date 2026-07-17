@@ -52,6 +52,7 @@ inline bool DisableMouseAcceleration = false;
 inline bool DisableControllerAcceleration = false;
 inline bool TouchpadEnabled = false;
 inline bool InvertABXYButtons = false;
+inline bool InvertShoulderTriggers = false;
 inline bool DisableMouseSmoothing = false;
 inline bool SkipCutscenesWithEnter = false;
 
@@ -117,6 +118,7 @@ inline void ReadConfig()
 	DisableControllerAcceleration = IniHelper::ReadInteger("Input", "DisableControllerAcceleration", 1) == 1;
 	TouchpadEnabled = IniHelper::ReadInteger("Input", "TouchpadEnabled", 1) == 1;
 	InvertABXYButtons = IniHelper::ReadInteger("Input", "InvertABXYButtons", 1) == 1;
+	InvertShoulderTriggers = IniHelper::ReadInteger("Input", "InvertShoulderTriggers", 1) == 1;
 	DisableMouseSmoothing = IniHelper::ReadInteger("Input", "DisableMouseSmoothing", 0) == 1;
 	SkipCutscenesWithEnter = IniHelper::ReadInteger("Input", "SkipCutscenesWithEnter", 1) == 1;
 

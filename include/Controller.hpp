@@ -398,8 +398,6 @@ namespace ControllerHelper
 		{ SDL_GAMEPAD_BUTTON_BACK,           XINPUT_GAMEPAD_BACK },
 		{ SDL_GAMEPAD_BUTTON_LEFT_STICK,     XINPUT_GAMEPAD_LEFT_THUMB },
 		{ SDL_GAMEPAD_BUTTON_RIGHT_STICK,    XINPUT_GAMEPAD_RIGHT_THUMB },
-		{ SDL_GAMEPAD_BUTTON_LEFT_SHOULDER,  XINPUT_GAMEPAD_LEFT_SHOULDER },
-		{ SDL_GAMEPAD_BUTTON_RIGHT_SHOULDER, XINPUT_GAMEPAD_RIGHT_SHOULDER },
 	};
 
 	// Face buttons for standard layout (Xbox/PlayStation)
@@ -420,11 +418,13 @@ namespace ControllerHelper
 		{ SDL_GAMEPAD_BUTTON_WEST,  XINPUT_GAMEPAD_Y },
 	};
 
+	inline constexpr Sint16 TRIGGER_TO_BUTTON_THRESHOLD = 8192;
+
 	// ==========================================================
 	// Main Poll Function
 	// ==========================================================
 
-	inline DWORD PollController(XINPUT_STATE* pState, bool InvertABXYButtons)
+	inline DWORD PollController(XINPUT_STATE* pState, bool InvertABXYButtons, bool InvertShoulderTriggers)
 	{
 		ProcessSDLEvents();
 
@@ -455,8 +455,6 @@ namespace ControllerHelper
 				buttons |= mapping.xinputMask;
 		}
 
-		pState->Gamepad.wButtons = buttons;
-
 		// ==========================================================
 		// Triggers (SDL: 0-32767 -> XInput: 0-255)
 		// ==========================================================
@@ -464,8 +462,31 @@ namespace ControllerHelper
 		Sint16 leftTrigger = SDL_GetGamepadAxis(s_pGamepad, SDL_GAMEPAD_AXIS_LEFT_TRIGGER);
 		Sint16 rightTrigger = SDL_GetGamepadAxis(s_pGamepad, SDL_GAMEPAD_AXIS_RIGHT_TRIGGER);
 
-		pState->Gamepad.bLeftTrigger = static_cast<BYTE>((leftTrigger * 255) / 32767);
-		pState->Gamepad.bRightTrigger = static_cast<BYTE>((rightTrigger * 255) / 32767);
+		bool leftBumper = SDL_GetGamepadButton(s_pGamepad, SDL_GAMEPAD_BUTTON_LEFT_SHOULDER);
+		bool rightBumper = SDL_GetGamepadButton(s_pGamepad, SDL_GAMEPAD_BUTTON_RIGHT_SHOULDER);
+
+		if (s_capabilities.style == GamepadStyle::PlayStation && InvertShoulderTriggers)
+		{
+			if (leftTrigger > TRIGGER_TO_BUTTON_THRESHOLD)
+				buttons |= XINPUT_GAMEPAD_LEFT_SHOULDER;
+			if (rightTrigger > TRIGGER_TO_BUTTON_THRESHOLD)
+				buttons |= XINPUT_GAMEPAD_RIGHT_SHOULDER;
+
+			pState->Gamepad.bLeftTrigger = leftBumper ? 255 : 0;
+			pState->Gamepad.bRightTrigger = rightBumper ? 255 : 0;
+		}
+		else
+		{
+			if (leftBumper)
+				buttons |= XINPUT_GAMEPAD_LEFT_SHOULDER;
+			if (rightBumper)
+				buttons |= XINPUT_GAMEPAD_RIGHT_SHOULDER;
+
+			pState->Gamepad.bLeftTrigger = static_cast<BYTE>((leftTrigger * 255) / 32767);
+			pState->Gamepad.bRightTrigger = static_cast<BYTE>((rightTrigger * 255) / 32767);
+		}
+
+		pState->Gamepad.wButtons = buttons;
 
 		// ==========================================================
 		// Thumbsticks (SDL Y-axis is inverted compared to XInput)

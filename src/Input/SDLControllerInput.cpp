@@ -7,7 +7,7 @@ safetyhook::InlineHook XInputSetStateHook;
 static DWORD WINAPI XInputGetState_Hook(DWORD dwUserIndex, XINPUT_STATE* pState)
 {
 	if (dwUserIndex != 0) return ERROR_DEVICE_NOT_CONNECTED;
-	DWORD result = ControllerHelper::PollController(pState, InvertABXYButtons);
+	DWORD result = ControllerHelper::PollController(pState, InvertABXYButtons, InvertShoulderTriggers);
 
 	if (AchievementSupport && pState)
 	{
