@@ -239,6 +239,10 @@ Fixes window management to allow standard Windows functionality:
 - Use the Windows key to access the Start Menu or switch applications at any time. (previously blocked after clicking back into the game window)
 - Free mouse cursor when the game loses focus in windowed mode. (cursor is no longer trapped when alt-tabbing or clicking outside the window)
 
+## Audio Device Switching Fix
+
+Upgrades the game's legacy XAudio 2.6 audio system to XAudio 2.9, fixes cases where in-game audio is missing while cutscenes still have sound, and restores audio after switching, disconnecting, or reconnecting the default output device, such as a headset, monitor, or TV.
+
 ## Windowed Mode
 
 Forces the game to run in windowed mode instead of fullscreen.

@@ -126,6 +126,7 @@
     <ClCompile Include="..\src\Fixes\WindowHandling.cpp" />
     <ClCompile Include="..\src\Fixes\CPUCores.cpp" />
     <ClCompile Include="..\src\Fixes\AtomicSaves.cpp" />
+    <ClCompile Include="..\src\Fixes\XAudio2Upgrade.cpp" />
     <ClCompile Include="..\src\General\IntroSkip.cpp" />
     <ClCompile Include="..\src\General\WarnAlice1InstallFolder.cpp" />
     <ClCompile Include="..\src\General\AchievementSupport.cpp" />

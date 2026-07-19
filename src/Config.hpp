@@ -24,6 +24,7 @@ inline bool CutsceneFPSCapEnabled = false;
 inline bool FixUpgradeCursorLeak = false;
 inline bool FixPinballCannonPrompt = false;
 inline bool AtomicSaves = false;
+inline bool UpgradeToXAudio29 = false;
 inline int MaxProcessorCount = 0;
 
 // General
@@ -90,6 +91,7 @@ inline void ReadConfig()
 	FixUpgradeCursorLeak = IniHelper::ReadInteger("Fixes", "FixUpgradeCursorLeak", 1) == 1;
 	FixPinballCannonPrompt = IniHelper::ReadInteger("Fixes", "FixPinballCannonPrompt", 1) == 1;
 	AtomicSaves = IniHelper::ReadInteger("Fixes", "AtomicSaves", 1) == 1;
+	UpgradeToXAudio29 = IniHelper::ReadInteger("Fixes", "UpgradeToXAudio29", 1) == 1;
 	MaxProcessorCount = IniHelper::ReadInteger("Fixes", "MaxProcessorCount", 8);
 	
 	// General

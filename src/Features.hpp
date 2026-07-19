@@ -13,6 +13,7 @@ void ApplyFixInputBinding();
 void ApplyFixWindowHandling();
 void ApplyFixCPUCores();
 void ApplyAtomicSaves();
+void ApplyXAudio2Upgrade();
 
 // General
 void ApplyIntroSkip();

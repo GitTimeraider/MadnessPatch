@@ -168,6 +168,9 @@ enum class Addr
 	PhysXCreateSDK,
 	GetSystemVRAM,
 
+	// XAudio2Upgrade
+	XAudio2CreateEngine,
+
 	Count
 };
 
@@ -336,6 +339,9 @@ namespace Addresses
 		// AdaptivePhysXMemory
 		/* PhysXCreateSDK                  */{ 0x9E80FF, 0x9E878F, 0x9A5607 },
 		/* GetSystemVRAM                   */{ 0xC77592, 0xC77BE2, 0xC21576 },
+
+		// XAudio2Upgrade
+		/* XAudio2CreateEngine             */{ 0xC87050, 0xC875B0, 0xC2F100 },
 	};
 
 	inline void SetBuild(GameBuild build, uintptr_t moduleBase)

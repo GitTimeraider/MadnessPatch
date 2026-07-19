@@ -60,6 +60,7 @@ static void Init()
 	ApplyFixWindowHandling();
 	ApplyFixCPUCores();
 	ApplyAtomicSaves();
+	ApplyXAudio2Upgrade();
 
 	// General
 	ApplyIntroSkip();
