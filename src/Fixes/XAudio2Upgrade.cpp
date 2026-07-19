@@ -271,12 +271,6 @@ namespace
 	PFN_CreateFX g_pfnCreateFX = nullptr;
 	bool g_loadAttempted = false;
 
-	constexpr LONG XA_POOL_SIZE = 4;
-	IUnknown* g_poolReverb[XA_POOL_SIZE] = {};
-	IUnknown* g_poolEQ[XA_POOL_SIZE] = {};
-	LONG g_poolReverbNext = 0;
-	LONG g_poolEQNext = 0;
-
 	bool LoadXAudio29()
 	{
 		if (g_loadAttempted)
@@ -436,46 +430,31 @@ namespace
 		{
 			return TranslatedEffectKind::FXEQ29;
 		}
-		if (_wcsicmp(base, L"XAudio2_6.dll") == 0 && rva == 0x2380)
+		if (_wcsicmp(base, L"XAudio2_6.dll") == 0 && (rva == 0x2380 || rva == 0x236C))
 		{
 			return TranslatedEffectKind::BuiltinReverb29;
 		}
 		return TranslatedEffectKind::Passthrough;
 	}
 
-	IUnknown* AcquireReverbEffect()
+	IUnknown* CreateReverbEffect29()
 	{
-		while (true)
+		IUnknown* effect = nullptr;
+		if (g_pfnCreateAudioReverb && SUCCEEDED(g_pfnCreateAudioReverb(&effect)) && effect)
 		{
-			LONG i = InterlockedIncrement(&g_poolReverbNext) - 1;
-			if (i >= XA_POOL_SIZE)
-			{
-				return nullptr;
-			}
-
-			IUnknown* effect = static_cast<IUnknown*>(InterlockedExchangePointer(reinterpret_cast<PVOID volatile*>(&g_poolReverb[i]), nullptr));
-			if (effect)
-			{
-				return effect;
-			}
+			return effect;
 		}
+		return nullptr;
 	}
 
-	IUnknown* AcquireEQEffect()
+	IUnknown* CreateEQEffect29()
 	{
-		while (true)
+		IUnknown* effect = nullptr;
+		if (g_pfnCreateFX && SUCCEEDED(g_pfnCreateFX(XA_CLSID_FXEQ_29, &effect, nullptr, 0)) && effect)
 		{
-			LONG i = InterlockedIncrement(&g_poolEQNext) - 1;
-			if (i >= XA_POOL_SIZE)
-			{
-				return nullptr;
-			}
-			IUnknown* effect = static_cast<IUnknown*>(InterlockedExchangePointer(reinterpret_cast<PVOID volatile*>(&g_poolEQ[i]), nullptr));
-			if (effect)
-			{
-				return effect;
-			}
+			return effect;
 		}
+		return nullptr;
 	}
 
 	struct TranslatedChain
@@ -485,6 +464,19 @@ namespace
 		std::vector<XA_EFFECT_DESCRIPTOR> HeapDescs;
 		XA_EFFECT_DESCRIPTOR* Descs = Inline;
 		std::vector<unsigned char> Kinds;
+		std::vector<IUnknown*> OwnedEffects;
+
+		TranslatedChain() = default;
+		TranslatedChain(const TranslatedChain&) = delete;
+		TranslatedChain& operator=(const TranslatedChain&) = delete;
+
+		~TranslatedChain()
+		{
+			for (IUnknown* effect : OwnedEffects)
+			{
+				effect->Release();
+			}
+		}
 
 		const XA_EFFECT_CHAIN* Translate(const XA_EFFECT_CHAIN* in)
 		{
@@ -512,16 +504,18 @@ namespace
 				TranslatedEffectKind kind = ClassifyLegacyEffect(Descs[i].pEffect);
 				if (kind == TranslatedEffectKind::BuiltinReverb29)
 				{
-					if (IUnknown* repl = AcquireReverbEffect())
+					if (IUnknown* repl = CreateReverbEffect29())
 					{
+						OwnedEffects.push_back(repl);
 						Descs[i].pEffect = repl;
 						Kinds[i] = static_cast<unsigned char>(TranslatedEffectKind::BuiltinReverb29);
 					}
 				}
 				else if (kind == TranslatedEffectKind::FXEQ29)
 				{
-					if (IUnknown* repl = AcquireEQEffect())
+					if (IUnknown* repl = CreateEQEffect29())
 					{
+						OwnedEffects.push_back(repl);
 						Descs[i].pEffect = repl;
 						Kinds[i] = static_cast<unsigned char>(TranslatedEffectKind::FXEQ29);
 					}
@@ -738,6 +732,12 @@ public:
 		XA29_IXAudio2Voice* dest = UnwrapVoice(pDestinationVoice);
 		if (pDestinationVoice && !dest)
 		{
+			if (pParameters)
+			{
+				pParameters->Type = 0;
+				pParameters->Frequency = 1.0f;
+				pParameters->OneOverQ = 1.0f;
+			}
 			return;
 		}
 		real->GetOutputFilterParameters(dest, pParameters);
@@ -778,6 +778,11 @@ public:
 		XA29_IXAudio2Voice* dest = UnwrapVoice(pDestinationVoice);
 		if (pDestinationVoice && !dest)
 		{
+			if (pLevelMatrix && SourceChannels != 0 && DestinationChannels != 0 && SourceChannels <= 64 && DestinationChannels <= 64)
+			{
+				// don't leave the caller's buffer as stack garbage
+				memset(pLevelMatrix, 0, sizeof(float) * SourceChannels * DestinationChannels);
+			}
 			return;
 		}
 		real->GetOutputMatrix(dest, SourceChannels, DestinationChannels, pLevelMatrix);
@@ -1055,7 +1060,7 @@ public:
 		TranslatedSends t;
 		TranslatedChain c;
 		const XA_VOICE_SENDS* sends = t.Translate(pSendList);
-		if (t.Malformed)
+		if (t.Malformed || t.InvalidDest)
 		{
 			return XA_E_INVALID_CALL;
 		}
@@ -1094,7 +1099,7 @@ public:
 		TranslatedSends t;
 		TranslatedChain c;
 		const XA_VOICE_SENDS* sends = t.Translate(pSendList);
-		if (t.Malformed)
+		if (t.Malformed || t.InvalidDest)
 		{
 			return XA_E_INVALID_CALL;
 		}
@@ -1190,9 +1195,9 @@ public:
 		real->GetPerformanceData(pPerfData);
 	}
 
-	void STDMETHODCALLTYPE SetDebugConfiguration(const XA_DEBUG_CONFIGURATION* pDebugConfiguration, void* pReserved) override
+	void STDMETHODCALLTYPE SetDebugConfiguration(const XA_DEBUG_CONFIGURATION* /*pDebugConfiguration*/, void* /*pReserved*/) override
 	{
-		real->SetDebugConfiguration(pDebugConfiguration, pReserved);
+
 	}
 };
 
@@ -1205,24 +1210,6 @@ static HRESULT __cdecl XAudio2CreateEngine_Hook(void** ppOut, uint32_t flags, ui
 		XA29_IXAudio2* realEngine = nullptr;
 		if (SUCCEEDED(g_pfnXAudio2Create(&realEngine, 0, XA29_PROCESSOR_DEFAULT)) && realEngine)
 		{
-			g_poolReverbNext = 0;
-			g_poolEQNext = 0;
-
-			for (LONG i = 0; i < XA_POOL_SIZE; i++)
-			{
-				g_poolReverb[i] = nullptr;
-				g_poolEQ[i] = nullptr;
-
-				if (g_pfnCreateAudioReverb && FAILED(g_pfnCreateAudioReverb(&g_poolReverb[i])))
-				{
-					g_poolReverb[i] = nullptr;
-				}
-				if (g_pfnCreateFX && FAILED(g_pfnCreateFX(XA_CLSID_FXEQ_29, &g_poolEQ[i], nullptr, 0)))
-				{
-					g_poolEQ[i] = nullptr;
-				}
-			}
-
 			*ppOut = static_cast<XA26_IXAudio2*>(new XA26EngineWrap(realEngine));
 			return S_OK;
 		}
