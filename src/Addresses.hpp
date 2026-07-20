@@ -73,6 +73,9 @@ enum class Addr
 	// FixCPUPhysX
 	PhysXLoad,
 
+	// MaxPoolThreads
+	ThreadPoolCount,
+
 	// FixWindowHandling
 	UpdateMouseLock,
 	ProcessDeferredMessage,
@@ -244,6 +247,9 @@ namespace Addresses
 
 		// FixCPUPhysX
 		/* PhysXLoad                       */ { 0x9DAC90, 0x9DB430, 0x9982C0 },
+
+		// MaxPoolThreads
+		/* ThreadPoolCount                 */ { 0xC9107F, 0xC9169F, 0xC37B3A },
 
 		// FixWindowHandling
 		/* UpdateMouseLock                 */ { 0xC7E370, 0xC7E9B0, 0xC278C0 },

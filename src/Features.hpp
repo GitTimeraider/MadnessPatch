@@ -11,7 +11,7 @@ void ApplyFixMissingMusic();
 void ApplyFixCPUPhysX();
 void ApplyFixInputBinding();
 void ApplyFixWindowHandling();
-void ApplyFixCPUCores();
+void ApplyThreadPoolClamp();
 void ApplyAtomicSaves();
 void ApplyXAudio2Upgrade();
 

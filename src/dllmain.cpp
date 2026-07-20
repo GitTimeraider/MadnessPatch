@@ -58,7 +58,7 @@ static void Init()
 	ApplyFixCPUPhysX();
 	ApplyFixInputBinding();
 	ApplyFixWindowHandling();
-	ApplyFixCPUCores();
+	ApplyThreadPoolClamp();
 	ApplyAtomicSaves();
 	ApplyXAudio2Upgrade();
 

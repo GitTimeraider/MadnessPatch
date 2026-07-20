@@ -25,7 +25,7 @@ inline bool FixUpgradeCursorLeak = false;
 inline bool FixPinballCannonPrompt = false;
 inline bool AtomicSaves = false;
 inline bool UpgradeToXAudio29 = false;
-inline int MaxProcessorCount = 0;
+inline int MaxPoolThreads = 0;
 
 // General
 inline bool UnlockCompleteEditionDLC = false;
@@ -92,7 +92,7 @@ inline void ReadConfig()
 	FixPinballCannonPrompt = IniHelper::ReadInteger("Fixes", "FixPinballCannonPrompt", 1) == 1;
 	AtomicSaves = IniHelper::ReadInteger("Fixes", "AtomicSaves", 1) == 1;
 	UpgradeToXAudio29 = IniHelper::ReadInteger("Fixes", "UpgradeToXAudio29", 1) == 1;
-	MaxProcessorCount = IniHelper::ReadInteger("Fixes", "MaxProcessorCount", 8);
+	MaxPoolThreads = IniHelper::ReadInteger("Fixes", "MaxPoolThreads", 8);
 	
 	// General
 	AchievementSupport = IniHelper::ReadInteger("General", "AchievementSupport", 1) == 1;
@@ -140,9 +140,9 @@ inline void ReadConfig()
 		ControllerHelper::SetTouchpadDimensions(screenWidth, screenHeight);
 	}
 
-	if (MaxProcessorCount < -1 || MaxProcessorCount == 0)
+	if (MaxPoolThreads < 1)
 	{
-		MaxProcessorCount = 2;
+		MaxPoolThreads = -1;
 	}
 
 	ControllerHelper::SetTouchpadEnabled(TouchpadEnabled);

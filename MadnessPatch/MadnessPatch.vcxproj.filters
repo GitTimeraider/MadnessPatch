@@ -20,7 +20,7 @@
     <ClCompile Include="..\src\Fixes\WindowHandling.cpp">
       <Filter>src\Fixes</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\Fixes\CPUCores.cpp">
+    <ClCompile Include="..\src\Fixes\ThreadPoolClamp.cpp">
       <Filter>src\Fixes</Filter>
     </ClCompile>
     <ClCompile Include="..\src\Fixes\AtomicSaves.cpp">
@@ -67,9 +67,6 @@
     </ClCompile>
     <ClCompile Include="..\src\Graphics\MenuScripts.cpp">
       <Filter>src\Graphics</Filter>
-    </ClCompile>
-	<ClCompile Include="..\src\Fixes\AdaptivePhysXMemory.cpp">
-      <Filter>src\Fixes</Filter>
     </ClCompile>
     <ClCompile Include="..\src\MainLoop\MainLoop.cpp">
       <Filter>src\MainLoop</Filter>
@@ -158,6 +155,7 @@
     <ClCompile Include="..\src\Input\InputBinding.cpp">
       <Filter>src\Input</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Graphics\AdaptivePhysXMemory.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\dllmain.hpp" />
