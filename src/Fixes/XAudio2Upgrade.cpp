@@ -863,8 +863,38 @@ class XA26MasteringVoiceWrap final : public XAVoiceWrapBase<XA26MasteringVoiceWr
 
 namespace
 {
+	struct GameOutputMapping
+	{
+		UINT32 Channels;
+		DWORD Mask;
+	};
+
+	constexpr GameOutputMapping kGameOutputMappings[] =
+	{
+		{ 2, 0x003 }, { 3, 0x00B }, { 4, 0x107 }, { 4, 0x033 },
+		{ 5, 0x03B }, { 5, 0x607 }, { 6, 0x03F }, { 6, 0x60F },
+		{ 7, 0x70F }, { 8, 0x0FF }, { 8, 0x63F },
+	};
+
+	bool GameAcceptsSpeakerConfig(UINT32 channels, DWORD mask)
+	{
+		for (const GameOutputMapping& m : kGameOutputMappings)
+		{
+			if (channels == m.Channels && (mask & m.Mask) == mask)
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+
 	void NormalizeSpeakerConfig(UINT32& channels, DWORD& mask)
 	{
+		if (GameAcceptsSpeakerConfig(channels, mask))
+		{
+			return;
+		}
+
 		if (channels >= 6) { channels = 6; mask = 0x3F; } // SPEAKER_5POINT1
 		else if (channels >= 4) { channels = 4; mask = 0x33; } // SPEAKER_QUAD
 		else { channels = 2; mask = 0x03; } // SPEAKER_STEREO
@@ -1066,7 +1096,7 @@ public:
 		}
 
 		const XA_EFFECT_CHAIN* chain = c.Translate(pEffectChain);
-		std::vector<unsigned char> kinds = std::move(c.Kinds);
+		bool chainApplied = true;
 
 		XA29_IXAudio2SourceVoice* realVoice = nullptr;
 		HRESULT hr = real->CreateSourceVoice(&realVoice, pSourceFormat, flags29, MaxFrequencyRatio, pCallback, sends, chain);
@@ -1074,7 +1104,13 @@ public:
 		if (FAILED(hr) && chain)
 		{
 			hr = real->CreateSourceVoice(&realVoice, pSourceFormat, flags29, MaxFrequencyRatio, pCallback, sends, nullptr);
-			kinds.clear();
+			chainApplied = false;
+		}
+
+		std::vector<unsigned char> kinds;
+		if (chainApplied)
+		{
+			kinds = std::move(c.Kinds);
 		}
 
 		if (SUCCEEDED(hr) && realVoice)
@@ -1105,7 +1141,7 @@ public:
 		}
 
 		const XA_EFFECT_CHAIN* chain = c.Translate(pEffectChain);
-		std::vector<unsigned char> kinds = c.Kinds;
+		bool chainApplied = true;
 
 		XA29_IXAudio2SubmixVoice* realVoice = nullptr;
 		HRESULT hr = real->CreateSubmixVoice(&realVoice, safeChannels, safeRate, Flags, ProcessingStage, sends, chain);
@@ -1119,19 +1155,25 @@ public:
 		if (FAILED(hr) && chain)
 		{
 			hr = real->CreateSubmixVoice(&realVoice, safeChannels, safeRate, Flags, ProcessingStage, sends, nullptr);
-			kinds.clear();
+			chainApplied = false;
 		}
 
 		if (FAILED(hr) && sends)
 		{
 			hr = real->CreateSubmixVoice(&realVoice, safeChannels, safeRate, Flags, ProcessingStage, nullptr, nullptr);
-			kinds.clear();
+			chainApplied = false;
 		}
 
 		if (FAILED(hr))
 		{
 			hr = real->CreateSubmixVoice(&realVoice, safeChannels, safeRate, 0, ProcessingStage, nullptr, nullptr);
-			kinds.clear();
+			chainApplied = false;
+		}
+
+		std::vector<unsigned char> kinds;
+		if (chainApplied)
+		{
+			kinds = std::move(c.Kinds);
 		}
 
 		if (SUCCEEDED(hr) && realVoice)
@@ -1152,7 +1194,7 @@ public:
 
 		TranslatedChain c;
 		const XA_EFFECT_CHAIN* chain = c.Translate(pEffectChain);
-		std::vector<unsigned char> kinds = std::move(c.Kinds);
+		bool chainApplied = true;
 
 		XA29_IXAudio2MasteringVoice* realVoice = nullptr;
 		HRESULT hr = real->CreateMasteringVoice(&realVoice, InputChannels, InputSampleRate, Flags, nullptr, chain, XA29_AudioCategory_GameEffects);
@@ -1160,7 +1202,13 @@ public:
 		if (FAILED(hr) && chain)
 		{
 			hr = real->CreateMasteringVoice(&realVoice, InputChannels, InputSampleRate, Flags, nullptr, nullptr, XA29_AudioCategory_GameEffects);
-			kinds.clear();
+			chainApplied = false;
+		}
+
+		std::vector<unsigned char> kinds;
+		if (chainApplied)
+		{
+			kinds = std::move(c.Kinds);
 		}
 
 		if (SUCCEEDED(hr) && realVoice)
