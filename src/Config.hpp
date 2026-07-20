@@ -118,7 +118,7 @@ inline void ReadConfig()
 	UsePS3ControllerIcons = IniHelper::ReadInteger("Input", "UsePS3ControllerIcons", 0);
 	DisableMouseAcceleration = IniHelper::ReadInteger("Input", "DisableMouseAcceleration", 1) == 1;
 	DisableControllerAcceleration = IniHelper::ReadInteger("Input", "DisableControllerAcceleration", 1) == 1;
-	TouchpadEnabled = IniHelper::ReadInteger("Input", "TouchpadEnabled", 1) == 1;
+	TouchpadEnabled = IniHelper::ReadInteger("Input", "TouchpadEnabled", 0) == 1;
 	InvertABXYButtons = IniHelper::ReadInteger("Input", "InvertABXYButtons", 1) == 1;
 	InvertShoulderTriggers = IniHelper::ReadInteger("Input", "InvertShoulderTriggers", 1) == 1;
 	DisableMouseSmoothing = IniHelper::ReadInteger("Input", "DisableMouseSmoothing", 0) == 1;
