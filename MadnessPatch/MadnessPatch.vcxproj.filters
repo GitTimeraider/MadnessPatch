@@ -155,7 +155,9 @@
     <ClCompile Include="..\src\Input\InputBinding.cpp">
       <Filter>src\Input</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\Graphics\AdaptivePhysXMemory.cpp" />
+    <ClCompile Include="..\src\Graphics\AdaptivePhysXMemory.cpp">
+      <Filter>src\Graphics</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\dllmain.hpp" />
