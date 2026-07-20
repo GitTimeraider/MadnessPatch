@@ -67,8 +67,8 @@ enum class Addr
 	FaceFxActorLoopGuard,
 	FaceFxActorLoopExit,
 
-	// Particle DynamicData deferred delete
-	ParticleDynDataSwap,
+	// Particle material destruction race
+	ParticleMaterialDispatchSite,
 
 	// FixCPUPhysX
 	PhysXLoad,
@@ -239,8 +239,8 @@ namespace Addresses
 		/* FaceFxActorLoopGuard            */ { 0x1053D13, 0x10547D3, 0xFE0F63 },
 		/* FaceFxActorLoopExit             */ { 0x1053D1C, 0x10547DC, 0xFE0F6C },
 
-		// Particle DynamicData deferred delete
-		/* ParticleDynDataSwap             */ { 0xB90AEF, 0xB90AFF, 0xB45B3F },
+		// Particle material destruction race
+		/* ParticleMaterialDispatchSite    */ { 0xBA65FD, 0xBA660D, 0xB583ED },
 
 		// FixCPUPhysX
 		/* PhysXLoad                       */ { 0x9DAC90, 0x9DB430, 0x9982C0 },

@@ -5,10 +5,30 @@ safetyhook::InlineHook Localize;
 
 static uintptr_t Unattached_Collision_Skip = 0;
 static uintptr_t FxActorLoopExit = 0;
-static uintptr_t ParticleDynDataDeferExit = 0;
+static uintptr_t ParticleMaterialContinue = 0;
+static uintptr_t ParticleMaterialSkip = 0;
 static safetyhook::MidHook UnattachedCollisionGuard{};
 static safetyhook::MidHook FxActorLoopGuard{};
-static safetyhook::MidHook ParticleDynDataDeferGuard{};
+
+__declspec(naked) static void ParticleMaterialDeadFlagStub()
+{
+	__asm
+	{
+		// UObject::ObjectFlags is at +0x08, RF_BeginDestroyed is bit 0x8000
+		test dword ptr[ecx + 8], 8000h
+		jnz dead_material
+
+		// Re-run the five bytes replaced by the JMP
+		mov edx, [esi + 4]
+		mov eax, [ecx]
+		jmp dword ptr[ParticleMaterialContinue]
+
+		dead_material:
+		// EDX is FLODInfo::Elements.ArrayData
+		mov dword ptr[edx + ebx * 4], 0
+		jmp dword ptr[ParticleMaterialSkip]
+	}
+}
 
 static DWORD __cdecl Localize_Hook(DWORD* a1, void* a2, const wchar_t* a3, int a4, wchar_t* String1, int a6)
 {
@@ -75,26 +95,6 @@ static void OnFxActorLoop(safetyhook::Context& ctx)
 	}
 }
 
-static void* pendingDynData[4] = {};
-static int pendingDynHead = 0;
-
-static void DeferDeleteDynamicData(void* oldDynData)
-{
-	void* victim = pendingDynData[pendingDynHead]; // ~4 updates old -> safe to free
-	pendingDynData[pendingDynHead] = oldDynData;
-	pendingDynHead = (pendingDynHead + 1) & 3;
-	if (victim)
-	{
-		(*(void(__thiscall**)(void*, int))(*(void**)victim))(victim, 1);
-	}
-}
-
-static void OnParticleDynDataSwap(safetyhook::Context& ctx)
-{
-	DeferDeleteDynamicData(reinterpret_cast<void*>(ctx.ecx));
-	ctx.eip = ParticleDynDataDeferExit;
-}
-
 void ApplyCrashFixes()
 {
 	if (!CrashFixes) return;
@@ -121,8 +121,9 @@ void ApplyCrashFixes()
 	FxActorLoopExit = GetAddress(Addr::FaceFxActorLoopExit);
 	FxActorLoopGuard = safetyhook::create_mid(GetAddress(Addr::FaceFxActorLoopGuard), OnFxActorLoop);
 
-	// Particle DynamicData deferred delete
-	DWORD addr_ParticleDynDataSwap = GetAddress(Addr::ParticleDynDataSwap);
-	ParticleDynDataDeferExit = addr_ParticleDynDataSwap + 0x8;
-	ParticleDynDataDeferGuard = safetyhook::create_mid(addr_ParticleDynDataSwap, OnParticleDynDataSwap);
+	// Particle mesh-emitter material destruction race
+	DWORD addr_ParticleMaterialDispatchSite = GetAddress(Addr::ParticleMaterialDispatchSite);
+	ParticleMaterialContinue = addr_ParticleMaterialDispatchSite + 0x5;
+	ParticleMaterialSkip = addr_ParticleMaterialDispatchSite + 0x14;
+	MemoryHelper::MakeJMP(addr_ParticleMaterialDispatchSite, reinterpret_cast<uintptr_t>(&ParticleMaterialDeadFlagStub));
 }
