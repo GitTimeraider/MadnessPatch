@@ -32,6 +32,7 @@ static void* __fastcall Loop_Hook(int thisp, int)
 	if (HysteriaLockOnGuardEnabled) HysteriaLockOnGuard::Tick();
 	if (FixStuckKeysEnabled) FixStuckKeys::Tick();
 	if (FixMissingMusicEnabled) FixMissingMusic::Tick();
+	if (FixMapPropertiesEnabled) FixMapProperties::Tick();
 	if (FixHatterElevatorEnabled) FixHatterElevator::Tick();
 	if (FixFadeToBlackEnabled) FixFadeToBlack::Tick();
 	if (CutsceneFPSCapEnabled) CutsceneFPSCap::Tick();

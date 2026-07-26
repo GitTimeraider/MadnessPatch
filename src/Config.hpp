@@ -17,6 +17,7 @@ inline bool FixWindowHandling = false;
 inline bool HysteriaLockOnGuardEnabled = false;
 inline bool FixStuckKeysEnabled = false;
 inline bool FixMissingMusicEnabled = false;
+inline bool FixMapPropertiesEnabled = false;
 inline bool FixHatterElevatorEnabled = false;
 inline bool FixFadeToBlackEnabled = false;
 inline bool FixWeaponSwitchFadeInEnabled = false;
@@ -84,6 +85,7 @@ inline void ReadConfig()
 	HysteriaLockOnGuardEnabled = IniHelper::ReadInteger("Fixes", "HysteriaLockOnGuard", 1) == 1;
 	FixStuckKeysEnabled = IniHelper::ReadInteger("Fixes", "FixStuckKeys", 1) == 1;
 	FixMissingMusicEnabled = IniHelper::ReadInteger("Fixes", "FixMissingMusic", 1) == 1;
+	FixMapPropertiesEnabled = IniHelper::ReadInteger("Fixes", "FixMapProperties", 1) == 1;
 	FixHatterElevatorEnabled = IniHelper::ReadInteger("Fixes", "FixHatterElevator", 1) == 1;
 	FixFadeToBlackEnabled = IniHelper::ReadInteger("Fixes", "FixFadeToBlack", 1) == 1;
 	FixWeaponSwitchFadeInEnabled = IniHelper::ReadInteger("Fixes", "FixWeaponSwitchFadeIn", 1) == 1;

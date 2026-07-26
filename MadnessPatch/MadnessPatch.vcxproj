@@ -147,6 +147,7 @@
     <ClCompile Include="..\src\MainLoop\HysteriaLockOnGuard.cpp" />
     <ClCompile Include="..\src\MainLoop\FixStuckKeys.cpp" />
     <ClCompile Include="..\src\MainLoop\FixMissingMusic.cpp" />
+    <ClCompile Include="..\src\MainLoop\FixMapProperties.cpp" />
     <ClCompile Include="..\src\MainLoop\FixHatterElevator.cpp" />
     <ClCompile Include="..\src\MainLoop\FixFadeToBlack.cpp" />
     <ClCompile Include="..\src\MainLoop\CutsceneFPSCap.cpp" />

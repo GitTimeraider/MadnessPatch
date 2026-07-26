@@ -53,6 +53,7 @@ void ApplyMainLoopHooks();
 namespace HysteriaLockOnGuard { void Tick(); }
 namespace FixStuckKeys { void Tick(); }
 namespace FixMissingMusic { void Tick(); }
+namespace FixMapProperties { void Tick(); }
 namespace FixHatterElevator { void Tick(); }
 namespace FixFadeToBlack { void Tick(); }
 namespace CutsceneFPSCap
