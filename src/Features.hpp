@@ -42,6 +42,7 @@ void ApplyFixAspectRatio();
 void ApplyMenuScripts();
 void ApplyAdaptivePhysXMemory();
 void ReapplyMenuLetterbox();
+void ReapplyMemoryPosition();
 
 // Engine
 void ApplyResolutionHook();

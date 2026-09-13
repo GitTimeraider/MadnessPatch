@@ -51,6 +51,20 @@ void ReapplyMenuLetterbox()
 	ApplyLetterbox(buf);
 }
 
+void ReapplyMemoryPosition()
+{
+	uint8_t* buf = g_memoryBuf;
+	if (!g_memoryBuf)
+		return;
+
+	if (!MemoryHelper::IsWritable(buf, 0x511A))
+		return;
+	if (MemoryHelper::ReadMemory<uint32_t>((uintptr_t)buf) != 0x18159B88)
+		return;
+
+	ApplyMemoryPosition(buf);
+}
+
 struct BytePatch
 {
 	uint32_t header;

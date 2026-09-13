@@ -26,6 +26,7 @@ static void __fastcall UpdateViewportRHI_Hook(int thisp, int, int a2, int NewSiz
 
 		// Re-apply the menu letterbox geometry for the new resolution
 		ReapplyMenuLetterbox();
+		ReapplyMemoryPosition();
 	}
 
 	UpdateViewportRHI.thiscall<void>(thisp, a2, NewSizeX, NewSizeY, bNewIsFullscreen);
