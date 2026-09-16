@@ -83,6 +83,8 @@ static const BytePatch kBytePatches[] =
 	{ 0xA2076888, 0x7AD, 0x10 },
 	{ 0xA2076888, 0x858, 0x10 },
 	{ 0xA409AC88, 0xD2D, 0x14 },
+
+	// Apply the difficulty change directly instead of raising the unlocalized confirm popup
 	{ 0x5B03C188, 0xC76, 0x6C },
 };
 
