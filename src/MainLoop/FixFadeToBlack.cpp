@@ -3,8 +3,10 @@
 
 namespace FixFadeToBlack
 {
-	constexpr float EngageAmount = 0.999f;
-	constexpr float ReleaseAmount = 0.995f;
+	constexpr float EngageAmount = 0.9999f;
+	constexpr float ReleaseAmount = 0.999f;
+
+	static const FVector Zero{ 0.0f, 0.0f, 0.0f };
 
 	// Zero the scene through the grading path
 	static void Crush(FPostProcessSettings& pps)
@@ -23,38 +25,52 @@ namespace FixFadeToBlack
 		pps.Scene_Shadows = FVector{ 1.0f, 1.0f, 1.0f };
 	}
 
-	static std::vector<std::pair<FPostProcessSettings*, FPostProcessSettings>> g_savedSettings;
-	static std::vector<std::pair<float*, float>> g_savedAlphas;
+	struct SavedPP
+	{
+		UObject* Owner;
+		FPostProcessSettings* Settings;
+		FPostProcessSettings Backup;
+	};
+
+	struct SavedAlpha
+	{
+		UObject* Owner;
+		float* Alpha;
+		float Backup;
+	};
+
+	static std::vector<SavedPP> g_savedSettings;
+	static std::vector<SavedAlpha> g_savedAlphas;
 
 	// Crush a settings block, saving its original once per engagement
-	static void SaveAndCrush(FPostProcessSettings* pps)
+	static void SaveAndCrush(UObject* owner, FPostProcessSettings* pps)
 	{
-		for (auto& entry : g_savedSettings)
+		for (const SavedPP& entry : g_savedSettings)
 		{
-			if (entry.first == pps)
+			if (entry.Settings == pps)
 			{
 				Crush(*pps);
 				return;
 			}
 		}
 
-		g_savedSettings.push_back({ pps, *pps });
+		g_savedSettings.push_back({ owner, pps, *pps });
 		Crush(*pps);
 	}
 
 	// Force an override alpha to full, saving its original once per engagement
-	static void SaveAndForceAlpha(float* alpha)
+	static void SaveAndForceAlpha(UObject* owner, float* alpha)
 	{
-		for (auto& entry : g_savedAlphas)
+		for (const SavedAlpha& entry : g_savedAlphas)
 		{
-			if (entry.first == alpha)
+			if (entry.Alpha == alpha)
 			{
 				*alpha = 1.0f;
 				return;
 			}
 		}
 
-		g_savedAlphas.push_back({ alpha, *alpha });
+		g_savedAlphas.push_back({ owner, alpha, *alpha });
 		*alpha = 1.0f;
 	}
 
@@ -63,14 +79,14 @@ namespace FixFadeToBlack
 	{
 		if (pc->WorldInfo)
 		{
-			SaveAndCrush(&pc->WorldInfo->DefaultPostProcessSettings);
+			SaveAndCrush(pc->WorldInfo, &pc->WorldInfo->DefaultPostProcessSettings);
 		}
 
 		for (APostProcessVolume* vol : UObject::FindAllOf<APostProcessVolume>(true))
 		{
 			if (vol)
 			{
-				SaveAndCrush(&vol->Settings);
+				SaveAndCrush(vol, &vol->Settings);
 			}
 		}
 
@@ -78,25 +94,26 @@ namespace FixFadeToBlack
 		{
 			if (ca)
 			{
-				SaveAndCrush(&ca->CamOverridePostProcess);
-				SaveAndForceAlpha(&ca->CamOverridePostProcessAlpha);
+				SaveAndCrush(ca, &ca->CamOverridePostProcess);
+				SaveAndForceAlpha(ca, &ca->CamOverridePostProcessAlpha);
 			}
 		}
 
-		SaveAndCrush(&cam->CamPostProcessSettings);
-		SaveAndForceAlpha(&cam->CamOverridePostProcessAlpha);
+		SaveAndCrush(cam, &cam->CamPostProcessSettings);
+		SaveAndForceAlpha(cam, &cam->CamOverridePostProcessAlpha);
 	}
 
 	// Only restore into objects that still exist, streamed out levels take their actors with them
 	static void RestoreEverything()
 	{
-		std::vector<FPostProcessSettings*> alive;
+		std::vector<UObject*> alive;
+		alive.reserve(g_savedSettings.size());
 
 		for (APostProcessVolume* vol : UObject::FindAllOf<APostProcessVolume>(true))
 		{
 			if (vol)
 			{
-				alive.push_back(&vol->Settings);
+				alive.push_back(vol);
 			}
 		}
 
@@ -104,47 +121,49 @@ namespace FixFadeToBlack
 		{
 			if (ca)
 			{
-				alive.push_back(&ca->CamOverridePostProcess);
+				alive.push_back(ca);
 			}
 		}
 
 		AAlicePlayerController* pc = g_State.AlicePlayerController;
 		if (pc && pc->WorldInfo)
 		{
-			alive.push_back(&pc->WorldInfo->DefaultPostProcessSettings);
+			alive.push_back(pc->WorldInfo);
 		}
 
 		if (pc && pc->PlayerCamera)
 		{
-			alive.push_back(&pc->PlayerCamera->CamPostProcessSettings);
+			alive.push_back(pc->PlayerCamera);
 		}
 
-		for (auto& entry : g_savedSettings)
-		{
-			for (FPostProcessSettings* p : alive)
+		auto isAlive = [&alive](UObject* owner)
 			{
-				if (p == entry.first)
+				for (UObject* p : alive)
 				{
-					*entry.first = entry.second;
-					break;
+					if (p == owner)
+					{
+						return true;
+					}
 				}
+				return false;
+			};
+
+		for (const SavedPP& entry : g_savedSettings)
+		{
+			if (isAlive(entry.Owner))
+			{
+				*entry.Settings = entry.Backup;
 			}
 		}
 		g_savedSettings.clear();
 
-		for (auto& entry : g_savedAlphas)
+		for (const SavedAlpha& entry : g_savedAlphas)
 		{
-			FPostProcessSettings* owner = reinterpret_cast<FPostProcessSettings*>(entry.first + 1);
-			for (FPostProcessSettings* p : alive)
+			if (isAlive(entry.Owner))
 			{
-				if (p == owner)
-				{
-					*entry.first = entry.second;
-					break;
-				}
+				*entry.Alpha = entry.Backup;
 			}
 		}
-
 		g_savedAlphas.clear();
 	}
 
@@ -157,9 +176,12 @@ namespace FixFadeToBlack
 		ACamera* cam = pc->PlayerCamera;
 
 		static bool engaged = false;
+		static ACamera* engagedCam = nullptr;
 		static uint32_t savedScaling = 0;
+		static uint32_t savedInterp = 0;
 		static FVector savedScale{};
 		static FVector savedDesired{};
+		static FVector savedOriginal{};
 
 		// Only step in for fades to black
 		bool blackFade = cam->FadeColor.R < 32 && cam->FadeColor.G < 32 && cam->FadeColor.B < 32;
@@ -170,23 +192,36 @@ namespace FixFadeToBlack
 			if (!engaged)
 			{
 				engaged = true;
+				engagedCam = cam;
 				savedScaling = cam->bEnableColorScaling;
+				savedInterp = cam->bEnableColorScaleInterp;
 				savedScale = cam->ColorScale;
 				savedDesired = cam->DesiredColorScale;
+				savedOriginal = cam->OriginalColorScale;
 			}
 
 			cam->bEnableColorScaling = 1;
-			cam->ColorScale = FVector{ 0.0f, 0.0f, 0.0f };
-			cam->DesiredColorScale = FVector{ 0.0f, 0.0f, 0.0f };
+			cam->bEnableColorScaleInterp = 0;
+			cam->ColorScale = Zero;
+			cam->DesiredColorScale = Zero;
+			cam->OriginalColorScale = Zero;
 
 			CrushEverySource(pc, cam);
 		}
 		else if (engaged)
 		{
 			engaged = false;
-			cam->bEnableColorScaling = savedScaling;
-			cam->ColorScale = savedScale;
-			cam->DesiredColorScale = savedDesired;
+
+			if (cam == engagedCam)
+			{
+				cam->bEnableColorScaling = savedScaling;
+				cam->bEnableColorScaleInterp = savedInterp;
+				cam->ColorScale = savedScale;
+				cam->DesiredColorScale = savedDesired;
+				cam->OriginalColorScale = savedOriginal;
+			}
+
+			engagedCam = nullptr;
 			RestoreEverything();
 		}
 	}
