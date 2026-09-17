@@ -1,6 +1,8 @@
 #include "Common.hpp"
 #include "Features.hpp"
 
+#include <emmintrin.h>
+
 static SafetyHookInline RangeAttackPawnCollisionCheck{};
 
 static void __fastcall RangeAttackPawnCollisionCheck_Hook(int thisPtr, float DeltaTime)
@@ -440,121 +442,473 @@ void ApplyFixHighFPSPhysX()
 	ApexClothWrite = HookHelper::CreateHook((void*)GetAddress(Addr::ApexClothVertexWrite), &ApexClothWrite_Hook);
 }
 
+// ---- Hair, Cloth ----
+
+struct ParticleSimLayout
+{
+	int numParticles;
+	int particles;
+	int numColliders;
+	int colliders;
+	int particleStride;
+	int lengthScale;
+	int radialCenter;
+	int radialStrength;
+};
+
+constexpr ParticleSimLayout HAIR_LAYOUT = { 0xAC, 0xC0, 0xB8, 0xC8, 0x50, 0x9C, -1, -1 };
+constexpr ParticleSimLayout CLOTH_LAYOUT = { 0xB8, 0xC4, 0xC0, 0xCC, 0x70, -1, 0x50, 0xA0 };
+
+constexpr int SIM_MAX_INSTANCES = 64;
+constexpr int SIM_MAX_PARTICLES = 4096; // Alice's hair is 2565
+constexpr int SIM_MAX_COLLIDERS = 64;
+constexpr float SIM_CUT_SPEED = 12000.0f;
+constexpr float SIM_CUT_MIN_DIST = 32.0f;
+constexpr float SIM_CUT_TURN_COS = 0.5f;
+constexpr uint64_t SIM_INPUT_STALE_MS = 250;
+constexpr uint64_t SIM_SLOT_BUSY_MS = 1000;
+constexpr uint64_t SIM_PURGE_AFTER_MS = 30000;
+constexpr uint64_t SIM_PURGE_PERIOD_MS = 5000;
+
+struct ParticleSimState
+{
+	uintptr_t key = 0;
+	uint64_t lastSeen = 0;
+	const ParticleSimLayout* layout = nullptr;
+	int numParticles = 0;
+	int numColliders = 0;
+	float accumulator = 0.0f;
+	bool primed = false;
+	bool hasPrevInputs = false;
+	float prevMatrix[16] = {};
+	float prevLengthScale = 1.0f;
+	float prevCenter[3] = {};
+
+	// One block per instance, sized to fit: trueP1 | offPrev | offCurr | applied | prevColliders | liveColliders
+	std::unique_ptr<float[]> buffer;
+	size_t capacity = 0;
+	float* trueP1 = nullptr;
+	float* offPrev = nullptr;
+	float* offCurr = nullptr;
+	float* applied = nullptr;
+	float* prevColliders = nullptr;
+	float* liveColliders = nullptr;
+};
+
+static ParticleSimState simStates[SIM_MAX_INSTANCES];
+
+static void PurgeSimStates(uint64_t now)
+{
+	static uint64_t lastPurge = 0;
+	if (now - lastPurge < SIM_PURGE_PERIOD_MS)
+		return;
+
+	lastPurge = now;
+	for (ParticleSimState& s : simStates)
+	{
+		if (s.key && now - s.lastSeen > SIM_PURGE_AFTER_MS)
+		{
+			s = ParticleSimState{};
+		}
+	}
+}
+
+static ParticleSimState* AcquireSimState(uintptr_t key, uint64_t now, const ParticleSimLayout* layout, int numParticles, int numColliders)
+{
+	ParticleSimState* state = nullptr;
+	ParticleSimState* victim = &simStates[0];
+
+	for (ParticleSimState& s : simStates)
+	{
+		if (s.key == key)
+		{
+			state = &s;
+			break;
+		}
+
+		if (s.lastSeen < victim->lastSeen)
+		{
+			victim = &s;
+		}
+	}
+
+	if (!state)
+	{
+		// Every slot is live this second: leave this instance to the vanilla path instead of evicting one that is mid-interpolation
+		if (victim->key && now - victim->lastSeen < SIM_SLOT_BUSY_MS)
+			return nullptr;
+
+		*victim = ParticleSimState{};
+		state = victim;
+		state->key = key;
+	}
+
+	// New instance, or the game built a different sim at an address it had just freed
+	if (state->layout != layout || state->numParticles != numParticles || state->numColliders != numColliders)
+	{
+		size_t n = static_cast<size_t>(numParticles) * 3;
+		size_t m = static_cast<size_t>(numColliders) * 3;
+		size_t needed = n * 4 + m * 2 + 1; // + 1: the per-frame loops read four floats at a time from three-float records
+
+		if (state->capacity < needed)
+		{
+			float* block = new (std::nothrow) float[needed]();
+			if (!block)
+			{
+				*state = ParticleSimState{};
+				return nullptr;
+			}
+
+			state->buffer.reset(block);
+			state->capacity = needed;
+		}
+
+		float* base = state->buffer.get();
+		state->trueP1 = base;
+		state->offPrev = base + n;
+		state->offCurr = base + n * 2;
+		state->applied = base + n * 3;
+		state->prevColliders = base + n * 4;
+		state->liveColliders = base + n * 4 + m;
+		state->layout = layout;
+		state->numParticles = numParticles;
+		state->numColliders = numColliders;
+		state->primed = false;
+		state->hasPrevInputs = false;
+	}
+
+	if (now - state->lastSeen > SIM_INPUT_STALE_MS)
+	{
+		state->hasPrevInputs = false;
+	}
+
+	state->lastSeen = now;
+	return state;
+}
+
+// Inverse of the rotation / scale part, so that local = world * inverse (row vectors, like the game)
+static void SimInverseBasis(const float* m, float* inv)
+{
+	float a = m[0], b = m[1], c = m[2], d = m[4], e = m[5], f = m[6], g = m[8], h = m[9], i = m[10];
+	float det = a * (e * i - f * h) - b * (d * i - f * g) + c * (d * h - e * g);
+
+	if (!(fabsf(det) > 1e-12f))
+	{
+		static const float identity[9] = { 1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f };
+		memcpy(inv, identity, sizeof(identity));
+		return;
+	}
+
+	float r = 1.0f / det;
+	inv[0] = (e * i - f * h) * r; inv[1] = (c * h - b * i) * r; inv[2] = (b * f - c * e) * r;
+	inv[3] = (f * g - d * i) * r; inv[4] = (a * i - c * g) * r; inv[5] = (c * d - a * f) * r;
+	inv[6] = (d * h - e * g) * r; inv[7] = (b * g - a * h) * r; inv[8] = (a * e - b * d) * r;
+}
+
+static inline void SimToBodyFrame(const float* world, const float* inv, float* local)
+{
+	for (int j = 0; j < 3; j++)
+	{
+		local[j] = world[0] * inv[j] + world[1] * inv[3 + j] + world[2] * inv[6 + j];
+	}
+}
+
+static bool SimInputsCut(const float* prev, const float* live, float delta)
+{
+	float dx = live[12] - prev[12], dy = live[13] - prev[13], dz = live[14] - prev[14];
+	float limit = SIM_CUT_SPEED * delta;
+	if (limit < SIM_CUT_MIN_DIST) limit = SIM_CUT_MIN_DIST;
+
+	if (!(dx * dx + dy * dy + dz * dz <= limit * limit))
+		return true;
+
+	for (int r = 0; r < 3; r++)
+	{
+		const float* a = prev + r * 4;
+		const float* b = live + r * 4;
+		float ab = a[0] * b[0] + a[1] * b[1] + a[2] * b[2];
+		float aa = a[0] * a[0] + a[1] * a[1] + a[2] * a[2];
+		float bb = b[0] * b[0] + b[1] * b[1] + b[2] * b[2];
+
+		// written so that NaN counts as a cut
+		if (!(ab > 0.0f) || !(ab * ab >= SIM_CUT_TURN_COS * SIM_CUT_TURN_COS * aa * bb))
+			return true;
+	}
+
+	return false;
+}
+
+static void LerpSimMatrix(const float* a, const float* b, float s, float* out)
+{
+	float t = 1.0f - s;
+
+	for (int r = 0; r < 3; r++)
+	{
+		const float* ra = a + r * 4;
+		const float* rb = b + r * 4;
+		float v[3] = { ra[0] * t + rb[0] * s, ra[1] * t + rb[1] * s, ra[2] * t + rb[2] * s };
+
+		float lenA = sqrtf(ra[0] * ra[0] + ra[1] * ra[1] + ra[2] * ra[2]);
+		float lenB = sqrtf(rb[0] * rb[0] + rb[1] * rb[1] + rb[2] * rb[2]);
+		float lenV = sqrtf(v[0] * v[0] + v[1] * v[1] + v[2] * v[2]);
+		float k = lenV > 1e-12f ? (lenA * t + lenB * s) / lenV : 1.0f;
+
+		out[r * 4] = v[0] * k;
+		out[r * 4 + 1] = v[1] * k;
+		out[r * 4 + 2] = v[2] * k;
+	}
+
+	for (int j = 0; j < 3; j++)
+	{
+		out[12 + j] = a[12 + j] * t + b[12 + j] * s;
+	}
+}
+
+static uint32_t StepAtFixedRate(safetyhook::InlineHook& original, const ParticleSimLayout& layout, void* thisPtr, float delta)
+{
+	uint8_t* sim = (uint8_t*)thisPtr;
+	int numParticles = *(int*)(sim + layout.numParticles);
+	int numColliders = *(int*)(sim + layout.numColliders);
+	uint8_t* particles = *(uint8_t**)(sim + layout.particles);
+	uint8_t* colliders = *(uint8_t**)(sim + layout.colliders);
+	const int stride = layout.particleStride;
+
+	if (!particles || numParticles <= 0 || numParticles > SIM_MAX_PARTICLES)
+		return original.unsafe_thiscall<uint32_t>(thisPtr, delta);
+
+	uint64_t now = GetTickCount64();
+	PurgeSimStates(now);
+
+	// Too many colliders to track: they stay live, the transform is still resampled
+	int trackedColliders = (colliders && numColliders > 0 && numColliders <= SIM_MAX_COLLIDERS) ? numColliders : 0;
+
+	ParticleSimState* state = AcquireSimState((uintptr_t)thisPtr, now, &layout, numParticles, trackedColliders);
+	if (!state)
+		return original.unsafe_thiscall<uint32_t>(thisPtr, delta);
+
+	float* matrix = (float*)sim;
+	float* center = layout.radialCenter >= 0 ? (float*)(sim + layout.radialCenter) : nullptr;
+	float inv[9];
+
+	if (state->primed)
+	{
+		// bitwise (NaN and -0 still match themselves), 16 bytes at a time, only the three position lanes count
+		bool rewritten = false;
+		for (int i = 0; i < numParticles && !rewritten; i++)
+		{
+			__m128i found = _mm_loadu_si128((const __m128i*)(particles + i * stride + 0x10));
+			__m128i drawn = _mm_loadu_si128((const __m128i*)(state->applied + i * 3));
+			rewritten = (_mm_movemask_epi8(_mm_cmpeq_epi32(found, drawn)) & 0x0FFF) != 0x0FFF;
+		}
+
+		if (rewritten)
+		{
+			SimInverseBasis(matrix, inv);
+
+			for (int i = 0; i < numParticles; i++)
+			{
+				const uint8_t* particle = particles + i * stride;
+				const float* p1 = (const float*)(particle + 0x10);
+				const float* local = (const float*)(particle + 0x20);
+				int k = i * 3;
+
+				float offset[3];
+				for (int j = 0; j < 3; j++)
+				{
+					float anchor = local[0] * matrix[j] + local[1] * matrix[4 + j] + local[2] * matrix[8 + j] + matrix[12 + j];
+					state->trueP1[k + j] = p1[j];
+					offset[j] = p1[j] - anchor;
+				}
+
+				SimToBodyFrame(offset, inv, state->offCurr + k);
+				memcpy(state->offPrev + k, state->offCurr + k, sizeof(float) * 3);
+			}
+		}
+	}
+
+	for (int c = 0; c < trackedColliders; c++)
+	{
+		memcpy(state->liveColliders + c * 3, colliders + c * 0x30, sizeof(float) * 3);
+	}
+
+	bool tick = !state->primed; // first sight of this instance: tick now
+
+	if (state->primed && delta > 0.0f && delta < 1.0f)
+	{
+		state->accumulator += delta;
+		tick = state->accumulator >= TARGET_FRAME_TIME;
+	}
+
+	uint32_t result = 0;
+
+	if (tick)
+	{
+		float liveMatrix[16];
+		float liveCenter[3] = {};
+		float liveLengthScale = 1.0f;
+		bool resample = state->primed && state->hasPrevInputs && !SimInputsCut(state->prevMatrix, matrix, delta);
+		bool useCenter = resample && center && *(float*)(sim + layout.radialStrength) != 0.0f;
+
+		if (resample)
+		{
+			float s = 1.0f - (state->accumulator - TARGET_FRAME_TIME) / delta;
+			if (s < 0.0f) s = 0.0f;
+			if (s > 1.0f) s = 1.0f;
+			float t = 1.0f - s;
+
+			if (layout.lengthScale >= 0)
+			{
+				float* lengthScale = (float*)(sim + layout.lengthScale);
+				liveLengthScale = *lengthScale;
+				*lengthScale = state->prevLengthScale + (liveLengthScale - state->prevLengthScale) * s;
+			}
+
+			if (useCenter)
+			{
+				memcpy(liveCenter, center, sizeof(liveCenter));
+
+				for (int j = 0; j < 3; j++)
+				{
+					center[j] = state->prevCenter[j] * t + liveCenter[j] * s;
+				}
+			}
+
+			memcpy(liveMatrix, matrix, sizeof(liveMatrix));
+			LerpSimMatrix(state->prevMatrix, liveMatrix, s, matrix);
+
+			for (int c = 0; c < trackedColliders; c++)
+			{
+				float* dst = (float*)(colliders + c * 0x30);
+				const float* a = state->prevColliders + c * 3;
+				const float* b = state->liveColliders + c * 3;
+
+				for (int j = 0; j < 3; j++)
+				{
+					dst[j] = a[j] * t + b[j] * s;
+				}
+			}
+		}
+
+		if (state->primed)
+		{
+			for (int i = 0; i < numParticles; i++)
+			{
+				memcpy(particles + i * stride + 0x10, state->trueP1 + i * 3, sizeof(float) * 3);
+			}
+
+			std::swap(state->offPrev, state->offCurr);
+		}
+
+		result = original.unsafe_thiscall<uint32_t>(thisPtr, TARGET_FRAME_TIME);
+
+		// Keep the true state, and each particle's offset from the anchor the sim just used (p3), in the frame of the transform it just used
+		SimInverseBasis(matrix, inv);
+
+		for (int i = 0; i < numParticles; i++)
+		{
+			const float* p1 = (const float*)(particles + i * stride + 0x10);
+			const float* p3 = (const float*)(particles + i * stride + 0x30);
+			int k = i * 3;
+
+			float offset[3] = { p1[0] - p3[0], p1[1] - p3[1], p1[2] - p3[2] };
+			memcpy(state->trueP1 + k, p1, sizeof(float) * 3);
+			SimToBodyFrame(offset, inv, state->offCurr + k);
+		}
+
+		if (resample)
+		{
+			memcpy(matrix, liveMatrix, sizeof(liveMatrix));
+			if (layout.lengthScale >= 0) *(float*)(sim + layout.lengthScale) = liveLengthScale;
+			if (useCenter) memcpy(center, liveCenter, sizeof(liveCenter));
+
+			for (int c = 0; c < trackedColliders; c++)
+			{
+				memcpy(colliders + c * 0x30, state->liveColliders + c * 3, sizeof(float) * 3);
+			}
+		}
+
+		if (state->primed)
+		{
+			state->accumulator -= TARGET_FRAME_TIME;
+			if (state->accumulator >= TARGET_FRAME_TIME) state->accumulator = fmodf(state->accumulator, TARGET_FRAME_TIME);
+		}
+		else
+		{
+			memcpy(state->offPrev, state->offCurr, numParticles * 3 * sizeof(float));
+			state->accumulator = 0.0f;
+			state->primed = true;
+		}
+	}
+
+	memcpy(state->prevMatrix, matrix, sizeof(state->prevMatrix));
+	if (layout.lengthScale >= 0) state->prevLengthScale = *(float*)(sim + layout.lengthScale);
+	if (center) memcpy(state->prevCenter, center, sizeof(state->prevCenter));
+	std::swap(state->prevColliders, state->liveColliders);
+	state->hasPrevInputs = true;
+
+	float alpha = state->accumulator / TARGET_FRAME_TIME;
+	if (alpha < 0.0f) alpha = 0.0f;
+	if (alpha > 1.0f) alpha = 1.0f;
+
+	const __m128 row0 = _mm_loadu_ps(matrix), row1 = _mm_loadu_ps(matrix + 4), row2 = _mm_loadu_ps(matrix + 8), row3 = _mm_loadu_ps(matrix + 12);
+	const __m128 blend = _mm_set1_ps(alpha);
+	const float* offPrev = state->offPrev;
+	const float* offCurr = state->offCurr;
+	float* applied = state->applied;
+
+	for (int i = 0; i < numParticles; i++)
+	{
+		uint8_t* particle = particles + i * stride;
+		float* p1 = (float*)(particle + 0x10);
+		int k = i * 3;
+
+		__m128 prev = _mm_loadu_ps(offPrev + k);
+		__m128 q = _mm_add_ps(_mm_add_ps(_mm_loadu_ps((const float*)(particle + 0x20)), prev), _mm_mul_ps(_mm_sub_ps(_mm_loadu_ps(offCurr + k), prev), blend));
+
+		__m128 drawn = _mm_add_ps(_mm_add_ps(_mm_add_ps(
+			_mm_mul_ps(_mm_shuffle_ps(q, q, 0x00), row0),
+			_mm_mul_ps(_mm_shuffle_ps(q, q, 0x55), row1)),
+			_mm_mul_ps(_mm_shuffle_ps(q, q, 0xAA), row2)), row3);
+
+		__m128i xy = _mm_castps_si128(drawn);
+		__m128 z = _mm_movehl_ps(drawn, drawn);
+		_mm_storel_epi64((__m128i*)p1, xy);
+		_mm_store_ss(p1 + 2, z);
+		_mm_storel_epi64((__m128i*)(applied + k), xy);
+		_mm_store_ss(applied + k + 2, z);
+	}
+
+	return result;
+}
+
 // ---- Hair ----
 
 safetyhook::InlineHook HairSimulator;
-static safetyhook::MidHook hairDeltaTimeOverride{};
-static safetyhook::MidHook hairDeltaTimeRestore{};
-static safetyhook::MidHook hairGravityAttenuate{};
-static safetyhook::MidHook hairWindAttenuate{};
-static safetyhook::MidHook hairShapeMatchDecompound{};
-static safetyhook::MidHook hairInnerPhaseFix{};
-
-static float frameTimeScale = 0.0f;
-static float savedHairDeltaTime = 0.0f;
 
 static void __fastcall HairSimulator_Hook(void* thisPtr, int, float delta)
 {
-	frameTimeScale = TARGET_FRAME_TIME / delta;
-	savedHairDeltaTime = delta;
-
-	HairSimulator.unsafe_thiscall<void>(thisPtr, delta);
-}
-
-static void OnHairDeltaTimeOverride(safetyhook::Context& ctx)
-{
-	float* dt = reinterpret_cast<float*>(ctx.ebx + 0x8);
-	*dt *= frameTimeScale;
-}
-
-static void OnHairDeltaTimeRestore(safetyhook::Context& ctx)
-{
-	float* dt = reinterpret_cast<float*>(ctx.ebx + 0x8);
-	*dt = savedHairDeltaTime;
-}
-
-static void OnHairGravityAttenuate(safetyhook::Context& ctx)
-{
-	float k = 1.0f / frameTimeScale;
-	ctx.xmm2.f32[0] *= k;
-	ctx.xmm2.f32[1] *= k;
-	ctx.xmm2.f32[2] *= k;
-}
-
-static void OnHairWindAttenuate(safetyhook::Context& ctx)
-{
-	float k = 1.0f / frameTimeScale;
-	ctx.xmm6.f32[0] *= k;
-	ctx.xmm6.f32[1] *= k;
-	ctx.xmm6.f32[2] *= k;
-}
-
-static void OnHairShapeMatchDecompound(safetyhook::Context& ctx)
-{
-	float f30 = ctx.xmm3.f32[0];
-	float scale = frameTimeScale;
-	float remain = 1.0f - f30;
-	if (remain < 0.0f) remain = 0.0f;
-	float fNew = 1.0f - std::pow(remain, 1.0f / scale);
-	ctx.xmm3.f32[0] = fNew;
-}
-
-static void OnHairInnerPhaseFix(safetyhook::Context& ctx)
-{
-	float* innerDt = reinterpret_cast<float*>(ctx.ebx + 0x8);
-	*innerDt = savedHairDeltaTime;
+	StepAtFixedRate(HairSimulator, HAIR_LAYOUT, thisPtr, delta);
 }
 
 void ApplyFixHighFPSHairPhysics()
 {
 	if (!FixHighFPSHairPhysics) return;
 
-	DWORD addr_DampingScaler = GetAddress(Addr::HairSimulator_DampingScaler);
-	DWORD addr_DeltaTimeOverride = GetAddress(Addr::HairSimulator_DeltaTimeOverride);
-
 	HairSimulator = HookHelper::CreateHook((void*)GetAddress(Addr::HairSimulator), &HairSimulator_Hook);
-	hairDeltaTimeOverride = safetyhook::create_mid(addr_DeltaTimeOverride, OnHairDeltaTimeOverride);
-	hairDeltaTimeRestore = safetyhook::create_mid(addr_DeltaTimeOverride + 0x8, OnHairDeltaTimeRestore);
-	hairGravityAttenuate = safetyhook::create_mid(addr_DampingScaler, OnHairGravityAttenuate);
-	hairWindAttenuate = safetyhook::create_mid(addr_DampingScaler + 0x6E, OnHairWindAttenuate);
-	hairShapeMatchDecompound = safetyhook::create_mid(addr_DampingScaler + 0x179, OnHairShapeMatchDecompound);
-	hairInnerPhaseFix = safetyhook::create_mid(addr_DampingScaler + 0x4B2, OnHairInnerPhaseFix);
 }
 
 // ---- Cloth ----
 
 safetyhook::InlineHook ClothSimulator;
 
-constexpr int CLOTH_MAX_INSTANCES = 32;
 constexpr int CLOTH_MAX_PARTICLES = 80;
-constexpr int CLOTH_MAX_FLOATS = CLOTH_MAX_PARTICLES * 3;
-
-struct ClothInstanceState
-{
-	uint32_t lastUsed = 0;
-	int numFloats = 0;
-	float accumulator = 0.0f;
-	bool primed = false;
-	float trueP1[CLOTH_MAX_FLOATS];
-	float relPrev[CLOTH_MAX_FLOATS];
-	float relCurr[CLOTH_MAX_FLOATS];
-	float applied[CLOTH_MAX_FLOATS];
-};
-
-static uintptr_t clothKeys[CLOTH_MAX_INSTANCES] = {};
-static ClothInstanceState clothes[CLOTH_MAX_INSTANCES];
-static uint32_t clothCounter = 0;
 
 static uint32_t __fastcall ClothSimulator_Hook(void* thisPtr, int, float delta)
 {
 	uint8_t* cloth = (uint8_t*)thisPtr;
 	int numParticles = *(int*)(cloth + 0xB8);
-	uint8_t* particles = *(uint8_t**)(cloth + 0xC4);
 
-	if (!particles || numParticles <= 0)
-		return ClothSimulator.unsafe_thiscall<uint32_t>(thisPtr, delta);
-
-	bool bypass = numParticles > CLOTH_MAX_PARTICLES || delta > (1.0f / 59.0f);
+	bool bypass = numParticles > CLOTH_MAX_PARTICLES;
 
 	// Dollmaker strings
 	if (!bypass && *(int*)(cloth + 0xC0) == 0)
@@ -563,156 +917,10 @@ static uint32_t __fastcall ClothSimulator_Hook(void* thisPtr, int, float delta)
 		bypass = (numParticles == 15 && constraints == 27) || (numParticles == 20 && constraints == 37);
 	}
 
-	uintptr_t key = (uintptr_t)thisPtr;
-
 	if (bypass)
-	{
-		for (int i = 0; i < CLOTH_MAX_INSTANCES; i++)
-		{
-			if (clothKeys[i] != key)
-				continue;
-
-			ClothInstanceState& state = clothes[i];
-
-			if (state.primed && state.numFloats == numParticles * 3)
-			{
-				for (int p = 0; p < numParticles; p++)
-				{
-					float* p1 = (float*)(particles + p * 0x70 + 0x10);
-
-					for (int j = 0; j < 3; j++)
-					{
-						int k = p * 3 + j;
-						if (p1[j] == state.applied[k])
-						{
-							p1[j] = state.trueP1[k];
-						}
-					}
-				}
-			}
-
-			state.primed = false;
-			break;
-		}
-
 		return ClothSimulator.unsafe_thiscall<uint32_t>(thisPtr, delta);
-	}
 
-	int slot = -1;
-	for (int i = 0; i < CLOTH_MAX_INSTANCES; i++)
-	{
-		if (clothKeys[i] == key)
-		{
-			slot = i;
-			break;
-		}
-	}
-
-	if (slot == -1)
-	{
-		slot = 0;
-		for (int i = 1; i < CLOTH_MAX_INSTANCES; i++)
-		{
-			if (clothes[i].lastUsed < clothes[slot].lastUsed)
-			{
-				slot = i;
-			}
-		}
-
-		clothKeys[slot] = key;
-		clothes[slot].numFloats = 0;
-	}
-
-	ClothInstanceState& state = clothes[slot];
-	state.lastUsed = ++clothCounter;
-
-	int numFloats = numParticles * 3;
-	if (state.numFloats != numFloats)
-	{
-		state.numFloats = numFloats;
-		state.primed = false;
-	}
-
-	// Restore the simulation-true p1. 
-	// If the engine rewrote p1 since we set it (teleport reset, instance respawn), adopt its value and resync instead
-	if (state.primed)
-	{
-		for (int i = 0; i < numParticles; i++)
-		{
-			float* p1 = (float*)(particles + i * 0x70 + 0x10);
-			float* p3 = (float*)(particles + i * 0x70 + 0x30);
-
-			for (int j = 0; j < 3; j++)
-			{
-				int k = i * 3 + j;
-				if (p1[j] == state.applied[k])
-				{
-					p1[j] = state.trueP1[k];
-				}
-				else
-				{
-					state.trueP1[k] = p1[j];
-					state.relCurr[k] = p1[j] - p3[j];
-					state.relPrev[k] = state.relCurr[k];
-				}
-			}
-		}
-	}
-
-	state.accumulator += delta;
-
-	if (!state.primed)
-		state.accumulator = TARGET_FRAME_TIME; // first sight of this instance: tick now
-
-	uint32_t result = 0;
-	if (state.accumulator >= TARGET_FRAME_TIME)
-	{
-		memcpy(state.relPrev, state.relCurr, numFloats * sizeof(float));
-		result = ClothSimulator.unsafe_thiscall<uint32_t>(thisPtr, TARGET_FRAME_TIME);
-		state.accumulator -= TARGET_FRAME_TIME;
-
-		// Capture the post-tick anchor-relative state
-		for (int i = 0; i < numParticles; i++)
-		{
-			float* p1 = (float*)(particles + i * 0x70 + 0x10);
-			float* p3 = (float*)(particles + i * 0x70 + 0x30);
-
-			for (int j = 0; j < 3; j++)
-			{
-				state.relCurr[i * 3 + j] = p1[j] - p3[j];
-			}
-		}
-
-		if (!state.primed)
-		{
-			memcpy(state.relPrev, state.relCurr, numFloats * sizeof(float));
-			state.primed = true;
-		}
-	}
-
-	// Write the render state: live anchor + interpolated relative motion
-	float alpha = state.accumulator / TARGET_FRAME_TIME;
-	const float* matrix = (const float*)cloth;
-
-	for (int i = 0; i < numParticles; i++)
-	{
-		uint8_t* particle = particles + i * 0x70;
-		float* p1 = (float*)(particle + 0x10);
-		const float* localAnchor = (const float*)(particle + 0x20);
-
-		for (int j = 0; j < 3; j++)
-		{
-			// anchor = p2.x * M0 + p2.y * M1 + p2.z * M2 + M3
-			float anchor = localAnchor[0] * matrix[j] + localAnchor[1] * matrix[4 + j] + localAnchor[2] * matrix[8 + j] + matrix[12 + j];
-
-			int k = i * 3 + j;
-			state.trueP1[k] = p1[j];
-			p1[j] = anchor + state.relPrev[k] + (state.relCurr[k] - state.relPrev[k]) * alpha;
-			state.applied[k] = p1[j];
-		}
-	}
-
-	return result;
+	return StepAtFixedRate(ClothSimulator, CLOTH_LAYOUT, thisPtr, delta);
 }
 
 void ApplyFixHighFPSClothPhysics()

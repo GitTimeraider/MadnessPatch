@@ -16,8 +16,6 @@ enum class Addr
 
 	// FixHighFPSHairPhysics
 	HairSimulator,
-	HairSimulator_DampingScaler,
-	HairSimulator_DeltaTimeOverride,
 
 	// FixHighFPSClothPhysics
 	ClothSimulator,
@@ -190,8 +188,6 @@ namespace Addresses
 
 		// FixHighFPSHairPhysics
 		/* HairSimulator                   */ { 0xBE4860, 0xBE4A70, 0xB99320 },
-		/* HairSimulator_DampingScaler     */ { 0xBE415B, 0xBE436B, 0xB98D1B },
-		/* HairSimulator_DeltaTimeOverride */ { 0xBE4892, 0xBE4AA2, 0xB99352 },
 
 		// FixHighFPSClothPhysics
 		/* ClothSimulator                  */ { 0xBE4DE0, 0xBE4FF0, 0xB99660 },
