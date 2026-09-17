@@ -53,6 +53,7 @@ inline bool UseWindowed = false;
 // Input
 inline bool UseSDLControllerInput = false;
 inline bool EnableControllerIcons = false;
+inline bool RestoreMenuMouseCursor = false;
 inline int UsePS3ControllerIcons = 0;
 inline bool DisableMouseAcceleration = false;
 inline bool DisableControllerAcceleration = false;
@@ -125,6 +126,7 @@ inline void ReadConfig()
 	// Input
 	UseSDLControllerInput = IniHelper::ReadInteger("Input", "UseSDLControllerInput", 1) == 1;
 	EnableControllerIcons = IniHelper::ReadInteger("Input", "EnableControllerIcons", 1) == 1;
+	RestoreMenuMouseCursor = IniHelper::ReadInteger("Input", "RestoreMenuMouseCursor", 1) == 1;
 	UsePS3ControllerIcons = IniHelper::ReadInteger("Input", "UsePS3ControllerIcons", 0);
 	DisableMouseAcceleration = IniHelper::ReadInteger("Input", "DisableMouseAcceleration", 1) == 1;
 	DisableControllerAcceleration = IniHelper::ReadInteger("Input", "DisableControllerAcceleration", 1) == 1;

@@ -150,6 +150,7 @@
     <ClCompile Include="..\src\Engine\ProcessEvent.cpp" />
     <ClCompile Include="..\src\MainLoop\InputResponsiveness.cpp" />
     <ClCompile Include="..\src\MainLoop\BlackBarGuard.cpp" />
+    <ClCompile Include="..\src\MainLoop\MenuMouseCursor.cpp" />
     <ClCompile Include="..\src\dllmain.cpp" />
   </ItemGroup>
   <ItemGroup>

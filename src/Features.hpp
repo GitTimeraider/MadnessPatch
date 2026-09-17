@@ -70,3 +70,4 @@ namespace CutsceneFPSCap
 namespace InputResponsiveness { void Tick(); }
 namespace BlackBarGuard { void Tick(); }
 namespace BlockCameraInMenu { void Tick(); }
+namespace MenuMouseCursor { void Tick(); }

@@ -107,6 +107,9 @@
     <ClCompile Include="..\src\MainLoop\BlackBarGuard.cpp">
       <Filter>src\MainLoop</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\MainLoop\MenuMouseCursor.cpp">
+      <Filter>src\MainLoop</Filter>
+    </ClCompile>
     <ClCompile Include="..\include\safetyhook\safetyhook.cpp">
       <Filter>safetyhook</Filter>
     </ClCompile>

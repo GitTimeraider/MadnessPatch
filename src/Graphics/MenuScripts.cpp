@@ -88,13 +88,20 @@ static const BytePatch kBytePatches[] =
 	{ 0x5B03C188, 0xC76, 0x6C },
 };
 
-static void ApplyMenuBytePatches(uint8_t* buf, uint32_t sig)
+static const BytePatch kCursorBytePatches[] =
 {
-	if (!EnableControllerIcons) return;
-	if (!ControllerHelper::IsConnected()) return;
+	{ 0x50030788, 0x880, 0xC1 },
+	{ 0xA6069A88, 0x302B, 0xC1 },
+	{ 0xA3066288, 0x2E5B, 0xC1 },
+	{ 0x4C024C88, 0xA97, 0xC1 },
+	{ 0x18159B88, 0x694D, 0x8A },
+};
 
-	for (const BytePatch& patch : kBytePatches)
+static void ApplyPatchTable(uint8_t* buf, uint32_t sig, const BytePatch* table, size_t count)
+{
+	for (size_t i = 0; i < count; i++)
 	{
+		const BytePatch& patch = table[i];
 		if (sig != patch.header) continue;
 
 		uintptr_t address = (uintptr_t)(buf + patch.offset);
@@ -102,6 +109,19 @@ static void ApplyMenuBytePatches(uint8_t* buf, uint32_t sig)
 		{
 			MemoryHelper::WriteMemory<uint8_t>(address, 0x00, false);
 		}
+	}
+}
+
+static void ApplyMenuBytePatches(uint8_t* buf, uint32_t sig)
+{
+	if (!EnableControllerIcons) return;
+	if (!ControllerHelper::IsConnected()) return;
+
+	ApplyPatchTable(buf, sig, kBytePatches, std::size(kBytePatches));
+
+	if (RestoreMenuMouseCursor)
+	{
+		ApplyPatchTable(buf, sig, kCursorBytePatches, std::size(kCursorBytePatches));
 	}
 }
 
