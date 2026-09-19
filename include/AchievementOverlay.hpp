@@ -1112,7 +1112,9 @@ namespace AchievementOverlay
         {
             static unsigned long long s_lastDpadTick = 0;
             unsigned long long now = GetTickCount64();
-            bool up = (g_padState.Gamepad.wButtons & XINPUT_GAMEPAD_DPAD_UP) != 0;
+
+            bool closeCombo = (g_padState.Gamepad.wButtons & XINPUT_GAMEPAD_LEFT_THUMB) != 0;
+            bool up = !closeCombo && (g_padState.Gamepad.wButtons & XINPUT_GAMEPAD_DPAD_UP) != 0;
             bool down = (g_padState.Gamepad.wButtons & XINPUT_GAMEPAD_DPAD_DOWN) != 0;
             if ((up || down) && now - s_lastDpadTick > 120)
             {
@@ -1229,8 +1231,8 @@ namespace AchievementOverlay
 
         // Help line
         const wchar_t* help = g_showSecrets
-            ? L"[Space / A]  Hide secret achievements      [Wheel / Stick]  Scroll      [Home]  Close"
-            : L"[Space / A]  Show secret achievements      [Wheel / Stick]  Scroll      [Home]  Close";
+            ? L"[Space / A]  Hide secret achievements      [Wheel / Stick]  Scroll      [Home / L3 + D-Pad Up]  Close"
+            : L"[Space / A]  Show secret achievements      [Wheel / Stick]  Scroll      [Home / L3 + D-Pad Up]  Close";
         DrawTextLine(d, help, winX + pad, helpY, smallScale, kTextHintColor);
         Native::Draw2DLine(c, winX + pad, separatorY, winX + winW - pad, separatorY, kSeparatorColor);
 
@@ -1542,5 +1544,14 @@ namespace AchievementOverlay
         {
             Toggle();
         }
+
+        // Controller
+        static bool s_comboPrev = false;
+        bool comboNow = g_padConnected && (g_padState.Gamepad.wButtons & XINPUT_GAMEPAD_LEFT_THUMB) && (g_padState.Gamepad.wButtons & XINPUT_GAMEPAD_DPAD_UP);
+        if (comboNow && !s_comboPrev)
+        {
+            Toggle();
+        }
+        s_comboPrev = comboNow;
     }
 }

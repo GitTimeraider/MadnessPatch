@@ -52,7 +52,7 @@ If you want a different size, you can fine-tune it with `FontScalingFactor` in `
 
 ## Achievement Support
 
-Adds an in-game achievement overlay that tracks your progress and shows a notification when one is unlocked, using the same achievements as the Xbox 360 and PlayStation 3 versions. Press **HOME** to open the list at any time.
+Adds an in-game achievement overlay that tracks your progress and shows a notification when one is unlocked, using the same achievements as the Xbox 360 and PlayStation 3 versions. Press **HOME**, or **L3 + D-Pad Up** on a controller, to open the list at any time.
 
 <div align="center">
   <table>
