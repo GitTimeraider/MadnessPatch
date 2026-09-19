@@ -454,11 +454,14 @@ struct ParticleSimLayout
 	int lengthScale;
 	int radialCenter;
 	int radialStrength;
+	int strands;
+	int numStrands;
+	int drivenNormal;
 };
 
-constexpr ParticleSimLayout HAIR_LAYOUT = { 0xAC, 0xC0, 0xB8, 0xC8, 0x50, 0x9C, -1, -1 };
-constexpr ParticleSimLayout CLOTH_LAYOUT = { 0xB8, 0xC4, 0xC0, 0xCC, 0x70, -1, 0x50, 0xA0 };
-
+constexpr ParticleSimLayout HAIR_LAYOUT = { 0xAC, 0xC0, 0xB8, 0xC8, 0x50, 0x9C, -1, -1, 0xC4, 0xB0, -1 };
+constexpr ParticleSimLayout CLOTH_LAYOUT = { 0xB8, 0xC4, 0xC0, 0xCC, 0x70, -1, 0x50, 0xA0, -1, -1, 0x40 };
+constexpr float SIM_STEP_DT = 0.033f;
 constexpr int SIM_MAX_INSTANCES = 64;
 constexpr int SIM_MAX_PARTICLES = 4096; // Alice's hair is 2565
 constexpr int SIM_MAX_COLLIDERS = 64;
@@ -474,6 +477,7 @@ struct ParticleSimState
 {
 	uintptr_t key = 0;
 	uint64_t lastSeen = 0;
+	uint64_t lastCall = 0;
 	const ParticleSimLayout* layout = nullptr;
 	int numParticles = 0;
 	int numColliders = 0;
@@ -482,9 +486,17 @@ struct ParticleSimState
 	bool hasPrevInputs = false;
 	float prevMatrix[16] = {};
 	float prevLengthScale = 1.0f;
-	float prevCenter[3] = {};
 
-	// One block per instance, sized to fit: trueP1 | offPrev | offCurr | applied | prevColliders | liveColliders
+	float tickMatrix[16] = {};
+	float blastLocal[3] = {};
+	float blastStrength = 0.0f;
+	bool hasTickMatrix = false;
+	bool blastLocalValid = false;
+	bool blastAttached = false;
+	bool blastStrengthPending = false;
+	bool blastStrengthValid = false;
+
+	// One block per instance, sized to fit: trueP1 | offPrev | offCurr | applied | prevColliders | liveColliders | restPrev | restLive
 	std::unique_ptr<float[]> buffer;
 	size_t capacity = 0;
 	float* trueP1 = nullptr;
@@ -493,30 +505,47 @@ struct ParticleSimState
 	float* applied = nullptr;
 	float* prevColliders = nullptr;
 	float* liveColliders = nullptr;
+	float* restPrev = nullptr;
+	float* restLive = nullptr;
+
+	// hair only
+	std::unique_ptr<int32_t[]> rootOf;
+	uint32_t strandSignature = 0;
+	bool rootsBuilt = false;
 };
 
 static ParticleSimState simStates[SIM_MAX_INSTANCES];
 
-static void PurgeSimStates(uint64_t now)
+static uint64_t SimActivityClock(uint64_t now)
+{
+	static uint64_t lastNow = 0, clock = 0;
+
+	uint64_t elapsed = lastNow ? now - lastNow : 0;
+	clock += elapsed < 100 ? elapsed : 100;
+	lastNow = now;
+	return clock;
+}
+
+static void PurgeSimStates(uint64_t clock)
 {
 	static uint64_t lastPurge = 0;
-	if (now - lastPurge < SIM_PURGE_PERIOD_MS)
+	if (clock - lastPurge < SIM_PURGE_PERIOD_MS)
 		return;
 
-	lastPurge = now;
+	lastPurge = clock;
 	for (ParticleSimState& s : simStates)
 	{
-		if (s.key && now - s.lastSeen > SIM_PURGE_AFTER_MS)
+		if (s.key && clock - s.lastSeen > SIM_PURGE_AFTER_MS)
 		{
 			s = ParticleSimState{};
 		}
 	}
 }
 
-static ParticleSimState* AcquireSimState(uintptr_t key, uint64_t now, const ParticleSimLayout* layout, int numParticles, int numColliders)
+static ParticleSimState* AcquireSimState(uintptr_t key, uint64_t now, uint64_t clock, const ParticleSimLayout* layout, int numParticles, int numColliders)
 {
 	ParticleSimState* state = nullptr;
-	ParticleSimState* victim = &simStates[0];
+	ParticleSimState* victim = nullptr;
 
 	for (ParticleSimState& s : simStates)
 	{
@@ -526,7 +555,8 @@ static ParticleSimState* AcquireSimState(uintptr_t key, uint64_t now, const Part
 			break;
 		}
 
-		if (s.lastSeen < victim->lastSeen)
+		// a free slot first, the least recently stepped one otherwise
+		if (!victim || (victim->key && (!s.key || s.lastSeen < victim->lastSeen)))
 		{
 			victim = &s;
 		}
@@ -534,8 +564,8 @@ static ParticleSimState* AcquireSimState(uintptr_t key, uint64_t now, const Part
 
 	if (!state)
 	{
-		// Every slot is live this second: leave this instance to the vanilla path instead of evicting one that is mid-interpolation
-		if (victim->key && now - victim->lastSeen < SIM_SLOT_BUSY_MS)
+		// Every slot was stepped within the last second: leave this instance to the vanilla path instead of evicting one that is mid-interpolation
+		if (victim->key && clock - victim->lastSeen < SIM_SLOT_BUSY_MS)
 			return nullptr;
 
 		*victim = ParticleSimState{};
@@ -548,7 +578,8 @@ static ParticleSimState* AcquireSimState(uintptr_t key, uint64_t now, const Part
 	{
 		size_t n = static_cast<size_t>(numParticles) * 3;
 		size_t m = static_cast<size_t>(numColliders) * 3;
-		size_t needed = n * 4 + m * 2 + 1; // + 1: the per-frame loops read four floats at a time from three-float records
+		size_t rest = layout->drivenNormal >= 0 ? n * 2 : 0;
+		size_t needed = n * 4 + m * 2 + rest * 2 + 1; // + 1: the per-frame loops read four floats at a time from three-float records
 
 		if (state->capacity < needed)
 		{
@@ -570,19 +601,32 @@ static ParticleSimState* AcquireSimState(uintptr_t key, uint64_t now, const Part
 		state->applied = base + n * 3;
 		state->prevColliders = base + n * 4;
 		state->liveColliders = base + n * 4 + m;
+		state->restPrev = rest ? base + n * 4 + m * 2 : nullptr;
+		state->restLive = rest ? base + n * 4 + m * 2 + rest : nullptr;
+		state->rootOf.reset(layout->strands >= 0 ? new (std::nothrow) int32_t[numParticles] : nullptr);
+		state->rootsBuilt = false;
+		if (layout->strands >= 0 && !state->rootOf)
+		{
+			*state = ParticleSimState{};
+			return nullptr;
+		}
+
 		state->layout = layout;
 		state->numParticles = numParticles;
 		state->numColliders = numColliders;
 		state->primed = false;
 		state->hasPrevInputs = false;
+		state->hasTickMatrix = false;
+		state->blastLocalValid = state->blastAttached = state->blastStrengthPending = state->blastStrengthValid = false;
 	}
 
-	if (now - state->lastSeen > SIM_INPUT_STALE_MS)
+	if (now - state->lastCall > SIM_INPUT_STALE_MS)
 	{
 		state->hasPrevInputs = false;
 	}
 
-	state->lastSeen = now;
+	state->lastCall = now;
+	state->lastSeen = clock;
 	return state;
 }
 
@@ -613,6 +657,86 @@ static inline void SimToBodyFrame(const float* world, const float* inv, float* l
 	}
 }
 
+static inline void SimLocalPoint(const float* world, const float* matrix, const float* inv, float* local)
+{
+	float offset[3] = { world[0] - matrix[12], world[1] - matrix[13], world[2] - matrix[14] };
+	SimToBodyFrame(offset, inv, local);
+}
+
+static inline void SimWorldPoint(const float* local, const float* matrix, float* world)
+{
+	for (int j = 0; j < 3; j++)
+	{
+		world[j] = local[0] * matrix[j] + local[1] * matrix[4 + j] + local[2] * matrix[8 + j] + matrix[12 + j];
+	}
+}
+
+static bool UpdateSimRoots(const ParticleSimLayout& layout, const uint8_t* sim, ParticleSimState& state)
+{
+	int numStrands = *(const int*)(sim + layout.numStrands);
+	const uint8_t* strands = *(const uint8_t* const*)(sim + layout.strands);
+	if (!strands || numStrands < 0) numStrands = 0;
+
+	uint32_t signature = 0x811C9DC5 ^ static_cast<uint32_t>(numStrands);
+	for (int c = 0; c < numStrands; c++)
+	{
+		signature = (signature ^ *(const uint32_t*)(strands + c * 0x20 + 0x10)) * 0x1000193;
+		signature = (signature ^ *(const uint32_t*)(strands + c * 0x20 + 0x14)) * 0x1000193;
+	}
+
+	if (state.rootsBuilt && signature == state.strandSignature)
+		return false;
+
+	int32_t* rootOf = state.rootOf.get();
+	int numParticles = state.numParticles;
+
+	for (int i = 0; i < numParticles; i++)
+	{
+		rootOf[i] = i;
+	}
+
+	for (int c = 0; c < numStrands; c++)
+	{
+		int first = *(const int*)(strands + c * 0x20 + 0x10);
+		int count = *(const int*)(strands + c * 0x20 + 0x14);
+		if (first < 0 || count <= 0 || first >= numParticles) continue;
+		if (count > numParticles - first) count = numParticles - first;
+
+		for (int q = first; q < first + count; q++)
+		{
+			rootOf[q] = first;
+		}
+	}
+
+	state.strandSignature = signature;
+	state.rootsBuilt = true;
+	return true;
+}
+
+// Largest axis length of the transform: what the game itself uses as the scale of the body
+static inline float SimScale(const float* m)
+{
+	float best = 0.0f;
+
+	for (int r = 0; r < 3; r++)
+	{
+		float length = m[r * 4] * m[r * 4] + m[r * 4 + 1] * m[r * 4 + 1] + m[r * 4 + 2] * m[r * 4 + 2];
+		if (length > best) best = length;
+	}
+
+	return sqrtf(best);
+}
+
+static inline void SimAnchor(const uint8_t* particle, const float* matrix, float* out)
+{
+	const float* local = reinterpret_cast<const float*>(particle + 0x20);
+
+	for (int j = 0; j < 3; j++)
+	{
+		out[j] = local[0] * matrix[j] + local[1] * matrix[4 + j] + local[2] * matrix[8 + j] + matrix[12 + j];
+	}
+}
+
 static bool SimInputsCut(const float* prev, const float* live, float delta)
 {
 	float dx = live[12] - prev[12], dy = live[13] - prev[13], dz = live[14] - prev[14];
@@ -638,29 +762,97 @@ static bool SimInputsCut(const float* prev, const float* live, float delta)
 	return false;
 }
 
-static void LerpSimMatrix(const float* a, const float* b, float s, float* out)
+static void InterpolateSimMatrix(const float* a, const float* b, float s, float* out)
 {
 	float t = 1.0f - s;
+	float lenA[3]{}, lenB[3]{}, ra[9]{}, rb[9]{};
+	bool rigid = true;
 
 	for (int r = 0; r < 3; r++)
 	{
-		const float* ra = a + r * 4;
-		const float* rb = b + r * 4;
-		float v[3] = { ra[0] * t + rb[0] * s, ra[1] * t + rb[1] * s, ra[2] * t + rb[2] * s };
+		const float* pa = a + r * 4;
+		const float* pb = b + r * 4;
+		lenA[r] = sqrtf(pa[0] * pa[0] + pa[1] * pa[1] + pa[2] * pa[2]);
+		lenB[r] = sqrtf(pb[0] * pb[0] + pb[1] * pb[1] + pb[2] * pb[2]);
 
-		float lenA = sqrtf(ra[0] * ra[0] + ra[1] * ra[1] + ra[2] * ra[2]);
-		float lenB = sqrtf(rb[0] * rb[0] + rb[1] * rb[1] + rb[2] * rb[2]);
-		float lenV = sqrtf(v[0] * v[0] + v[1] * v[1] + v[2] * v[2]);
-		float k = lenV > 1e-12f ? (lenA * t + lenB * s) / lenV : 1.0f;
+		if (!(lenA[r] > 1e-12f) || !(lenB[r] > 1e-12f))
+		{
+			rigid = false;
+			break;
+		}
 
-		out[r * 4] = v[0] * k;
-		out[r * 4 + 1] = v[1] * k;
-		out[r * 4 + 2] = v[2] * k;
+		for (int j = 0; j < 3; j++)
+		{
+			ra[r * 3 + j] = pa[j] / lenA[r];
+			rb[r * 3 + j] = pb[j] / lenB[r];
+		}
+	}
+
+	float sine = 0.0f, cosine = 1.0f, axis[3] = {};
+
+	if (rigid)
+	{
+		// the turn that takes a to b (row vectors: rb = ra * d), as sin(angle) * axis and cos(angle)
+		float d[9]{};
+		for (int i = 0; i < 3; i++)
+		{
+			for (int j = 0; j < 3; j++)
+			{
+				d[i * 3 + j] = ra[i] * rb[j] + ra[3 + i] * rb[3 + j] + ra[6 + i] * rb[6 + j];
+			}
+		}
+
+		axis[0] = (d[5] - d[7]) * 0.5f;
+		axis[1] = (d[6] - d[2]) * 0.5f;
+		axis[2] = (d[1] - d[3]) * 0.5f;
+		sine = sqrtf(axis[0] * axis[0] + axis[1] * axis[1] + axis[2] * axis[2]);
+		cosine = (d[0] + d[4] + d[8] - 1.0f) * 0.5f;
 	}
 
 	for (int j = 0; j < 3; j++)
 	{
 		out[12 + j] = a[12 + j] * t + b[12 + j] * s;
+	}
+
+	if (!rigid || !(sine > 1e-6f) || !(cosine > 0.0f))
+	{
+		for (int r = 0; r < 3; r++)
+		{
+			const float* pa = a + r * 4;
+			const float* pb = b + r * 4;
+			float v[3] = { pa[0] * t + pb[0] * s, pa[1] * t + pb[1] * s, pa[2] * t + pb[2] * s };
+
+			float la = sqrtf(pa[0] * pa[0] + pa[1] * pa[1] + pa[2] * pa[2]);
+			float lb = sqrtf(pb[0] * pb[0] + pb[1] * pb[1] + pb[2] * pb[2]);
+			float lv = sqrtf(v[0] * v[0] + v[1] * v[1] + v[2] * v[2]);
+			float k = lv > 1e-12f ? (la * t + lb * s) / lv : 1.0f;
+
+			out[r * 4] = v[0] * k;
+			out[r * 4 + 1] = v[1] * k;
+			out[r * 4 + 2] = v[2] * k;
+		}
+
+		return;
+	}
+
+	float angle = atan2f(sine, cosine) * s;
+	float c = cosf(angle), sn = sinf(angle), k = 1.0f - c;
+	float x = axis[0] / sine, y = axis[1] / sine, z = axis[2] / sine;
+
+	// the same turn by s * angle, row-vector form
+	float p[9] = {
+		c + k * x * x,      k * x * y + sn * z, k * x * z - sn * y,
+		k * x * y - sn * z, c + k * y * y,      k * y * z + sn * x,
+		k * x * z + sn * y, k * y * z - sn * x, c + k * z * z };
+
+	for (int r = 0; r < 3; r++)
+	{
+		float length = lenA[r] * t + lenB[r] * s;
+
+		for (int j = 0; j < 3; j++)
+		{
+			out[r * 4 + j] = (ra[r * 3] * p[j] + ra[r * 3 + 1] * p[3 + j] + ra[r * 3 + 2] * p[6 + j]) * length;
+		}
 	}
 }
 
@@ -677,52 +869,64 @@ static uint32_t StepAtFixedRate(safetyhook::InlineHook& original, const Particle
 		return original.unsafe_thiscall<uint32_t>(thisPtr, delta);
 
 	uint64_t now = GetTickCount64();
-	PurgeSimStates(now);
+	uint64_t clock = SimActivityClock(now);
+	PurgeSimStates(clock);
 
 	// Too many colliders to track: they stay live, the transform is still resampled
 	int trackedColliders = (colliders && numColliders > 0 && numColliders <= SIM_MAX_COLLIDERS) ? numColliders : 0;
 
-	ParticleSimState* state = AcquireSimState((uintptr_t)thisPtr, now, &layout, numParticles, trackedColliders);
+	ParticleSimState* state = AcquireSimState((uintptr_t)thisPtr, now, clock, &layout, numParticles, trackedColliders);
 	if (!state)
 		return original.unsafe_thiscall<uint32_t>(thisPtr, delta);
 
 	float* matrix = (float*)sim;
 	float* center = layout.radialCenter >= 0 ? (float*)(sim + layout.radialCenter) : nullptr;
+	int32_t* rootOf = state->rootOf.get();
 	float inv[9];
+
+	bool rootsChanged = rootOf && UpdateSimRoots(layout, sim, *state);
+	bool newTruth = false;
 
 	if (state->primed)
 	{
 		// bitwise (NaN and -0 still match themselves), 16 bytes at a time, only the three position lanes count
-		bool rewritten = false;
-		for (int i = 0; i < numParticles && !rewritten; i++)
+		for (int i = 0; i < numParticles && !newTruth; i++)
 		{
 			__m128i found = _mm_loadu_si128((const __m128i*)(particles + i * stride + 0x10));
 			__m128i drawn = _mm_loadu_si128((const __m128i*)(state->applied + i * 3));
-			rewritten = (_mm_movemask_epi8(_mm_cmpeq_epi32(found, drawn)) & 0x0FFF) != 0x0FFF;
+			newTruth = (_mm_movemask_epi8(_mm_cmpeq_epi32(found, drawn)) & 0x0FFF) != 0x0FFF;
 		}
+	}
 
-		if (rewritten)
+	if (state->primed && (newTruth || rootsChanged))
+	{
+		const float* frame = (newTruth || !state->hasPrevInputs) ? matrix : state->prevMatrix;
+
+		SimInverseBasis(frame, inv);
+		float scale = SimScale(frame);
+		float unscale = scale > 1e-6f ? 1.0f / scale : 1.0f;
+
+		for (int i = 0; i < numParticles; i++)
 		{
-			SimInverseBasis(matrix, inv);
+			const float* p1 = (const float*)(particles + i * stride + 0x10);
+			int k = i * 3;
 
-			for (int i = 0; i < numParticles; i++)
+			float anchor[3];
+			SimAnchor(particles + (rootOf ? rootOf[i] : i) * stride, frame, anchor);
+
+			float offset[3] = { p1[0] - anchor[0], p1[1] - anchor[1], p1[2] - anchor[2] };
+			if (newTruth) memcpy(state->trueP1 + k, p1, sizeof(float) * 3);
+
+			if (rootOf)
 			{
-				const uint8_t* particle = particles + i * stride;
-				const float* p1 = (const float*)(particle + 0x10);
-				const float* local = (const float*)(particle + 0x20);
-				int k = i * 3;
-
-				float offset[3];
-				for (int j = 0; j < 3; j++)
-				{
-					float anchor = local[0] * matrix[j] + local[1] * matrix[4 + j] + local[2] * matrix[8 + j] + matrix[12 + j];
-					state->trueP1[k + j] = p1[j];
-					offset[j] = p1[j] - anchor;
-				}
-
-				SimToBodyFrame(offset, inv, state->offCurr + k);
-				memcpy(state->offPrev + k, state->offCurr + k, sizeof(float) * 3);
+				for (int j = 0; j < 3; j++) state->offCurr[k + j] = offset[j] * unscale;
 			}
+			else
+			{
+				SimToBodyFrame(offset, inv, state->offCurr + k);
+			}
+
+			memcpy(state->offPrev + k, state->offCurr + k, sizeof(float) * 3);
 		}
 	}
 
@@ -731,11 +935,57 @@ static uint32_t StepAtFixedRate(safetyhook::InlineHook& original, const Particle
 		memcpy(state->liveColliders + c * 3, colliders + c * 0x30, sizeof(float) * 3);
 	}
 
-	bool tick = !state->primed; // first sight of this instance: tick now
+	// cloth: the rest pose as the callers posed it for this frame
+	if (state->restLive)
+	{
+		for (int i = 0; i < numParticles; i++)
+		{
+			memcpy(state->restLive + i * 6, particles + i * stride + 0x20, sizeof(float) * 3);
+			memcpy(state->restLive + i * 6 + 3, particles + i * stride + layout.drivenNormal, sizeof(float) * 3);
+		}
+	}
+
+	float liveCenter[3] = {};
+	float liveStrength = 0.0f;
+
+	if (center)
+	{
+		memcpy(liveCenter, center, sizeof(liveCenter));
+		liveStrength = *(float*)(sim + layout.radialStrength);
+
+		if (state->blastStrengthPending)
+		{
+			state->blastStrength = liveStrength;
+			state->blastStrengthValid = true;
+			state->blastStrengthPending = false;
+		}
+
+		if (state->hasPrevInputs)
+		{
+			float local[3];
+			SimInverseBasis(state->prevMatrix, inv);
+			SimLocalPoint(liveCenter, state->prevMatrix, inv, local);
+
+			if (state->blastLocalValid)
+			{
+				float dx = local[0] - state->blastLocal[0], dy = local[1] - state->blastLocal[1], dz = local[2] - state->blastLocal[2];
+				float reach = fabsf(local[0]) + fabsf(local[1]) + fabsf(local[2]);
+				state->blastAttached = dx * dx + dy * dy + dz * dz <= (0.5f + 0.001f * reach) * (0.5f + 0.001f * reach);
+			}
+
+			memcpy(state->blastLocal, local, sizeof(local));
+			state->blastLocalValid = true;
+		}
+	}
+
+	bool tick = !state->primed;
+	float span = delta;
 
 	if (state->primed && delta > 0.0f && delta < 1.0f)
 	{
-		state->accumulator += delta;
+		if (delta >= SIM_STEP_DT) span = TARGET_FRAME_TIME;
+
+		state->accumulator += span;
 		tick = state->accumulator >= TARGET_FRAME_TIME;
 	}
 
@@ -744,17 +994,22 @@ static uint32_t StepAtFixedRate(safetyhook::InlineHook& original, const Particle
 	if (tick)
 	{
 		float liveMatrix[16];
-		float liveCenter[3] = {};
 		float liveLengthScale = 1.0f;
-		bool resample = state->primed && state->hasPrevInputs && !SimInputsCut(state->prevMatrix, matrix, delta);
-		bool useCenter = resample && center && *(float*)(sim + layout.radialStrength) != 0.0f;
+		memcpy(liveMatrix, matrix, sizeof(liveMatrix));
+
+		float s = 1.0f;
+		if (state->primed && state->hasPrevInputs && !newTruth && !SimInputsCut(state->prevMatrix, liveMatrix, delta))
+		{
+			s = 1.0f - (state->accumulator - TARGET_FRAME_TIME) / span;
+			if (s < 0.0f) s = 0.0f;
+			if (s > 1.0f) s = 1.0f;
+		}
+
+		const bool resample = s < 1.0f;
 
 		if (resample)
 		{
-			float s = 1.0f - (state->accumulator - TARGET_FRAME_TIME) / delta;
-			if (s < 0.0f) s = 0.0f;
-			if (s > 1.0f) s = 1.0f;
-			float t = 1.0f - s;
+			InterpolateSimMatrix(state->prevMatrix, liveMatrix, s, matrix);
 
 			if (layout.lengthScale >= 0)
 			{
@@ -763,30 +1018,44 @@ static uint32_t StepAtFixedRate(safetyhook::InlineHook& original, const Particle
 				*lengthScale = state->prevLengthScale + (liveLengthScale - state->prevLengthScale) * s;
 			}
 
-			if (useCenter)
-			{
-				memcpy(liveCenter, center, sizeof(liveCenter));
-
-				for (int j = 0; j < 3; j++)
-				{
-					center[j] = state->prevCenter[j] * t + liveCenter[j] * s;
-				}
-			}
-
-			memcpy(liveMatrix, matrix, sizeof(liveMatrix));
-			LerpSimMatrix(state->prevMatrix, liveMatrix, s, matrix);
+			// Colliders hang on bones of the same body: interpolated in the body's frame they follow its turn exactly
+			float invPrev[9], invLive[9];
+			SimInverseBasis(state->prevMatrix, invPrev);
+			SimInverseBasis(liveMatrix, invLive);
 
 			for (int c = 0; c < trackedColliders; c++)
 			{
-				float* dst = (float*)(colliders + c * 0x30);
-				const float* a = state->prevColliders + c * 3;
-				const float* b = state->liveColliders + c * 3;
+				float a[3], b[3];
+				SimLocalPoint(state->prevColliders + c * 3, state->prevMatrix, invPrev, a);
+				SimLocalPoint(state->liveColliders + c * 3, liveMatrix, invLive, b);
 
-				for (int j = 0; j < 3; j++)
+				float local[3] = { a[0] + (b[0] - a[0]) * s, a[1] + (b[1] - a[1]) * s, a[2] + (b[2] - a[2]) * s };
+				SimWorldPoint(local, matrix, (float*)(colliders + c * 0x30));
+			}
+
+			if (state->restLive)
+			{
+				for (int i = 0; i < numParticles; i++)
 				{
-					dst[j] = a[j] * t + b[j] * s;
+					const float* a = state->restPrev + i * 6;
+					const float* b = state->restLive + i * 6;
+					float* rest = (float*)(particles + i * stride + 0x20);
+					float* normal = (float*)(particles + i * stride + layout.drivenNormal);
+
+					for (int j = 0; j < 3; j++)
+					{
+						rest[j] = a[j] + (b[j] - a[j]) * s;
+						normal[j] = a[3 + j] + (b[3 + j] - a[3 + j]) * s;
+					}
 				}
 			}
+		}
+
+		const bool lagBlast = center && state->blastAttached && state->hasTickMatrix;
+		if (lagBlast)
+		{
+			SimWorldPoint(state->blastLocal, state->tickMatrix, center);
+			if (liveStrength != 0.0f && state->blastStrengthValid) *(float*)(sim + layout.radialStrength) = state->blastStrength;
 		}
 
 		if (state->primed)
@@ -799,32 +1068,60 @@ static uint32_t StepAtFixedRate(safetyhook::InlineHook& original, const Particle
 			std::swap(state->offPrev, state->offCurr);
 		}
 
-		result = original.unsafe_thiscall<uint32_t>(thisPtr, TARGET_FRAME_TIME);
+		result = original.unsafe_thiscall<uint32_t>(thisPtr, SIM_STEP_DT);
 
-		// Keep the true state, and each particle's offset from the anchor the sim just used (p3), in the frame of the transform it just used
 		SimInverseBasis(matrix, inv);
+		float scale = SimScale(matrix);
+		float unscale = scale > 1e-6f ? 1.0f / scale : 1.0f;
 
 		for (int i = 0; i < numParticles; i++)
 		{
 			const float* p1 = (const float*)(particles + i * stride + 0x10);
-			const float* p3 = (const float*)(particles + i * stride + 0x30);
+			const float* p3 = (const float*)(particles + (rootOf ? rootOf[i] : i) * stride + 0x30);
 			int k = i * 3;
 
 			float offset[3] = { p1[0] - p3[0], p1[1] - p3[1], p1[2] - p3[2] };
 			memcpy(state->trueP1 + k, p1, sizeof(float) * 3);
-			SimToBodyFrame(offset, inv, state->offCurr + k);
+
+			if (rootOf)
+			{
+				for (int j = 0; j < 3; j++) state->offCurr[k + j] = offset[j] * unscale;
+			}
+			else
+			{
+				SimToBodyFrame(offset, inv, state->offCurr + k);
+			}
 		}
 
+		memcpy(state->tickMatrix, matrix, sizeof(state->tickMatrix));
+		state->hasTickMatrix = true;
+		state->blastStrengthPending = center != nullptr;
+
+		// Everything back the way the callers left it: they and the bone pass that follows read it
 		if (resample)
 		{
 			memcpy(matrix, liveMatrix, sizeof(liveMatrix));
 			if (layout.lengthScale >= 0) *(float*)(sim + layout.lengthScale) = liveLengthScale;
-			if (useCenter) memcpy(center, liveCenter, sizeof(liveCenter));
 
 			for (int c = 0; c < trackedColliders; c++)
 			{
 				memcpy(colliders + c * 0x30, state->liveColliders + c * 3, sizeof(float) * 3);
 			}
+
+			if (state->restLive)
+			{
+				for (int i = 0; i < numParticles; i++)
+				{
+					memcpy(particles + i * stride + 0x20, state->restLive + i * 6, sizeof(float) * 3);
+					memcpy(particles + i * stride + layout.drivenNormal, state->restLive + i * 6 + 3, sizeof(float) * 3);
+				}
+			}
+		}
+
+		if (lagBlast)
+		{
+			memcpy(center, liveCenter, sizeof(liveCenter));
+			*(float*)(sim + layout.radialStrength) = liveStrength;
 		}
 
 		if (state->primed)
@@ -842,8 +1139,8 @@ static uint32_t StepAtFixedRate(safetyhook::InlineHook& original, const Particle
 
 	memcpy(state->prevMatrix, matrix, sizeof(state->prevMatrix));
 	if (layout.lengthScale >= 0) state->prevLengthScale = *(float*)(sim + layout.lengthScale);
-	if (center) memcpy(state->prevCenter, center, sizeof(state->prevCenter));
 	std::swap(state->prevColliders, state->liveColliders);
+	if (state->restLive) std::swap(state->restPrev, state->restLive);
 	state->hasPrevInputs = true;
 
 	float alpha = state->accumulator / TARGET_FRAME_TIME;
@@ -856,26 +1153,63 @@ static uint32_t StepAtFixedRate(safetyhook::InlineHook& original, const Particle
 	const float* offCurr = state->offCurr;
 	float* applied = state->applied;
 
-	for (int i = 0; i < numParticles; i++)
+	if (rootOf)
 	{
-		uint8_t* particle = particles + i * stride;
-		float* p1 = (float*)(particle + 0x10);
-		int k = i * 3;
+		const __m128 size = _mm_set1_ps(SimScale(matrix));
+		int32_t root = -1;
+		__m128 base = _mm_setzero_ps();
 
-		__m128 prev = _mm_loadu_ps(offPrev + k);
-		__m128 q = _mm_add_ps(_mm_add_ps(_mm_loadu_ps((const float*)(particle + 0x20)), prev), _mm_mul_ps(_mm_sub_ps(_mm_loadu_ps(offCurr + k), prev), blend));
+		for (int i = 0; i < numParticles; i++)
+		{
+			if (rootOf[i] != root)
+			{
+				root = rootOf[i];
+				__m128 local = _mm_loadu_ps((const float*)(particles + root * stride + 0x20));
+				base = _mm_add_ps(_mm_add_ps(_mm_add_ps(
+					_mm_mul_ps(_mm_shuffle_ps(local, local, 0x00), row0),
+					_mm_mul_ps(_mm_shuffle_ps(local, local, 0x55), row1)),
+					_mm_mul_ps(_mm_shuffle_ps(local, local, 0xAA), row2)), row3);
+			}
 
-		__m128 drawn = _mm_add_ps(_mm_add_ps(_mm_add_ps(
-			_mm_mul_ps(_mm_shuffle_ps(q, q, 0x00), row0),
-			_mm_mul_ps(_mm_shuffle_ps(q, q, 0x55), row1)),
-			_mm_mul_ps(_mm_shuffle_ps(q, q, 0xAA), row2)), row3);
+			float* p1 = (float*)(particles + i * stride + 0x10);
+			int k = i * 3;
 
-		__m128i xy = _mm_castps_si128(drawn);
-		__m128 z = _mm_movehl_ps(drawn, drawn);
-		_mm_storel_epi64((__m128i*)p1, xy);
-		_mm_store_ss(p1 + 2, z);
-		_mm_storel_epi64((__m128i*)(applied + k), xy);
-		_mm_store_ss(applied + k + 2, z);
+			_mm_prefetch((const char*)p1 + 8 * stride, _MM_HINT_T0);
+
+			__m128 prev = _mm_loadu_ps(offPrev + k);
+			__m128 drawn = _mm_add_ps(base, _mm_mul_ps(_mm_add_ps(prev, _mm_mul_ps(_mm_sub_ps(_mm_loadu_ps(offCurr + k), prev), blend)), size));
+
+			__m128i xy = _mm_castps_si128(drawn);
+			__m128 z = _mm_movehl_ps(drawn, drawn);
+			_mm_storel_epi64((__m128i*)p1, xy);
+			_mm_store_ss(p1 + 2, z);
+			_mm_storel_epi64((__m128i*)(applied + k), xy);
+			_mm_store_ss(applied + k + 2, z);
+		}
+	}
+	else
+	{
+		for (int i = 0; i < numParticles; i++)
+		{
+			uint8_t* particle = particles + i * stride;
+			float* p1 = (float*)(particle + 0x10);
+			int k = i * 3;
+
+			__m128 prev = _mm_loadu_ps(offPrev + k);
+			__m128 q = _mm_add_ps(_mm_add_ps(_mm_loadu_ps((const float*)(particle + 0x20)), prev), _mm_mul_ps(_mm_sub_ps(_mm_loadu_ps(offCurr + k), prev), blend));
+
+			__m128 drawn = _mm_add_ps(_mm_add_ps(_mm_add_ps(
+				_mm_mul_ps(_mm_shuffle_ps(q, q, 0x00), row0),
+				_mm_mul_ps(_mm_shuffle_ps(q, q, 0x55), row1)),
+				_mm_mul_ps(_mm_shuffle_ps(q, q, 0xAA), row2)), row3);
+
+			__m128i xy = _mm_castps_si128(drawn);
+			__m128 z = _mm_movehl_ps(drawn, drawn);
+			_mm_storel_epi64((__m128i*)p1, xy);
+			_mm_store_ss(p1 + 2, z);
+			_mm_storel_epi64((__m128i*)(applied + k), xy);
+			_mm_store_ss(applied + k + 2, z);
+		}
 	}
 
 	return result;
