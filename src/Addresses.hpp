@@ -101,7 +101,7 @@ enum class Addr
 	Height,
 
 	// FixAspectRatio
-	BlackBarDraw,
+	GFxDrawIndexedTriList,
 
 	// MenuScripts
 	MenuScripts,
@@ -273,7 +273,7 @@ namespace Addresses
 		/* Height                          */ { 0x14FE260, 0x14FE260, 0x1479888 },
 
 		// FixAspectRatio
-		/* BlackBarDraw                    */ { 0xC71FA4, 0xC72514, 0xC1D344 },
+		/* GFxDrawIndexedTriList           */ { 0xC5AE70, 0xC5B360, 0xC07FC0 },
 
 		// MenuScripts
 		/* MenuScripts                     */ { 0xF11D99, 0xF121A9, 0xE9EA29 },
