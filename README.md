@@ -243,15 +243,27 @@ Fixes window management to allow standard Windows functionality:
 
 Upgrades the game's legacy XAudio 2.6 audio system to XAudio 2.9, fixes cases where in-game audio is missing while cutscenes still have sound, and restores audio after switching, disconnecting, or reconnecting the default output device, such as a headset, monitor, or TV.
 
-## Windowed Mode
+## Windowed Mode & Borderless Fullscreen
 
-Forces the game to run in windowed mode instead of fullscreen.
+Adds windowed and borderless fullscreen modes.
 
-Enable with `UseWindowed = 1` in `MadnessPatch.ini`.
+Enable with `UseWindowed = 1` for windowed mode and `BorderlessFullscreen = 1` for borderless fullscreen in `MadnessPatch.ini`.
 
 ## Auto Resolution
 
 Automatically sets the game to your screen resolution on first launch instead of defaulting to 1280×720.
+
+## Force Game Language
+
+Runs the game in a specific language regardless of what the launcher or your system locale selects.
+
+| Value | Language | Value | Language |
+| --- | --- | --- | --- |
+| `0` | English | `3` | Italian |
+| `1` | French | `4` | Spanish |
+| `2` | German | `5` | Japanese |
+
+Set `ForceLanguage = 5` in `MadnessPatch.ini` for Japanese. `-1` (the default) keeps the game's own selection.
 
 ## Alice 1 Installation Check
 

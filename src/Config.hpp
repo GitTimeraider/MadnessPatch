@@ -29,16 +29,17 @@ inline bool UpgradeToXAudio29 = false;
 inline int MaxPoolThreads = 0;
 
 // General
+inline bool AchievementSupport = false;
 inline bool UnlockCompleteEditionDLC = false;
+inline bool ShowProfileCreation = false;
+inline int ForceLanguage = 0;
 inline bool WarnAlice1InstallFolder = false;
 inline bool HideAlice1WhenMissing = false;
+inline bool EnableConsole = false;
+inline bool EnableCrashHandler = false;
 inline bool SkipEAIntro = false;
 inline bool SkipSHIntro = false;
 inline bool SkipUEIntro = false;
-inline bool EnableCrashHandler = false;
-inline bool ShowProfileCreation = false;
-inline bool AchievementSupport = false;
-inline bool EnableConsole = false;
 
 // Modding
 inline bool DumpArchiveAssets = false;
@@ -49,6 +50,7 @@ inline bool FontScaling = false;
 inline float FontScalingFactor = 0;
 inline bool AutoResolution = false;
 inline bool UseWindowed = false;
+inline bool BorderlessFullscreenEnabled = false;
 
 // Input
 inline bool UseSDLControllerInput = false;
@@ -105,6 +107,7 @@ inline void ReadConfig()
 	AchievementSupport = IniHelper::ReadInteger("General", "AchievementSupport", 1) == 1;
 	UnlockCompleteEditionDLC = IniHelper::ReadInteger("General", "UnlockCompleteEditionDLC", 1) == 1;
 	ShowProfileCreation = IniHelper::ReadInteger("General", "ShowProfileCreation", 1) == 1;
+	ForceLanguage = IniHelper::ReadInteger("General", "ForceLanguage", -1);
 	WarnAlice1InstallFolder = IniHelper::ReadInteger("General", "WarnAlice1InstallFolder", 1) == 1;
 	HideAlice1WhenMissing = IniHelper::ReadInteger("General", "HideAlice1WhenMissing", 1) == 1;
 	EnableConsole = IniHelper::ReadInteger("General", "EnableConsole", 1) == 1;
@@ -122,6 +125,7 @@ inline void ReadConfig()
 	FontScalingFactor = IniHelper::ReadFloat("Display", "FontScalingFactor", 1.0f);
 	AutoResolution = IniHelper::ReadInteger("Display", "AutoResolution", 1) == 1;
 	UseWindowed = IniHelper::ReadInteger("Display", "UseWindowed", 0) == 1;
+	BorderlessFullscreenEnabled = IniHelper::ReadInteger("Display", "BorderlessFullscreen", 0) == 1;
 
 	// Input
 	UseSDLControllerInput = IniHelper::ReadInteger("Input", "UseSDLControllerInput", 1) == 1;

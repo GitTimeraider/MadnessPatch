@@ -20,6 +20,7 @@ void ApplyIntroSkip();
 void ApplyWarnAlice1InstallFolder();
 void ApplyAchievementSupport();
 void UpdateAchievementProgress();
+void ApplyGameLanguage();
 
 // Modding
 void ApplyExportFiles();
@@ -29,6 +30,7 @@ void ApplyModFiles();
 void ApplyFontScaling();
 void ApplyAutoResolution();
 void ApplyUseWindowed();
+void ApplyBorderlessFullscreen();
 
 // Input
 void ApplyUseSDLControllerInput();

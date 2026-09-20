@@ -38,6 +38,9 @@
     <ClCompile Include="..\src\General\AchievementSupport.cpp">
       <Filter>src\General</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\General\GameLanguage.cpp">
+      <Filter>src\General</Filter>
+    </ClCompile>
     <ClCompile Include="..\src\Display\FontScaling.cpp">
       <Filter>src\Display</Filter>
     </ClCompile>
@@ -45,6 +48,9 @@
       <Filter>src\Display</Filter>
     </ClCompile>
     <ClCompile Include="..\src\Display\UseWindowed.cpp">
+      <Filter>src\Display</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Display\BorderlessFullscreen.cpp">
       <Filter>src\Display</Filter>
     </ClCompile>
     <ClCompile Include="..\src\Input\SDLControllerInput.cpp">

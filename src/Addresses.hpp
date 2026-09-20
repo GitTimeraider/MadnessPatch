@@ -48,6 +48,7 @@ enum class Addr
 	// Hash-table race condition
 	Localize,
 	HashLoop,
+	HashLoopEntry,
 	FStringFree,
 	FStringAlloc,
 
@@ -80,6 +81,8 @@ enum class Addr
 	BlockHook,
 	BlockMessages_1,
 	BlockMessages_2,
+	GameWindowClassRegister,
+	StartupShowWindowCmd,
 
 	// IntroSkip
 	PlayMovie,
@@ -143,6 +146,10 @@ enum class Addr
 	// UseWindowed
 	WindowedMode,
 	Fullscreen,
+
+	// BorderlessFullscreen
+	ViewportForceBorderless,
+	ViewportLayoutDone,
 
 	// AchievementSupport
 	PlayerControllerConsoleCommand,
@@ -220,6 +227,7 @@ namespace Addresses
 		// Hash-table race condition
 		/* Localize                        */ { 0x4E9E80, 0x4EA250, 0x4D3ED0 },
 		/* HashLoop                        */ { 0x47C093, 0x47C003, 0x46DE63 },
+		/* HashLoopEntry                   */ { 0x47C049, 0x47BFB9, 0x46DE19 },
 		/* FStringFree                     */ { 0x48C930, 0x48C6C0, 0x47B950 },
 		/* FStringAlloc                    */ { 0x4116F0, 0x4115C0, 0x4107C0 },
 
@@ -252,6 +260,8 @@ namespace Addresses
 		/* BlockHook                       */ { 0xC86A09, 0xC86F69, 0xC2EBD6 },
 		/* BlockMessages_1                 */ { 0xC8019B, 0xC8073B, 0xC28E51 },
 		/* BlockMessages_2                 */ { 0xC810AE, 0xC8164E, 0xC29BDE },
+		/* GameWindowClassRegister         */ { 0x51EF34, 0x51F374, 0x501D22 },
+		/* StartupShowWindowCmd            */ { 0x51F015, 0x51F455, 0x501E03 },
 
 		// IntroSkip
 		/* PlayMovie                       */ { 0x5942E0, 0x5949F0, 0x574380 },
@@ -315,6 +325,10 @@ namespace Addresses
 		// UseWindowed
 		/* WindowedMode                    */ { 0x773EB1, 0x774B9A, 0x745E78 },
 		/* Fullscreen                      */ { 0x14FE264, 0x14FE264, 0x147988C },
+
+		// BorderlessFullscreen
+		/* ViewportForceBorderless         */ { 0xC80D39, 0xC812D9, 0xC29893 },
+		/* ViewportLayoutDone              */ { 0xC80F96, 0xC81536, 0xC29ADF },
 
 		// AchievementSupport
 		/* PlayerControllerConsoleCommand  */ { 0x6DDE70, 0x6DE600, 0x6B32E0 },

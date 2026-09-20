@@ -3,8 +3,20 @@
 
 safetyhook::InlineHook UpdateViewportRHI;
 
-static void __fastcall UpdateViewportRHI_Hook(int thisp, int, int a2, int NewSizeX, int NewSizeY, bool bNewIsFullscreen)
+static void __fastcall UpdateViewportRHI_Hook(int thisp, int, int bDestroyed, int NewSizeX, int NewSizeY, bool bNewIsFullscreen)
 {
+	if (BorderlessFullscreenEnabled && !bDestroyed)
+	{
+		int width = 0, height = 0;
+		if (SystemHelper::GetTargetSize(width, height))
+		{
+			NewSizeX = width;
+			NewSizeY = height;
+		}
+
+		bNewIsFullscreen = false;
+	}
+
 	g_State.screenWidth = (float)NewSizeX;
 	g_State.screenHeight = (float)NewSizeY;
 
@@ -29,12 +41,12 @@ static void __fastcall UpdateViewportRHI_Hook(int thisp, int, int a2, int NewSiz
 		ReapplyMemoryPosition();
 	}
 
-	UpdateViewportRHI.thiscall<void>(thisp, a2, NewSizeX, NewSizeY, bNewIsFullscreen);
+	UpdateViewportRHI.thiscall<void>(thisp, bDestroyed, NewSizeX, NewSizeY, bNewIsFullscreen);
 }
 
 void ApplyResolutionHook()
 {
-	if (!FontScaling && !FixAspectRatio) return;
+	if (!FontScaling && !FixAspectRatio && !BorderlessFullscreenEnabled) return;
 
 	UpdateViewportRHI = HookHelper::CreateHook((void*)GetAddress(Addr::UpdateViewportRHI), &UpdateViewportRHI_Hook);
 }
