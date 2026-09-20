@@ -24,7 +24,7 @@ static const wchar_t* LanguageExtensionFor(int languageId)
 		case 3:  return L"ITA";
 		case 4:  return L"ESN";
 		case 5:  return L"JPN";
-		default: return L"INT";
+		default: return nullptr;
 	}
 }
 
