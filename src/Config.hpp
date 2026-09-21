@@ -23,6 +23,7 @@ inline bool FixFadeToBlackEnabled = false;
 inline bool FixWeaponSwitchFadeInEnabled = false;
 inline bool CutsceneFPSCapEnabled = false;
 inline bool FixUpgradeCursorLeak = false;
+inline bool FixTheatricalsTitles = false;
 inline bool FixPinballCannonPrompt = false;
 inline bool AtomicSaves = false;
 inline bool UpgradeToXAudio29 = false;
@@ -98,11 +99,12 @@ inline void ReadConfig()
 	FixWeaponSwitchFadeInEnabled = IniHelper::ReadInteger("Fixes", "FixWeaponSwitchFadeIn", 1) == 1;
 	CutsceneFPSCapEnabled = IniHelper::ReadInteger("Fixes", "CutsceneFPSCap", 1) == 1;
 	FixUpgradeCursorLeak = IniHelper::ReadInteger("Fixes", "FixUpgradeCursorLeak", 1) == 1;
+	FixTheatricalsTitles = IniHelper::ReadInteger("General", "FixTheatricalsTitles", 1) == 1;
 	FixPinballCannonPrompt = IniHelper::ReadInteger("Fixes", "FixPinballCannonPrompt", 1) == 1;
 	AtomicSaves = IniHelper::ReadInteger("Fixes", "AtomicSaves", 1) == 1;
 	UpgradeToXAudio29 = IniHelper::ReadInteger("Fixes", "UpgradeToXAudio29", 1) == 1;
 	MaxPoolThreads = IniHelper::ReadInteger("Fixes", "MaxPoolThreads", 8);
-	
+
 	// General
 	AchievementSupport = IniHelper::ReadInteger("General", "AchievementSupport", 1) == 1;
 	UnlockCompleteEditionDLC = IniHelper::ReadInteger("General", "UnlockCompleteEditionDLC", 1) == 1;
