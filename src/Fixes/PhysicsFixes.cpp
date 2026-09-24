@@ -452,6 +452,8 @@ struct ParticleSimLayout
 	int colliders;
 	int particleStride;
 	int lengthScale;
+	int force;
+	int windAmp;
 	int radialCenter;
 	int radialStrength;
 	int strands;
@@ -459,8 +461,8 @@ struct ParticleSimLayout
 	int drivenNormal;
 };
 
-constexpr ParticleSimLayout HAIR_LAYOUT = { 0xAC, 0xC0, 0xB8, 0xC8, 0x50, 0x9C, -1, -1, 0xC4, 0xB0, -1 };
-constexpr ParticleSimLayout CLOTH_LAYOUT = { 0xB8, 0xC4, 0xC0, 0xCC, 0x70, -1, 0x50, 0xA0, -1, -1, 0x40 };
+constexpr ParticleSimLayout HAIR_LAYOUT = { 0xAC, 0xC0, 0xB8, 0xC8, 0x50, 0x9C, 0x40, 0x50, -1, -1, 0xC4, 0xB0, -1 };
+constexpr ParticleSimLayout CLOTH_LAYOUT = { 0xB8, 0xC4, 0xC0, 0xCC, 0x70, -1, 0x40, 0x60, 0x50, 0xA0, -1, -1, 0x40 };
 constexpr float SIM_STEP_DT = 0.033f;
 constexpr int SIM_MAX_INSTANCES = 64;
 constexpr int SIM_MAX_PARTICLES = 4096; // Alice's hair is 2565
@@ -486,6 +488,7 @@ struct ParticleSimState
 	bool hasPrevInputs = false;
 	float prevMatrix[16] = {};
 	float prevLengthScale = 1.0f;
+	float prevForceWind[6] = {};
 
 	float tickMatrix[16] = {};
 	float blastLocal[3] = {};
@@ -614,6 +617,7 @@ static ParticleSimState* AcquireSimState(uintptr_t key, uint64_t now, uint64_t c
 		state->layout = layout;
 		state->numParticles = numParticles;
 		state->numColliders = numColliders;
+		state->accumulator = 0.0f;
 		state->primed = false;
 		state->hasPrevInputs = false;
 		state->hasTickMatrix = false;
@@ -856,6 +860,185 @@ static void InterpolateSimMatrix(const float* a, const float* b, float s, float*
 	}
 }
 
+static bool SimParticlesRewritten(const uint8_t* particles, int numParticles, int stride, const float* applied)
+{
+	int i = 0;
+	for (; i + 4 <= numParticles; i += 4)
+	{
+		const uint8_t* p = particles + i * stride + 0x10;
+		const float* a = applied + i * 3;
+		__m128i e0 = _mm_cmpeq_epi32(_mm_loadu_si128((const __m128i*)p), _mm_loadu_si128((const __m128i*)a));
+		__m128i e1 = _mm_cmpeq_epi32(_mm_loadu_si128((const __m128i*)(p + stride)), _mm_loadu_si128((const __m128i*)(a + 3)));
+		__m128i e2 = _mm_cmpeq_epi32(_mm_loadu_si128((const __m128i*)(p + 2 * stride)), _mm_loadu_si128((const __m128i*)(a + 6)));
+		__m128i e3 = _mm_cmpeq_epi32(_mm_loadu_si128((const __m128i*)(p + 3 * stride)), _mm_loadu_si128((const __m128i*)(a + 9)));
+		__m128i all = _mm_and_si128(_mm_and_si128(e0, e1), _mm_and_si128(e2, e3));
+		if ((_mm_movemask_epi8(all) & 0x0FFF) != 0x0FFF) return true;
+	}
+
+	for (; i < numParticles; i++)
+	{
+		__m128i found = _mm_loadu_si128((const __m128i*)(particles + i * stride + 0x10));
+		__m128i drawn = _mm_loadu_si128((const __m128i*)(applied + i * 3));
+		if ((_mm_movemask_epi8(_mm_cmpeq_epi32(found, drawn)) & 0x0FFF) != 0x0FFF) return true;
+	}
+
+	return false;
+}
+
+static inline void SimStoreXyz(float* out, __m128 v)
+{
+	_mm_storel_epi64((__m128i*)out, _mm_castps_si128(v));
+	_mm_store_ss(out + 2, _mm_movehl_ps(v, v));
+}
+
+template <bool Roots>
+static void DrawSimParticles(uint8_t* particles, int numParticles, int stride, const int32_t* rootOf, const float* matrix, float alpha, const float* offPrev, const float* offCurr, float* applied)
+{
+	const __m128 row0 = _mm_loadu_ps(matrix), row1 = _mm_loadu_ps(matrix + 4), row2 = _mm_loadu_ps(matrix + 8), row3 = _mm_loadu_ps(matrix + 12);
+	const __m128 blend = _mm_set1_ps(alpha);
+	const __m128 size = _mm_set1_ps(SimScale(matrix));
+
+	int32_t anchorIndex = -1;
+	__m128 base = _mm_setzero_ps();
+
+	for (int i = 0; i < numParticles; i++)
+	{
+		int32_t index = Roots ? rootOf[i] : i;
+		if (index != anchorIndex)
+		{
+			anchorIndex = index;
+			__m128 local = _mm_loadu_ps((const float*)(particles + index * stride + 0x20));
+			base = _mm_add_ps(_mm_add_ps(_mm_add_ps(
+				_mm_mul_ps(_mm_shuffle_ps(local, local, 0x00), row0),
+				_mm_mul_ps(_mm_shuffle_ps(local, local, 0x55), row1)),
+				_mm_mul_ps(_mm_shuffle_ps(local, local, 0xAA), row2)), row3);
+		}
+
+		float* p1 = (float*)(particles + i * stride + 0x10);
+		int k = i * 3;
+
+		_mm_prefetch((const char*)p1 + 8 * stride, _MM_HINT_T0);
+
+		__m128 prev = _mm_loadu_ps(offPrev + k);
+		__m128 drawn = _mm_add_ps(base, _mm_mul_ps(_mm_add_ps(prev, _mm_mul_ps(_mm_sub_ps(_mm_loadu_ps(offCurr + k), prev), blend)), size));
+		SimStoreXyz(p1, drawn);
+		SimStoreXyz(applied + k, drawn);
+	}
+}
+
+static bool CheckAndDrawSimParticles(uint8_t* particles, int numParticles, int stride, const int32_t* rootOf, const float* matrix, float alpha, const float* offPrev, const float* offCurr, float* applied, int* drawn)
+{
+	constexpr int BLOCK = 8;
+	const __m128 row0 = _mm_loadu_ps(matrix), row1 = _mm_loadu_ps(matrix + 4), row2 = _mm_loadu_ps(matrix + 8), row3 = _mm_loadu_ps(matrix + 12);
+	const __m128 blend = _mm_set1_ps(alpha);
+	const __m128 size = _mm_set1_ps(SimScale(matrix));
+
+	int32_t anchorIndex = -1;
+	__m128 base = _mm_setzero_ps();
+
+	for (int first = 0; first < numParticles; first += BLOCK)
+	{
+		const int last = first + BLOCK < numParticles ? first + BLOCK : numParticles;
+		__m128i same = _mm_set1_epi32(-1);
+
+		for (int i = first; i < last; i++)
+		{
+			const uint8_t* p = particles + i * stride + 0x10;
+			_mm_prefetch((const char*)p + 8 * stride, _MM_HINT_T0);
+			same = _mm_and_si128(same, _mm_cmpeq_epi32(_mm_loadu_si128((const __m128i*)p), _mm_loadu_si128((const __m128i*)(applied + i * 3))));
+		}
+
+		if ((_mm_movemask_epi8(same) & 0x0FFF) != 0x0FFF)
+		{
+			*drawn = first;
+			return false;
+		}
+
+		for (int i = first; i < last; i++)
+		{
+			int32_t index = rootOf[i];
+			if (index != anchorIndex)
+			{
+				anchorIndex = index;
+				__m128 local = _mm_loadu_ps((const float*)(particles + index * stride + 0x20));
+				base = _mm_add_ps(_mm_add_ps(_mm_add_ps(
+					_mm_mul_ps(_mm_shuffle_ps(local, local, 0x00), row0),
+					_mm_mul_ps(_mm_shuffle_ps(local, local, 0x55), row1)),
+					_mm_mul_ps(_mm_shuffle_ps(local, local, 0xAA), row2)), row3);
+			}
+
+			int k = i * 3;
+			__m128 prev = _mm_loadu_ps(offPrev + k);
+			__m128 out = _mm_add_ps(base, _mm_mul_ps(_mm_add_ps(prev, _mm_mul_ps(_mm_sub_ps(_mm_loadu_ps(offCurr + k), prev), blend)), size));
+			SimStoreXyz((float*)(particles + i * stride + 0x10), out);
+			SimStoreXyz(applied + k, out);
+		}
+	}
+
+	*drawn = numParticles;
+	return true;
+}
+
+template <bool Roots>
+static void CaptureAndDrawSimParticles(uint8_t* particles, int numParticles, int stride, const int32_t* rootOf, const float* matrix, float unscale, float alpha, float* trueP1, const float* offPrev, float* offCurr, float* applied)
+{
+	const __m128 row0 = _mm_loadu_ps(matrix), row1 = _mm_loadu_ps(matrix + 4), row2 = _mm_loadu_ps(matrix + 8), row3 = _mm_loadu_ps(matrix + 12);
+	const __m128 blend = _mm_set1_ps(alpha);
+	const __m128 size = _mm_set1_ps(SimScale(matrix));
+	const __m128 scale = _mm_set1_ps(unscale);
+
+	int32_t anchorIndex = -1;
+	__m128 anchor = _mm_setzero_ps(), base = _mm_setzero_ps();
+
+	for (int i = 0; i < numParticles; i++)
+	{
+		int32_t index = Roots ? rootOf[i] : i;
+		if (index != anchorIndex)
+		{
+			anchorIndex = index;
+			anchor = _mm_loadu_ps((const float*)(particles + index * stride + 0x30));
+			__m128 local = _mm_loadu_ps((const float*)(particles + index * stride + 0x20));
+			base = _mm_add_ps(_mm_add_ps(_mm_add_ps(
+				_mm_mul_ps(_mm_shuffle_ps(local, local, 0x00), row0),
+				_mm_mul_ps(_mm_shuffle_ps(local, local, 0x55), row1)),
+				_mm_mul_ps(_mm_shuffle_ps(local, local, 0xAA), row2)), row3);
+		}
+
+		float* p1 = (float*)(particles + i * stride + 0x10);
+		int k = i * 3;
+		_mm_prefetch((const char*)p1 + 8 * stride, _MM_HINT_T0);
+
+		__m128 current = _mm_loadu_ps(p1);
+		__m128 off = _mm_mul_ps(_mm_sub_ps(current, anchor), scale);
+		SimStoreXyz(trueP1 + k, current);
+		SimStoreXyz(offCurr + k, off);
+
+		__m128 prev = _mm_loadu_ps(offPrev + k);
+		__m128 drawn = _mm_add_ps(base, _mm_mul_ps(_mm_add_ps(prev, _mm_mul_ps(_mm_sub_ps(off, prev), blend)), size));
+		SimStoreXyz(p1, drawn);
+		SimStoreXyz(applied + k, drawn);
+	}
+}
+
+static void AdoptSimParticles(ParticleSimState* state, const uint8_t* particles, int numParticles, int stride, const int32_t* rootOf, const float* frame, bool newTruth)
+{
+	float scale = SimScale(frame);
+	float unscale = scale > 1e-6f ? 1.0f / scale : 1.0f;
+
+	for (int i = 0; i < numParticles; i++)
+	{
+		const float* p1 = (const float*)(particles + i * stride + 0x10);
+		int k = i * 3;
+
+		float anchor[3];
+		SimAnchor(particles + (rootOf ? rootOf[i] : i) * stride, frame, anchor);
+
+		if (newTruth) memcpy(state->trueP1 + k, p1, sizeof(float) * 3);
+		for (int j = 0; j < 3; j++) state->offCurr[k + j] = (p1[j] - anchor[j]) * unscale;
+		memcpy(state->offPrev + k, state->offCurr + k, sizeof(float) * 3);
+	}
+}
+
 static uint32_t StepAtFixedRate(safetyhook::InlineHook& original, const ParticleSimLayout& layout, void* thisPtr, float delta)
 {
 	uint8_t* sim = (uint8_t*)thisPtr;
@@ -882,52 +1065,27 @@ static uint32_t StepAtFixedRate(safetyhook::InlineHook& original, const Particle
 	float* matrix = (float*)sim;
 	float* center = layout.radialCenter >= 0 ? (float*)(sim + layout.radialCenter) : nullptr;
 	int32_t* rootOf = state->rootOf.get();
-	float inv[9];
 
-	bool rootsChanged = rootOf && UpdateSimRoots(layout, sim, *state);
-	bool newTruth = false;
+	bool tick = !state->primed;
+	const float span = delta < SIM_STEP_DT ? delta : TARGET_FRAME_TIME;
+	float lastAlpha = state->accumulator / TARGET_FRAME_TIME;
+	if (lastAlpha < 0.0f) lastAlpha = 0.0f;
+	if (lastAlpha > 1.0f) lastAlpha = 1.0f;
 
-	if (state->primed)
+	if (state->primed && delta > 0.0f)
 	{
-		// bitwise (NaN and -0 still match themselves), 16 bytes at a time, only the three position lanes count
-		for (int i = 0; i < numParticles && !newTruth; i++)
-		{
-			__m128i found = _mm_loadu_si128((const __m128i*)(particles + i * stride + 0x10));
-			__m128i drawn = _mm_loadu_si128((const __m128i*)(state->applied + i * 3));
-			newTruth = (_mm_movemask_epi8(_mm_cmpeq_epi32(found, drawn)) & 0x0FFF) != 0x0FFF;
-		}
+		state->accumulator += span;
+		tick = state->accumulator >= TARGET_FRAME_TIME;
 	}
 
-	if (state->primed && (newTruth || rootsChanged))
+	bool rootsChanged = rootOf && UpdateSimRoots(layout, sim, *state);
+	const bool checkFirst = state->primed && (tick || rootsChanged || !rootOf);
+	bool newTruth = checkFirst && SimParticlesRewritten(particles, numParticles, stride, state->applied);
+
+	if (newTruth || (state->primed && rootsChanged))
 	{
 		const float* frame = (newTruth || !state->hasPrevInputs) ? matrix : state->prevMatrix;
-
-		SimInverseBasis(frame, inv);
-		float scale = SimScale(frame);
-		float unscale = scale > 1e-6f ? 1.0f / scale : 1.0f;
-
-		for (int i = 0; i < numParticles; i++)
-		{
-			const float* p1 = (const float*)(particles + i * stride + 0x10);
-			int k = i * 3;
-
-			float anchor[3];
-			SimAnchor(particles + (rootOf ? rootOf[i] : i) * stride, frame, anchor);
-
-			float offset[3] = { p1[0] - anchor[0], p1[1] - anchor[1], p1[2] - anchor[2] };
-			if (newTruth) memcpy(state->trueP1 + k, p1, sizeof(float) * 3);
-
-			if (rootOf)
-			{
-				for (int j = 0; j < 3; j++) state->offCurr[k + j] = offset[j] * unscale;
-			}
-			else
-			{
-				SimToBodyFrame(offset, inv, state->offCurr + k);
-			}
-
-			memcpy(state->offPrev + k, state->offCurr + k, sizeof(float) * 3);
-		}
+		AdoptSimParticles(state, particles, numParticles, stride, rootOf, frame, newTruth);
 	}
 
 	for (int c = 0; c < trackedColliders; c++)
@@ -962,7 +1120,7 @@ static uint32_t StepAtFixedRate(safetyhook::InlineHook& original, const Particle
 
 		if (state->hasPrevInputs)
 		{
-			float local[3];
+			float local[3], inv[9];
 			SimInverseBasis(state->prevMatrix, inv);
 			SimLocalPoint(liveCenter, state->prevMatrix, inv, local);
 
@@ -978,34 +1136,24 @@ static uint32_t StepAtFixedRate(safetyhook::InlineHook& original, const Particle
 		}
 	}
 
-	bool tick = !state->primed;
-	float span = delta;
-
-	if (state->primed && delta > 0.0f && delta < 1.0f)
-	{
-		if (delta >= SIM_STEP_DT) span = TARGET_FRAME_TIME;
-
-		state->accumulator += span;
-		tick = state->accumulator >= TARGET_FRAME_TIME;
-	}
-
 	uint32_t result = 0;
 
 	if (tick)
 	{
 		float liveMatrix[16];
 		float liveLengthScale = 1.0f;
+		float liveForceWind[6];
 		memcpy(liveMatrix, matrix, sizeof(liveMatrix));
 
 		float s = 1.0f;
-		if (state->primed && state->hasPrevInputs && !newTruth && !SimInputsCut(state->prevMatrix, liveMatrix, delta))
+		if (state->primed)
 		{
 			s = 1.0f - (state->accumulator - TARGET_FRAME_TIME) / span;
 			if (s < 0.0f) s = 0.0f;
 			if (s > 1.0f) s = 1.0f;
 		}
 
-		const bool resample = s < 1.0f;
+		const bool resample = state->primed && s < 1.0f && !newTruth && state->hasPrevInputs && !SimInputsCut(state->prevMatrix, liveMatrix, span);
 
 		if (resample)
 		{
@@ -1016,6 +1164,16 @@ static uint32_t StepAtFixedRate(safetyhook::InlineHook& original, const Particle
 				float* lengthScale = (float*)(sim + layout.lengthScale);
 				liveLengthScale = *lengthScale;
 				*lengthScale = state->prevLengthScale + (liveLengthScale - state->prevLengthScale) * s;
+			}
+
+			float* force = (float*)(sim + layout.force);
+			float* windAmp = (float*)(sim + layout.windAmp);
+			memcpy(liveForceWind, force, sizeof(float) * 3);
+			memcpy(liveForceWind + 3, windAmp, sizeof(float) * 3);
+			for (int j = 0; j < 3; j++)
+			{
+				force[j] = state->prevForceWind[j] + (liveForceWind[j] - state->prevForceWind[j]) * s;
+				windAmp[j] = state->prevForceWind[3 + j] + (liveForceWind[3 + j] - state->prevForceWind[3 + j]) * s;
 			}
 
 			// Colliders hang on bones of the same body: interpolated in the body's frame they follow its turn exactly
@@ -1070,29 +1228,6 @@ static uint32_t StepAtFixedRate(safetyhook::InlineHook& original, const Particle
 
 		result = original.unsafe_thiscall<uint32_t>(thisPtr, SIM_STEP_DT);
 
-		SimInverseBasis(matrix, inv);
-		float scale = SimScale(matrix);
-		float unscale = scale > 1e-6f ? 1.0f / scale : 1.0f;
-
-		for (int i = 0; i < numParticles; i++)
-		{
-			const float* p1 = (const float*)(particles + i * stride + 0x10);
-			const float* p3 = (const float*)(particles + (rootOf ? rootOf[i] : i) * stride + 0x30);
-			int k = i * 3;
-
-			float offset[3] = { p1[0] - p3[0], p1[1] - p3[1], p1[2] - p3[2] };
-			memcpy(state->trueP1 + k, p1, sizeof(float) * 3);
-
-			if (rootOf)
-			{
-				for (int j = 0; j < 3; j++) state->offCurr[k + j] = offset[j] * unscale;
-			}
-			else
-			{
-				SimToBodyFrame(offset, inv, state->offCurr + k);
-			}
-		}
-
 		memcpy(state->tickMatrix, matrix, sizeof(state->tickMatrix));
 		state->hasTickMatrix = true;
 		state->blastStrengthPending = center != nullptr;
@@ -1102,6 +1237,8 @@ static uint32_t StepAtFixedRate(safetyhook::InlineHook& original, const Particle
 		{
 			memcpy(matrix, liveMatrix, sizeof(liveMatrix));
 			if (layout.lengthScale >= 0) *(float*)(sim + layout.lengthScale) = liveLengthScale;
+			memcpy(sim + layout.force, liveForceWind, sizeof(float) * 3);
+			memcpy(sim + layout.windAmp, liveForceWind + 3, sizeof(float) * 3);
 
 			for (int c = 0; c < trackedColliders; c++)
 			{
@@ -1124,10 +1261,18 @@ static uint32_t StepAtFixedRate(safetyhook::InlineHook& original, const Particle
 			*(float*)(sim + layout.radialStrength) = liveStrength;
 		}
 
+		float scale = SimScale(state->tickMatrix);
+		float unscale = scale > 1e-6f ? 1.0f / scale : 1.0f;
+		float alpha = state->primed ? (state->accumulator - TARGET_FRAME_TIME) / TARGET_FRAME_TIME : 0.0f;
+		if (alpha < 0.0f) alpha = 0.0f;
+		if (alpha > 1.0f) alpha = 1.0f;
+		const float* offPrev = state->primed ? state->offPrev : state->offCurr;
+		if (rootOf) CaptureAndDrawSimParticles<true>(particles, numParticles, stride, rootOf, matrix, unscale, alpha, state->trueP1, offPrev, state->offCurr, state->applied);
+		else CaptureAndDrawSimParticles<false>(particles, numParticles, stride, rootOf, matrix, unscale, alpha, state->trueP1, offPrev, state->offCurr, state->applied);
+
 		if (state->primed)
 		{
 			state->accumulator -= TARGET_FRAME_TIME;
-			if (state->accumulator >= TARGET_FRAME_TIME) state->accumulator = fmodf(state->accumulator, TARGET_FRAME_TIME);
 		}
 		else
 		{
@@ -1137,80 +1282,37 @@ static uint32_t StepAtFixedRate(safetyhook::InlineHook& original, const Particle
 		}
 	}
 
+	float lastMatrix[16];
+	memcpy(lastMatrix, state->prevMatrix, sizeof(lastMatrix));
 	memcpy(state->prevMatrix, matrix, sizeof(state->prevMatrix));
 	if (layout.lengthScale >= 0) state->prevLengthScale = *(float*)(sim + layout.lengthScale);
+	memcpy(state->prevForceWind, sim + layout.force, sizeof(float) * 3);
+	memcpy(state->prevForceWind + 3, sim + layout.windAmp, sizeof(float) * 3);
 	std::swap(state->prevColliders, state->liveColliders);
 	if (state->restLive) std::swap(state->restPrev, state->restLive);
 	state->hasPrevInputs = true;
+
+	if (tick)
+		return result;
 
 	float alpha = state->accumulator / TARGET_FRAME_TIME;
 	if (alpha < 0.0f) alpha = 0.0f;
 	if (alpha > 1.0f) alpha = 1.0f;
 
-	const __m128 row0 = _mm_loadu_ps(matrix), row1 = _mm_loadu_ps(matrix + 4), row2 = _mm_loadu_ps(matrix + 8), row3 = _mm_loadu_ps(matrix + 12);
-	const __m128 blend = _mm_set1_ps(alpha);
-	const float* offPrev = state->offPrev;
-	const float* offCurr = state->offCurr;
-	float* applied = state->applied;
-
-	if (rootOf)
+	if (checkFirst)
 	{
-		const __m128 size = _mm_set1_ps(SimScale(matrix));
-		int32_t root = -1;
-		__m128 base = _mm_setzero_ps();
-
-		for (int i = 0; i < numParticles; i++)
-		{
-			if (rootOf[i] != root)
-			{
-				root = rootOf[i];
-				__m128 local = _mm_loadu_ps((const float*)(particles + root * stride + 0x20));
-				base = _mm_add_ps(_mm_add_ps(_mm_add_ps(
-					_mm_mul_ps(_mm_shuffle_ps(local, local, 0x00), row0),
-					_mm_mul_ps(_mm_shuffle_ps(local, local, 0x55), row1)),
-					_mm_mul_ps(_mm_shuffle_ps(local, local, 0xAA), row2)), row3);
-			}
-
-			float* p1 = (float*)(particles + i * stride + 0x10);
-			int k = i * 3;
-
-			_mm_prefetch((const char*)p1 + 8 * stride, _MM_HINT_T0);
-
-			__m128 prev = _mm_loadu_ps(offPrev + k);
-			__m128 drawn = _mm_add_ps(base, _mm_mul_ps(_mm_add_ps(prev, _mm_mul_ps(_mm_sub_ps(_mm_loadu_ps(offCurr + k), prev), blend)), size));
-
-			__m128i xy = _mm_castps_si128(drawn);
-			__m128 z = _mm_movehl_ps(drawn, drawn);
-			_mm_storel_epi64((__m128i*)p1, xy);
-			_mm_store_ss(p1 + 2, z);
-			_mm_storel_epi64((__m128i*)(applied + k), xy);
-			_mm_store_ss(applied + k + 2, z);
-		}
+		if (rootOf) DrawSimParticles<true>(particles, numParticles, stride, rootOf, matrix, alpha, state->offPrev, state->offCurr, state->applied);
+		else DrawSimParticles<false>(particles, numParticles, stride, rootOf, matrix, alpha, state->offPrev, state->offCurr, state->applied);
+		return result;
 	}
-	else
-	{
-		for (int i = 0; i < numParticles; i++)
-		{
-			uint8_t* particle = particles + i * stride;
-			float* p1 = (float*)(particle + 0x10);
-			int k = i * 3;
 
-			__m128 prev = _mm_loadu_ps(offPrev + k);
-			__m128 q = _mm_add_ps(_mm_add_ps(_mm_loadu_ps((const float*)(particle + 0x20)), prev), _mm_mul_ps(_mm_sub_ps(_mm_loadu_ps(offCurr + k), prev), blend));
+	int drawn = 0;
+	if (CheckAndDrawSimParticles(particles, numParticles, stride, rootOf, matrix, alpha, state->offPrev, state->offCurr, state->applied, &drawn))
+		return result;
 
-			__m128 drawn = _mm_add_ps(_mm_add_ps(_mm_add_ps(
-				_mm_mul_ps(_mm_shuffle_ps(q, q, 0x00), row0),
-				_mm_mul_ps(_mm_shuffle_ps(q, q, 0x55), row1)),
-				_mm_mul_ps(_mm_shuffle_ps(q, q, 0xAA), row2)), row3);
-
-			__m128i xy = _mm_castps_si128(drawn);
-			__m128 z = _mm_movehl_ps(drawn, drawn);
-			_mm_storel_epi64((__m128i*)p1, xy);
-			_mm_store_ss(p1 + 2, z);
-			_mm_storel_epi64((__m128i*)(applied + k), xy);
-			_mm_store_ss(applied + k + 2, z);
-		}
-	}
+	DrawSimParticles<true>(particles, drawn, stride, rootOf, lastMatrix, lastAlpha, state->offPrev, state->offCurr, state->applied);
+	AdoptSimParticles(state, particles, numParticles, stride, rootOf, matrix, true);
+	DrawSimParticles<true>(particles, numParticles, stride, rootOf, matrix, alpha, state->offPrev, state->offCurr, state->applied);
 
 	return result;
 }
